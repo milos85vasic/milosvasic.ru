@@ -2,6 +2,6 @@
 
 Website is in the phase of construction.
 
-For more information about me please visit the [https://about.me/milosvasic](link).
+For more information about me please visit the [link](https://about.me/milosvasic).
 
 Thank you!
