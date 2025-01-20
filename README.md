@@ -35,8 +35,13 @@ Using the following technology:
 
 ## Expreience
 
-Through the career have been working with the following projects and clients:
+Through the career have been working on the various projects and with various clients.
 
 ### Current
 
-- [TN-TECH](http://www.tn-tech.co.rs/) - Novi Sad, Serbia (part-time, fully remote)
+- [TN-TECH](http://www.tn-tech.co.rs/) - Novi Sad, Serbia (part-time, fully remote), since 03/2017, Head of mobile development
+- [Red Elf](https://github.com/red-elf) - Belgrade, Serbia (full-time), since 04/2020, Self-Employed
+
+### Previous engagements
+
+- [Gelato](https://www.optimalprint.com/) - Oslo, Norway (full-time, fully remote), from 07/2022 until 07/2023, Mobile development in React Native
