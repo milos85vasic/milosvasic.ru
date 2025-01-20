@@ -1,9 +1,9 @@
-# Milos Vasic, Software engineer
+# About
 
-Highly-skilled software engineer bringing years in software design, development, and
+Milos Vasic is highly-skilled software engineer bringing years in software design, development, and
 integration. Advanced knowledge of Android, React Native and Flutter. 
 Main programming languages: Java, Kotlin, Dart, TypeScript and C++. 
-Experienced in the full project life cycle from design to implementation to integration. 
+Experienced in the full project life cycle from design to implementation to integration.
 
 - Date of birth: 25.07.1985. (Belgrade, Serbia)
 - E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
