@@ -28,7 +28,7 @@ Using the following technology:
 - React Native, Expo, Npm, Yarn
 - Flutter
 - Kotlin, Kotlin Coroutines, Java, Swift, Dart, JavaScript, TypeScript, C++
-- Also: Python, Ruby, Bash
+- Also: Python, Ruby, Bash, Go, iOS, QT
 - Additional: Docker, Docker Compose, 
 - Sqlite, Postgres, MongoDB, Redis
 - Linux, macOS
@@ -45,3 +45,18 @@ Through the career have been working on the various projects and with various cl
 ### Previous engagements
 
 - [Gelato](https://www.optimalprint.com/) - Oslo, Norway (full-time, fully remote), from 07/2022 until 07/2023, Mobile development in React Native
+- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 05/2021 until 07/2022, Staff software engineer
+- [Enreach](http://enreach.com/) - Belgrade, Serbia (full-time), from 02/2020 until 05/2021, Lead Android developer
+- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 05/2019 until 02/2020, Android and iOS developer
+- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 04/2016 until 01/2018, Android SDK developer
+- [Deploy Inc.](https://www.deployinc.com/) - Belgrade, Serbia (full-time), from 09/2014 until 04/2016, Android team lead
+- Youngculture - Belgrade, Serbia (full-time), Android developer
+- Tehnicom Solutions - Belgrade, Serbia (full-time), Web and Android developer
+
+## Author work
+
+- Fundamental Kotlin: revised (September 6, 2022)
+- Fundamental Kotlin, Second Edition (2018)
+- Fundamental Kotlin (2016)
+- Mastering Android Development with Kotlin (2017)
+- Building Applications with Spring 5 and Kotlin (2018)
