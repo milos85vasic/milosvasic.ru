@@ -32,7 +32,7 @@ Using the following technology:
 - Sqlite, Postgres, MongoDB, Redis
 - Linux, macOS
 
-## Expreience
+## Experience
 
 Through the career have been working on the various projects and with various clients.
 
