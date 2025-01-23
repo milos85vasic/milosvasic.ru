@@ -1,4 +1,4 @@
-# Milos Vasic, Curricucurriculum vitae
+# Milos Vasic, curriculum vitae
 
 ![Milos Vasic](assets/images/milosvasic.png)
 
