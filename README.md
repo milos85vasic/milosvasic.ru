@@ -9,7 +9,6 @@ integration. Advanced knowledge of Android, React Native and Flutter.
 Main programming languages: Java, Kotlin, Dart, TypeScript and C++. 
 Experienced in the full project life cycle from design to implementation to integration.
 
-- Date of birth: 25.07.1985. (Belgrade, Serbia)
 - E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
 - Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
 - Language: Serbian, English, Russian.
