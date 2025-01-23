@@ -1,3 +1,5 @@
+![JIRA alternative for the free world!](assets/images/milosvasic.png)
+
 # About
 
 Milos Vasic is highly-skilled software engineer bringing years in software design, development, and
