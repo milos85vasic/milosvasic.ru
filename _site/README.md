@@ -1,6 +1,8 @@
+# Milos Vasic, Curricucurriculum vitae
+
 ![Milos Vasic](assets/images/milosvasic.png)
 
-# About
+## About
 
 Milos Vasic is highly-skilled software engineer bringing years in software design, development, and
 integration. Advanced knowledge of Android, React Native and Flutter. 
