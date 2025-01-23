@@ -1,4 +1,4 @@
-![JIRA alternative for the free world!](assets/images/milosvasic.png)
+![Milos Vasic](assets/images/milosvasic.png)
 
 # About
 
