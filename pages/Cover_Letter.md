@@ -1,9 +1,5 @@
 # Milos Vasic, cover letter
 
-- Address: Nede Spasojevic 21 / 7, 11077 Belgrade (Serbia)
-- E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
-- Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
-
 Dear recruiting team,
 
 I am excited to apply for the Android Developer position at your company. My experience for the last 10+ years involves the development of Android applications and SDKs.
@@ -25,3 +21,6 @@ Thank you for considering my application. I look forward to the possibility of c
 
 Sincerely,  
 Milos Vasic
+
+Email: [i@mvasic.ru](mailto:i@mvasic.ru)\
+Phone: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
