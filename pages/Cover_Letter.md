@@ -10,7 +10,7 @@ I am excited to apply for the Android Developer position at your company. With o
 
 Throughout my career, I have successfully led the development of over 30 Android products, ranging from consumer-facing apps to enterprise-level solutions. At my last position in Harness, I spearheaded the development of mobile SDKs for company's Feature Flag division, which achieved significant results. My ability to architect scalable, maintainable code and integrate cutting-edge technologies—such as Kotlin, Jetpack Compose, and MVVM architecture—has consistently resulted in robust, future-proof applications.  
 
-Some highlights of my qualifications include:  
+Some highlights of my qualifications include:
 
 - **Technical Expertise**: Proficient in Java, Kotlin, Android SDK, RESTful APIs, and modern development tools like Android Studio and Git. Experienced in implementing CI/CD pipelines to streamline deployment processes.  
 - **User-Centric Design**: Skilled in collaborating with UX/UI designers to create intuitive, visually appealing interfaces that enhance user satisfaction and retention.  
