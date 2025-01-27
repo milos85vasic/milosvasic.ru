@@ -67,6 +67,7 @@ Languages: Serbian, English, Russian.
 
 ### Other and various
 
+- Bash
 - Git, SVN, Perforce
 - Gradle, MVN, CMake, Ninja, etc.
 - JIRA, Confluence, Active Collab
