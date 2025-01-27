@@ -69,6 +69,7 @@ Languages: Serbian, English, Russian.
 
 - Bash
 - Git, SVN, Perforce
+- GitHub (with Copilot) GitLab, GitFlic, Gitee, Gitverse
 - Gradle, MVN, CMake, Ninja, etc.
 - JIRA, Confluence, Active Collab
 - Jenkins, Travis, Circle CI, Bitbucket Pipelines, GitHub Actions, All from Harness
@@ -76,6 +77,7 @@ Languages: Serbian, English, Russian.
 - All JetBrains IDEs, GIGA IDE, VSCode, etc.
 - XCode
 - REST API, WebSockets, SIP, Matrix, SSDP, Quic, etc.
+- SonarQube
 
 ## Work experience
 
