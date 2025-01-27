@@ -94,7 +94,7 @@ Through the career have been working on the various projects and with various cl
 - [TN-TECH](https://tn-tech.co.rs/) - Novi Sad, Serbia (part-time), from 03/2017
     - Globex Data (Canada and Switzerland): [Sekur](https://sekur.com/) (SekurMessenger), [SekurMail](https://mail.sekur.com), [SekurSuite](https://play.google.com/store/apps/details?id=ch.digitalsafe)
     - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
-- [Increment Loop](https://incrementloop.com/)
+- [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023
     - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
 - [HelixTrack](https://github.com/Helix-Track)
 - [Server Factory](https://github.com/Server-Factory)
