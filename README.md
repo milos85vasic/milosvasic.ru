@@ -5,7 +5,7 @@
 ## About
 
 Milos Vasic is highly-skilled software engineer bringing years in software design, development, and
-integration (since 2009). Advanced knowledge of Web and Dekstop and Mobile development (Android, React Native and Flutter). 
+integration (since 2009). Advanced knowledge of Web, Dekstop and Mobile development.
 Experienced in the full project life cycle from design to implementation to integration.
 
 Languages: Serbian, English, Russian.
@@ -64,6 +64,17 @@ Languages: Serbian, English, Russian.
 - Redis
 - Apache Kafka
 - RabbitMQ
+
+### Other and various
+
+- Git, SVN, Perforce
+- Gradle, MVN, CMake, Ninja, etc.
+- JIRA, Confluence, Active Collab
+- Jenkins, Travis, Circle CI, Bitbucket Pipelines, GitHub Actions, All from Harness
+- macOS, Linux, Microsoft Windows
+- All JetBrains IDEs, GIGA IDE, VSCode, etc.
+- XCode
+- REST API, WebSockets, SIP, Matrix, SSDP, Quic, etc.
 
 ## Work experience
 
