@@ -15,7 +15,7 @@ Languages: Serbian, English, Russian.
 - E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
 - Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
 - Telegram: [milos85vasic](https://t.me/milos85vasic)
-- Networks: [Linkedin](https://www.linkedin.com/in/милош-васић-53778682/), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/cv), [VK](https://vk.com/milos.vasic)
+- Networks: [Linkedin](https://www.linkedin.com/in/milos-vasic-53778682?trk=feed_main-feed-card_feed-actor-image), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
 - Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic)
 
 ## Main programming stacks and technologies
