@@ -104,7 +104,7 @@ Through the career have been working on the various projects and with various cl
 
 Worked on several programming books as self-published author and author for Packt Publishing UK.
 
-Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](assets/pds/Fundamental_Kotlin_3rd_Edition.pdf) (September 6, 2022.)
+Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](assets/pdf/Fundamental_Kotlin_3rd_Edition.pdf) (September 6, 2022.)
 
 ## Education
 
