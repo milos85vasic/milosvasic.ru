@@ -100,6 +100,12 @@ Through the career have been working on the various projects and with various cl
     - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
     - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
 
+## Author work
+
+Worked on several programming books as self-published author and author for Packt Publishing UK.
+
+Self-published: Fundamental Kotlin, Last edition: (Fundamental-Kotlin: revised)[assets/pds/Fundamental_Kotlin_3rd_Edition.pdf] (September 6, 2022.)
+
 ## Education
 
 - Bachelor of Science: Informatics and Computing, 2008. University Singidunum, Belgrade (Serbia)
