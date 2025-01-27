@@ -4,8 +4,8 @@
 
 ## About
 
-Milos Vasic is highly-skilled software engineer bringing years in software design, development, and
-integration (since 2009). Experience in Web, Dekstop and Mobile development in various programming languages.
+Milos Vasic is highly skilled software engineer bringing years in software design, development, and
+integration (since 2009). Experience in Web, Desktop and Mobile development in various programming languages.
 Experienced in the full project life cycle from design to implementation to integration.
 
 Languages: Serbian, English, Russian.
@@ -56,7 +56,7 @@ Languages: Serbian, English, Russian.
 
 ### Data and Databases
 
-- Postrgres
+- PostgreSQL
 - MySQL
 - Sqlite
 - Firebase
@@ -85,9 +85,9 @@ Through the career have been working on the various projects and with various cl
 
 ### Fulltime positions
 
-- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff software engineer (various technologies)
-- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020, Android and iOS developer (with C++ core)
-- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, Android SDK developer
+- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff Software Engineer (various technologies)
+- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020, Android and iOS Developer (with C++ core)
+- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, Android SDK Developer
 
 ### Other projects involved
 
