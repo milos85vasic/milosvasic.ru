@@ -47,7 +47,7 @@ Through the career have been working on the various projects and with various cl
 
 ## Other technology
 
-Also familiar with the following technology:
+Familiar with the following technology as well:
 
 ### Desktop development
 
