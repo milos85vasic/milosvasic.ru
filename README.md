@@ -20,14 +20,13 @@ Languages: Serbian, English, Russian.
 
 ## Main programming stacks and technologies
 
-### Backend development
+### Mobile development
 
-- GoLang (Gin Gonic)
-- Java and Kotlin (Spring / Spring Boot with Maven and Gradle)
-- Python (Pyramid, Flask with Waitress)
-- Ruby (Ruby on Rails)
-- C++ (Drogon with Cmake, Ninja and Konan)
-- Docker, Docker Compose
+- Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
+- Kotlin Multiplatform, Kotlin, Kotlin Coroutines
+- React Native, Expo, Npm, Yarn
+- Flutter (Dart)
+- iOS with Swift (Legacy and Swift UI)
 
 ### Desktop development
 
@@ -39,13 +38,14 @@ Languages: Serbian, English, Russian.
 - Kotlin Multiplatform (Desktop)
 - macOS with Swift
 
-### Mobile development
+### Backend development
 
-- Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
-- Kotlin Multiplatform, Kotlin, Kotlin Coroutines
-- React Native, Expo, Npm, Yarn
-- Flutter (Dart)
-- iOS with Swift (Legacy and Swift UI)
+- GoLang (Gin Gonic)
+- Java and Kotlin (Spring / Spring Boot with Maven and Gradle)
+- Python (Pyramid, Flask with Waitress)
+- Ruby (Ruby on Rails)
+- C++ (Drogon with Cmake, Ninja and Konan)
+- Docker, Docker Compose
 
 ### Web development
 
