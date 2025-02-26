@@ -8,7 +8,7 @@ Software Engineer from Belgrade, Serbia. In software development since 2009.
 Experience with full software development lifecycle. Planning, development and team leading, deployment.
 
 Speaking languages: Serbian and English.
-Also Russian with basic understanding without speaking.
+Also Russian with basic understanding without conversation.
 
 ## The main development technology
 
