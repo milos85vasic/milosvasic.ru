@@ -41,10 +41,10 @@ Languages: Serbian, English, Russian.
 
 ### Mobile development
 
-- Android, JetPack Compose, MVVP, Retrofit, OkHttp, Firebase, etc.
-- Flutter (Dart)
-- React Native, Expo, Npm, Yarn
+- Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
 - Kotlin Multiplatform, Kotlin, Kotlin Coroutines
+- React Native, Expo, Npm, Yarn
+- Flutter (Dart)
 - iOS with Swift (Legacy and Swift UI)
 
 ### Web development
