@@ -113,4 +113,3 @@ Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](
 
 - Bachelor of Science: Informatics and Computing, 2008. University Singidunum, Belgrade (Serbia)
 - M.Sc: Contemporary Information Technologies, 2014. University Singidunum, Belgrade (Serbia)
-
