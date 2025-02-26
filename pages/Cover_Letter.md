@@ -2,7 +2,7 @@
 
 Dear recruiting team,
 
-I am excited to apply for the position at your company. 
+I am excited to apply for the position at your company.
 My experience for the last 10+ years involves the development of Android applications and SDKs in Java, Kotlin and C++. However, I have worked with many other technologies as well.
 Some of development involved heavy parallelization and high performance work. During my time in companies such as Bosch and Leica Geosystems I had oportunity to work
 on cutting edge technology (3D scanners software, Car industry SDKs, and many others) and to deliver stable deliverables and important quality improvements.
@@ -12,9 +12,19 @@ During my career beside mobile, which is my main area, I have worked in other te
 One such was at my last position in Harness (Enterprise-Size software development), where I worked on the development of SDKs for company's Feature Flag division.
 SDKs have been developed for all major mobile development technologies, for the web and for the server side as well (Java, Kotlin, JavaScript and TypeScript, GoLang, Ruby).
 
-Some highlights of my qualifications include:
+My main programming stacks and technologies:
 
-My main programming stacks and technologies include:
+## Mobile development
+
+- Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
+- Kotlin Multiplatform
+- React Native, Expo, Npm, Yarn
+
+Also familira with:
+
+- iOS with Swift (Legacy and Swift UI)
+
+Other programming stacks and technologies that I am familiar with:
 
 ## Backend development
 
@@ -34,14 +44,6 @@ My main programming stacks and technologies include:
 - React Native (Desktop)
 - Kotlin Multiplatform (Desktop)
 - macOS with Swift
-
-## Mobile development
-
-- Android, JetPack Compose, MVVP, Retrofit, OkHttp, Firebase, etc.
-- Flutter (Dart)
-- React Native, Expo, Npm, Yarn
-- Kotlin Multiplatform, Kotlin, Kotlin Coroutines
-- iOS with Swift (Legacy and Swift UI)
 
 ## Web development
 
