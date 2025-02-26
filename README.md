@@ -18,15 +18,41 @@ Languages: Serbian, English, Russian.
 - Networks: [Linkedin](https://www.linkedin.com/in/milos-vasic-53778682?trk=feed_main-feed-card_feed-actor-image), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
 - Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic)
 
-## Main programming stacks and technologies
-
-### Mobile development
+## The main development technology
 
 - Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
 - Kotlin Multiplatform, Kotlin, Kotlin Coroutines
 - React Native, Expo, Npm, Yarn
 - Flutter (Dart)
 - iOS with Swift (Legacy and Swift UI)
+
+## Work experience
+
+Through the career have been working on the various projects and with various clients.
+
+### Fulltime positions
+
+- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff Software Engineer (various technologies)
+- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020, Android and iOS Developer (with C++ core)
+- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, Android SDK Developer
+
+### Other projects involved
+
+- [TN-TECH](https://tn-tech.co.rs/) - Novi Sad, Serbia (part-time), from 03/2017
+    - Globex Data (Canada and Switzerland): [Sekur](https://sekur.com/) (SekurMessenger), [SekurMail](https://mail.sekur.com), [SekurSuite](https://play.google.com/store/apps/details?id=ch.digitalsafe)
+    - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
+- [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023
+    - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
+- [HelixTrack](https://github.com/Helix-Track)
+- [Server Factory](https://github.com/Server-Factory)
+    - [Mail Server Factpry](https://github.com/Server-Factory/Mail-Server-Factory)
+    - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
+    - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
+- [Android Toolkit](https://github.com/red-elf/Android-Toolkit)
+
+## Other technology
+
+Also familiar with the following technology:
 
 ### Desktop development
 
@@ -65,7 +91,7 @@ Languages: Serbian, English, Russian.
 - Apache Kafka
 - RabbitMQ
 
-### Other and various
+### Various
 
 - Bash
 - Git, SVN, Perforce
@@ -78,30 +104,6 @@ Languages: Serbian, English, Russian.
 - XCode
 - REST API, WebSockets, SIP, Matrix, SSDP, Quic, etc.
 - SonarQube
-
-## Work experience
-
-Through the career have been working on the various projects and with various clients.
-
-### Fulltime positions
-
-- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff Software Engineer (various technologies)
-- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020, Android and iOS Developer (with C++ core)
-- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, Android SDK Developer
-
-### Other projects involved
-
-- [TN-TECH](https://tn-tech.co.rs/) - Novi Sad, Serbia (part-time), from 03/2017
-    - Globex Data (Canada and Switzerland): [Sekur](https://sekur.com/) (SekurMessenger), [SekurMail](https://mail.sekur.com), [SekurSuite](https://play.google.com/store/apps/details?id=ch.digitalsafe)
-    - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
-- [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023
-    - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
-- [HelixTrack](https://github.com/Helix-Track)
-- [Server Factory](https://github.com/Server-Factory)
-    - [Mail Server Factpry](https://github.com/Server-Factory/Mail-Server-Factory)
-    - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
-    - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
-- [Android Toolkit](https://github.com/red-elf/Android-Toolkit)
 
 ## Author work
 
