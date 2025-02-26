@@ -5,7 +5,7 @@
 ## About
 
 Software Engineer from Belgrade, Serbia. In software development since 2009.
-Experience with full software development lifecycle from planning, development, team leading to the final deployment to production.
+Experience with full software development lifecycle. Planning, development and team leading, deployment.
 
 Speaking languages: Serbian and English.
 Also Russian with basic understanding without speaking.
@@ -13,8 +13,11 @@ Also Russian with basic understanding without speaking.
 ## The main development technology
 
 - Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
-- Kotlin Multiplatform, Kotlin, Kotlin Coroutines
+- Kotlin Multiplatform
 - React Native, Expo, Npm, Yarn
+
+### Familiar with
+
 - Flutter (Dart)
 - iOS with Swift (Legacy and Swift UI)
 
