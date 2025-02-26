@@ -5,10 +5,10 @@
 ## About
 
 Milos Vasic is highly skilled software engineer bringing years in software design, development, and
-integration (since 2009). Experience in Web, Desktop and Mobile development in various programming languages.
+integration (since 2009). Experience in Mobile, Desktop and Web development in various programming languages.
 Experienced in the full project life cycle from design to implementation to integration.
 
-Languages: Serbian, English, Russian.
+Languages: Serbian and English. Also Russian with basic understanding without speaking.
 
 ### Contacts and links
 
