@@ -4,19 +4,11 @@
 
 ## About
 
-Milos Vasic is highly skilled software engineer bringing years in software design, development, and
-integration (since 2009). Experience in Mobile, Desktop and Web development in various programming languages.
-Experienced in the full project life cycle from design to implementation to integration.
+Software Engineer from Belgrade, Serbia. In software development since 2009.
+Experience with full software development lifecycle from planning, development, team leading to the final deployment to production.
 
-Languages: Serbian and English. Also Russian with basic understanding without speaking.
-
-### Contacts and links
-
-- E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
-- Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
-- Telegram: [milos85vasic](https://t.me/milos85vasic)
-- Networks: [Linkedin](https://www.linkedin.com/in/milos-vasic-53778682?trk=feed_main-feed-card_feed-actor-image), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
-- Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic)
+Speaking languages: Serbian and English.
+Also Russian with basic understanding without speaking.
 
 ## The main development technology
 
@@ -115,3 +107,11 @@ Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](
 
 - Bachelor of Science: Informatics and Computing, 2008. University Singidunum, Belgrade (Serbia)
 - M.Sc: Contemporary Information Technologies, 2014. University Singidunum, Belgrade (Serbia)
+
+## Contacts and links
+
+- E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
+- Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
+- Telegram: [milos85vasic](https://t.me/milos85vasic)
+- Networks: [Linkedin](https://www.linkedin.com/in/milos-vasic-53778682?trk=feed_main-feed-card_feed-actor-image), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
+- Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic)
