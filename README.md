@@ -27,23 +27,23 @@ Through the career have been working on the various projects and with various cl
 
 ### Fulltime positions
 
-- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff Software Engineer (various technologies)
-- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020, Android and iOS Developer (with C++ core)
-- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, Android SDK Developer
+- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff Software Engineer (various technologies) **[TECHNOLOGY: Android, iOS, Flutter, React Native, TypeScript, JavaScript, Java, Kotlin, Swift, Go, Ruby]**
+- [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020, Android and iOS Developer (with C++ core) **[TECHNOLOGY: Android, iOS, Java, Kotlin, Swift, C++]**
+- [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, Android SDK Developer **[TECHNOLOGY: Android, Java, Kotlin]**
 
 ### Other projects involved
 
-- [TN-TECH](https://tn-tech.co.rs/) - Novi Sad, Serbia (part-time), from 03/2017
+- [TN-TECH](https://tn-tech.co.rs/) - Novi Sad, Serbia (part-time), from 03/2017 **[TECHNOLOGY: Android, Java, Kotlin, C++, QT]**
     - Globex Data (Canada and Switzerland): [Sekur](https://sekur.com/) (SekurMessenger), [SekurMail](https://mail.sekur.com), [SekurSuite](https://play.google.com/store/apps/details?id=ch.digitalsafe)
     - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
-- [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023
+- [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023 **[TECHNOLOGY: Android, Kotlin]**
     - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
-- [HelixTrack](https://github.com/Helix-Track)
-- [Server Factory](https://github.com/Server-Factory)
-    - [Mail Server Factpry](https://github.com/Server-Factory/Mail-Server-Factory)
+- [HelixTrack](https://github.com/Helix-Track) **[TECHNOLOGY: C++, Bash, SQL, Postgres, Drogon, etc.]**
+- [Server Factory](https://github.com/Server-Factory) **[TECHNOLOGY: Java, Kotlin, Bash]**
+    - [Mail Server Factory](https://github.com/Server-Factory/Mail-Server-Factory)
     - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
     - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
-- [Android Toolkit](https://github.com/red-elf/Android-Toolkit)
+- [Android Toolkit](https://github.com/red-elf/Android-Toolkit) **[TECHNOLOGY: Android, Java, Kotlin]**
 
 ## Other technology
 
@@ -116,5 +116,5 @@ Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](
 - E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
 - Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
 - Telegram: [milos85vasic](https://t.me/milos85vasic)
-- Networks: [Linkedin](https://www.linkedin.com/in/milos-vasic-53778682?trk=feed_main-feed-card_feed-actor-image), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
+- Networks: [Linkedin](https://www.linkedin.com/in/милош-milos-васић-vasic-🇷🇸-🇷🇺-53778682/), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
 - Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic)
