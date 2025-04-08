@@ -26,7 +26,7 @@ Through the career have been working on the various projects and with various cl
 
 ### Fulltime positions
 
-- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, Staff Software Engineer **[TECHNOLOGY: Android, iOS, Flutter, React Native, TypeScript, JavaScript, Java, Kotlin, Swift, Go, Ruby]**
+- [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, The SDK Developer **[TECHNOLOGY: Android, iOS, Flutter, React Native, TypeScript, JavaScript, Java, Kotlin, Swift, Go, Ruby]**
 - [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020 **[TECHNOLOGY: Android, iOS, Java, Kotlin, Swift, C++]**
 - [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, The SDK Developer **[TECHNOLOGY: Android, Java, Kotlin]**
 
