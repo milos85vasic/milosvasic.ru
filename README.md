@@ -37,8 +37,8 @@ Through the career have been working on the various projects and with various cl
     - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
 - [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023 **[TECHNOLOGY: Android, Kotlin]**
     - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
-- [HelixTrack](https://github.com/Helix-Track) **[TECHNOLOGY: C++, Bash, SQL, Postgres, Drogon, etc.]**
-- [Server Factory](https://github.com/Server-Factory) **[TECHNOLOGY: Java, Kotlin, Bash]**
+- [HelixTrack](https://github.com/Helix-Track) **[TECHNOLOGY: C++, Shell, SQL, Postgres, Drogon, etc.]**
+- [Server Factory](https://github.com/Server-Factory) **[TECHNOLOGY: Java, Kotlin, Shell]**
     - [Mail Server Factory](https://github.com/Server-Factory/Mail-Server-Factory)
     - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
     - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
@@ -87,7 +87,7 @@ Familiar with the following technology as well:
 
 ### Various
 
-- Bash
+- Shell
 - Git, SVN, Perforce
 - GitHub (with Copilot) GitLab, GitFlic, Gitee, Gitverse
 - Gradle, MVN, CMake, Ninja, etc.
