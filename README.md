@@ -11,7 +11,7 @@ Speaking languages: Serbian, English and Russian.
 
 ## The main development technology
 
-- Android, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
+- Android, Java, Kotlin, JetPack Compose, MVVP, Kotlin Flow, Kotlin Coroutines, Live Data, Retrofit, OkHttp, Firebase, Dagger, Hilt, etc.
 - Kotlin Multiplatform
 - React Native, Expo, Npm, Yarn
 
