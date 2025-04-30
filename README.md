@@ -33,18 +33,18 @@ Through the career have been working on the various projects and with various cl
 ### Other projects involved
 
 - [TN-TECH](https://tn-tech.co.rs/) - Novi Sad, Serbia (part-time), from 03/2017 **[TECHNOLOGY: Android, Java, Kotlin, C++, QT]**
-    - Globex Data (Canada and Switzerland): [Sekur](https://sekur.com/) (SekurMessenger), [SekurMail](https://mail.sekur.com), [SekurSuite](https://play.google.com/store/apps/details?id=ch.digitalsafe)
-    - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
+  - Globex Data (Canada and Switzerland): [Sekur](https://sekur.com/) (SekurMessenger), [SekurMail](https://mail.sekur.com), [SekurSuite](https://play.google.com/store/apps/details?id=ch.digitalsafe)
+  - [BusRide](https://tn-tech.co.rs/pf/busride/) platform
 - [Increment Loop](https://incrementloop.com/) - Belgrade, Serbia (part-time), from 09/2023 **[TECHNOLOGY: Android, Kotlin]**
-    - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
+  - [Yuno](https://play.google.com/store/apps/details?id=com.gaiali.app)
 - [HelixTrack](https://github.com/Helix-Track) **[TECHNOLOGY: C++, Shell, SQL, Postgres, Drogon, etc.]**
 - [Server Factory](https://github.com/Server-Factory) **[TECHNOLOGY: Java, Kotlin, Shell]**
-    - [Mail Server Factory](https://github.com/Server-Factory/Mail-Server-Factory)
-    - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
-    - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
+  - [Mail Server Factory](https://github.com/Server-Factory/Mail-Server-Factory)
+  - [Parallels Utils](https://github.com/Server-Factory/Parallels-Utils)
+  - [Qemu Utils](https://github.com/Server-Factory/Qemu-Utils)
 - [Vasic Digital](https://github.com/vasic-digital)
-    - [Android Toolkit](https://github.com/vasic-digital/Android-Toolkit) **[TECHNOLOGY: Android, Java, Kotlin]**
-    - [Network Binder](https://github.com/vasic-digital/Network-Binder) **[TECHNOLOGY: Python, Shell, Docker, mptcp, Ubuntu Server, iptables, etc.]**
+  - [Android Toolkit](https://github.com/vasic-digital/Android-Toolkit) **[TECHNOLOGY: Android, Java, Kotlin]**
+  - [Network Binder](https://github.com/vasic-digital/Network-Binder) **[TECHNOLOGY: Python, Shell, Docker, mptcp, Ubuntu Server, iptables, etc.]**
 
 ## Other technology
 
@@ -117,5 +117,5 @@ Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](
 - E-Mail: [i@mvasic.ru](mailto:i@mvasic.ru)
 - Mobile: [+381 69 25 35 718 (Serbia)](tel:+381692535718), [+7 966 323 77 17 (Russian Federation)](tel:+79663237717)
 - Telegram: [milos85vasic](https://t.me/milos85vasic)
-- Networks: [Linkedin](https://www.linkedin.com/in/милош-milos-васић-vasic-🇷🇸-🇷🇺-53778682/), [TenChat](https://tenchat.ru/milosvasic), [Xing](https://www.xing.com/profile/Milos_Vasic4/web_profiles?expandNeffi=true), [VK](https://vk.com/milos.vasic)
+- Networks: [TenChat](https://tenchat.ru/milosvasic), [VK](https://vk.com/milos.vasic)
 - Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic), [GitLab](https://gitlab.com/milos85vasic), [GitVerse](https://gitverse.ru/milosvasic)
