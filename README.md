@@ -20,6 +20,12 @@ Speaking languages: Serbian, English and Russian.
 - Flutter (Dart)
 - iOS with Swift (Legacy and Swift UI)
 
+### AI Tools
+
+- Claude AI
+- GitHub Copilot, Tabnine
+- DeepSeek, Qwen, ChatGPT
+
 ## Work experience
 
 Through the career have been working on the various projects and with various clients.
@@ -27,8 +33,16 @@ Through the career have been working on the various projects and with various cl
 ### Fulltime positions
 
 - [Harness](http://harness.io/) - Belgrade, Serbia (full-time), from 03/2020 until 12/2024, The SDK Developer **[TECHNOLOGY: Android, iOS, Flutter, React Native, TypeScript, JavaScript, Java, Kotlin, Swift, Go, Ruby]**
+
+Some of the customers and partners: AWS, Google, various banks. Worked as the lead developer on the family of SDKs for the Feature Flag division of the company. Focus on all major mobile platforms, but other major technologies as well.
+
 - [Leica Geosystems](https://leica-geosystems.com/) - Heerbrugg, Switzerland (full-time), from 02/2016 until 02/2020 **[TECHNOLOGY: Android, iOS, Java, Kotlin, Swift, C++]**
+
+Some of the customoers and partners: Autodesk. Worked as software engineer primary on iOS and Android platform. Software for  the Leica Geosystems cutting edge 3D sacanners  -  commmunication with  the hardware in real time, data processing and synchronization.
+
 - [Bosch](https://www.bosch.rs/) - Belgrade, Serbia (full-time), from 01/2010 until 01/2016, The SDK Developer **[TECHNOLOGY: Android, Java, Kotlin]**
+
+Worked as the lead SDK developer for the Connected Vehicles SDK project. Realtime Bluetooth communication with the OBD2 bus. Data processing and persistence with high performance.
 
 ### Other projects involved
 
