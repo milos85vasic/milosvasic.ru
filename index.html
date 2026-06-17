@@ -1,75 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#a31e39">
-  <meta name="author" content="Milos Vasic">
-  <!-- No-FART theme bootstrap: set theme before first paint -->
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('mv-theme');
-        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', t);
-        var l = localStorage.getItem('mv-lang');
-        if (l) document.documentElement.setAttribute('lang', l);
-      } catch (e) {}
-    })();
-  </script>
-  <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Milos Vasic | Senior Software Engineer — SDK &amp; Platform Engineering</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Milos Vasic" />
-<meta name="author" content="Milos Vasic" />
-<meta property="og:locale" content="en" />
-<meta name="description" content="Milos Vasic — Senior Software Engineer specializing in SDK and platform engineering across mobile, backend, desktop, and web. 15+ years building high-performance, developer-facing software. Author of Fundamental Kotlin." />
-<meta property="og:description" content="Milos Vasic — Senior Software Engineer specializing in SDK and platform engineering across mobile, backend, desktop, and web. 15+ years building high-performance, developer-facing software. Author of Fundamental Kotlin." />
-<link rel="canonical" href="https://milosvasic.ru/" />
-<meta property="og:url" content="https://milosvasic.ru/" />
-<meta property="og:site_name" content="Milos Vasic" />
-<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-square-800.jpg" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://milosvasic.ru/assets/images/profile-square-800.jpg" />
-<meta property="twitter:title" content="Milos Vasic" />
-<meta name="twitter:site" content="@" />
-<meta name="twitter:creator" content="@Milos Vasic" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Milos Vasic"},"description":"Milos Vasic — Senior Software Engineer specializing in SDK and platform engineering across mobile, backend, desktop, and web. 15+ years building high-performance, developer-facing software. Author of Fundamental Kotlin.","headline":"Milos Vasic","image":"https://milosvasic.ru/assets/images/profile-square-800.jpg","name":"Milos Vasic","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://milosvasic.ru/assets/images/profile-square-800.jpg"},"name":"Milos Vasic"},"sameAs":["https://github.com/milos85vasic","https://gitlab.com/milos85vasic","https://t.me/milos85vasic"],"url":"https://milosvasic.ru/"}</script>
-<!-- End Jekyll SEO tag -->
+---
+layout: default
+---
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- WCAG 2.2 AA: Focus appearance via CSS custom property -->
-  <style>:root { --focus-w: 2.5px; --focus-offset: 3px; }</style>
-</head>
-<body>
-  <!-- WCAG 2.2 AA: Skip navigation link (SC 2.4.1, 2.4.11) -->
-  <a class="skip-link" href="#top" data-i18n="a11y.skip">Skip to main content</a>
-  <nav class="nav" aria-label="Primary">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top">milos<span class="dot">.</span>vasic</a>
-      <div class="nav-links">
-        <a href="#work" data-i18n="nav.work">Work</a>
-        <a href="#experience" data-i18n="nav.experience">Experience</a>
-        <a href="#skills" data-i18n="nav.skills">Skills</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
-      </div>
-      <div class="nav-tools">
-        <div class="lang-wrap">
-          <button class="icon-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Change language" title="Language">EN</button>
-          <div class="lang-menu" id="lang-menu" role="menu"></div>
-        </div>
-        <button class="icon-btn" id="theme-btn" aria-label="Toggle dark / light theme" title="Theme">◐</button>
-      </div>
-    </div>
-  </nav>
-
-  <main id="top">
-    <!-- ===================== HERO ===================== -->
+<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -77,10 +10,10 @@
       <h1>Milos <span class="accent">Vasic</span></h1>
       <p class="role" data-i18n="hero.role">SDK &amp; platform engineering for mobile, backend, desktop &amp; web.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="/downloads/Milos_Vasic_CV.pdf" download>
+        <a class="btn btn-primary" href="{{ '/downloads/Milos_Vasic_CV.pdf' | relative_url }}" download>
           <span data-i18n="hero.cv">Download CV</span> <span class="mono">PDF</span>
         </a>
-        <a class="btn btn-ghost" href="/downloads/Milos_Vasic_Cover_Letter.pdf" download>
+        <a class="btn btn-ghost" href="{{ '/downloads/Milos_Vasic_Cover_Letter.pdf' | relative_url }}" download>
           <span data-i18n="hero.cl">Cover Letter</span> <span class="mono">PDF</span>
         </a>
         <a class="btn btn-ghost" href="#contact" data-i18n="hero.contact">Get in touch</a>
@@ -97,8 +30,8 @@
       </div>
     </div>
     <div class="portrait-card">
-      <img src="/assets/images/profile-800.jpg"
-           srcset="/assets/images/profile-400.jpg 400w, /assets/images/profile-600.jpg 600w, /assets/images/profile-800.jpg 800w"
+      <img src="{{ '/assets/images/profile-800.jpg' | relative_url }}"
+           srcset="{{ '/assets/images/profile-400.jpg' | relative_url }} 400w, {{ '/assets/images/profile-600.jpg' | relative_url }} 600w, {{ '/assets/images/profile-800.jpg' | relative_url }} 800w"
            sizes="(max-width: 860px) 320px, 360px"
            width="800" height="1000" alt="Portrait of Milos Vasic" fetchpriority="high">
     </div>
@@ -254,7 +187,7 @@
   <div class="wrap">
     <p class="eyebrow">// author &amp; education</p>
     <h2 data-i18n="author.title">Author &amp; education</h2>
-    <p class="lead"><span data-i18n="author.book">Author of <em>Fundamental Kotlin</em> (self-published, 3rd revised edition, 2022) — a comprehensive guide to Kotlin from fundamentals to advanced patterns. Contributing author for <strong>Packt Publishing UK</strong>.</span> <a href="/assets/pdf/Fundamental_Kotlin_3rd_Edition.pdf">Read the latest edition (PDF) →</a></p>
+    <p class="lead"><span data-i18n="author.book">Author of <em>Fundamental Kotlin</em> (self-published, 3rd revised edition, 2022) — a comprehensive guide to Kotlin from fundamentals to advanced patterns. Contributing author for <strong>Packt Publishing UK</strong>.</span> <a href="{{ '/assets/pdf/Fundamental_Kotlin_3rd_Edition.pdf' | relative_url }}">Read the latest edition (PDF) →</a></p>
     <div class="cards">
       <article class="card"><div class="card-top"><h3>M.Sc.</h3><span class="lang">2014</span></div><p>Contemporary Information Technologies — Singidunum University, Belgrade.</p></article>
       <article class="card"><div class="card-top"><h3>B.Sc.</h3><span class="lang">2008</span></div><p>Informatics and Computing — Singidunum University, Belgrade.</p></article>
@@ -274,27 +207,7 @@
       <div class="contact-card"><div class="k">phone · ru</div><div class="v"><a href="tel:+79663237717">+7 966 323 77 17</a></div></div>
       <div class="contact-card"><div class="k">telegram</div><div class="v"><a href="https://t.me/milos85vasic">@milos85vasic</a></div></div>
       <div class="contact-card"><div class="k">github</div><div class="v"><a href="https://github.com/milos85vasic">milos85vasic</a></div></div>
-      <div class="contact-card"><div class="k">cv · cover letter</div><div class="v"><a href="/downloads/Milos_Vasic_CV.pdf" download>CV</a> · <a href="/downloads/Milos_Vasic_Cover_Letter.pdf" download>Cover Letter</a></div></div>
+      <div class="contact-card"><div class="k">cv · cover letter</div><div class="v"><a href="{{ '/downloads/Milos_Vasic_CV.pdf' | relative_url }}" download>CV</a> · <a href="{{ '/downloads/Milos_Vasic_Cover_Letter.pdf' | relative_url }}" download>Cover Letter</a></div></div>
     </div>
   </div>
 </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">
-      <div class="links">
-        <a href="https://github.com/milos85vasic" rel="me">GitHub</a>
-        <a href="https://gitflic.ru/user/milosvasic">GitFlic</a>
-        <a href="https://gitlab.com/milos85vasic">GitLab</a>
-        <a href="https://t.me/milos85vasic">Telegram</a>
-        <a href="mailto:i@mvasic.ru">i@mvasic.ru</a>
-      </div>
-      <p class="mono">© 2026 Milos Vasic — Belgrade · Moscow. Built as a static site, deployed on GitHub Pages.</p>
-    </div>
-  </footer>
-
-  <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/main.js"></script>
-</body>
-</html>

@@ -1,0 +1,35 @@
+/* ATS-safe print stylesheet: single column, standard fonts, no tables/icons,
+   pure black text on white, selectable/extractable text. */
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+html { font-size: 11pt; }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  color: #000;
+  background: #fff;
+  line-height: 1.4;
+  max-width: 100%;
+}
+h1 {
+  font-size: 20pt;
+  margin: 0 0 2pt 0;
+  letter-spacing: 0.3pt;
+}
+h2 {
+  font-size: 12.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.6pt;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2pt;
+  margin: 14pt 0 6pt 0;
+}
+h3 { font-size: 11.5pt; margin: 8pt 0 1pt 0; }
+p  { margin: 4pt 0; }
+ul { margin: 4pt 0 6pt 0; padding-left: 16pt; }
+li { margin: 2pt 0; }
+a  { color: #000; text-decoration: none; }
+hr { border: none; border-top: 1px solid #000; margin: 6pt 0; }
+strong { font-weight: 700; }
+.meta { font-size: 10pt; margin: 0 0 6pt 0; }
