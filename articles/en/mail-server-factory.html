@@ -1,0 +1,99 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Mail Server Factory</h1>
+    <p class="hx-article-tech">Shell/Go</p>
+    <p class="hx-article-repo"><a href="https://github.com/Server-Factory/Mail-Server-Factory" target="_blank" rel="noopener">https://github.com/Server-Factory/Mail-Server-Factory &rarr;</a></p>
+  </header>
+<h2 id="the-hook">The hook</h2>
+<p>Running your own mail server has a deserved reputation as one of the
+most miserable jobs in systems administration: SMTP, IMAP, POP3, TLS,
+DKIM, SPF, firewalls, certificates, SELinux, and a dozen daemons that
+all have to agree with each other or nothing delivers. Mail Server
+Factory’s pitch is gloriously blunt — “Run Your Mail Server Like The
+Boss.” You write a simple JSON file describing what you want, and the
+Factory interprets it and builds the entire hardened, Dockerized stack
+on the target machine for you.</p>
+<h2 id="why-its-fascinating">Why it’s fascinating</h2>
+<p>The fascinating idea is treating mail-server deployment as a
+<em>compilation</em> problem. The JSON configuration is the source; the
+Factory is the compiler; a running, loosely-coupled, Docker-based mail
+stack on the target OS is the output. Because each stack component is
+loosely coupled and containerized, the result is a clean base for
+scaling later rather than a tangle of hand-edited config files nobody
+dares touch.</p>
+<p>What pushes it from “neat” to “serious” is reach. The Factory can
+deliver that stack over 12 distinct connection types — SSH, Docker,
+Kubernetes, AWS SSM, Azure Serial Console, GCP OS Login, Libvirt, a
+custom protocol, database, file system, cloud provider, and container
+runtime. And it targets 25 Linux distributions, including ones most
+tools ignore entirely: Western mainstays (Ubuntu, Debian, CentOS,
+Fedora, AlmaLinux, Rocky, openSUSE), Russian distros (ALT, Astra, ROSA),
+and Chinese ones (openEuler, openKylin, Deepin). That breadth is a
+deliberate statement: your mail server, your hardware, your
+jurisdiction.</p>
+<h2 id="the-hard-problems">The hard problems</h2>
+<p>The first hard problem is that “the same install” is never the same.
+Package names, init systems, firewall front-ends, and SELinux behavior
+diverge across 25 distributions. The Factory carries a real security
+framework — a <code>CertificateValidator</code>,
+<code>DockerCredentialsManager</code>, <code>SELinuxChecker</code>,
+<code>PasswordValidator</code>, and a <code>ConnectionPool</code> —
+precisely because each of those concerns behaves differently per
+platform and cannot be assumed.</p>
+<p>The second is the connection layer itself. Reaching a target over SSH
+is nothing like reaching it over AWS SSM, Azure Serial Console, or
+Libvirt. Each transport has its own authentication, its own latency, its
+own failure modes. Abstracting all 12 behind a single installation
+pipeline — so the install steps don’t care how bytes get to the box — is
+the architectural spine of the project.</p>
+<p>The third is getting to a clean machine in the first place. The
+Factory automates unattended OS installation via preseed, kickstart,
+cloud-init, and autoyast across all those distributions, drives QEMU
+virtual machines through <code>scripts/qemu_manager.sh</code>, and
+manages ISOs with checksum verification and an enterprise twist: a
+bidirectional SMB cache that pulls missing images from a network share,
+uploads missing ones back, and falls through to internet download only
+as a last resort.</p>
+<h2 id="what-makes-it-game-changing">What makes it game-changing</h2>
+<p>The game-changer is that it makes self-hosted mail <em>reproducible
+and auditable</em>. Email infrastructure is exactly the kind of thing
+you want described as data and rebuilt identically, not assembled by
+memory at 2am. With the stack defined in JSON and the security posture
+enforced by code — AES-256-GCM encryption, mandatory SSH-key passphrases
+of at least 12 characters, automated firewall rules for ports
+25/587/465/993/995, TLS with certificate validation and HSTS, audit
+logging, and RBAC — “production-grade mail server” stops being a
+multi-week project and becomes a config you can review, version, and
+re-run.</p>
+<p>It is also rigorously validated, not aspirational: the project
+reports 439 tests at 100% passing, a 100% SonarQube quality gate, and a
+full testing framework that exercises real SMTP/IMAP/POP3 behavior
+across distributions plus throughput and latency measurements. For a
+tool whose entire job is to be trusted with your email, that evidence is
+the feature.</p>
+<h2 id="how-i-solved-the-hardest-parts">How I solved the hardest
+parts</h2>
+<p>I separated <em>what to build</em> from <em>how to reach the
+target</em> and <em>which OS we’re on</em>. The JSON config describes
+intent; a transport abstraction hides the 12 connection types behind one
+interface so installation steps issue the same logical operations
+whether they’re flowing over SSH or AWS SSM; and per-distribution logic
+is isolated so the 25-distro matrix lives in one place instead of
+leaking into every step. That layering is why adding a distribution or a
+connection type doesn’t ripple through the whole codebase.</p>
+<p>For security I refused to leave anything to the operator’s good
+intentions. The framework enforces the hard parts — it <em>checks</em>
+SELinux, <em>validates</em> certificates, <em>manages</em> Docker
+credentials, and <em>rejects</em> weak passwords and passphraseless SSH
+keys — so a correct deployment is the default, not a careful
+achievement. Shell does the heavy provisioning where it’s the right
+tool, with Kotlin/JVM logic for the orchestration and security
+framework, and Docker keeps every component loosely coupled.</p>
+<p>And I solved the “clean machine” bootstrapping that most installers
+punt on: unattended installs for every supported distro, QEMU automation
+to spin up test targets, and the bidirectional SMB ISO cache so a fleet
+deployment doesn’t re-download the same image twenty-five times — with
+every ISO checksum-verified no matter where it came from. The result is
+a tool that takes you from bare metal (or a bare VM) all the way to a
+hardened, tested, running mail server from a single file.</p>
+</article>

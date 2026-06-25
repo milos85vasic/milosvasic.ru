@@ -213,3 +213,265 @@ a:hover { text-decoration: underline; }
 .reveal.in { opacity: 1; transform: none; }
 
 [hidden] { display: none !important; }
+
+/* ===== Read-more article modal (appended) ===== */
+/* =============================================================================
+   Article "Read more" modal — milosvasic.ru
+   Standalone SCSS partial. @import this after style.scss.
+   Reuses existing design tokens (--bg, --surface, --text, --accent, …) with
+   safe fallbacks. Themed via :root[data-theme="dark|light"].
+   ============================================================================= */
+
+.mv-article-modal {
+  --mva-scrim: rgba(20, 16, 17, 0.55);
+  --mva-panel-bg: var(--surface, #f3f0ee);
+  --mva-panel-fg: var(--text, #1a1617);
+  --mva-muted: var(--muted, #6f6663);
+  --mva-accent: var(--accent, #a31e39);
+  --mva-accent-ink: var(--accent-ink, #ffffff);
+  --mva-border: var(--border, #e4ded9);
+  --mva-radius: var(--radius, 14px);
+  --mva-shadow: var(--shadow, 0 1px 2px rgba(20, 16, 17, .04), 0 24px 60px -18px rgba(20, 16, 17, .5));
+  --mva-font-body: var(--font-body, "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif);
+  --mva-font-display: var(--font-display, "Space Grotesk", "Inter", system-ui, sans-serif);
+  --mva-font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
+
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(0px, 4vw, 48px);
+  font-family: var(--mva-font-body);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .mv-article-modal {
+  --mva-scrim: rgba(0, 0, 0, 0.66);
+}
+
+.mv-article-modal[data-open="true"] {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ---- Scrim / backdrop ----------------------------------------------------- */
+.mv-article-modal__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--mva-scrim);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.mv-article-modal[data-open="true"] .mv-article-modal__scrim { opacity: 1; }
+
+/* ---- Panel ---------------------------------------------------------------- */
+.mv-article-modal__panel {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: min(88vh, 920px);
+  display: flex;
+  flex-direction: column;
+  background: var(--mva-panel-bg);
+  color: var(--mva-panel-fg);
+  border: 1px solid var(--mva-border);
+  border-radius: var(--mva-radius);
+  box-shadow: var(--mva-shadow);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px) scale(.97);
+  transition: opacity 250ms ease, transform 250ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.mv-article-modal[data-open="true"] .mv-article-modal__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Accent hairline at top of the panel */
+.mv-article-modal__panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mva-accent), color-mix(in srgb, var(--mva-accent) 40%, transparent));
+}
+
+/* ---- Header / close ------------------------------------------------------- */
+.mv-article-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--mva-border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--mva-panel-bg) 80%, transparent);
+  color: var(--mva-panel-fg);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: border-color .2s, background .2s, transform .1s;
+}
+.mv-article-modal__close:hover { border-color: var(--mva-accent); }
+.mv-article-modal__close:active { transform: scale(.94); }
+.mv-article-modal__close:focus-visible {
+  outline: 2.5px solid var(--mva-accent);
+  outline-offset: 2px;
+}
+
+/* ---- Body / typography ---------------------------------------------------- */
+.mv-article-modal__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: clamp(28px, 5vw, 48px) clamp(22px, 5vw, 44px);
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+.mv-article-modal__body :first-child { margin-top: 0; }
+.mv-article-modal__body :last-child { margin-bottom: 0; }
+
+.mv-article-modal__body h1,
+.mv-article-modal__body h2,
+.mv-article-modal__body h3 {
+  font-family: var(--mva-font-display);
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  margin: 1.6em 0 .5em;
+}
+.mv-article-modal__body h1 { font-size: 1.85rem; margin-top: 0; }
+.mv-article-modal__body h2 { font-size: 1.4rem; }
+.mv-article-modal__body h3 { font-size: 1.15rem; }
+.mv-article-modal__body p { margin: 0 0 1.1em; }
+.mv-article-modal__body a { color: var(--mva-accent); text-decoration: underline; text-underline-offset: 2px; }
+.mv-article-modal__body img { max-width: 100%; height: auto; border-radius: 10px; }
+.mv-article-modal__body pre {
+  background: var(--bg, #fbfaf9);
+  border: 1px solid var(--mva-border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  font-family: var(--mva-font-mono);
+  font-size: .9rem;
+}
+.mv-article-modal__body code { font-family: var(--mva-font-mono); font-size: .92em; }
+.mv-article-modal__body blockquote {
+  margin: 1.2em 0;
+  padding: .2em 0 .2em 1.1em;
+  border-left: 3px solid var(--mva-accent);
+  color: var(--mva-muted);
+}
+.mv-article-modal__body ul,
+.mv-article-modal__body ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+
+/* ---- Loading state -------------------------------------------------------- */
+.mv-article-modal__state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 200px;
+  padding: 2rem;
+  color: var(--mva-muted);
+  font-family: var(--mva-font-mono);
+  font-size: .9rem;
+  text-align: center;
+}
+.mv-article-modal__spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--mva-border);
+  border-top-color: var(--mva-accent);
+  animation: mv-article-spin .8s linear infinite;
+}
+.mv-article-modal__state button {
+  margin-top: .4rem;
+  padding: .55rem 1.1rem;
+  border: 1px solid var(--mva-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--mva-panel-fg);
+  font-family: var(--mva-font-mono);
+  font-size: .82rem;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.mv-article-modal__state button:hover { border-color: var(--mva-accent); }
+
+@keyframes mv-article-spin { to { transform: rotate(360deg); } }
+
+/* ---- Scrollbar polish ----------------------------------------------------- */
+.mv-article-modal__body::-webkit-scrollbar { width: 10px; }
+.mv-article-modal__body::-webkit-scrollbar-thumb {
+  background: var(--mva-border);
+  border-radius: 8px;
+  border: 2px solid var(--mva-panel-bg);
+}
+
+/* ---- Responsive: dock to bottom as a drawer on small screens -------------- */
+@media (max-width: 600px) {
+  .mv-article-modal { place-items: end center; padding: 0; }
+  .mv-article-modal__panel {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 18px 18px 0 0;
+    transform: translateY(100%);
+  }
+  .mv-article-modal[data-open="true"] .mv-article-modal__panel { transform: translateY(0); }
+}
+
+/* ---- Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mv-article-modal__scrim,
+  .mv-article-modal__panel {
+    transition: opacity 120ms linear;
+    transform: none !important;
+  }
+  .mv-article-modal__spinner { animation-duration: 1.6s; }
+}
+
+/* ---- Body scroll lock helper (toggled by JS) ------------------------------ */
+body.mv-article-lock { overflow: hidden; }
+
+/* Read-more trigger on project cards */
+.card-more { display:inline-block; margin-left:1rem; font-weight:600; color:var(--accent,#a31e39); cursor:pointer; text-decoration:none; }
+.card-more:hover { text-decoration:underline; }
+
+/* Injected article (read-more) content typography */
+.hx-article { line-height:1.7; }
+.hx-article-head { border-bottom:1px solid var(--border,#2a2a35); padding-bottom:.75rem; margin-bottom:1.25rem; }
+.hx-article-head h1 { margin:0 0 .35rem; font-size:clamp(1.5rem,4vw,2rem); }
+.hx-article-tech { font-family:var(--mono,monospace); font-size:.8rem; opacity:.7; margin:.2rem 0; }
+.hx-article-repo a { color:var(--accent,#a31e39); }
+.hx-article h2 { margin:1.5rem 0 .5rem; font-size:1.15rem; }
+.hx-article p { margin:0 0 1rem; }
+
+/* Download language chooser popup */
+.dl-modal { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; opacity:0; transition:opacity .2s ease; }
+.dl-modal.open { opacity:1; }
+.dl-modal[hidden] { display:none; }
+.dl-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(4px); }
+.dl-card { position:relative; background:var(--surface,#15151c); color:var(--text,#eee); border:1px solid var(--border,#2a2a35); border-radius:var(--radius,14px); padding:1.75rem; max-width:420px; width:calc(100% - 2rem); box-shadow:var(--shadow,0 20px 60px rgba(0,0,0,.5)); transform:translateY(8px) scale(.98); transition:transform .2s ease; }
+.dl-modal.open .dl-card { transform:none; }
+.dl-x { position:absolute; top:.5rem; right:.7rem; background:none; border:none; font-size:1.6rem; line-height:1; color:inherit; cursor:pointer; opacity:.7; }
+.dl-x:hover { opacity:1; }
+.dl-doc-name { margin:.1rem 0 .2rem; }
+.dl-choose { opacity:.75; margin:.25rem 0 1rem; }
+.dl-langs { display:flex; flex-direction:column; gap:.6rem; }
+.dl-lang { display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; border:1px solid var(--border,#2a2a35); border-radius:10px; text-decoration:none; color:inherit; transition:border-color .15s, background .15s; }
+.dl-lang:hover { border-color:var(--accent,#a31e39); background:rgba(163,30,57,.08); }
+.dl-lang .mono { opacity:.6; font-size:.8rem; }
+@media (prefers-reduced-motion: reduce) { .dl-modal, .dl-card { transition:none; } }

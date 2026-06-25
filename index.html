@@ -10,23 +10,23 @@ layout: default
       <h1>Milos <span class="accent">Vasic</span></h1>
       <p class="role" data-i18n="hero.role">SDK &amp; platform engineering for mobile, backend, desktop &amp; web.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="{{ '/downloads/Milos_Vasic_CV.pdf' | relative_url }}" download>
+        <button type="button" class="btn btn-primary" data-dl="cv">
           <span data-i18n="hero.cv">Download CV</span> <span class="mono">PDF</span>
-        </a>
-        <a class="btn btn-ghost" href="{{ '/downloads/Milos_Vasic_Cover_Letter.pdf' | relative_url }}" download>
+        </button>
+        <button type="button" class="btn btn-ghost" data-dl="cl">
           <span data-i18n="hero.cl">Cover Letter</span> <span class="mono">PDF</span>
-        </a>
+        </button>
         <a class="btn btn-ghost" href="#contact" data-i18n="hero.contact">Get in touch</a>
       </div>
 
       <div class="datasheet" aria-label="Profile data sheet">
-        <div class="row"><span class="k" data-i18n="ds.based">based</span><span class="v">Belgrade, RS · Moscow, RU</span></div>
-        <div class="row"><span class="k" data-i18n="ds.remote">remote</span><span class="v">Worldwide — open to relocation</span></div>
-        <div class="row"><span class="k" data-i18n="ds.since">since</span><span class="v">2009 — 16+ years in production software</span></div>
-        <div class="row"><span class="k" data-i18n="ds.focus">focus</span><span class="v">SDKs · platforms · distributed systems</span></div>
-        <div class="row"><span class="k" data-i18n="ds.repos">open source</span><span class="v">240+ repos · 5 orgs · 10M+ lines</span></div>
-        <div class="row"><span class="k" data-i18n="ds.stack">core stack</span><span class="v">Kotlin · Go · C++ · Swift · TypeScript</span></div>
-        <div class="row"><span class="k" data-i18n="ds.langs">languages</span><span class="v">Serbian (native) · English (C2) · Russian (C1)</span></div>
+        <div class="row"><span class="k" data-i18n="ds.based">based</span><span class="v" data-i18n="ds.based_v">Belgrade, RS ⇄ Dubna, RU</span></div>
+        <div class="row"><span class="k" data-i18n="ds.remote">remote</span><span class="v" data-i18n="ds.remote_v">Worldwide — open to relocation</span></div>
+        <div class="row"><span class="k" data-i18n="ds.since">since</span><span class="v" data-i18n="ds.since_v">2009 — 16+ years in production software</span></div>
+        <div class="row"><span class="k" data-i18n="ds.focus">focus</span><span class="v" data-i18n="ds.focus_v">SDKs · platforms · distributed systems</span></div>
+        <div class="row"><span class="k" data-i18n="ds.repos">open source</span><span class="v" data-i18n="ds.repos_v">240+ repos · 5 orgs · 10M+ lines</span></div>
+        <div class="row"><span class="k" data-i18n="ds.stack">core stack</span><span class="v" data-i18n="ds.stack_v">Kotlin · Go · C++ · Swift · TypeScript</span></div>
+        <div class="row"><span class="k" data-i18n="ds.langs">languages</span><span class="v" data-i18n="ds.langs_v">Serbian (native) · English (C2) · Russian (basic)</span></div>
       </div>
     </div>
     <div class="portrait-card">
@@ -59,61 +59,73 @@ layout: default
         <div class="card-top"><h3>HelixTrack Core</h3><span class="lang">Go</span></div>
         <p data-i18n="work.helix_track">The open-source JIRA alternative — enterprise project &amp; issue tracking with multi-platform clients (Web, Desktop, Android, iOS). Designed for teams that need performance without vendor lock-in.</p>
         <a class="card-link" href="https://github.com/Helix-Track/Core" target="_blank" rel="noopener">github.com/Helix-Track/Core →</a>
+        <a class="card-more" href="#" data-article="helix-track-core" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>HelixCode</h3><span class="lang">Go</span></div>
         <p data-i18n="work.helix_code">Distributed multi-LLM AI development platform — coordinating intelligent agents across machines for collaborative code generation, review, and refactoring at scale.</p>
         <a class="card-link" href="https://github.com/HelixDevelopment/HelixCode" target="_blank" rel="noopener">github.com/HelixDevelopment/HelixCode →</a>
+        <a class="card-more" href="#" data-article="helix-code" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>HelixTranslate</h3><span class="lang">Go</span></div>
         <p data-i18n="work.helix_translate">Enterprise-grade universal ebook translation toolkit — any input format, any language pair. REST + HTTP/3 API with real-time WebSocket progress streaming. Multiple LLM backends supported.</p>
         <a class="card-link" href="https://github.com/HelixDevelopment/HelixTranslate" target="_blank" rel="noopener">github.com/HelixDevelopment/HelixTranslate →</a>
+        <a class="card-more" href="#" data-article="helix-translate" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>HelixAgent</h3><span class="lang">Go</span></div>
         <p data-i18n="work.helix_agent">Multi-LLM ensemble agent service — orchestrating multiple language models behind a unified interface with intelligent routing, fallback, and result aggregation.</p>
         <a class="card-link" href="https://github.com/HelixDevelopment/HelixAgent" target="_blank" rel="noopener">github.com/HelixDevelopment/HelixAgent →</a>
+        <a class="card-more" href="#" data-article="helix-agent" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>Helix-Flow Platform</h3><span class="lang">Go</span></div>
         <p data-i18n="work.helix_flow">Unified AI inference platform — run models faster at any scale with predictable costs. One API for deployment, monitoring, and orchestration across hardware backends.</p>
         <a class="card-link" href="https://github.com/Helix-Flow/Platform" target="_blank" rel="noopener">github.com/Helix-Flow/Platform →</a>
+        <a class="card-more" href="#" data-article="helix-flow-platform" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>Catalogizer</h3><span class="lang">Go</span></div>
         <p data-i18n="work.catalogizer">Advanced multi-protocol media management system — automatically catalogs, deduplicates, and syncs media collections with intelligent metadata enrichment across protocols.</p>
         <a class="card-link" href="https://github.com/vasic-digital/Catalogizer" target="_blank" rel="noopener">github.com/vasic-digital/Catalogizer →</a>
+        <a class="card-more" href="#" data-article="catalogizer" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>LLMsVerifier</h3><span class="lang">Go</span></div>
         <p data-i18n="work.llms_verifier">Systematic LLM benchmark and verification framework — run standardized evaluations across models, track regressions, and generate compliance reports for AI quality assurance.</p>
         <a class="card-link" href="https://github.com/vasic-digital/LLMsVerifier" target="_blank" rel="noopener">github.com/vasic-digital/LLMsVerifier →</a>
+        <a class="card-more" href="#" data-article="llms-verifier" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>Panoptic</h3><span class="lang">Go</span></div>
         <p data-i18n="work.panoptic">Cross-platform automated testing tool — UI recording, screenshot comparison, and test orchestration across web, desktop, and mobile targets from a single configuration.</p>
         <a class="card-link" href="https://github.com/vasic-digital/Panoptic" target="_blank" rel="noopener">github.com/vasic-digital/Panoptic →</a>
+        <a class="card-more" href="#" data-article="panoptic" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>Mail Server Factory</h3><span class="lang">Shell · Go</span></div>
         <p data-i18n="work.mail_factory">Declarative mail-server deployment — JSON-driven automation that provisions fully-configured mail infrastructure across multiple OS distributions in minutes.</p>
         <a class="card-link" href="https://github.com/Server-Factory/Mail-Server-Factory" target="_blank" rel="noopener">github.com/Server-Factory/Mail-Server-Factory →</a>
+        <a class="card-more" href="#" data-article="mail-server-factory" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>ShareConnect</h3><span class="lang">Kotlin</span></div>
         <p data-i18n="work.share_connect">Universal URL processing pipeline — route shareable URLs to remote or local processing endpoints with plugin-based transformation and delivery chains.</p>
         <a class="card-link" href="https://github.com/vasic-digital/ShareConnect" target="_blank" rel="noopener">github.com/vasic-digital/ShareConnect →</a>
+        <a class="card-more" href="#" data-article="share-connect" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>GrabTube</h3><span class="lang">Dart · Flutter</span></div>
         <p data-i18n="work.grab_tube">Tube-services video downloader — cross-platform Flutter app for downloading media from multiple streaming platforms with a clean Material UI.</p>
         <a class="card-link" href="https://github.com/vasic-digital/GrabTube" target="_blank" rel="noopener">github.com/vasic-digital/GrabTube →</a>
+        <a class="card-more" href="#" data-article="grab-tube" data-i18n="card.more">Read more →</a>
       </article>
       <article class="card reveal">
         <div class="card-top"><h3>Android-Toolkit</h3><span class="lang">Kotlin</span></div>
         <p data-i18n="work.android_toolkit">Common Android abstractions and implementations — reusable components, utilities, and patterns extracted from production SDK work across multiple enterprises.</p>
         <a class="card-link" href="https://github.com/vasic-digital/Android-Toolkit" target="_blank" rel="noopener">github.com/vasic-digital/Android-Toolkit →</a>
+        <a class="card-more" href="#" data-article="android-toolkit" data-i18n="card.more">Read more →</a>
       </article>
     </div>
 
@@ -207,7 +219,7 @@ layout: default
       <div class="contact-card"><div class="k">phone · ru</div><div class="v"><a href="tel:+79663237717">+7 966 323 77 17</a></div></div>
       <div class="contact-card"><div class="k">telegram</div><div class="v"><a href="https://t.me/milos85vasic">@milos85vasic</a></div></div>
       <div class="contact-card"><div class="k">github</div><div class="v"><a href="https://github.com/milos85vasic">milos85vasic</a></div></div>
-      <div class="contact-card"><div class="k">cv · cover letter</div><div class="v"><a href="{{ '/downloads/Milos_Vasic_CV.pdf' | relative_url }}" download>CV</a> · <a href="{{ '/downloads/Milos_Vasic_Cover_Letter.pdf' | relative_url }}" download>Cover Letter</a></div></div>
+      <div class="contact-card"><div class="k">cv · cover letter</div><div class="v"><a href="#" data-dl="cv">CV</a> · <a href="#" data-dl="cl">Cover Letter</a></div></div>
     </div>
   </div>
 </section>

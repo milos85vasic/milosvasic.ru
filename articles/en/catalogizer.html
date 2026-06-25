@@ -1,0 +1,90 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Catalogizer</h1>
+    <p class="hx-article-tech">Go, Gin, React, TypeScript, SQLCipher, WebSocket, SMB/FTP/NFS/WebDAV</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/Catalogizer" target="_blank" rel="noopener">https://github.com/vasic-digital/Catalogizer &rarr;</a></p>
+  </header>
+<h2 id="the-hook">The hook</h2>
+<p>Your media lives everywhere — an SMB share on the NAS, an FTP box, an
+NFS mount, a WebDAV server, a local drive — and nothing understands all
+of it at once. Catalogizer does. It is an advanced multi-protocol media
+collection management system that automatically detects, categorizes,
+and organizes media across every one of those protocols, monitors them
+in real time, enriches everything with external metadata, and keeps the
+whole catalog in an encrypted database.</p>
+<h2 id="why-its-fascinating">Why it’s fascinating</h2>
+<p>Catalogizer treats “your collection” as a single logical library
+spread across heterogeneous storage. It identifies <strong>50+ media
+types</strong> — movies, TV shows, music, games, software,
+documentaries, and more — and continuously monitors each source for
+changes, updating metadata automatically. It enriches entries from a
+wide set of external providers (TMDB, IMDB, TVDB, MusicBrainz, Spotify,
+Steam, and others), analyzes quality, tracks versions, and surfaces
+analytics like growth trends.</p>
+<p>The stack is a clean split: a high-performance Go REST API on Gin, a
+modern React/TypeScript front end with Tailwind, and WebSocket
+integration so the UI updates live as the catalog changes. Underneath,
+the data sits in a <strong>SQLCipher-encrypted</strong> store. It even
+goes beyond cataloging with practical extras — a PDF conversion service,
+favorites export/import in JSON and CSV, cloud sync to S3 and Google
+Cloud Storage, and professional PDF reporting with charts.</p>
+<h2 id="the-hard-problems">The hard problems</h2>
+<p>The hardest problem is <strong>unreliable network storage</strong>.
+SMB and friends drop. Mounts vanish. A naive cataloger throws errors and
+corrupts its view of the world the moment a share goes offline.
+Catalogizer is built for <strong>protocol resilience</strong>: it
+handles temporary disconnections gracefully, reconnects automatically,
+and caches for offline operation, so a flaky NAS does not derail the
+whole system. Designing for the failure case as the normal case — rather
+than an exception — is the defining engineering decision here.</p>
+<p>The second problem is <strong>a single abstraction over very
+different protocols</strong>. SMB, FTP, NFS, WebDAV, and the local
+filesystem each have their own semantics, quirks, and failure modes.
+Presenting them through one consistent file-system client interface —
+including full NFS mounting and file operations on macOS — so the
+detection engine and monitor can treat them uniformly is a substantial
+integration effort.</p>
+<p>The third is <strong>detection at scale with security</strong>.
+Recognizing 50+ media types reliably, enriching from many external APIs,
+and doing it all over an encrypted database with JWT-based role access —
+without the encryption or the API calls becoming a bottleneck — takes
+deliberate architecture.</p>
+<h2 id="what-makes-it-game-changing">What makes it game-changing</h2>
+<p>Most media managers assume your files are local and your network is
+perfect. Catalogizer assumes the opposite and still works. The
+combination of <strong>multi-protocol reach plus resilience plus
+real-time monitoring</strong> means it manages a distributed,
+partially-available collection as if it were one tidy library — and
+keeps it current automatically rather than on a manual rescan.</p>
+<p>Layer on encryption by default, role-based access control, external
+metadata enrichment, and genuinely useful output features (reports,
+exports, cloud sync, PDF conversion), and it stops being a catalog and
+becomes a management platform for a media estate that happens to be
+scattered across protocols and machines.</p>
+<h2 id="how-i-solved-the-hardest-parts">How I solved the hardest
+parts</h2>
+<p>I made <strong>resilience a property of the storage layer</strong>,
+not something each feature has to handle. The multi-protocol file-system
+clients are responsible for detecting disconnections, reconnecting
+automatically, and serving from an offline cache when a source is
+unavailable. Because that behavior lives in the client abstraction, the
+monitoring engine and detection engine above it can assume a source is
+always reachable — the messy reality of a dropped SMB mount is absorbed
+below them.</p>
+<p>To tame protocol diversity, I unified SMB, FTP, NFS, WebDAV, and
+local access behind one <strong>file-system client interface</strong>
+with per-protocol monitoring, including real NFS mounting and file
+operations for macOS. The media-detection engine sits on top of that
+single interface, so adding a protocol or fixing one protocol’s quirks
+does not ripple into detection logic.</p>
+<p>For live behavior, the Go API runs a <strong>WebSocket
+server</strong> that pushes updates to the React front end the instant
+the catalog changes, so what users see reflects the monitored sources in
+real time rather than a stale snapshot. And I kept security
+non-optional: the database is SQLCipher-encrypted and the API is gated
+by JWT with role-based access control, so a system that reaches into
+many remote shares and external APIs does not become the weakest link.
+The result is a media manager designed around the world as it actually
+is — distributed, intermittent, and in need of being kept honest and
+secure.</p>
+</article>

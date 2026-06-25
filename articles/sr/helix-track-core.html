@@ -1,0 +1,96 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixTrack Core</h1>
+    <p class="hx-article-tech">Go, Gin, PostgreSQL, SQLite, SQLCipher, PLpgSQL, WebSocket</p>
+    <p class="hx-article-repo"><a href="https://github.com/Helix-Track/Core" target="_blank" rel="noopener">https://github.com/Helix-Track/Core &rarr;</a></p>
+  </header>
+<h2 id="kuka">Kuka</h2>
+<p>Zamisli da ponovo gradiš JIRA i Confluence od nule, kao jedan Go
+mikroservis, i da ga napraviš dovoljno brzim da može da obrađuje
+desetine hiljada zahteva u sekundi sa šifrovanom bazom podataka ispod.
+To je HelixTrack Core: “Otvoreni izvor JIRA alternativa za slobodni
+svet.” Nije reč o igračkoj kopiji — isporučuje epike, potzadatke,
+sprintove, radne logove, prilagodljiva polja, kontrolne table, sheme
+dozvola i kompletni Confluence-stil dokumenata motor, sve iza jedne REST
+API-je.</p>
+<h2 id="zašto-je-zanimljivo">Zašto je zanimljivo</h2>
+<p>Većina alata za praćenje projekata raste u razgranate monolite sa
+desetinama endpoint-ova koji se razilaze tokom godina. Ja sam išao
+suprotnim putem. HelixTrack Core izlaže ujedinjeni <code>/do</code>
+endpoint sa <strong>akcioni baziranim rutiranjem</strong>: klijenti
+šalju naznačenu akciju i teret, a server ga upućuje kroz konzistentan
+middleware i handler pipeline. Ta jedina dizajnerska odluka čuva API
+površinu koherentnu preko stotina operacija — problema, agilnih tabla,
+glasanja, shema obaveštenja, aktivnih tokova, komentara pomena — bez
+endpoint razgrtanja koje čini velike API-je neoderživim.</p>
+<p>Na vrhu toga sedi stvarna Confluence alternativa. Proširenje
+Dokumenata V2 implementira prostore, bogate stranice u
+HTML/Markdown/običnom tekstu, kompletnu istoriju verzija sa difovima i
+vraćanjem, komentare u tekstu, <span class="citation"
+data-cites="pomena">@pomena</span>, reakcije, šablone i analitiku —
+podržano sopstvenim setom tabela baze podataka i validirano stotinama
+model testova. Izgradnja jednog od ovih sistema je projekt; izgradnja
+oba kao saradujućih modula u jednom binarnom fajlu je zanimljiv deo.</p>
+<h2 id="teški-problemi">Teški problemi</h2>
+<p>Tri stvari čine ovo stvarno teškim.</p>
+<p>Prvo, <strong>bezbednost bez performansi poreza</strong>. Preduzeća
+za praćenje problema sadrže osetljive podatke, tako da je baza podataka
+šifrovana u mirovanju sa SQLCipher (AES-256). Šifrovanje obično znači
+kaznu za kašnjenje — inženjerski izazov bio je da se ova prepreka
+minimalizuje dok se upiti obrađuju brzo pod teškom konkurencijom.</p>
+<p>Drugo, <strong>multi-baza podataka realnost</strong>. Razvijači žele
+SQLite za bezbolnu lokalnu podešavanja; proizvodnja želi PostgreSQL sa
+njegovom konkurencijom i izdržljivošću. Podrška za oba — uključujući
+PLpgSQL-nivo optimizacije i shemu koja je evoluirala tokom više verzija
+migracija (V1 do V4, raste preko devedeset tabela) — znači da svaka
+funkcija mora biti ispravna na dve veoma različite mašine.</p>
+<p>Treće, <strong>stvarno vremenska saradnja sa ispravnim</strong>. U
+trenutku kada više ljudi uređuju isti tiket, suočavaš se sa klasičnim
+problemom distribuiranog stanja: izgubljeni ažuriranja i sukobljeni
+upisi. Rešavanje toga bez zaključavanja korisnika između sebe zahteva
+namerno model konkurencije, a ne naknadno.</p>
+<h2 id="šta-ga-čini-revolucionarnim">Šta ga čini revolucionarnim</h2>
+<p>HelixTrack Core tretira dozvole kao prvu klasu, zamenjiv motor.
+Implementira <strong>kontekst bazirane hijerarhijske dozvole</strong> sa
+nasleđivanjem, a implementacija dozvola je uključiva — možete je
+pokrenuti lokalno unutar servisa ili delegirati na spoljni HTTP
+autorizacioni servis. Ta separacija omogućava organizacijama da umetnu
+praćivač u postojeću infrastrukturu identiteta i politike umesto da se
+bore sa ugrađenim modelom.</p>
+<p>Takođe čini nešto što većina praćivača ignoriše: <strong>automatsko
+otkrivanje servisa</strong>. Klijenti nalaze Core servere na lokalnoj
+mreži preko UDP broadcast-a, tako da multi-platform klijenti (web,
+desktop, Android, iOS) mogu da se konektuju bez ručne konfiguracije.
+Kombinovano sa JWT autentikacijom, proširenjem sistema za praćenje
+vremena, Dokumenta i Četa, i Git integracijom koja mapira komite na
+tikete, ponaša se kao platforma umesto kao jedan aplikacija.</p>
+<h2 id="kako-sam-rešio-najteže-delove">Kako sam rešio najteže
+delove</h2>
+<p>Za API, rano sam se obavezao na <strong>akcioni rutirajući
+obrazac</strong>. Svaka operacija teče kroz isti <code>/do</code>
+životni ciklus — autentikacija i middleware dozvola, zatim handler
+ključan po akciji. Zbog toga sistem može da nastavi dodavanje mogućnosti
+(Faza 1 prioriteti i rešavanja, Faza 2 epici i radni logovi, Faza 3
+glasanje i sheme obaveštenja, Faza 4 paralelno uređivanje) bez
+fragmentacije API-ja. Nove funkcije registruju nove akcije; transport i
+middleware ostaju konstantni.</p>
+<p>Za konkurentno uređivanje, implementirao sam <strong>optimistično
+zaključavanje sa verzijom sukoba</strong> plus kompletni sloj istorije
+promena. Svaka urediva entitet nosi verziju; upis koji cilja na
+zastarelu verziju je odbijen sa sukobom koji klijent može da reši, a
+istorija tabela (dodata u V4 shemi) snima kompletnu stazu promena. Dodao
+sam eksplicitno upravljanje zaključavanjem entiteta i akcije za
+rešavanje sukoba na vrhu, i spojio ceo sistem u postojeći WebSocket sloj
+tako da saradnici vide ažuriranja u realnom vremenu. Ovo daje stvarno
+vremensku saradnju bez tihih prekrivanja nekog drugog uređivanja.</p>
+<p>Za tenziju između šifrovanja i brzine, dizajn se oslanja na SQLCipher
+za transparentno AES-256 na nivou skladištenja dok se vrući putevi šalju
+kroz keširanje, tako da se česti čitanja ostanu brza čak i sa šifrovanom
+trgovinom ispod. Kodna baza je podržana velikim automatskim testnim
+setom — više od hiljadu testova preko faza — što mi omogućava da
+napravim promene u shemi od preko devedeset tabela i šifrovanoj,
+multi-bazi podataka, konkurentno uređivanoj sistemu i još uvek da
+verujem da se ponašanje zadržava. Arhitektonske dijagrame, korisnički
+priručnik i vodič za implementaciju isporučuju se uz kod, jer JIRA
+alternativa koju niko ne može da operiše nije alternativa uopšte.</p>
+</article>

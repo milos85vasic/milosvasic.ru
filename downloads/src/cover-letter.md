@@ -1,27 +1,31 @@
 # Milos Vasic — Cover Letter
 
-Belgrade, Serbia · Moscow, Russian Federation
+Belgrade, Serbia ⇄ Dubna, Russian Federation
 i@mvasic.ru · +381 69 25 35 718 · +7 966 323 77 17
 github.com/milos85vasic · https://milosvasic.ru
+Languages: Serbian (native) · English (C2) · Russian (basic)
 
 ---
 
 Dear Hiring Team,
 
-I am a software engineer with 15+ years of professional experience building production software across mobile, backend, desktop, and web — with a particular depth in SDK and platform engineering, where correctness, performance, and a clean public API matter most.
+Hello, and thank you for taking the time to read this. My name is Milos Vasic — a senior software engineer who genuinely loves this craft. I split my life between **Belgrade, Serbia** and **Dubna, Russia**, work comfortably across time zones, and have spent 16+ years (since 2009) shipping production software that real people and real businesses depend on. I write to introduce myself as warmly as a letter allows, and to share why I believe I could be a strong addition to your team.
 
-Most recently, at **Harness** (2020–2024), I led development of the Feature Flag SDK family across every major platform — Android, iOS, Flutter, React Native, JavaScript/TypeScript, Java, Kotlin, Swift, Go, and Ruby — serving enterprise customers and partners including AWS and Google. Before that, at **Leica Geosystems** I built real-time iOS/Android software driving cutting-edge 3D laser scanners (hardware communication, data processing, synchronization), and at **Bosch** I led the Connected Vehicles SDK with high-performance real-time Bluetooth/OBD-II communication and persistence.
+I am, at heart, a **platform and SDK engineer** — I like building the stable, well-documented foundations that other engineers stand on. Most recently, at **Harness** (2020–2024), I led the Feature Flag SDK family across ten platforms — Android, iOS, Flutter, React Native, JavaScript/TypeScript, Java, Kotlin, Swift, Go, and Ruby — serving enterprise customers and partners including **AWS and Google**. Before that, at **Leica Geosystems** I built real-time iOS/Android software driving cutting-edge 3D laser scanners (low-level hardware communication, point-cloud processing, synchronization), and at **Bosch** I led the Connected Vehicles SDK with high-performance real-time Bluetooth/OBD-II communication.
 
-What I bring beyond the résumé:
+## Why I might be a good fit — my strengths
 
-- **Platform thinking.** I design SDKs and frameworks that other engineers build on — stable interfaces, strong testing, clear documentation, predictable performance under load.
-- **Breadth with depth.** Android/Kotlin and C++ are my core, but I ship comfortably in Go, Java, Swift, Dart, Python, Ruby, and TypeScript, and across Docker-based backend and distributed systems.
-- **Proof of work.** I maintain a large, active open-source portfolio — including HelixTrack (an enterprise-grade project-tracking platform), HelixCode (a distributed, multi-LLM development platform), and the Server Factory infrastructure-automation suite — engineered under a strict "no-shortcuts, fully-tested" standard.
-- **Authorship.** I wrote *Fundamental Kotlin* (self-published, 3rd edition) and have contributed as an author for Packt Publishing UK.
+These are not abstract claims; each is backed by 240+ open-source repositories across five GitHub organizations that anyone can read, run, and scrutinize:
 
-I would welcome the opportunity to discuss how my experience in building reliable, high-performance software and developer-facing platforms can contribute to your team's goals.
+- **A true full-stack, multi-stack engineer.** Android/Kotlin and C++ are my core, but I ship just as confidently in **Go, Swift, Java, Dart, Python, Ruby, and TypeScript**, across mobile, backend, desktop, and web. *HelixTranslate* alone spans REST + HTTP/3 + real-time WebSockets; *Catalogizer* is a multi-protocol Go system; *GrabTube* is Flutter; *ShareConnect* and *Android-Toolkit* are Kotlin — different stacks, one consistent standard of quality.
+- **Architect of platforms, not just features.** *HelixTrack* (an open-source, enterprise-grade JIRA alternative) and *HelixCode* (a distributed, multi-LLM development platform) are full products with clean public APIs, multi-platform clients, and predictable performance under load — exactly the systems-thinking I bring to a team.
+- **Discipline under a "no-shortcuts" standard.** My projects are engineered to be fully tested, reviewed, and reproducible. I built *LLMsVerifier* (systematic LLM benchmarking/verification) and *Panoptic* (cross-platform automated UI testing) because I believe quality must be measurable, not asserted.
+- **Automation and operations mindset.** The *Server Factory* suite (e.g. *Mail Server Factory*) provisions complete infrastructure declaratively — I am comfortable owning software from first commit to production deployment.
+- **A communicator and teacher.** I wrote *Fundamental Kotlin* (self-published, 3rd edition) and authored for **Packt Publishing UK**. I document clearly, mentor gladly, and value code that the next engineer can understand.
 
-Thank you for your time and consideration.
+What ties all of this together is simple: I care about the people who use what I build — both the end users and the developers who build on top of my work. I would be delighted to discuss how this experience can serve your team's goals.
 
-Sincerely,
+Thank you again for your time and consideration.
+
+Warm regards,
 **Milos Vasic**

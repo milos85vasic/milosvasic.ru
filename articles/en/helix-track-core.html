@@ -1,0 +1,96 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixTrack Core</h1>
+    <p class="hx-article-tech">Go, Gin, PostgreSQL, SQLite, SQLCipher, PLpgSQL, WebSocket</p>
+    <p class="hx-article-repo"><a href="https://github.com/Helix-Track/Core" target="_blank" rel="noopener">https://github.com/Helix-Track/Core &rarr;</a></p>
+  </header>
+<h2 id="the-hook">The hook</h2>
+<p>Imagine rebuilding JIRA and Confluence from scratch, as one Go
+microservice, and making it fast enough to handle tens of thousands of
+requests per second with an encrypted database underneath. That is
+HelixTrack Core: “The Open-Source JIRA Alternative for the Free World.”
+It is not a toy clone — it ships epics, subtasks, sprints, work logs,
+custom fields, dashboards, permission schemes, and a full
+Confluence-style documents engine, all behind a single REST API.</p>
+<h2 id="why-its-fascinating">Why it’s fascinating</h2>
+<p>Most project-tracking tools grow into sprawling monoliths with dozens
+of endpoints that drift apart over years. I went the other way.
+HelixTrack Core exposes a unified <code>/do</code> endpoint with
+<strong>action-based routing</strong>: clients send a named action and a
+payload, and the server dispatches it through a consistent middleware
+and handler pipeline. That single design decision keeps the API surface
+coherent across hundreds of operations — issues, agile boards, voting,
+notification schemes, activity streams, comment mentions — without the
+endpoint sprawl that makes large APIs unmaintainable.</p>
+<p>On top of that sits a real Confluence alternative. The Documents V2
+extension implements spaces, rich pages in HTML/Markdown/plain text,
+full version history with diffs and rollback, inline comments, <span
+class="citation" data-cites="mentions">@mentions</span>, reactions,
+templates, and analytics — backed by its own set of database tables and
+validated by hundreds of model tests. Building one of these systems is a
+project; building both as cooperating modules in one binary is the
+interesting part.</p>
+<h2 id="the-hard-problems">The hard problems</h2>
+<p>Three things make this genuinely hard.</p>
+<p>First, <strong>security without a performance tax</strong>.
+Enterprise issue trackers hold sensitive data, so the database is
+encrypted at rest with SQLCipher (AES-256). Encryption usually means a
+latency penalty — the engineering challenge was keeping that overhead
+minimal while still serving queries quickly under heavy concurrency.</p>
+<p>Second, <strong>multi-database reality</strong>. Developers want
+SQLite for a frictionless local setup; production wants PostgreSQL with
+its concurrency and durability. Supporting both — including
+PLpgSQL-level optimizations and a schema that has evolved across
+multiple versioned migrations (V1 through V4, growing past ninety
+tables) — means every feature has to be correct on two very different
+engines.</p>
+<p>Third, <strong>real-time collaboration with correctness</strong>. The
+moment multiple people edit the same ticket, you face the classic
+distributed-state problem: lost updates and conflicting writes. Solving
+that without locking users out of each other’s work requires a
+deliberate concurrency model, not an afterthought.</p>
+<h2 id="what-makes-it-game-changing">What makes it game-changing</h2>
+<p>HelixTrack Core treats permissions as a first-class, swappable
+engine. It implements <strong>context-based hierarchical
+permissions</strong> with inheritance, and the permissions
+implementation is pluggable — you can run it locally inside the service
+or delegate to an external HTTP authorization service. That separation
+lets organizations slot the tracker into an existing identity and policy
+infrastructure instead of fighting a built-in model.</p>
+<p>It also does something most trackers ignore: <strong>automatic
+service discovery</strong>. Clients find Core servers on the local
+network via UDP broadcast, so the multi-platform clients (web, desktop,
+Android, iOS) can connect without manual configuration. Combined with
+JWT authentication, an extension system for Time Tracking, Documents,
+and Chat, and Git integration that maps commits to tickets, it behaves
+like a platform rather than a single app.</p>
+<h2 id="how-i-solved-the-hardest-parts">How I solved the hardest
+parts</h2>
+<p>For the API, I committed to the <strong>action-routing
+pattern</strong> early. Every operation flows through the same
+<code>/do</code> lifecycle — authentication and permission middleware,
+then a handler keyed by action name. This is why the system can keep
+adding capabilities (Phase 1 priorities and resolutions, Phase 2 epics
+and work logs, Phase 3 voting and notification schemes, Phase 4 parallel
+editing) without the API fragmenting. New features register new actions;
+the transport and middleware stay constant.</p>
+<p>For concurrent editing, I implemented <strong>optimistic locking with
+version conflicts</strong> plus a complete change-history layer. Each
+editable entity carries a version; a write that targets a stale version
+is rejected with a conflict the client can resolve, and history tables
+(added in the V4 schema) record the full trail of changes. I added
+explicit entity-locking management and conflict-resolution actions on
+top, and wired the whole thing into the existing WebSocket layer so
+collaborators see live updates. This gives real-time collaboration
+without silently clobbering someone else’s edit.</p>
+<p>For the encryption-versus-speed tension, the design leans on
+SQLCipher for transparent AES-256 at the storage layer while pushing hot
+paths through caching, so the common read patterns stay fast even with
+an encrypted store underneath. The codebase is backed by a large
+automated test suite — well over a thousand tests across the phases —
+which is what lets me make changes to a 90-plus-table schema and an
+encrypted, multi-database, concurrently-edited system and still trust
+that the behavior holds. Architecture diagrams, a user manual, and a
+deployment guide ship alongside the code, because a JIRA alternative
+that nobody can operate is not an alternative at all.</p>
+</article>

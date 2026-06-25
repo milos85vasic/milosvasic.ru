@@ -1,0 +1,87 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Helix-Flow Platform</h1>
+    <p class="hx-article-tech">Go, gRPC, HTTP, TLS 1.3, mTLS, PostgreSQL, SQLite, JWT</p>
+    <p class="hx-article-repo"><a href="https://github.com/Helix-Flow/Platform" target="_blank" rel="noopener">https://github.com/Helix-Flow/Platform &rarr;</a></p>
+  </header>
+<h2 id="the-hook">The hook</h2>
+<p>“One platform for all your AI inference needs — run powerful AI
+models faster, smarter, at any scale, with predictable costs.”
+Helix-Flow Platform is an enterprise AI inference gateway that speaks
+the OpenAI API so your existing clients just work, but runs as a
+hardened, mutually-authenticated microservice mesh underneath with TLS
+1.3 end to end.</p>
+<h2 id="why-its-fascinating">Why it’s fascinating</h2>
+<p>The promise of AI inference is simple to state and brutal to deliver:
+give teams one consistent, fast, secure way to call models without
+locking them into a single vendor’s pricing or runtime. Helix-Flow
+approaches it as an <strong>enterprise-grade microservices
+architecture</strong> — an API gateway fronting independent services for
+authentication, an inference pool, and monitoring — exposed over both
+HTTP and gRPC simultaneously.</p>
+<p>Crucially, it targets <strong>OpenAI API specification
+compliance</strong>. That means the familiar surface —
+<code>/v1/models</code>, <code>/v1/chat/completions</code>, Bearer-token
+auth — is there, so anything already built against the OpenAI API can
+point at Helix-Flow instead. You get a drop-in endpoint, but with your
+own auth, your own monitoring, and your own cost controls behind it.</p>
+<h2 id="the-hard-problems">The hard problems</h2>
+<p>The central challenge is <strong>security at the service-mesh level,
+not just the edge</strong>. It is easy to put TLS on a public endpoint;
+it is much harder to encrypt and authenticate every hop <em>between</em>
+internal services. Helix-Flow builds a complete PKI and runs TLS 1.3
+with <strong>mutual TLS (mTLS)</strong> across its gRPC service mesh, so
+services prove their identity to each other, not just to the outside
+world. That requires automated certificate management — generating,
+distributing, and rotating certs — because a mesh secured by hand does
+not survive contact with production.</p>
+<p>The second hard problem is <strong>dual-protocol parity</strong>.
+Offering both an HTTP gateway and a gRPC gateway means the same
+capabilities have to be correct over two very different transports, with
+consistent authentication and behavior across both. Teams that prefer
+REST and teams that prefer high-performance gRPC should get the same
+platform.</p>
+<p>The third is <strong>predictable cost and operability</strong>.
+“Predictable costs” is a product promise that only holds if the platform
+has real monitoring, rate limiting, and audit logging — so spend and
+behavior are observable and bounded rather than a surprise at the end of
+the month.</p>
+<h2 id="what-makes-it-game-changing">What makes it game-changing</h2>
+<p>Helix-Flow’s bet is that AI inference should be
+<strong>infrastructure</strong>, not a per-app integration. By
+presenting an OpenAI-compatible API in front of a vendor-agnostic
+inference pool, it lets an organization centralize how it calls models:
+one gateway, one auth model, one place to enforce rate limits, one audit
+trail. Switching or adding model backends becomes an infrastructure
+decision rather than a code change scattered across every consuming
+application.</p>
+<p>And it does this without compromising on the enterprise basics — JWT
+validation, rate limiting, audit logging, graceful error handling, and a
+multi-database backend (SQLite for development, PostgreSQL for
+production) — so it can move from a laptop to a cluster without changing
+the contract clients depend on.</p>
+<h2 id="how-i-solved-the-hardest-parts">How I solved the hardest
+parts</h2>
+<p>I built security in from the foundation rather than bolting it on.
+The platform ships a <strong>complete PKI with TLS 1.3 plus
+mTLS</strong>, and certificate provisioning is automated so the service
+mesh can authenticate itself without manual cert wrangling. Every
+internal gRPC hop is mutually authenticated; the gateway terminates
+external traffic over TLS and validates JWTs before anything reaches the
+inference pool. Security is a property of the mesh, not a wrapper around
+it.</p>
+<p>For dual-protocol support, I designed the <strong>API gateway to
+serve HTTP and gRPC side by side</strong>, with the heavier services —
+authentication and the inference pool — exposed over gRPC for
+performance and the public surface exposed over HTTP for compatibility.
+The split lets latency-sensitive internal calls use gRPC while external
+clients keep the simple OpenAI-style REST interface.</p>
+<p>For operability and the “predictable costs” promise, I made the
+<strong>monitoring service a first-class component</strong> alongside
+auth and inference, layering in health checks, metrics collection, rate
+limiting, and audit logging so usage and system health are visible and
+bounded by default. The multi-database design — SQLite for frictionless
+local runs, PostgreSQL for production — means the same platform
+validates on a single machine and then scales out, which is exactly what
+an “any scale” inference platform has to be able to do.</p>
+</article>

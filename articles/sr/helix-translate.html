@@ -1,0 +1,92 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixTranslate</h1>
+    <p class="hx-article-tech">Go, HTTP/3, WebSocket, REST, SSH, LLM providers</p>
+    <p class="hx-article-repo"><a href="https://github.com/HelixDevelopment/HelixTranslate" target="_blank" rel="noopener">https://github.com/HelixDevelopment/HelixTranslate &rarr;</a></p>
+  </header>
+<h2 id="kuka">Kuka</h2>
+<p>Dajte mu knjigu u bilo kom formatu, nazovite ciljni jezik, i
+HelixTranslate će prevesti sve — usmeravajući vaš tekst na najjači
+<em>verifikovani</em> LLM dostupan, strimujući napredak na živo na
+dashboard, i odbijajući da ćuti degradira kvalitet iza vaših leđa. To je
+visokoperformansni, preduzećni univerzalni alat za prevod e-knjiga sa
+REST API-om, podrškom za HTTP/3 i real-time WebSocket događajima.</p>
+<h2 id="zašto-je-fascinirajuće">Zašto je fascinirajuće</h2>
+<p>Alati za prevod obično vas prisiljavaju da izaberete pružaoca i
+nadate se da će biti dovoljno dobar danas. HelixTranslate okreće to.
+Njegova defaultna putanja je <strong>bridge-izabrana</strong>: on izvori
+najjači verifikovani API model — plus lanac za povratni poziv poređan po
+rezultatima — automatski, preko integracije sa mojim projektom
+LLMsVerifier. Vi ne biračete pružaoca; sistem bira najboljeg koji je
+trenutno dokazano da radi, i pada na rangiranu listu ako prvi izbor ne
+uspe.</p>
+<p>Okolo tog jezgre se nalazi potpuni <strong>sistem za praćenje u
+realnom vremenu</strong>: WebSocket centar strimuje živo napredak,
+događaje i greške na web dashboard, podržava više simultanih sesija
+prevoda sa jedinstvenim ID-jevima, i rukuje multi-klijentskim vezama sa
+automatskom ponovnom vezom. Možete gledati kako se duga knjiga prevodi
+pasus po pasusu umesto da gledate blokiran terminal. On komunicira sa
+mnogim pružaocima — OpenAI, Anthropic, DeepSeek, Zhipu, Qwen, Gemini i
+više — svi su dosežni preko verifikovane otkrivanja.</p>
+<h2 id="teški-problemi">Teški problemi</h2>
+<p>Prvi teški problem je <strong>iskrenost pod neuspehom</strong>. Lako
+je reći da se, kada API ključ nedostaje ili pružalac ne uspe, tiho
+prebaciti na slab lokalni model i lažirati da sve funkcioniše. To
+proizvodi loše prevode koji izgledaju uspešno. Ja sam napravio suprotno
+kao tvrdi pravilo: bez postavljenog API ključa pružaoca, most vraća
+iskrenu grešku — nikada nema tihi lokalni povratni poziv. Namećući to
+konzistentno širom cijelog pipeline-a je dizajnerski zahtjev, a ne jedan
+linija provere.</p>
+<p>Drugi je <strong>distribuirani prevod preko SSH</strong>. Velike
+knjige su spore za prevoditi serijski, pa sistem podržava remote SSH
+radnike — spajajući se sigurno, šaljući rad prevoda, praćenjem napretka
+sa remote strane, i rukujući greškama i povratnim pozivom. Koordinacija
+remote radnika, a još uvek emitovanje koherentnih događaja u realnom
+vremenu na dashboard, je vrsta integracije koja se lomi na stotinu mali
+načina.</p>
+<p>Treći je <strong>dogadjaji u realnom vremenu urađeni
+ispravno</strong>. Strimovanje živog napretka za više konkurantnih
+sesija na više klijenata dashboard-a — sa ponovnom vezom, istorijom
+sesije i praćenjem po sesiji — je pravi WebSocket-arhitektonski problem,
+a ne samo progress bar.</p>
+<h2 id="šta-ga-čini-revolucionarnim">Šta ga čini revolucionarnim</h2>
+<p>Strategija verifikovanog najboljeg modela je ideja vrijedna krađe.
+Umjesto da se oslanja na statični izbor pružaoca, HelixTranslate
+kontinuirano se oslanja na vanjsku verifikaciju da se usmjeri na ono što
+je <em>zaista</em> funkcionisalo, sa determinističkim lancom povratnog
+poziva kada nije. To pretvara “koji LLM treba koristiti za prevod?” iz
+pitanja u mjereno, automatsko odluku — i znači da alat postaje bolji
+kako se podrazumeva model krajolika menja, bez promjena u kodu.</p>
+<p>Također je namjerno ograničen. U jednom trenutku projekt je podržavao
+lokalne pružaoce i SSH-lokalni put; u kasnijoj fazi mosta sam
+<strong>uklonio</strong> lokalne pružaoce (Ollama, LlamaCpp) i
+SSH-lokalni put prevoda potpuno. Odabir njih sada vraća iskrenu “više
+nije podržano” grešku umesto da pokreće slabiji lokalni model. To je
+isti princip iskrenosti primijenjen na putu: ja bih radije prekinuo put
+nego da dopuštam da proizvodi tiho lošije izlazne podatke.</p>
+<h2 id="kako-sam-riješio-najteže-dijelove">Kako sam riješio najteže
+dijelove</h2>
+<p>Arhitektonska ključna komponenta je <strong>bridge paket</strong>
+(<code>pkg/bridge</code>) koji povezuje prevod sa LLMsVerifier. Umjesto
+da se hardkodiraju preferencije pružaoca, prevodilac pita most za
+najjači verifikovani model i rangiran lanac povratnog poziva, zatim
+prevodi protiv toga. To je ono što čini “ne morate birati pružaoca”
+istinitim u praksi, i to je gdje se primjenjuje pravilo bez tihih
+povratnih poziva — most vraća eksplicitnu grešku umjesto da zamjeni
+lokalni model.</p>
+<p>Za praćenje u realnom vremenu sam razdvojio brige u posvećene pakete:
+<code>websocket</code> centar koji upravlja vezom i broadcastom, sistem
+<code>events</code> koji definira i emituje tok događaja, i paket
+<code>sshworker</code> za remote izvršenje. Samostalni monitor server
+konzumira WebSocket tok i upravlja dashboard-om, tako da su prevod i
+praćenje odvajeni — CLI emituje događaje, server ih širi, i bilo koji
+broj klijenata dashboard-a se pretplaćuje sa automatskom ponovnom
+vezom.</p>
+<p>Za distribuciju, sloj SSH radnika upravlja sigurnom vezom i remote
+izvršenjem, prijavljujući napredak nazad kroz isti sistem događaja, tako
+da remote prevod izgleda identično kao lokalni sa stanovišta
+dashboard-a. Cela stvar je izložena preko REST API-ja sa podrškom za
+HTTP/3 i podržana sa sveobuhvataćim WebSocket testnim setom za praćenje
+— jer sistem prevoda koji se ne može promatrati je sistem prevoda koji
+se ne može vjerovati.</p>
+</article>

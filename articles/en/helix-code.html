@@ -1,0 +1,91 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixCode</h1>
+    <p class="hx-article-tech">Go, PostgreSQL, Redis, SSH, MCP, WebSocket, Gin</p>
+    <p class="hx-article-repo"><a href="https://github.com/HelixDevelopment/HelixCode" target="_blank" rel="noopener">https://github.com/HelixDevelopment/HelixCode &rarr;</a></p>
+  </header>
+<h2 id="the-hook">The hook</h2>
+<p>What if your AI coding agent did not run on one machine, but across a
+network of workers it provisioned itself — dividing a large task into
+pieces, dispatching them, and checkpointing along the way so a crash
+never loses work? That is HelixCode: an enterprise-grade distributed AI
+development platform written in Go, with SSH-based worker pools,
+automatic checkpointing, rollback, and multi-provider LLM
+integration.</p>
+<h2 id="why-its-fascinating">Why it’s fascinating</h2>
+<p>Most “AI coding agents” are a single process talking to a single
+model. HelixCode is built around the idea that real development work is
+divisible and distributable. It performs <strong>intelligent task
+division</strong> with dependency management, then preserves work
+through automatic checkpointing so a long-running job can survive
+interruption. The platform exposes itself through four client surfaces —
+REST API, CLI, a terminal UI, and WebSocket — and implements the
+<strong>Model Context Protocol (MCP)</strong> with multi-transport
+support so it plugs into the wider agent tooling ecosystem.</p>
+<p>It is also genuinely cross-platform in an unusually broad sense:
+Linux, macOS, Windows, plus Aurora OS and SymphonyOS, with frameworks
+staged for iOS and Android. The repository spans Go at its core with
+Shell, Kotlin, Swift, and web assets around it — the shape of a platform
+meant to be driven from anywhere.</p>
+<h2 id="the-hard-problems">The hard problems</h2>
+<p>The defining challenge is <strong>distribution without
+fragility</strong>. The moment you split a coding task across remote
+workers, you inherit every hard problem in distributed systems: how to
+divide work along real dependency boundaries, how to track which worker
+owns which piece, how to recover when a worker disappears mid-task, and
+how to merge results back coherently.</p>
+<p>Worker management is its own problem. HelixCode does not assume a
+pre-built cluster — it offers an <strong>SSH worker pool with
+auto-installation</strong>, meaning it has to reach a remote host, set
+itself up there, register the worker, and monitor its health, all
+securely over SSH. Getting that bootstrap reliable across heterogeneous
+machines is far harder than it sounds.</p>
+<p>Then there is the LLM layer. Supporting multiple providers behind one
+interface, doing hardware detection (CPU/GPU/memory) to choose models
+intelligently, and layering advanced reasoning — chain-of-thought and
+tree-of-thoughts — on top means the agent has to reason about
+<em>where</em> and <em>with what</em> it runs, not just <em>what</em> to
+generate.</p>
+<h2 id="what-makes-it-game-changing">What makes it game-changing</h2>
+<p>The combination of <strong>work preservation and rollback</strong> is
+the differentiator. An AI agent that can resume exactly where it left
+off, and roll back a bad change, turns long autonomous runs from a
+gamble into something operable. HelixCode pairs this with full
+development-workflow modes — planning, building, testing, and
+refactoring — backed by database-persisted projects and multi-session
+context tracking. It is not just “generate code”; it is a lifecycle.</p>
+<p>The MCP implementation matters too. By speaking the Model Context
+Protocol with multiple transports, HelixCode can act as both a consumer
+and a participant in the agent-tooling world, and its multi-channel
+notifications (Slack, Discord, Email, Telegram) mean a distributed run
+can report progress to wherever humans actually watch.</p>
+<h2 id="how-i-solved-the-hardest-parts">How I solved the hardest
+parts</h2>
+<p>I structured the system as clean internal modules — authentication
+and session management, worker pool management, task management and
+checkpointing, project and workflow management, and LLM provider
+integration — each living in its own package. That separation is what
+makes the distributed behavior tractable: task division and
+checkpointing are concerns I can reason about independently of which LLM
+provider or which transport is in play.</p>
+<p>For the worker network, I built the <strong>SSH worker pool to
+self-install</strong>. Rather than requiring operators to pre-stage
+every node, the platform connects over SSH, installs what it needs,
+registers the worker, and then health-monitors it continuously. Health
+monitoring feeds back into task management so work can be reassigned
+when a node degrades.</p>
+<p>For resilience, <strong>checkpointing is the backbone</strong>. Task
+management writes checkpoints as work proceeds, so an interrupted job
+resumes from its last good state instead of restarting, and rollback can
+unwind a bad step. This is the mechanism that makes long, distributed,
+autonomous runs safe to attempt.</p>
+<p>For the model layer, I put every provider behind a <strong>unified
+provider interface</strong> and added hardware detection so the agent
+matches model choice to the machine actually running it. On top of that
+interface I layered tool calling and the chain-of-thought /
+tree-of-thoughts reasoning, so improving the reasoning strategy does not
+require touching provider plumbing. The persistence layer is PostgreSQL
+with optional Redis, which keeps projects, sessions, and workflow state
+durable across the whole distributed fleet — the difference between a
+clever demo and a platform you can actually run.</p>
+</article>

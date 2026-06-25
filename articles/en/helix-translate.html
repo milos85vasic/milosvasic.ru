@@ -1,0 +1,92 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixTranslate</h1>
+    <p class="hx-article-tech">Go, HTTP/3, WebSocket, REST, SSH, LLM providers</p>
+    <p class="hx-article-repo"><a href="https://github.com/HelixDevelopment/HelixTranslate" target="_blank" rel="noopener">https://github.com/HelixDevelopment/HelixTranslate &rarr;</a></p>
+  </header>
+<h2 id="the-hook">The hook</h2>
+<p>Hand it a book in any format, name a target language, and
+HelixTranslate will translate the whole thing — routing your text to the
+strongest <em>verified</em> LLM available, streaming progress to a live
+dashboard, and refusing to quietly degrade quality behind your back. It
+is a high-performance, enterprise-grade universal ebook translation
+toolkit with a REST API, HTTP/3 support, and real-time WebSocket
+events.</p>
+<h2 id="why-its-fascinating">Why it’s fascinating</h2>
+<p>Translation tools usually make you pick a provider and hope it is
+good enough today. HelixTranslate inverts that. Its default path is
+<strong>bridge-selected</strong>: it sources the strongest verified API
+model — plus a score-ordered fallback chain — automatically, via an
+integration with my LLMsVerifier project. You do not choose a provider;
+the system chooses the best one that is currently proven to work, and
+falls back down a ranked list if the top choice fails.</p>
+<p>Around that core sits a full <strong>real-time monitoring
+system</strong>: a WebSocket hub streams live progress, events, and
+errors to a web dashboard, supports multiple simultaneous translation
+sessions with unique IDs, and handles multi-client connections with
+automatic reconnection. You can watch a long book translate paragraph by
+paragraph instead of staring at a blocked terminal. It speaks to many
+providers — OpenAI, Anthropic, DeepSeek, Zhipu, Qwen, Gemini, and more —
+all reachable through verified discovery.</p>
+<h2 id="the-hard-problems">The hard problems</h2>
+<p>The first hard problem is <strong>honesty under failure</strong>. The
+easy thing to do when an API key is missing or a provider fails is to
+silently fall back to a weak local model and pretend everything is fine.
+That produces garbage translations that look successful. I made the
+opposite a hard rule: with no provider API key set, the bridge returns
+an honest error — there is never a silent local fallback. Enforcing that
+consistently across the whole pipeline is a design constraint, not a
+one-line check.</p>
+<p>The second is <strong>distributed translation over SSH</strong>.
+Large books are slow to translate serially, so the system supports
+remote SSH workers — connecting securely, dispatching translation work,
+tracking progress from the remote side, and handling errors and
+fallback. Coordinating remote workers while still emitting coherent
+real-time events to the dashboard is the kind of integration that breaks
+in a hundred small ways.</p>
+<p>The third is <strong>real-time eventing done right</strong>.
+Streaming live progress for multiple concurrent sessions to multiple
+dashboard clients — with reconnection, session history, and per-session
+tracking — is a genuine WebSocket-architecture problem, not a progress
+bar.</p>
+<h2 id="what-makes-it-game-changing">What makes it game-changing</h2>
+<p>The verified-best-model strategy is the idea worth stealing. Instead
+of trusting a static provider choice, HelixTranslate continuously leans
+on external verification to route to whatever is <em>actually</em>
+performing, with a deterministic fallback chain when it is not. That
+turns “which LLM should I use for translation?” from a guess into a
+measured, automatic decision — and it means the tool gets better as the
+underlying model landscape shifts, without code changes.</p>
+<p>It is also deliberately scoped. At one point the project supported
+local-runtime providers and an SSH-local path; in a later bridge phase I
+<strong>removed</strong> the local-runtime providers (Ollama, LlamaCpp)
+and the SSH-local translation path entirely. Selecting them now returns
+an honest “no longer supported” error rather than running a degraded
+local model. That is the same honesty principle applied to the roadmap:
+I would rather cut a path than let it produce quietly worse output.</p>
+<h2 id="how-i-solved-the-hardest-parts">How I solved the hardest
+parts</h2>
+<p>The architectural keystone is the <strong>bridge package</strong>
+(<code>pkg/bridge</code>) that connects translation to LLMsVerifier.
+Rather than hardcoding provider preferences, the translator asks the
+bridge for the strongest verified model and a ranked fallback chain,
+then translates against that. This is what makes “you don’t have to pick
+a provider” true in practice, and it is where the no-silent-fallback
+rule is enforced — the bridge returns an explicit error instead of
+substituting a local model.</p>
+<p>For real-time monitoring I separated concerns into dedicated
+packages: a <code>websocket</code> hub that owns connection and
+broadcast management, an <code>events</code> system that defines and
+emits the event stream, and an <code>sshworker</code> package for remote
+execution. A standalone monitor server consumes the WebSocket stream and
+drives the dashboard, so translation runs and monitoring are decoupled —
+the CLI emits events, the server fans them out, and any number of
+dashboard clients subscribe with automatic reconnection.</p>
+<p>For distribution, the SSH worker layer handles secure connection
+management and remote execution while reporting progress back through
+the same event system, so a remote translation looks identical to a
+local one from the dashboard’s point of view. The whole thing is exposed
+over a REST API with HTTP/3 support and backed by a comprehensive
+WebSocket monitoring test suite — because a translation system you
+cannot observe is a translation system you cannot trust.</p>
+</article>

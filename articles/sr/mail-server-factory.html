@@ -1,0 +1,103 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Mail Server Factory</h1>
+    <p class="hx-article-tech">Shell/Go</p>
+    <p class="hx-article-repo"><a href="https://github.com/Server-Factory/Mail-Server-Factory" target="_blank" rel="noopener">https://github.com/Server-Factory/Mail-Server-Factory &rarr;</a></p>
+  </header>
+<h2 id="mamac">Mamac</h2>
+<p>Vođenje sopstvenog mail servera ima zasluženu reputaciju kao jedan od
+najmučnijih poslova u sistemskoj administraciji: SMTP, IMAP, POP3, TLS,
+DKIM, SPF, firewall-ovi, sertifikati, SELinux i desetak demona koji svi
+moraju da se slože ili ništa neće biti dostavljeno. <em>Mail Server
+Factory</em> nudi rešenje sa izuzetno direktnim pristupom — <em>„Vođi
+svoj mail server kao šef”</em>. Napišete jednostavan JSON fajl koji
+opisuje šta želite, a <em>Factory</em> ga interpretira i gradi vam čitav
+otporan, Dockerizovan stack na ciljnoj mašini.</p>
+<h2 id="zašto-je-to-fascinantno">Zašto je to fascinantno</h2>
+<p>Fascinantna ideja je tretiranje deployovanja mail servera kao
+<em>problema kompajliranja</em>. JSON konfiguracija je izvorni kod;
+<em>Factory</em> je kompajler; a pokrenut, labavo povezan,
+Docker-baziran mail stack na ciljnom OS-u je rezultat. Pošto je svaka
+komponenta stacka labavo povezana i kontejnerizovana, dobija se čista
+osnova za kasnije skaliranje, umesto klupka ručno editovanih config
+fajlova koje se niko ne usuđuje da dodirne.</p>
+<p>Ono što ovo premešta iz kategorije <em>„zanimljivo”</em> u
+<em>„ozbiljno”</em> jeste doseg. <em>Factory</em> može da isporuči taj
+stack preko 12 različitih vrsta konekcija — SSH, Docker, Kubernetes, AWS
+SSM, Azure Serial Console, GCP OS Login, Libvirt, custom protokol, baza
+podataka, fajl sistem, cloud provajder i container runtime. A cilja na
+25 Linux distribucija, uključujući one koje većina alata potpuno
+ignoriše: zapadne standardne (Ubuntu, Debian, CentOS, Fedora, AlmaLinux,
+Rocky, openSUSE), ruske distribucije (ALT, Astra, ROSA) i kineske
+(openEuler, openKylin, Deepin). Taj opseg je namerna izjava: tvoj mail
+server, tvoj hardver, tvoja nadležnost.</p>
+<h2 id="teški-problemi">Teški problemi</h2>
+<p>Prvi težak problem je taj što <em>„ista instalacija”</em> nikada nije
+ista. Nazivi paketa, init sistemi, firewall interfejsi i ponašanje
+SELinux-a razlikuju se na 25 distribucija. <em>Factory</em> sadrži pravi
+sigurnosni okvir — <code>CertificateValidator</code>,
+<code>DockerCredentialsManager</code>, <code>SELinuxChecker</code>,
+<code>PasswordValidator</code> i <code>ConnectionPool</code> — upravo
+zato što svaki od tih aspekata ponaša se drugačije na svakoj platformi i
+ne može se pretpostaviti.</p>
+<p>Drugi problem je sam sloj konekcije. Povezivanje sa ciljem preko
+SSH-a potpuno se razlikuje od povezivanja preko AWS SSM, Azure Serial
+Console ili Libvirt. Svaki transport ima svoj način autentifikacije,
+svoju latenciju i svoje načine otkaza. Apstrakcija svih 12 iza
+jedinstvenog instalacionog pipeline-a — tako da instalacioni koraci ne
+mare kako bajtovi stižu do mašine — predstavlja arhitektonsku kičmu
+projekta.</p>
+<p>Treći problem je dobijanje čiste mašine na prvom mestu.
+<em>Factory</em> automatizuje neinteraktivnu instalaciju OS-a preko
+preseed, kickstart, cloud-init i autoyast na svim tim distribucijama,
+pokreće QEMU virtuelne mašine preko <code>scripts/qemu_manager.sh</code>
+i upravlja ISO slikama sa proverom checksum-a i preduzetničkim dodatkom:
+dvosmernim SMB kešom koji preuzima nedostajuće slike sa mrežnog dela,
+otprema nedostajuće nazad i pribegava internetskom preuzimanju samo kao
+poslednjem rešenju.</p>
+<h2 id="šta-ga-čini-revolucionarnim">Šta ga čini revolucionarnim</h2>
+<p>Revolucionarno je to što čini samostalno hostovanje maila
+<em>reproducibilnim i proverljivim</em>. Infrastruktura za e-poštu je
+upravo ona stvar koju želite da opišete kao podatke i ponovo izgradite
+identično, a ne da je sastavljate po sećanju u 2 ujutro. Sa stackom
+definisanim u JSON-u i sigurnosnim stavom koji nameće kod — AES-256-GCM
+enkripcija, obavezne SSH ključne fraze od najmanje 12 karaktera,
+automatska pravila firewall-a za portove 25/587/465/993/995, TLS sa
+validacijom sertifikata i HSTS, audit logovanje i RBAC — <em>„mail
+server za produkciju”</em> prestaje da bude višenedeljni projekat i
+postaje konfiguracija koju možete pregledati, verzionisati i ponovo
+pokrenuti.</p>
+<p>Takođe je rigorozno validiran, a ne samo ambiciozan: projekat beleži
+439 testova sa 100% prolaznosti, 100% SonarQube kvalitetni prag i
+kompletan testing framework koji proverava stvarno SMTP/IMAP/POP3
+ponašanje na distribucijama, kao i merenja protoka i latencije. Za alat
+čiji je jedini posao da mu poverite svoj mail, te dokaze su zapravo
+funkcija.</p>
+<h2 id="kako-sam-rešio-najteže-delove">Kako sam rešio najteže
+delove</h2>
+<p>Razdvojio sam <em>šta izgraditi</em> od <em>kako doći do cilja</em> i
+<em>na kom OS-u smo</em>. JSON konfiguracija opisuje nameru; apstrakcija
+transporta skriva 12 vrsta konekcija iza jednog interfejsa tako da
+instalacioni koraci izvršavaju iste logičke operacije bez obzira da li
+teku preko SSH-a ili AWS SSM; a logika za svaku distribuciju je
+izolovana tako da matrica od 25 distribucija postoji na jednom mestu
+umesto da se prosipa kroz svaki korak. Ta slojevitost je razlog zašto
+dodavanje nove distribucije ili vrste konekcije ne izaziva talase kroz
+ceo kod.</p>
+<p>Za sigurnost nisam ostavio ništa na dobroj volji operatera. Okvir
+nameće teške delove — <em>proverava</em> SELinux, <em>validira</em>
+sertifikate, <em>upravlja</em> Docker kredencijalima i <em>odbacuje</em>
+slabe lozinke i SSH ključeve bez fraze — tako da ispravna deployacija
+bude podrazumevana, a ne pažljivo postignut rezultat. Shell obavlja
+teško provisioniranje tamo gde je to pravi alat, sa Kotlin/JVM logikom
+za orkestraciju i sigurnosni okvir, dok Docker drži svaku komponentu
+labavo povezanu.</p>
+<p>I rešio sam problem <em>„čiste mašine”</em> koji većina instalera
+ignoriše: neinteraktivne instalacije za svaku podržanu distribuciju,
+automatizacija QEMU-a za pokretanje testnih ciljeva i dvosmerni SMB keš
+za ISO slike tako da deployovanje na čitavom klasteru ne preuzima istu
+sliku dvadeset pet puta — sa proverom checksum-a za svaku sliku, bez
+obzira odakle je stigla. Rezultat je alat koji vas vodi od golog metala
+(ili prazne VM) sve do otpornog, testiranog, pokrenutog mail servera iz
+jednog fajla.</p>
+</article>
