@@ -1,0 +1,107 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Catalogizer</h1>
+    <p class="hx-article-tech">Go, Gin, React, TypeScript, SQLCipher, WebSocket, SMB/FTP/NFS/WebDAV</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/Catalogizer" target="_blank" rel="noopener">https://github.com/vasic-digital/Catalogizer &rarr;</a></p>
+  </header>
+<h2 id="der-haken">Der Haken</h2>
+<p>Ihre Medien sind überall verfügbar — ein SMB-Share auf dem NAS, ein
+FTP-Box, ein NFS-Mount, ein WebDAV-Server, ein lokales Laufwerk — und
+nichts versteht all dies gleichzeitig. Catalogizer schon. Es ist ein
+fortschrittliches, multi-protokollfähiges Medien-Verwaltungssystem, das
+automatisch Medien über alle diese Protokolle hinweg erkennt,
+kategorisiert und organisiert, sie in Echtzeit überwacht, alles mit
+externen Metadaten anreichert und den gesamten Katalog in einer
+verschlüsselten Datenbank speichert.</p>
+<h2 id="warum-es-faszinierend-ist">Warum es faszinierend ist</h2>
+<p>Catalogizer behandelt “Ihre Sammlung” als eine einzelne logische
+Bibliothek, die über heterogene Speicher verstreut ist. Es erkennt
+<strong>50+ Medientypen</strong> — Filme, TV-Sendungen, Musik, Spiele,
+Software, Dokumentationen und mehr — und überwacht jede Quelle
+kontinuierlich auf Änderungen, aktualisiert Metadaten automatisch. Es
+bereichert Einträge aus einer breiten Palette externer Anbieter (TMDB,
+IMDB, TVDB, MusicBrainz, Spotify, Steam und andere), analysiert die
+Qualität, verfolgt Versionen und zeigt Analysen wie Wachstumstrends
+an.</p>
+<p>Der Stack ist ein sauberer Split: eine hochleistungsfähige
+Go-REST-API auf Gin, eine moderne React/TypeScript-Oberfläche mit
+Tailwind und WebSocket-Integration, so dass die Benutzeroberfläche live
+aktualisiert wird, wenn der Katalog geändert wird. Darunter liegt die
+Datenbank in einem <strong>SQLCipher-verschlüsselten</strong> Speicher.
+Es geht sogar über die Katalogisierung hinaus mit praktischen Extras —
+einem PDF-Konvertierungsdienst, Favoriten-Export/Import im JSON- und
+CSV-Format, Cloud-Synchronisation mit S3 und Google Cloud Storage und
+professionellen PDF-Berichten mit Diagrammen.</p>
+<h2 id="die-harten-probleme">Die harten Probleme</h2>
+<p>Das härteste Problem ist <strong>unzuverlässiger
+Netzwerkspeicher</strong>. SMB und Freunde fallen aus. Mounts
+verschwinden. Ein naiver Katalogisierer wirft Fehler aus und verdirbt
+seine Sicht der Welt, sobald ein Share offline geht. Catalogizer ist für
+<strong>Protokollresilienz</strong> konzipiert: es behandelt
+vorübergehende Verbindungsabbrüche elegant, verbindet sich automatisch
+wieder und cacht für den Offline-Betrieb, so dass ein fluktuierender NAS
+das gesamte System nicht aus dem Gleichgewicht bringt. Die Konzeption
+für den Fehlerfall als Normalfall — und nicht als Ausnahme — ist die
+bestimmende Ingenieursentscheidung hier.</p>
+<p>Das zweite Problem ist <strong>eine einzige Abstraktion über sehr
+unterschiedliche Protokolle</strong>. SMB, FTP, NFS, WebDAV und das
+lokale Dateisystem haben jeweils ihre eigenen Semantiken, Eigenheiten
+und Fehlermodi. Die Darstellung durch eine konsistente
+Dateisystem-Client-Schnittstelle — einschließlich vollständiger
+NFS-Mounting und Dateioperationen auf macOS —, so dass die
+Erkennungsmaschine und der Monitor sie einheitlich behandeln können, ist
+ein erheblicher Integrationsaufwand.</p>
+<p>Das dritte ist <strong>Erkennung im großen Maßstab mit
+Sicherheit</strong>. Die zuverlässige Erkennung von 50+ Medientypen, die
+Anreicherung mit externen APIs und die Durchführung all dessen über eine
+verschlüsselte Datenbank mit JWT-basierter Rollenzugriff — ohne dass die
+Verschlüsselung oder die API-Aufrufe zu einem Flaschenhals werden —
+erfordert eine bewusste Architektur.</p>
+<h2 id="was-es-zum-spieländerer-macht">Was es zum Spieländerer
+macht</h2>
+<p>Die meisten Medien-Manager gehen davon aus, dass Ihre Dateien lokal
+sind und Ihr Netzwerk perfekt ist. Catalogizer geht davon aus, dass das
+Gegenteil der Fall ist, und funktioniert dennoch. Die Kombination aus
+<strong>multi-protokollfähiger Reichweite plus Resilienz plus
+Echtzeit-Überwachung</strong> bedeutet, dass es eine verteilte,
+teilweise verfügbare Sammlung wie eine einzelne, ordentliche Bibliothek
+verwaltet — und sie automatisch auf dem neuesten Stand hält, anstatt
+eine manuelle Neuerfassung durchzuführen.</p>
+<p>Wenn man Verschlüsselung standardmäßig, rollenbasierten Zugriff,
+externe Metadaten-Anreicherung und wirklich nützliche Ausgabe-Features
+(Berichte, Exporte, Cloud-Synchronisation, PDF-Konvertierung) hinzufügt,
+hört es auf, ein Katalog zu sein, und wird zu einer Verwaltungsplattform
+für ein Medien-Vermögen, das zufällig über Protokolle und Maschinen
+verstreut ist.</p>
+<h2 id="wie-ich-die-härtesten-teile-gelöst-habe">Wie ich die härtesten
+Teile gelöst habe</h2>
+<p>Ich habe <strong>Resilienz als Eigenschaft der
+Speicherschicht</strong> konzipiert, und nicht als etwas, das jede
+Funktion selbst handhaben muss. Die multi-protokollfähigen
+Dateisystem-Clients sind für die Erkennung von Verbindungsabbrüchen, die
+automatische Neuverbindung und die Bedienung aus einem Offline-Cache
+verantwortlich, wenn eine Quelle nicht verfügbar ist. Da dieses
+Verhalten in der Client-Abstraktion lebt, kann die Überwachungsmaschine
+und die Erkennungsmaschine darüber hinaus annehmen, dass eine Quelle
+immer erreichbar ist — die unsaubere Realität eines abgebrochenen
+SMB-Mounts wird unter ihnen absorbiert.</p>
+<p>Um die Protokollvielfalt zu bändigen, habe ich SMB, FTP, NFS, WebDAV
+und lokalen Zugriff hinter einer
+<strong>Dateisystem-Client-Schnittstelle</strong> mit
+pro-protokollspezifischer Überwachung vereinigt, einschließlich echter
+NFS-Mounting und Dateioperationen für macOS. Die
+Medien-Erkennungsmaschine sitzt auf dieser einzigen Schnittstelle, so
+dass das Hinzufügen eines Protokolls oder die Korrektur der Eigenheiten
+eines Protokolls nicht in die Erkennungslogik einfließt.</p>
+<p>Für das Live-Verhalten läuft die Go-API einen
+<strong>WebSocket-Server</strong>, der Updates an die React-Oberfläche
+pusht, sobald der Katalog geändert wird, so dass das, was die Benutzer
+sehen, die überwachten Quellen in Echtzeit widerspiegelt, anstatt ein
+veraltetes Snapshot. Und ich habe Sicherheit nicht optional gemacht: die
+Datenbank ist SQLCipher-verschlüsselt und die API ist durch JWT mit
+rollenbasierter Zugriffskontrolle gesichert, so dass ein System, das in
+viele Remote-Shares und externe APIs hineinreicht, nicht zum schwächsten
+Glied wird. Das Ergebnis ist ein Medien-Manager, der für die Welt
+konzipiert ist, wie sie tatsächlich ist — verteilt, intermittierend und
+bedürftig, ehrlich und sicher gehalten zu werden.</p>
+</article>

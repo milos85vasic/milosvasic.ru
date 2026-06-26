@@ -1,0 +1,107 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixCode</h1>
+    <p class="hx-article-tech">Go, PostgreSQL, Redis, SSH, MCP, WebSocket, Gin</p>
+    <p class="hx-article-repo"><a href="https://github.com/HelixDevelopment/HelixCode" target="_blank" rel="noopener">https://github.com/HelixDevelopment/HelixCode &rarr;</a></p>
+  </header>
+<h2 id="el-anzuelo">El anzuelo</h2>
+<p>¿Y si tu agente de codificación con IA no se ejecutara en una sola
+máquina, sino a través de una red de trabajadores que él mismo
+aprovisiona —dividiendo una tarea grande en partes, distribuyéndolas y
+creando puntos de control sobre la marcha para que un fallo nunca
+implique perder trabajo? Eso es HelixCode: una plataforma de desarrollo
+con IA distribuida de grado empresarial, escrita en Go, con grupos de
+trabajadores basados en SSH, puntos de control automáticos, retroceso y
+integración de modelos de lenguaje (LLM) de múltiples proveedores.</p>
+<h2 id="por-qué-resulta-fascinante">Por qué resulta fascinante</h2>
+<p>La mayoría de los “agentes de codificación con IA” son un único
+proceso que se comunica con un solo modelo. HelixCode se construye en
+torno a la idea de que el trabajo real de desarrollo es divisible y
+distribuible. Realiza <strong>división inteligente de tareas</strong>
+con gestión de dependencias y, a continuación, preserva el trabajo
+mediante puntos de control automáticos para que un proceso de larga
+duración pueda sobrevivir a interrupciones. La plataforma se expone a
+través de cuatro interfaces de cliente —API REST, CLI, una interfaz de
+terminal y WebSocket— e implementa el <strong>Protocolo de Contexto de
+Modelo (MCP)</strong> con soporte para múltiples transportes, lo que le
+permite integrarse en el ecosistema más amplio de herramientas para
+agentes.</p>
+<p>Además, es genuinamente multiplataforma en un sentido inusualmente
+amplio: Linux, macOS, Windows, además de Aurora OS y SymphonyOS, con
+marcos preparados para iOS y Android. El repositorio abarca Go en su
+núcleo, acompañado de Shell, Kotlin, Swift y activos web —la estructura
+de una plataforma diseñada para ser controlada desde cualquier
+lugar.</p>
+<h2 id="los-problemas-difíciles">Los problemas difíciles</h2>
+<p>El desafío definitorio es <strong>la distribución sin
+fragilidad</strong>. En el momento en que divides una tarea de
+codificación entre trabajadores remotos, heredas todos los problemas
+complejos de los sistemas distribuidos: cómo dividir el trabajo
+siguiendo límites reales de dependencia, cómo rastrear qué trabajador es
+dueño de qué parte, cómo recuperarse cuando un trabajador desaparece a
+mitad de una tarea y cómo fusionar los resultados de manera
+coherente.</p>
+<p>La gestión de trabajadores es un problema en sí misma. HelixCode no
+asume un clúster preconfigurado: ofrece un <strong>grupo de trabajadores
+SSH con autoinstalación</strong>, lo que significa que debe alcanzar un
+host remoto, instalarse allí, registrar al trabajador y monitorear su
+estado, todo de forma segura a través de SSH. Lograr que ese arranque
+sea confiable en máquinas heterogéneas es mucho más difícil de lo que
+parece.</p>
+<p>Luego está la capa de LLM. Dar soporte a múltiples proveedores detrás
+de una misma interfaz, realizar detección de hardware (CPU/GPU/memoria)
+para elegir modelos de manera inteligente y superponer razonamiento
+avanzado —cadena de pensamiento y árbol de pensamientos— implica que el
+agente debe razonar sobre <em>dónde</em> y <em>con qué</em> ejecuta, no
+solo sobre <em>qué</em> generar.</p>
+<h2 id="lo-que-lo-hace-revolucionario">Lo que lo hace
+revolucionario</h2>
+<p>La combinación de <strong>preservación del trabajo y
+retroceso</strong> es el factor diferenciador. Un agente de IA que puede
+reanudar exactamente donde lo dejó y deshacer un cambio erróneo
+convierte las ejecuciones autónomas largas de un riesgo en algo
+operable. HelixCode combina esto con modos completos de flujo de trabajo
+de desarrollo —planificación, construcción, pruebas y refactorización—
+respaldados por proyectos persistentes en base de datos y seguimiento de
+contexto entre sesiones. No es solo “generar código”; es un ciclo de
+vida.</p>
+<p>La implementación del MCP también importa. Al hablar el Protocolo de
+Contexto de Modelo con múltiples transportes, HelixCode puede actuar
+tanto como consumidor como participante en el mundo de las herramientas
+para agentes, y sus notificaciones multicanal (Slack, Discord, correo
+electrónico, Telegram) permiten que una ejecución distribuida informe
+del progreso allí donde los humanos realmente lo supervisan.</p>
+<h2 id="cómo-resolví-las-partes-más-difíciles">Cómo resolví las partes
+más difíciles</h2>
+<p>Estructuré el sistema en módulos internos limpios: gestión de
+autenticación y sesiones, gestión del grupo de trabajadores, gestión de
+tareas y puntos de control, gestión de proyectos y flujos de trabajo, e
+integración de proveedores de LLM, cada uno en su propio paquete. Esa
+separación es lo que hace manejable el comportamiento distribuido: la
+división de tareas y los puntos de control son aspectos que puedo
+analizar de forma independiente del proveedor de LLM o del transporte
+utilizado.</p>
+<p>Para la red de trabajadores, construí el <strong>grupo de
+trabajadores SSH con autoinstalación</strong>. En lugar de requerir que
+los operadores preparen cada nodo de antemano, la plataforma se conecta
+por SSH, instala lo necesario, registra al trabajador y luego lo
+monitorea de forma continua. El monitoreo de estado retroalimenta la
+gestión de tareas para que el trabajo pueda reasignarse cuando un nodo
+se degrade.</p>
+<p>Para la resiliencia, <strong>los puntos de control son la columna
+vertebral</strong>. La gestión de tareas escribe puntos de control a
+medida que avanza el trabajo, de modo que un trabajo interrumpido se
+reanuda desde su último estado válido en lugar de reiniciarse, y el
+retroceso puede deshacer un paso erróneo. Este es el mecanismo que hace
+seguras las ejecuciones autónomas largas y distribuidas.</p>
+<p>Para la capa de modelos, puse a todos los proveedores detrás de una
+<strong>interfaz unificada</strong> y añadí detección de hardware para
+que el agente elija el modelo en función de la máquina que lo ejecuta.
+Sobre esa interfaz superpuse llamadas a herramientas y el razonamiento
+de cadena de pensamiento/árbol de pensamientos, de modo que mejorar la
+estrategia de razonamiento no requiera tocar la infraestructura de los
+proveedores. La capa de persistencia es PostgreSQL con Redis opcional,
+lo que mantiene los proyectos, sesiones y estados de flujo de trabajo
+duraderos en toda la flota distribuida —la diferencia entre una
+demostración ingeniosa y una plataforma que realmente puedes usar.</p>
+</article>

@@ -1,0 +1,106 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Panoptic</h1>
+    <p class="hx-article-tech">Go</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/Panoptic" target="_blank" rel="noopener">https://github.com/vasic-digital/Panoptic &rarr;</a></p>
+  </header>
+<h2 id="el-anzuelo">El anzuelo</h2>
+<p>La automatización de interfaces está fragmentada. Aprendes Selenium o
+Playwright para la web, Appium y XCUITest para móviles, otra cosa
+completamente distinta para escritorio y un grabador aparte si quieres
+vídeo de lo ocurrido. Cada frontera es una nueva herramienta, una nueva
+abstracción, una nueva forma de fallar. Panoptic —nombre que evoca el
+ojo que todo lo ve— reduce ese zoológico entero a un único framework en
+Go que automatiza, captura pantallazos y graba sesiones en web,
+escritorio y móvil con un solo modelo de programación.</p>
+<h2 id="por-qué-resulta-fascinante">Por qué resulta fascinante</h2>
+<p>Lo que hace de Panoptic algo convincente es que trata “observar lo
+que hace el software” como una capacidad de primer orden, al mismo nivel
+que “controlar el software”. No se limita a hacer clic en botones:
+captura pantallazos de alta calidad con marca de tiempo y graba vídeos
+completos de las sesiones en múltiples formatos. Esto significa que una
+sola ejecución de pruebas puede generar tanto las aserciones como las
+pruebas visuales —la grabación no es un añadido, sino parte integral del
+framework.</p>
+<p>Es genuinamente multiplataforma. La automatización web abarca Chrome,
+Firefox, Safari y Edge. En móvil, cubre la automatización de apps para
+iOS y Android con grabación de pantalla. En escritorio, ofrece
+automatización de interfaces y captura de pantalla. Y todo ello se
+expone a través de una API limpia en Go: <code>web.NewBrowser()</code>,
+<code>browser.Navigate(...)</code>,
+<code>browser.Screenshot(...)</code>, selectores personalizados de CSS y
+XPath, estrategias de espera explícitas, además de una CLI para los
+casos más comunes
+(<code>panoptic record --platform ios --device iPhone13 --output mobile_demo.mp4</code>).
+El hecho de que la misma API conceptual abarque desde un viewport de
+Chrome en modo headless hasta una sesión grabada en un iPhone es
+precisamente la esencia del proyecto.</p>
+<h2 id="los-problemas-difíciles">Los problemas difíciles</h2>
+<p>El primer problema complicado es que “un elemento” significa algo
+distinto en cada plataforma. Un botón web es un nodo del DOM accesible
+mediante CSS o XPath. Un control de iOS reside en el árbol de
+accesibilidad. Un widget de escritorio es un manejador nativo del
+sistema operativo. Panoptic debe ofrecer un modelo unificado de
+detección e interacción con elementos, mientras que, por debajo, habla
+cuatro dialectos completamente distintos de “encuentra esto y haz
+clic”.</p>
+<p>El segundo es el tiempo. Las interfaces son asíncronas en todas
+partes, pero lo son de formas diferentes. Panoptic incluye estrategias
+de espera explícitas —<code>WaitForElement</code> con tiempo de espera y
+<code>WaitForCondition</code>, que sondea un predicado arbitrario hasta
+que se cumple— porque los <em>sleeps</em> fijos son la principal fuente
+de automatizaciones inestables. Diseñar primitivas de espera que se
+comporten igual, ya sea esperando a que desaparezca un
+<code>div.loading</code> o a que se renderice una vista nativa, es un
+trabajo sutil.</p>
+<p>El tercero es grabar mientras se controla. Capturar vídeo a 30 fps
+con alta calidad, con un viewport configurable y sin alterar el timing
+de la automatización que se está grabando, supone un verdadero reto de
+rendimiento y sincronización, especialmente en móvil, donde se graba la
+pantalla de un dispositivo o simulador, no solo un lienzo que
+controlas.</p>
+<h2 id="lo-que-lo-hace-revolucionario">Lo que lo hace
+revolucionario</h2>
+<p>El cambio de juego es la consolidación con pruebas visuales. Cuando
+la automatización reside en un único framework para todas las
+plataformas, un equipo escribe un solo modelo mental en lugar de cuatro,
+y obtiene pruebas visuales sin esfuerzo. Una prueba inestable deja de
+ser un <em>stack trace</em> que hay que descifrar para convertirse en un
+vídeo que se puede ver. Eso, por sí solo, transforma la forma en que los
+equipos diagnostican fallos.</p>
+<p>Además, está diseñado para integrarse en pipelines: arquitectura de
+plugins extensible, <em>hooks</em> de pre y post-ejecución para
+configuración y limpieza, configuración en YAML para navegadores,
+grabación y ajustes móviles por plataforma, e integración explícita con
+CI/CD. Puedes conectar el mismo conjunto de pruebas en CI que ejecutaste
+localmente, y los artefactos —pantallazos y archivos MP4— son
+exactamente lo que necesitas adjuntar a una compilación fallida.</p>
+<h2 id="cómo-resolví-las-partes-más-difíciles">Cómo resolví las partes
+más difíciles</h2>
+<p>Elegí Go a propósito. La automatización multiplataforma, bajo el
+capó, implica mucho I/O concurrente: comunicarse con controladores de
+navegadores, puentes de dispositivos (ADB para Android, herramientas de
+Xcode para iOS) y un codificador para la grabación, todo a la vez. Las
+<em>goroutines</em> y los canales de Go hacen manejable y rápido
+orquestar “controlar la interfaz en esta <em>goroutine</em>, capturar
+frames de pantalla en esa otra y vigilar una condición de espera en una
+tercera”, y el binario estático único facilita distribuir la CLI en
+entornos de CI.</p>
+<p>Para unificar los cuatro modelos de elementos, hice que los
+controladores de plataforma implementaran una interfaz de interacción
+común y mantuve los selectores expresivos en lugar de reducirlos al
+mínimo común denominador —CSS y XPath en web, localizadores nativos en
+móvil y escritorio—, de modo que la abstracción nunca te prive del
+selector preciso que necesitas. Las primitivas de espera se construyen
+sobre esa interfaz, por eso <code>WaitForCondition</code> funciona igual
+sin importar en qué plataforma inspeccione el predicado.</p>
+<p>Para grabar sin distorsiones, traté la captura como un
+<em>pipeline</em> independiente, configurable por separado (formato,
+calidad, fps en <code>panoptic.yaml</code>), de modo que el grabador
+funcione en paralelo a la automatización en lugar de interferir en su
+ruta crítica. Y diseñé todo el sistema para que fuera extensible desde
+el principio mediante <em>hooks</em> y un sistema de plugins, porque en
+automatización hay una certeza: alguien necesitará hacer algo que no
+anticipé, y el framework debe permitirlo en lugar de obligar a bifurcar
+el código.</p>
+</article>

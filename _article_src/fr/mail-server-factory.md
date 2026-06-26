@@ -1,0 +1,39 @@
+---
+title: Mail Server Factory
+slug: mail-server-factory
+repo: https://github.com/Server-Factory/Mail-Server-Factory
+tech: Shell/Go
+teaser: "Describe your mail server in one JSON file; it provisions a hardened, Dockerized stack on 25 Linux distros across 12 connection types."
+---
+
+## L’accroche
+
+Gérer son propre serveur de messagerie a la réputation bien méritée d’être l’une des tâches les plus ingrates en administration système : SMTP, IMAP, POP3, TLS, DKIM, SPF, pare-feux, certificats, SELinux, et une dizaine de démons qui doivent tous s’entendre sous peine de ne rien acheminer. Le positionnement de Mail Server Factory est d’une franchise réjouissante : *« Gérez votre serveur de messagerie comme un pro. »* Vous rédigez un simple fichier JSON décrivant vos besoins, et la Factory l’interprète pour construire à votre place l’intégralité de la pile durcie et conteneurisée sur la machine cible.
+
+## Pourquoi c’est fascinant
+
+L’idée fascinante consiste à aborder le déploiement d’un serveur de messagerie comme un *problème de compilation*. Le fichier de configuration JSON en est le code source ; la Factory, le compilateur ; et le résultat, une pile de messagerie fonctionnelle, faiblement couplée et basée sur Docker, déployée sur le système d’exploitation cible. Comme chaque composant de la pile est faiblement couplé et conteneurisé, le résultat offre une base propre pour une mise à l’échelle ultérieure, plutôt qu’un enchevêtrement de fichiers de configuration édités à la main et que personne n’ose toucher.
+
+Ce qui fait passer le projet du statut de « pratique » à celui de « sérieux », c’est son étendue. La Factory peut déployer cette pile via 12 types de connexions distincts : SSH, Docker, Kubernetes, AWS SSM, Azure Serial Console, GCP OS Login, Libvirt, un protocole personnalisé, une base de données, le système de fichiers, un fournisseur cloud et un runtime de conteneurs. Et elle cible 25 distributions Linux, y compris celles que la plupart des outils ignorent : les incontournables occidentaux (Ubuntu, Debian, CentOS, Fedora, AlmaLinux, Rocky, openSUSE), les distributions russes (ALT, Astra, ROSA) et chinoises (openEuler, openKylin, Deepin). Cette couverture est un parti pris délibéré : votre serveur de messagerie, votre matériel, votre juridiction.
+
+## Les défis majeurs
+
+Le premier défi réside dans le fait que « la même installation » n’est jamais identique. Les noms des paquets, les systèmes d’initialisation, les interfaces de pare-feu et le comportement de SELinux divergent selon les 25 distributions. La Factory intègre un véritable cadre de sécurité — un `CertificateValidator`, un `DockerCredentialsManager`, un `SELinuxChecker`, un `PasswordValidator` et un `ConnectionPool` — précisément parce que chacun de ces aspects se comporte différemment selon la plateforme et ne peut être tenu pour acquis.
+
+Le deuxième défi concerne la couche de connexion elle-même. Accéder à une cible via SSH n’a rien à voir avec un accès via AWS SSM, Azure Serial Console ou Libvirt. Chaque mode de transport a ses propres mécanismes d’authentification, sa latence et ses modes de défaillance. Abstraire ces 12 méthodes derrière un seul pipeline d’installation — de sorte que les étapes d’installation ne se soucient pas de la manière dont les octets parviennent à la machine — constitue l’épine dorsale architecturale du projet.
+
+Le troisième défi consiste à obtenir une machine vierge en premier lieu. La Factory automatise l’installation sans surveillance du système d’exploitation via preseed, kickstart, cloud-init et autoyast pour toutes ces distributions, pilote des machines virtuelles QEMU via `scripts/qemu_manager.sh`, et gère les images ISO avec vérification des sommes de contrôle et une touche d’entreprise : un cache SMB bidirectionnel qui récupère les images manquantes depuis un partage réseau, y téléverse celles qui manquent, et ne recourt au téléchargement Internet qu’en dernier recours.
+
+## Ce qui en fait un outil révolutionnaire
+
+Ce qui change la donne, c’est qu’il rend l’auto-hébergement de messagerie *reproductible et auditable*. L’infrastructure de messagerie est précisément le genre de chose que l’on souhaite décrire sous forme de données et reconstruire à l’identique, plutôt que d’assembler de mémoire à 2 heures du matin. Avec une pile définie en JSON et une posture de sécurité imposée par le code — chiffrement AES-256-GCM, phrases de passe obligatoires pour les clés SSH d’au moins 12 caractères, règles de pare-feu automatisées pour les ports 25/587/465/993/995, TLS avec validation des certificats et HSTS, journalisation d’audit et RBAC — un « serveur de messagerie de qualité professionnelle » cesse d’être un projet de plusieurs semaines pour devenir une configuration que l’on peut examiner, versionner et relancer.
+
+Il est également rigoureusement validé, et non simplement ambitieux : le projet affiche 439 tests réussis à 100 %, une porte de qualité SonarQube à 100 %, et un cadre de test complet qui vérifie le comportement réel de SMTP/IMAP/POP3 sur les différentes distributions, ainsi que des mesures de débit et de latence. Pour un outil dont la mission est de mériter votre confiance avec vos emails, ces preuves constituent la véritable fonctionnalité.
+
+## Comment j’ai résolu les parties les plus complexes
+
+J’ai séparé *ce qu’il faut construire* de *la manière d’atteindre la cible* et de *l’OS utilisé*. Le fichier de configuration JSON décrit l’intention ; une abstraction de transport masque les 12 types de connexions derrière une seule interface, de sorte que les étapes d’installation exécutent les mêmes opérations logiques, qu’elles transitent par SSH ou AWS SSM ; et la logique spécifique à chaque distribution est isolée, ce qui permet à la matrice des 25 distributions de résider en un seul endroit plutôt que de s’infiltrer dans chaque étape. Cette stratification explique pourquoi l’ajout d’une distribution ou d’un type de connexion n’entraîne pas de répercussions dans l’ensemble du code.
+
+Pour la sécurité, j’ai refusé de m’en remettre aux bonnes intentions de l’opérateur. Le cadre impose les éléments critiques — il *vérifie* SELinux, *valide* les certificats, *gère* les identifiants Docker et *rejette* les mots de passe faibles ainsi que les clés SSH sans phrase de passe — de sorte qu’un déploiement correct soit la norme, et non le fruit d’un soin méticuleux. Le shell prend en charge le provisionnement lourd là où il est l’outil adapté, avec une logique Kotlin/JVM pour l’orchestration et le cadre de sécurité, tandis que Docker maintient chaque composant faiblement couplé.
+
+Enfin, j’ai résolu le problème du « démarrage sur une machine vierge », que la plupart des installateurs négligent : installations sans surveillance pour toutes les distributions prises en charge, automatisation de QEMU pour lancer des cibles de test, et cache ISO SMB bidirectionnel afin qu’un déploiement en flotte n’ait pas à retélécharger la même image vingt-cinq fois — chaque ISO étant vérifiée par somme de contrôle, quelle que soit sa provenance. Le résultat est un outil qui vous emmène du métal nu (ou d’une VM vierge) jusqu’à un serveur de messagerie durci, testé et opérationnel, à partir d’un seul fichier.

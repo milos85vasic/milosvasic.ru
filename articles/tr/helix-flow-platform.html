@@ -1,0 +1,92 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Helix-Flow Platform</h1>
+    <p class="hx-article-tech">Go, gRPC, HTTP, TLS 1.3, mTLS, PostgreSQL, SQLite, JWT</p>
+    <p class="hx-article-repo"><a href="https://github.com/Helix-Flow/Platform" target="_blank" rel="noopener">https://github.com/Helix-Flow/Platform &rarr;</a></p>
+  </header>
+<h2 id="kanca">Kanca</h2>
+<p>“Tüm AI çıkarım ihtiyaçlarınız için tek bir platform — güçlü AI
+modellerini daha hızlı, daha akıllı ve her ölçekte, öngörülebilir
+maliyetlerle çalıştırın.” Helix-Flow Platform, kurumsal bir AI çıkarım
+ağ geçididir ve OpenAI API’sini destekler; böylece mevcut istemcileriniz
+sorunsuz çalışır, ancak altında sertleştirilmiş, karşılıklı kimlik
+doğrulamalı bir mikro hizmet ağı ile TLS 1.3 uçtan uca güvenlik
+sağlar.</p>
+<h2 id="neden-büyüleyici">Neden büyüleyici?</h2>
+<p>AI çıkarımının vaadi basitçe ifade edilir, ancak uygulaması
+acımasızdır: ekiplere, tek bir satıcıya bağımlı kalmadan, modelleri
+çağırmak için tutarlı, hızlı ve güvenli bir yol sunmak. Helix-Flow, bunu
+<strong>kurumsal düzeyde bir mikro hizmet mimarisi</strong> olarak ele
+alır — kimlik doğrulama, çıkarım havuzu ve izleme için bağımsız
+hizmetlerin önünde bir API ağ geçidi — hem HTTP hem de gRPC üzerinden eş
+zamanlı olarak sunulur.</p>
+<p>Kritik nokta, <strong>OpenAI API spesifikasyonuna uyumluluk</strong>
+hedeflemesidir. Bu, tanıdık yüzey — <code>/v1/models</code>,
+<code>/v1/chat/completions</code>, Bearer-token kimlik doğrulaması —
+orada olduğu anlamına gelir; böylece OpenAI API’sine karşı geliştirilmiş
+herhangi bir uygulama, Helix-Flow’u işaret edebilir. Yerine geçen bir uç
+nokta elde edersiniz, ancak arkasında kendi kimlik doğrulamanız, kendi
+izlemeniz ve kendi maliyet kontrolleriniz olur.</p>
+<h2 id="zorlu-sorunlar">Zorlu sorunlar</h2>
+<p>Merkezdeki zorluk, <strong>güvenliğin yalnızca uç noktada değil,
+hizmet ağı düzeyinde</strong> sağlanmasıdır. Herkese açık bir uç noktaya
+TLS eklemek kolaydır; ancak iç hizmetler arasındaki her adımın
+şifrelenmesi ve kimlik doğrulanması çok daha zordur. Helix-Flow, tam bir
+PKI altyapısı kurar ve gRPC hizmet ağı boyunca <strong>karşılıklı TLS
+(mTLS)</strong> ile TLS 1.3 çalıştırır; böylece hizmetler, yalnızca dış
+dünyaya değil, birbirlerine de kimliklerini kanıtlar. Bu, otomatik
+sertifika yönetimini — sertifika oluşturma, dağıtma ve yenileme —
+gerektirir, çünkü elle yönetilen bir ağ, üretim ortamıyla
+karşılaştığında ayakta kalamaz.</p>
+<p>İkinci zorlu sorun, <strong>çift protokol uyumudur</strong>. Hem HTTP
+hem de gRPC ağ geçidi sunmak, aynı yeteneklerin iki çok farklı taşıma
+protokolü üzerinden doğru çalışmasını ve her ikisinde de tutarlı kimlik
+doğrulama ve davranış sağlanmasını gerektirir. REST tercih eden ekipler
+ile yüksek performanslı gRPC tercih eden ekipler aynı platformu
+kullanabilmelidir.</p>
+<p>Üçüncü sorun, <strong>öngörülebilir maliyet ve
+işletilebilirliktir</strong>. “Öngörülebilir maliyetler” vaadi,
+platformun gerçek zamanlı izleme, hız sınırlama ve denetim kaydı gibi
+özelliklere sahip olmasıyla geçerlilik kazanır — böylece harcamalar ve
+davranışlar gözlemlenebilir ve sınırlandırılabilir, aylık sürprizlerle
+karşılaşılmaz.</p>
+<h2 id="oyunu-değiştiren-özellik">Oyunu değiştiren özellik</h2>
+<p>Helix-Flow’un iddiası, AI çıkarımının <strong>bir uygulama
+entegrasyonu değil, altyapı</strong> olması gerektiğidir. Satıcıdan
+bağımsız bir çıkarım havuzunun önünde OpenAI uyumlu bir API sunarak, bir
+kuruluşun modelleri çağırmasını merkezileştirir: tek bir ağ geçidi, tek
+bir kimlik doğrulama modeli, hız sınırlarını uygulamanın tek bir yeri,
+tek bir denetim izi. Model arka uçlarını değiştirmek veya eklemek, her
+uygulamaya dağılmış bir kod değişikliği yerine bir altyapı kararı haline
+gelir.</p>
+<p>Bunu yaparken kurumsal temellerden ödün vermez — JWT doğrulama, hız
+sınırlama, denetim kaydı, hataların zarif yönetimi ve çoklu veritabanı
+desteği (geliştirme için SQLite, üretim için PostgreSQL) — böylece
+istemcilerin bağlı olduğu sözleşme değişmeden, dizüstü bilgisayardan
+kümeye geçiş yapılabilir.</p>
+<h2 id="en-zor-kısımları-nasıl-çözdüm">En zor kısımları nasıl
+çözdüm?</h2>
+<p>Güvenliği sonradan eklemek yerine temelden inşa ettim. Platform,
+<strong>TLS 1.3 ve mTLS içeren eksiksiz bir PKI</strong> ile birlikte
+gelir ve sertifika sağlama işlemi otomatikleştirilmiştir; böylece hizmet
+ağı, elle sertifika yönetimine gerek kalmadan kendini doğrulayabilir.
+Her iç gRPC bağlantısı karşılıklı olarak kimlik doğrulanır; ağ geçidi,
+dış trafiği TLS üzerinden sonlandırır ve çıkarım havuzuna ulaşmadan önce
+JWT’leri doğrular. Güvenlik, ağın bir özelliğidir, etrafına sarılmış bir
+katman değil.</p>
+<p>Çift protokol desteği için <strong>API ağ geçidini HTTP ve gRPC’yi
+yan yana sunacak şekilde tasarladım</strong>; kimlik doğrulama ve
+çıkarım havuzu gibi daha yoğun hizmetler performans için gRPC üzerinden
+sunulurken, halka açık yüzey HTTP üzerinden uyumluluk için açılır. Bu
+ayrım, gecikmeye duyarlı iç çağrıların gRPC kullanmasını sağlarken, dış
+istemcilerin basit OpenAI tarzı REST arayüzünü korumasını sağlar.</p>
+<p>İşletilebilirlik ve “öngörülebilir maliyetler” vaadi için
+<strong>izleme hizmetini kimlik doğrulama ve çıkarımla aynı düzeyde
+birincil bileşen olarak ele aldım</strong>; sağlık kontrolleri, metrik
+toplama, hız sınırlama ve denetim kaydı ekleyerek kullanım ve sistem
+sağlığını varsayılan olarak görünür ve sınırlandırılmış hale getirdim.
+Çoklu veritabanı tasarımı — yerel çalıştırmalar için SQLite, üretim için
+PostgreSQL — aynı platformun tek bir makinede doğrulanmasını ve ardından
+ölçeklenmesini sağlar; bu da “her ölçekte” bir çıkarım platformunun
+yapması gereken tam olarak budur.</p>
+</article>

@@ -1,0 +1,102 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Android Toolkit</h1>
+    <p class="hx-article-tech">Kotlin</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/Android-Toolkit" target="_blank" rel="noopener">https://github.com/vasic-digital/Android-Toolkit &rarr;</a></p>
+  </header>
+<h2 id="kanca">Kanca</h2>
+<p>Her ciddi Android geliştiricisi, zamanla aynı “bunu daha önce
+yazmıştım” kod yığınını biriktirir: makul bir test altyapısı, bir
+loglama arayüzü, root erişim yardımcıları, süreçler arası iletişim
+altyapısı, daire şeklinde ImageView, alfabetik hızlı kaydırıcı. Android
+Toolkit, bu yığını temiz, modüler bir kütüphaneye dönüştürür — hemen
+kullanmaya başlayabileceğiniz, sıkça ihtiyaç duyulan soyutlamalar,
+uygulamalar ve araçlardan oluşan bir set. Göz alıcı uygulamaların
+arkasında yatan, gözden uzak ama vazgeçilmez temeldir.</p>
+<h2 id="neden-büyüleyici">Neden büyüleyici?</h2>
+<p>Büyüleyici olan, <em>sınırlama</em> mimarisidir. Toolkit, odaklanmış
+ve bağımsız olarak dahil edilebilen modüllere ayrılmıştır —
+<code>Main</code>, <code>Test</code>, <code>Echo</code>,
+<code>Access</code>, <code>JCommons</code>, <code>RootTools</code>,
+<code>RootShell</code>, <code>Interprocess</code>,
+<code>CircleImageView</code>, <code>ConnectionIndicator</code>,
+<code>FastscrollerAlphabet</code> — ve ihtiyacınız olanları
+<code>settings.gradle</code> ve <code>build.gradle</code> üzerinden
+bağlarsınız. Tek parça bir kütüphane yok, tek bir yardımcı için bütün
+bir mutfak lavabosunu sürüklemenize gerek yok. Bu ayrıntı düzeyi, gerçek
+bir tasarım kararıdır: her modül, kendi başına yerini hak eder.</p>
+<p>Ayrıca bir yayınlanmış kütüphane yerine git alt modülü olarak
+sunulması, ne için tasarlandığını gösterir. Bu, bir geliştiricinin kendi
+Android çalışmaları portföyündeki ortak omurgadır — birden fazla
+uygulamanın aynı şekilde davranmasını, senkronize olarak gelişmesini
+sağlayan, projeler arasında kopyala-yapıştır sapmalarını önleyen tutarlı
+temel katman. Modüller, düşük seviyeli sistem erişiminden (root
+kabukları ve araçları) süreçler arası iletişime, hazır UI bileşenlerine
+kadar alışılmadık derecede geniş bir yelpazeyi kapsar. Bu da Toolkit’in
+hem güç kullanıcılarına yönelik bir sistem uygulamasına hem de şık bir
+tüketici arayüzüne hizmet edebileceği anlamına gelir.</p>
+<h2 id="zorlu-sorunlar">Zorlu sorunlar</h2>
+<p>İlk zorlu sorun, modülerlik sözleşmesidir. Seçmeli bir modül
+sisteminin gerçekten işe yaraması için sınırların dürüst olması gerekir
+— <code>RootShell</code> ve <code>RootTools</code>, gizlice bir UI
+bileşenine bağımlı olamaz; <code>Interprocess</code>, test altyapısını
+sürükleyemez. Gradle aracılığıyla gerçekten bağımsız ama temiz bir
+şekilde birleşen modüller tasarlamak, tek parça büyük bir kütüphane
+oluşturmaktan daha zordur, çünkü her birleşim noktası bir
+taahhüttür.</p>
+<p>İkincisi, Android’in tehlikeli köşeleridir. Root erişimi
+(<code>RootShell</code>, <code>RootTools</code>) ve süreçler arası
+iletişim (<code>Interprocess</code>), hataların güvenlik açıklarına ya
+da uygulamalar arası çökmelere dönüştüğü alanlardır. Ayrıcalıklı
+kabukları ve IPC’yi güvenli ve ergonomik — doğru kullanımı kolay,
+felaketle sonuçlanacak kullanımı zor — soyutlamalarla sarmak, ekran
+görüntüsünde görünmeyen ama üstündeki uygulamaların güvenilir olup
+olmadığını belirleyen türden bir iştir.</p>
+<p>Üçüncüsü, aynı anda birçok proje için temel olmaktır. Alt modül
+aracılığıyla birden fazla uygulama tarafından tüketilen bir araç setinin
+evrimi dikkatli olmalıdır: paylaşılan bir soyutlamadaki bir değişiklik
+her yere yansır. Bu yüzden Toolkit, özel bir <code>Test</code> modülü
+sunar ve test bağımlılıklarını (<code>testImplementation</code>,
+<code>androidTestImplementation</code>) birinci sınıf bir endişe olarak
+ele alır — temel, test edilebilir olmalı ve onun üzerine inşa edilen
+uygulamalar da onun aracılığıyla test edilebilir olmalıdır.</p>
+<h2 id="oyunu-değiştiren-ne">Oyunu değiştiren ne?</h2>
+<p>Oyunu değiştiren, kaldıraç etkisidir. Bu tür yeniden kullanılabilir
+altyapı, bir mühendisin ShareConnect ekosistemi, Yole ve daha fazlası
+gibi bir bütün Android uygulama ailesini inandırıcı bir şekilde
+sürdürebilmesini sağlar — her seferinde temelleri yeniden inşa etmeden.
+Toolkit, “yaygın Android sorunlarını” çözülmüş, paylaşılan, sürüm
+kontrolü altında modüllere dönüştürür. Böylece her yeni uygulama daha
+yüksek bir zeminden başlar ve varsayılan olarak loglama, test, sistem
+erişimi ve UI ilkellerinde tutarlılık miras alır.</p>
+<p>Alt modül dağıtım modeli bu etkiyi daha da artırır: bir uygulama
+geliştirilirken yapılan iyileştirmeler Toolkit’e geri akar ve diğer
+uygulamalara anında fayda sağlar. Bu, bileşik bir yatırımdır — temel,
+her kullanıldığında daha da güçlenir.</p>
+<h2 id="en-zor-kısımları-nasıl-çözdüm">En zor kısımları nasıl
+çözdüm?</h2>
+<p>İlk satırdan itibaren seçime dayalı bir tasarım yaptım. Toolkit’i dar
+kapsamlı Gradle modüllerine ayırıp <em>yalnızca ihtiyacınız
+olanları</em> dahil etmenizi belgeleyerek, kütüphaneyi dayatmacı değil,
+eklemeli hale getirdim — bir proje <code>RootShell</code> ve
+<code>Interprocess</code>’i çekerken asla kullanmayacağı bir UI
+bileşenini miras almaz. Modül listesini <code>settings.gradle</code>’de
+açıkça tutmak, bağımlılık yüzeyini görünür ve bilinçli kılar, sihirli
+değil.</p>
+<p>Tehlikeli köşeler için ayrıcalığı ve IPC’yi kendi modüllerine ayırdım
+— root erişimi için <code>RootShell</code>/<code>RootTools</code>,
+süreçler arası iletişim için <code>Interprocess</code> — böylece riskli
+kod, bilinçli olarak geçilmesi gereken bir sınırın arkasında kalır,
+varsayılan olarak her tüketiciye sızmaz. Bu izolasyon, Toolkit’in geri
+kalanının geniş çapta güvenle bağımlı olunabilecek şekilde kalmasını
+sağlar.</p>
+<p>Ve testi bir sonradan akıl değil, temelin bir parçası olarak ele
+aldım: bir <code>Test</code> modülü sunmak ve standart
+<code>testImplementation</code>/<code>androidTestImplementation</code>
+bağlantılarını sağlamak, Toolkit üzerine inşa edilen her uygulamanın
+kutudan çıktığı gibi tutarlı bir test kurulumuna sahip olmasını sağlar.
+Paylaşılan soyutlamalardaki değişiklikler, portföy genelinde
+yansımalarından önce doğrulanabilir. Bütün bunlar, tam da temel ve onun
+üzerine kurulan uygulamaların birlikte ilerleyebilmesi için alt modül
+olarak sunulur — tek bir temel, birçok ürün, hiçbir sapma olmadan.</p>
+</article>

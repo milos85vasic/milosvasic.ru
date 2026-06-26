@@ -1,0 +1,39 @@
+---
+title: Catalogizer
+slug: catalogizer
+repo: https://github.com/vasic-digital/Catalogizer
+tech: Go, Gin, React, TypeScript, SQLCipher, WebSocket, SMB/FTP/NFS/WebDAV
+teaser: "Point it at your SMB, FTP, NFS, WebDAV and local shares — it auto-detects 50+ media types, survives disconnects, and stays encrypted."
+---
+
+## L’accroche
+
+Vos médias sont partout — un partage SMB sur le NAS, un serveur FTP, un montage NFS, un serveur WebDAV, un disque local — et rien ne les comprend tous à la fois. *Catalogizer*, si. C’est un système avancé de gestion de collections multimédias multi-protocoles qui détecte, catégorise et organise automatiquement les médias sur l’ensemble de ces protocoles, les surveille en temps réel, les enrichit avec des métadonnées externes et conserve l’intégralité du catalogue dans une base de données chiffrée.
+
+## Pourquoi c’est fascinant
+
+*Catalogizer* considère « votre collection » comme une bibliothèque logique unique répartie sur des stockages hétérogènes. Il identifie **plus de 50 types de médias** — films, séries TV, musique, jeux, logiciels, documentaires et bien d’autres — et surveille en continu chaque source pour détecter les changements, mettant à jour les métadonnées de manière automatique. Il enrichit les entrées à partir d’un large éventail de fournisseurs externes (TMDB, IMDB, TVDB, MusicBrainz, Spotify, Steam, etc.), analyse la qualité, suit les versions et génère des analyses comme les tendances de croissance.
+
+La stack est clairement segmentée : une API REST Go haute performance sur Gin, une interface front-end moderne en React/TypeScript avec Tailwind, et une intégration WebSocket pour que l’interface se mette à jour en direct à mesure que le catalogue évolue. En sous-couche, les données résident dans un stockage **chiffré via SQLCipher**. Et *Catalogizer* va au-delà du simple catalogage avec des fonctionnalités pratiques — un service de conversion PDF, l’export/import des favoris en JSON et CSV, la synchronisation cloud vers S3 et Google Cloud Storage, ainsi que des rapports PDF professionnels accompagnés de graphiques.
+
+## Les défis majeurs
+
+Le problème le plus épineux est **le stockage réseau peu fiable**. Les partages SMB tombent en panne. Les montages disparaissent. Un catalogueur naïf génère des erreurs et corrompt sa vision du monde dès qu’un partage se déconnecte. *Catalogizer* est conçu pour **la résilience protocolaire** : il gère les déconnexions temporaires avec élégance, se reconnecte automatiquement et utilise un cache pour fonctionner hors ligne, de sorte qu’un NAS capricieux ne fasse pas dérailler l’ensemble du système. Concevoir le cas de défaillance comme la norme — plutôt que comme une exception — est la décision d’ingénierie qui définit ce projet.
+
+Le deuxième défi est **une abstraction unique sur des protocoles très différents**. SMB, FTP, NFS, WebDAV et le système de fichiers local ont chacun leurs propres sémantiques, particularités et modes de défaillance. Les présenter via une interface client de système de fichiers cohérente — incluant le montage NFS complet et les opérations sur fichiers sous macOS — pour que le moteur de détection et le moniteur puissent les traiter de manière uniforme représente un effort d’intégration considérable.
+
+Le troisième défi est **la détection à grande échelle avec sécurité**. Reconnaître de manière fiable plus de 50 types de médias, les enrichir via de nombreuses API externes, et ce tout en utilisant une base de données chiffrée avec un contrôle d’accès basé sur des rôles JWT — sans que le chiffrement ou les appels API ne deviennent un goulot d’étranglement — exige une architecture réfléchie.
+
+## Ce qui en fait un outil révolutionnaire
+
+La plupart des gestionnaires de médias partent du principe que vos fichiers sont locaux et que votre réseau est parfait. *Catalogizer* part du principe inverse et fonctionne quand même. La combinaison **d’une couverture multi-protocoles, d’une résilience et d’une surveillance en temps réel** lui permet de gérer une collection distribuée et partiellement disponible comme s’il s’agissait d’une bibliothèque bien organisée — et de la maintenir à jour automatiquement, sans nécessiter de rescan manuel.
+
+Ajoutez à cela le chiffrement par défaut, le contrôle d’accès basé sur les rôles, l’enrichissement par métadonnées externes et des fonctionnalités de sortie réellement utiles (rapports, exports, synchronisation cloud, conversion PDF), et il cesse d’être un simple catalogue pour devenir une plateforme de gestion d’un patrimoine multimédia dispersé sur différents protocoles et machines.
+
+## Comment j’ai résolu les problèmes les plus ardus
+
+J’ai fait de **la résilience une propriété de la couche de stockage**, et non quelque chose que chaque fonctionnalité doit gérer. Les clients de système de fichiers multi-protocoles sont chargés de détecter les déconnexions, de se reconnecter automatiquement et de servir à partir d’un cache hors ligne lorsqu’une source est indisponible. Comme ce comportement est intégré à l’abstraction client, le moteur de surveillance et le moteur de détection qui se trouvent au-dessus peuvent supposer qu’une source est toujours accessible — la réalité chaotique d’un montage SMB interrompu est absorbée en dessous.
+
+Pour dompter la diversité des protocoles, j’ai unifié SMB, FTP, NFS, WebDAV et l’accès local derrière **une interface client de système de fichiers unique**, avec une surveillance spécifique à chaque protocole, incluant le montage NFS réel et les opérations sur fichiers pour macOS. Le moteur de détection de médias repose sur cette interface unique, de sorte que l’ajout d’un protocole ou la correction des particularités d’un protocole n’impacte pas la logique de détection.
+
+Pour le comportement en temps réel, l’API Go exécute un **serveur WebSocket** qui pousse les mises à jour vers l’interface React dès que le catalogue change, de sorte que ce que voient les utilisateurs reflète les sources surveillées en direct, et non un instantané obsolète. Et j’ai fait de la sécurité une obligation incontournable : la base de données est chiffrée via SQLCipher et l’API est protégée par JWT avec un contrôle d’accès basé sur les rôles, afin qu’un système accédant à de nombreux partages distants et API externes ne devienne pas le maillon faible. Le résultat est un gestionnaire de médias conçu pour le monde tel qu’il est — distribué, intermittent, et nécessitant d’être maintenu intègre et sécurisé.

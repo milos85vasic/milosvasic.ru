@@ -1,0 +1,39 @@
+---
+title: LLMs Verifier
+slug: llms-verifier
+repo: https://github.com/vasic-digital/LLMsVerifier
+tech: Go
+teaser: "Before any LLM touches production, it has to prove it can actually see your code — across 12 providers, in real time."
+---
+
+## Der Haken
+
+Jedes Team, das sich an „das neueste Modell" anschließt, verlässt sich stillschweigend auf eine Konfigurationsdatei. Der Modellname in Ihrer YAML lautet `gpt-4o` oder `claude-sonnet`, der Endpunkt liefert einen 200er-Statuscode – und Sie gehen davon aus, dass das, was dahintersteckt, echt, funktionsfähig und der anstehenden Aufgabe gewachsen ist. LLMs Verifier existiert, weil diese Annahme oft genug schmerzhaft danebenliegt. Es handelt sich um eine Enterprise-Grade-Go-Plattform, die kein ungeprüftes Modell in Ihre Pipeline lässt – jedes Modell muss zunächst einen wörtlichen „Siehst du meinen Code?"-Check bestehen, bevor es genutzt werden darf.
+
+## Warum es faszinierend ist
+
+Das Spannende daran ist, dass die „Überprüfung eines LLMs" nicht aus einem einzigen Test besteht – es ist eine ganze Batterie davon, und jeder scheitert auf seine eigene, hinterhältige Weise. LLMs Verifier führt Existenzprüfungen, Reaktionsfähigkeitstests, Latenzmessungen, Streaming-, Funktionsaufruf-, Bildverarbeitungs- und Embedding-Tests als separate Verifizierungsverfahren durch. Ein Modell kann existieren, aber nicht streamen. Es kann streamen, aber bei Tool-Aufrufen versagen. Es kann Bildunterstützung behaupten und das Bild stillschweigend ignorieren. Indem jede Fähigkeit als eigenständige, unabhängig überprüfbare Eigenschaft behandelt wird, verwandelt die Plattform die Frage „Ist dieses Modell gut?" von einem Bauchgefühl in ein messbares, reproduzierbares Ergebnis.
+
+Darüber hinaus kommuniziert sie mit 12 Provider-Adaptern – OpenAI, Anthropic, Cohere, Groq, Together AI, Mistral, xAI, Replicate, DeepSeek, Cerebras, Cloudflare Workers AI und SiliconFlow – über eine einheitliche Schnittstelle. Derselbe Verifizierungssatz, dieselbe Bewertung, angewendet auf völlig unterschiedliche APIs. Diese Vereinheitlichung ist der Bereich, in dem der größte technische Aufwand steckt, denn kein Anbieter definiert Streaming, Funktionsaufrufe oder Embeddings auf dieselbe Weise – weder in der Dokumentation noch im tatsächlichen Datenverkehr.
+
+## Die schwierigen Probleme
+
+Das erste große Problem ist die Heterogenität. Eine Fähigkeitserkennungsschicht muss wissen, dass Streaming als Server-Sent Events, WebSocket-Frames, ein asynchroner Generator, JSONL oder ein roher Event-Stream eintreffen kann – und sie muss erkennen, welche Variante ein bestimmter Anbieter tatsächlich liefert, nicht die, die in der Dokumentation versprochen wird. Sie erfasst Kompressionsunterstützung (gzip, brotli und semantische/Chat-basierte Kompression), Caching-Verhalten (Anthropic und DashScope mit Prompt-Caching) sowie HTTP/3-Verfügbarkeit pro Anbieter. Nichts davon ist standardisiert; alles muss empirisch ermittelt werden.
+
+Das zweite Problem ist Vertrauen unter Fehlerszenarien. Im Produktivbetrieb drosseln Anbieter ihre Dienste, verschlechtern die Leistung oder fallen ganz aus. Die Plattform setzt auf Echtzeit-Health-Checks mit intelligentem Failover und einem Circuit-Breaker-Muster, damit ein instabiler Anbieter nicht die gesamte Verifizierungsroutine – oder die darauf aufbauende Anwendung – in den Abgrund reißt.
+
+Das dritte Problem ist der Langzeitkontext. Das System unterstützt 24+-Stunden-Sitzungen mit LLM-gestützter Zusammenfassung und RAG-Optimierung sowie ein Supervisor/Worker-Muster, das ein LLM nutzt, um große Verifizierungsjobs in verteilte Aufgaben zu zerlegen. Einen konsistenten Zustand über einen ganzen Tag verteilter Agentenaktivität hinweg aufrechtzuerhalten, ohne das Kontextfenster zu sprengen, ist ein echtes Distributed-Systems-Problem – verkleidet als LLM-Feature.
+
+## Was es zum Game-Changer macht
+
+Der entscheidende Unterschied liegt im Übergang von „konfiguriert" zu „bewiesen". Die meisten Stacks exportieren eine Liste von Modellnamen und hoffen das Beste. LLMs Verifier erzeugt einen verifizierten Konfigurationsexport, der nur Modelle enthält, die die Prüfung tatsächlich bestanden haben – und versieht jeden generierten Provider und jedes Modell mit dem obligatorischen Suffix `(llmsvd)`, sodass nie Unklarheit darüber besteht, was maschinell verifiziert und was manuell bearbeitet wurde. Diese eine Disziplin eliminiert eine ganze Klasse von Vorfällen: Der Fehler „Wir haben gegen ein Modell ausgeliefert, das die benötigte Funktion nicht beherrscht" kann einen Export-Gate einfach nicht überleben.
+
+Zudem ist es wie Infrastruktur gebaut, nicht wie ein Skript. Es bietet Docker- und Kubernetes-Bereitstellung, Prometheus-Metriken mit Grafana-Dashboards, LDAP/SSO mit SAML/OIDC, SQLCipher-Datenbankverschlüsselung sowie Integrationen mit Splunk, DataDog, New Relic und ELK. Es liefert Python- und JavaScript-SDKs sowie eine OpenAPI/Swagger-Oberfläche. Das ist eine Plattform, die man einem Sicherheitsteam und einem Plattformteam übergeben kann – und beide werden zustimmend nicken.
+
+## Wie ich die schwierigsten Teile gelöst habe
+
+Ich habe die Verifizierung zum Vertrag gemacht, nicht zum nachträglichen Gedanken. Die Kernentscheidung war: Nichts – kein Modell, kein Anbieter – erhält das Recht zur Nutzung, bevor es nicht die Testsuite bestanden hat, und der „Siehst du meinen Code?"-Check ist das unumstößliche Eintrittstor. Diese Herangehensweise erzwang eine klare Trennung: Provider-Adapter sind einfache Transportschichten, und die Verifizierungs-Engine besitzt die Wahrheit.
+
+Um die 12 inkompatiblen Anbieter zu bändigen, habe ich die Fähigkeitserkennung als empirische Sonde statt als statische Fähigkeitstabelle aufgebaut. Das System fragt jeden Anbieter, was er kann, indem es es tatsächlich ausprobiert – es öffnet einen Stream und klassifiziert das Framing (SSE vs. WebSocket vs. JSONL vs. asynchroner Generator), versucht einen Funktionsaufruf, sendet ein Bild – und zeichnet die beobachtete Realität auf, einschließlich Kompressions- und Caching-Eigenheiten. Die Integration eines 13. Anbieters wird so zum „Schreibe einen Transport und lass die Sonde ihn charakterisieren", nicht zum „Prüfe die gesamte Matrix neu".
+
+Für Resilienz setzte ich auf bewährte Muster: Circuit Breaker um jeden ausgehenden Provider-Aufruf, Health-Checks, die automatisches Failover steuern, und cloudgestützte Checkpoints (S3, Google Cloud, Azure), damit eine 24-Stunden-Supervisor-Sitzung einen Neustart überlebt. Und ich habe es bewusst in Go geschrieben – das Nebenläufigkeitsmodell passt perfekt zu der Aufgabe, „viele unabhängige Verifizierungssonden gegen viele unzuverlässige Remote-Dienste gleichzeitig laufen zu lassen", was genau der Workload ist. Das Ergebnis ist ein Verifizierer, der selbst produktionsreif ist, denn ein Tool, das den Produktivbetrieb absichert, hat kein Recht, selbst unzuverlässig zu sein.

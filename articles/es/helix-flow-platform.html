@@ -1,0 +1,100 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Helix-Flow Platform</h1>
+    <p class="hx-article-tech">Go, gRPC, HTTP, TLS 1.3, mTLS, PostgreSQL, SQLite, JWT</p>
+    <p class="hx-article-repo"><a href="https://github.com/Helix-Flow/Platform" target="_blank" rel="noopener">https://github.com/Helix-Flow/Platform &rarr;</a></p>
+  </header>
+<h2 id="el-anzuelo">El anzuelo</h2>
+<p>“Una plataforma para todas tus necesidades de inferencia de IA:
+ejecuta modelos de IA potentes más rápido, de forma más inteligente y a
+cualquier escala, con costos predecibles”. Helix-Flow Platform es una
+pasarela de inferencia de IA empresarial que habla el API de OpenAI, de
+modo que tus clientes existentes funcionan sin cambios, pero opera como
+una malla de microservicios endurecida y con autenticación mutua bajo el
+capó, con TLS 1.3 de extremo a extremo.</p>
+<h2 id="por-qué-es-fascinante">Por qué es fascinante</h2>
+<p>La promesa de la inferencia de IA es sencilla de enunciar y brutal de
+cumplir: ofrecer a los equipos una forma consistente, rápida y segura de
+invocar modelos sin encerrarlos en los precios o el entorno de ejecución
+de un único proveedor. Helix-Flow aborda este desafío como una
+<strong>arquitectura de microservicios de grado empresarial</strong>:
+una pasarela API que expone servicios independientes para autenticación,
+un pool de inferencia y monitoreo, accesibles tanto por HTTP como por
+gRPC de manera simultánea.</p>
+<p>Lo crucial es que apunta a la <strong>compatibilidad con la
+especificación del API de OpenAI</strong>. Esto significa que la
+interfaz familiar —<code>/v1/models</code>,
+<code>/v1/chat/completions</code>, autenticación con Bearer-token— está
+presente, de modo que cualquier aplicación ya construida sobre el API de
+OpenAI puede redirigirse a Helix-Flow sin modificaciones. Obtienes un
+punto de conexión directo, pero con tu propia autenticación, tu propio
+monitoreo y tus propios controles de costos detrás.</p>
+<h2 id="los-problemas-difíciles">Los problemas difíciles</h2>
+<p>El desafío central es la <strong>seguridad a nivel de malla de
+servicios, no solo en el perímetro</strong>. Es fácil implementar TLS en
+un punto de acceso público; es mucho más difícil cifrar y autenticar
+cada salto <em>entre</em> servicios internos. Helix-Flow construye una
+PKI completa y ejecuta TLS 1.3 con <strong>TLS mutuo (mTLS)</strong> en
+toda su malla de servicios gRPC, de modo que los servicios se autentican
+entre sí, no solo ante el mundo exterior. Esto requiere gestión
+automatizada de certificados —generación, distribución y rotación—,
+porque una malla asegurada manualmente no sobrevive al contacto con la
+producción.</p>
+<p>El segundo problema difícil es la <strong>paridad entre protocolos
+duales</strong>. Ofrecer tanto una pasarela HTTP como una gRPC implica
+que las mismas capacidades deben funcionar correctamente sobre dos
+transportes muy distintos, con autenticación y comportamiento
+consistentes en ambos. Los equipos que prefieren REST y aquellos que
+optan por gRPC de alto rendimiento deben obtener la misma
+plataforma.</p>
+<p>El tercero es la <strong>previsibilidad de costos y
+operatividad</strong>. “Costos predecibles” es una promesa de producto
+que solo se cumple si la plataforma cuenta con monitoreo real,
+limitación de tasas y registro de auditoría, de modo que el gasto y el
+comportamiento sean observables y acotados, en lugar de una sorpresa al
+final del mes.</p>
+<h2 id="qué-la-hace-revolucionaria">Qué la hace revolucionaria</h2>
+<p>La apuesta de Helix-Flow es que la inferencia de IA debería ser
+<strong>infraestructura</strong>, no una integración por aplicación. Al
+presentar un API compatible con OpenAI frente a un pool de inferencia
+agnóstico a proveedores, permite a una organización centralizar cómo
+invoca los modelos: una única pasarela, un único modelo de
+autenticación, un único lugar para aplicar límites de tasa y un único
+registro de auditoría. Cambiar o añadir backends de modelos se convierte
+en una decisión de infraestructura, no en un cambio de código disperso
+en cada aplicación consumidora.</p>
+<p>Y lo logra sin sacrificar los fundamentos empresariales: validación
+de JWT, limitación de tasas, registro de auditoría, manejo elegante de
+errores y un backend multi-base de datos (SQLite para desarrollo,
+PostgreSQL para producción), de modo que puede pasar de un portátil a un
+clúster sin alterar el contrato del que dependen los clientes.</p>
+<h2 id="cómo-resolví-las-partes-más-difíciles">Cómo resolví las partes
+más difíciles</h2>
+<p>Construí la seguridad desde los cimientos, en lugar de añadirla
+después. La plataforma incluye una <strong>PKI completa con TLS 1.3 y
+mTLS</strong>, y el aprovisionamiento de certificados está automatizado
+para que la malla de servicios pueda autenticarse sin manipulación
+manual de certificados. Cada salto interno de gRPC está mutuamente
+autenticado; la pasarela termina el tráfico externo sobre TLS y valida
+los JWT antes de que nada llegue al pool de inferencia. La seguridad es
+una propiedad inherente de la malla, no un envoltorio alrededor de
+ella.</p>
+<p>Para el soporte de protocolos duales, diseñé la <strong>pasarela API
+para servir HTTP y gRPC en paralelo</strong>, exponiendo los servicios
+más pesados —autenticación y el pool de inferencia— mediante gRPC para
+mejorar el rendimiento, mientras que la interfaz pública se mantiene
+sobre HTTP para garantizar compatibilidad. Esta división permite que las
+llamadas internas sensibles a la latencia usen gRPC, mientras que los
+clientes externos conservan la sencilla interfaz REST al estilo
+OpenAI.</p>
+<p>Para garantizar la operatividad y la promesa de “costos predecibles”,
+convertí el <strong>servicio de monitoreo en un componente de primera
+clase</strong>, junto a la autenticación y la inferencia, incorporando
+comprobaciones de estado, recolección de métricas, limitación de tasas y
+registro de auditoría para que el uso y la salud del sistema sean
+visibles y acotados por defecto. El diseño multi-base de datos —SQLite
+para ejecuciones locales sin fricción, PostgreSQL para producción—
+permite que la misma plataforma se valide en una sola máquina y luego
+escale, que es exactamente lo que debe poder hacer una plataforma de
+inferencia “a cualquier escala”.</p>
+</article>

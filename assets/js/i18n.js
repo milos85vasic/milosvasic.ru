@@ -7,7 +7,16 @@ window.MV_LANGS = [
   { code: 'sr', name: 'Српски' },
   { code: 'de', name: 'Deutsch' },
   { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' }
+  { code: 'fr', name: 'Français' },
+  { code: 'be', name: 'Беларуская' },
+  { code: 'zh', name: '中文' },
+  { code: 'kk', name: 'Қазақша' },
+  { code: 'hi', name: 'हिन्दी' },
+  { code: 'ja', name: '日本語' },
+  { code: 'ko', name: '한국어' },
+  { code: 'ar', name: 'العربية' },
+  { code: 'tr', name: 'Türkçe' },
+  { code: 'fa', name: 'فارسی' }
 ];
 
 window.MV_I18N = {

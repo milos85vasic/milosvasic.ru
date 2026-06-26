@@ -1,0 +1,107 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>GrabTube</h1>
+    <p class="hx-article-tech">Dart/Flutter</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/GrabTube" target="_blank" rel="noopener">https://github.com/vasic-digital/GrabTube &rarr;</a></p>
+  </header>
+<h2 id="el-anzuelo">El anzuelo</h2>
+<p><code>yt-dlp</code> es el descargador de vídeo más potente del mundo,
+y es una herramienta de línea de comandos. Para la mayoría de la gente,
+eso es una barrera. GrabTube derriba ese muro: envuelve ese backend en
+una aplicación pulida y multiplataforma para que cualquiera pueda
+descargar de YouTube y más de mil sitios más con selección de calidad,
+elección de formato y seguimiento en tiempo real. Y en móvil, basta con
+apuntar la cámara a un código QR para que comience la descarga. Es un
+descargador universal de servicios de vídeo con una interfaz moderna de
+principio a fin.</p>
+<h2 id="por-qué-resulta-fascinante">Por qué resulta fascinante</h2>
+<p>El anzuelo está en la arquitectura. GrabTube es un backend potente
+que alimenta múltiples clientes. La interfaz web original está
+desarrollada en Python (aiohttp) junto con Angular 19. Luego está el
+cliente en Flutter 3.24+, escrito en Dart, que se distribuye de forma
+<em>nativa</em> en Android, iOS, Windows, macOS y Linux desde un único
+código base. Todos los clientes —tanto web como Flutter— se comunican
+con el mismo motor de yt-dlp. Así, la lógica compleja de descarga reside
+en un solo lugar, y la experiencia de usuario se adapta de forma natural
+al dispositivo que tengas en la mano.</p>
+<p>El cliente en Flutter es donde la cosa se pone realmente interesante.
+Permite descargas en segundo plano con notificaciones, una cola sin
+conexión, Material Design 3 con temas adaptativos, rendimiento nativo en
+todas las plataformas y escaneo de códigos QR con integración de cámara,
+de modo que un enlace en pantalla se convierte en una descarga con un
+solo gesto. Cuenta con un pipeline de CI/CD y más del 80 % de cobertura
+de pruebas con validación mediante IA, un nivel de pulido poco común en
+un descargador. Además, se integra con el ecosistema ShareConnect para
+compartir enlaces de forma universal y sincronizar colas e historial
+entre dispositivos.</p>
+<h2 id="los-problemas-difíciles">Los problemas difíciles</h2>
+<p>El primer problema complicado es que descargar de “más de 1000
+sitios” es un objetivo en constante movimiento. Los diseños de los
+sitios cambian, los formatos se multiplican y la extracción falla. La
+solución de GrabTube es la humildad arquitectónica: no reinventa la
+extracción, sino que se apoya en yt-dlp y concentra sus esfuerzos en
+todo lo que rodea a la descarga: gestión de colas, seguimiento de
+progreso, negociación de formatos y presentación.</p>
+<p>El segundo es la verdadera multiplataforma desde un único código base
+en Dart. “Escribir una vez, ejecutar en todas partes” es fácil de decir,
+pero brutal en los detalles: la ejecución en segundo plano y las
+notificaciones funcionan de forma completamente distinta en Android, iOS
+y cada sistema operativo de escritorio; el acceso a la cámara y los
+códigos QR tienen modelos de permisos específicos para cada plataforma;
+el almacenamiento de archivos y la semántica de descarga varían en todas
+partes. Ofrecer un rendimiento nativo con un único código base en
+Flutter en cinco plataformas implica absorber todas esas diferencias
+bajo una interfaz limpia.</p>
+<p>El tercero es el contrato del backend. Con múltiples clientes
+heterogéneos (una aplicación web en Angular y una app en Flutter)
+accediendo a un servicio aiohttp, la API debe ser la costura estable: el
+progreso en tiempo real, el estado de la cola y el historial deben
+transmitirse de forma fluida a cada cliente, independientemente de cómo
+los renderice.</p>
+<h2 id="lo-que-lo-hace-revolucionario">Lo que lo hace
+revolucionario</h2>
+<p>El cambio de juego está en el alcance sin reescrituras. La mayoría de
+las herramientas de descarga eligen un camino: una interfaz web, una
+aplicación de escritorio o una app móvil. GrabTube se niega a elegir: la
+misma funcionalidad aparece como interfaz web, aplicación móvil nativa y
+aplicación de escritorio nativa, todas respaldadas por el mismo motor.
+Añade el flujo de escaneo por QR y la sincronización entre dispositivos
+mediante ShareConnect, y descargar deja de ser una tarea vinculada a un
+dispositivo para convertirse en algo fluido que te acompaña desde la
+pantalla del portátil hasta el teléfono que llevas en el bolsillo.</p>
+<p>Además, se rige por un estándar al que pocas utilidades llegan. Un
+cliente en Flutter listo para producción con más del 80 % de cobertura
+de pruebas, validación asistida por IA y un pipeline de CI/CD
+automatizado garantiza que GrabTube se comporte como un software
+mantenido, no como un script de fin de semana que se queda obsoleto la
+próxima vez que un sitio cambia.</p>
+<h2 id="cómo-resolví-los-aspectos-más-difíciles">Cómo resolví los
+aspectos más difíciles</h2>
+<p>La decisión fundamental fue convertir yt-dlp en la única fuente de
+verdad para las descargas y no luchar contra él. Al tratar la extracción
+como un problema resuelto y propiedad del backend, liberé a todos los
+clientes para que se centraran únicamente en la experiencia de usuario,
+y hice que el proyecto fuera resistente, porque cuando un sitio cambia,
+la solución está en el backend, no dispersa en cinco interfaces
+distintas.</p>
+<p>Para la multiplataforma, aposté por Flutter y Dart para que un único
+código base pudiera ejecutarse de forma nativa en Android, iOS, Windows,
+macOS y Linux. Luego, abordé los aspectos genuinamente específicos de
+cada plataforma —descargas en segundo plano con notificaciones, cola sin
+conexión, escaneo de códigos QR mediante cámara, temas adaptativos de
+Material Design 3— como integraciones nativas deliberadas, en lugar de
+fingir que todas las plataformas son iguales. Esa es la diferencia entre
+una app en Flutter que <em>funciona</em> en todas partes y una que
+<em>se siente</em> nativa en todas partes.</p>
+<p>Mantuve el backend en aiohttp como una API limpia e independiente del
+cliente, de modo que el cliente web en Angular y el cliente en Flutter
+pudieran evolucionar por separado mientras compartían el mismo
+comportamiento de descarga, progreso en tiempo real e historial. Además,
+integré GrabTube en el ecosistema ShareConnect para que un enlace
+compartido en un dispositivo fluya hacia una cola sincronizada en otro,
+convirtiendo un simple descargador en parte de un flujo de trabajo
+conectado y multiplataforma. Por último, exijo al cliente en Flutter más
+del 80 % de cobertura de pruebas con validación mediante IA y un
+pipeline de CI/CD, porque una herramienta en la que la gente confía para
+obtener su contenido multimedia debe probarse como tal.</p>
+</article>

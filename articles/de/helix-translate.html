@@ -1,0 +1,115 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixTranslate</h1>
+    <p class="hx-article-tech">Go, HTTP/3, WebSocket, REST, SSH, LLM providers</p>
+    <p class="hx-article-repo"><a href="https://github.com/HelixDevelopment/HelixTranslate" target="_blank" rel="noopener">https://github.com/HelixDevelopment/HelixTranslate &rarr;</a></p>
+  </header>
+<h2 id="der-einstieg">Der Einstieg</h2>
+<p>Gib HelixTranslate ein Buch in beliebigen Format, nenne eine
+Zielsprache – und das System übersetzt das gesamte Werk. Es leitet
+deinen Text an das stärkste <em>verifizierte</em> LLM weiter, streamt
+den Fortschritt in ein Live-Dashboard und weigert sich, die Qualität
+hinter deinem Rücken stillschweigend zu verschlechtern. HelixTranslate
+ist ein Hochleistungs-Toolkit für universelle E-Book-Übersetzungen auf
+Enterprise-Niveau mit REST-API, HTTP/3-Unterstützung und
+Echtzeit-WebSocket-Ereignissen.</p>
+<h2 id="warum-es-fasziniert">Warum es fasziniert</h2>
+<p>Übersetzungstools zwingen dich normalerweise, einen Anbieter
+auszuwählen und zu hoffen, dass er heute gut genug ist. HelixTranslate
+dreht das um. Sein Standardpfad ist <strong>brückenbasiert
+ausgewählt</strong>: Es bezieht automatisch das stärkste verifizierte
+API-Modell – plus eine nach Bewertung geordnete Fallback-Kette – über
+eine Integration mit meinem Projekt <em>LLMsVerifier</em>. Du wählst
+keinen Anbieter aus; das System entscheidet sich für den besten, der
+aktuell nachweislich funktioniert, und fällt bei einem Ausfall auf eine
+priorisierte Liste zurück.</p>
+<p>Um diesen Kern herum liegt ein vollständiges
+<strong>Echtzeit-Überwachungssystem</strong>: Ein WebSocket-Hub streamt
+Live-Fortschritt, Ereignisse und Fehler an ein Web-Dashboard,
+unterstützt mehrere gleichzeitige Übersetzungssitzungen mit eindeutigen
+IDs und verwaltet Multi-Client-Verbindungen mit automatischer
+Wiederherstellung. Du kannst zusehen, wie ein langes Buch Absatz für
+Absatz übersetzt wird, statt auf ein blockiertes Terminal zu starren. Es
+kommuniziert mit zahlreichen Anbietern – OpenAI, Anthropic, DeepSeek,
+Zhipu, Qwen, Gemini und mehr – alle über verifizierte Erkennung
+erreichbar.</p>
+<h2 id="die-schwierigen-probleme">Die schwierigen Probleme</h2>
+<p>Das erste schwierige Problem ist <strong>Ehrlichkeit im
+Fehlerfall</strong>. Die einfache Lösung, wenn ein API-Schlüssel fehlt
+oder ein Anbieter ausfällt, besteht darin, stillschweigend auf ein
+schwaches lokales Modell zurückzugreifen und so zu tun, als sei alles in
+Ordnung. Das produziert nutzlose Übersetzungen, die erfolgreich
+aussehen. Ich habe das Gegenteil zur strikten Regel gemacht: Ohne
+gesetzten Anbieter-API-Schlüssel gibt die Brücke einen ehrlichen Fehler
+zurück – es gibt niemals einen stillen lokalen Fallback. Diese Regel
+konsequent über die gesamte Pipeline durchzusetzen, ist eine
+Designvorgabe, kein Einzeiler.</p>
+<p>Das zweite Problem ist <strong>verteilte Übersetzung über
+SSH</strong>. Große Bücher sind langsam, wenn sie seriell übersetzt
+werden, daher unterstützt das System Remote-SSH-Worker – sichere
+Verbindungen, Verteilung der Übersetzungsaufträge,
+Fortschrittsverfolgung von der Remote-Seite und Fehler- sowie
+Fallback-Behandlung. Die Koordination von Remote-Workern bei
+gleichzeitiger Übertragung kohärenter Echtzeit-Ereignisse an das
+Dashboard ist die Art von Integration, die auf hundert kleine Weisen
+scheitern kann.</p>
+<p>Das dritte Problem ist <strong>Echtzeit-Eventing richtig
+umgesetzt</strong>. Das Streamen von Live-Fortschritt für mehrere
+gleichzeitige Sitzungen an mehrere Dashboard-Clients – mit
+Wiederverbindung, Sitzungsverlauf und pro-Sitzungs-Tracking – ist ein
+echtes WebSocket-Architekturproblem, kein simpler
+Fortschrittsbalken.</p>
+<h2 id="was-es-zum-game-changer-macht">Was es zum Game-Changer
+macht</h2>
+<p>Die Strategie des verifizierten besten Modells ist die Idee, die es
+wert ist, übernommen zu werden. Statt sich auf eine statische
+Anbieterauswahl zu verlassen, nutzt HelixTranslate kontinuierlich
+externe Verifizierung, um zu dem zu routen, was <em>tatsächlich</em> die
+beste Leistung bringt – mit einer deterministischen Fallback-Kette,
+falls nicht. Das verwandelt die Frage <em>„Welches LLM soll ich für
+Übersetzungen nutzen?“</em> von einer Vermutung in eine gemessene,
+automatische Entscheidung – und bedeutet, dass das Tool besser wird,
+wenn sich die zugrundeliegende Modelllandschaft verändert, ohne dass
+Code angepasst werden muss.</p>
+<p>Es ist auch bewusst begrenzt. Zu einem Zeitpunkt unterstützte das
+Projekt lokale Laufzeitanbieter und einen SSH-lokalen Pfad; in einer
+späteren Brückenphase habe ich die <strong>lokalen
+Laufzeitanbieter</strong> (Ollama, LlamaCpp) und den SSH-lokalen
+Übersetzungspfad komplett entfernt. Eine Auswahl dieser Optionen führt
+nun zu einer ehrlichen Fehlermeldung <em>„nicht mehr unterstützt”</em>,
+statt ein heruntergestuftes lokales Modell auszuführen. Das ist dasselbe
+Ehrlichkeitsprinzip, angewendet auf die Roadmap: Ich würde lieber einen
+Pfad streichen, als zuzulassen, dass er stillschweigend schlechtere
+Ergebnisse liefert.</p>
+<h2 id="wie-ich-die-schwierigsten-teile-gelöst-habe">Wie ich die
+schwierigsten Teile gelöst habe</h2>
+<p>Der architektonische Grundpfeiler ist das
+<strong>Bridge-Paket</strong> (<code>pkg/bridge</code>), das die
+Übersetzung mit <em>LLMsVerifier</em> verbindet. Statt
+Anbieterpräferenzen fest zu kodieren, fragt der Übersetzer die Brücke
+nach dem stärksten verifizierten Modell und einer priorisierten
+Fallback-Kette ab und übersetzt dann gegen diese. Das macht <em>„Du
+musst keinen Anbieter auswählen”</em> in der Praxis wahr – und hier wird
+die Regel <em>„kein stiller Fallback”</em> durchgesetzt: Die Brücke gibt
+einen expliziten Fehler zurück, statt ein lokales Modell zu
+ersetzen.</p>
+<p>Für die Echtzeit-Überwachung habe ich die Verantwortlichkeiten in
+dedizierte Pakete aufgeteilt: einen <code>websocket</code>-Hub für
+Verbindungs- und Broadcast-Management, ein <code>events</code>-System
+für die Definition und das Senden des Ereignisstroms sowie ein
+<code>sshworker</code>-Paket für die Remote-Ausführung. Ein
+eigenständiger Monitor-Server verarbeitet den WebSocket-Stream und
+steuert das Dashboard, sodass Übersetzung und Überwachung entkoppelt
+sind – die CLI sendet Ereignisse, der Server verteilt sie, und beliebig
+viele Dashboard-Clients abonnieren sie mit automatischer
+Wiederverbindung.</p>
+<p>Für die Verteilung übernimmt die SSH-Worker-Schicht das sichere
+Verbindungsmanagement und die Remote-Ausführung, während sie den
+Fortschritt über dasselbe Ereignissystem zurückmeldet. Aus Sicht des
+Dashboards sieht eine Remote-Übersetzung daher identisch aus wie eine
+lokale. Das gesamte System ist über eine REST-API mit
+HTTP/3-Unterstützung zugänglich und wird durch eine umfassende
+WebSocket-Überwachungstestsuite abgesichert – denn ein
+Übersetzungssystem, das man nicht beobachten kann, ist ein
+Übersetzungssystem, dem man nicht vertrauen kann.</p>
+</article>

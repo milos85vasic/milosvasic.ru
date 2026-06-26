@@ -1,0 +1,96 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>HelixTranslate</h1>
+    <p class="hx-article-tech">Go, HTTP/3, WebSocket, REST, SSH, LLM providers</p>
+    <p class="hx-article-repo"><a href="https://github.com/HelixDevelopment/HelixTranslate" target="_blank" rel="noopener">https://github.com/HelixDevelopment/HelixTranslate &rarr;</a></p>
+  </header>
+<h2 id="kanca">Kanca</h2>
+<p>Elinizdeki kitabı hangi formatta olursa olsun verin, hedef dili
+söyleyin; HelixTranslate tümünü çevirecek — metninizi mevcut en güçlü
+<em>doğrulanmış</em> LLM’ye yönlendirecek, ilerlemeyi canlı bir gösterge
+paneline aktaracak ve kaliteyi arkanıza bakmadan sessizce düşürmeyecek.
+REST API, HTTP/3 desteği ve gerçek zamanlı WebSocket olaylarıyla
+donatılmış, yüksek performanslı, kurumsal düzeyde evrensel bir e-kitap
+çeviri araç setidir.</p>
+<h2 id="neden-büyüleyici">Neden büyüleyici?</h2>
+<p>Çeviri araçları genellikle bir sağlayıcı seçmenizi ve bugün yeterince
+iyi olmasını ummanızı ister. HelixTranslate bu yaklaşımı tersine
+çevirir. Varsayılan yolu <strong>köprü tarafından seçilir</strong>: En
+güçlü doğrulanmış API modelini — artı puan sıralı bir yedek zinciri —
+otomatik olarak, LLMsVerifier projesiyle entegrasyonu sayesinde temin
+eder. Bir sağlayıcı seçmezsiniz; sistem, şu anda çalıştığı kanıtlanmış
+en iyisini seçer ve en üst seçenek başarısız olursa sıralı bir liste
+üzerinden geri çekilir.</p>
+<p>Bu çekirdeğin etrafında eksiksiz bir <strong>gerçek zamanlı izleme
+sistemi</strong> yer alır: Bir WebSocket merkezi, canlı ilerleme,
+olaylar ve hataları bir web paneline aktarır, benzersiz kimliklere sahip
+birden fazla eşzamanlı çeviri oturumunu destekler ve çoklu istemci
+bağlantılarını otomatik yeniden bağlanma ile yönetir. Uzun bir kitabın
+paragraf paragraf çevrildiğini izleyebilirsiniz, bloke olmuş bir
+terminale bakmak yerine. OpenAI, Anthropic, DeepSeek, Zhipu, Qwen,
+Gemini ve daha fazlası dahil birçok sağlayıcıyla konuşur — hepsi
+doğrulanmış keşif yoluyla erişilebilir.</p>
+<h2 id="zorlu-sorunlar">Zorlu sorunlar</h2>
+<p>İlk zorlu sorun <strong>başarısızlıkta dürüstlük</strong>. Bir API
+anahtarı eksik olduğunda ya da bir sağlayıcı başarısız olduğunda kolay
+olan, sessizce zayıf bir yerel modele geri çekilip her şeyin yolunda
+olduğunu varsaymaktır. Bu, başarılı görünen ama aslında çöp çeviriler
+üretir. Ben bunun tam tersini katı bir kural haline getirdim: Hiçbir
+sağlayıcı API anahtarı ayarlanmamışsa, köprü dürüst bir hata döndürür —
+asla sessiz bir yerel yedekleme olmaz. Bunu tüm iş akışında tutarlı bir
+şekilde uygulamak, tek satırlık bir kontrol değil, bir tasarım
+kısıtıdır.</p>
+<p>İkincisi <strong>SSH üzerinden dağıtık çeviri</strong>. Büyük
+kitaplar seri olarak çevrildiğinde yavaş olur, bu yüzden sistem uzak SSH
+çalışanlarını destekler — güvenli bağlantı kurar, çeviri işini dağıtır,
+uzak taraftan ilerlemeyi takip eder ve hataları ile yedeklemeleri
+yönetir. Gösterge paneline tutarlı gerçek zamanlı olaylar gönderirken
+uzak çalışanları koordine etmek, yüzlerce küçük şekilde bozulabilecek
+türden bir entegrasyondur.</p>
+<p>Üçüncüsü <strong>gerçek zamanlı olay bildiriminin doğru
+yapılması</strong>. Birden fazla eşzamanlı oturumun canlı ilerlemesini
+birden fazla gösterge paneli istemcisine aktarmak — yeniden bağlanma,
+oturum geçmişi ve oturum başına takip ile — gerçek bir WebSocket
+mimarisi sorunudur, sıradan bir ilerleme çubuğu değil.</p>
+<h2 id="oyunu-değiştiren-ne">Oyunu değiştiren ne?</h2>
+<p>Doğrulanmış en iyi model stratejisi, çalınmaya değer fikir. Statik
+bir sağlayıcı seçimine güvenmek yerine, HelixTranslate sürekli olarak
+dış doğrulamaya dayanarak <em>gerçekten</em> performans gösteren modele
+yönlendirir ve performans göstermezse belirlenmiş bir yedek zinciriyle
+geri çekilir. Bu, “Çeviri için hangi LLM’yi kullanmalıyım?” sorusunu bir
+tahminden ölçülebilir, otomatik bir karara dönüştürür — ve araç, altta
+yatan model ortamı değişirken, kod değişikliği olmadan daha da
+iyileşir.</p>
+<p>Aynı zamanda bilinçli olarak kapsamı daraltılmış bir proje. Bir dönem
+yerel çalışma zamanı sağlayıcıları ve SSH-yerel yolu destekliyordu; daha
+sonraki bir köprü aşamasında <strong>yerel çalışma zamanı
+sağlayıcılarını (Ollama, LlamaCpp) ve SSH-yerel çeviri yolunu tamamen
+kaldırdım</strong>. Artık bunları seçmek, sessizce daha zayıf bir yerel
+model çalıştırmak yerine dürüst bir “artık desteklenmiyor” hatası
+döndürüyor. Bu, yol haritasına uygulanan aynı dürüstlük ilkesi: Bir yolu
+kesmeyi, sessizce daha kötü çıktı üretmesine yeğlerim.</p>
+<h2 id="en-zor-kısımları-nasıl-çözdüm">En zor kısımları nasıl
+çözdüm?</h2>
+<p>Mimari kilit taşı, çeviriyi LLMsVerifier ile bağlayan <strong>köprü
+paketi</strong> (<code>pkg/bridge</code>). Sağlayıcı tercihlerini sabit
+kodlamak yerine, çevirmen köprüden en güçlü doğrulanmış modeli ve sıralı
+bir yedek zinciri talep eder, ardından bununla çeviri yapar. “Bir
+sağlayıcı seçmek zorunda değilsiniz” ifadesini pratikte doğru kılan da
+budur ve sessiz yedekleme yapılmamasını sağlayan kural da burada
+uygulanır — köprü, yerel bir model yerine açık bir hata döndürür.</p>
+<p>Gerçek zamanlı izleme için endişeleri ayrı paketlere böldüm: Bağlantı
+ve yayın yönetimini üstlenen bir <code>websocket</code> merkezi, olay
+akışını tanımlayan ve ileten bir <code>events</code> sistemi ve uzak
+yürütme için bir <code>sshworker</code> paketi. Bağımsız bir izleme
+sunucusu WebSocket akışını tüketir ve gösterge panelini sürer, böylece
+çeviri çalışmaları ve izleme birbirinden ayrılır — CLI olayları yayar,
+sunucu bunları dağıtır ve herhangi sayıda gösterge paneli istemcisi
+otomatik yeniden bağlanma ile abone olur.</p>
+<p>Dağıtım için SSH çalışan katmanı, güvenli bağlantı yönetimi ve uzak
+yürütmeyi üstlenirken, ilerlemeyi aynı olay sistemi üzerinden geri
+bildirir; böylece uzak bir çeviri, gösterge paneli açısından yerel bir
+çeviriyle aynı görünür. Tüm sistem, HTTP/3 desteğine sahip bir REST API
+üzerinden sunulur ve kapsamlı bir WebSocket izleme test paketiyle
+desteklenir — çünkü gözlemleyemediğiniz bir çeviri sistemi,
+güvenemeyeceğiniz bir çeviri sistemidir.</p>
+</article>

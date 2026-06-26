@@ -1,0 +1,103 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Helix-Flow Platform</h1>
+    <p class="hx-article-tech">Go, gRPC, HTTP, TLS 1.3, mTLS, PostgreSQL, SQLite, JWT</p>
+    <p class="hx-article-repo"><a href="https://github.com/Helix-Flow/Platform" target="_blank" rel="noopener">https://github.com/Helix-Flow/Platform &rarr;</a></p>
+  </header>
+<h2 id="der-einstieg">Der Einstieg</h2>
+<p>„Eine Plattform für all Ihre KI-Inferenz-Anforderungen – führen Sie
+leistungsstarke KI-Modelle schneller, intelligenter und in jedem Maßstab
+aus, mit vorhersehbaren Kosten.” Die Helix-Flow-Plattform ist ein
+unternehmensweites KI-Inferenz-Gateway, das die OpenAI-API spricht,
+sodass Ihre bestehenden Clients einfach weiter funktionieren. Doch unter
+der Haube läuft sie als gehärtetes, wechselseitig authentifiziertes
+Microservice-Mesh mit durchgängiger TLS-1.3-Verschlüsselung.</p>
+<h2 id="warum-es-fasziniert">Warum es fasziniert</h2>
+<p>Die Vision von KI-Inferenz ist einfach formuliert, aber brutal in der
+Umsetzung: Teams eine konsistente, schnelle und sichere Möglichkeit zu
+bieten, Modelle aufzurufen – ohne sie an die Preispolitik oder
+Laufzeitumgebung eines einzelnen Anbieters zu binden. Helix-Flow setzt
+dies als <strong>unternehmensreife Microservice-Architektur</strong> um:
+ein API-Gateway, das unabhängige Dienste für Authentifizierung, einen
+Inferenz-Pool und Monitoring bereitstellt – gleichzeitig über HTTP und
+gRPC erreichbar.</p>
+<p>Entscheidend ist die <strong>Kompatibilität mit der
+OpenAI-API-Spezifikation</strong>. Das bedeutet, dass die vertraute
+Oberfläche – <code>/v1/models</code>, <code>/v1/chat/completions</code>,
+Authentifizierung per Bearer-Token – erhalten bleibt. Alles, was bereits
+für die OpenAI-API entwickelt wurde, kann stattdessen auf Helix-Flow
+umgeleitet werden. Sie erhalten einen Drop-in-Endpunkt, doch dahinter
+stehen Ihre eigene Authentifizierung, Ihr eigenes Monitoring und Ihre
+eigenen Kostenkontrollen.</p>
+<h2 id="die-harten-probleme">Die harten Probleme</h2>
+<p>Die zentrale Herausforderung liegt in der <strong>Sicherheit auf
+Service-Mesh-Ebene, nicht nur am Rand</strong>. Es ist einfach, TLS für
+einen öffentlichen Endpunkt einzurichten; viel schwieriger ist es, jeden
+internen Kommunikationsschritt zu verschlüsseln und zu authentifizieren.
+Helix-Flow baut eine vollständige PKI auf und setzt TLS 1.3 mit
+<strong>wechselseitigem TLS (mTLS)</strong> im gesamten
+gRPC-Service-Mesh ein. So weisen sich Dienste gegenseitig ihre Identität
+nach – nicht nur gegenüber der Außenwelt. Das erfordert automatisiertes
+Zertifikatsmanagement: Erstellung, Verteilung und Rotation von
+Zertifikaten, denn ein manuell abgesichertes Mesh überlebt den Kontakt
+mit der Produktion nicht.</p>
+<p>Das zweite harte Problem ist die <strong>Parität zwischen zwei
+Protokollen</strong>. Die Bereitstellung sowohl eines HTTP- als auch
+eines gRPC-Gateways bedeutet, dass dieselben Funktionen über zwei
+grundverschiedene Transportwege korrekt funktionieren müssen – mit
+konsistenter Authentifizierung und einheitlichem Verhalten. Teams, die
+REST bevorzugen, und solche, die auf leistungsstarkes gRPC setzen,
+sollten dieselbe Plattform nutzen können.</p>
+<p>Das dritte Problem ist <strong>vorhersehbare Kosten und
+Betriebssicherheit</strong>. „Vorhersehbare Kosten” sind nur dann ein
+haltbares Versprechen, wenn die Plattform echte Überwachung,
+Ratenbegrenzung und Audit-Logging bietet – damit Ausgaben und Verhalten
+beobachtbar und begrenzt bleiben, statt am Monatsende für böse
+Überraschungen zu sorgen.</p>
+<h2 id="was-es-zum-game-changer-macht">Was es zum Game-Changer
+macht</h2>
+<p>Helix-Flow setzt darauf, dass KI-Inferenz
+<strong>Infrastruktur</strong> sein sollte, nicht eine Integration pro
+Anwendung. Indem es eine OpenAI-kompatible API vor einem
+anbieterunabhängigen Inferenz-Pool platziert, ermöglicht es Unternehmen,
+die Nutzung von Modellen zu zentralisieren: ein Gateway, ein
+Authentifizierungsmodell, ein Ort für Ratenbegrenzungen, eine einzige
+Audit-Spur. Das Wechseln oder Hinzufügen von Modell-Backends wird zur
+Infrastrukturentscheidung – nicht zu einer Code-Änderung, die über alle
+Anwendungen verstreut ist.</p>
+<p>Und das alles, ohne bei den unternehmenskritischen Grundlagen
+Kompromisse einzugehen: JWT-Validierung, Ratenbegrenzung, Audit-Logging,
+elegante Fehlerbehandlung und eine Multi-Datenbank-Architektur (SQLite
+für die Entwicklung, PostgreSQL für die Produktion). So lässt sich die
+Plattform vom Laptop bis zum Cluster skalieren, ohne dass sich der
+Vertrag ändert, auf den sich die Clients verlassen.</p>
+<h2 id="wie-ich-die-härtesten-probleme-gelöst-habe">Wie ich die
+härtesten Probleme gelöst habe</h2>
+<p>Ich habe Sicherheit von Grund auf integriert, statt sie nachträglich
+aufzusetzen. Die Plattform liefert eine <strong>vollständige PKI mit TLS
+1.3 und mTLS</strong> aus, und die Zertifikatsbereitstellung ist
+automatisiert, sodass sich das Service-Mesh ohne manuelles
+Zertifikatsmanagement selbst authentifizieren kann. Jeder interne
+gRPC-Kommunikationsschritt ist wechselseitig authentifiziert; das
+Gateway terminiert externen Traffic über TLS und validiert JWTs, bevor
+überhaupt etwas den Inferenz-Pool erreicht. Sicherheit ist eine
+Eigenschaft des Meshs – nicht nur eine Hülle darum.</p>
+<p>Für die Unterstützung beider Protokolle habe ich das
+<strong>API-Gateway so konzipiert, dass es HTTP und gRPC parallel
+bedient</strong>. Die ressourcenintensiveren Dienste – Authentifizierung
+und der Inferenz-Pool – sind für bessere Performance über gRPC
+erreichbar, während die öffentliche Schnittstelle aus
+Kompatibilitätsgründen über HTTP angeboten wird. Diese Aufteilung
+ermöglicht es, dass latenzsensitive interne Aufrufe gRPC nutzen, während
+externe Clients die einfache OpenAI-REST-Schnittstelle behalten.</p>
+<p>Für die Betriebssicherheit und das Versprechen „vorhersehbarer
+Kosten” habe ich den <strong>Monitoring-Dienst als gleichberechtigte
+Komponente</strong> neben Authentifizierung und Inferenz etabliert. Dazu
+gehören Health-Checks, Metriken-Erfassung, Ratenbegrenzung und
+Audit-Logging, sodass Nutzung und Systemzustand standardmäßig sichtbar
+und begrenzt sind. Das Multi-Datenbank-Design – SQLite für lokale
+Entwicklung ohne Hürden, PostgreSQL für die Produktion – bedeutet, dass
+dieselbe Plattform auf einem einzelnen Rechner validiert und dann
+hochskaliert werden kann. Genau das muss eine „beliebig skalierbare”
+Inferenz-Plattform leisten.</p>
+</article>

@@ -1,0 +1,62 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>ShareConnect</h1>
+    <p class="hx-article-tech">Kotlin</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/ShareConnect" target="_blank" rel="noopener">https://github.com/vasic-digital/ShareConnect &rarr;</a></p>
+  </header>
+<h2 id="吸引点">吸引点</h2>
+<p>你发现了一个视频、种子或值得保存的文件——在手机上、浏览器里，或是聊天记录中。随之而来的繁琐操作：复制链接、切换设备、找到对应的客户端、粘贴、配置、祈祷成功。ShareConnect
+让这一切消失无踪。它接入 Android
+原生分享菜单，任何可下载的链接都能直接传输至<em>你的</em>基础设施——MeTube、YT-DLP、qBittorrent、Transmission、jDownloader
+等，将内容发现与你的下载服务无缝连接。其名字本身就是核心理念：<strong>分享</strong>遇见<strong>连接</strong>。</p>
+<h2 id="为何引人入胜">为何引人入胜</h2>
+<p>ShareConnect 不是单一应用，而是一个由 20 个成熟 Android
+应用构成的生态系统，分三个阶段精心构建。第一阶段是核心：主应用
+ShareConnector，以及 qBittorrent、Transmission 和 uTorrent
+的专用客户端。第二阶段新增八大云服务——通过 MyJDownloader API 接入的
+JDownloader、MeTube、支持 1800+ 流媒体网站的
+YT-DLP、Nextcloud、FileBrowser、Plex、Jellyfin 和
+Emby。第三阶段则补充了八个专业服务，包括
+Seafile、Syncthing、Matrix、Paperless-NG、Duplicati、WireGuard、Minecraft
+服务器控制器及 OnlyOffice。</p>
+<p>真正的工程亮点，却在于底层的同步机制。ShareConnect
+在整个生态系统的每个应用中同步八类不同的数据：主题、配置文件、历史记录、RSS
+订阅、书签、偏好设置、语言及种子分享状态。因此，主应用的主题即是
+qBitConnect
+的主题；下载记录如影随形；配置文件在各处保持一致。二十个应用，却如同一个产品。</p>
+<h2 id="难点所在">难点所在</h2>
+<p>首要难点是集成的广度。每个后端——qBittorrent、Transmission、jDownloader、Plex、Jellyfin、Nextcloud、Matrix、Syncthing——都有各自的
+API、认证模式和特性。构建 20
+个客户端，每个都能准确对接目标协议，同时共享足够的通用框架以保持可维护性，这既是编码问题，更是工程纪律的考验。</p>
+<p>第二个难点是跨应用同步。在多个独立安装的 Android
+应用间同步八类状态，意味着在单一设备乃至更广范围内解决真正的分布式系统问题：独立应用如何相互发现、就共享状态达成一致，并在不冲突的情况下协调变更？主题、配置文件、历史记录、RSS
+订阅、书签、偏好设置、语言及种子分享状态，各自的更新模式和冲突语义都不相同。</p>
+<p>第三个难点是验证其可靠性。面对 20
+个应用和共享的同步层，测试范围极其庞大——而项目毫不退缩：单元测试、集成测试和自动化测试均达
+100% 通过率，辅以 AI 驱动的质量保证流程，SonarQube 评级 A+，Snyk
+未发现严重漏洞，代码覆盖率约 95%，技术债务比仅
+0.2%。在整个生态系统中维持这一标准，正是大多数项目悄然回避的难关。</p>
+<h2 id="颠覆性意义">颠覆性意义</h2>
+<p>真正的颠覆在于自托管的便捷性，且无需妥协。商业化的「发送到我的设备」功能将你锁定在他人的云服务中。ShareConnect
+则将同样的一键便捷指向<em>你</em>拥有的基础设施——你的种子客户端、媒体服务器、Nextcloud——并让它在
+Android
+上如同原生体验。它将零散的自托管服务整合为一个统一、连贯、可分享的界面。</p>
+<p>由于同步层作为连接组织，生态系统能够优雅扩展：像 qBitConnect 或
+TransmissionConnect
+这样的配套客户端并非孤岛，它们自动继承共享的主题、配置文件和历史记录。整个项目基于现代
+Android 技术栈——Kotlin 2.0、Java 17、Android API
+26+——这不是概念验证，而是 20 个标记为「生产就绪」的应用。</p>
+<h2 id="如何攻克最棘手的难题">如何攻克最棘手的难题</h2>
+<p>我将同步机制作为产品的核心，而非附加功能。与其在每个应用中临时添加同步功能，我构建了专用的共享同步模块——ThemeSync、ProfileSync、HistorySync、RSSSync、BookmarkSync、PreferencesSync、LanguageSync
+和
+TorrentSharingSync——生态系统中的每个应用都能直接接入。这一设计正是新客户端能「免费」获得一致性的原因：它直接采用现有模块，而非重新发明轮子。</p>
+<p>针对集成的复杂性，我采用了连接器模式：每个后端（qBittorrent、Transmission、MeTube、YT-DLP、JDownloader、Plex
+等）都是一个独立的连接器模块，隐藏在统一的契约背后。这正是 20
+个客户端既能保持个体准确性，又能整体可维护的关键。分阶段推出——核心客户端、云服务、专业服务——让每一层在下一层构建前趋于稳定。</p>
+<p>最后，我拒绝让质量随着规模扩大而下滑。100%
+通过的单元测试、集成测试和自动化测试套件，加上 AI
+质检阶段，并非虚荣的勋章，而是确保一个拥有 20
+个应用和共享同步层的生态系统不因回归问题而崩溃的唯一途径。在整个项目中保持约
+95% 的覆盖率和 0.2% 的技术债务比，正是让这 20
+个应用都能被称作「生产就绪」的底气所在。</p>
+</article>

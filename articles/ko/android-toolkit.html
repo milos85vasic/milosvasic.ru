@@ -1,0 +1,93 @@
+<article class="hx-article">
+  <header class="hx-article-head">
+    <h1>Android Toolkit</h1>
+    <p class="hx-article-tech">Kotlin</p>
+    <p class="hx-article-repo"><a href="https://github.com/vasic-digital/Android-Toolkit" target="_blank" rel="noopener">https://github.com/vasic-digital/Android-Toolkit &rarr;</a></p>
+  </header>
+<h2 id="매력적인-시작">매력적인 시작</h2>
+<p>모든 진지한 안드로이드 개발자는 결국 똑같은 “이 코드 전에 이미 쓴 적
+있어” 코드 더미를 쌓게 됩니다. 제대로 된 테스트 환경, 로깅 추상화 계층,
+루트 접근 도우미, 프로세스 간 통신 모듈, 원형 ImageView, 알파벳 빠른
+스크롤러 같은 것들이죠. <strong>Android Toolkit</strong>은 바로 그
+더미를 깔끔하고 모듈화된 라이브러리로 다듬은 것입니다. 자주 사용되는
+추상화, 구현체, 도구들의 집합으로, 프로젝트에
+<code>git submodule add</code>로 추가하기만 하면 바로 사용할 수
+있습니다. 화려한 앱을 가능하게 하는, 화려하지 않은 기반이죠.</p>
+<h2 id="왜-매력적인가">왜 매력적인가</h2>
+<p>진짜 매력은 <em>자제의 아키텍처</em>에 있습니다. Toolkit은
+<code>Main</code>, <code>Test</code>, <code>Echo</code>,
+<code>Access</code>, <code>JCommons</code>, <code>RootTools</code>,
+<code>RootShell</code>, <code>Interprocess</code>,
+<code>CircleImageView</code>, <code>ConnectionIndicator</code>,
+<code>FastscrollerAlphabet</code> 등 집중적이고 독립적으로 포함 가능한
+모듈로 나뉘어 있습니다. <code>settings.gradle</code>과
+<code>build.gradle</code>을 통해 필요한 모듈만 선택해 연결할 수 있죠.
+거대한 단일 라이브러리도 아니고, 하나의 도우미를 얻기 위해 부엌
+싱크대까지 끌고 들어올 필요도 없습니다. 이런 세분화는 단순한 설계 선택이
+아닙니다. 각 모듈은 그 자체로 존재 가치를 증명해야 합니다.</p>
+<p>또한 이 라이브러리는 배포된 아티팩트가 아닌 git 서브모듈로 제공된다는
+점도 중요한 의미를 지닙니다. 이는 이 툴킷이 개발자의 안드로이드 작업
+포트폴리오 전반에 걸쳐 공유되는 기반이라는 사실을 말해줍니다. 여러 앱이
+일관된 방식으로 동작하고, 동기화된 발전을 이루며, 프로젝트 간
+복사-붙여넣기 유출 없이 진화할 수 있도록 하는 공통 기반 레이어죠.
+모듈들은 루트 셸과 도구 같은 저수준 시스템 접근부터 프로세스 간 통신,
+완성형 UI 위젯까지 광범위하게 포괄합니다. 덕분에 동일한 Toolkit이 파워
+유저용 시스템 앱과 세련된 소비자용 UI 모두를 지원할 수 있습니다.</p>
+<h2 id="어려운-문제들">어려운 문제들</h2>
+<p>첫 번째 어려운 문제는 모듈화 계약입니다. 모듈 선택형 시스템이 실제로
+작동하려면 경계선이 명확해야 합니다. <code>RootShell</code>과
+<code>RootTools</code>가 UI 위젯에 몰래 의존해서는 안 되고,
+<code>Interprocess</code>가 테스트 환경까지 끌고 들어와서도 안 됩니다.
+진정으로 독립적이면서도 Gradle을 통해 깔끔하게 조합되는 모듈을 설계하는
+것은 하나의 거대한 라이브러리를 만드는 것보다 어렵습니다. 모든 경계선이
+약속이기 때문입니다.</p>
+<p>두 번째는 안드로이드의 위험한 영역입니다. 루트
+접근(<code>RootShell</code>, <code>RootTools</code>)과 프로세스 간
+통신(<code>Interprocess</code>)은 버그가 보안 취약점이나 앱 간 충돌로
+이어지기 딱 좋은 부분입니다. 권한이 필요한 셸과 IPC를 안전하면서도
+사용하기 편한 추상화로 감싸는 작업은 스크린샷에는 드러나지 않지만, 그
+위에 구축되는 앱의 신뢰성을 결정짓는 핵심 요소입니다.</p>
+<p>세 번째는 여러 프로젝트에 동시에 기반이 되어야 한다는 점입니다.
+서브모듈을 통해 여러 앱에서 사용하는 툴킷은 신중하게 진화해야 합니다.
+공유 추상화의 변경은 모든 곳에 영향을 미치기 때문입니다. 그래서
+Toolkit은 전용 <code>Test</code> 모듈을 제공하고 테스트
+의존성(<code>testImplementation</code>,
+<code>androidTestImplementation</code>)을 최우선으로 고려합니다. 기반은
+테스트 가능해야 하고, 그 기반 위에서 구축되는 앱도 이를 통해 테스트
+가능해야 합니다.</p>
+<h2 id="게임-체인저인-이유">게임 체인저인 이유</h2>
+<p>진짜 변화는 레버리지에 있습니다. 이런 재사용 가능한 인프라는 한 명의
+엔지니어가 <strong>ShareConnect</strong> 생태계, <strong>Yole</strong>
+등 전체 안드로이드 애플리케이션 패밀리를 신뢰성 있게 유지할 수 있게
+해줍니다. 매번 기본부터 다시 만들 필요 없이 말이죠. Toolkit은 “흔한
+안드로이드 문제들”을 해결된, 공유되고 버전 관리되는 모듈로 전환합니다.
+덕분에 새로운 앱은 더 높은 출발점에서 시작하며, 로깅, 테스트, 시스템
+접근, UI 기본 요소에서 일관성을 기본으로 물려받습니다.</p>
+<p>서브모듈 배포 모델은 이러한 효과를 증폭시킵니다. 한 앱을 개발하면서
+개선된 사항은 Toolkit으로 다시 흘러들어가 즉시 다른 앱에도 혜택을
+줍니다. 이는 복리 효과를 내는 투자와 같습니다. 사용될 때마다 기반은 더욱
+견고해집니다.</p>
+<h2 id="가장-어려운-부분을-해결한-방법">가장 어려운 부분을 해결한
+방법</h2>
+<p>처음부터 선택적 사용을 염두에 두고 설계했습니다. Toolkit을 좁은
+범위의 Gradle 모듈로 나누고, 필요한 것만 포함하도록 문서화함으로써
+라이브러리를 부과하는 방식이 아닌 추가하는 방식으로 만들었습니다.
+프로젝트는 <code>RootShell</code>과 <code>Interprocess</code>를
+가져오면서 절대 렌더링하지 않을 UI 위젯을 상속받지 않습니다.
+<code>settings.gradle</code>에 명시된 모듈 목록은 의존성 표면을
+가시적이고 의도적으로 만들어줍니다.</p>
+<p>위험한 영역에 대해서는 권한과 IPC를 각각
+<code>RootShell</code>/<code>RootTools</code>(루트 접근),
+<code>Interprocess</code>(프로세스 간 통신) 모듈로 격리했습니다. 위험한
+코드는 의도적으로 넘어야만 하는 경계 뒤에 존재하며, 기본적으로 모든
+소비자에게 유출되지 않습니다. 이러한 격리가 Toolkit의 나머지 부분을
+광범위하게 안전하게 의존할 수 있게 만드는 핵심입니다.</p>
+<p>또한 테스트를 사후 고려가 아닌 기반의 일부로 취급했습니다.
+<code>Test</code> 모듈을 제공하고 표준
+<code>testImplementation</code>/<code>androidTestImplementation</code>
+연결 방식을 도입함으로써 Toolkit 기반으로 구축되는 모든 앱이 즉시 일관된
+테스트 환경을 갖추게 했습니다. 공유 추상화의 변경은 포트폴리오 전체에
+영향을 미치기 전에 검증될 수 있습니다. 전체 시스템이 서브모듈로 제공되는
+이유는 바로 기반과 그 위에 서 있는 앱들이 함께 전진할 수 있도록 하기
+위해서입니다. 하나의 기반, 여러 제품, 유출 없음.</p>
+</article>
