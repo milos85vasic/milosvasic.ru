@@ -1,0 +1,309 @@
+---
+layout: default
+title: "Vasic Digital Reusable Module Suite — Miloš Vasić"
+description: "A large family of generic, reusable modules published under the `digital.vasic.*` (Go) and Kotlin Multiplatform namespaces. Every module is standalone, independently tested and versioned, and consumed as an equal-codebase submodule by larger products (Catalogizer, HelixAgent, and the wider fleet). This page consolidates the many small utilities that would be noise as individual pages."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "de",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "A large family of generic, reusable modules published under the `digital.vasic.*` (Go) and Kotlin Multiplatform namespaces. Every module is standalone, independently tested and versioned, and consumed as an equal-codebase submodule by larger products (Catalogizer, HelixAgent, and the wider fleet). This page consolidates the many small utilities that would be noise as individual pages.",
+      "inLanguage": "de",
+      "name": "Vasic Digital Reusable Module Suite",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 28</p>
+      <h1>Vasic Digital Reusable Module Suite <span class="od-h1-badges"><span class="od-badge--status od-badge--status--scaffold">scaffold</span><span class="od-tag--license">Lizenz: UNVERIFIED (varies per module)</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (digital.vasic.*)</span><span class="od-chip">Kotlin Multiplatform (*-KMP)</span><span class="od-chip">Redis / PostgreSQL / SQLite</span><span class="od-chip">Prometheus / OpenTelemetry</span><span class="od-chip">WebSocket / HTTP/3 (quic-go) / mDNS</span><span class="od-chip">Vector DB / Embeddings / RAG / MCP</span><span class="od-chip">YAML (RedTeam fixtures, config)</span></div>
+
+      <h2>Quelle</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital" rel="noopener noreferrer" target="_blank">vasic-digital <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="vasic-digital-reusable-module-suite">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M300,144 L180,178"/>
+<path class="conn" marker-end="url(#a)" d="M300,144 L500,178"/>
+<path class="conn" marker-end="url(#a)" d="M700,144 L560,178"/>
+<path class="conn" marker-end="url(#a)" d="M700,144 L820,178"/>
+<rect class="accent" x="200" y="80" width="200" height="64" rx="10"/>
+<rect class="accent" x="600" y="80" width="200" height="64" rx="10"/>
+<rect class="tint" x="40" y="180" width="280" height="60" rx="10"/>
+<rect class="tint" x="360" y="180" width="280" height="60" rx="10"/>
+<rect class="tint" x="680" y="180" width="280" height="60" rx="10"/>
+<rect class="box" x="40" y="255" width="280" height="48" rx="10"/>
+<rect class="box" x="40" y="313" width="280" height="48" rx="10"/>
+<rect class="box" x="40" y="371" width="280" height="48" rx="10"/>
+<rect class="box" x="360" y="255" width="280" height="48" rx="10"/>
+<rect class="box" x="360" y="313" width="280" height="48" rx="10"/>
+<rect class="box" x="360" y="371" width="280" height="48" rx="10"/>
+<rect class="box" x="680" y="255" width="280" height="48" rx="10"/>
+<rect class="box" x="680" y="313" width="280" height="48" rx="10"/>
+<rect class="box" x="680" y="371" width="280" height="48" rx="10"/>
+<rect class="dash" x="40" y="450" width="920" height="56" rx="10"/>
+<text class="t" x="300" y="114">HelixAgent</text>
+<text class="t" x="700" y="114">Catalogizer</text>
+<text class="t" x="180" y="210">Infrastructure</text>
+<text class="t" x="500" y="210">AI primitives</text>
+<text class="t" x="820" y="210">Guardrails</text>
+<text class="t" x="180" y="279">Redis · PostgreSQL · SQLite</text>
+<text class="t" x="180" y="337">WebSocket · HTTP/3 · mDNS</text>
+<text class="t" x="180" y="395">Prometheus · OpenTelemetry</text>
+<text class="t" x="500" y="279">Vector DB · Embeddings</text>
+<text class="t" x="500" y="337">RAG · MCP</text>
+<text class="t" x="500" y="395">Normalize · TOON</text>
+<text class="t" x="820" y="279">RedTeam fixtures (YAML)</text>
+<text class="t" x="820" y="337">Policy engine</text>
+<text class="t" x="820" y="395">Verification / LLMsVerifier</text>
+<text class="t" x="490" y="478">Go (digital.vasic.*) ↔ Kotlin Multiplatform (*-KMP) mirror pairs</text>
+<text class="h" x="32" y="44">Vasic Digital Reusable Module Suite — module map</text>
+<text class="lbl" x="200" y="64">Product apps</text>
+<text class="lbl" x="40" y="164">Reusable modules by cluster</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// Architektur</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Einmal bauen, überall wiederverwenden – eine Flotte kleiner, entkoppelter, unabhängig getesteter Go- und KMP-Module.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-0" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-0-panel">
+              <span class="od-accordion__label">Zusammenfassung</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-0-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-0">
+            <div class="od-accordion__inner">
+      <p>Eine umfangreiche Sammlung generischer, wiederverwendbarer Module, veröffentlicht unter den Namespaces <code>digital.vasic.*</code> (Go) und Kotlin Multiplatform. Jedes Modul ist eigenständig, wird unabhängig getestet und versioniert und als Submodul mit gleichem Codebestand von größeren Produkten (Catalogizer, HelixAgent und der gesamten Flotte) genutzt. Diese Seite bündelt die vielen kleinen Hilfsmodule, die als einzelne Seiten nur störendes Rauschen wären.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-1" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-1-panel">
+              <span class="od-accordion__label">Kurzbeschreibung</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-1-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-1">
+            <div class="od-accordion__inner">
+      <p>Eine kuratierte Sammlung entkoppelter <code>digital.vasic.*</code>-Module – Infrastruktur-Grundbausteine (Authentifizierung, Cache, Datenbank, Konfiguration, Observability), AI/Agenten-Bausteine (RAG, VectorDB, Embeddings, MCP, Agentic, Planung) und defensive LLM-Schutzmechanismen (RedTeam, Normalize) – ergänzt um einen Kotlin Multiplatform-Spiegelsatz. Jedes Modul ist generisch, getestet und wiederverwendbar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-2" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-2-panel">
+              <span class="od-accordion__label">Ausführliche Beschreibung</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-2-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-2">
+            <div class="od-accordion__inner">
+      <p>Die Organisation vasic-digital setzt auf eine einzige strukturelle Grundannahme: eine „Verfassung plus viele entkoppelte, wiederverwendbare Submodule"-Philosophie, bei der generische Funktionalität niemals zweimal geschrieben wird. Statt monolithischer Architekturen wird jede wiederverwendbare Komponente in ein eigenes kleines Modul ausgelagert – mit eigenem Repository, eigenen Tests und eigener Dokumentation – und strikt entkoppelt gehalten, sodass keine spezifischen Anforderungen der Nutzer einfließen. Diese Seite fasst sie zusammen, weil jedes Modul für sich genommen bibliotheksähnlich wäre und als einzelne Produktseite nur störend wirken würde. Zusammengenommen bilden sie jedoch den eigentlichen Hebel der Organisation: ein internes technisches Asset, das „ein neues Produkt bauen" in „bewährte Teile zusammenfügen" verwandelt – und die konkrete Grundlage für die Behauptung, dass diese Flotte das Rad nicht neu erfindet, sondern ein einziges, sehr gutes Rad pflegt und überall einsetzt.</p>
+      <p>Die Sammlung umfasst drei Cluster. <strong>Infrastruktur-Grundbausteine</strong> (Go) stellen die Basisdienste bereit, die jede Anwendung benötigt: <code>auth</code> (JWT/bcrypt), <code>cache</code> (Redis/TTL), <code>database</code> (Migrationen, duale SQLite/PostgreSQL), <code>config</code>, <code>middleware</code>, <code>observability</code> (Prometheus/OpenTelemetry), <code>ratelimiter</code>, <code>security</code>, <code>storage</code> (S3/MinIO), <code>streaming</code> (WebSocket-Hub), <code>eventbus</code>, <code>filesystem</code> (mehrprotokollfähig), <code>discovery</code>/<code>mdns</code>, <code>http3</code>, <code>recovery</code>, <code>concurrency</code>, <code>lazy</code> und mehr. <strong>AI/Agenten-Bausteine</strong> (Go) bilden das Fundament für AI-Systeme: <code>rag</code>, <code>vectordb</code>, <code>embeddings</code>, <code>memory</code>, <code>conversation</code> (Komprimierung mit unendlichem Kontext, Event Sourcing), <code>mcp</code> (Model Context Protocol), <code>toolschema</code>, <code>skillregistry</code>, <code>agentic</code> (graphenbasierte Workflow-Orchestrierung), <code>planning</code> (HiPlan/MCTS/Tree-of-Thoughts), <code>benchmark</code> (SWE-bench/HumanEval/MMLU), <code>llmops</code>, <code>selfimprove</code> (Reward-Modellierung/RLHF) und <code>toon</code> (Token-Oriented Object Notation). <strong>Defensive LLM-Schutzmechanismen</strong> bieten Werkzeuge für adversariale Robustheit: <code>RedTeam</code> (YAML-gesteuerte adversariale Testfälle), <code>Normalize</code> (Kanonisierung adversarialer Eingaben). Ein paralleler <strong>Kotlin Multiplatform</strong>-Satz spiegelt Kernmodule (Auth-KMP, Database-KMP, Security-KMP, UI-Komponenten-KMP usw.) für plattformübergreifende Anwendungen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-3" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-3-panel">
+              <span class="od-accordion__label">Warum wir es entwickelt haben</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-3-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-3">
+            <div class="od-accordion__inner">
+      <p>Jedes Mal von Grund auf neue Produkte (Catalogizer, HelixAgent, Herald und weitere) zu entwickeln, ist ineffizient und führt zu Inkonsistenzen. Indem wir jede generische Komponente in ein entkoppeltes, getestetes Modul auslagern, verbreiten sich Fehlerbehebungen und Verbesserungen über die gesamte Produktpalette, und jedes neue Produkt setzt sich aus bewährten Bausteinen zusammen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-4" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-4-panel">
+              <span class="od-accordion__label">Warum es bahnbrechend ist</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-4-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-4">
+            <div class="od-accordion__inner">
+      <p>Es handelt sich im Grunde um eine private „Standardbibliothek" für den Aufbau von AI-spezifischen Backends – jene Schicht, die die meisten Teams nie entwickeln, weil sie zu sehr damit beschäftigt sind, Authentifizierung, Caching und die RAG-Infrastruktur zum fünften Mal neu zu erfinden. Hier existieren Infrastruktur-Primitives, AI-Bausteine und defensive LLM-Sicherheitsvorkehrungen als sofort einsatzbereite, unabhängig getestete Module. Das ermöglicht es einem kleinen Team, produktionsreife Systeme in einem Tempo zu liefern, das normalerweise ein viel größeres Team erfordern würde – und das ohne die sonst übliche Duplikationsschuld.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-5" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-5-panel">
+              <span class="od-accordion__label">Was innovativ ist</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-5-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Fleet-weite Entkopplungsdisziplin (CONST-051):</strong> Submodule werden als gleichwertige Codebasen behandelt, ohne spezifische Abhängigkeiten von Nutzern.</li>
+        <li><strong>Eine dedizierte AI-Primitiv-Schicht (RAG, VectorDB, Embeddings, MCP, ToolSchema, Agentic, Planning, LLMOps)</strong> als wiederverwendbare Module.</li>
+        <li><strong>Ein Cluster defensiver LLM-Sicherheitsvorkehrungen (RedTeam, Normalize)</strong> für robusten Schutz gegen Angriffe.</li>
+        <li><strong>Parallele Go- und Kotlin Multiplatform-Modulsets</strong>, die dieselben Konventionen teilen.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-6" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-6-panel">
+              <span class="od-accordion__label">Herausforderungen &amp; Lösungen</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-6-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Vermeidung von Kopplungsverfall bei Dutzenden Modulen:</strong> gelöst durch den Entkopplungsvertrag der Verfassung und die Laufzeit-Injektion nutzerspezifischer Anpassungen.</li>
+        <li><strong>Konsistenz und Testabdeckung vieler Module:</strong> gelöst durch gemeinsame Konventionen (pro Modul: Tests/Dokumentation/Herausforderungen) und das HelixConstitution-Governance-Rückgrat.</li>
+        <li><strong>Plattformübergreifende Reichweite:</strong> gelöst durch ein Kotlin Multiplatform-Spiegelmodul der Kernkomponenten.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-7" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-7-panel">
+              <span class="od-accordion__label">Technologie-Stack (Warum + Wie)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-7-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> – die Mehrheit der Module (<code>digital.vasic.*</code>).</li>
+        <li><strong>Kotlin Multiplatform</strong> – plattformübergreifende Spiegelmodule (Auth/Database/Security/UI/Concurrency/RateLimiter-KMP).</li>
+        <li><strong>Redis / PostgreSQL / SQLite</strong> – Cache-, Datenbank- und Speicherprimitive.</li>
+        <li><strong>Prometheus / OpenTelemetry</strong> – Observability-Modul.</li>
+        <li><strong>WebSocket / HTTP/3 (quic-go) / mDNS</strong> – Netzwerkmodule.</li>
+        <li><strong>Vector DB / embeddings / RAG / MCP</strong> – AI-Primitivmodule.</li>
+        <li><strong>YAML</strong> – RedTeam-Angriffsszenarien und Konfiguration.</li>
+      </ul>
+      <blockquote><p>UNGEPRÜFT / IN ARBEIT: Mehrere Organisations-Repos sind als „SCAFFOLD / WIP" gekennzeichnet (z. B. <code>PliniusCommon</code>, <code>I-LLM</code>, <code>HyperTune</code>, <code>AutoTemp</code>, <code>Veritas</code>, <code>Ouroborous</code>, <code>Claritas</code>, <code>LeakHub</code>, <code>GandalfSolutions</code>). Diese sind als frühe Entwicklungsstadien/Scaffolding zu betrachten, nicht als ausgelieferte Komponenten.</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
