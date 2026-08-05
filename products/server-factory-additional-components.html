@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>Server Factory — Additional Components — Miloš Vasić</title>
+<meta name="description" content="Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service &quot;factories&quot; (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products."/>
+<link rel="canonical" href="https://milosvasic.ru/products/server-factory-additional-components.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="Server Factory — Additional Components — Miloš Vasić"/>
+<meta property="og:description" content="Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service &quot;factories&quot; (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products."/>
+<meta property="og:url" content="https://milosvasic.ru/products/server-factory-additional-components.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Server Factory — Additional Components — Miloš Vasić"/>
+<meta name="twitter:description" content="Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service &quot;factories&quot; (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/server-factory-additional-components.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/server-factory-additional-components.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/server-factory-additional-components.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/server-factory-additional-components.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/server-factory-additional-components.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/server-factory-additional-components.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service \"factories\" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products.",
+      "inLanguage": "en",
+      "name": "Server Factory — Additional Components",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/server-factory-additional-components.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 33</p>
+      <h1>Server Factory — Additional Components <span class="od-h1-badges"><span class="od-badge--status od-badge--status--mixed">mixed</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Kotlin (service factories, on Core Framework)</span><span class="od-chip">Shell (Utils, Definitions packs)</span><span class="od-chip">Gradle</span><span class="od-chip">Docker (target runtime)</span><span class="od-chip">SSH / OpenSSH (Utils bootstrap)</span><span class="od-chip">SonarQube</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Server-Factory/Web-Service-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/Web-Service-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/SonarQube-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/SonarQube-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Caching-Proxy-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/Caching-Proxy-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Docker-Definitions" rel="noopener noreferrer" target="_blank">Server-Factory/Docker-Definitions <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Stack-Definitions" rel="noopener noreferrer" target="_blank">Server-Factory/Stack-Definitions <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Software-Definitions" rel="noopener noreferrer" target="_blank">Server-Factory/Software-Definitions <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Utils" rel="noopener noreferrer" target="_blank">Server-Factory/Utils <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>The supporting cast of the Server Factory provisioning toolchain.</strong></p>
+      <h2>Summary</h2>
+      <p>Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service "factories" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products.</p>
+      <h2>Short description</h2>
+      <p>A group of Server Factory supporting repos: Web-Service-Factory, SonarQube-Factory, and Caching-Proxy-Factory (per-service provisioning tools, mostly early-stage); Docker/Stack/Software-Definitions (declarative config packs consumed by the framework); and Utils (SSH-access helpers and general tooling). All build on Core Framework.</p>
+      <h2>Long description</h2>
+      <p>This page consolidates the remaining Server-Factory repositories because, individually, most are small or intentionally under-documented, and briefing each as a finished product would overstate their maturity. They fall into three groups. <strong>Service factories</strong> follow the Mail Server Factory pattern for other server roles: <strong>Caching-Proxy-Factory</strong> ("Run your own caching proxy server") lists caching proxy, self-signed certificate, and a security-certificate-obtain HTTP endpoint as key features; <strong>SonarQube-Factory</strong> ("Run your own SonarQube server") is aimed at software-development use; and <strong>Web-Service-Factory</strong> instantiates and configures a web server to deploy targets such as websites and micro-services. All three are Kotlin projects built on the Core Framework, but their public READMEs are largely placeholders ("Tbd." for compatibility, specifications, setup, and usage) — so their concrete capabilities beyond the stated intent are UNVERIFIED. <strong>Definitions packs</strong> — <strong>Docker-Definitions</strong>, <strong>Stack-Definitions</strong>, and <strong>Software-Definitions</strong> — are declarative configuration repositories that the framework consumes to know how to build/deploy Docker images, stacks, and software; they are version-pinned data packs rather than applications. <strong>Utils</strong> provides general helpers for the family, including an <code>init_ssh_access.sh</code> script that generates an SSH key and installs it on a remote host to enable passwordless root access for subsequent provisioning. Together these components round out the provisioning toolchain around the flagship Mail Server Factory.</p>
+      <h2>Why we built it</h2>
+      <p>The Server Factory model generalizes: once you can provision a mail server from configuration, the same engine can provision web servers, caching proxies, and code-quality servers, fed by reusable definition packs and shared utilities. These repos extend that pattern to other server roles.</p>
+      <h2>Why it's a game-changer (measured)</h2>
+      <p>As a set, they demonstrate the Core Framework's reusability across server types and separate declarative data (Definitions) from execution (factories). Individually, the service factories are early-stage and should be presented as direction, not finished products.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li>One provisioning framework generalized across mail/web/caching-proxy/SonarQube roles.</li>
+        <li>Declarative Definitions packs (Docker/Stack/Software) decoupled from the execution engine.</li>
+        <li>Shared Utils (e.g. one-command passwordless SSH bootstrap) reused across factories.</li>
+      </ul>
+      <h2>Challenges &amp; solutions</h2>
+      <ul>
+        <li><strong>Reusing one engine across server roles:</strong> addressed by building each factory on Core Framework.</li>
+        <li><strong>Separating configuration from code:</strong> addressed by the Definitions repos as version-pinned data packs.</li>
+        <li><strong>(UNVERIFIED):</strong> the service factories' READMEs are placeholders; their implementation completeness is not verifiable from public docs — present as early-stage.</li>
+      </ul>
+      <h2>Tech stack (why + how)</h2>
+      <ul>
+        <li><strong>Kotlin</strong> — Web-Service-Factory, SonarQube-Factory, Caching-Proxy-Factory (built on Core Framework).</li>
+        <li><strong>Shell</strong> — Utils and the Definitions packs (scripts/config).</li>
+        <li><strong>Gradle</strong> — <code>./gradlew test</code> build/test flow across the factories.</li>
+        <li><strong>Docker</strong> — target runtime described by Docker-Definitions.</li>
+        <li><strong>SSH / OpenSSH</strong> — Utils' passwordless-access bootstrap.</li>
+        <li><strong>SonarQube</strong> — the server SonarQube-Factory provisions (and which Mail Server Factory reports a clean gate against).</li>
+      </ul>
+      <p>&gt; Honesty note: most of these repos are forks within the org; the service factories are placeholder-documented and marked UNVERIFIED per constitution §11.4.6. Ranked clearly below Mail Server Factory and Core Framework.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

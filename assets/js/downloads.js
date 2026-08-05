@@ -9,7 +9,9 @@
   var base = modal.getAttribute('data-base') || '/downloads/';
   var nameEl = modal.querySelector('.dl-doc-name');
   var links = modal.querySelectorAll('.dl-lang');
-  var FILES = { cv: 'Milos_Vasic_CV', cl: 'Milos_Vasic_Cover_Letter' };
+  var FILES = { cv: 'Milos_Vasic_CV', cl: 'Milos_Vasic_Cover_Letter', portfolio: 'Portfolio' };
+  // Languages actually present in /downloads/ per document (no silent 404s).
+  var AVAIL = { cv: ['EN', 'SR', 'RU'], cl: ['EN', 'SR', 'RU'], portfolio: ['EN'] };
   var lastFocus = null;
 
   function t(key, fallback) {
@@ -20,8 +22,16 @@
   }
   function open(doc) {
     var fbase = FILES[doc] || FILES.cv;
-    nameEl.textContent = doc === 'cl' ? t('dl.cl', 'Cover Letter') : t('dl.cv', 'Curriculum Vitae (CV)');
-    links.forEach(function (a) { a.setAttribute('href', base + fbase + '_' + a.dataset.lang + '.pdf'); });
+    var avail = AVAIL[doc] || AVAIL.cv;
+    var name = t('dl.cv', 'Curriculum Vitae (CV)');
+    if (doc === 'cl') name = t('dl.cl', 'Cover Letter');
+    else if (doc === 'portfolio') name = t('dl.portfolio', 'Portfolio');
+    nameEl.textContent = name;
+    links.forEach(function (a) {
+      if (avail.indexOf(a.dataset.lang) === -1) { a.hidden = true; a.style.display = 'none'; return; }
+      a.hidden = false; a.style.display = '';
+      a.setAttribute('href', base + fbase + '_' + a.dataset.lang + '.pdf');
+    });
     lastFocus = document.activeElement;
     modal.hidden = false;
     document.body.classList.add('mv-article-lock');

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>HelixBuilder — Miloš Vasić</title>
+<meta name="description" content="HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script."/>
+<link rel="canonical" href="https://milosvasic.ru/products/helixbuilder.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="HelixBuilder — Miloš Vasić"/>
+<meta property="og:description" content="HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script."/>
+<meta property="og:url" content="https://milosvasic.ru/products/helixbuilder.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HelixBuilder — Miloš Vasić"/>
+<meta name="twitter:description" content="HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixbuilder.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/helixbuilder.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixbuilder.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/helixbuilder.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixbuilder.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixbuilder.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script.",
+      "inLanguage": "en",
+      "license": "Apache-2.0",
+      "name": "HelixBuilder",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixbuilder.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 16</p>
+      <h1>HelixBuilder <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Shell</span><span class="od-chip">Category toolchains (General / Coder / Tester / Translation / Generative)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixBuilder" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixBuilder <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>An AI-powered pipeline for building applications, one category at a time.</strong></p>
+      <h2>Summary</h2>
+      <p>HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script.</p>
+      <h2>Short description</h2>
+      <p>HelixBuilder is a shell-driven, AI-powered application building pipeline. A single install script provisions a chosen category — General, Coder, Tester, Translation, or generative media (animation, audio, JPEG, PNG, SVG) — giving each build workflow its own tailored toolchain.</p>
+      <h2>Long description</h2>
+      <p>HelixBuilder is an AI-powered application building pipeline in the Helix family, implemented primarily as shell tooling. Its purpose is to stand up a build/generation workflow for a specific kind of work with a single command: from the project root, <code>./install.sh</code> (optionally with a category argument) provisions the pipeline for that category.</p>
+      <p>The pipeline is organized into categories, each corresponding to a class of AI-assisted work: <code>General</code> (the default), <code>Coder</code>, <code>Tester</code>, <code>Translation</code>, and a set of generative categories — <code>Generative/Animation</code>, <code>Generative/Audio</code>, <code>Generative/JPEG</code>, <code>Generative/PNG</code>, and <code>Generative/SVG</code>. Running the installer without an argument selects the <code>General</code> category; passing a category installs the toolchain tailored to it. This lets a developer opt into only the capabilities they need — for example, a code-generation environment, a testing pipeline, or an image-generation stack — rather than a single monolithic install.</p>
+      <p>HelixBuilder is Apache-2.0 licensed and part of the broader HelixDevelopment reusable-component ecosystem, where it is positioned as the "AI build pipeline" building block. Its public README is intentionally brief and points to fuller documentation within the repository; details beyond the install surface and category list are not asserted here.</p>
+      <h2>Why we built it</h2>
+      <p>AI-assisted work spans very different toolchains — coding, testing, translation, and several kinds of generative media. HelixBuilder was built so each of those can be provisioned on demand through one consistent installer instead of assembling a bespoke environment every time.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It reduces "set up an AI build environment for X" to a single categorized command, making AI-assisted build and generation pipelines repeatable and shareable across projects.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li><strong>Category-based provisioning</strong> — one installer, many specialized pipelines (code, test, translation, generative media).</li>
+        <li><strong>Generative-media breadth</strong> — animation, audio, and multiple image formats (JPEG/PNG/SVG) treated as first-class build categories.</li>
+        <li><strong>Shell-native</strong> — installs into any environment without a heavyweight runtime prerequisite.</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Serving very different AI workflows from one tool</strong> — addressed by a category abstraction in the installer, so each category resolves to its own toolchain while sharing a common entry point. (Implementation depth beyond this is not documented in the public README — UNVERIFIED.)</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Shell</strong> — primary implementation language and the install/orchestration surface (<code>install.sh</code>); chosen for portability across build environments.</li>
+        <li><strong>Category toolchains</strong> — per-category tool sets for General / Coder / Tester / Translation / Generative (Animation, Audio, JPEG, PNG, SVG). Specific underlying tools/models per category are not enumerated in the public README (UNVERIFIED).</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: beta.</strong> The public README is minimal (install script + category list); per-category tooling/models, AI providers, and internal architecture are not described publicly and are therefore not asserted. Fuller docs referenced at <code>./Documentation/README.md</code> were not read.</li>
+        <li><strong>License: Apache-2.0</strong> (per GitHub API).</li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

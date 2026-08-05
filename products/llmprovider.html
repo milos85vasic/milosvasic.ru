@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>LLMProvider — Miloš Vasić</title>
+<meta name="description" content="LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."/>
+<link rel="canonical" href="https://milosvasic.ru/products/llmprovider.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="LLMProvider — Miloš Vasić"/>
+<meta property="og:description" content="LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."/>
+<meta property="og:url" content="https://milosvasic.ru/products/llmprovider.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="LLMProvider — Miloš Vasić"/>
+<meta name="twitter:description" content="LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/llmprovider.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/llmprovider.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/llmprovider.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/llmprovider.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/llmprovider.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/llmprovider.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "inLanguage": "en",
+      "name": "LLMProvider",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/llmprovider.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 13</p>
+      <h1>LLMProvider <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25.3)</span><span class="od-chip">net/http (stdlib)</span><span class="od-chip">logrus</span><span class="od-chip">testify</span><span class="od-chip">yaml.v3</span><span class="od-chip">digital.vasic.models</span><span class="od-chip">circuit / health / retry / apikeys / discovery packages</span><span class="od-chip">43 provider adapters + generic OpenAI-compatible adapter</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/LLMProvider" rel="noopener noreferrer" target="_blank">HelixDevelopment/LLMProvider <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>One interface, 43 providers — with circuit breakers, retries, and health baked in.</strong></p>
+      <h2>Summary</h2>
+      <p>LLMProvider is a generic, reusable Go module that defines a unified <code>LLMProvider</code> interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.</p>
+      <h2>Short description</h2>
+      <p>A reusable Go module exposing one <code>LLMProvider</code> interface (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) plus fault-tolerance primitives — circuit breaker, health monitor, jittered-backoff retry, lazy init — over 43 provider adapters and a generic OpenAI-compatible adapter. Thread-safe.</p>
+      <h2>Long description</h2>
+      <p>LLMProvider is the abstraction layer every LLM-consuming service needs but rarely builds well. It defines a single interface — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — so application code targets one contract regardless of backend, then ships the operational patterns that make provider calls survivable in production. A circuit breaker (closed/open/half-open) transparently wraps any provider, including its streaming channel, so a failing backend can't cascade; a <code>CircuitBreakerManager</code> tracks them all. A configurable health monitor moves providers through healthy/degraded/unhealthy/unknown states on threshold-and-interval checks. Retry logic uses exponential backoff with jitter, status-aware decisions (retry 429/5xx, not 4xx or cancelled contexts), and clamped delays. A lazy pattern defers provider construction until first use — critical when 43 providers are registered but only a subset is used.</p>
+      <p>The module ships 43 concrete provider packages plus a <code>generic</code> OpenAI-compatible adapter that implements the full interface against any <code>/v1/chat/completions</code> endpoint (Bearer auth, SSE streaming with <code>[DONE]</code> handling), so vendors without a dedicated package still work. Credentials are resolved in exactly one place (<code>apikeys</code>, using an <code>ApiKey_&lt;Provider&gt;</code> convention) to prevent "hardcoded key passes tests, real key not wired" bugs. Model discovery is deliberately honest: it queries live provider APIs (with a TTL cache) and, per governance, the old hardcoded fallback tier was removed — when live discovery fails it returns nothing rather than a stale catalogue, so users are never handed model IDs they cannot invoke.</p>
+      <h2>Why we built it</h2>
+      <p>Naive LLM calls fail in production — providers rate-limit, degrade, or go down, and one bad backend can take a service with it. Model catalogues drift, and hardcoded lists hand callers IDs that no longer work. LLMProvider centralizes the interface, the resilience patterns, and honest discovery so every consumer inherits fault tolerance and truthfulness for free.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It reduces "integrate an LLM provider" to implementing one interface (or pointing the generic adapter at an endpoint), then automatically wraps it in circuit breaking, health monitoring, and retry — turning provider reliability from per-project firefighting into a library default across 43 backends.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li><strong>One capability-aware interface</strong> covering completion, streaming, health, capabilities, and config validation.</li>
+        <li><strong>Transparent circuit-breaker wrapping — including streams</strong> (an empty stream counts as a failure), with deadlock-safe listener notification.</li>
+        <li><strong>43 provider packages + a generic OpenAI-compatible adapter</strong>, so most providers are thin and unlisted vendors still work.</li>
+        <li><strong>Single credential authority (<code>apikeys</code>)</strong> — one place reads <code>ApiKey_&lt;Provider&gt;</code> env vars, killing a class of "green tests, broken product" bugs.</li>
+        <li><strong>Honest model discovery (no hardcoded fallback)</strong> — live provider APIs + TTL cache; on failure returns <code>nil</code> rather than a stale/false catalogue.</li>
+        <li><strong>Lazy init with <code>sync.Once</code></strong> — deferred construction so registering 43 providers is cheap.</li>
+        <li><strong>Anti-bluff, multi-locale Challenge stack</strong> — real runner exercising circuit/health/retry across five locales with a paired mutation gate (normal → exit 0, mutate → exit 99).</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Cascading provider failures.</strong> Solved with a three-state circuit breaker that transparently wraps any provider (and its stream), managed centrally.</li>
+        <li><strong>Transient errors and rate limits.</strong> Solved with status-aware exponential backoff + jitter (<code>min(InitialDelay·Multiplier^(n-1), MaxDelay) ± jitter</code>), retrying 429/500/502/503/504 and network errors, never cancelled contexts or other 4xx.</li>
+        <li><strong>Scaling to many registered-but-unused providers.</strong> Solved with lazy initialization (<code>sync.Once</code>) so only used providers pay setup cost.</li>
+        <li><strong>Handing out invalid model IDs.</strong> Solved by removing the hardcoded discovery fallback tier (per CONST-036) and returning nothing on live-discovery failure, with defensive copy-on-return to avoid caller mutation/races.</li>
+        <li><strong>Streaming + concurrency correctness.</strong> Solved by copying listeners before off-lock notification with a 5s timeout and unlocking before notifying on reset to avoid deadlock; all components built for concurrent use.</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Go (1.25.3)</strong> — the module, interface, resilience primitives, and adapters.</li>
+        <li><strong><code>net/http</code> (stdlib)</strong> — provider HTTP clients, the generic OpenAI-compatible adapter, and discovery calls.</li>
+        <li><strong>logrus</strong> — structured logging in the circuit breaker and discovery.</li>
+        <li><strong>testify</strong> — the test suite, including mutation-branch pinning.</li>
+        <li><strong>yaml.v3</strong> — i18n bundles and config.</li>
+        <li><strong><code>digital.vasic.models</code></strong> — shared <code>LLMRequest</code>/<code>LLMResponse</code>/<code>ProviderCapabilities</code> types (documented runtime dependency).</li>
+        <li><strong>First-party packages</strong> — <code>circuit</code>, <code>health</code>, <code>retry</code>, <code>apikeys</code>, <code>discovery</code>, <code>providers/</code> (43 vendors + <code>generic</code>), <code>i18n</code>.</li>
+        <li><strong><code>.env</code> + <code>~/api_keys.sh</code> (<code>ApiKey_&lt;Provider&gt;</code> convention)</strong> — single-source credential resolution.</li>
+        <li><strong>Makefile race suite (<code>-race -p 1</code>) + Challenge runner</strong> — anti-bluff verification (chaos, ddos, scaling, stress, live-discovery, no-suspend challenges).</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: beta.</strong> A decoupled reusable module; the GitHub repo is public.</li>
+        <li><strong>License: TBD.</strong> Inconsistent — <code>doc.go</code> says MIT while an Apache-2.0-style LICENSE file is present — verify before publishing.</li>
+        <li>LLMsVerifier is the upstream single source of truth for the canonical model catalogue. The <code>helix-deps.yaml</code> manifest appears stale (declares <code>deps: []</code> while docs state a dependency on <code>digital.vasic.models</code>); discovery's "Tier 2 (models.dev)" is a planned stub, not active.</li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary (LLM-infrastructure cluster — decoupled reusable module). Ranks after HelixTrack.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

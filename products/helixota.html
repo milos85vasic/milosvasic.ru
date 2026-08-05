@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>HelixOTA — Miloš Vasić</title>
+<meta name="description" content="Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."/>
+<link rel="canonical" href="https://milosvasic.ru/products/helixota.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="HelixOTA — Miloš Vasić"/>
+<meta property="og:description" content="Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."/>
+<meta property="og:url" content="https://milosvasic.ru/products/helixota.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HelixOTA — Miloš Vasić"/>
+<meta name="twitter:description" content="Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixota.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/helixota.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixota.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/helixota.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixota.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixota.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max.",
+      "inLanguage": "en",
+      "license": "Apache-2.0",
+      "name": "HelixOTA",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixota.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 9</p>
+      <h1>HelixOTA <span class="od-h1-badges"><span class="od-badge--status od-badge--status--in-development">in-development</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">Kotlin / KMP</span><span class="od-chip">HTTP/3 QUIC</span><span class="od-chip">PostgreSQL</span><span class="od-chip">MinIO / S3</span><span class="od-chip">AOSP update_engine + AVB/dm-verity</span><span class="od-chip">React</span><span class="od-chip">OpenTelemetry</span><span class="od-chip">Prometheus / Grafana</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helix_ota" rel="noopener noreferrer" target="_blank">HelixDevelopment/helix_ota <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>Universal, decoupled over-the-air updates — zero-brick by design.</strong></p>
+      <h2>Summary</h2>
+      <p>Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max.</p>
+      <h2>Short description</h2>
+      <p>Helix OTA is a universal over-the-air update system — a Go control plane plus per-OS client agents — engineered for zero system corruption, validated uploads, and granular staged rollouts. Its first target is Android 15 on Orange Pi 5 Max, with Linux/Windows adapters planned.</p>
+      <h2>Long description</h2>
+      <p>Helix OTA is a universal, generic, deeply decoupled over-the-air (OTA) update system. It comprises a Go server <strong>control plane</strong>, per-OS client <strong>SDKs/agents</strong>, and a management <strong>dashboard</strong>, designed to be embeddable into any operating system through pluggable OS adapters. The first delivery target is Android 15 (all variants) on the Orange Pi 5 Max, where the build pipeline emits flashing images plus a validated OTA <code>.zip</code> and mandatory hash files; Linux, Windows, and other OSes are on the roadmap behind the same adapter seam.</p>
+      <p>The design centers on operator-stated hard guarantees: zero system corruption (an update must never brick a working device), mandatory validation of every artifact before deployment, granular rollout (all-at-once or staged at 5/10/30…100%), full observability, and scale from one board to millions of devices. The locked architecture pairs device-side native Android A/B updates (AOSP <code>update_engine</code> with AVB/dm-verity and automatic boot-failure rollback) with a custom, decoupled Go control plane. Two seams are deliberately extractable — an OS-adapter seam (for universality) and a rollout-engine seam (for OS-agnostic campaigns) — and the system is decomposed into six public, independently-versioned <code>ota-*</code> submodules.</p>
+      <p>Helix OTA is currently in a specification/research and test-coverage build-out phase; the repository holds the authoritative design corpus, the documentation export pipeline, and submodule scaffolding, and it is explicit — per its anti-bluff governance — that a finished production server and agent do not yet exist.</p>
+      <h2>Why we built it</h2>
+      <p>OTA is usually reinvented per device and per OS, and a bad update can brick a fleet. Helix OTA was built to be one universal, safety-first update system that any OS can adopt via adapters, with rollback and validation guarantees baked into the architecture rather than bolted on.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It treats "never brick a device" and "roll out gradually and observably" as architectural invariants, and it makes the rollout engine and OS layer swappable seams — so the same control plane can drive Android today and other operating systems later without a rewrite.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li><strong>Two extractable seams</strong> (OS-adapter + OS-agnostic rollout engine) for genuine universality.</li>
+        <li><strong>Defense-in-depth safety</strong>: native A/B (<code>update_engine</code>) + AVB/dm-verity + automatic boot-failure rollback, on top of server-side artifact validation.</li>
+        <li><strong>Catalogue-first, decoupled</strong> decomposition into six reusable <code>ota-*</code> submodules.</li>
+        <li><strong>HTTP/3 (QUIC) primary transport</strong> with automatic HTTP/2 fallback and Brotli/gzip negotiation.</li>
+        <li><strong>Anti-bluff engineering</strong>: design and status are explicitly marked as spec-phase; nothing unbuilt is claimed as shipped.</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Guaranteeing a bad update never bricks a device</strong> — solved by mandating device-side native Android A/B (<code>update_engine</code> + AVB/dm-verity) with automatic boot-failure rollback, plus mandatory pre-deploy artifact validation.</li>
+        <li><strong>One system, many operating systems</strong> — solved with a pluggable OS-adapter seam and an OS-agnostic rollout engine seam, kept as separate submodules.</li>
+        <li><strong>Staged, halt-able rollouts</strong> — solved with a dedicated rollout engine (percentage cohorts, success/error thresholds, halt/advance) with no HTTP coupling.</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Go + Gin</strong> — control plane, rollout engine, and validators; REST <code>/api/v1</code> primary surface.</li>
+        <li><strong>Kotlin/KMP</strong> — the on-device Android OTA agent (poll / download / verify / apply / report).</li>
+        <li><strong>HTTP/3 (QUIC) → HTTP/2</strong> — transport with automatic fallback; <strong>Brotli/gzip</strong> negotiated compression.</li>
+        <li><strong>PostgreSQL</strong> — relational persistence (device registry, campaigns, telemetry).</li>
+        <li><strong>MinIO / S3</strong> — artifact blob storage.</li>
+        <li><strong>AOSP <code>update_engine</code> + AVB/dm-verity + <code>boot_control</code></strong> — device-side Virtual A/B and verified boot.</li>
+        <li><strong>React</strong> — management dashboard (login, upload, rollout, fleet health).</li>
+        <li><strong>OpenTelemetry + Prometheus/Grafana</strong> — observability.</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: in-development.</strong> Per the project's own anti-bluff governance, there is <strong>no working production server or agent yet</strong> — this is a specification/research and test-coverage build-out phase. The repository holds the authoritative design corpus, the docs export pipeline, and submodule scaffolding.</li>
+        <li>The six public reusable submodules (<code>ota-protocol</code>, <code>ota-artifact-validator</code>, <code>ota-rollout-engine</code>, <code>ota-update-engine-bridge</code>, <code>ota-android-agent</code>, <code>ota-telemetry-schema</code>) exist under <code>github.com/HelixDevelopment/</code>.</li>
+        <li>Test-coverage and latency figures in the repository are the project's own in-progress ledger, not independently confirmed. HelixConstitution clause numbers cited in the README are UNVERIFIED.</li>
+        <li><strong>License: Apache-2.0.</strong></li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>LLMsVerifier — Miloš Vasić</title>
+<meta name="description" content="LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory &quot;Do you see my code?&quot; verification test so that only models proven to actually work are ever marked usable or exported."/>
+<link rel="canonical" href="https://milosvasic.ru/products/llmsverifier.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="LLMsVerifier — Miloš Vasić"/>
+<meta property="og:description" content="LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory &quot;Do you see my code?&quot; verification test so that only models proven to actually work are ever marked usable or exported."/>
+<meta property="og:url" content="https://milosvasic.ru/products/llmsverifier.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="LLMsVerifier — Miloš Vasić"/>
+<meta name="twitter:description" content="LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory &quot;Do you see my code?&quot; verification test so that only models proven to actually work are ever marked usable or exported."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/llmsverifier.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/llmsverifier.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/llmsverifier.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/llmsverifier.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/llmsverifier.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/llmsverifier.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported.",
+      "inLanguage": "en",
+      "name": "LLMsVerifier",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/llmsverifier.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 11</p>
+      <h1>LLMsVerifier <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">SQLite + SQLCipher</span><span class="od-chip">Redis</span><span class="od-chip">RabbitMQ + Kafka</span><span class="od-chip">gRPC + Protocol Buffers</span><span class="od-chip">QUIC / HTTP-3 (quic-go)</span><span class="od-chip">JWT + LDAP/NTLM</span><span class="od-chip">Angular</span><span class="od-chip">Python + JavaScript SDKs</span><span class="od-chip">Docker / Kubernetes / Helm</span><span class="od-chip">Prometheus + Grafana</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/LLMsVerifier" rel="noopener noreferrer" target="_blank">vasic-digital/LLMsVerifier <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="llmsverifier">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M210,262 L268,262"/>
+<path class="conn" marker-end="url(#a)" d="M490,232 L558,168"/>
+<path class="conn" marker-end="url(#a)" d="M660,204 L660,248"/>
+<path class="conn" marker-end="url(#a)" d="M490,292 L558,414"/>
+<rect class="box" x="40" y="220" width="170" height="84" rx="10"/>
+<text class="t" x="125" y="254">Candidate model</text>
+<text class="s" x="125" y="274">provider API</text>
+<rect class="accent" x="270" y="196" width="220" height="130" rx="10"/>
+<text class="t" x="380" y="252">Do you see my code?</text>
+<text class="s" x="380" y="272">real HTTP comprehension test</text>
+<rect class="good" x="560" y="120" width="220" height="84" rx="10"/>
+<text class="gt" x="670" y="168">Verified &amp; usable</text>
+<text class="s" x="670" y="188">(llmsvd) suffix</text>
+<rect class="box" x="560" y="250" width="380" height="90" rx="10"/>
+<text class="t" x="750" y="295">Verified-only export</text>
+<text class="s" x="750" y="315">OpenCode · Crush · Claude Code</text>
+<rect class="tint" x="560" y="386" width="220" height="84" rx="10"/>
+<text class="t" x="670" y="434">Rejected</text>
+<text class="s" x="670" y="454">never exported</text>
+<text class="h" x="32" y="44">LLMsVerifier — mandatory verification gate</text>
+<text class="lbl" x="500" y="186">PASS</text>
+<text class="lbl" x="500" y="372">FAIL</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p><strong>Verify. Monitor. Optimize.</strong></p>
+      <h2>Summary</h2>
+      <p>LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory "Do you see my code?" verification test so that only models proven to actually work are ever marked usable or exported.</p>
+      <h2>Short description</h2>
+      <p>A Go platform that verifies, benchmarks, monitors, and optimizes LLMs across multiple providers. Every model must pass a mandatory code-visibility test before use; it then runs latency, streaming, function-calling, vision, and embedding checks, and exports verified-only configurations for AI CLI tools.</p>
+      <h2>Long description</h2>
+      <p>LLMsVerifier is a comprehensive platform for verifying, monitoring, and optimizing LLM performance across multiple providers. Its core principle is *mandatory verification*: before any model is marked usable — or included in an exported configuration — it must affirmatively pass a "Do you see my code?" test, making real HTTP calls to the provider and analyzing the response for genuine comprehension. Beyond that gate, the Verifier Engine runs a battery of capability tests (existence, responsiveness, latency, streaming, function calling, vision, embeddings), and a Reporter Engine produces markdown and JSON reports.</p>
+      <p>The system is modular and event-driven, exposing CLI, TUI, Web, and REST API interfaces over a core of Verifier Engine, Reporter Engine, and Configuration Manager, plus advanced layers: a Supervisor/Worker pattern for LLM-powered task decomposition, sliding-window + LLM-summarization context management for very long sessions, cloud-backed checkpointing, and a failover system with circuit breakers and latency-based routing. Infrastructure includes a pub/sub event bus, cron scheduling, pricing/limits detection, a vector database for RAG, and an export system. A signature branding convention appends an <code>(llmsvd)</code> suffix to every generated provider/model so verified outputs are traceable, and only verified models are written into exported configs for AI CLI tools such as OpenCode, Crush, and Claude Code. It ships production tooling: Docker/Kubernetes/Helm deployment, Prometheus/Grafana monitoring, LDAP/SSO, and SQLCipher-encrypted storage.</p>
+      <h2>Why we built it</h2>
+      <p>Because configuration-only checking is unreliable — an API key can expire, a model can be deprecated, and a config file tells you nothing about real latency, real errors, or whether the model can actually see and understand your input. LLMsVerifier replaces "it's in the config, so it must work" with proof: only models that demonstrably respond correctly are marked usable and exported.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It makes LLM fleets *trustworthy*. Instead of hoping a configured model works, teams get an enforced, testable guarantee that every model in play has passed real verification — with monitoring, failover, and verified-only export closing the loop. Within the Helix ecosystem it serves as the single source of truth for LLM model, provider, and verification metadata that other services (e.g. HelixTranslate) route against.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li><strong>Mandatory "Do you see my code?" verification</strong> — a real, HTTP-backed comprehension gate that a model must pass before it is usable (the product's signature differentiator).</li>
+        <li><strong>Verified-only configuration export</strong> — generated configs for AI CLI tools contain only models that passed verification.</li>
+        <li><strong><code>(llmsvd)</code> branding-suffix system</strong> — every generated provider/model carries a traceable suffix.</li>
+        <li><strong>Capability detection</strong> across many CLI agents and providers — streaming types (SSE, WebSocket, JSONL, EventStream), compression, and caching behaviors.</li>
+        <li><strong>Resilient failover</strong> — circuit breakers, latency-based routing (fail over when time-to-first-token exceeds a threshold), health probes, and weighted traffic.</li>
+        <li><strong>Long-running autonomy</strong> — a Supervisor/Worker pattern plus checkpointing and memory integration for extended sessions.</li>
+        <li><strong>RAG / vector-DB integration</strong> for context enhancement.</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Proving a model actually works, not just that it's configured.</strong> Solved by the mandatory code-visibility test making real API calls and analyzing responses for affirmative comprehension, plus a broad suite of capability tests — and by exporting only verified models.</li>
+        <li><strong>Reliability across many flaky third-party providers.</strong> Solved with a failover orchestrator: circuit breakers (mark degraded after N failures in M seconds), latency-based routing, periodic health checks, and weighted routing between cost-effective and premium models.</li>
+        <li><strong>Sustaining very long, autonomous sessions.</strong> Solved with the Supervisor/Worker decomposition pattern, periodic checkpointing to cloud storage, and context management (sliding window + LLM summarization + RAG).</li>
+        <li><strong>Provider sprawl.</strong> Many per-provider Go adapters behind a common interface, with real endpoints enumerated centrally.</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Go</strong> — the core platform language; multi-threaded Verifier Engine and services.</li>
+        <li><strong>Gin</strong> — REST API server (JWT auth, rate limiting, WebSocket/SSE).</li>
+        <li><strong>SQLite + SQLCipher</strong> — embedded storage with database-level encryption for sensitive verification data.</li>
+        <li><strong>Redis</strong> — caching layer.</li>
+        <li><strong>RabbitMQ + Kafka</strong> — messaging/streaming for the event-driven architecture.</li>
+        <li><strong>gRPC + Protocol Buffers</strong> — inter-service communication and event transport.</li>
+        <li><strong>QUIC / HTTP-3 (quic-go)</strong> — modern transport support (repo docs flag HTTP/3 provider availability as limited — a capability, not a universal claim).</li>
+        <li><strong>JWT + LDAP/NTLM</strong> — enterprise authentication (SSO/SAML/OIDC claimed in docs).</li>
+        <li><strong>Viper (config), Logrus (logging), Brotli/compress (compression)</strong> — operational plumbing.</li>
+        <li><strong>Angular</strong> — the Web single-page application.</li>
+        <li><strong>Python + JavaScript SDKs</strong> — client access with OpenAPI/Swagger docs.</li>
+        <li><strong>Docker, Kubernetes, Helm</strong> — production deployment with health monitoring and autoscaling.</li>
+        <li><strong>Prometheus + Grafana</strong> — metrics and dashboards.</li>
+        <li><strong>Testify (Go) + node --test/jsdom (web)</strong> — layered testing.</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: beta.</strong> The Go source implements real HTTP verification (one legacy doc that describes verification as config-only is aspirational and outdated — the code is authoritative).</li>
+        <li><strong>License: TBD.</strong> The README states MIT while a Dockerfile label states Apache-2.0 — resolve before publishing.</li>
+        <li>Provider count: the README says "12 adapters" but the providers directory lists roughly 26 — treat as "12+ / more in progress." Numerous aspirational "FINAL/COMPLETE" status files exist; code, docs, and <code>go.mod</code> are authoritative.</li>
+        <li>The repository lives in the <code>vasic-digital</code> org, but functionally it is the trust layer of the Helix LLM-infrastructure cluster.</li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary (LLM-infrastructure cluster; single source of truth for LLM/provider/verification metadata). Ranks after HelixTrack.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

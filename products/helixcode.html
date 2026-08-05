@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>HelixCode — Miloš Vasić</title>
+<meta name="description" content="HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."/>
+<link rel="canonical" href="https://milosvasic.ru/products/helixcode.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="HelixCode — Miloš Vasić"/>
+<meta property="og:description" content="HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."/>
+<meta property="og:url" content="https://milosvasic.ru/products/helixcode.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HelixCode — Miloš Vasić"/>
+<meta name="twitter:description" content="HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixcode.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/helixcode.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixcode.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/helixcode.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixcode.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixcode.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces.",
+      "inLanguage": "en",
+      "license": "MIT",
+      "name": "HelixCode",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixcode.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 2</p>
+      <h1>HelixCode <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: MIT</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Redis</span><span class="od-chip">SSH</span><span class="od-chip">Model Context Protocol</span><span class="od-chip">llama.cpp</span><span class="od-chip">Ollama</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixCode" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixCode <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixcode">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixCode — layered architecture</text>
+<text class="lbl" x="40" y="90">API layer</text>
+<text class="lbl" x="40" y="240">Core services</text>
+<text class="lbl" x="40" y="462">Data layer</text>
+<path class="conn" marker-end="url(#a)" d="M220,164 L220,248"/>
+<path class="conn" marker-end="url(#a)" d="M480,164 L480,248"/>
+<path class="conn" marker-end="url(#a)" d="M740,164 L740,248"/>
+<path class="conn" marker-end="url(#a)" d="M360,332 L360,468"/>
+<path class="conn" marker-end="url(#a)" d="M600,332 L600,468"/>
+<rect class="box" x="120" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="220" y="134">REST API</text>
+<rect class="box" x="380" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="480" y="134">WebSocket</text>
+<rect class="box" x="640" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="740" y="134">MCP</text>
+<text class="s" x="740" y="154">multi-transport</text>
+<rect class="box" x="40" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="125" y="284">Auth &amp; Sessions</text>
+<text class="s" x="125" y="304">JWT</text>
+<rect class="box" x="226" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="311" y="284">Worker Pool</text>
+<text class="s" x="311" y="304">SSH · health monitor</text>
+<rect class="box" x="412" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="497" y="284">Task + Checkpointing</text>
+<text class="s" x="497" y="304">rollback / resume</text>
+<rect class="box" x="598" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="683" y="296">Project &amp; Workflow</text>
+<rect class="box" x="784" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="869" y="284">LLM Providers</text>
+<text class="s" x="869" y="304">llama.cpp · Ollama · OpenAI</text>
+<rect class="box" x="260" y="470" width="200" height="72" rx="10"/>
+<text class="t" x="360" y="504">PostgreSQL 15+</text>
+<text class="s" x="360" y="524">11-table schema</text>
+<rect class="box" x="500" y="470" width="200" height="72" rx="10"/>
+<text class="t" x="600" y="504">Redis 7</text>
+<text class="s" x="600" y="524">optional cache</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p><strong>The distributed AI development platform that divides work, preserves it, and never loses your place.</strong></p>
+      <h2>Summary</h2>
+      <p>HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces.</p>
+      <h2>Short description</h2>
+      <p>HelixCode is a distributed AI development platform written in Go. It divides work into intelligent tasks across SSH-based worker networks, preserves progress with automatic checkpointing and rollback, integrates multiple LLM providers, and drives the full development lifecycle through REST, CLI, TUI, and MCP interfaces.</p>
+      <h2>Long description</h2>
+      <p>HelixCode is an enterprise-grade distributed AI development platform (<code>dev.helix.code</code>, MIT) designed for intelligent task division, work preservation, and cross-platform development workflows. Built in Go for scalability, it provides a foundation for distributed computing with automatic checkpointing, rollback, and real-time monitoring.</p>
+      <p>Its architecture layers a REST + WebSocket + MCP API surface over core services — JWT authentication and session management, SSH-based worker-pool management with health monitoring, task management with checkpointing and dependency handling, project and workflow management, and a unified LLM provider layer — persisted on PostgreSQL (with optional Redis). Distributed workers auto-install across a network, and multi-client interfaces span CLI, terminal UI, REST, and mobile frameworks.</p>
+      <p>HelixCode drives a complete development lifecycle: planning, building, testing, and refactoring workflows execute automatically with dependency awareness and multi-session context tracking. It integrates multiple LLM providers (llama.cpp, Ollama, OpenAI) behind one interface, adds hardware-aware model selection (CPU/GPU/memory detection), and supports advanced reasoning strategies such as chain-of-thought and tree-of-thoughts. The Model Context Protocol is implemented across multiple transports, and multi-channel notifications (Slack, Discord, Email, Telegram) keep teams informed. It targets Linux, macOS, Windows, Aurora OS, and SymphonyOS.</p>
+      <h2>Why we built it</h2>
+      <p>Distributed and AI-assisted development typically loses context and progress when tasks are split across machines or interrupted. HelixCode was built to make task division intelligent and work preservation automatic — so a large development effort can be broken down, distributed across a worker network, checkpointed, and resumed or rolled back without losing state.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It combines three things teams usually stitch together from separate tools: distributed compute (SSH worker networks with auto-installation and health monitoring), AI development assistance (multi-provider LLMs with reasoning and tool calling), and full lifecycle workflow automation — all with database-backed checkpointing so distributed work is durable rather than fragile.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li>Work preservation via automatic checkpointing and rollback applied to distributed development tasks.</li>
+        <li>Hardware-aware model selection that matches models to detected CPU/GPU/memory capabilities.</li>
+        <li>A single platform exposing REST, WebSocket, CLI, TUI, and MCP, plus multi-transport MCP support.</li>
+        <li>Cross-platform reach extending to Aurora OS and SymphonyOS beyond the usual desktop trio.</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Not losing work across distributed, interruptible tasks</strong> — solved with a task model carrying checkpoints and dependencies, persisted in PostgreSQL, enabling rollback and resumption.</li>
+        <li><strong>Managing a heterogeneous worker fleet</strong> — solved with SSH-based worker registration, auto-installation, and health monitoring in a dedicated worker-pool service.</li>
+        <li><strong>Provider and hardware heterogeneity</strong> — solved with a unified LLM provider interface plus hardware detection driving intelligent model selection.</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Go (1.26+ inner module)</strong> — chosen for concurrency and single-binary distribution suited to distributed workers; used across all core services and CLI/server binaries.</li>
+        <li><strong>Gin (HTTP framework)</strong> — chosen for a fast, minimal REST layer; used to serve the <code>/api/v1</code> endpoints (auth, workers, tasks, projects).</li>
+        <li><strong>PostgreSQL 15+ (via pgx/v5)</strong> — chosen as the durable system of record; used for the 11-table distributed-computing schema (users, workers, tasks, projects, sessions, llm_providers, notifications).</li>
+        <li><strong>Redis 7+ (optional, go-redis/v9)</strong> — chosen for caching/coordination; used as an optional performance layer.</li>
+        <li><strong>SSH</strong> — chosen as a ubiquitous, secure transport for worker control; used for worker registration, auto-installation, and command execution across the pool.</li>
+        <li><strong>Model Context Protocol (MCP)</strong> — chosen for standardized tool/context exchange; implemented with multi-transport support.</li>
+        <li><strong>LLM providers (llama.cpp, Ollama, OpenAI)</strong> — chosen to span local and hosted inference; used behind a unified provider interface with hardware-aware selection.</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: beta.</strong> The README self-reports a "FULLY COMPLETE / all 5 phases" state; that completeness is project-stated rather than independently verified, so the page treats it as beta.</li>
+        <li>All specifics above trace to the repository README; marketing phrasings (taglines) are editorial rather than source metrics.</li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

@@ -69,227 +69,257 @@
   </nav>
 
   <main id="top">
-    <!-- ===================== HERO ===================== -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">// senior software engineer</p>
-      <h1>Milos <span class="accent">Vasic</span></h1>
-      <p class="role" data-i18n="hero.role">SDK &amp; platform engineering for mobile, backend, desktop &amp; web.</p>
-      <div class="hero-cta">
-        <button type="button" class="btn btn-primary" data-dl="cv">
-          <span data-i18n="hero.cv">Download CV</span> <span class="mono">PDF</span>
-        </button>
-        <button type="button" class="btn btn-ghost" data-dl="cl">
-          <span data-i18n="hero.cl">Cover Letter</span> <span class="mono">PDF</span>
-        </button>
-        <a class="btn btn-ghost" href="#contact" data-i18n="hero.contact">Get in touch</a>
-      </div>
+    <!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="/assets/od/fonts.css"/>
+<link rel="stylesheet" href="/assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="/assets/od/components-extended.css"/>
+<link rel="stylesheet" href="/assets/od/animations.css"/>
+<link rel="stylesheet" href="/assets/od/overlays.css"/>
+<script defer src="/assets/od/motion.js"></script>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/></symbol>
+</svg>
 
-      <div class="datasheet" aria-label="Profile data sheet">
-        <div class="row"><span class="k" data-i18n="ds.based">based</span><span class="v" data-i18n="ds.based_v">Belgrade, RS ⇄ Dubna, RU</span></div>
-        <div class="row"><span class="k" data-i18n="ds.remote">remote</span><span class="v" data-i18n="ds.remote_v">Worldwide — open to relocation</span></div>
-        <div class="row"><span class="k" data-i18n="ds.since">since</span><span class="v" data-i18n="ds.since_v">2009 — 16+ years in production software</span></div>
-        <div class="row"><span class="k" data-i18n="ds.focus">focus</span><span class="v" data-i18n="ds.focus_v">SDKs · platforms · distributed systems</span></div>
-        <div class="row"><span class="k" data-i18n="ds.repos">open source</span><span class="v" data-i18n="ds.repos_v">240+ repos · 5 orgs · 10M+ lines</span></div>
-        <div class="row"><span class="k" data-i18n="ds.stack">core stack</span><span class="v" data-i18n="ds.stack_v">Kotlin · Go · C++ · Swift · TypeScript</span></div>
-        <div class="row"><span class="k" data-i18n="ds.langs">languages</span><span class="v" data-i18n="ds.langs_v">Serbian (native) · English (C2) · Russian (basic)</span></div>
-      </div>
-    </div>
-    <div class="portrait-card">
-      <img src="/assets/images/profile-800.jpg"
-           srcset="/assets/images/profile-400.jpg 400w, /assets/images/profile-600.jpg 600w, /assets/images/profile-800.jpg 800w"
-           sizes="(max-width: 860px) 320px, 360px"
-           width="800" height="1000" alt="Portrait of Milos Vasic" fetchpriority="high">
-    </div>
-  </div>
-</header>
+<style>
+  .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+  .mvx-hero__cta{display:flex;flex-wrap:wrap;gap:var(--od-space-3);margin-top:var(--od-space-6);justify-content:center}
+  .mvx-lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text);max-width:72ch;margin:0 0 var(--od-space-4)}
+  .mvx-muted{color:var(--od-text-muted)}
+  .mvx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:var(--od-space-6);align-items:stretch}
+  .mvx-grid--two{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+  .mvx-card__blurb{font-size:var(--od-fs-base);line-height:var(--od-lh-normal);color:var(--od-text);margin:0 0 var(--od-space-4)}
+  .mvx-card__actions{margin-top:auto;padding-top:var(--od-space-3)}
+  .od-product-card__tech{display:flex;flex-wrap:wrap;gap:var(--od-space-2)}
+  /* grid cards must be allowed to shrink below their min-content (≤320px) */
+  .mvx-grid>*,.od-product-card{min-width:0}
+  .od-product-card__title{overflow-wrap:anywhere}
+  .mvx-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--od-space-6);max-width:56rem;margin:var(--od-space-8) auto 0}
+  .od-section__lede{font-size:var(--od-fs-lg);color:var(--od-text-muted);max-width:72ch;margin:0 0 var(--od-space-6)}
+  .mvx-contact{display:flex;flex-wrap:wrap;gap:var(--od-space-8)}
+  .mvx-contact a{color:var(--od-accent)}
+  img,svg{max-width:100%}
+  /* status badge extensions — OpenDesign tokens only (§11.4.162) */
+  .od-badge--status--production,.od-badge--status--shipped,.od-badge--status--active,.od-badge--status--stable{background-color:var(--od-success);color:var(--od-on-accent)}
+  .od-badge--status--scaffold,.od-badge--status--mixed{background-color:var(--od-surface-2);color:var(--od-text)}
+</style>
 
-<!-- ===================== SUMMARY ===================== -->
-<section class="section" id="summary">
-  <div class="wrap">
-    <p class="eyebrow">// summary</p>
-    <h2 data-i18n="summary.title">Platform engineer. SDK specialist. Author.</h2>
-    <p class="lead" data-i18n="summary.body">16+ years shipping developer-facing software at scale. SDKs that serve millions of deployments across Android, iOS, Web, and Server — built for enterprise customers including AWS, Google, Bosch, and Leica Geosystems. Technical author (<em>Fundamental Kotlin</em>, 3rd ed.) and open-source creator behind 240+ repositories spanning project management, AI/LLM platforms, infrastructure automation, and mobile. Deeply specialized in crafting stable, high-performance APIs and frameworks that other engineers build on.</p>
-  </div>
-</section>
+    <section class="od-hero od-reveal">
+      <p class="od-section__eyebrow" data-i18n="mv2.hero.eyebrow">// AI engineer</p>
+      <h1 class="od-hero__title">Miloš Vasić</h1>
+      <p class="od-hero__lede" data-i18n="mv2.hero.lede">AI engineer building verifiable AI-development systems: multi-provider LLM infrastructure, autonomous agents and orchestration, and the governance and QA layers that keep them honest.</p>
+      <div class="mvx-hero__cta">
+        <button class="od-btn od-btn--primary" type="button" data-dl="cv"><svg class="od-icon" aria-hidden="true"><use href="#i-download"/></svg> <span data-i18n="hero.cv">Download CV</span></button>
+        <button class="od-btn od-btn--secondary" type="button" data-dl="cl"><span data-i18n="hero.cl">Cover Letter</span></button>
+        <button class="od-btn od-btn--secondary" type="button" data-dl="portfolio"><span data-i18n="mv2.hero.portfolio">Portfolio (PDF)</span></button>
+        <a class="od-btn od-btn--ghost" href="/portfolio/" data-i18n="mv2.hero.portfolio_site">Portfolio site</a>
+      </div>
+      <div class="mvx-stats">
+        <div class="od-stat"><div class="od-stat__value">Go</div><div class="od-stat__label" data-i18n="mv2.stat.lang">backbone language</div></div>
+        <div class="od-stat"><div class="od-stat__value">140+</div><div class="od-stat__label" data-i18n="mv2.stat.repos">repositories, one constitution</div></div>
+        <div class="od-stat"><div class="od-stat__value">33</div><div class="od-stat__label" data-i18n="mv2.stat.products">products, evidence-backed</div></div>
+      </div>
+    </section>
 
-<!-- ===================== FEATURED WORK ===================== -->
-<section class="section" id="work">
-  <div class="wrap">
-    <p class="eyebrow">// featured work</p>
-    <h2 data-i18n="work.title">Flagship open-source projects</h2>
-    <p class="lead" data-i18n="work.lead">Curated from 240+ repositories across five organizations — selected for scale, technical depth, and real-world impact. Each represents months of dedicated engineering.</p>
+    <section class="od-section od-reveal" id="summary">
+      <p class="od-section__eyebrow" data-i18n="mv2.summary.eyebrow">// summary</p>
+      <h2 class="od-section__title" data-i18n="mv2.summary.title">I design and build the software that turns LLMs into dependable products.</h2>
+      <p class="mvx-lede" data-i18n="mv2.summary.body1">I work primarily in Go, with Kotlin / Kotlin Multiplatform, TypeScript/React, Python, Swift, and Shell as the job demands. My output is organized as a fleet rather than a pile of one-off apps: large product applications sitting on top of dozens of small, decoupled, independently-tested modules, all inheriting a shared engineering Constitution as a Git submodule.</p>
+      <p class="mvx-lede mvx-muted" data-i18n="mv2.summary.body2">That means fixes propagate across everything, new products assemble from proven parts, and every advertised capability is backed by an evidence-producing test. My north star is a single rule — a feature is finished only when a real user can use it and there is captured evidence to prove it. This page moves from the overview to the individual projects; each links to its full product page.</p>
+    </section>
 
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card-top"><h3>HelixTrack Core</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.helix_track">The open-source JIRA alternative — enterprise project &amp; issue tracking with multi-platform clients (Web, Desktop, Android, iOS). Designed for teams that need performance without vendor lock-in.</p>
-        <a class="card-link" href="https://github.com/Helix-Track/Core" target="_blank" rel="noopener">github.com/Helix-Track/Core →</a>
-        <a class="card-more" href="#" data-article="helix-track-core" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>HelixCode</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.helix_code">Distributed multi-LLM AI development platform — coordinating intelligent agents across machines for collaborative code generation, review, and refactoring at scale.</p>
-        <a class="card-link" href="https://github.com/HelixDevelopment/HelixCode" target="_blank" rel="noopener">github.com/HelixDevelopment/HelixCode →</a>
-        <a class="card-more" href="#" data-article="helix-code" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>HelixTranslate</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.helix_translate">Enterprise-grade universal ebook translation toolkit — any input format, any language pair. REST + HTTP/3 API with real-time WebSocket progress streaming. Multiple LLM backends supported.</p>
-        <a class="card-link" href="https://github.com/HelixDevelopment/HelixTranslate" target="_blank" rel="noopener">github.com/HelixDevelopment/HelixTranslate →</a>
-        <a class="card-more" href="#" data-article="helix-translate" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>HelixAgent</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.helix_agent">Multi-LLM ensemble agent service — orchestrating multiple language models behind a unified interface with intelligent routing, fallback, and result aggregation.</p>
-        <a class="card-link" href="https://github.com/HelixDevelopment/HelixAgent" target="_blank" rel="noopener">github.com/HelixDevelopment/HelixAgent →</a>
-        <a class="card-more" href="#" data-article="helix-agent" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>Helix-Flow Platform</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.helix_flow">Unified AI inference platform — run models faster at any scale with predictable costs. One API for deployment, monitoring, and orchestration across hardware backends.</p>
-        <a class="card-link" href="https://github.com/Helix-Flow/Platform" target="_blank" rel="noopener">github.com/Helix-Flow/Platform →</a>
-        <a class="card-more" href="#" data-article="helix-flow-platform" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>Catalogizer</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.catalogizer">Advanced multi-protocol media management system — automatically catalogs, deduplicates, and syncs media collections with intelligent metadata enrichment across protocols.</p>
-        <a class="card-link" href="https://github.com/vasic-digital/Catalogizer" target="_blank" rel="noopener">github.com/vasic-digital/Catalogizer →</a>
-        <a class="card-more" href="#" data-article="catalogizer" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>LLMsVerifier</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.llms_verifier">Systematic LLM benchmark and verification framework — run standardized evaluations across models, track regressions, and generate compliance reports for AI quality assurance.</p>
-        <a class="card-link" href="https://github.com/vasic-digital/LLMsVerifier" target="_blank" rel="noopener">github.com/vasic-digital/LLMsVerifier →</a>
-        <a class="card-more" href="#" data-article="llms-verifier" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>Panoptic</h3><span class="lang">Go</span></div>
-        <p data-i18n="work.panoptic">Cross-platform automated testing tool — UI recording, screenshot comparison, and test orchestration across web, desktop, and mobile targets from a single configuration.</p>
-        <a class="card-link" href="https://github.com/vasic-digital/Panoptic" target="_blank" rel="noopener">github.com/vasic-digital/Panoptic →</a>
-        <a class="card-more" href="#" data-article="panoptic" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>Mail Server Factory</h3><span class="lang">Shell · Go</span></div>
-        <p data-i18n="work.mail_factory">Declarative mail-server deployment — JSON-driven automation that provisions fully-configured mail infrastructure across multiple OS distributions in minutes.</p>
-        <a class="card-link" href="https://github.com/Server-Factory/Mail-Server-Factory" target="_blank" rel="noopener">github.com/Server-Factory/Mail-Server-Factory →</a>
-        <a class="card-more" href="#" data-article="mail-server-factory" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>ShareConnect</h3><span class="lang">Kotlin</span></div>
-        <p data-i18n="work.share_connect">Universal URL processing pipeline — route shareable URLs to remote or local processing endpoints with plugin-based transformation and delivery chains.</p>
-        <a class="card-link" href="https://github.com/vasic-digital/ShareConnect" target="_blank" rel="noopener">github.com/vasic-digital/ShareConnect →</a>
-        <a class="card-more" href="#" data-article="share-connect" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>GrabTube</h3><span class="lang">Dart · Flutter</span></div>
-        <p data-i18n="work.grab_tube">Tube-services video downloader — cross-platform Flutter app for downloading media from multiple streaming platforms with a clean Material UI.</p>
-        <a class="card-link" href="https://github.com/vasic-digital/GrabTube" target="_blank" rel="noopener">github.com/vasic-digital/GrabTube →</a>
-        <a class="card-more" href="#" data-article="grab-tube" data-i18n="card.more">Read more →</a>
-      </article>
-      <article class="card reveal">
-        <div class="card-top"><h3>Android-Toolkit</h3><span class="lang">Kotlin</span></div>
-        <p data-i18n="work.android_toolkit">Common Android abstractions and implementations — reusable components, utilities, and patterns extracted from production SDK work across multiple enterprises.</p>
-        <a class="card-link" href="https://github.com/vasic-digital/Android-Toolkit" target="_blank" rel="noopener">github.com/vasic-digital/Android-Toolkit →</a>
-        <a class="card-more" href="#" data-article="android-toolkit" data-i18n="card.more">Read more →</a>
-      </article>
-    </div>
+    <section class="od-section od-reveal" id="work">
+      <p class="od-section__eyebrow" data-i18n="mv2.work.eyebrow">// my work across the Helix family</p>
+      <h2 class="od-section__title" data-i18n="mv2.work.title">The Helix line, in priority order.</h2>
+      <p class="od-section__lede" data-i18n="mv2.work.lede">The Helix line spans the AI-development lifecycle. Each card links to its full product page.</p>
+      <div class="mvx-grid od-stagger">
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixTrack <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">HTTP/3 QUIC</span><span class="od-chip">PostgreSQL</span><span class="od-chip">+8</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.helixtrack">A free-world JIRA alternative; the flagship of the Helix-Track line.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixtrack.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixAgent <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">LLMsVerifier</span><span class="od-chip">Prometheus</span><span class="od-chip">+6</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.helixagent">An ensemble LLM service with multi-round model debate and verification-based provider selection.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixagent.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixCode <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Redis</span><span class="od-chip">SSH</span><span class="od-chip">MCP</span><span class="od-chip">+2</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.helixcode">A distributed AI development platform that divides work across SSH-managed workers with automatic checkpoint/rollback.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixcode.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixLLM <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">HTTP/3 QUIC</span><span class="od-chip">llama.cpp</span><span class="od-chip">+5</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.helixllm">A single binary with six modes serving OpenAI- and Anthropic-compatible APIs over HTTP/3, with local llama.cpp inference and a scored fallback chain.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixllm.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixCluster <span class="od-badge--status od-badge--status--in-development">in-development</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Zig</span><span class="od-chip">gRPC</span><span class="od-chip">Raft + SWIM</span><span class="od-chip">+7</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.helixcluster">A distributed operating system for AI compute, from datacenter GPUs to edge handhelds.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixcluster.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">LLMProvider <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">net/http</span><span class="od-chip">logrus</span><span class="od-chip">+2</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.llmprovider">One interface over 43 providers with circuit breakers, retries, and health baked in.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/llmprovider.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">LLMOrchestrator <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">JSON-lines / stdio</span><span class="od-chip">Circuit breaker</span><span class="od-chip">+2</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.llmorchestrator">One control plane for every headless CLI coding agent.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/llmorchestrator.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">LLMsVerifier <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">SQLite + SQLCipher</span><span class="od-chip">+6</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.llmsverifier">Verify, monitor, optimize: the single source of truth for LLM/provider/verification metadata.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/llmsverifier.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+      </div>
+      <p class="od-section__eyebrow" style="margin-top:var(--od-space-10)" data-i18n="mv2.utils.eyebrow">// my work across vasic-digital utils</p>
+      <h2 class="od-section__title" data-i18n="mv2.utils.title">Product-grade tools I built and maintain.</h2>
+      <div class="mvx-grid od-stagger">
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Catalogizer <span class="od-badge--status od-badge--status--production">production</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">React</span><span class="od-chip">+10</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.catalogizer">Multi-protocol (SMB/FTP/NFS/WebDAV/local), encrypted, self-hostable media collection management with a Go/Gin API and React UI.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/catalogizer.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Courses-Creator <span class="od-badge--status od-badge--status--production">production</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">React</span><span class="od-chip">Electron</span><span class="od-chip">+8</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.coursescreator">A markdown-to-video course pipeline with multi-LLM enrichment, TTS, and desktop/mobile/web players.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/courses-creator.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">VisionEngine <span class="od-badge--status od-badge--status--active">active</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">GoCV / OpenCV</span><span class="od-chip">LLM vision</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.visionengine">A decoupled Go toolkit fusing classic computer vision with multi-provider LLM vision for UI analysis and navigation graphs.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/visionengine.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">DocProcessor <span class="od-badge--status od-badge--status--active">active</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">LLM agents</span><span class="od-chip">Heuristic parser</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.docprocessor">Turns documentation into a verifiable feature map for QA automation (LLM or heuristic extraction).</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/docprocessor.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Docs Chain <span class="od-badge--status od-badge--status--active">active</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">DAG</span><span class="od-chip">SQLite</span><span class="od-chip">fsnotify</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.docschain">A content-hashed, bidirectional, atomic document/DB sync engine.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/docs-chain.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Herald <span class="od-badge--status od-badge--status--active">active</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Shell</span><span class="od-chip">LLM intent</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.herald">Reliable multi-channel notifications with natural-language, three-tier intent resolution.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/herald.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">task_bridge <span class="od-badge--status od-badge--status--scaffold">scaffold</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">SQLite</span><span class="od-chip">webhooks</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.taskbridge">A decoupled, bidirectional task/board sync engine (P1 scaffold; sync logic in progress).</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/task-bridge.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Reusable Module Suite <span class="od-badge--status od-badge--status--scaffold">scaffold</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go (digital.vasic.*)</span><span class="od-chip">KMP</span><span class="od-chip">+1</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.rms">The digital.vasic.* "standard library" of infrastructure, AI-primitive, and guardrail modules.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/vasic-digital-reusable-module-suite.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+      </div>
+      <p class="od-section__eyebrow" style="margin-top:var(--od-space-10)" data-i18n="mv2.sf.eyebrow">// infrastructure heritage (Server Factory)</p>
+      <h2 class="od-section__title" data-i18n="mv2.sf.title">Predating the AI line — my DevOps toolchain.</h2>
+      <div class="mvx-grid od-stagger">
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Mail Server Factory <span class="od-badge--status od-badge--status--production">production</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Kotlin</span><span class="od-chip">Shell</span><span class="od-chip">Docker</span><span class="od-chip">+4</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.msf">Declarative JSON → fully-provisioned Dockerized mail servers, reporting 439 passing tests and a clean SonarQube gate.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/mail-server-factory.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Server Factory Core <span class="od-badge--status od-badge--status--stable">stable</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Kotlin</span><span class="od-chip">Shell</span><span class="od-chip">Gradle</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.sfcore">The Server Factory Core Framework every service factory builds on.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/server-factory-core-framework.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Qemu-Utils <span class="od-badge--status od-badge--status--active">active</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Shell</span><span class="od-chip">QEMU</span><span class="od-chip">ISO images</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.qemu">QEMU VM-image tooling — download, run, network, and publish machine images as artifacts.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/qemu-utils.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">Parallels-Utils <span class="od-badge--status od-badge--status--active">active</span></h3>
+          <div class="od-product-card__tech"><span class="od-chip">Shell</span><span class="od-chip">Python 3</span><span class="od-chip">Parallels</span></div>
+          <p class="mvx-card__blurb" data-i18n="mv2.p.parallels">Compress, publish, and reuse Parallels VM images across every machine.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/parallels-utils.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+      </div>
+      <div class="mvx-hero__cta" style="justify-content:flex-start;margin-top:var(--od-space-8)">
+        <a class="od-btn od-btn--primary" href="/portfolio/" data-i18n="mv2.work.portfolio_cta">See the full portfolio</a>
+      </div>
+    </section>
 
-    <p class="lead more-row"><span data-i18n="work.more">Additional projects: GrabTube (Flutter video downloader), Android-Toolkit, Asinka (Kotlin IPC), Herald (Go event system), Courses-Creator, and many more across</span>
-      <a href="https://github.com/vasic-digital" target="_blank" rel="noopener">vasic-digital</a>,
-      <a href="https://github.com/HelixDevelopment" target="_blank" rel="noopener">HelixDevelopment</a>,
-      <a href="https://github.com/Helix-Track" target="_blank" rel="noopener">Helix-Track</a>,
-      <a href="https://github.com/Helix-Flow" target="_blank" rel="noopener">Helix-Flow</a> and
-      <a href="https://github.com/Server-Factory" target="_blank" rel="noopener">Server-Factory</a>.</p>
-  </div>
-</section>
+    <section class="od-section od-reveal" id="experience">
+      <p class="od-section__eyebrow" data-i18n="mv2.gov.eyebrow">// how I work — governance and QA first</p>
+      <h2 class="od-section__title" data-i18n="mv2.gov.title">The discipline that underpins the products.</h2>
+      <p class="od-section__lede" data-i18n="mv2.gov.lede">Before the products, the discipline: I don't ship green checkmarks — I ship AI systems with the evidence that they actually work.</p>
+      <div class="mvx-grid mvx-grid--two od-stagger">
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixConstitution <span class="od-badge--status od-badge--status--shipped">shipped</span></h3>
+          <p class="mvx-card__blurb" data-i18n="mv2.gov.constitution">A universal, inheritable engineering rulebook, distributed as a Git submodule across a 140+-repository fleet. It codifies anti-bluff evidence gates, false-positive immunity, data/host safety, and coverage rules; projects may tighten but never weaken it, and each governance gate is paired with a mutation test that proves the gate itself works.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixconstitution.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title">HelixQA <span class="od-badge--status od-badge--status--beta">beta</span></h3>
+          <p class="mvx-card__blurb" data-i18n="mv2.gov.qa">Anti-bluff QA orchestration that runs written test banks and fully-autonomous, LLM-and-vision-driven QA sessions across Android, Android TV, Web, and Desktop, scoring a PASS only when it has captured runtime evidence.</p>
+          <div class="mvx-card__actions"><a class="od-btn od-btn--secondary" href="/products/helixqa.html" data-i18n="mv2.readmore">Read more</a></div>
+        </article>
+      </div>
+    </section>
 
-<!-- ===================== EXPERIENCE ===================== -->
-<section class="section" id="experience">
-  <div class="wrap">
-    <p class="eyebrow">// experience</p>
-    <h2 data-i18n="exp.title">Professional career</h2>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-head"><span class="tl-role">SDK Developer — Feature Flags</span><span class="tl-org">Harness</span><span class="tl-when">2020 — 2024 · Belgrade</span></div>
-        <p>Architected and led the Feature Flag SDK family across 10 platforms (Android, iOS, Flutter, React Native, TypeScript, Java, Kotlin, Swift, Go, Ruby). SDKs reached <strong>millions of deployments</strong> serving enterprise customers including <strong>AWS and Google</strong>. Designed for sub-millisecond flag evaluation, offline resilience, and real-time streaming updates. Defined SDK architecture patterns adopted company-wide.</p>
+    <section class="od-section od-reveal" id="skills">
+      <p class="od-section__eyebrow" data-i18n="mv2.skills.eyebrow">// technologies</p>
+      <h2 class="od-section__title" data-i18n="mv2.skills.title">The stack I actually build on.</h2>
+      <div class="mvx-grid mvx-grid--two od-stagger">
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title" data-i18n="mv2.skills.lang">Languages</h3>
+          <div class="od-product-card__tech"><span class="od-chip">Go</span><span class="od-chip">Kotlin / KMP</span><span class="od-chip">TypeScript</span><span class="od-chip">Python</span><span class="od-chip">Swift</span><span class="od-chip">Shell</span></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title" data-i18n="mv2.skills.ai">AI / LLM</h3>
+          <div class="od-product-card__tech"><span class="od-chip">43+ providers</span><span class="od-chip">MCP</span><span class="od-chip">RAG</span><span class="od-chip">Vector DBs</span><span class="od-chip">Agent orchestration</span></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title" data-i18n="mv2.skills.backend">Backend</h3>
+          <div class="od-product-card__tech"><span class="od-chip">Gin</span><span class="od-chip">gRPC + Protobuf</span><span class="od-chip">HTTP/3 (QUIC)</span><span class="od-chip">WebSockets</span></div>
+        </article>
+        <article class="od-card od-product-card" style="padding:var(--od-space-6)">
+          <h3 class="od-product-card__title" data-i18n="mv2.skills.data">Data &amp; Infra</h3>
+          <div class="od-product-card__tech"><span class="od-chip">PostgreSQL</span><span class="od-chip">SQLite / SQLCipher</span><span class="od-chip">Redis</span><span class="od-chip">Docker / K8s</span><span class="od-chip">Prometheus</span></div>
+        </article>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-head"><span class="tl-role">Software Engineer — Mobile 3D</span><span class="tl-org">Leica Geosystems (Hexagon)</span><span class="tl-when">2016 — 2020 · Heerbrugg</span></div>
-        <p>Built real-time iOS &amp; Android applications for <strong>next-generation 3D laser scanners</strong> used in surveying, construction, and forensic mapping. Owned the full mobile stack: low-level hardware communication over Bluetooth/BLE, real-time point-cloud data processing and rendering, and cloud synchronization. Collaborated with <strong>Autodesk</strong> on format interoperability.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-head"><span class="tl-role">Lead SDK Developer — Connected Vehicles</span><span class="tl-org">Bosch</span><span class="tl-when">2010 — 2016 · Belgrade</span></div>
-        <p>Led development of the <strong>Connected Vehicles SDK</strong> — real-time OBD-II communication over Bluetooth with high-frequency data acquisition, signal processing, and on-device persistence. The SDK powered in-vehicle diagnostics and telematics applications deployed across multiple automotive product lines.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-head"><span class="tl-role">Senior Engineer (contract)</span><span class="tl-org">TN-TECH · Increment Loop</span><span class="tl-when">2017 — present</span></div>
-        <p>Full-stack mobile and backend development across Android (Kotlin), iOS (C++/Qt), and server infrastructure. Key products include <strong>Globex Data's Sekur</strong> secure-communication suite (SekurMessenger, SekurMail, SekurSuite), the BusRide transit platform, and the Yuno productivity app.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ===================== SKILLS ===================== -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <p class="eyebrow">// skills</p>
-    <h2 data-i18n="skills.title">Technologies &amp; expertise</h2>
-    <div class="skill-grid">
-      <div class="skill-group reveal">
-        <h4 data-i18n="skills.mobile">Mobile</h4>
-        <div class="chips"><span class="chip">Android</span><span class="chip">Kotlin</span><span class="chip">Java</span><span class="chip">Jetpack Compose</span><span class="chip">KMP</span><span class="chip">Coroutines/Flow</span><span class="chip">React Native</span><span class="chip">Swift / SwiftUI</span><span class="chip">Flutter</span><span class="chip">BLE / Bluetooth</span></div>
+    <section class="od-section od-reveal" id="contact">
+      <p class="od-section__eyebrow" data-i18n="mv2.contact.eyebrow">// contact</p>
+      <h2 class="od-section__title" data-i18n="mv2.contact.title">In one line.</h2>
+      <p class="od-section__lede" data-i18n="mv2.contact.lead">I don't ship green checkmarks — I ship AI systems with the evidence that they actually work, and the governance that keeps them that way. Open to senior AI/platform engineering roles worldwide.</p>
+      <div class="mvx-contact">
+        <p><strong data-i18n="mv2.contact.email_label">Email</strong><br/><a href="mailto:i@mvasic.ru">i@mvasic.ru</a></p>
+        <p><strong data-i18n="mv2.contact.gh_label">GitHub</strong><br/><a href="https://github.com/milos85vasic" rel="noopener noreferrer" target="_blank">milos85vasic <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></p>
+        <p><strong data-i18n="mv2.contact.tg_label">Telegram</strong><br/><a href="https://t.me/milos85vasic" rel="noopener noreferrer" target="_blank">@milos85vasic</a></p>
       </div>
-      <div class="skill-group reveal">
-        <h4 data-i18n="skills.backend">Backend &amp; Systems</h4>
-        <div class="chips"><span class="chip">Go (Gin)</span><span class="chip">Spring Boot</span><span class="chip">C++ (Drogon)</span><span class="chip">Python</span><span class="chip">Ruby on Rails</span><span class="chip">Docker / K8s</span><span class="chip">gRPC</span><span class="chip">GraphQL</span><span class="chip">REST</span></div>
-      </div>
-      <div class="skill-group reveal">
-        <h4 data-i18n="skills.desktopweb">Desktop &amp; Web</h4>
-        <div class="chips"><span class="chip">Qt / C++</span><span class="chip">Electron</span><span class="chip">JavaFX</span><span class="chip">React</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">HTML/CSS</span></div>
-      </div>
-      <div class="skill-group reveal">
-        <h4 data-i18n="skills.data">Data &amp; Infra</h4>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQLite</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">Kafka</span><span class="chip">RabbitMQ</span><span class="chip">WebSocket</span></div>
-      </div>
-      <div class="skill-group reveal">
-        <h4 data-i18n="skills.practices">Practices</h4>
-        <div class="chips"><span class="chip">SDK Design</span><span class="chip">API Architecture</span><span class="chip">CI/CD</span><span class="chip">TDD</span><span class="chip">Code Review</span><span class="chip">SonarQube</span><span class="chip">AI-assisted dev</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== AUTHOR + EDUCATION ===================== -->
-<section class="section" id="author">
-  <div class="wrap">
-    <p class="eyebrow">// author &amp; education</p>
-    <h2 data-i18n="author.title">Author &amp; education</h2>
-    <p class="lead"><span data-i18n="author.book">Author of <em>Fundamental Kotlin</em> (self-published, 3rd revised edition, 2022) — a comprehensive guide to Kotlin from fundamentals to advanced patterns. Contributing author for <strong>Packt Publishing UK</strong>.</span> <a href="/assets/pdf/Fundamental_Kotlin_3rd_Edition.pdf">Read the latest edition (PDF) →</a></p>
-    <div class="cards">
-      <article class="card"><div class="card-top"><h3>M.Sc.</h3><span class="lang">2014</span></div><p>Contemporary Information Technologies — Singidunum University, Belgrade.</p></article>
-      <article class="card"><div class="card-top"><h3>B.Sc.</h3><span class="lang">2008</span></div><p>Informatics and Computing — Singidunum University, Belgrade.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CONTACT ===================== -->
-<section class="section" id="contact">
-  <div class="wrap">
-    <p class="eyebrow">// contact</p>
-    <h2 data-i18n="contact.title">Get in touch</h2>
-    <p class="lead" data-i18n="contact.lead">Open to senior engineering, platform/SDK, and technical leadership roles worldwide. The fastest way to reach me is email.</p>
-    <div class="contact-grid">
-      <div class="contact-card"><div class="k">email</div><div class="v"><a href="mailto:i@mvasic.ru">i@mvasic.ru</a></div></div>
-      <div class="contact-card"><div class="k">phone · rs</div><div class="v"><a href="tel:+381692535718">+381 69 25 35 718</a></div></div>
-      <div class="contact-card"><div class="k">phone · ru</div><div class="v"><a href="tel:+79663237717">+7 966 323 77 17</a></div></div>
-      <div class="contact-card"><div class="k">telegram</div><div class="v"><a href="https://t.me/milos85vasic">@milos85vasic</a></div></div>
-      <div class="contact-card"><div class="k">github</div><div class="v"><a href="https://github.com/milos85vasic">milos85vasic</a></div></div>
-      <div class="contact-card"><div class="k">cv · cover letter</div><div class="v"><a href="#" data-dl="cv">CV</a> · <a href="#" data-dl="cl">Cover Letter</a></div></div>
-    </div>
-  </div>
-</section>
+    </section>
 
   </main>
 

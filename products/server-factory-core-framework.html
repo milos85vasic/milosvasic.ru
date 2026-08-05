@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>Server Factory Core Framework — Miloš Vasić</title>
+<meta name="description" content="Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each &quot;factory&quot; reuses one battle-tested foundation rather than re-implementing provisioning primitives."/>
+<link rel="canonical" href="https://milosvasic.ru/products/server-factory-core-framework.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="Server Factory Core Framework — Miloš Vasić"/>
+<meta property="og:description" content="Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each &quot;factory&quot; reuses one battle-tested foundation rather than re-implementing provisioning primitives."/>
+<meta property="og:url" content="https://milosvasic.ru/products/server-factory-core-framework.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Server Factory Core Framework — Miloš Vasić"/>
+<meta name="twitter:description" content="Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each &quot;factory&quot; reuses one battle-tested foundation rather than re-implementing provisioning primitives."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/server-factory-core-framework.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/server-factory-core-framework.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/server-factory-core-framework.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/server-factory-core-framework.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/server-factory-core-framework.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/server-factory-core-framework.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each \"factory\" reuses one battle-tested foundation rather than re-implementing provisioning primitives.",
+      "inLanguage": "en",
+      "name": "Server Factory Core Framework",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/server-factory-core-framework.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 30</p>
+      <h1>Server Factory Core Framework <span class="od-h1-badges"><span class="od-badge--status od-badge--status--stable">stable</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Kotlin (~990K bytes)</span><span class="od-chip">Shell (minimal supporting scripts)</span><span class="od-chip">Gradle</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Server-Factory/Core-Framework" rel="noopener noreferrer" target="_blank">Server-Factory/Core-Framework <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>The shared engine behind every Server Factory.</strong></p>
+      <h2>Summary</h2>
+      <p>Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each "factory" reuses one battle-tested foundation rather than re-implementing provisioning primitives.</p>
+      <h2>Short description</h2>
+      <p>The shared Kotlin framework at the base of the Server Factory ecosystem. It supplies the common provisioning engine, connection abstractions, and installation-step machinery consumed by downstream factories (Mail Server Factory, Web Service Factory, SonarQube Factory, and others).</p>
+      <h2>Long description</h2>
+      <p>Core Framework is the foundational library of the Server-Factory organization: the reusable engine that the individual "factory" products (Mail Server Factory, Web Service Factory, SonarQube Factory, Caching Proxy Factory) all build on. The Server Factory approach is declarative — a user describes desired infrastructure as configuration, and a factory interprets it to install and initialize software on a target system — and Core Framework is where the common machinery for that pattern lives: the connection/transport abstractions, the installation-step model, and the shared plumbing that every factory needs. By centralizing this into one Kotlin framework, the family avoids duplicating provisioning logic across products and keeps behavior consistent: a connection type or installation primitive improved in Core Framework benefits every downstream factory. It is almost entirely Kotlin (roughly 990K bytes of Kotlin with a thin Shell layer), reflecting its role as a code library rather than a script collection. Downstream repos link back to it as their canonical dependency (Parallels-Utils, Qemu-Utils, Utils, and the Definitions packs all reference the Core Framework repository as the hub of the ecosystem). Its README is intentionally minimal — it is infrastructure for other projects, versioned via <code>version.txt</code>/<code>version_code.txt</code> — and it predates the later AI work, making it part of the org's mature DevOps toolchain heritage.</p>
+      <h2>Why we built it</h2>
+      <p>Each provisioning tool needs the same core: ways to connect to targets and steps to install/configure software. Rebuilding that per product would fragment behavior and multiply bugs. Core Framework centralizes it so every factory shares one dependable engine.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It is the leverage point of the whole family — one framework improved once propagates correctness and features to every factory, embodying the "build once, reuse everywhere" philosophy in the infrastructure-automation domain.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li>A single reusable provisioning framework abstracting connection + installation-step logic.</li>
+        <li>Clean separation between the engine (Core Framework) and product-specific factories.</li>
+        <li>Version-pinned distribution (<code>version.txt</code>/<code>version_code.txt</code>) for reproducible consumption.</li>
+      </ul>
+      <h2>Challenges &amp; solutions</h2>
+      <ul>
+        <li><strong>Avoiding duplicated provisioning logic:</strong> solved by extracting shared machinery into one framework consumed by all factories.</li>
+        <li><strong>Consistent behavior across products:</strong> solved with common abstractions so connection types and steps behave identically everywhere.</li>
+        <li><strong>(UNVERIFIED):</strong> specific internal APIs are not documented in the public README; treat interface details as unverified beyond "shared framework consumed by the factories."</li>
+      </ul>
+      <h2>Tech stack (why + how)</h2>
+      <ul>
+        <li><strong>Kotlin</strong> — the entire framework (~990K bytes); the language of the Server Factory family.</li>
+        <li><strong>Shell</strong> — minimal supporting scripts.</li>
+        <li><strong>Gradle</strong> — build toolchain (consistent with the family's <code>./gradlew</code> usage).</li>
+      </ul>
+      <p>&gt; Note: GitHub marks the repository as a fork within the Server-Factory org. Not AI-centric; presented as the backbone of the provisioning toolchain.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

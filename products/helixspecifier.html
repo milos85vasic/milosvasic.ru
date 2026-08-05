@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>HelixSpecifier — Miloš Vasić</title>
+<meta name="description" content="HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly."/>
+<link rel="canonical" href="https://milosvasic.ru/products/helixspecifier.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="HelixSpecifier — Miloš Vasić"/>
+<meta property="og:description" content="HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly."/>
+<meta property="og:url" content="https://milosvasic.ru/products/helixspecifier.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HelixSpecifier — Miloš Vasić"/>
+<meta name="twitter:description" content="HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixspecifier.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/helixspecifier.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixspecifier.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/helixspecifier.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixspecifier.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixspecifier.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly.",
+      "inLanguage": "en",
+      "name": "HelixSpecifier",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixspecifier.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 7</p>
+      <h1>HelixSpecifier <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">logrus</span><span class="od-chip">SpecKit pillar</span><span class="od-chip">Superpowers pillar</span><span class="od-chip">GSD pillar</span><span class="od-chip">Spec memory store</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/specifier" rel="noopener noreferrer" target="_blank">HelixDevelopment/specifier <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>Spec-driven development that scales its own ceremony to the work.</strong></p>
+      <h2>Summary</h2>
+      <p>HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly.</p>
+      <h2>Short description</h2>
+      <p>HelixSpecifier is a spec-driven development fusion engine for AI agents. It combines SpecKit, Superpowers and GSD, classifies work by effort level, runs debate-backed specification phases, enforces a minimum test-to-code ratio, and learns from every completed flow.</p>
+      <h2>Long description</h2>
+      <p>HelixSpecifier is a spec-driven development (SDD) fusion engine written in Go (module <code>digital.vasic.helixspecifier</code>), built as a component of the HelixAgent AI ensemble. It unifies three complementary development pillars into a single adaptive workflow: SpecKit's seven-phase SDD process (Constitution, Specify, Clarify, Plan, Tasks, Analyze, Implement), Superpowers' test-driven discipline with parallel subagent execution, and GSD's milestone lifecycle management.</p>
+      <p>Its central idea is *adaptive ceremony*: the engine classifies incoming work by effort level and scales the amount of process to match, so a small change does not drag the full ceremony of a large feature. Ten power features build on this — bounded-concurrency parallel task execution, a machine-readable "Constitution as Code" that enforces mandatory rules, "Nyquist TDD" that tracks and enforces a minimum test-to-implementation ratio, multi-round multi-agent debate for specification refinement, adaptive skill-proficiency learning, brownfield analysis of legacy code, predictive specification from historical patterns, cross-project knowledge transfer, runtime ceremony adjustment, and a persistent spec memory with semantic search.</p>
+      <p>It is consumed as a Go module, either via <code>go get</code> or a local replace directive, and exposes a simple engine API: register the three pillars plus a ceremony scaler and spec memory, classify effort, then execute the full flow and receive a quality-scored result. Like the rest of the Helix family, it is developed under an anti-bluff verification regime with an in-process challenge runner over real code.</p>
+      <h2>Why we built it</h2>
+      <p>Spec-driven development, rigorous TDD, and milestone management are usually three separate practices with three separate tools. HelixSpecifier was built so an AI agent (HelixAgent) can run all three as one coherent, self-scaling workflow instead of stitching them together by hand.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It makes process proportional to the work. Instead of applying heavyweight ceremony everywhere (slow) or nowhere (risky), the engine sizes the ceremony to the effort automatically — and backs specification decisions with a multi-agent debate rather than a single opinion.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li><strong>Adaptive ceremony</strong> driven by real-time quality metrics.</li>
+        <li><strong>Nyquist TDD</strong> — a test-to-implementation ratio gate (minimum 2x) inspired by the Nyquist sampling theorem.</li>
+        <li><strong>Debate architecture</strong> — multi-round, multi-agent specification refinement with position scoring.</li>
+        <li><strong>Predictive specification</strong> and <strong>cross-project transfer</strong> that learn from accumulated flows.</li>
+        <li><strong>Constitution as Code</strong> — machine-readable, enforced project rules.</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Merging three methodologies without conflict</strong> — solved with a fusion engine that registers each pillar behind a common interface and orchestrates them through a single flow lifecycle.</li>
+        <li><strong>Deciding how much process a task needs</strong> — solved with an effort classifier plus a ceremony scaler that adjusts dynamically during execution.</li>
+        <li><strong>Keeping specification quality high</strong> — solved with debate-backed refinement (position scoring across rounds) and enforced TDD ratios.</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Go</strong> — single-binary/importable engine; concurrency powers bounded-parallel task dispatch and the debate rounds.</li>
+        <li><strong>logrus</strong> — structured logging across the engine and pillars.</li>
+        <li><strong>SpecKit pillar</strong> — seven-phase spec-driven-development process implementation.</li>
+        <li><strong>Superpowers pillar</strong> — TDD discipline with parallel subagent execution.</li>
+        <li><strong>GSD pillar</strong> — milestone/lifecycle management.</li>
+        <li><strong>Spec memory store</strong> — persistent, semantically searchable specification index for learning and transfer.</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: beta.</strong> Consumed as a Go module component of HelixAgent.</li>
+        <li><strong>License: TBD.</strong> No LICENSE was detected via the GitHub API — UNVERIFIED / not declared.</li>
+        <li>The display name "HelixSpecifier" maps to the repository <code>specifier</code>.</li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

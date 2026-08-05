@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>task_bridge — Miloš Vasić</title>
+<meta name="description" content="task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics."/>
+<link rel="canonical" href="https://milosvasic.ru/products/task-bridge.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="task_bridge — Miloš Vasić"/>
+<meta property="og:description" content="task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics."/>
+<meta property="og:url" content="https://milosvasic.ru/products/task-bridge.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="task_bridge — Miloš Vasić"/>
+<meta name="twitter:description" content="task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/task-bridge.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/task-bridge.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/task-bridge.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/task-bridge.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/task-bridge.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/task-bridge.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics.",
+      "inLanguage": "en",
+      "name": "task_bridge",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/task-bridge.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 26</p>
+      <h1>task_bridge <span class="od-h1-badges"><span class="od-badge--status od-badge--status--scaffold">scaffold</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">SQLite (workable-items SSoT)</span><span class="od-chip">raksul/go-clickup (MIT dependency)</span><span class="od-chip">HMAC-SHA256 webhook verification</span><span class="od-chip">cron + webhooks</span><span class="od-chip">pkg/config runtime injection boundary</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/task_bridge" rel="noopener noreferrer" target="_blank">vasic-digital/task_bridge <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>Your task board and your source-of-truth, impeccably in sync — both ways.</strong></p>
+      <h2>Summary</h2>
+      <p>task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics.</p>
+      <h2>Short description</h2>
+      <p>A project-agnostic Go submodule that bidirectionally syncs a SQLite workable-items SSoT ↔ tracker docs ↔ a remote board (ClickUp first). Deterministic last-edit-wins, dry-run-first, HMAC-verified webhooks; every credential and ID is injected by the consumer at runtime.</p>
+      <h2>Long description</h2>
+      <p>task_bridge is the connective tissue between how work is tracked internally and how it appears on a team's board. It keeps three representations of the same work in lockstep: a project's <strong>workable-items SQLite single-source-of-truth</strong>, its <strong>tracker documentation</strong>, and a <strong>remote board</strong> — the first supported board being ClickUp, with Jira and Linear planned as future members. Synchronization is deterministic (last-edit-wins), dry-run-first, and designed to never corrupt or lose data or leave any side out of sync. Architecturally it is a strict submodule consumed by other projects and is fully project-agnostic per the constitution's decoupling contract (§11.4.28): it ships zero project-specific values, and every credential, board/folder ID, item-key field, and DB path is injected by the consumer at runtime through <code>pkg/config.Config</code>. The module is cleanly layered: a CLI (<code>reconcile</code>/<code>push</code>/<code>pull</code>/<code>resolve</code>/<code>status</code>/<code>conflicts</code>/<code>init</code>) and a long-running daemon (webhook receiver + cron reconcile); a thin client wrapper over the MIT-licensed <code>raksul/go-clickup</code>; a resolver that turns board/folder URLs into IDs via live API probes (no URL-grammar guessing); a mapper between local workable items and remote task fields; a last-edit-wins sync engine with explicit conflict outcomes; and a webhook receiver that verifies <code>X-Signature</code> HMAC-SHA256. It is honest about maturity: this is the P1 scaffold — layout, interfaces, entrypoints, and the decoupling boundary are in place, but sync logic and live ClickUp calls are not yet implemented (every stub returns an explicit not-implemented error, per the no-fakes rule).</p>
+      <h2>Why we built it</h2>
+      <p>Teams keep the "real" state of work in code/docs while managers live on a board like ClickUp — and the two diverge constantly. task_bridge makes them one system, syncing deterministically and safely so neither side becomes stale or wrong.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It treats board sync as a reusable, credential-injected library with strict data-safety guarantees (dry-run-first, last-edit-wins, HMAC-verified events) — so any project can bolt on trustworthy two-way board integration without coupling.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li>Three-way bidirectional sync: SQLite SSoT ↔ tracker docs ↔ remote board.</li>
+        <li>Total decoupling (§11.4.28): zero project values; all injected at runtime.</li>
+        <li>Live-API URL→ID resolution instead of fragile URL-grammar parsing.</li>
+        <li>HMAC-SHA256-verified webhook ingestion for live events.</li>
+      </ul>
+      <h2>Challenges &amp; solutions</h2>
+      <ul>
+        <li><strong>Data safety across three sources:</strong> solved with deterministic last-edit-wins, dry-run-first, and explicit conflict outcomes.</li>
+        <li><strong>Reusability without coupling:</strong> solved via the <code>pkg/config</code> injection boundary (no shipped project specifics).</li>
+        <li><strong>Reliable board identification:</strong> solved by resolving URLs to IDs through live API probes.</li>
+        <li><strong>Honest scaffolding:</strong> solved by making unimplemented stubs return explicit not-implemented errors (no fakes).</li>
+      </ul>
+      <h2>Tech stack (why + how)</h2>
+      <ul>
+        <li><strong>Go</strong> — engine, CLI (<code>cmd/task_bridge</code>), and daemon (<code>cmd/task_bridged</code>).</li>
+        <li><strong>SQLite</strong> — the workable-items single-source-of-truth.</li>
+        <li><strong><code>raksul/go-clickup</code> (MIT)</strong> — ClickUp transport wrapper.</li>
+        <li><strong>HMAC-SHA256</strong> — webhook signature verification.</li>
+        <li><strong>cron + webhooks</strong> — daemon reconcile + live-event ingestion.</li>
+        <li><strong><code>pkg/config</code></strong> — runtime credential/ID injection boundary.</li>
+      </ul>
+      <p>&gt; Status honesty: this is a <strong>P1 scaffold</strong> — sync logic is not yet implemented. Do not present as shipped.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>

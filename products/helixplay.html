@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/od/fonts.css"/>
+<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
+<link rel="stylesheet" href="../assets/od/components-extended.css"/>
+<link rel="stylesheet" href="../assets/od/animations.css"/>
+<link rel="stylesheet" href="../assets/od/overlays.css"/>
+<title>HelixPlay — Miloš Vasić</title>
+<meta name="description" content="HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners."/>
+<link rel="canonical" href="https://milosvasic.ru/products/helixplay.html"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Miloš Vasić"/>
+<meta property="og:title" content="HelixPlay — Miloš Vasić"/>
+<meta property="og:description" content="HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners."/>
+<meta property="og:url" content="https://milosvasic.ru/products/helixplay.html"/>
+<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HelixPlay — Miloš Vasić"/>
+<meta name="twitter:description" content="HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners."/>
+<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
+<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixplay.html"/>
+<link rel="alternate" hreflang="de" href="https://milosvasic.ru/products/de/helixplay.html"/>
+<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixplay.html"/>
+<link rel="alternate" hreflang="sr" href="https://milosvasic.ru/products/sr/helixplay.html"/>
+<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixplay.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "en",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixplay.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners.",
+      "inLanguage": "en",
+      "name": "HelixPlay",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixplay.html"
+    }
+  ]
+}
+</script>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+  </style>
+</head>
+<body>
+<a class="od-skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  </svg>
+  <header class="od-header">
+    <a class="od-brand" href="../index.html">Miloš Vasić</a>
+    <div class="od-header__actions">
+      <nav class="od-nav" aria-label="Primary">
+        <a class="od-nav__link" href="../index.html">Home</a>
+        <a class="od-nav__link" href="../index.html#products">Products</a>
+      </nav>
+      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
+        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 18</p>
+      <h1>HelixPlay <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.26 root / 1.25+ submodules)</span><span class="od-chip">Wails v2</span><span class="od-chip">Flutter 3.29+</span><span class="od-chip">Angular 17+ (Go → WASM)</span><span class="od-chip">WebRTC / Pion v4</span><span class="od-chip">QUIC / quic-go</span><span class="od-chip">Custom UDP</span><span class="od-chip">Hardware encoders (NVENC / QSV / AMF / VideoToolbox)</span><span class="od-chip">Platform capture (DXGI / ScreenCaptureKit / PipeWire)</span><span class="od-chip">Docker / Podman</span><span class="od-chip">mDNS / rendezvous</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixPlay" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixPlay <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <p><strong>Turn any GPU machine into your own cloud-gaming appliance.</strong></p>
+      <h2>Summary</h2>
+      <p>HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners.</p>
+      <h2>Short description</h2>
+      <p>HelixPlay is a self-hostable, open, white-labellable cloud-gaming platform. It turns any GPU-equipped machine into a remote streaming host and delivers console-class gameplay to desktop, mobile, TV, and browser clients over WebRTC/QUIC, with a Go core and a Wails/Flutter/Angular client stack.</p>
+      <h2>Long description</h2>
+      <p>HelixPlay is a cloud-gaming platform built as a Go-centric monorepo composed of 46 Git submodules. It transforms any gaming PC into a streaming host and delivers console-class user experience to desktop, mobile, TV, and browser clients — self-hostable, open, and white-labellable for partners.</p>
+      <p>Its defining design choice is triple-stack client convergence: a Wails desktop app, a Flutter mobile/TV app, and an Angular web client all share a single Go core (compiled to WASM for the browser). The media path runs Capture → Encode → Packetize → Transmit → Decode → Render, using platform-native capture (DXGI / ScreenCaptureKit / PipeWire) and hardware encoders (NVENC / QSV / AMF / VideoToolbox), transported over WebRTC (Pion v4), QUIC (quic-go), and custom UDP datagrams. The backend core handles sessions, tenants, catalog, and auth, with a host agent doing capture/encode/transport and mDNS/rendezvous for discovery.</p>
+      <p>HelixPlay is architected for white-label SaaS — per-tenant theming, catalog filtering, OAuth2, and billing — and is container-native, running every service, database, build, test, and scan inside containers. Like the rest of the Helix family, it is governed by an anti-bluff constitution: green tests are meant to guarantee real, end-user-usable behavior.</p>
+      <h2>Why we built it</h2>
+      <p>Commercial cloud gaming is closed, centralized, and rented. HelixPlay was built so anyone with a GPU machine can run their own streaming host — open, self-hosted, and white-labellable — instead of depending on a third-party service.</p>
+      <h2>Why it's a game-changer</h2>
+      <p>It combines self-hosting, one shared Go core across three client stacks, and white-label multi-tenancy — letting a partner stand up a branded cloud-gaming service on their own hardware rather than reselling someone else's cloud.</p>
+      <h2>What's innovative</h2>
+      <ul>
+        <li><strong>Triple-stack client convergence</strong> — Wails + Flutter + Angular over one Go core (WASM in the browser).</li>
+        <li><strong>Self-hostable, white-label SaaS</strong> — per-tenant theming, catalog, OAuth2, billing.</li>
+        <li><strong>Modern low-latency transport</strong> — WebRTC (Pion) + QUIC + custom UDP with hardware-encoder selection per platform.</li>
+        <li><strong>46-submodule decoupled architecture</strong> with container-native everything.</li>
+      </ul>
+      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <ul>
+        <li><strong>Low-latency streaming across heterogeneous hardware</strong> — solved with a platform-aware capture/encode path (DXGI/SCK/PipeWire + NVENC/QSV/AMF/VideoToolbox) over WebRTC/QUIC/UDP.</li>
+        <li><strong>One product across desktop, mobile, TV, and web</strong> — solved with triple-stack clients sharing a single Go core (compiled to WASM for the browser).</li>
+        <li><strong>Multi-tenant white-label operation</strong> — solved with per-tenant theming, catalog filtering, OAuth2, and billing in the core backend.</li>
+      </ul>
+      <h2>Tech stack</h2>
+      <ul>
+        <li><strong>Go (1.26.2 root / 1.25+ submodules)</strong> — shared core backend and host agent.</li>
+        <li><strong>Wails v2</strong> — desktop client (Go + embedded webview).</li>
+        <li><strong>Flutter 3.29+</strong> — mobile/TV client (FFI to the Go core).</li>
+        <li><strong>Angular 17+</strong> — web client (Go compiled to WASM).</li>
+        <li><strong>WebRTC / Pion v4, QUIC / quic-go, custom UDP</strong> — real-time media transport.</li>
+        <li><strong>Hardware encoders (NVENC / QSV / AMF / VideoToolbox)</strong> and <strong>platform capture (DXGI / ScreenCaptureKit / PipeWire)</strong> — the encode/capture path.</li>
+        <li><strong>Containers (Docker/Podman)</strong> — every service, DB, build, test, and scan runs containerized.</li>
+        <li><strong>mDNS / rendezvous</strong> — host discovery.</li>
+      </ul>
+      <h2>Status &amp; honesty notes</h2>
+      <ul>
+        <li><strong>Status: beta.</strong> The README's latency targets (≤30 ms LAN / ≤50 ms WAN p999), "console-class / PS4-Pro-class" framing, and the test-matrix cell count are the project's own stated design targets, not independently benchmarked, and are presented as such.</li>
+        <li><strong>License: TBD.</strong> No LICENSE was detected via the GitHub API — UNVERIFIED / not declared.</li>
+      </ul>
+      <p><strong>Priority tier:</strong> Helix-primary.</p>
+    </article>
+  </main>
+
+  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('od-theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var d=document.documentElement;var cur=d.getAttribute('data-theme');
+      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
+      d.setAttribute('data-theme',next);
+      try{localStorage.setItem('od-theme',next);}catch(e){}
+    });
+  })();
+</script>
+<script defer src="../assets/od/motion.js"></script>
+</body>
+</html>
