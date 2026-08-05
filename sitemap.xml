@@ -2,10 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://milosvasic.ru/</loc></url>
   <url><loc>https://milosvasic.ru/portfolio/</loc></url>
+  <url><loc>https://milosvasic.ru/portfolio/de/</loc></url>
   <url><loc>https://milosvasic.ru/portfolio/ru/</loc></url>
   <url><loc>https://milosvasic.ru/portfolio/sr/</loc></url>
   <url><loc>https://milosvasic.ru/products/catalogizer.html</loc></url>
   <url><loc>https://milosvasic.ru/products/courses-creator.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/catalogizer.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/courses-creator.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/docprocessor.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/docs-chain.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helix-flow.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixagent.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixbuilder.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixcluster.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixcode.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixconstitution.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixgitpx.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixllm.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixmemory.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixota.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixplay.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixqa.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixskills.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixspecifier.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixterminator.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixtrack.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/helixtranslate.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/herald.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/llmorchestrator.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/llmprovider.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/llmsverifier.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/mail-server-factory.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/parallels-utils.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/qemu-utils.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/server-factory-additional-components.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/server-factory-core-framework.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/task-bridge.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/vasic-digital-reusable-module-suite.html</loc></url>
+  <url><loc>https://milosvasic.ru/products/de/visionengine.html</loc></url>
   <url><loc>https://milosvasic.ru/products/docprocessor.html</loc></url>
   <url><loc>https://milosvasic.ru/products/docs-chain.html</loc></url>
   <url><loc>https://milosvasic.ru/products/helix-flow.html</loc></url>
