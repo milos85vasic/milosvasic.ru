@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -133,38 +137,35 @@
         <li><a href="https://github.com/Server-Factory/Parallels-Utils" rel="noopener noreferrer" target="_blank">Server-Factory/Parallels-Utils <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>Compress, publish, and reuse your Parallels VM images across every machine.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>Compress, publish, and reuse your Parallels VM images across every machine.</strong></p>
+      <p class="od-product-detail__lede">A Shell/Python toolkit for Parallels VM image lifecycle on macOS. It compresses and synchronizes Parallels images, publishes them to a remote endpoint, and retrieves and runs them across multiple computers — driven by simple settings files, usable independently or within Server Factory.</p>
       <p>Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image "matrices" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory.</p>
-      <h2>Short description</h2>
-      <p>A Shell/Python toolkit for Parallels VM image lifecycle on macOS. It compresses and synchronizes Parallels images, publishes them to a remote endpoint, and retrieves and runs them across multiple computers — driven by simple settings files, usable independently or within Server Factory.</p>
-      <h2>Long description</h2>
       <p>Parallels-Utils solves a practical DevOps problem for macOS-based development: teams build "matrices" of Parallels virtual machines (different OSes/configurations used for development and testing), and those images need to be compressed, published, retrieved, and run consistently across many machines. The toolkit provides exactly that lifecycle. A synchronization mechanism compresses Parallels images and keeps them in sync; a publishing mechanism uploads images to a remote endpoint; and a retrieval mechanism lets any workstation or server pull the published images and run them as VMs. Configuration is intentionally simple and file-driven: <code>image_location.settings</code> defines where images live on the filesystem, <code>image_provider.settings</code> defines the base URL for published images, and <code>image_sync.sh</code> defines the upload script — with examples shipped in an <code>Examples</code> directory. Operators use <code>publish_images.sh</code> to publish and <code>run.sh</code> to launch VMs. It requires Parallels for the appropriate macOS version and Python 3. The toolkit is designed to be dual-use: it can operate as part of a larger Server Factory project or completely independently, reflecting the org's decoupling philosophy. It even ships a short video tutorial link. As part of the Server-Factory family, it complements Qemu-Utils (the Linux/QEMU equivalent), giving the ecosystem VM-image management on both macOS/Parallels and cross-platform/QEMU backends.</p>
-      <h2>Why we built it</h2>
+      <h2>The itch we had to scratch</h2>
       <p>Sharing consistent VM development/test environments across a team is tedious — images are large, and every machine needs the same matrix. Parallels-Utils automates compression, publishing, and retrieval so a canonical set of Parallels VMs is reproducible everywhere.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It turns heavyweight Parallels images into a publishable, syncable artifact set that any machine can pull and run — with trivial settings-file configuration and no dependency on the rest of Server Factory.</p>
-      <h2>What's innovative</h2>
+      <h2>Why it matters</h2>
+      <p>It turns heavyweight, unwieldy Parallels images into a publishable, syncable artifact set that any machine can pull and run — so a canonical dev/test environment stops being something each engineer rebuilds by hand and becomes something you fetch. It does it with trivial settings-file configuration and zero dependency on the rest of Server Factory, staying true to the org's decoupling philosophy: useful on its own, a good citizen in the larger toolchain.</p>
+      <h2>Ideas worth stealing</h2>
       <ul>
         <li>Compression + synchronization of Parallels image "matrices" for dev/test.</li>
         <li>Publish/retrieve workflow so images are reusable across many computers.</li>
         <li>Settings-file-driven configuration (location/provider/sync) with shipped examples.</li>
         <li>Dual-use: standalone or as a Server Factory component.</li>
       </ul>
-      <h2>Challenges &amp; solutions</h2>
+      <h2>Where it got hard, and how we won</h2>
       <ul>
         <li><strong>Large image distribution:</strong> solved with compression plus a publish-to-remote-endpoint + retrieve workflow.</li>
         <li><strong>Reproducibility across machines:</strong> solved with provider/location settings so every host resolves the same image set.</li>
         <li><strong>Ease of use:</strong> solved with simple <code>publish_images.sh</code> / <code>run.sh</code> scripts and example settings files.</li>
       </ul>
-      <h2>Tech stack (why + how)</h2>
+      <h2>The engineering stack</h2>
       <ul>
         <li><strong>Shell</strong> — the publish/run/sync scripts (primary language, ~5.3K bytes).</li>
         <li><strong>Python 3</strong> — supporting tooling (required dependency, ~3K bytes).</li>
         <li><strong>Parallels (macOS)</strong> — the virtualization backend being managed.</li>
         <li><strong>Settings files (<code>.settings</code>)</strong> — declarative configuration for location/provider/sync.</li>
       </ul>
-      <p>&gt; Note: GitHub marks the repository as a fork within the Server-Factory org. Niche, macOS-specific. Not AI-related.</p>
+      <blockquote><p>Note: GitHub marks the repository as a fork within the Server-Factory org. Niche, macOS-specific. Not AI-related.</p></blockquote>
     </article>
   </main>
 

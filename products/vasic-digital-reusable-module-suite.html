@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -133,32 +137,29 @@
         <li><a href="https://github.com/vasic-digital" rel="noopener noreferrer" target="_blank">vasic-digital <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>Build once, reuse everywhere — a fleet of small, decoupled, independently-tested Go and KMP modules.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>Build once, reuse everywhere — a fleet of small, decoupled, independently-tested Go and KMP modules.</strong></p>
+      <p class="od-product-detail__lede">A curated suite of decoupled <code>digital.vasic.*</code> modules — infrastructure primitives (auth, cache, database, config, observability), AI/agent building blocks (RAG, VectorDB, Embeddings, MCP, Agentic, Planning), and defensive-LLM guardrails (RedTeam, Normalize) — plus a Kotlin Multiplatform mirror set. Each is generic, tested, and reusable.</p>
       <p>A large family of generic, reusable modules published under the <code>digital.vasic.*</code> (Go) and Kotlin Multiplatform namespaces. Every module is standalone, independently tested and versioned, and consumed as an equal-codebase submodule by larger products (Catalogizer, HelixAgent, and the wider fleet). This page consolidates the many small utilities that would be noise as individual pages.</p>
-      <h2>Short description</h2>
-      <p>A curated suite of decoupled <code>digital.vasic.*</code> modules — infrastructure primitives (auth, cache, database, config, observability), AI/agent building blocks (RAG, VectorDB, Embeddings, MCP, Agentic, Planning), and defensive-LLM guardrails (RedTeam, Normalize) — plus a Kotlin Multiplatform mirror set. Each is generic, tested, and reusable.</p>
-      <h2>Long description</h2>
-      <p>The vasic-digital org is built on a "constitution + many decoupled reusable submodules" philosophy: rather than monoliths, generic functionality is extracted into dozens of small modules, each with its own tests, docs, and repository, and each strictly decoupled so no consumer's specifics leak in. This page groups them because individually they are library-scale, but together they are a significant engineering asset and a strong "we don't reinvent the wheel" story.</p>
+      <p>The vasic-digital org runs on one structural bet: a "constitution + many decoupled reusable submodules" philosophy in which generic functionality is never written twice. Instead of monoliths, every reusable concern is extracted into its own small module — its own repository, its own tests, its own docs — and held strictly decoupled so no consumer's specifics ever leak in. This page groups them because, taken one at a time, each is library-scale and would be noise as an individual product page. Taken together, they are the org's real force multiplier: a private engineering asset that turns "build a new product" into "assemble proven parts," and the concrete backing for the claim that this fleet does not reinvent the wheel — it maintains one very good wheel and rolls it everywhere.</p>
       <p>The suite spans three clusters. <strong>Infrastructure primitives</strong> (Go) provide the plumbing every service needs: <code>auth</code> (JWT/bcrypt), <code>cache</code> (Redis/TTL), <code>database</code> (migrations, dual SQLite/PostgreSQL), <code>config</code>, <code>middleware</code>, <code>observability</code> (Prometheus/OpenTelemetry), <code>ratelimiter</code>, <code>security</code>, <code>storage</code> (S3/MinIO), <code>streaming</code> (WebSocket hub), <code>eventbus</code>, <code>filesystem</code> (multi-protocol), <code>discovery</code>/<code>mdns</code>, <code>http3</code>, <code>recovery</code>, <code>concurrency</code>, <code>lazy</code>, and more. <strong>AI/agent building blocks</strong> (Go) provide the substrate for AI systems: <code>rag</code>, <code>vectordb</code>, <code>embeddings</code>, <code>memory</code>, <code>conversation</code> (infinite-context compression, event sourcing), <code>mcp</code> (Model Context Protocol), <code>toolschema</code>, <code>skillregistry</code>, <code>agentic</code> (graph-based workflow orchestration), <code>planning</code> (HiPlan/MCTS/Tree-of-Thoughts), <code>benchmark</code> (SWE-bench/HumanEval/MMLU), <code>llmops</code>, <code>selfimprove</code> (reward modeling/RLHF), and <code>toon</code> (Token-Oriented Object Notation). <strong>Defensive-LLM guardrails</strong> provide adversarial-robustness tooling: <code>RedTeam</code> (YAML-driven adversarial fixtures), <code>Normalize</code> (adversarial-input canonicalisation). A parallel <strong>Kotlin Multiplatform</strong> set mirrors core modules (Auth-KMP, Database-KMP, Security-KMP, UI-Components-KMP, etc.) for cross-platform apps.</p>
-      <h2>Why we built it</h2>
+      <h2>The problem we set out to solve</h2>
       <p>Shipping many products (Catalogizer, HelixAgent, Herald, and more) from scratch each time is wasteful and inconsistent. Extracting every generic concern into a decoupled, tested module means fixes and improvements propagate across the whole fleet, and each new product assembles from proven parts.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It is a private "standard library" for building AI-centric backends: infrastructure, AI primitives, and guardrails all as drop-in, independently-tested modules — enabling small teams to ship product-grade systems fast without accumulating duplication.</p>
-      <h2>What's innovative</h2>
+      <h2>Why it changes the game</h2>
+      <p>It is, in effect, a private "standard library" for building AI-centric backends — the layer most teams never get to build because they are too busy re-solving auth, caching, and RAG plumbing for the fifth time. Here infrastructure primitives, AI building blocks, and defensive-LLM guardrails all exist as drop-in, independently-tested modules, which is what lets a small team ship product-grade systems at a pace that normally requires a much larger one, and do it without the duplication debt that usually accrues in its wake.</p>
+      <h2>Where the novelty lives</h2>
       <ul>
         <li>Fleet-wide decoupling discipline (CONST-051): submodules treated as equal codebases, never carrying consumer specifics.</li>
         <li>A dedicated AI-primitive layer (RAG, VectorDB, Embeddings, MCP, ToolSchema, Agentic, Planning, LLMOps) as reusable modules.</li>
         <li>A defensive-LLM guardrail cluster (RedTeam, Normalize) for adversarial robustness.</li>
         <li>Parallel Go + Kotlin Multiplatform module sets sharing the same conventions.</li>
       </ul>
-      <h2>Challenges &amp; solutions</h2>
+      <h2>Hard problems, honest solutions</h2>
       <ul>
         <li><strong>Avoiding coupling rot across dozens of modules:</strong> solved with the constitution's decoupling contract and runtime injection of consumer specifics.</li>
         <li><strong>Keeping many modules consistent and tested:</strong> solved with a shared convention (per-module tests/docs/Challenges) and the HelixConstitution governance backbone.</li>
         <li><strong>Cross-platform reach:</strong> solved with a Kotlin Multiplatform mirror of core modules.</li>
       </ul>
-      <h2>Tech stack (why + how)</h2>
+      <h2>The stack, and why</h2>
       <ul>
         <li><strong>Go</strong> — the majority of modules (<code>digital.vasic.*</code>).</li>
         <li><strong>Kotlin Multiplatform</strong> — cross-platform mirror modules (Auth/Database/Security/UI/Concurrency/RateLimiter-KMP).</li>
@@ -168,7 +169,7 @@
         <li><strong>Vector DB / embeddings / RAG / MCP</strong> — AI-primitive modules.</li>
         <li><strong>YAML</strong> — RedTeam adversarial fixtures and config.</li>
       </ul>
-      <p>&gt; UNVERIFIED / WIP: several org repos are self-marked "SCAFFOLD / WIP" (e.g. <code>PliniusCommon</code>, <code>I-LLM</code>, <code>HyperTune</code>, <code>AutoTemp</code>, <code>Veritas</code>, <code>Ouroborous</code>, <code>Claritas</code>, <code>LeakHub</code>, <code>GandalfSolutions</code>). Present these as early-stage/scaffold, not shipped.</p>
+      <blockquote><p>UNVERIFIED / WIP: several org repos are self-marked "SCAFFOLD / WIP" (e.g. <code>PliniusCommon</code>, <code>I-LLM</code>, <code>HyperTune</code>, <code>AutoTemp</code>, <code>Veritas</code>, <code>Ouroborous</code>, <code>Claritas</code>, <code>LeakHub</code>, <code>GandalfSolutions</code>). Present these as early-stage/scaffold, not shipped.</p></blockquote>
     </article>
   </main>
 

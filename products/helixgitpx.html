@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -133,43 +137,40 @@
         <li><a href="https://github.com/HelixDevelopment/HelixGitpx" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixGitpx <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>One source of truth, mirrored everywhere — federated Git across a dozen hosts.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>One source of truth, mirrored everywhere — federated Git across a dozen hosts.</strong></p>
+      <p class="od-product-detail__lede">HelixGitpx is a federated Git proxy that mirrors one source of truth across a dozen-plus Git hosts — GitHub, GitLab, Gitea, Bitbucket, Azure DevOps, AWS CodeCommit and more — and resolves sync conflicts with policy- and AI-assisted flows. Shipped as v1.0.0 GA.</p>
       <p>HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA.</p>
-      <h2>Short description</h2>
-      <p>HelixGitpx is a federated Git proxy that mirrors one source of truth across a dozen-plus Git hosts — GitHub, GitLab, Gitea, Bitbucket, Azure DevOps, AWS CodeCommit and more — and resolves sync conflicts with policy- and AI-assisted flows. Shipped as v1.0.0 GA.</p>
-      <h2>Long description</h2>
-      <p>HelixGitpx — "Helix Git Proxy eXtended" — is a federated Git proxy that mirrors a single source of truth across many upstream Git hosts and resolves the conflicts that inevitably arise when the same repository lives in multiple places. Supported upstreams include GitHub, GitLab, GitFlic, GitVerse, Gitea, Gitee, Bitbucket, Azure DevOps, AWS CodeCommit, Forgejo, SourceHut, and generic Git-over-HTTPS. Where a naive multi-remote push would fail or silently diverge, HelixGitpx applies policy- and AI-assisted resolution flows.</p>
-      <p>The project is at v1.0.0 GA, with milestones <code>m1-foundation</code> through <code>m8-ga</code> tagged. It is built as a Go monorepo (a platform plus eighteen services, code generation, and scaffolding tools), an Angular 19 + Nx web application, and Kotlin-Multiplatform + Compose client shells for Android, iOS, and Desktop. Platform delivery is Kubernetes-native: Helm charts, Argo CD applications, Kustomize overlays, SQL, and OPA policies, with CI pipelines gated behind explicit dispatch. Public documentation ships as a Docusaurus site (docs.helixgitpx.io) alongside an Astro marketing site (helixgitpx.io).</p>
-      <p>Governance is strict and constitution-driven: the load-bearing document is the project Constitution, whose Article II mandates a seven-type testing matrix at 100% coverage per type per module touched, with mocks allowed only in unit tests and no skipped tests. A one-shot verifier runs every artifact check plus <code>go vet</code>/<code>go test</code> across the workspace, and every push fans out to all configured upstreams.</p>
-      <h2>Why we built it</h2>
+      <p>HelixGitpx — "Helix Git Proxy eXtended" — is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the conflicts that inevitably arise the moment the same repository lives in more than one place. Its supported upstreams read like a map of the entire Git ecosystem: GitHub, GitLab, GitFlic, GitVerse, Gitea, Gitee, Bitbucket, Azure DevOps, AWS CodeCommit, Forgejo, SourceHut, and generic Git-over-HTTPS. Where a naive <code>git push</code> to a dozen remotes would either fail outright or, worse, let the mirrors silently drift apart, HelixGitpx steps in with policy- and AI-assisted resolution flows that reconcile divergence back to one authoritative truth.</p>
+      <p>The project is at v1.0.0 GA, with milestones <code>m1-foundation</code> through <code>m8-ga</code> tagged — a fully sequenced road from foundation to general availability. It is engineered as three tiers of one product: a Go monorepo (a platform plus eighteen services, code generation, and scaffolding tools) carrying the federation engine; an Angular 19 + Nx web application; and Kotlin-Multiplatform + Compose client shells that ship native experiences to Android, iOS, and Desktop from shared code. Platform delivery is Kubernetes-native to the core — Helm charts, Argo CD applications, Kustomize overlays, SQL, and OPA policies — with CI pipelines gated behind explicit dispatch so nothing rolls out by accident. Public documentation ships as a Docusaurus site (docs.helixgitpx.io) alongside an Astro marketing site (helixgitpx.io).</p>
+      <p>Governance is strict and constitution-driven, and that is a feature, not ceremony: the load-bearing document is the project Constitution, whose Article II mandates a seven-type testing matrix at 100% coverage *per type, per module touched*, with mocks permitted only in unit tests and not a single skipped test tolerated. A one-shot verifier runs every artifact check plus <code>go vet</code> and <code>go test</code> across the whole workspace, and every push fans out to all configured upstreams — so "the mirrors are in sync" is something the system enforces on every commit rather than something a human remembers to check.</p>
+      <h2>The problem we set out to solve</h2>
       <p>Keeping a repository authentic across many Git hosts — for redundancy, sovereignty, or reach into regional platforms — is fragile and manual, and divergent mirrors are hard to reconcile. HelixGitpx was built to make multi-upstream mirroring a first-class, conflict-aware capability.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It turns "push to many remotes and hope" into a governed federation with a single source of truth and automated, policy-plus-AI conflict resolution — across an unusually broad set of hosts, including regional ones (GitFlic, GitVerse, Gitee) that most tooling ignores.</p>
-      <h2>What's innovative</h2>
+      <h2>The leap it delivers</h2>
+      <p>It turns "push to many remotes and hope" — the fragile, manual status quo — into a governed federation with one authoritative source of truth and automated, policy-plus-AI conflict resolution. And it does it across an unusually broad set of hosts, deliberately including the regional platforms (GitFlic, GitVerse, Gitee) that most tooling quietly ignores, so redundancy, data sovereignty, and reach into those ecosystems stop being a maintenance burden and become a single capability you configure once.</p>
+      <h2>What's genuinely new</h2>
       <ul>
-        <li><strong>Breadth of upstreams</strong> — a dozen-plus Git hosts, including regional platforms, behind one proxy.</li>
-        <li><strong>Policy- and AI-assisted conflict resolution</strong> rather than manual reconciliation.</li>
-        <li><strong>Single-source-of-truth federation</strong> with an all-upstreams push model.</li>
-        <li><strong>Rigorous, constitution-enforced testing</strong> (seven test types, 100% per-type coverage, no skips) verified by a one-shot green-suite script.</li>
+        <li><strong>Breadth of upstreams</strong> — a dozen-plus Git hosts, from GitHub and GitLab to regional platforms like GitFlic, GitVerse, and Gitee, all normalised behind one proxy.</li>
+        <li><strong>Policy- and AI-assisted conflict resolution</strong> — divergence is reconciled by a policy engine and AI resolver, not by a human diffing mirrors by hand.</li>
+        <li><strong>Single-source-of-truth federation</strong> — an all-upstreams push model where one authoritative repo is the truth and every host is a mirror kept in lock-step.</li>
+        <li><strong>Rigorous, constitution-enforced testing</strong> — seven test types at 100% per-type coverage with no skips, proven by a one-shot green-suite script rather than trusted on faith.</li>
       </ul>
-      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <h2>The tough parts — and the fixes</h2>
       <ul>
-        <li><strong>Divergence and conflicts across many upstreams</strong> — solved with policy- and AI-assisted resolution flows over a single source of truth, plus an all-upstreams synchronized push.</li>
-        <li><strong>Uniform support for heterogeneous Git hosts</strong> — solved with per-upstream configuration scripts under <code>Upstreams/</code> and a platform layer abstracting the host differences.</li>
-        <li><strong>Proving correctness before every merge</strong> — solved with a mandatory seven-type test matrix and <code>verify-everything.sh</code> that also short-circuits cleanly when no cluster is reachable.</li>
+        <li><strong>Divergence and conflicts across many upstreams.</strong> The same repo living in a dozen places drifts the moment two hosts accept different writes. Solved with policy- and AI-assisted resolution flows anchored to a single source of truth, plus an all-upstreams synchronized push that keeps every mirror converging on that one truth.</li>
+        <li><strong>Uniform support for heterogeneous Git hosts.</strong> Every host has its own auth, quirks, and API. Solved with per-upstream configuration scripts under <code>Upstreams/</code> and a platform layer that abstracts those differences away, so adding a new host is configuration, not a rewrite.</li>
+        <li><strong>Proving correctness before every merge.</strong> Solved with a mandatory seven-type test matrix and a <code>verify-everything.sh</code> one-shot gate that runs the full check set — and short-circuits cleanly when no cluster is reachable, so correctness is provable locally as well as in CI.</li>
       </ul>
-      <h2>Tech stack</h2>
+      <h2>How it's built</h2>
       <ul>
-        <li><strong>Go monorepo</strong> — platform + 18 services + codegen + scaffolding; core proxy/federation engine.</li>
-        <li><strong>Angular 19 + Nx</strong> — web application.</li>
-        <li><strong>Kotlin Multiplatform + Compose</strong> — Android / iOS / Desktop client shells from shared code.</li>
-        <li><strong>Kubernetes + Helm + Argo CD + Kustomize</strong> — cloud-native deployment and GitOps.</li>
-        <li><strong>OPA (Rego)</strong> — policy enforcement for resolution and access.</li>
-        <li><strong>Docusaurus</strong> — public documentation site; <strong>Astro</strong> — marketing site.</li>
-        <li><strong>mise</strong> — pinned, reproducible toolchain.</li>
+        <li><strong>Go monorepo</strong> — the core proxy and federation engine: a platform plus 18 services, code generation, and scaffolding, kept in one repo so the whole engine builds and tests as a unit.</li>
+        <li><strong>Angular 19 + Nx</strong> — the web application, with Nx providing the monorepo build/caching structure a large front end needs.</li>
+        <li><strong>Kotlin Multiplatform + Compose</strong> — native Android, iOS, and Desktop client shells generated from one shared codebase, so three platforms don't mean three implementations.</li>
+        <li><strong>Kubernetes + Helm + Argo CD + Kustomize</strong> — cloud-native delivery: Helm packages the release, Kustomize overlays adapt it per environment, and Argo CD reconciles it via GitOps so the cluster state matches Git.</li>
+        <li><strong>OPA (Rego)</strong> — policy as code for both conflict resolution and access control, keeping authorization decisions declarative and auditable.</li>
+        <li><strong>Docusaurus</strong> — the public documentation site (docs.helixgitpx.io); <strong>Astro</strong> — the marketing site (helixgitpx.io), each tool matched to its content type.</li>
+        <li><strong>mise</strong> — a pinned, reproducible toolchain so every contributor and CI runner builds against exactly the same versions.</li>
       </ul>
-      <h2>Status &amp; honesty notes</h2>
+      <h2>Where it really stands</h2>
       <ul>
         <li><strong>Status: shipped.</strong> The project's README declares v1.0.0 GA with milestones <code>m1-foundation</code> through <code>m8-ga</code> tagged. ("v1.0.0 GA" is the project's own README claim.)</li>
         <li><strong>License: TBD.</strong> The GitHub API reports <code>MIT</code> while the README's License section states Apache-2.0 (code) / CC-BY-SA-4.0 (documentation) — resolve against the actual LICENSE file before publishing.</li>

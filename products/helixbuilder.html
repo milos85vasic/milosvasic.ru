@@ -98,6 +98,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -134,35 +138,32 @@
         <li><a href="https://github.com/HelixDevelopment/HelixBuilder" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixBuilder <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>An AI-powered pipeline for building applications, one category at a time.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>An AI-powered pipeline for building applications, one category at a time.</strong></p>
+      <p class="od-product-detail__lede">HelixBuilder is a shell-driven, AI-powered application building pipeline. A single install script provisions a chosen category — General, Coder, Tester, Translation, or generative media (animation, audio, JPEG, PNG, SVG) — giving each build workflow its own tailored toolchain.</p>
       <p>HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script.</p>
-      <h2>Short description</h2>
-      <p>HelixBuilder is a shell-driven, AI-powered application building pipeline. A single install script provisions a chosen category — General, Coder, Tester, Translation, or generative media (animation, audio, JPEG, PNG, SVG) — giving each build workflow its own tailored toolchain.</p>
-      <h2>Long description</h2>
       <p>HelixBuilder is an AI-powered application building pipeline in the Helix family, implemented primarily as shell tooling. Its purpose is to stand up a build/generation workflow for a specific kind of work with a single command: from the project root, <code>./install.sh</code> (optionally with a category argument) provisions the pipeline for that category.</p>
-      <p>The pipeline is organized into categories, each corresponding to a class of AI-assisted work: <code>General</code> (the default), <code>Coder</code>, <code>Tester</code>, <code>Translation</code>, and a set of generative categories — <code>Generative/Animation</code>, <code>Generative/Audio</code>, <code>Generative/JPEG</code>, <code>Generative/PNG</code>, and <code>Generative/SVG</code>. Running the installer without an argument selects the <code>General</code> category; passing a category installs the toolchain tailored to it. This lets a developer opt into only the capabilities they need — for example, a code-generation environment, a testing pipeline, or an image-generation stack — rather than a single monolithic install.</p>
+      <p>The pipeline is organized into categories, each corresponding to a distinct class of AI-assisted work: <code>General</code> (the default), <code>Coder</code>, <code>Tester</code>, <code>Translation</code>, and a set of generative categories — <code>Generative/Animation</code>, <code>Generative/Audio</code>, <code>Generative/JPEG</code>, <code>Generative/PNG</code>, and <code>Generative/SVG</code>. Running the installer without an argument selects <code>General</code>; passing a category name installs the toolchain tailored to exactly that kind of work. The payoff is opt-in surface area: a developer pulls down only the capabilities the task actually needs — a code-generation environment, a testing pipeline, or an image-generation stack — instead of swallowing one heavyweight monolithic install and the maintenance burden that comes with it.</p>
       <p>HelixBuilder is Apache-2.0 licensed and part of the broader HelixDevelopment reusable-component ecosystem, where it is positioned as the "AI build pipeline" building block. Its public README is intentionally brief and points to fuller documentation within the repository; details beyond the install surface and category list are not asserted here.</p>
-      <h2>Why we built it</h2>
+      <h2>Why this exists</h2>
       <p>AI-assisted work spans very different toolchains — coding, testing, translation, and several kinds of generative media. HelixBuilder was built so each of those can be provisioned on demand through one consistent installer instead of assembling a bespoke environment every time.</p>
-      <h2>Why it's a game-changer</h2>
+      <h2>What sets it apart</h2>
       <p>It reduces "set up an AI build environment for X" to a single categorized command, making AI-assisted build and generation pipelines repeatable and shareable across projects.</p>
-      <h2>What's innovative</h2>
+      <h2>The innovations inside</h2>
       <ul>
         <li><strong>Category-based provisioning</strong> — one installer, many specialized pipelines (code, test, translation, generative media).</li>
         <li><strong>Generative-media breadth</strong> — animation, audio, and multiple image formats (JPEG/PNG/SVG) treated as first-class build categories.</li>
         <li><strong>Shell-native</strong> — installs into any environment without a heavyweight runtime prerequisite.</li>
       </ul>
-      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <h2>Engineering the hard bits</h2>
       <ul>
         <li><strong>Serving very different AI workflows from one tool</strong> — addressed by a category abstraction in the installer, so each category resolves to its own toolchain while sharing a common entry point. (Implementation depth beyond this is not documented in the public README — UNVERIFIED.)</li>
       </ul>
-      <h2>Tech stack</h2>
+      <h2>Under the hood</h2>
       <ul>
         <li><strong>Shell</strong> — primary implementation language and the install/orchestration surface (<code>install.sh</code>); chosen for portability across build environments.</li>
         <li><strong>Category toolchains</strong> — per-category tool sets for General / Coder / Tester / Translation / Generative (Animation, Audio, JPEG, PNG, SVG). Specific underlying tools/models per category are not enumerated in the public README (UNVERIFIED).</li>
       </ul>
-      <h2>Status &amp; honesty notes</h2>
+      <h2>The honest status</h2>
       <ul>
         <li><strong>Status: beta.</strong> The public README is minimal (install script + category list); per-category tooling/models, AI providers, and internal architecture are not described publicly and are therefore not asserted. Fuller docs referenced at <code>./Documentation/README.md</code> were not read.</li>
         <li><strong>License: Apache-2.0</strong> (per GitHub API).</li>

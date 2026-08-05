@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -133,24 +137,20 @@
         <li><a href="https://github.com/Helix-Flow/Platform" rel="noopener noreferrer" target="_blank">Helix-Flow/Platform <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>One platform for all your AI inference needs — run powerful AI models faster, smarter, at any scale, with predictable costs.</strong></p>
-      <p>&gt; <strong>Accuracy notice (Helix Constitution §11.4.6):</strong> Helix-Flow has a real, public source repository, but its README is a single tagline line and there is no local checkout and no design/architecture documentation available. Only two things are actually documented: the tagline and the repository's language composition. Every other detail below is either omitted or explicitly marked UNVERIFIED. This page is a minimal placeholder, not full product copy, and should not be expanded until real source material is provided.</p>
-      <h2>Summary</h2>
-      <p>Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*</p>
-      <h2>Short description</h2>
-      <p>Helix-Flow Platform (<code>Helix-Flow/Platform</code>) is a public, Go-based project presented as a single platform for AI inference at any scale with predictable costs. Its codebase mixes Go, Python, and Terraform/HCL, suggesting an inference platform with infrastructure-as-code-managed deployment. Capabilities beyond the tagline are UNVERIFIED.</p>
-      <h2>Long description</h2>
+      <p class="od-product-detail__tagline"><strong>One platform for all your AI inference needs — run powerful AI models faster, smarter, at any scale, with predictable costs.</strong> &gt; <strong>Accuracy notice (Helix Constitution §11.4.6):</strong> Helix-Flow has a real, public source repository, but its README is a single tagline line and there is no local checkout and no design/architecture documentation available. Only two things are actually documented: the tagline and the repository's language composition. Every other detail below is either omitted or explicitly marked UNVERIFIED. This page is a minimal placeholder, not full product copy, and should not be expanded until real source material is provided.</p>
+      <p class="od-product-detail__lede">Helix-Flow Platform (<code>Helix-Flow/Platform</code>) is a public, Go-based project presented as a single platform for AI inference at any scale with predictable costs. Its codebase mixes Go, Python, and Terraform/HCL, suggesting an inference platform with infrastructure-as-code-managed deployment. Capabilities beyond the tagline are UNVERIFIED.</p>
+      <p>Helix-Flow Platform is positioned as a single, unified home for AI inference — running powerful models faster, at any scale, with costs you can predict. *(Positioning is sourced solely from the tagline; concrete capabilities are not documented in any available source.)*</p>
       <p>Helix-Flow Platform is the sole repository in the <code>Helix-Flow</code> GitHub organization and is presented — via its one-line README — as "one platform for all your AI inference needs," emphasizing running powerful AI models faster and at any scale with predictable costs. Beyond that tagline, the project ships no prose documentation, so its architecture, features, and design cannot be described from source without fabrication.</p>
-      <p>What *can* be observed factually is the repository's language composition: it is primarily Go and Python in near-equal measure, with substantial Shell, plus HTML/CSS/JavaScript (a web surface), PL/pgSQL (a PostgreSQL-backed component), HCL (Terraform / infrastructure-as-code), and Mermaid (diagrams). Taken together this composition is *consistent with* an inference-serving platform that pairs a Go control/serving layer with Python model tooling, a Postgres datastore, a web UI, and IaC-managed cloud deployment — but this is an inference from file types, <strong>not</strong> a documented claim. To produce accurate product copy (motivation, innovations, technical challenges, concrete tech-stack rationale), a real README, architecture doc, or a local checkout is required. This page deliberately stops at what the available sources support.</p>
-      <h2>Why we built it</h2>
+      <p>What *can* be observed factually is the repository's language composition: it is primarily Go and Python in near-equal measure, with substantial Shell, plus HTML/CSS/JavaScript (a web surface), PL/pgSQL (a PostgreSQL-backed component), HCL (Terraform / infrastructure-as-code), and Mermaid (diagrams). Taken together, that mix is *consistent with* an inference-serving platform pairing a Go control/serving layer with Python model tooling, a Postgres datastore, a web UI, and IaC-managed cloud deployment — but this reading is inferred from file types, <strong>not</strong> a documented claim. To produce accurate product copy (motivation, innovations, technical challenges, concrete tech-stack rationale), a real README, architecture doc, or a local checkout is required. This page deliberately stops at what the available sources support.</p>
+      <h2>Origin story</h2>
       <p>*UNVERIFIED — not documented in any available source.* The tagline implies a goal of unified, scalable AI inference with predictable/controllable cost, but no rationale is stated. No motivation is asserted here.</p>
-      <h2>Why it's a game-changer</h2>
+      <h2>What sets it apart</h2>
       <p>*UNVERIFIED — not documented.* Omitted until sourced.</p>
-      <h2>What's innovative</h2>
+      <h2>The innovations inside</h2>
       <p>*UNVERIFIED — not documented.* Omitted until sourced.</p>
-      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <h2>Engineering the hard bits</h2>
       <p>*UNVERIFIED — not documented.* Omitted until sourced.</p>
-      <h2>Tech stack</h2>
+      <h2>Under the hood</h2>
       <p>Observed from repository language composition only — role and rationale are UNVERIFIED:</p>
       <ul>
         <li><strong>Go</strong> — primary language; likely the serving/control layer. *(Role UNVERIFIED.)*</li>
@@ -160,7 +160,7 @@
         <li><strong>Terraform / HCL</strong> — infrastructure-as-code, implying cloud-provisioned deployment.</li>
         <li><strong>HTML / CSS / JavaScript</strong> — a web UI or docs surface.</li>
       </ul>
-      <h2>Status &amp; honesty notes</h2>
+      <h2>The honest status</h2>
       <ul>
         <li><strong>Status: roadmap / placeholder.</strong> This is the only repository in the <code>Helix-Flow</code> org; it is public, was last pushed 2026-04-27, has no homepage set, and no declared license. Until real documentation exists, it cannot responsibly be presented at product depth.</li>
         <li><strong>License: TBD</strong> (unset on the repository).</li>

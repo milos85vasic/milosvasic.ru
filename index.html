@@ -19,6 +19,13 @@ layout: default
 <style>
   .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
   .mvx-hero__cta{display:flex;flex-wrap:wrap;gap:var(--od-space-3);margin-top:var(--od-space-6);justify-content:center}
+  /* restored portrait beside the hero copy (fix #2) */
+  .mvx-hero__grid{display:grid;grid-template-columns:1fr;gap:var(--od-space-8);align-items:center;text-align:left}
+  .mvx-hero__body{min-width:0}
+  .mvx-hero__body .mvx-hero__cta{justify-content:flex-start}
+  .mvx-hero__portrait{margin:0;justify-self:center}
+  .mvx-hero__portrait img{width:min(300px,72vw);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--od-radius-xl);border:1px solid var(--od-border);box-shadow:var(--od-shadow-lg);display:block}
+  @media(min-width:768px){.mvx-hero__grid{grid-template-columns:minmax(0,1.5fr) minmax(0,0.9fr)}}
   .mvx-lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text);max-width:72ch;margin:0 0 var(--od-space-4)}
   .mvx-muted{color:var(--od-text-muted)}
   .mvx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:var(--od-space-6);align-items:stretch}
@@ -40,6 +47,8 @@ layout: default
 </style>
 
     <section class="od-hero od-reveal">
+      <div class="mvx-hero__grid">
+      <div class="mvx-hero__body">
       <p class="od-section__eyebrow" data-i18n="mv2.hero.eyebrow">// AI engineer</p>
       <h1 class="od-hero__title">Miloš Vasić</h1>
       <p class="od-hero__lede" data-i18n="mv2.hero.lede">AI engineer building verifiable AI-development systems: multi-provider LLM infrastructure, autonomous agents and orchestration, and the governance and QA layers that keep them honest.</p>
@@ -48,6 +57,14 @@ layout: default
         <button class="od-btn od-btn--secondary" type="button" data-dl="cl"><span data-i18n="hero.cl">Cover Letter</span></button>
         <button class="od-btn od-btn--secondary" type="button" data-dl="portfolio"><span data-i18n="mv2.hero.portfolio">Portfolio (PDF)</span></button>
         <a class="od-btn od-btn--ghost" href="{{ '/portfolio/' | relative_url }}" data-i18n="mv2.hero.portfolio_site">Portfolio site</a>
+      </div>
+      </div>
+      <figure class="mvx-hero__portrait">
+        <picture>
+          <source type="image/webp" srcset="{{ '/assets/images/profile-400.webp' | relative_url }} 400w, {{ '/assets/images/profile-600.webp' | relative_url }} 600w, {{ '/assets/images/profile-800.webp' | relative_url }} 800w" sizes="(max-width: 767px) 66vw, 320px">
+          <img src="{{ '/assets/images/profile-800.jpg' | relative_url }}" srcset="{{ '/assets/images/profile-400.jpg' | relative_url }} 400w, {{ '/assets/images/profile-600.jpg' | relative_url }} 600w, {{ '/assets/images/profile-800.jpg' | relative_url }} 800w" sizes="(max-width: 767px) 66vw, 320px" width="800" height="1000" alt="Portrait of Miloš Vasić" loading="eager" decoding="async" fetchpriority="high">
+        </picture>
+      </figure>
       </div>
       <div class="mvx-stats">
         <div class="od-stat"><div class="od-stat__value">Go</div><div class="od-stat__label" data-i18n="mv2.stat.lang">backbone language</div></div>

@@ -98,6 +98,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -135,29 +139,26 @@
         <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>One control plane for every headless CLI coding agent.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>One control plane for every headless CLI coding agent.</strong></p>
+      <p class="od-product-detail__lede">A reusable Go module that gives one unified interface to spawn and drive multiple LLM-powered CLI agents via a hybrid pipe+file protocol. Thread-safe agent pooling with circuit breakers and selectable routing strategies, deliberately consumer-agnostic, with a pluggable i18n translator.</p>
       <p>LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees.</p>
-      <h2>Short description</h2>
-      <p>A reusable Go module that gives one unified interface to spawn and drive multiple LLM-powered CLI agents via a hybrid pipe+file protocol. Thread-safe agent pooling with circuit breakers and selectable routing strategies, deliberately consumer-agnostic, with a pluggable i18n translator.</p>
-      <h2>Long description</h2>
-      <p>LLMOrchestrator is shared infrastructure for orchestrating headless CLI coding agents. Instead of every project re-implementing process spawning, message framing, and result parsing for tools like OpenCode, Claude Code, Gemini CLI, Junie, and Qwen Code, it provides one unified <code>Agent</code> interface, a thread-safe <code>AgentPool</code>, and a <code>MultiProviderPool</code> that manages agents from several providers behind one facade. Routing is pluggable via an <code>AgentSelector</code> — round-robin (skipping providers that don't meet requirements) or preference-ordered with fallback. Each concrete agent is a thin adapter over a shared <code>BaseAdapter</code> that owns the full process lifecycle (start with pipe setup, graceful SIGTERM-then-SIGKILL stop, restart, liveness).</p>
-      <p>Communication is deliberately hybrid: a pipe transport carries newline-delimited JSON with a per-request read deadline and a response-length cap for fast interactive messaging, while a file transport uses per-session inbox/outbox/shared directories for large or durable artifacts. Resilience is built in: a per-agent circuit breaker opens after three consecutive failures for a 60-second cooldown before a half-open probe, and a background health monitor pings agents so they can recover without incoming traffic. Pool acquisition blocks on a condition variable rather than busy-waiting, and the response parser is stateless and safe to call concurrently. The module is strictly decoupled — no consumer specifics leak in — and all user-facing strings pass through a pluggable i18n <code>Translator</code>, with a <code>NoopTranslator</code> that returns message IDs verbatim so missing translations surface visibly.</p>
-      <h2>Why we built it</h2>
+      <p>LLMOrchestrator is shared infrastructure for orchestrating headless CLI coding agents — the plumbing every multi-agent system quietly needs and usually rebuilds badly. Instead of each project re-implementing process spawning, message framing, and result parsing for tools like OpenCode, Claude Code, Gemini CLI, Junie, and Qwen Code, it provides one unified <code>Agent</code> interface, a thread-safe <code>AgentPool</code>, and a <code>MultiProviderPool</code> that marshals agents from several providers behind a single facade. Routing is pluggable via an <code>AgentSelector</code> — round-robin that skips providers failing to meet requirements, or preference-ordered with fallback — so how work is distributed is a policy you choose, not a hardcoded assumption. Each concrete agent is a thin adapter over a shared <code>BaseAdapter</code> that owns the full process lifecycle: start with pipe setup, graceful SIGTERM-then-SIGKILL stop, restart, and liveness — the fiddly, error-prone part, solved once.</p>
+      <p>Communication is deliberately hybrid, matching the transport to the job. A pipe transport carries newline-delimited JSON with a per-request read deadline and a response-length cap for fast interactive messaging, while a file transport uses per-session inbox/outbox/shared directories for large or durable artifacts that shouldn't live in a pipe. Resilience isn't an afterthought — it's structural: a per-agent circuit breaker opens after three consecutive failures for a 60-second cooldown before a half-open probe, and a background health monitor pings agents so a downed agent can recover without waiting for incoming traffic to notice it. Pool acquisition blocks on a condition variable rather than burning CPU in a busy-wait, and the response parser is stateless and safe to call concurrently. The module is strictly decoupled — no consumer specifics are permitted to leak in — and every user-facing string passes through a pluggable i18n <code>Translator</code>, with a <code>NoopTranslator</code> that returns message IDs verbatim so a missing translation shows up loudly instead of hiding.</p>
+      <h2>The problem we set out to solve</h2>
       <p>Every multi-agent system needs to launch and talk to CLI agents reliably. Re-solving spawning, framing, parsing, and failure-handling per project is wasteful and error-prone. LLMOrchestrator centralizes it into one decoupled, reusable module whose specialised responsibility makes it reusable — and that reusability is destroyed the moment any consumer's specifics leak in.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It turns "run an army of heterogeneous CLI agents" from a per-project engineering effort into a library concern — with pooling, circuit breaking, and pluggable routing already solved — and its anti-bluff tests prove the abstraction actually works end-to-end rather than merely compiling.</p>
-      <h2>What's innovative</h2>
+      <h2>Why it changes the game</h2>
+      <p>It turns "run an army of heterogeneous CLI agents" from a bespoke per-project engineering slog into a single library import — pooling, circuit breaking, lifecycle management, and pluggable routing already solved and hardened. And because its anti-bluff tests exercise the real system end-to-end rather than settling for "it compiles," you get an abstraction you can actually trust to work under concurrency and failure, not one that merely looks right in a diagram.</p>
+      <h2>Where the novelty lives</h2>
       <ul>
-        <li><strong>Hybrid pipe+file protocol</strong> — interactive speed (JSON-lines over stdin/stdout, read deadlines, response caps) plus durable file-based exchange (inbox/outbox/shared) for large artifacts.</li>
-        <li><strong>Multi-provider pool with pluggable selectors</strong> — one facade over many CLI providers, round-robin or preference-ordered routing.</li>
-        <li><strong>Per-agent circuit breaker + background health monitor</strong> — automatic degradation and recovery (3 failures → 60s open → half-open probe).</li>
-        <li><strong>Non-busy-wait pooling</strong> — <code>Acquire</code> blocks on <code>sync.Cond</code> until a matching, healthy agent is free or the context is cancelled.</li>
-        <li><strong>Strict decoupling + anti-bluff i18n</strong> — <code>NoopTranslator</code> surfaces missing translations rather than hiding them.</li>
-        <li><strong>Security-by-default</strong> — binary-path allowlist (no shell interpolation → command-injection prevention), path-traversal protection, a 1 MiB response cap, and API-key masking in logs.</li>
-        <li><strong>Anti-bluff Challenge harness</strong> — real disk/JSON/parser round-trips across five locales with a paired mutation gate that must exit non-zero when the feature is broken.</li>
+        <li><strong>Hybrid pipe+file protocol</strong> — interactive speed (JSON-lines over stdin/stdout, read deadlines, response caps) *and* durable file-based exchange (inbox/outbox/shared) for large artifacts, so you never trade latency for durability or vice versa.</li>
+        <li><strong>Multi-provider pool with pluggable selectors</strong> — one facade over many CLI providers, with round-robin or preference-ordered routing chosen as policy rather than baked in.</li>
+        <li><strong>Per-agent circuit breaker + background health monitor</strong> — automatic degradation *and* recovery (3 failures → 60s open → half-open probe), so a flaky agent is isolated and then quietly brought back without manual intervention.</li>
+        <li><strong>Non-busy-wait pooling</strong> — <code>Acquire</code> blocks on <code>sync.Cond</code> until a matching, healthy agent frees up or the context is cancelled, so waiting costs no CPU.</li>
+        <li><strong>Strict decoupling + anti-bluff i18n</strong> — the <code>NoopTranslator</code> returns message IDs verbatim so a missing translation is impossible to miss instead of silently blank.</li>
+        <li><strong>Security-by-default</strong> — a binary-path allowlist means no shell interpolation and therefore no command-injection surface, backed by path-traversal protection, a 1 MiB response cap against runaway output, and API-key masking in logs.</li>
+        <li><strong>Anti-bluff Challenge harness</strong> — real disk/JSON/parser round-trips across five locales, with a paired mutation gate that must exit non-zero when the feature is broken — a test that proves it can actually fail.</li>
       </ul>
-      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <h2>Hard problems, honest solutions</h2>
       <ul>
         <li><strong>Reliable agent process I/O.</strong> Solved with a hybrid pipe+file transport, a defined message/parser contract, and a <code>BaseAdapter</code> that centralizes process lifecycle (SIGTERM timeout → SIGKILL fallback).</li>
         <li><strong>Concurrency without busy-waiting.</strong> Solved with a mutex + condition-variable <code>AgentPool</code> (<code>Acquire</code> blocks until a capability-matched agent frees up) and a stateless, side-effect-free parser safe for concurrent use.</li>
@@ -165,7 +166,7 @@
         <li><strong>Proving correctness, not just compilation.</strong> Solved with a Challenge runner: dozens of invariants across en/sr/ja/es/de exercising the real system, plus a paired mutation gate (<code>LLMORCH_MUTATE_RUNNER=1</code> must fail → wrapper exit 99) that proves the gate itself isn't a bluff.</li>
         <li><strong>Localization without silent failure.</strong> Solved with the verbatim-id <code>NoopTranslator</code> seam and per-consumer translator injection.</li>
       </ul>
-      <h2>Tech stack</h2>
+      <h2>The stack, and why</h2>
       <ul>
         <li><strong>Go (1.25)</strong> — the module, its agent adapters, transports, and parser.</li>
         <li><strong>Go stdlib only (+ testify, yaml.v3)</strong> — deliberately minimal dependency surface; no LLM SDKs pulled in, keeping it embeddable.</li>
@@ -176,7 +177,7 @@
         <li><strong><code>pkg/i18n</code> Translator</strong> — decoupled localization seam.</li>
         <li><strong>Challenge harness (<code>challenges/runner</code>) + Makefile (<code>test -race</code>, <code>fuzz</code>, <code>cover</code>)</strong> — anti-bluff, evidence-backed verification including parser fuzzing.</li>
       </ul>
-      <h2>Status &amp; honesty notes</h2>
+      <h2>Status, told straight</h2>
       <ul>
         <li><strong>Status: beta.</strong> A decoupled reusable module, consumed as a submodule by multiple Helix/vasic projects. <strong>License: Apache-2.0</strong>; the GitHub repo is public.</li>
         <li>Model metadata comes from LLMsVerifier bridged via HelixQA; this module does not import LLMsVerifier/VisionEngine/DocProcessor directly. Stacks referenced in the parent app's <code>CLAUDE.md</code> (Gin/PostgreSQL/etc.) describe <code>helix_code</code>, not this module.</li>

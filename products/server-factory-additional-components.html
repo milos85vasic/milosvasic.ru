@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -139,30 +143,27 @@
         <li><a href="https://github.com/Server-Factory/Utils" rel="noopener noreferrer" target="_blank">Server-Factory/Utils <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>The supporting cast of the Server Factory provisioning toolchain.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>The supporting cast of the Server Factory provisioning toolchain.</strong></p>
+      <p class="od-product-detail__lede">A group of Server Factory supporting repos: Web-Service-Factory, SonarQube-Factory, and Caching-Proxy-Factory (per-service provisioning tools, mostly early-stage); Docker/Stack/Software-Definitions (declarative config packs consumed by the framework); and Utils (SSH-access helpers and general tooling). All build on Core Framework.</p>
       <p>Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service "factories" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products.</p>
-      <h2>Short description</h2>
-      <p>A group of Server Factory supporting repos: Web-Service-Factory, SonarQube-Factory, and Caching-Proxy-Factory (per-service provisioning tools, mostly early-stage); Docker/Stack/Software-Definitions (declarative config packs consumed by the framework); and Utils (SSH-access helpers and general tooling). All build on Core Framework.</p>
-      <h2>Long description</h2>
       <p>This page consolidates the remaining Server-Factory repositories because, individually, most are small or intentionally under-documented, and briefing each as a finished product would overstate their maturity. They fall into three groups. <strong>Service factories</strong> follow the Mail Server Factory pattern for other server roles: <strong>Caching-Proxy-Factory</strong> ("Run your own caching proxy server") lists caching proxy, self-signed certificate, and a security-certificate-obtain HTTP endpoint as key features; <strong>SonarQube-Factory</strong> ("Run your own SonarQube server") is aimed at software-development use; and <strong>Web-Service-Factory</strong> instantiates and configures a web server to deploy targets such as websites and micro-services. All three are Kotlin projects built on the Core Framework, but their public READMEs are largely placeholders ("Tbd." for compatibility, specifications, setup, and usage) — so their concrete capabilities beyond the stated intent are UNVERIFIED. <strong>Definitions packs</strong> — <strong>Docker-Definitions</strong>, <strong>Stack-Definitions</strong>, and <strong>Software-Definitions</strong> — are declarative configuration repositories that the framework consumes to know how to build/deploy Docker images, stacks, and software; they are version-pinned data packs rather than applications. <strong>Utils</strong> provides general helpers for the family, including an <code>init_ssh_access.sh</code> script that generates an SSH key and installs it on a remote host to enable passwordless root access for subsequent provisioning. Together these components round out the provisioning toolchain around the flagship Mail Server Factory.</p>
-      <h2>Why we built it</h2>
-      <p>The Server Factory model generalizes: once you can provision a mail server from configuration, the same engine can provision web servers, caching proxies, and code-quality servers, fed by reusable definition packs and shared utilities. These repos extend that pattern to other server roles.</p>
-      <h2>Why it's a game-changer (measured)</h2>
+      <h2>Origin story</h2>
+      <p>The Server Factory model is built to generalize: once you can provision a mail server from a declarative description, the same engine should be able to provision web servers, caching proxies, and code-quality servers too — fed by reusable definition packs and shared utilities rather than bespoke logic per role. These repos are that generalization in progress, extending the proven pattern to new server types. Their value here is as evidence of the model's reach; their maturity varies, and this page is deliberately clear about which are direction and which are done.</p>
+      <h2>Why it changes the game</h2>
       <p>As a set, they demonstrate the Core Framework's reusability across server types and separate declarative data (Definitions) from execution (factories). Individually, the service factories are early-stage and should be presented as direction, not finished products.</p>
-      <h2>What's innovative</h2>
+      <h2>Where the novelty lives</h2>
       <ul>
         <li>One provisioning framework generalized across mail/web/caching-proxy/SonarQube roles.</li>
         <li>Declarative Definitions packs (Docker/Stack/Software) decoupled from the execution engine.</li>
         <li>Shared Utils (e.g. one-command passwordless SSH bootstrap) reused across factories.</li>
       </ul>
-      <h2>Challenges &amp; solutions</h2>
+      <h2>Hard problems, honest solutions</h2>
       <ul>
         <li><strong>Reusing one engine across server roles:</strong> addressed by building each factory on Core Framework.</li>
         <li><strong>Separating configuration from code:</strong> addressed by the Definitions repos as version-pinned data packs.</li>
         <li><strong>(UNVERIFIED):</strong> the service factories' READMEs are placeholders; their implementation completeness is not verifiable from public docs — present as early-stage.</li>
       </ul>
-      <h2>Tech stack (why + how)</h2>
+      <h2>The stack, and why</h2>
       <ul>
         <li><strong>Kotlin</strong> — Web-Service-Factory, SonarQube-Factory, Caching-Proxy-Factory (built on Core Framework).</li>
         <li><strong>Shell</strong> — Utils and the Definitions packs (scripts/config).</li>
@@ -171,7 +172,7 @@
         <li><strong>SSH / OpenSSH</strong> — Utils' passwordless-access bootstrap.</li>
         <li><strong>SonarQube</strong> — the server SonarQube-Factory provisions (and which Mail Server Factory reports a clean gate against).</li>
       </ul>
-      <p>&gt; Honesty note: most of these repos are forks within the org; the service factories are placeholder-documented and marked UNVERIFIED per constitution §11.4.6. Ranked clearly below Mail Server Factory and Core Framework.</p>
+      <blockquote><p>Honesty note: most of these repos are forks within the org; the service factories are placeholder-documented and marked UNVERIFIED per constitution §11.4.6. Ranked clearly below Mail Server Factory and Core Framework.</p></blockquote>
     </article>
   </main>
 

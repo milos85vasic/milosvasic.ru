@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -133,32 +137,76 @@
         <li><a href="https://github.com/vasic-digital/Courses-Creator" rel="noopener noreferrer" target="_blank">vasic-digital/Courses-Creator <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>Markdown in, professional video course out — AI-enhanced, multi-platform.</strong></p>
-      <h2>Summary</h2>
+      <figure class="od-diagram" data-slug="courses-creator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Courses-Creator — generation pipeline</text>
+<text class="lbl" x="40" y="122">Content in</text>
+<text class="lbl" x="860" y="122">Course out</text>
+<text class="note" x="300" y="300">Optional-AI: basic ↔ enhanced path selected by provider keys · one backend, three clients (desktop / mobile / web)</text>
+<path class="conn" marker-end="url(#a)" d="M200,195 L238,195"/>
+<path class="conn" marker-end="url(#a)" d="M410,195 L448,195"/>
+<path class="conn" marker-end="url(#a)" d="M610,195 L648,195"/>
+<path class="conn" marker-end="url(#a)" d="M820,195 L858,195"/>
+<rect class="box" x="40" y="150" width="160" height="90" rx="10"/>
+<text class="t" x="120" y="184">Markdown source</text>
+<text class="s" x="120" y="204">course outline</text>
+<rect class="accent" x="240" y="150" width="170" height="90" rx="10"/>
+<text class="t" x="325" y="184">LLM enrichment</text>
+<text class="s" x="325" y="204">OpenAI · Anthropic · Ollama</text>
+<rect class="box" x="450" y="150" width="160" height="90" rx="10"/>
+<text class="t" x="530" y="184">TTS + music</text>
+<text class="s" x="530" y="204">Bark · SpeechT5</text>
+<rect class="box" x="650" y="150" width="170" height="90" rx="10"/>
+<text class="t" x="735" y="184">Video assembly</text>
+<text class="s" x="735" y="204">render + mux</text>
+<rect class="good" x="860" y="150" width="110" height="90" rx="10"/>
+<text class="gt" x="915" y="195">Publish</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Markdown in, professional video course out — AI-enhanced, multi-platform.</strong></p>
+      <p class="od-product-detail__lede">Transforms markdown into engaging video courses. A Go processing engine enriches content via multiple LLM providers, generates narration (Bark/SpeechT5 TTS) and music, and delivers to Electron desktop, React Native mobile, and React web players, with full Docker deployment and monitoring.</p>
       <p>Courses-Creator is a toolkit that converts markdown scripts into professional video courses with AI-powered enhancements: multi-LLM content enrichment (OpenAI/Anthropic/Ollama), high-quality TTS and background music, and desktop, mobile, and web players — all Docker-deployed with Prometheus/Grafana monitoring.</p>
-      <h2>Short description</h2>
-      <p>Transforms markdown into engaging video courses. A Go processing engine enriches content via multiple LLM providers, generates narration (Bark/SpeechT5 TTS) and music, and delivers to Electron desktop, React Native mobile, and React web players, with full Docker deployment and monitoring.</p>
-      <h2>Long description</h2>
-      <p>Courses-Creator turns plain markdown scripts into finished, professional video courses. At its center is a Go core-processor that runs a video/audio pipeline: it enhances written content through multiple LLM providers (OpenAI, Anthropic, and local Ollama), generates natural narration with text-to-speech engines (Bark, SpeechT5), layers background music, and assembles the result into course videos. Content authors work in markdown; the system handles enrichment, voicing, and production. It is deliberately multi-platform for both creation and consumption: an Electron desktop creator app, a React Native mobile player, and a React web player, all fed by the same REST API and background job system. The backend is production-shaped rather than a demo — PostgreSQL persistence, background job processing, MCP server implementations for tool integration, Prometheus metrics, JWT authentication, and an nginx reverse proxy — and the whole stack ships as a Docker Compose deployment with Grafana/Prometheus monitoring profiles. LLM features are optional (the system runs without API keys for basic functionality), which keeps it usable offline or on a budget while still offering premium AI enhancement when keys are supplied. The result is an end-to-end course-production toolchain that treats AI as an enhancement layer over a solid, testable media pipeline, with unit, integration, and e2e coverage.</p>
-      <h2>Why we built it</h2>
+      <p>Producing a video course is normally a small production studio's worth of work: scripting, recording narration, sourcing music, editing, encoding, and then building players for every platform learners might use. Courses-Creator compresses that entire chain into a single input — a markdown script — and a single command. At its center is a Go core-processor that runs a full video/audio pipeline: it enhances the written content through multiple LLM providers (OpenAI, Anthropic, and local Ollama), synthesizes natural narration with text-to-speech engines (Bark, SpeechT5), layers background music, and assembles the pieces into finished course videos. The author's job stays at the level of ideas and words; the system does the voicing, scoring, and production. And because a course is only useful if people can watch it, delivery is multi-platform by design: an Electron desktop creator app, a React Native mobile player, and a React web player, all fed by the same REST API and background job system — one backend, three first-class clients, no reimplementation per surface.</p>
+      <p>Crucially, this is production infrastructure, not a demo reel. The backend carries PostgreSQL persistence, background job processing so long TTS/video renders never block the API, MCP server implementations for tool-augmented enhancement, Prometheus metrics, JWT authentication, and an nginx reverse proxy — and the whole thing ships as a Docker Compose deployment with Grafana/Prometheus monitoring profiles you can stand up in one step. The AI is an enhancement layer, not a dependency: every LLM provider is optional, so the pipeline runs with zero API keys for basic operation and lights up premium enrichment the moment keys are supplied. That single decision makes the same tool viable for a hobbyist working offline on a laptop and for an enterprise wiring in its provider of choice — and the whole media pipeline underneath is covered by unit, integration, and e2e tests rather than taken on faith.</p>
+      <h2>Origin story</h2>
       <p>Producing course videos manually is slow: writing, narrating, scoring, and editing each take effort and specialist tools. Courses-Creator collapses that into a markdown-driven pipeline so a single source script becomes a produced course, with AI filling the gaps humans would otherwise fill by hand.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It unifies authoring, AI enrichment, TTS/music generation, and multi-platform playback in one deployable stack — and degrades gracefully to no-API-key operation, so it works for hobbyists and enterprises alike.</p>
-      <h2>What's innovative</h2>
+      <h2>Why it changes the game</h2>
+      <p>It turns course production from a specialist, multi-tool craft into a repeatable software pipeline: authoring, AI enrichment, narration and music generation, and multi-platform playback all live in one deployable stack. The graceful degradation to no-API-key operation is the quiet superpower — the same codebase serves a budget-conscious solo creator and an enterprise with a premium provider contract, with nothing to rewrite in between.</p>
+      <h2>Where the novelty lives</h2>
       <ul>
         <li>Markdown-to-video pipeline with pluggable multi-LLM enrichment (OpenAI/Anthropic/Ollama).</li>
         <li>Built-in TTS (Bark, SpeechT5) and background-music generation.</li>
         <li>MCP server implementations inside the processing engine for tool-augmented enhancement.</li>
         <li>One backend serving three first-class clients (Electron desktop, React Native mobile, React web).</li>
       </ul>
-      <h2>Challenges &amp; solutions</h2>
+      <h2>Hard problems, honest solutions</h2>
       <ul>
         <li><strong>Heavy media processing:</strong> solved with a Go pipeline plus background job processing so long TTS/video jobs don't block the API.</li>
         <li><strong>Optional-but-powerful AI:</strong> solved by making LLM providers optional and pluggable, with graceful fallback to basic functionality.</li>
         <li><strong>Multi-platform delivery:</strong> solved with a shared REST API and three dedicated player apps.</li>
         <li><strong>Operability:</strong> solved with Docker Compose profiles, Prometheus/Grafana, and JWT auth built in.</li>
       </ul>
-      <h2>Tech stack (why + how)</h2>
+      <h2>The stack, and why</h2>
       <ul>
         <li><strong>Go</strong> — core-processor engine, REST API, job runner, pipeline (972K+ bytes, dominant language).</li>
         <li><strong>TypeScript / React</strong> — web player and shared UI.</li>
@@ -171,7 +219,7 @@
         <li><strong>Docker Compose + nginx</strong> — full-stack deployment and reverse proxy.</li>
         <li><strong>Prometheus + Grafana</strong> — monitoring.</li>
       </ul>
-      <p>&gt; Note: the public README quick-start uses a placeholder <code>your-org</code> clone URL.</p>
+      <blockquote><p>Note: the public README quick-start uses a placeholder <code>your-org</code> clone URL.</p></blockquote>
     </article>
   </main>
 

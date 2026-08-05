@@ -1,12 +1,13 @@
 :root {
-  /* Color tokens */
-  --od-accent-50: #fdf2f4;
-  --od-accent-100: #fce2e6;
-  --od-accent-200: #f9c5cd;
-  --od-accent-300: #f498a4;
-  --od-accent-400: #ee6b7b;
-  --od-accent-500: #e83e52;
-  --od-accent-600: #d11e39;
+  /* Color tokens — deep CRIMSON (#a31e39) accent over neutral surfaces.
+     Light ramp de-pinked (desaturated crimson tints, not pink). */
+  --od-accent-50: #f7f0f1;
+  --od-accent-100: #f0e2e4;
+  --od-accent-200: #e0c0c5;
+  --od-accent-300: #cd97a0;
+  --od-accent-400: #bd6b78;
+  --od-accent-500: #c02742;
+  --od-accent-600: #b31f3b;
   --od-accent-700: #a31e39;
   --od-accent-800: #851a31;
   --od-accent-900: #671628;
@@ -97,9 +98,10 @@
   --od-text: #e0e0e0;
   --od-text-muted: #a0a0a0;
   --od-border: #3d3d3d;
-  --od-accent: #ec3b58;
-  --od-accent-hover: #f05a72;
-  --od-accent-active: #d61a36;
+  --od-accent: #e0525f;        /* lighter crimson for AA text on near-black (4.9:1) */
+  --od-accent-hover: #e8737b;
+  --od-accent-active: #ef8d94;
+  --od-on-accent: #14060a;     /* near-black text on the lighter accent (buttons) */
   --od-shadow-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -111,9 +113,10 @@
     --od-text: #e0e0e0;
     --od-text-muted: #a0a0a0;
     --od-border: #3d3d3d;
-    --od-accent: #ec3b58;
-    --od-accent-hover: #f05a72;
-    --od-accent-active: #d61a36;
+    --od-accent: #e0525f;
+    --od-accent-hover: #e8737b;
+    --od-accent-active: #ef8d94;
+    --od-on-accent: #14060a;
     --od-shadow-color: rgba(0, 0, 0, 0.3);
   }
 }
@@ -295,12 +298,27 @@ body {
   resize: vertical;
 }
 
+/* Breathing room: the page bands must NEVER touch the viewport edge, at any
+   width. A fluid inline padding (16px floor → 48px ceiling) guarantees a gutter,
+   and the content bands are centred within a max measure. (fix #1) */
+.od-header,
+.od-footer,
+.od-hero,
+.od-section {
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+.od-hero,
+.od-section {
+  max-width: var(--od-container-max);
+  margin-inline: auto;
+}
+
 /* Header */
 .od-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--od-space-4) 0;
+  padding-block: var(--od-space-4);
   border-bottom: 1px solid var(--od-border);
 }
 
@@ -330,7 +348,7 @@ body {
 
 /* Footer */
 .od-footer {
-  padding: var(--od-space-6) 0;
+  padding-block: var(--od-space-6);
   border-top: 1px solid var(--od-border);
   text-align: center;
   font-size: var(--od-fs-sm);
@@ -340,7 +358,7 @@ body {
 
 /* Hero */
 .od-hero {
-  padding: var(--od-space-8) 0;
+  padding-block: var(--od-space-8);
   text-align: center;
 }
 
@@ -389,7 +407,7 @@ body {
 
 /* Section */
 .od-section {
-  padding: var(--od-space-8) 0;
+  padding-block: var(--od-space-8);
 }
 
 .od-section__eyebrow {
@@ -446,9 +464,9 @@ body {
 
 /* Product detail */
 .od-product-detail {
-  max-width: var(--od-container-max);
+  max-width: 72ch;
   margin: 0 auto;
-  padding: var(--od-space-8) 0;
+  padding-block: var(--od-space-8);
 }
 
 .od-product-detail h1 {

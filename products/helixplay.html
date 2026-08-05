@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -133,33 +137,30 @@
         <li><a href="https://github.com/HelixDevelopment/HelixPlay" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixPlay <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>Turn any GPU machine into your own cloud-gaming appliance.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>Turn any GPU machine into your own cloud-gaming appliance.</strong></p>
+      <p class="od-product-detail__lede">HelixPlay is a self-hostable, open, white-labellable cloud-gaming platform. It turns any GPU-equipped machine into a remote streaming host and delivers console-class gameplay to desktop, mobile, TV, and browser clients over WebRTC/QUIC, with a Go core and a Wails/Flutter/Angular client stack.</p>
       <p>HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners.</p>
-      <h2>Short description</h2>
-      <p>HelixPlay is a self-hostable, open, white-labellable cloud-gaming platform. It turns any GPU-equipped machine into a remote streaming host and delivers console-class gameplay to desktop, mobile, TV, and browser clients over WebRTC/QUIC, with a Go core and a Wails/Flutter/Angular client stack.</p>
-      <h2>Long description</h2>
-      <p>HelixPlay is a cloud-gaming platform built as a Go-centric monorepo composed of 46 Git submodules. It transforms any gaming PC into a streaming host and delivers console-class user experience to desktop, mobile, TV, and browser clients — self-hostable, open, and white-labellable for partners.</p>
-      <p>Its defining design choice is triple-stack client convergence: a Wails desktop app, a Flutter mobile/TV app, and an Angular web client all share a single Go core (compiled to WASM for the browser). The media path runs Capture → Encode → Packetize → Transmit → Decode → Render, using platform-native capture (DXGI / ScreenCaptureKit / PipeWire) and hardware encoders (NVENC / QSV / AMF / VideoToolbox), transported over WebRTC (Pion v4), QUIC (quic-go), and custom UDP datagrams. The backend core handles sessions, tenants, catalog, and auth, with a host agent doing capture/encode/transport and mDNS/rendezvous for discovery.</p>
-      <p>HelixPlay is architected for white-label SaaS — per-tenant theming, catalog filtering, OAuth2, and billing — and is container-native, running every service, database, build, test, and scan inside containers. Like the rest of the Helix family, it is governed by an anti-bluff constitution: green tests are meant to guarantee real, end-user-usable behavior.</p>
-      <h2>Why we built it</h2>
+      <p>HelixPlay is a cloud-gaming platform built as a Go-centric monorepo composed of 46 Git submodules. It takes any gaming PC you already own and turns it into a streaming host, delivering console-class experience to desktop, mobile, TV, and browser clients — self-hostable, open, and white-labellable for partners. The pitch is blunt: your hardware, your service, your brand, no third-party cloud in the middle.</p>
+      <p>Its defining design choice is triple-stack client convergence — the hard architectural bet that pays off everywhere else. A Wails desktop app, a Flutter mobile/TV app, and an Angular web client all sit on top of a *single* Go core, compiled to WASM for the browser, so behaviour is written once and shared across every surface instead of forked three ways. Under that lives the real-time media path: Capture → Encode → Packetize → Transmit → Decode → Render, wired to platform-native capture (DXGI / ScreenCaptureKit / PipeWire) and hardware encoders (NVENC / QSV / AMF / VideoToolbox) so the GPU does the heavy lifting, and transported over WebRTC (Pion v4), QUIC (quic-go), and custom UDP datagrams chosen for latency rather than convenience. The backend core owns sessions, tenants, catalog, and auth; a host agent handles capture, encode, and transport at the edge; and mDNS/rendezvous stitches discovery together so clients find their host without manual wiring.</p>
+      <p>HelixPlay is architected from the ground up for white-label SaaS — per-tenant theming, catalog filtering, OAuth2, and billing — so a partner can stand up a fully branded service rather than a thin reskin. And it is container-native to the last detail: every service, database, build, test, and scan runs inside containers, which makes the whole platform reproducible to deploy and to verify. Like the rest of the Helix family, it lives under an anti-bluff constitution where a green test is meant to guarantee real, end-user-usable behaviour — not a passing mock.</p>
+      <h2>The itch we had to scratch</h2>
       <p>Commercial cloud gaming is closed, centralized, and rented. HelixPlay was built so anyone with a GPU machine can run their own streaming host — open, self-hosted, and white-labellable — instead of depending on a third-party service.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It combines self-hosting, one shared Go core across three client stacks, and white-label multi-tenancy — letting a partner stand up a branded cloud-gaming service on their own hardware rather than reselling someone else's cloud.</p>
-      <h2>What's innovative</h2>
+      <h2>The leap it delivers</h2>
+      <p>It fuses three things the commercial services keep apart: self-hosting on hardware you control, one shared Go core driving three client stacks so features land everywhere at once, and white-label multi-tenancy. The result is that a partner can launch a fully branded cloud-gaming service on their *own* GPUs — owning the experience, the users, and the economics — instead of reselling capacity on someone else's cloud and living inside its limits.</p>
+      <h2>What's genuinely new</h2>
       <ul>
-        <li><strong>Triple-stack client convergence</strong> — Wails + Flutter + Angular over one Go core (WASM in the browser).</li>
-        <li><strong>Self-hostable, white-label SaaS</strong> — per-tenant theming, catalog, OAuth2, billing.</li>
-        <li><strong>Modern low-latency transport</strong> — WebRTC (Pion) + QUIC + custom UDP with hardware-encoder selection per platform.</li>
-        <li><strong>46-submodule decoupled architecture</strong> with container-native everything.</li>
+        <li><strong>Triple-stack client convergence</strong> — Wails, Flutter, and Angular all riding one Go core (WASM in the browser), so desktop, mobile, TV, and web share a single implementation instead of three drifting ones.</li>
+        <li><strong>Self-hostable, white-label SaaS</strong> — per-tenant theming, catalog filtering, OAuth2, and billing built in, so the platform ships as a brandable product, not a demo.</li>
+        <li><strong>Modern low-latency transport</strong> — WebRTC (Pion), QUIC, and custom UDP paired with per-platform hardware-encoder selection (NVENC / QSV / AMF / VideoToolbox), tuned for responsiveness over convenience.</li>
+        <li><strong>46-submodule decoupled architecture</strong> — cleanly separated components with container-native everything: each service, DB, build, test, and scan runs in a container.</li>
       </ul>
-      <h2>Biggest technical challenges &amp; how we solved them</h2>
+      <h2>The tough parts — and the fixes</h2>
       <ul>
-        <li><strong>Low-latency streaming across heterogeneous hardware</strong> — solved with a platform-aware capture/encode path (DXGI/SCK/PipeWire + NVENC/QSV/AMF/VideoToolbox) over WebRTC/QUIC/UDP.</li>
-        <li><strong>One product across desktop, mobile, TV, and web</strong> — solved with triple-stack clients sharing a single Go core (compiled to WASM for the browser).</li>
-        <li><strong>Multi-tenant white-label operation</strong> — solved with per-tenant theming, catalog filtering, OAuth2, and billing in the core backend.</li>
+        <li><strong>Low-latency streaming across heterogeneous hardware.</strong> Every OS and GPU exposes capture and encode differently, and latency is unforgiving. Solved with a platform-aware capture/encode path — DXGI / ScreenCaptureKit / PipeWire feeding NVENC / QSV / AMF / VideoToolbox — carried over WebRTC / QUIC / UDP so each machine uses its own fastest native route to the pixels.</li>
+        <li><strong>One product across desktop, mobile, TV, and web.</strong> Solved with triple-stack clients (Wails, Flutter, Angular) sharing a single Go core compiled to WASM for the browser, so a fix or feature written once shows up on all four surfaces instead of being ported four times.</li>
+        <li><strong>Multi-tenant white-label operation.</strong> Solved by building per-tenant theming, catalog filtering, OAuth2, and billing directly into the core backend, so tenant isolation and branding are platform primitives rather than per-customer forks.</li>
       </ul>
-      <h2>Tech stack</h2>
+      <h2>How it's built</h2>
       <ul>
         <li><strong>Go (1.26.2 root / 1.25+ submodules)</strong> — shared core backend and host agent.</li>
         <li><strong>Wails v2</strong> — desktop client (Go + embedded webview).</li>
@@ -170,7 +171,7 @@
         <li><strong>Containers (Docker/Podman)</strong> — every service, DB, build, test, and scan runs containerized.</li>
         <li><strong>mDNS / rendezvous</strong> — host discovery.</li>
       </ul>
-      <h2>Status &amp; honesty notes</h2>
+      <h2>Where it really stands</h2>
       <ul>
         <li><strong>Status: beta.</strong> The README's latency targets (≤30 ms LAN / ≤50 ms WAN p999), "console-class / PS4-Pro-class" framing, and the test-matrix cell count are the project's own stated design targets, not independently benchmarked, and are presented as such.</li>
         <li><strong>License: TBD.</strong> No LICENSE was detected via the GitHub API — UNVERIFIED / not declared.</li>

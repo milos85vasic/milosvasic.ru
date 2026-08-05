@@ -97,6 +97,10 @@
        forces horizontal overflow */
     .od-product-detail{overflow-wrap:anywhere}
     .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
   </style>
 </head>
 <body>
@@ -134,32 +138,30 @@
         <li><a href="https://github.com/vasic-digital/VisionEngine" rel="noopener noreferrer" target="_blank">vasic-digital/VisionEngine <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
       </ul>
 
-      <p><strong>See the UI like a user — computer vision plus LLM vision for analysis and navigation.</strong></p>
-      <h2>Summary</h2>
+      <p class="od-product-detail__tagline"><strong>See the UI like a user — computer vision plus LLM vision for analysis and navigation.</strong></p>
+      <p class="od-product-detail__lede">A reusable Go module for UI analysis and navigation-graph construction. It offers an analyzer layer (UI elements, screen diffs, visual issues), a navigation graph with BFS pathfinding and DOT/JSON/Mermaid export, and LLM-vision adapters for GPT-4o, Claude, Gemini, Qwen-VL, and more.</p>
       <p>VisionEngine is a decoupled Go toolkit that combines classic computer vision with LLM-based vision to analyze user interfaces, detect UI elements and visual issues, and build navigation graphs of app screen transitions — with pluggable multi-provider vision backends and OpenCV gated behind a build tag.</p>
-      <h2>Short description</h2>
-      <p>A reusable Go module for UI analysis and navigation-graph construction. It offers an analyzer layer (UI elements, screen diffs, visual issues), a navigation graph with BFS pathfinding and DOT/JSON/Mermaid export, and LLM-vision adapters for GPT-4o, Claude, Gemini, Qwen-VL, and more.</p>
-      <h2>Long description</h2>
-      <p>VisionEngine gives automation the ability to perceive and reason about user interfaces the way a person would. It is organized into four cooperating layers. The <strong>Analyzer</strong> defines interfaces (<code>Analyzer</code>, <code>VideoProcessor</code>) and value types (<code>UIElement</code>, <code>ScreenAnalysis</code>, <code>ScreenDiff</code>, <code>Rect</code>, <code>Size</code>, <code>TextRegion</code>, <code>VisualIssue</code>, <code>ScreenIdentity</code>, <code>Action</code>, <code>KeyFrame</code>) with a <code>StubAnalyzer</code> reference implementation, so consumers can analyze screens and diffs against a stable contract. The <strong>NavigationGraph</strong> models an app as a directed graph of screen transitions with BFS pathfinding and three export back-ends (DOT, JSON, Mermaid), and it ships stress/automation/integration/security test suites. The <strong>LLM Vision</strong> layer defines a <code>VisionProvider</code> interface plus adapters for OpenAI (GPT-4o), Anthropic (Claude), Gemini, Qwen-VL, Kimi, StepGUI, Astica, and Ollama, composed via a <code>FallbackChain</code> so a failing or weak provider degrades gracefully to the next. A <strong>Configuration</strong> layer handles env-var loading and validation with all user-facing error strings routed through the <code>i18n.Translator</code> seam. Crucially, heavy native dependencies are optional: OpenCV bindings are build-tag-gated (<code>-tags vision</code>), and the default build ships stubs so the entire module is buildable and testable on any Go 1.25+ host without OpenCV. VisionEngine is fully decoupled per the constitution (CONST-051(B)) and is incorporated by consumers — notably HelixQA — as an equal-codebase submodule for visual, evidence-driven UI testing.</p>
-      <h2>Why we built it</h2>
+      <p>Most UI test automation is effectively blind. It reaches for accessibility trees and DOM selectors — a machine's idea of an interface — and misses everything a human actually experiences: whether a button is visibly rendered, whether the layout broke, whether the screen it landed on is the one it expected. VisionEngine closes that gap by giving automation genuine perception, the ability to look at a UI and reason about it the way a person would. It is organized into four cooperating layers that build from raw pixels up to whole-app understanding. The <strong>Analyzer</strong> defines the stable contract — interfaces (<code>Analyzer</code>, <code>VideoProcessor</code>) and value types (<code>UIElement</code>, <code>ScreenAnalysis</code>, <code>ScreenDiff</code>, <code>Rect</code>, <code>Size</code>, <code>TextRegion</code>, <code>VisualIssue</code>, <code>ScreenIdentity</code>, <code>Action</code>, <code>KeyFrame</code>) with a <code>StubAnalyzer</code> reference implementation — so consumers can detect elements, diff screens, and surface visual issues against a contract that won't shift under them. The <strong>NavigationGraph</strong> lifts the view from a single screen to the whole application, modelling it as a directed graph of screen transitions with BFS pathfinding and three export back-ends (DOT, JSON, Mermaid), so automation can not only see a screen but plan a route to any other — and it ships stress, automation, integration, and security test suites to prove it. The <strong>LLM Vision</strong> layer adds modern multimodal reasoning: a <code>VisionProvider</code> interface with adapters for OpenAI (GPT-4o), Anthropic (Claude), Gemini, Qwen-VL, Kimi, StepGUI, Astica, and Ollama, composed via a <code>FallbackChain</code> so a failing, rate-limited, or weak provider degrades gracefully to the next instead of taking the run down with it. A <strong>Configuration</strong> layer handles env-var loading and validation with every user-facing error string routed through the <code>i18n.Translator</code> seam.</p>
+      <p>The decision that makes all of this actually adoptable is that the heavy native dependency is optional. OpenCV bindings are build-tag-gated behind <code>-tags vision</code>, and the default build ships stubs — so the entire module compiles, tests, and runs on any Go 1.25+ host with no OpenCV toolchain in sight, and only pulls in the native stack when a consumer explicitly opts into it. That is what lets VisionEngine drop into a plain CI runner without a bespoke image. Fully decoupled per the constitution (CONST-051(B)), it is incorporated by consumers — notably HelixQA — as an equal-codebase submodule, giving evidence-driven UI testing a real pair of eyes.</p>
+      <h2>The itch we had to scratch</h2>
       <p>UI test automation that relies only on accessibility trees or selectors misses what the user actually sees. VisionEngine adds real visual understanding — element detection, screen diffing, and LLM-vision reasoning — plus a navigable map of app screens, so automation can both perceive and route through a UI.</p>
-      <h2>Why it's a game-changer</h2>
-      <p>It fuses deterministic computer vision with modern multimodal LLM vision behind one interface and a fallback chain, and makes it adoptable anywhere by keeping OpenCV optional — so any Go project gains UI perception without heavy native prerequisites.</p>
-      <h2>What's innovative</h2>
+      <h2>Why it matters</h2>
+      <p>It puts two normally-incompatible approaches — fast, deterministic classic computer vision and flexible, semantic LLM vision — behind a single interface with a fallback chain, so a consumer gets the precision of one and the reasoning of the other without choosing. And by keeping OpenCV strictly optional, it removes the usual tax on that power: any Go project can gain real UI perception without dragging a native vision toolchain into its build.</p>
+      <h2>Ideas worth stealing</h2>
       <ul>
         <li>Dual perception: classic CV (OpenCV/GoCV) plus multi-provider LLM vision with a fallback chain.</li>
         <li>Navigation graph with BFS pathfinding and DOT/JSON/Mermaid export.</li>
         <li>Build-tag-gated OpenCV so the module stays buildable/testable without native deps.</li>
         <li>Fully decoupled, i18n-seamed, equal-codebase submodule (used by HelixQA).</li>
       </ul>
-      <h2>Challenges &amp; solutions</h2>
+      <h2>Where it got hard, and how we won</h2>
       <ul>
         <li><strong>Heavy native dependency friction:</strong> solved with <code>-tags vision</code> gating and default stubs so CI/hosts without OpenCV still build and test.</li>
         <li><strong>Vision-provider unreliability:</strong> solved with a <code>VisionProvider</code> interface and <code>FallbackChain</code> composer.</li>
         <li><strong>Mapping complex app flows:</strong> solved with a directed navigation graph plus BFS pathfinding and multi-format export.</li>
         <li><strong>Coupling:</strong> solved via CONST-051(B) decoupling and the i18n translator seam.</li>
       </ul>
-      <h2>Tech stack (why + how)</h2>
+      <h2>The engineering stack</h2>
       <ul>
         <li><strong>Go (1.25+)</strong> — module core and all four layers.</li>
         <li><strong>GoCV / OpenCV</strong> — classic computer vision, build-tag-gated.</li>
