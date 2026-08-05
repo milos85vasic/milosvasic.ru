@@ -1,32 +1,70 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
-<link rel="stylesheet" href="../assets/od/fonts.css"/>
-<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
-<link rel="stylesheet" href="../assets/od/components-extended.css"/>
-<link rel="stylesheet" href="../assets/od/animations.css"/>
-<link rel="stylesheet" href="../assets/od/overlays.css"/>
-<title>HelixGitpx — Miloš Vasić</title>
-<meta name="description" content="HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA."/>
-<link rel="canonical" href="https://milosvasic.ru/products/helixgitpx.html"/>
-<meta name="robots" content="index, follow, max-image-preview:large"/>
-<meta property="og:type" content="article"/>
-<meta property="og:site_name" content="Miloš Vasić"/>
-<meta property="og:title" content="HelixGitpx — Miloš Vasić"/>
-<meta property="og:description" content="HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA."/>
-<meta property="og:url" content="https://milosvasic.ru/products/helixgitpx.html"/>
-<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
-<meta property="og:locale" content="en_US"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="HelixGitpx — Miloš Vasić"/>
-<meta name="twitter:description" content="HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA."/>
-<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
-<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixgitpx.html"/>
-<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixgitpx.html"/>
-<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixgitpx.html"/>
+---
+layout: default
+title: "HelixGitpx — Miloš Vasić"
+description: "HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixgitpx.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,61 +107,7 @@
   ]
 }
 </script>
-  <style>
-    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
-    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
-    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
-    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
-    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
-    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
-    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
-    .od-theme-toggle .od-icon--sun{display:none}
-    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
-    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
-    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
-    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
-    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
-    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
-    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
-    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
-    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
-    /* responsive media: never let an image/diagram cause horizontal overflow */
-    img,svg{max-width:100%;height:auto}
-    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
-    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
-       forces horizontal overflow */
-    .od-product-detail{overflow-wrap:anywhere}
-    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
-    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
-    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
-    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
-    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
-  </style>
-</head>
-<body>
-<a class="od-skip-link" href="#main">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
-  </svg>
-  <header class="od-header">
-    <a class="od-brand" href="../index.html">Miloš Vasić</a>
-    <div class="od-header__actions">
-      <nav class="od-nav" aria-label="Primary">
-        <a class="od-nav__link" href="../index.html">Home</a>
-        <a class="od-nav__link" href="../index.html#products">Products</a>
-      </nav>
-      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
-        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
-        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
-      </button>
-    </div>
-  </header>
 
-  <main id="main">
     <article class="od-section od-product-detail od-reveal">
       <p class="od-section__eyebrow">// tier: helix-primary · order 17</p>
       <h1>HelixGitpx <span class="od-h1-badges"><span class="od-badge--status od-badge--status--shipped">shipped</span><span class="od-tag--license">license: TBD</span></span></h1>
@@ -204,24 +188,77 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
       <p>HelixGitpx — "Helix Git Proxy eXtended" — is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the conflicts that inevitably arise the moment the same repository lives in more than one place. Its supported upstreams read like a map of the entire Git ecosystem: GitHub, GitLab, GitFlic, GitVerse, Gitea, Gitee, Bitbucket, Azure DevOps, AWS CodeCommit, Forgejo, SourceHut, and generic Git-over-HTTPS. Where a naive <code>git push</code> to a dozen remotes would either fail outright or, worse, let the mirrors silently drift apart, HelixGitpx steps in with policy- and AI-assisted resolution flows that reconcile divergence back to one authoritative truth.</p>
       <p>The project is at v1.0.0 GA, with milestones <code>m1-foundation</code> through <code>m8-ga</code> tagged — a fully sequenced road from foundation to general availability. It is engineered as three tiers of one product: a Go monorepo (a platform plus eighteen services, code generation, and scaffolding tools) carrying the federation engine; an Angular 19 + Nx web application; and Kotlin-Multiplatform + Compose client shells that ship native experiences to Android, iOS, and Desktop from shared code. Platform delivery is Kubernetes-native to the core — Helm charts, Argo CD applications, Kustomize overlays, SQL, and OPA policies — with CI pipelines gated behind explicit dispatch so nothing rolls out by accident. Public documentation ships as a Docusaurus site (docs.helixgitpx.io) alongside an Astro marketing site (helixgitpx.io).</p>
       <p>Governance is strict and constitution-driven, and that is a feature, not ceremony: the load-bearing document is the project Constitution, whose Article II mandates a seven-type testing matrix at 100% coverage *per type, per module touched*, with mocks permitted only in unit tests and not a single skipped test tolerated. A one-shot verifier runs every artifact check plus <code>go vet</code> and <code>go test</code> across the whole workspace, and every push fans out to all configured upstreams — so "the mirrors are in sync" is something the system enforces on every commit rather than something a human remembers to check.</p>
-      <h2>The problem we set out to solve</h2>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-0" aria-expanded="true" aria-controls="od-acc-helixgitpx-0-panel">
+              <span class="od-accordion__label">The problem we set out to solve</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-0-panel" role="region" aria-labelledby="od-acc-helixgitpx-0">
+            <div class="od-accordion__inner">
       <p>Keeping a repository authentic across many Git hosts — for redundancy, sovereignty, or reach into regional platforms — is fragile and manual, and divergent mirrors are hard to reconcile. HelixGitpx was built to make multi-upstream mirroring a first-class, conflict-aware capability.</p>
-      <h2>The leap it delivers</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-1" aria-expanded="true" aria-controls="od-acc-helixgitpx-1-panel">
+              <span class="od-accordion__label">The leap it delivers</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-1-panel" role="region" aria-labelledby="od-acc-helixgitpx-1">
+            <div class="od-accordion__inner">
       <p>It turns "push to many remotes and hope" — the fragile, manual status quo — into a governed federation with one authoritative source of truth and automated, policy-plus-AI conflict resolution. And it does it across an unusually broad set of hosts, deliberately including the regional platforms (GitFlic, GitVerse, Gitee) that most tooling quietly ignores, so redundancy, data sovereignty, and reach into those ecosystems stop being a maintenance burden and become a single capability you configure once.</p>
-      <h2>What's genuinely new</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-2" aria-expanded="true" aria-controls="od-acc-helixgitpx-2-panel">
+              <span class="od-accordion__label">What's genuinely new</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-2-panel" role="region" aria-labelledby="od-acc-helixgitpx-2">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Breadth of upstreams</strong> — a dozen-plus Git hosts, from GitHub and GitLab to regional platforms like GitFlic, GitVerse, and Gitee, all normalised behind one proxy.</li>
         <li><strong>Policy- and AI-assisted conflict resolution</strong> — divergence is reconciled by a policy engine and AI resolver, not by a human diffing mirrors by hand.</li>
         <li><strong>Single-source-of-truth federation</strong> — an all-upstreams push model where one authoritative repo is the truth and every host is a mirror kept in lock-step.</li>
         <li><strong>Rigorous, constitution-enforced testing</strong> — seven test types at 100% per-type coverage with no skips, proven by a one-shot green-suite script rather than trusted on faith.</li>
       </ul>
-      <h2>The tough parts — and the fixes</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-3" aria-expanded="true" aria-controls="od-acc-helixgitpx-3-panel">
+              <span class="od-accordion__label">The tough parts — and the fixes</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-3-panel" role="region" aria-labelledby="od-acc-helixgitpx-3">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Divergence and conflicts across many upstreams.</strong> The same repo living in a dozen places drifts the moment two hosts accept different writes. Solved with policy- and AI-assisted resolution flows anchored to a single source of truth, plus an all-upstreams synchronized push that keeps every mirror converging on that one truth.</li>
         <li><strong>Uniform support for heterogeneous Git hosts.</strong> Every host has its own auth, quirks, and API. Solved with per-upstream configuration scripts under <code>Upstreams/</code> and a platform layer that abstracts those differences away, so adding a new host is configuration, not a rewrite.</li>
         <li><strong>Proving correctness before every merge.</strong> Solved with a mandatory seven-type test matrix and a <code>verify-everything.sh</code> one-shot gate that runs the full check set — and short-circuits cleanly when no cluster is reachable, so correctness is provable locally as well as in CI.</li>
       </ul>
-      <h2>How it's built</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-4" aria-expanded="true" aria-controls="od-acc-helixgitpx-4-panel">
+              <span class="od-accordion__label">How it's built</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-4-panel" role="region" aria-labelledby="od-acc-helixgitpx-4">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Go monorepo</strong> — the core proxy and federation engine: a platform plus 18 services, code generation, and scaffolding, kept in one repo so the whole engine builds and tests as a unit.</li>
         <li><strong>Angular 19 + Nx</strong> — the web application, with Nx providing the monorepo build/caching structure a large front end needs.</li>
@@ -231,31 +268,26 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <li><strong>Docusaurus</strong> — the public documentation site (docs.helixgitpx.io); <strong>Astro</strong> — the marketing site (helixgitpx.io), each tool matched to its content type.</li>
         <li><strong>mise</strong> — a pinned, reproducible toolchain so every contributor and CI runner builds against exactly the same versions.</li>
       </ul>
-      <h2>Where it really stands</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-5" aria-expanded="true" aria-controls="od-acc-helixgitpx-5-panel">
+              <span class="od-accordion__label">Where it really stands</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-5-panel" role="region" aria-labelledby="od-acc-helixgitpx-5">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Status: shipped.</strong> The project's README declares v1.0.0 GA with milestones <code>m1-foundation</code> through <code>m8-ga</code> tagged. ("v1.0.0 GA" is the project's own README claim.)</li>
         <li><strong>License: TBD.</strong> The GitHub API reports <code>MIT</code> while the README's License section states Apache-2.0 (code) / CC-BY-SA-4.0 (documentation) — resolve against the actual LICENSE file before publishing.</li>
         <li>The docs (docs.helixgitpx.io) and marketing (helixgitpx.io) URLs are per the README and were not independently fetched — live status UNVERIFIED.</li>
       </ul>
       <p><strong>Priority tier:</strong> Helix-primary.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
-  </main>
-
-  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
-
-<script>
-  (function(){
-    var btn=document.getElementById('od-theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var d=document.documentElement;var cur=d.getAttribute('data-theme');
-      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
-      d.setAttribute('data-theme',next);
-      try{localStorage.setItem('od-theme',next);}catch(e){}
-    });
-  })();
-</script>
-<script defer src="../assets/od/motion.js"></script>
-</body>
-</html>

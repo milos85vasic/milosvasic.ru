@@ -1,0 +1,323 @@
+---
+layout: default
+title: "HelixCluster — Miloš Vasić"
+description: "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcluster.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "sr",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixcluster.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane.",
+      "inLanguage": "sr",
+      "name": "HelixCluster",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixcluster.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 14</p>
+      <h1>HelixCluster <span class="od-h1-badges"><span class="od-badge--status od-badge--status--in-development">in-development</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25 / toolchain 1.26.4)</span><span class="od-chip">Zig + C/C++</span><span class="od-chip">gRPC + Protocol Buffers</span><span class="od-chip">Raft (etcd-raft) + SWIM gossip</span><span class="od-chip">PostgreSQL 16 / Redis 7 / etcd v3.5 / SQLite</span><span class="od-chip">NATS / Kafka / RabbitMQ</span><span class="od-chip">WireGuard + ML-KEM-768/X25519 + AEAD</span><span class="od-chip">SPIFFE + JWT + OPA</span><span class="od-chip">Prometheus / Grafana / Jaeger</span><span class="od-chip">HashiCorp Vault</span><span class="od-chip">Kubernetes + Helm</span><span class="od-chip">React + TypeScript + Vite</span><span class="od-chip">TLA+</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helix_cluster" rel="noopener noreferrer" target="_blank">HelixDevelopment/helix_cluster <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixcluster">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixCluster — seven-layer stack</text>
+<text class="lbl" x="40" y="88">14 control-plane</text>
+<text class="lbl" x="40" y="106">microservices</text>
+<text class="lbl" x="40" y="548">heterogeneous</text>
+<text class="lbl" x="40" y="566">nodes T1–T8</text>
+<text class="note" x="490" y="632">Node tiers T1 (datacenter GPU) → T8 (handheld), unified under one control plane</text>
+<rect class="box" x="210" y="78" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="112">L7 · Federation &amp; Observability</text>
+<rect class="box" x="210" y="140" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="174">L6 · Security &amp; Attestation (SPIFFE, PQ-E2EE)</text>
+<rect class="box" x="210" y="202" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="236">L5 · Sessions &amp; Interactive Terminal</text>
+<rect class="box" x="210" y="264" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="298">L4 · AI Inference Routing</text>
+<rect class="accent" x="210" y="326" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="360">L3 · Omega Scheduler (two-level)</text>
+<rect class="box" x="210" y="388" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="422">L2 · Consensus &amp; Membership (Raft + SWIM)</text>
+<rect class="box" x="210" y="450" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="484">L1 · Node Runtime &amp; Transport (gRPC, WireGuard)</text>
+<rect class="box" x="210" y="512" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="546">L0 · Hardware Substrate (GPU → edge SBC)</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Distribuirani operativni sistem za AI računanje — od GPU-ova u podatkovnim centrima do ručnih uređaja na ivici mreže, pod jedinstvenom kontrolnom ravni.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-0" aria-expanded="true" aria-controls="od-acc-helixcluster-0-panel">
+              <span class="od-accordion__label">Sažetak</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-0-panel" role="region" aria-labelledby="od-acc-helixcluster-0">
+            <div class="od-accordion__inner">
+      <p>Helix Cluster OS je operativni sistem sledeće generacije koji orkestrira računanje na heterogenim čvorovima — od GPU-ova u podatkovnim centrima do jednopločnih računara na ivici mreže i ručnih uređaja — objedinjujući rasporedivanje HPC zadataka, orkestraciju kontejnera, AI/ML inferenciju, federisano upravljanje više klastera i sigurne sesije za više korisnika pod jedinstvenom kontrolnom ravni.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-1" aria-expanded="true" aria-controls="od-acc-helixcluster-1-panel">
+              <span class="od-accordion__label">Kratak opis</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-1-panel" role="region" aria-labelledby="od-acc-helixcluster-1">
+            <div class="od-accordion__inner">
+      <p>Distribuirani OS zasnovan na Go / klaster za deljenje GPU resursa. Objedinjuje rasporedivanje HPC zadataka (dvoslojni rasporednik po modelu Omega), orkestraciju kontejnera, rutiranje AI inferencije, federaciju i sigurne sesije za više korisnika na heterogenim čvorovima, koordinisano putem SWIM trača i Raft konsenzusa, sa postkvantnim enkripcijom od kraja do kraja.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-2" aria-expanded="true" aria-controls="od-acc-helixcluster-2-panel">
+              <span class="od-accordion__label">Detaljan opis</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-2-panel" role="region" aria-labelledby="od-acc-helixcluster-2">
+            <div class="od-accordion__inner">
+      <p>Helix Cluster OS orkestrira računarske zadatke na radikalno heterogenom hardveru — GPU-ovima u podatkovnim centrima, jednopločnim računarima na ivici mreže, pa čak i ručnim uređajima — pod jedinstvenom kontrolnom ravni, tretirajući policu A100 čipova i šaku jednopločnih računara kao jedan adresabilni sistem umesto kao desetak nepovezanih ostrva. To je Go radni prostor (monorepozitorijum sa git podmodulima) koji implementira sedmoslojni stek, od L0 hardverskog sloja do L7 federacije i opservabilnosti, koordinisan četrnaest mikroservisa kontrolne ravni. Članstvo čvorova prati se putem SWIM trača i otkrivanja, tako da se sistem sam popravlja kako čvorovi pristupaju i napuštaju mrežu; konzistentno stanje osigurava Raft konsenzus, organizovan u Raft grupe po segmentima sa lokalnim čitanjem kod vlasnika zakupa radi brzine i STONITH ogradom kako bi se garantovalo da particionisani čvor ne može oštetiti deljeno stanje. Rasporedivanje zadataka prolazi kroz dvoslojni rasporednik po modelu Omega — optimistična konkurentnost, uparivanje ClassAd-ova, grupno rasporedivanje, preemptivno rasporedivanje na osnovu multiplikatora vrednosti i postavljanje zasnovano na ograničenjima — a zatim ide dalje od klasičnog HPC rasporednika: rutiranje svesno ugljeničnog otiska i troškova/TCO-a, automatsko skaliranje prema oblaku u slučaju naglog opterećenja i adapteri za tržišta (Akash, io.net, RunPod, AWS Spot, Chutes) koji omogućavaju da se poslovi prebace na iznajmljene resurse kada lokalni kapaciteti budu iscrpljeni.</p>
+      <p>Krajnji korisnici ne vide direktno nijedan od tih mehanizama; oni komuniciraju putem čistog modela sesija (alokacija računarskih resursa), interaktivnog WebSocket/PTY terminala, interne rute za AI inferenciju i očitavanja iskorišćenosti resursa. Sigurnost je integralni sloj, a ne naknadni dodatak: SPIFFE identitet, atestacija uređaja (izazov/odgovor, dokaz GPU rada, zapečaćivanje), kontrolna tačka za izvoz (KYC), kao i postkvantni enkriptovani transport od kraja do kraja, zasnovan na hibridnoj razmeni ključeva X25519 + ML-KEM-768 sa AEAD zaštitom zapisa i odbacivanjem ponovljenih poruka — projektovan tako da i danas uhvaćen saobraćaj ostane poverljiv čak i pred budućim kvantnim protivnikom. Ispravnost se ne proglašava, već *dokazuje*: determinističko simulaciono testiranje (FoundationDB-stil sa unapred zadatim izvršavanjima, ubacivanjem grešaka, simulacijom mreže, bajt-po-bajt reprodukcijom i Porcupine proverom linearnosti) reprodukuje distribuirane greške po potrebi, a obavezni upareni testovi mutacija dokazuju da zaštitni testovi zaista hvataju greške. Arhitektura i dokumentacija održavaju se pouzdanim pomoću mehaničkih provera koje prekidaju izgradnju čim se stvarnost i dokumentacija razilaze.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-3" aria-expanded="true" aria-controls="od-acc-helixcluster-3-panel">
+              <span class="od-accordion__label">Zašto smo ga izgradili</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-3-panel" role="region" aria-labelledby="od-acc-helixcluster-3">
+            <div class="od-accordion__inner">
+      <p>Da bismo pokretali AI i HPC poslove na krajnje različitim hardverskim nivoima bez spajanja zasebnih rasporedivača, orkestratora i stekova za inferenciju — i to uz inženjersku garanciju da svaka isporučena funkcija dokazuje *stvarno ponašanje krajnjih korisnika* (nikad zeleni testovi umesto stubova) i da svaka specifična mogućnost operativnog sistema koristi stvarni nativni alat po platformi (nema lažnih Linux simulacija). Motivacioni problem, naveden u upravljanju repozitorijuma, jeste režim greške „testovi prolaze, ali funkcija zapravo ne radi", koji je projekat eksplicitno izgrađen da eliminiše.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-4" aria-expanded="true" aria-controls="od-acc-helixcluster-4-panel">
+              <span class="od-accordion__label">Zašto je revolucionaran</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-4-panel" role="region" aria-labelledby="od-acc-helixcluster-4">
+            <div class="od-accordion__inner">
+      <p>On spaja pet stvari koje su obično pet odvojenih stekova — HPC rasporedivanje, orkestraciju kontejnera, AI inferenciju, federaciju više klastera i sigurne sesije za više korisnika — u jedinstvenu kontrolnu ravan koja se proteže od GPU-ova u podatkovnim centrima sve do ručnih uređaja na ivici mreže. I to čini uz rigorozan budžet koji se obično rezerviše za specijalizovanu infrastrukturu: korektnost na nivou formalnih metoda (TLA+ specifikacije, deterministička simulacija, provera linearnosti) i poverljivi transport otporan na kvantne napade, garancije koje većina orkestratora jednostavno ne pokušava da ostvari. Pored tehničke diferencijacije, rasporedivanje svesno troškova i ugljeničnog otiska, kao i mogućnost proširenja putem tržišta u oblaku, čine ga i *ekonomskim* polugama — rasporedivač automatski traži jeftiniji, ekološki prihvatljiviji ili rezervni kapacitet, tako da isti posao košta manje i proizvodi manje emisija bez potrebe da iko prepisuje kod.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-5" aria-expanded="true" aria-controls="od-acc-helixcluster-5-panel">
+              <span class="od-accordion__label">Šta je inovativno</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-5-panel" role="region" aria-labelledby="od-acc-helixcluster-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Determinističko testiranje simulacijom (DST)</strong> — zasejana, u potpunosti reproduktivna simulacija koja ubacuje greške, vremenske razlike i particionisanje mreže, ponavlja ih bajt po bajt i provodi rezultat kroz Porcupine proveravač linearnosti, tako da se Hajzenbag uhvaćen jednom može reprodukovati po komandi zauvek.</li>
+        <li><strong>Dvonivovski rasporedivač po Omegi-modelu</strong> — optimističko rasporedivanje s konkurentnošću uz podudaranje ClassAd, grupno rasporedivanje i preemptivno rasporedivanje s multiplikatorom vrednosti, dizajn deljenog stanja koji omogućava da više rasporedivača istovremeno pristupa jednom klasteru bez centralnog uskog grla.</li>
+        <li><strong>Post-kvantna E2EE / poverljiva inferencija</strong> — hibridna razmena ključeva X25519 + ML-KEM-768 s vezivanjem para ključeva za odgovor po zahtevu i AEAD s odbacivanjem ponovljenih poruka (kriptografski primitivi su stvarni i testirani; potpuna poverljiva razmena između više čvorova eksplicitno je PLANIRANA/ograničena).</li>
+        <li><strong>Dokazno zasnovano poverenje</strong> — čvorovi moraju *da dokažu* šta jesu: SPIFFE identitet, dokaz o GPU radu, zapečaćivanje uređaja, kontrolna kapija za izvoz i generisanje dokumentacije za usklađenost sa AI zakonom EU, tako da se poverenje zasniva na dokazima, a ne pretpostavlja na osnovu položaja u mreži.</li>
+        <li><strong>Orkestracija svesna troškova i ugljeničnog otiska</strong> — modeliranje ukupnih troškova vlasništva, rasporedivanje svesno ugljeničnog otiska, proširenje u oblak, N+K rezervni kapacitet i adapteri za tržišta u oblaku, čineći cenu i emisije primarnim ulaznim parametrima rasporedivanja umesto naknadnih razmišljanja.</li>
+        <li><strong>Konsenzus s više Raft grupa</strong> — Raft grupe po segmentima s lokalnim čitanjem kod nosioca zakupa za konzistentnost niske latencije, podržane STONITH ogradom (IPMI / EC2 / Azure / SBD) tako da se zaglavljeni čvor odlučno uklanja, a ne ostavlja da naruši stanje.</li>
+        <li><strong>Mehaničke provere protiv odstupanja</strong> — <code>archlint</code> prekida izgradnju čim dokumentovana komponenta mapira na putanju paketa koja ne postoji, a lanac dokumentacije održava bajt-preciznu konzistentnost između Markdowna, HTML, PDF i DOCX, tako da dokumentacija ne može tiho da laže o kodu.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-6" aria-expanded="true" aria-controls="od-acc-helixcluster-6-panel">
+              <span class="od-accordion__label">Najveći tehnički izazovi i kako smo ih rešili</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-6-panel" role="region" aria-labelledby="od-acc-helixcluster-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>"PASS-bluf" (testovi prolaze na nefunkcionalnim karakteristikama).</strong> Režim greške koji je ceo projekat dizajniran da eliminiše: zeleni set testova nad šablonima. Rešeno obaveznim uparenim mutacionim testiranjem — svaka radna stavka nosi imenovani test-čuvar koji *mora da padne* pod nezavisnu mutaciju koda pre nego što se stavka označi kao završenom, tako da prolazni test dokazivo proverava stvarno ponašanje, a ne samo maketu.</li>
+        <li><strong>Paritet između platformi (nema maketa samo za Linux).</strong> Rešeno zajedničkim interfejsom podeljenim pomoću build tagova na autentične OS-specifične funkcionalnosti — Linux cgroup / <code>/proc</code> / WireGuard jezgra, macOS <code>sysctl</code> / <code>vm_stat</code> / IOKit / <code>wireguard-go</code> — a zatim unakrsno provereno pomoću nezavisnog OS orakla, tako da svaka platforma prikazuje stvarno stanje sistema umesto fikcije zasnovane na Linuxu.</li>
+        <li><strong>Distribuirana ispravnost u uslovima grešaka.</strong> Rešeno determinističkim simulacionim testiranjem i checkerom linearnosti koji generiše i reprodukuje particionisanje, padove sistema i vremenske razlike, podržano formalnim specifikacijama TLA+ koje precizno definišu invarijante konsenzusa i raspoređivanja pre nego što se napiše ijedna linija koda.</li>
+        <li><strong>Dokumentacija i odstupanje arhitekture.</strong> Rešeno pomoću <code>archlint</code>-a, koji prekida build ako postoji dokumentovani ali nepostojeći mapirani paket, i verifikacionog gejta <code>docs_chain</code> bez mogućnosti zaobilaženja — odstupanje je prekid builda, a ne zastarela viki stranica.</li>
+        <li><strong>Pošteno definisanje obima nedovršenog posla.</strong> Povratna sprega za multinodnu inferenciju s poverljivim podacima namerno je zaštićena tiketom i označena kao "još nije validirana od kraja do kraja" umesto da se predstavlja kao isporučena — ista disciplina primenjena je na ono što *još nije urađeno* kao i na ono što jeste.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-7" aria-expanded="true" aria-controls="od-acc-helixcluster-7-panel">
+              <span class="od-accordion__label">Tehnički stek</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-7-panel" role="region" aria-labelledby="od-acc-helixcluster-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (go.mod: 1.25 / toolchain 1.26.4)</strong> — jezik kontrolne ravni u radnom prostoru od ~30 modula; izabran zbog jeftine goroutine konkurentnosti i statičkih binarnih fajlova koji se identično raspoređuju od podatkovnog centra do ivice mreže.</li>
+        <li><strong>Zig (0.14+) + C/C++</strong> — korišćen tamo gde Go runtime predstavlja prepreku: za niskonivojske sistemske primitive i GPU jezgra kojima je potreban deterministički, alokacijski kontrolisan pristup hardveru.</li>
+        <li><strong>gRPC + Protocol Buffers</strong> — svaka međusubsystemska API (<code>api/v1/</code>) je tipizirani, verzionirani ugovor, tako da četrnaest mikroservisa evoluira bez međusobnog narušavanja ili ručnog kreiranja formata za prenos podataka.</li>
+        <li><strong>Raft (etcd-raft) + SWIM gossip</strong> — namerna podela: Raft prenosi stanje koje *mora* biti strogo konzistentno, dok SWIM gossip upravlja članstvom i otkrivanjem na velikoj skali gde bi konsenzus bio previše zahtevan.</li>
+        <li><strong>PostgreSQL 16, Redis 7 klaster, etcd v3.5, SQLite</strong> — pravo skladište za svaki zadatak: PostgreSQL za trajno relaciono stanje, Redis za vrući keš, etcd za koordinaciju, a ugrađeni SQLite za lokalni registar radnih stavki HXC čvora.</li>
+        <li><strong>NATS 2.10 (JetStream), Kafka 4.0 (KRaft), RabbitMQ 3.13</strong> — tri okosnice za poruke za tri vrste saobraćaja: NATS/JetStream za brzo interno slanje događaja, Kafka za trajna strujanja podataka visokog protoka, RabbitMQ za klasičnu sematiku brokera.</li>
+        <li><strong>WireGuard mreža + ML-KEM-768/X25519 + AES-256-GCM/ChaCha20-Poly1305 + HKDF</strong> — WireGuard za mršavu mrežu čvor-čvor, umotan u hibridni postkvantni handshake i AEAD zapise kako bi transport bio poverljiv i pred klasičnim i pred kvantnim napadačima.</li>
+        <li><strong>SPIFFE + JWT (HS256) + RBAC zasnovan na opsezima + OPA</strong> — slojevita identifikacija i autorizacija: SPIFFE za identitet radnog opterećenja, JWT za tokene, RBAC zasnovan na opsezima za grubu kontrolu pristupa, a OPA za izražavanje fino granulirane politike kao koda.</li>
+        <li><strong>Prometheus v2.50, Grafana 10.4, Jaeger 1.55, W3C praćenje</strong> — metričke vrednosti, kontrolne table i distribuirano praćenje s propagacijom W3C konteksta, tako da se zahtev može pratiti kroz servise i hardverske slojeve.</li>
+        <li><strong>HashiCorp Vault 1.16</strong> — tajne i kriptografski materijal drže se izvan koda i konfiguracije i izdaju pod revizijom.</li>
+        <li><strong>Docker Compose, Kubernetes (kustomize, ojačani securityContext), Helm</strong> — Compose za lokalno pokretanje, a Kubernetes/Helm s ojačanim securityContext-om za stvarne implementacije, s jednom definicijom koja se promoviše kroz različita okruženja.</li>
+        <li><strong>React + TypeScript + Vite (Node 20+)</strong> — brzo, tipizirano veb sučelje za sesije, terminale i iskorišćenost resursa.</li>
+        <li><strong>TLA+</strong> — formalna specifikacija invarijanata konsenzusa i raspoređivanja, tako da se najteže testabilna svojstva dokazuju na nivou dizajna pre same implementacije.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-8" aria-expanded="true" aria-controls="od-acc-helixcluster-8-panel">
+              <span class="od-accordion__label">Napomene o statusu i iskrenosti</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-8-panel" role="region" aria-labelledby="od-acc-helixcluster-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Status: u razvoju.</strong> Verzija je rana (<code>0.1.0-dev</code>). Nekoliko naprednih funkcija — potpuno poverljiva multi-čvorovna inferencija sa povratnom spregom, obračun na tržištu i popunjavanje rasporeda vođeno potvrdama — eksplicitno su označene kao ZAMIŠLJENE / infrastrukturno ograničene u repozitorijumu i <strong>nisu</strong> predstavljene kao potpuno funkcionalne. Pokrivenost je samoprijavljena.</li>
+        <li><strong>Licenca: nije određena.</strong> Nije jasno navedena; dijagram <code>Helm</code> sadrži neproverene privremene oznake <code>HelixCluster/HelixCluster</code> i URL-ove <code>helixcluster.io</code> koji se ne poklapaju sa stvarnim udaljenim resursima.</li>
+        <li>Projekti u sklopu LLM steka (LLMOrchestrator, LLMProvider, LLMsVerifier) jesu odvojeni potmoduli, a ne model serveri koji se hostuju unutar klastera.</li>
+      </ul>
+      <p><strong>Prioritetni nivo:</strong> Helix-primer (LLM-infrastrukturni klaster — računarska osnova koja može da hostuje zadatke inferencije i računanja). Rangira se iza HelixTrack.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

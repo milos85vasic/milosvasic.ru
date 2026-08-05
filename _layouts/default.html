@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#a31e39">
-  <meta name="author" content="Milos Vasic">
+  <meta name="author" content="Miloš Vasić">
   <!-- No-FART theme bootstrap: set theme before first paint -->
   <script>
     (function () {
@@ -18,9 +18,9 @@
     })();
   </script>
   {% seo %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  {% if page.seo_hreflang %}{{ page.seo_hreflang }}{% endif %}
+  <!-- Fonts are self-hosted via assets/od/fonts.css (linked by the OD asset bundle);
+       the remote Google Fonts CDN was redundant + render-blocking and has been removed. -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <!-- WCAG 2.2 AA: Focus appearance via CSS custom property -->
   <style>:root { --focus-w: 2.5px; --focus-offset: 3px; }</style>
@@ -60,7 +60,7 @@
         <a href="https://t.me/milos85vasic">Telegram</a>
         <a href="mailto:i@mvasic.ru">i@mvasic.ru</a>
       </div>
-      <p class="mono">© {{ 'now' | date: '%Y' }} Milos Vasic — Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.</p>
+      <p class="mono">© {{ 'now' | date: '%Y' }} Miloš Vasić — Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.</p>
     </div>
   </footer>
 

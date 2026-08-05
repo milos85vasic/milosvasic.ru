@@ -1,32 +1,70 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
-<link rel="stylesheet" href="../assets/od/fonts.css"/>
-<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
-<link rel="stylesheet" href="../assets/od/components-extended.css"/>
-<link rel="stylesheet" href="../assets/od/animations.css"/>
-<link rel="stylesheet" href="../assets/od/overlays.css"/>
-<title>HelixOTA — Miloš Vasić</title>
-<meta name="description" content="Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."/>
-<link rel="canonical" href="https://milosvasic.ru/products/helixota.html"/>
-<meta name="robots" content="index, follow, max-image-preview:large"/>
-<meta property="og:type" content="article"/>
-<meta property="og:site_name" content="Miloš Vasić"/>
-<meta property="og:title" content="HelixOTA — Miloš Vasić"/>
-<meta property="og:description" content="Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."/>
-<meta property="og:url" content="https://milosvasic.ru/products/helixota.html"/>
-<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
-<meta property="og:locale" content="en_US"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="HelixOTA — Miloš Vasić"/>
-<meta name="twitter:description" content="Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."/>
-<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
-<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/helixota.html"/>
-<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/helixota.html"/>
-<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/helixota.html"/>
+---
+layout: default
+title: "HelixOTA — Miloš Vasić"
+description: "Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixota.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixota.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixota.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixota.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixota.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,61 +108,7 @@
   ]
 }
 </script>
-  <style>
-    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
-    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
-    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
-    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
-    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
-    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
-    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
-    .od-theme-toggle .od-icon--sun{display:none}
-    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
-    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
-    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
-    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
-    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
-    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
-    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
-    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
-    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
-    /* responsive media: never let an image/diagram cause horizontal overflow */
-    img,svg{max-width:100%;height:auto}
-    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
-    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
-       forces horizontal overflow */
-    .od-product-detail{overflow-wrap:anywhere}
-    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
-    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
-    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
-    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
-    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
-  </style>
-</head>
-<body>
-<a class="od-skip-link" href="#main">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
-  </svg>
-  <header class="od-header">
-    <a class="od-brand" href="../index.html">Miloš Vasić</a>
-    <div class="od-header__actions">
-      <nav class="od-nav" aria-label="Primary">
-        <a class="od-nav__link" href="../index.html">Home</a>
-        <a class="od-nav__link" href="../index.html#products">Products</a>
-      </nav>
-      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
-        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
-        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
-      </button>
-    </div>
-  </header>
 
-  <main id="main">
     <article class="od-section od-product-detail od-reveal">
       <p class="od-section__eyebrow">// tier: helix-primary · order 9</p>
       <h1>HelixOTA <span class="od-h1-badges"><span class="od-badge--status od-badge--status--in-development">in-development</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
@@ -202,11 +186,42 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
       <p>Helix OTA is a universal, generic, deeply decoupled over-the-air (OTA) update system built for a single uncompromising promise: an update must never turn a working device into a brick. It comprises a Go server <strong>control plane</strong>, per-OS client <strong>SDKs/agents</strong>, and a management <strong>dashboard</strong>, and it is engineered from the ground up to be embeddable into *any* operating system through pluggable OS adapters rather than rebuilt from scratch per platform. The first delivery target is Android 15 (all variants) on the Orange Pi 5 Max, where the build pipeline emits flashing images alongside a validated OTA <code>.zip</code> and mandatory hash files, so no artifact reaches a device without a verifiable fingerprint; Linux, Windows, and other OSes sit on the roadmap behind the very same adapter seam, waiting only for their adapter — not a rewrite.</p>
       <p>The design is organized around operator-stated hard guarantees treated as non-negotiable architectural invariants: zero system corruption, mandatory validation of every artifact before it is ever deployed, granular rollout (all-at-once or staged at 5/10/30…100% with halt-and-advance control), full observability of the fleet, and linear scale from a single board on a bench to millions of devices in the field. The locked architecture pairs device-side native Android A/B updates — AOSP <code>update_engine</code> with AVB/dm-verity and automatic boot-failure rollback — with a custom, decoupled Go control plane, so safety lives in the silicon-adjacent boot path *and* in the server, not in one fragile layer. Two seams are deliberately kept extractable: an OS-adapter seam that carries the promise of true universality, and a rollout-engine seam that makes staged campaigns OS-agnostic. The whole system is decomposed into six public, independently-versioned <code>ota-*</code> submodules — reusable building blocks rather than a monolith.</p>
       <p>Helix OTA is currently in a specification/research and test-coverage build-out phase; the repository holds the authoritative design corpus, the documentation export pipeline, and submodule scaffolding, and it is explicit — per its anti-bluff governance — that a finished production server and agent do not yet exist. What ships today is the blueprint and its scaffolding, honestly labeled as such.</p>
-      <h2>Why this exists</h2>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-0" aria-expanded="true" aria-controls="od-acc-helixota-0-panel">
+              <span class="od-accordion__label">Why this exists</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-0-panel" role="region" aria-labelledby="od-acc-helixota-0">
+            <div class="od-accordion__inner">
       <p>OTA is usually reinvented per device and per OS, and a bad update can brick a fleet. Helix OTA was built to be one universal, safety-first update system that any OS can adopt via adapters, with rollback and validation guarantees baked into the architecture rather than bolted on.</p>
-      <h2>Why it matters</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-1" aria-expanded="true" aria-controls="od-acc-helixota-1-panel">
+              <span class="od-accordion__label">Why it matters</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-1-panel" role="region" aria-labelledby="od-acc-helixota-1">
+            <div class="od-accordion__inner">
       <p>It refuses to treat "never brick a device" and "roll out gradually and observably" as best-effort features you hope hold up under load — they are architectural invariants baked into the boot path and the control plane alike. And by making the rollout engine and OS layer swappable seams rather than hardwired assumptions, the same control plane can drive Android today and stand ready to drive other operating systems later purely by adding an adapter — no fork, no rewrite, no reinvention of the safety guarantees you already trust.</p>
-      <h2>Ideas worth stealing</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-2" aria-expanded="true" aria-controls="od-acc-helixota-2-panel">
+              <span class="od-accordion__label">Ideas worth stealing</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-2-panel" role="region" aria-labelledby="od-acc-helixota-2">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Two extractable seams</strong> — an OS-adapter seam and an OS-agnostic rollout engine — turning "universal" from a marketing word into a structural property of the codebase.</li>
         <li><strong>Defense-in-depth safety</strong>: device-side native A/B (<code>update_engine</code>) + AVB/dm-verity + automatic boot-failure rollback, layered *on top of* server-side artifact validation — an update has to survive multiple independent gates before it can persist.</li>
@@ -214,13 +229,35 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <li><strong>HTTP/3 (QUIC) primary transport</strong> with automatic HTTP/2 fallback and negotiated Brotli/gzip compression — modern, low-latency delivery that degrades gracefully instead of failing.</li>
         <li><strong>Anti-bluff engineering</strong>: design and status are explicitly marked as spec-phase, and nothing unbuilt is ever claimed as shipped — honesty enforced as a first-class engineering value, not a disclaimer in the footnotes.</li>
       </ul>
-      <h2>Where it got hard, and how we won</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-3" aria-expanded="true" aria-controls="od-acc-helixota-3-panel">
+              <span class="od-accordion__label">Where it got hard, and how we won</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-3-panel" role="region" aria-labelledby="od-acc-helixota-3">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Guaranteeing a bad update never bricks a device</strong> — the hardest promise in OTA. Solved by mandating device-side native Android A/B: <code>update_engine</code> writes to the inactive slot while the live slot keeps running, AVB/dm-verity cryptographically verifies the boot chain, and if the new slot fails to boot the device rolls back automatically — all backstopped by mandatory pre-deploy artifact validation so a corrupt payload is caught before it ever leaves the server.</li>
         <li><strong>One system, many operating systems</strong> — solved by refusing to bake Android assumptions into the core. A pluggable OS-adapter seam isolates platform specifics, and an OS-agnostic rollout engine seam keeps campaign logic portable, each kept as a separate submodule so a new OS is an addition, never a surgery on the whole.</li>
         <li><strong>Staged, halt-able rollouts</strong> — solved with a dedicated rollout engine that reasons in percentage cohorts with success/error thresholds and explicit halt/advance control, deliberately kept free of HTTP coupling so the same engine can drive campaigns independent of transport.</li>
       </ul>
-      <h2>The engineering stack</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-4" aria-expanded="true" aria-controls="od-acc-helixota-4-panel">
+              <span class="od-accordion__label">The engineering stack</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-4-panel" role="region" aria-labelledby="od-acc-helixota-4">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> — chosen for its concurrency model and lean deployment footprint; powers the control plane, the rollout engine, and the artifact validators, exposing the REST <code>/api/v1</code> primary surface.</li>
         <li><strong>Kotlin/KMP</strong> — chosen so the on-device Android OTA agent can share logic across targets; owns the full device loop of poll / download / verify / apply / report.</li>
@@ -231,7 +268,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <li><strong>React</strong> — chosen for the management dashboard where operators log in, upload artifacts, drive rollouts, and watch fleet health in one place.</li>
         <li><strong>OpenTelemetry + Prometheus/Grafana</strong> — chosen for vendor-neutral instrumentation; used to make every stage of a rollout observable in metrics and dashboards rather than guessed at.</li>
       </ul>
-      <h2>No-spin status</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-5" aria-expanded="true" aria-controls="od-acc-helixota-5-panel">
+              <span class="od-accordion__label">No-spin status</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-5-panel" role="region" aria-labelledby="od-acc-helixota-5">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Status: in-development.</strong> Per the project's own anti-bluff governance, there is <strong>no working production server or agent yet</strong> — this is a specification/research and test-coverage build-out phase. The repository holds the authoritative design corpus, the docs export pipeline, and submodule scaffolding.</li>
         <li>The six public reusable submodules (<code>ota-protocol</code>, <code>ota-artifact-validator</code>, <code>ota-rollout-engine</code>, <code>ota-update-engine-bridge</code>, <code>ota-android-agent</code>, <code>ota-telemetry-schema</code>) exist under <code>github.com/HelixDevelopment/</code>.</li>
@@ -239,24 +287,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <li><strong>License: Apache-2.0.</strong></li>
       </ul>
       <p><strong>Priority tier:</strong> Helix-primary.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
-  </main>
-
-  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
-
-<script>
-  (function(){
-    var btn=document.getElementById('od-theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var d=document.documentElement;var cur=d.getAttribute('data-theme');
-      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
-      d.setAttribute('data-theme',next);
-      try{localStorage.setItem('od-theme',next);}catch(e){}
-    });
-  })();
-</script>
-<script defer src="../assets/od/motion.js"></script>
-</body>
-</html>

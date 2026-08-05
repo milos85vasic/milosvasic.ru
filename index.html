@@ -23,8 +23,13 @@ layout: default
   .mvx-hero__grid{display:grid;grid-template-columns:1fr;gap:var(--od-space-8);align-items:center;text-align:left}
   .mvx-hero__body{min-width:0}
   .mvx-hero__body .mvx-hero__cta{justify-content:flex-start}
-  .mvx-hero__portrait{margin:0;justify-self:center}
-  .mvx-hero__portrait img{width:min(300px,72vw);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--od-radius-xl);border:1px solid var(--od-border);box-shadow:var(--od-shadow-lg);display:block}
+  .mvx-hero__portrait{margin:0;justify-self:center;position:relative;isolation:isolate}
+  .mvx-hero__portrait img{position:relative;z-index:1;width:min(300px,72vw);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--od-radius-xl);border:1px solid var(--od-border);box-shadow:var(--od-shadow-lg);display:block}
+  /* restored crimson corner accents (#a31e39 via --od-accent) — brand framing on the
+     portrait; theme-adaptive (lighter crimson in dark), static (no motion). */
+  .mvx-hero__portrait::before,.mvx-hero__portrait::after{content:"";position:absolute;z-index:2;width:clamp(38px,11vw,60px);height:clamp(38px,11vw,60px);pointer-events:none;opacity:.65}
+  .mvx-hero__portrait::after{top:-9px;right:-9px;border-top:2px solid var(--od-accent);border-right:2px solid var(--od-accent);border-top-right-radius:var(--od-radius-xl)}
+  .mvx-hero__portrait::before{bottom:-9px;left:-9px;border-bottom:2px solid var(--od-accent);border-left:2px solid var(--od-accent);border-bottom-left-radius:var(--od-radius-xl)}
   @media(min-width:768px){.mvx-hero__grid{grid-template-columns:minmax(0,1.5fr) minmax(0,0.9fr)}}
   .mvx-lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text);max-width:72ch;margin:0 0 var(--od-space-4)}
   .mvx-muted{color:var(--od-text-muted)}
@@ -66,10 +71,10 @@ layout: default
         </picture>
       </figure>
       </div>
-      <div class="mvx-stats">
-        <div class="od-stat"><div class="od-stat__value">Go</div><div class="od-stat__label" data-i18n="mv2.stat.lang">backbone language</div></div>
-        <div class="od-stat"><div class="od-stat__value">140+</div><div class="od-stat__label" data-i18n="mv2.stat.repos">repositories, one constitution</div></div>
-        <div class="od-stat"><div class="od-stat__value">33</div><div class="od-stat__label" data-i18n="mv2.stat.products">products, evidence-backed</div></div>
+      <div class="mvx-stats od-stagger">
+        <div class="od-stat"><div class="od-stat__value od-highlight">Go</div><div class="od-stat__label" data-i18n="mv2.stat.lang">backbone language</div></div>
+        <div class="od-stat"><div class="od-stat__value od-highlight">140+</div><div class="od-stat__label" data-i18n="mv2.stat.repos">repositories, one constitution</div></div>
+        <div class="od-stat"><div class="od-stat__value od-highlight">33</div><div class="od-stat__label" data-i18n="mv2.stat.products">products, evidence-backed</div></div>
       </div>
     </section>
 

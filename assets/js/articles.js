@@ -28,8 +28,11 @@
     loading: "Loading…",
     close: "Close",
     error: "Sorry, this article could not be loaded.",
-    retry: "Retry"
+    retry: "Retry",
+    dialog: "Article"
   };
+
+  var labelSeq = 0; // unique-id counter for generated h1 ids
 
   var state = {
     el: null,        // root modal element
@@ -166,6 +169,10 @@
     state.closeBtn.setAttribute("aria-label", i18n("close", trigger));
 
     var root = state.el;
+    // Accessible name (WCAG 4.1.2 / axe aria-dialog-name): fall back to a
+    // generic label while loading; replaced by the article <h1> once fetched.
+    root.removeAttribute("aria-labelledby");
+    root.setAttribute("aria-label", i18n("dialog", trigger));
     root.setAttribute("aria-hidden", "false");
     root.setAttribute("data-open", "true");
     document.body.classList.add(LOCK_CLASS);
@@ -180,6 +187,13 @@
       if (rid !== state.reqId || !state.open) return;
       state.body.innerHTML = htmlText;
       state.body.scrollTop = 0;
+      // Name the dialog from the injected article heading.
+      var h1 = state.body.querySelector("h1, h2");
+      if (h1) {
+        if (!h1.id) h1.id = PREFIX + "__title-" + (++labelSeq);
+        state.el.setAttribute("aria-labelledby", h1.id);
+        state.el.removeAttribute("aria-label");
+      }
       try { state.body.focus({ preventScroll: true }); } catch (_) {}
     }).catch(function () {
       if (rid !== state.reqId || !state.open) return;

@@ -1,32 +1,70 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('od-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
-<link rel="stylesheet" href="../assets/od/fonts.css"/>
-<link rel="stylesheet" href="../assets/od/milosvasic.css"/>
-<link rel="stylesheet" href="../assets/od/components-extended.css"/>
-<link rel="stylesheet" href="../assets/od/animations.css"/>
-<link rel="stylesheet" href="../assets/od/overlays.css"/>
-<title>Server Factory Core Framework — Miloš Vasić</title>
-<meta name="description" content="Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each &quot;factory&quot; reuses one battle-tested foundation rather than re-implementing provisioning primitives."/>
-<link rel="canonical" href="https://milosvasic.ru/products/server-factory-core-framework.html"/>
-<meta name="robots" content="index, follow, max-image-preview:large"/>
-<meta property="og:type" content="article"/>
-<meta property="og:site_name" content="Miloš Vasić"/>
-<meta property="og:title" content="Server Factory Core Framework — Miloš Vasić"/>
-<meta property="og:description" content="Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each &quot;factory&quot; reuses one battle-tested foundation rather than re-implementing provisioning primitives."/>
-<meta property="og:url" content="https://milosvasic.ru/products/server-factory-core-framework.html"/>
-<meta property="og:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
-<meta property="og:locale" content="en_US"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Server Factory Core Framework — Miloš Vasić"/>
-<meta name="twitter:description" content="Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each &quot;factory&quot; reuses one battle-tested foundation rather than re-implementing provisioning primitives."/>
-<meta name="twitter:image" content="https://milosvasic.ru/assets/images/profile-800.jpg"/>
-<link rel="alternate" hreflang="en" href="https://milosvasic.ru/products/server-factory-core-framework.html"/>
-<link rel="alternate" hreflang="ru" href="https://milosvasic.ru/products/ru/server-factory-core-framework.html"/>
-<link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/products/server-factory-core-framework.html"/>
+---
+layout: default
+title: "Server Factory Core Framework — Miloš Vasić"
+description: "Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each \"factory\" reuses one battle-tested foundation rather than re-implementing provisioning primitives."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/server-factory-core-framework.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,61 +107,7 @@
   ]
 }
 </script>
-  <style>
-    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
-    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
-    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
-    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
-    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
-    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
-    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
-    .od-theme-toggle .od-icon--sun{display:none}
-    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
-    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
-    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
-    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
-    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
-    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
-    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
-    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
-    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
-    /* responsive media: never let an image/diagram cause horizontal overflow */
-    img,svg{max-width:100%;height:auto}
-    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
-    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
-       forces horizontal overflow */
-    .od-product-detail{overflow-wrap:anywhere}
-    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
-    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
-    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
-    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
-    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
-  </style>
-</head>
-<body>
-<a class="od-skip-link" href="#main">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
-  </svg>
-  <header class="od-header">
-    <a class="od-brand" href="../index.html">Miloš Vasić</a>
-    <div class="od-header__actions">
-      <nav class="od-nav" aria-label="Primary">
-        <a class="od-nav__link" href="../index.html">Home</a>
-        <a class="od-nav__link" href="../index.html#products">Products</a>
-      </nav>
-      <button id="od-theme-toggle" class="od-btn od-btn--ghost od-theme-toggle" type="button" aria-label="Toggle light or dark theme">
-        <svg class="od-icon od-icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
-        <svg class="od-icon od-icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
-      </button>
-    </div>
-  </header>
 
-  <main id="main">
     <article class="od-section od-product-detail od-reveal">
       <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 30</p>
       <h1>Server Factory Core Framework <span class="od-h1-badges"><span class="od-badge--status od-badge--status--stable">stable</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
@@ -188,47 +172,84 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
       <p class="od-product-detail__lede">The shared Kotlin framework at the base of the Server Factory ecosystem. It supplies the common provisioning engine, connection abstractions, and installation-step machinery consumed by downstream factories (Mail Server Factory, Web Service Factory, SonarQube Factory, and others).</p>
       <p>Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each "factory" reuses one battle-tested foundation rather than re-implementing provisioning primitives.</p>
       <p>Core Framework is the quiet piece of engineering that makes the whole Server-Factory family possible: the reusable engine every individual "factory" product (Mail Server Factory, Web Service Factory, SonarQube Factory, Caching Proxy Factory) is built on top of. The Server Factory approach is declarative — a user describes the infrastructure they want as configuration, and a factory interprets that description to install and initialize software on a target system — and Core Framework is where the machinery common to that pattern actually lives: the connection and transport abstractions that reach every kind of target, the installation-step model that encodes *how* software gets provisioned, and the shared plumbing every factory would otherwise have to write for itself. It is the answer to a structural question every multi-product toolchain eventually faces — where does the shared engine go? — and getting that answer right once is what keeps the family coherent instead of fragmenting into four subtly-different provisioners. By centralizing this into one Kotlin framework, the family avoids duplicating provisioning logic across products and keeps behavior consistent: a connection type or installation primitive improved in Core Framework benefits every downstream factory. It is almost entirely Kotlin (roughly 990K bytes of Kotlin with a thin Shell layer), reflecting its role as a code library rather than a script collection. Downstream repos link back to it as their canonical dependency (Parallels-Utils, Qemu-Utils, Utils, and the Definitions packs all reference the Core Framework repository as the hub of the ecosystem). Its README is intentionally minimal — it is infrastructure for other projects, versioned via <code>version.txt</code>/<code>version_code.txt</code> — and it predates the later AI work, making it part of the org's mature DevOps toolchain heritage.</p>
-      <h2>The problem we set out to solve</h2>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-0" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-0-panel">
+              <span class="od-accordion__label">The problem we set out to solve</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-0-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-0">
+            <div class="od-accordion__inner">
       <p>Each provisioning tool needs the same core: ways to connect to targets and steps to install/configure software. Rebuilding that per product would fragment behavior and multiply bugs. Core Framework centralizes it so every factory shares one dependable engine.</p>
-      <h2>What sets it apart</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-1" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-1-panel">
+              <span class="od-accordion__label">What sets it apart</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-1-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-1">
+            <div class="od-accordion__inner">
       <p>It is the single highest-leverage point in the entire family: a connection type hardened or an installation primitive improved here propagates that correctness and capability to every factory at once, so the whole toolchain compounds off one investment. It is the "build once, reuse everywhere" philosophy applied where it pays the most — the foundation layer of infrastructure automation, where a fix in the right place fixes everything downstream.</p>
-      <h2>The innovations inside</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-2" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-2-panel">
+              <span class="od-accordion__label">The innovations inside</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-2-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-2">
+            <div class="od-accordion__inner">
       <ul>
         <li>A single reusable provisioning framework abstracting connection + installation-step logic.</li>
         <li>Clean separation between the engine (Core Framework) and product-specific factories.</li>
         <li>Version-pinned distribution (<code>version.txt</code>/<code>version_code.txt</code>) for reproducible consumption.</li>
       </ul>
-      <h2>Engineering the hard bits</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-3" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-3-panel">
+              <span class="od-accordion__label">Engineering the hard bits</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-3-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-3">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Avoiding duplicated provisioning logic:</strong> solved by extracting shared machinery into one framework consumed by all factories.</li>
         <li><strong>Consistent behavior across products:</strong> solved with common abstractions so connection types and steps behave identically everywhere.</li>
         <li><strong>(UNVERIFIED):</strong> specific internal APIs are not documented in the public README; treat interface details as unverified beyond "shared framework consumed by the factories."</li>
       </ul>
-      <h2>Under the hood</h2>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-4" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-4-panel">
+              <span class="od-accordion__label">Under the hood</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-4-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-4">
+            <div class="od-accordion__inner">
       <ul>
         <li><strong>Kotlin</strong> — the entire framework (~990K bytes); the language of the Server Factory family.</li>
         <li><strong>Shell</strong> — minimal supporting scripts.</li>
         <li><strong>Gradle</strong> — build toolchain (consistent with the family's <code>./gradlew</code> usage).</li>
       </ul>
       <blockquote><p>Note: GitHub marks the repository as a fork within the Server-Factory org. Not AI-centric; presented as the backbone of the provisioning toolchain.</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
-  </main>
-
-  <footer class="od-footer">© 2026 Miloš Vasić — built on the OpenDesign system.</footer>
-
-<script>
-  (function(){
-    var btn=document.getElementById('od-theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var d=document.documentElement;var cur=d.getAttribute('data-theme');
-      var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var next=cur==='dark'?'light':(cur==='light'?'dark':(prefersDark?'light':'dark'));
-      d.setAttribute('data-theme',next);
-      try{localStorage.setItem('od-theme',next);}catch(e){}
-    });
-  })();
-</script>
-<script defer src="../assets/od/motion.js"></script>
-</body>
-</html>

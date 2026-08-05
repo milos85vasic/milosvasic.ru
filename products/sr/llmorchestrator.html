@@ -1,0 +1,328 @@
+---
+layout: default
+title: "LLMOrchestrator — Miloš Vasić"
+description: "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "sr",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/llmorchestrator.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees.",
+      "inLanguage": "sr",
+      "license": "Apache-2.0",
+      "name": "LLMOrchestrator",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/llmorchestrator.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 12</p>
+      <h1>LLMOrchestrator <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25)</span><span class="od-chip">Go stdlib (+ testify, yaml.v3)</span><span class="od-chip">Pipe transport (JSON-lines over stdio)</span><span class="od-chip">File transport (inbox/outbox/shared)</span><span class="od-chip">sync.Mutex / sync.Cond</span><span class="od-chip">Circuit breaker + HealthMonitor</span><span class="od-chip">pkg/i18n Translator</span><span class="od-chip">Challenge harness</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/LLMOrchestrator" rel="noopener noreferrer" target="_blank">HelixDevelopment/LLMOrchestrator <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="llmorchestrator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">LLMOrchestrator — control-plane fan-out</text>
+<text class="lbl" x="620" y="52">Coding agents (spawned + driven)</text>
+<text class="lbl" x="40" y="340">Resilience</text>
+<path class="conn" marker-end="url(#a)" d="M220,255 L278,255"/>
+<path class="conn" marker-end="url(#a)" d="M520,220 L618,99"/>
+<path class="conn" marker-end="url(#a)" d="M520,235 L618,169"/>
+<path class="conn" marker-end="url(#a)" d="M520,255 L618,239"/>
+<path class="conn" marker-end="url(#a)" d="M520,275 L618,309"/>
+<path class="conn" marker-end="url(#a)" d="M520,295 L618,379"/>
+<path class="conn" marker-end="url(#a)" d="M400,330 L400,398"/>
+<path class="conn" marker-end="url(#a)" d="M220,392 L278,320"/>
+<rect class="box" x="40" y="210" width="180" height="90" rx="10"/>
+<text class="t" x="130" y="255">Client / caller</text>
+<rect class="accent" x="280" y="180" width="240" height="150" rx="10"/>
+<text class="t" x="400" y="225">MultiProviderPool</text>
+<text class="s" x="400" y="245">round-robin / preference</text>
+<rect class="box" x="620" y="70" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="104">OpenCode</text>
+<rect class="box" x="620" y="140" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="174">Claude Code</text>
+<rect class="box" x="620" y="210" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="244">Gemini</text>
+<rect class="box" x="620" y="280" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="314">Junie</text>
+<rect class="box" x="620" y="350" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="384">Qwen Code</text>
+<rect class="dash" x="280" y="400" width="240" height="64" rx="10"/>
+<text class="t" x="400" y="434">Transport</text>
+<text class="s" x="400" y="454">pipe JSON-lines · file inbox/outbox</text>
+<rect class="box" x="40" y="360" width="180" height="64" rx="10"/>
+<text class="t" x="130" y="394">Circuit breaker</text>
+<text class="s" x="130" y="414">closed→open→half-open</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Jedinstvena kontrolna ravan za sve headless CLI kodirajuće agente.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-0" aria-expanded="true" aria-controls="od-acc-llmorchestrator-0-panel">
+              <span class="od-accordion__label">Sažetak</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-0-panel" role="region" aria-labelledby="od-acc-llmorchestrator-0">
+            <div class="od-accordion__inner">
+      <p>LLMOrchestrator je samostalni, višekratno upotrebljiv Go modul za pokretanje, upravljanje i komunikaciju sa headless CLI agentima (OpenCode, Claude Code, Gemini, Junie, Qwen Code) putem hibridnog protokola cevi i fajlova, sa prekidačima kola po agentu, priključivim izborom više provajdera, odvojenom apstrakcijom za internacionalizaciju i garancijama protiv lažnih testova.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-1" aria-expanded="true" aria-controls="od-acc-llmorchestrator-1-panel">
+              <span class="od-accordion__label">Kratak opis</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-1-panel" role="region" aria-labelledby="od-acc-llmorchestrator-1">
+            <div class="od-accordion__inner">
+      <p>Višeput upotrebljiv Go modul koji pruža jedinstveni interfejs za pokretanje i upravljanje više LLM-om pokretanih CLI agenata putem hibridnog protokola cevi i fajlova. Nitno bezbedno grupisanje agenata sa prekidačima kola i izbornim strategijama rutiranja, namerno nezavisno od potrošača, sa priključivim prevodiocem za internacionalizaciju.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-2" aria-expanded="true" aria-controls="od-acc-llmorchestrator-2-panel">
+              <span class="od-accordion__label">Detaljan opis</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-2-panel" role="region" aria-labelledby="od-acc-llmorchestrator-2">
+            <div class="od-accordion__inner">
+      <p>LLMOrchestrator predstavlja zajedničku infrastrukturu za orkestriranje headless CLI kodirajućih agenata — onu pozadinsku strukturu koju svaki multiagentski sistem tiho zahteva, a obično se loše ponovo implementira. Umesto da svaki projekat ponovo razvija pokretanje procesa, uokvirivanje poruka i parsiranje rezultata za alate poput OpenCode-a, Claude Code-a, Gemini CLI, Junie i Qwen Code-a, ovaj modul nudi jedinstveni interfejs <code>Agent</code>, nitno bezbedan <code>AgentPool</code> i <code>MultiProviderPool</code> koji objedinjuje agente iz više provajdera iza jedinstvenog fasadnog interfejsa. Rutiranje je priključivo preko <code>AgentSelector</code>-a — kružno raspoređivanje koje preskače provajdere koji ne ispunjavaju zahteve, ili raspoređivanje po prioritetu sa rezervnim opcijama — tako da način distribucije posla predstavlja politiku koju birate, a ne unapred zadatu pretpostavku. Svaki konkretan agent je tanak adapter nad zajedničkim <code>BaseAdapter</code>-om koji upravlja celim životnim ciklusom procesa: pokretanje sa podešavanjem cevi, uredno zaustavljanje putem SIGTERM-a pa SIGKILL-a, ponovno pokretanje i provera aktivnosti — sve one zamorne, podložne greškama delove, rešene jednom za svagda.</p>
+      <p>Komunikacija je namerno hibridna, prilagođena zadatku. Cevni transport prenosi JSON poruke ograničene novim redom, sa vremenskim ograničenjem za čitanje po zahtevu i ograničenjem dužine odgovora za brzu interaktivnu razmenu, dok fajl-transport koristi direktorijume za ulazne/izlazne fajlove i deljene resurse po sesiji za velike ili trajne artefakte koji ne bi trebalo da borave u cevi. Otpornost na greške nije naknadna zamisao — ona je strukturna: prekidač kola po agentu se aktivira nakon tri uzastopna neuspeha, sa 60-sekundnim hlađenjem pre poluaktivne probe, a pozadinski monitor zdravlja pinguje agente kako bi onaj koji je pao mogao da se oporavi bez čekanja da ga saobraćaj primeti. Preuzimanje iz bazena blokira se na promenljivom uslovu umesto da troši procesorsko vreme u beskorisnom čekanju, a parser odgovora je bez stanja i bezbedan za konkurentno pozivanje. Modul je strogo odvojen — nikakve specifičnosti potrošača nisu dozvoljene da procure unutra — a svaki string vidljiv korisniku prolazi kroz priključivi i18n <code>Translator</code>, sa <code>NoopTranslator</code>-om koji vraća identifikatore poruka doslovno, tako da nedostajući prevod bude odmah uočljiv umesto da se krije.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-3" aria-expanded="true" aria-controls="od-acc-llmorchestrator-3-panel">
+              <span class="od-accordion__label">Zašto smo ga napravili</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-3-panel" role="region" aria-labelledby="od-acc-llmorchestrator-3">
+            <div class="od-accordion__inner">
+      <p>Svaki multiagentski sistem mora pouzdano da pokreće i komunicira sa CLI agentima. Ponovno rešavanje pokretanja, uokvirivanja, parsiranja i rukovanja greškama po projektu je rasipanje vremena i podložno greškama. LLMOrchestrator to centralizuje u jedan odvojeni, višekratno upotrebljiv modul čija specijalizovana odgovornost ga čini ponovo upotrebljivim — a ta ponovna upotrebljivost se gubi u trenutku kada bilo kakve specifičnosti potrošača procure unutra.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-4" aria-expanded="true" aria-controls="od-acc-llmorchestrator-4-panel">
+              <span class="od-accordion__label">Zašto je ovo revolucionarno</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-4-panel" role="region" aria-labelledby="od-acc-llmorchestrator-4">
+            <div class="od-accordion__inner">
+      <p>Pretvara "upravljanje vojskom heterogenih CLI agenata" iz prilagođenog inženjerskog muka po projektu u jednostavan uvoz biblioteke — sa rešenim i ojačanim grupisanjem, prekidanjem kola, upravljanjem životnim ciklusom i zamjenjivim rutiranjem. A pošto anti-bluf testovi proveravaju stvarni sistem od kraja do kraja umesto da se zadovolje sa "kompajlira se", dobijate apstrakciju kojoj možete zaista verovati da radi pod konkurentnošću i otkazima, a ne onu koja samo izgleda ispravno na dijagramu.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-5" aria-expanded="true" aria-controls="od-acc-llmorchestrator-5-panel">
+              <span class="od-accordion__label">Šta je inovativno</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-5-panel" role="region" aria-labelledby="od-acc-llmorchestrator-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Hibridni protokol cev+datoteka</strong> — interaktivna brzina (JSON linije preko stdin/stdout, rokovi za čitanje, ograničenja odgovora) *i* trajna razmena zasnovana na datotekama (inbox/outbox/zajednički prostor) za velike artefakte, tako da nikada ne morate da žrtvujete latenciju zarad trajnosti ili obrnuto.</li>
+        <li><strong>Multi-provajderski bazen sa zamjenjivim selektorima</strong> — jedan fasadni sloj preko više CLI provajdera, sa rutiranjem kružnim redom ili po prioritetu izabranim kao politika, a ne ugrađenim.</li>
+        <li><strong>Prekidač kola po agentu + monitor zdravlja u pozadini</strong> — automatska degradacija *i* oporavak (3 neuspeha → 60s otvoreno kolo → poluotvorena proba), tako da nestabilan agent bude izolovan, a zatim tiho vraćen u rad bez ručne intervencije.</li>
+        <li><strong>Bazen bez zauzetog čekanja</strong> — <code>Acquire</code> blokira na <code>sync.Cond</code> dok se ne oslobodi odgovarajući, zdrav agent ili dok se kontekst ne otkaže, tako da čekanje ne troši procesorsko vreme.</li>
+        <li><strong>Stroga razdvojenost + anti-bluf i18n</strong> — <code>NoopTranslator</code> vraća identifikatore poruka doslovno, tako da nedostajući prevod nije moguće prevideti umesto da se tiho ostavi prazan.</li>
+        <li><strong>Sigurnost podrazumevano</strong> — lista dozvoljenih binarnih putanja znači da nema interpolacije ljuske i stoga nema površine za ubacivanje komandi, podržano zaštitom od prelaska putanja, ograničenjem odgovora na 1 MiB protiv nekontrolisanog izlaza i maskiranjem API ključeva u zapisnicima.</li>
+        <li><strong>Anti-bluf okvir za izazove</strong> — stvarni ciklusi disk/JSON/parser kroz pet lokalizacija, sa uparenom mutacionom kapijom koja mora izaći sa nenultim statusom kada je funkcionalnost pokvarena — test koji dokazuje da stvarno može da otkaže.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-6" aria-expanded="true" aria-controls="od-acc-llmorchestrator-6-panel">
+              <span class="od-accordion__label">Najveći tehnički izazovi i kako smo ih rešili</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-6-panel" role="region" aria-labelledby="od-acc-llmorchestrator-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Pouzdan I/O agenata.</strong> Komunikacija sa pokrenutim CLI procesom je varljivo teška; rešeno hibridnim transportom cev+datoteka, definisanim ugovorom poruka/parsera tako da obe strane dogovore format na žici, i <code>BaseAdapter</code>-om koji centralizuje ceo životni ciklus procesa, uključujući elegantan SIGTERM tajmaut koji eskalira na SIGKILL kao rezervnu opciju.</li>
+        <li><strong>Konkurentnost bez zauzetog čekanja.</strong> Rešeno pomoću <code>AgentPool</code>-a sa mutexom i uslovnom promenljivom, gde <code>Acquire</code> spava dok se ne oslobodi agent sa odgovarajućim mogućnostima, upareno sa bezstanjskim parserom bez sporednih efekata koji je bezbedan za pozivanje iz više gorutina istovremeno.</li>
+        <li><strong>Izolacija otkaza provajdera.</strong> Rešeno tako da jedan loš provajder ne može da povuče ostale: prekidači kola po agentu ograničavaju radijus eksplozije, a gorutina monitora zdravlja pokreće oporavak čak i kada nema zahteva koji bi ga aktivirali.</li>
+        <li><strong>Dokazivanje ispravnosti, a ne samo kompajliranja.</strong> Rešeno pomoću pokretača izazova: desetine invarijanti na en/sr/ja/es/de koje testiraju stvarni sistem, plus uparena mutaciona kapija (<code>LLMORCH_MUTATE_RUNNER=1</code> mora da otkaže → omotač izlazi sa 99) koja namerno kvari funkcionalnost kako bi dokazala da sama kapija nije bluf.</li>
+        <li><strong>Lokalizacija bez tihog otkaza.</strong> Rešeno šavom <code>NoopTranslator</code>-a sa doslovnim identifikatorima i ubrizgavanjem prevodioca po potrošaču, tako da praznina u prevodima uvek bude vidljiva umesto da se prikrije.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-7" aria-expanded="true" aria-controls="od-acc-llmorchestrator-7-panel">
+              <span class="od-accordion__label">Tehnološki stek</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-7-panel" role="region" aria-labelledby="od-acc-llmorchestrator-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (1.25)</strong> — izabran zbog vrhunske konkurentnosti i čiste kontrole procesa, što je upravo ono što zahteva orkestracija procesa živih agenata; implementira modul, njegove adaptere za agente, transportne mehanizme i parser.</li>
+        <li><strong>Go stdlib (uz testify, yaml.v3)</strong> — namerni izbor da se površina zavisnosti svede na minimum i da se *ne* uvlače LLM SDK-ovi, kako bi modul ostao lagan i mogao da se ugradi u bilo kog korisnika bez prenošenja dodatnog tereta.</li>
+        <li><strong>Transport putem cevi (JSON-lines preko stdio)</strong> — izabran za brzu interaktivnu razmenu poruka, ojačan vremenskim ograničenjima za čitanje i ograničenjima dužine odgovora kako bi se sprečilo da zablokiran ili nekontrolisan agent blokira pozivaoca.</li>
+        <li><strong>Transport putem fajlova (inbox/outbox/zajednički)</strong> — izabran za trajniju razmenu velikih artefakata po sesiji, gde bi cev bila pogrešan alat.</li>
+        <li><strong><code>sync.Mutex</code>/<code>sync.Cond</code></strong> — izabrani za implementaciju blokirajućeg, pravičnog preuzimanja agenata iz bazena bez aktivnog čekanja.</li>
+        <li><strong>Prekidač strujnog kola + Nadglednik zdravlja</strong> — izabrani zajedno kako bi obezbedili otpornost po agentu *i* aktivan oporavak, a ne samo detekciju grešaka.</li>
+        <li><strong><code>pkg/i18n</code> Prevodilac</strong> — izabran kao odvojeni sloj za lokalizaciju koji drži specifične stringove korisnika izvan jezgra.</li>
+        <li><strong>Okvir za izazove (<code>challenges/runner</code>) + Makefile (<code>test -race</code>, <code>fuzz</code>, <code>cover</code>)</strong> — izabran za proveru zasnovanu na dokazima, uključujući detekciju trka i fuzzing parsera kako bi se ispravnost dokazala u nepovoljnim uslovima, a ne samo pretpostavila.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-8" aria-expanded="true" aria-controls="od-acc-llmorchestrator-8-panel">
+              <span class="od-accordion__label">Status i napomene o iskrenosti</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-8-panel" role="region" aria-labelledby="od-acc-llmorchestrator-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Status: beta.</strong> Odvojeni modul za višekratnu upotrebu, koji se koristi kao podmodul u više Helix/vasic projekata. <strong>Licenca: Apache-2.0</strong>; repozitorijum GitHub je javno dostupan.</li>
+        <li>Metapodaci modela dolaze iz LLMsVerifier preko HelixQA; ovaj modul ne uvozi LLMsVerifier/VisionEngine/DocProcessor direktno. Stekovi navedeni u <code>CLAUDE.md</code> matične aplikacije (Gin/PostgreSQL itd.) opisuju <code>helix_code</code>, a ne ovaj modul.</li>
+      </ul>
+      <p><strong>Prioritetni nivo:</strong> Helix-primarni (LLM-infrastrukturni klaster — odvojeni modul za višekratnu upotrebu). Rangira se iza HelixTrack.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

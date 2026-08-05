@@ -22,7 +22,10 @@
   var FILES = { cv: 'Milos_Vasic_CV', cl: 'Milos_Vasic_Cover_Letter', portfolio: 'Portfolio' };
   // Languages actually present in /downloads/ per document (no silent 404s).
   // Kept in sync by the auto-publish pipeline as each language completes.
-  var AVAIL = { cv: ['EN', 'SR', 'RU', 'DE'], cl: ['EN', 'SR', 'RU', 'DE'], portfolio: ['EN', 'DE'] };
+  // Only languages with a real, validated PDF on disk (DE dropped — it was
+  // English mislabeled as German; portfolio now has genuine RU/SR editions).
+  // More languages get appended by deploy-langs.sh as translations complete.
+  var AVAIL = { cv: ['EN', 'SR', 'RU'], cl: ['EN', 'SR', 'RU'], portfolio: ['EN', 'SR', 'RU'] };
   // Native display names for each language suffix.
   var LANG_NAMES = {
     EN: 'English', SR: 'Српски', RU: 'Русский', DE: 'Deutsch', ES: 'Español',

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#a31e39">
-  <meta name="author" content="Milos Vasic">
+  <meta name="author" content="Miloš Vasić">
   <!-- No-FART theme bootstrap: set theme before first paint -->
   <script>
     (function () {
@@ -18,30 +18,30 @@
     })();
   </script>
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Milos Vasic | Senior Software Engineer — SDK &amp; Platform Engineering</title>
+<title>Miloš Vasić | AI Engineer — Verifiable AI-Development Systems</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Milos Vasic" />
-<meta name="author" content="Milos Vasic" />
+<meta property="og:title" content="Miloš Vasić" />
+<meta name="author" content="Miloš Vasić" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Milos Vasic — Senior Software Engineer specializing in SDK and platform engineering across mobile, backend, desktop, and web. 15+ years building high-performance, developer-facing software. Author of Fundamental Kotlin." />
-<meta property="og:description" content="Milos Vasic — Senior Software Engineer specializing in SDK and platform engineering across mobile, backend, desktop, and web. 15+ years building high-performance, developer-facing software. Author of Fundamental Kotlin." />
+<meta name="description" content="Miloš Vasić — AI engineer building verifiable AI-development systems: autonomous coding agents, LLM orchestration, and constitution-governed tooling. 15+ years shipping production software across mobile, backend, desktop, and web." />
+<meta property="og:description" content="Miloš Vasić — AI engineer building verifiable AI-development systems: autonomous coding agents, LLM orchestration, and constitution-governed tooling. 15+ years shipping production software across mobile, backend, desktop, and web." />
 <link rel="canonical" href="https://milosvasic.ru/" />
 <meta property="og:url" content="https://milosvasic.ru/" />
-<meta property="og:site_name" content="Milos Vasic" />
+<meta property="og:site_name" content="Miloš Vasić" />
 <meta property="og:image" content="https://milosvasic.ru/assets/images/profile-square-800.jpg" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://milosvasic.ru/assets/images/profile-square-800.jpg" />
-<meta property="twitter:title" content="Milos Vasic" />
+<meta property="twitter:title" content="Miloš Vasić" />
 <meta name="twitter:site" content="@" />
-<meta name="twitter:creator" content="@Milos Vasic" />
+<meta name="twitter:creator" content="@Miloš Vasić" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Milos Vasic"},"description":"Milos Vasic — Senior Software Engineer specializing in SDK and platform engineering across mobile, backend, desktop, and web. 15+ years building high-performance, developer-facing software. Author of Fundamental Kotlin.","headline":"Milos Vasic","image":"https://milosvasic.ru/assets/images/profile-square-800.jpg","name":"Milos Vasic","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://milosvasic.ru/assets/images/profile-square-800.jpg"},"name":"Milos Vasic"},"sameAs":["https://github.com/milos85vasic","https://gitlab.com/milos85vasic","https://t.me/milos85vasic"],"url":"https://milosvasic.ru/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Miloš Vasić"},"description":"Miloš Vasić — AI engineer building verifiable AI-development systems: autonomous coding agents, LLM orchestration, and constitution-governed tooling. 15+ years shipping production software across mobile, backend, desktop, and web.","headline":"Miloš Vasić","image":"https://milosvasic.ru/assets/images/profile-square-800.jpg","name":"Milos Vasic","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://milosvasic.ru/assets/images/profile-square-800.jpg"},"name":"Miloš Vasić"},"sameAs":["https://github.com/milos85vasic","https://gitlab.com/milos85vasic","https://t.me/milos85vasic"],"url":"https://milosvasic.ru/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Fonts are self-hosted via assets/od/fonts.css (linked by the OD asset bundle);
+       the remote Google Fonts CDN was redundant + render-blocking and has been removed. -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- WCAG 2.2 AA: Focus appearance via CSS custom property -->
   <style>:root { --focus-w: 2.5px; --focus-offset: 3px; }</style>
@@ -90,8 +90,13 @@
   .mvx-hero__grid{display:grid;grid-template-columns:1fr;gap:var(--od-space-8);align-items:center;text-align:left}
   .mvx-hero__body{min-width:0}
   .mvx-hero__body .mvx-hero__cta{justify-content:flex-start}
-  .mvx-hero__portrait{margin:0;justify-self:center}
-  .mvx-hero__portrait img{width:min(300px,72vw);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--od-radius-xl);border:1px solid var(--od-border);box-shadow:var(--od-shadow-lg);display:block}
+  .mvx-hero__portrait{margin:0;justify-self:center;position:relative;isolation:isolate}
+  .mvx-hero__portrait img{position:relative;z-index:1;width:min(300px,72vw);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--od-radius-xl);border:1px solid var(--od-border);box-shadow:var(--od-shadow-lg);display:block}
+  /* restored crimson corner accents (#a31e39 via --od-accent) — brand framing on the
+     portrait; theme-adaptive (lighter crimson in dark), static (no motion). */
+  .mvx-hero__portrait::before,.mvx-hero__portrait::after{content:"";position:absolute;z-index:2;width:clamp(38px,11vw,60px);height:clamp(38px,11vw,60px);pointer-events:none;opacity:.65}
+  .mvx-hero__portrait::after{top:-9px;right:-9px;border-top:2px solid var(--od-accent);border-right:2px solid var(--od-accent);border-top-right-radius:var(--od-radius-xl)}
+  .mvx-hero__portrait::before{bottom:-9px;left:-9px;border-bottom:2px solid var(--od-accent);border-left:2px solid var(--od-accent);border-bottom-left-radius:var(--od-radius-xl)}
   @media(min-width:768px){.mvx-hero__grid{grid-template-columns:minmax(0,1.5fr) minmax(0,0.9fr)}}
   .mvx-lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text);max-width:72ch;margin:0 0 var(--od-space-4)}
   .mvx-muted{color:var(--od-text-muted)}
@@ -133,10 +138,10 @@
         </picture>
       </figure>
       </div>
-      <div class="mvx-stats">
-        <div class="od-stat"><div class="od-stat__value">Go</div><div class="od-stat__label" data-i18n="mv2.stat.lang">backbone language</div></div>
-        <div class="od-stat"><div class="od-stat__value">140+</div><div class="od-stat__label" data-i18n="mv2.stat.repos">repositories, one constitution</div></div>
-        <div class="od-stat"><div class="od-stat__value">33</div><div class="od-stat__label" data-i18n="mv2.stat.products">products, evidence-backed</div></div>
+      <div class="mvx-stats od-stagger">
+        <div class="od-stat"><div class="od-stat__value od-highlight">Go</div><div class="od-stat__label" data-i18n="mv2.stat.lang">backbone language</div></div>
+        <div class="od-stat"><div class="od-stat__value od-highlight">140+</div><div class="od-stat__label" data-i18n="mv2.stat.repos">repositories, one constitution</div></div>
+        <div class="od-stat"><div class="od-stat__value od-highlight">33</div><div class="od-stat__label" data-i18n="mv2.stat.products">products, evidence-backed</div></div>
       </div>
     </section>
 
@@ -349,7 +354,7 @@
         <a href="https://t.me/milos85vasic">Telegram</a>
         <a href="mailto:i@mvasic.ru">i@mvasic.ru</a>
       </div>
-      <p class="mono">© 2026 Milos Vasic — Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.</p>
+      <p class="mono">© 2026 Miloš Vasić — Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.</p>
     </div>
   </footer>
 
