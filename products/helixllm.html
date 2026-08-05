@@ -220,15 +220,15 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
       </ul>
       <h2>Under the hood</h2>
       <ul>
-        <li><strong>Go + Gin</strong> — chosen for concurrency and a single-binary distribution model; used for the whole system and the gateway HTTP layer.</li>
-        <li><strong>HTTP/3 (QUIC) + TLS 1.3, with HTTP/2 fallback</strong> — chosen for modern low-latency transport; used as the server surface with automatic negotiation.</li>
-        <li><strong>llama.cpp (CUDA/Metal/ROCm)</strong> — chosen for portable local inference across GPU/accelerator backends; the guaranteed fallback provider.</li>
-        <li><strong>LLMsVerifier</strong> — chosen to quantify provider quality; used to score and rank the cloud fallback chain (5-minute refresh).</li>
-        <li><strong>Cloud providers (Chutes, OpenRouter, HuggingFace, Nvidia, Cerebras, SambaNova, Together)</strong> — chosen to exploit free-tier capacity; auto-discovered and ranked into the failover chain.</li>
-        <li><strong>gRPC + SSE + Kafka</strong> — chosen for inter-mode communication in distributed deployments.</li>
-        <li><strong>Vector store / embeddings</strong> — chosen to power the RAG knowledge pipeline (ingest, chunk, embed, search).</li>
-        <li><strong>Prometheus + OpenTelemetry</strong> — chosen for metrics and tracing across modes.</li>
-        <li><strong>vasic-digital Go submodules</strong> — chosen for reuse of production infrastructure primitives.</li>
+        <li><strong>Go + Gin</strong> — chosen because a single-binary, concurrency-first runtime is what makes the whole mode system possible: one build that can be a laptop server or a cluster role. It carries the entire system and the gateway's HTTP layer.</li>
+        <li><strong>HTTP/3 (QUIC) + TLS 1.3, with HTTP/2 fallback</strong> — chosen for modern, low-latency, connection-resilient transport, exposed as the server surface with automatic negotiation so clients that can't do QUIC quietly drop to HTTP/2.</li>
+        <li><strong>llama.cpp (CUDA/Metal/ROCm)</strong> — chosen for portable local inference that accelerates across Nvidia, Apple, and AMD backends from one codebase; it doubles as the guaranteed last-resort provider that keeps the fallback chain from ever bottoming out.</li>
+        <li><strong>LLMsVerifier</strong> — chosen to turn "which provider is good right now" into a number; it scores and ranks the cloud fallback chain on a 5-minute refresh so routing tracks live quality, not stale assumptions.</li>
+        <li><strong>Cloud providers (Chutes, OpenRouter, HuggingFace, Nvidia, Cerebras, SambaNova, Together)</strong> — chosen to harvest free-tier capacity across many upstreams; auto-discovered and ranked into a single failover chain so no one provider is a point of failure.</li>
+        <li><strong>gRPC + SSE + Kafka</strong> — chosen as the inter-mode transports for distributed deployments: gRPC for service-to-service calls, SSE for streaming, and Kafka for decoupled event flow between roles.</li>
+        <li><strong>Vector store / embeddings</strong> — chosen to power the RAG knowledge pipeline end to end: ingest, chunk, embed, and search over documents that ground the model's answers.</li>
+        <li><strong>Prometheus + OpenTelemetry</strong> — chosen for metrics and distributed tracing that follow a request across whichever modes are deployed.</li>
+        <li><strong>vasic-digital Go submodules</strong> — chosen to reuse hardened production-infrastructure primitives instead of rebuilding them, keeping the system's foundation consistent with the wider stack.</li>
       </ul>
       <h2>The honest status</h2>
       <ul>
