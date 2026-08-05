@@ -1,0 +1,334 @@
+---
+layout: default
+title: "HelixMemory — Miloš Vasić"
+description: "HelixMemory is a Go SDK that unifies four leading memory systems (Mem0, Cognee, Letta, Graphiti) into a single cognitive memory engine that searches them in parallel and fuses the results. It gives AI applications one durable, deduplicated, re-ranked memory layer instead of four disconnected ones."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixmemory.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixmemory.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "fr",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixmemory.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixMemory is a Go SDK that unifies four leading memory systems (Mem0, Cognee, Letta, Graphiti) into a single cognitive memory engine that searches them in parallel and fuses the results. It gives AI applications one durable, deduplicated, re-ranked memory layer instead of four disconnected ones.",
+      "inLanguage": "fr",
+      "name": "HelixMemory",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixmemory.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 6</p>
+      <h1>HelixMemory <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Mem0</span><span class="od-chip">Cognee</span><span class="od-chip">Letta</span><span class="od-chip">Graphiti</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Neo4j</span><span class="od-chip">Redis</span><span class="od-chip">Prometheus</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/memory" rel="noopener noreferrer" target="_blank">HelixDevelopment/memory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixmemory">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixMemory — four engines, fused</text>
+<rect class="box" x="40" y="250" width="180" height="92" rx="10"/>
+<text class="t" x="130" y="284">AI Application</text>
+<text class="s" x="130" y="304">MemoryStore interface</text>
+<rect class="box" x="360" y="108" width="210" height="72" rx="10"/>
+<text class="t" x="465" y="144">Mem0</text>
+<text class="s" x="465" y="164">fact extraction</text>
+<rect class="box" x="360" y="194" width="210" height="72" rx="10"/>
+<text class="t" x="465" y="230">Cognee</text>
+<text class="s" x="465" y="250">semantic graph (ECL)</text>
+<rect class="box" x="360" y="280" width="210" height="72" rx="10"/>
+<text class="t" x="465" y="316">Letta</text>
+<text class="s" x="465" y="336">stateful runtime</text>
+<rect class="box" x="360" y="366" width="210" height="72" rx="10"/>
+<text class="t" x="465" y="402">Graphiti</text>
+<text class="s" x="465" y="422">bi-temporal graph</text>
+<rect class="accent" x="660" y="220" width="210" height="110" rx="10"/>
+<text class="t" x="765" y="256">Fusion Router</text>
+<text class="s" x="765" y="276">classify + route</text>
+<rect class="box" x="300" y="480" width="150" height="72" rx="10"/>
+<text class="t" x="375" y="516">Collect</text>
+<rect class="box" x="480" y="480" width="150" height="72" rx="10"/>
+<text class="t" x="555" y="516">Deduplicate</text>
+<rect class="box" x="660" y="480" width="200" height="72" rx="10"/>
+<text class="t" x="760" y="516">Cross-source Re-rank</text>
+<rect class="tint" x="655" y="585" width="205" height="60" rx="10"/>
+<text class="t" x="758" y="612">Unified Result</text>
+<text class="s" x="758" y="632">one ranked memory</text>
+<rect class="dash" x="40" y="470" width="180" height="82" rx="10"/>
+<text class="t" x="130" y="504">Circuit breakers</text>
+<text class="s" x="130" y="524">closed→open→half-open</text>
+<path class="conn" marker-end="url(#a)" d="M220,296 L360,300"/>
+<path class="conn" marker-end="url(#a)" d="M570,144 L655,262"/>
+<path class="conn" marker-end="url(#a)" d="M570,230 L655,268"/>
+<path class="conn" marker-end="url(#a)" d="M570,316 L655,278"/>
+<path class="conn" marker-end="url(#a)" d="M570,402 L655,286"/>
+<path class="conn" marker-end="url(#a)" d="M765,330 L765,430 L375,430 L375,478"/>
+<path class="conn" marker-end="url(#a)" d="M450,516 L478,516"/>
+<path class="conn" marker-end="url(#a)" d="M630,516 L658,516"/>
+<path class="conn" marker-end="url(#a)" d="M760,552 L758,583"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Un cerveau mémoriel unique pour les agents AI — quatre moteurs de pointe, fusionnés.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-0" aria-expanded="true" aria-controls="od-acc-helixmemory-0-panel">
+              <span class="od-accordion__label">Résumé</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-0-panel" role="region" aria-labelledby="od-acc-helixmemory-0">
+            <div class="od-accordion__inner">
+      <p>HelixMemory est un Go SDK qui unifie quatre systèmes mémoriels de premier plan (Mem0, Cognee, Letta, Graphiti) en un seul moteur cognitif de mémoire, capable de les interroger en parallèle et de fusionner les résultats. Il offre aux applications AI une couche mémorielle unique, durable, dédupliquée et reclassée, au lieu de quatre couches disjointes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-1" aria-expanded="true" aria-controls="od-acc-helixmemory-1-panel">
+              <span class="od-accordion__label">Description courte</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-1-panel" role="region" aria-labelledby="od-acc-helixmemory-1">
+            <div class="od-accordion__inner">
+      <p>HelixMemory est un Go SDK qui fusionne Mem0, Cognee, Letta et Graphiti en un moteur cognitif de mémoire unifié pour les applications AI. Il achemine intelligemment les écritures, interroge tous les backends en parallèle et fusionne les résultats via un pipeline en trois étapes : collecte, déduplication et reclassement.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-2" aria-expanded="true" aria-controls="od-acc-helixmemory-2-panel">
+              <span class="od-accordion__label">Description longue</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-2-panel" role="region" aria-labelledby="od-acc-helixmemory-2">
+            <div class="od-accordion__inner">
+      <p>HelixMemory est un moteur cognitif de mémoire unifié pour les applications AI, fourni sous la forme d'un Go SDK (module <code>digital.vasic.helixmemory</code>, Go 1.25+). Son postulat fondateur est qu'aucun projet de mémoire ne sera jamais le meilleur en tout — plutôt que de réimplémenter la mémoire à partir de zéro et d'hériter des angles morts d'un seul projet, il orchestre quatre systèmes de pointe et permet à chacun d'exploiter ses forces : Mem0 pour l'extraction dynamique de faits et la gestion des préférences, Cognee pour les graphes de connaissances sémantiques construits via des pipelines ECL, Letta pour un runtime d'agent à mémoire modifiable avec des blocs de mémoire éditables et un calcul en arrière-plan, et Graphiti pour un graphe de connaissances bi-temporel capable de raisonner sur l'évolution des faits dans le temps.</p>
+      <p>Un moteur de fusion est ce qui transforme ces quatre systèmes indépendants en un seul cerveau. Lors de l'écriture, chaque nouvelle mémoire est classée selon son contenu et acheminée vers le backend le plus adapté pour la stocker. Lors de la lecture, une requête est diffusée en parallèle à tous les backends, et les résultats bruts sont traités par un pipeline de fusion en trois étapes — collecte, déduplication, puis reclassement inter-sources — de sorte que l'appelant ne voit jamais quatre ensembles de résultats bruyants et redondants, mais une seule réponse propre et classée. Des disjoncteurs enveloppent chaque backend pour une dégradation gracieuse : lorsqu'un moteur tombe en panne, son disjoncteur se déclenche et les backends restants continuent de fonctionner, évitant ainsi d'entraîner toute la couche mémorielle dans sa chute. Comme le moteur implémente une interface <code>MemoryStore</code> prête à l'emploi, il s'intègre directement en remplacement d'un fournisseur de mémoire standard — sans nécessiter de réarchitecture côté appelant — et les métriques Prometheus exposent les rouages internes du routage et de la fusion pour une observabilité totale.</p>
+      <p>HelixMemory a été conçu comme couche mémorielle pour HelixAgent, l'ensemble AI Helix élargi, et il applique à la mémoire la discipline de test anti-bullshit de la famille : un exécuteur de défis intégré active les véritables chemins de code en production — routage, fusion, traducteur, disjoncteur — tandis qu'un wrapper de mutation apparié inverse délibérément les invariants pour prouver que les tests échouent effectivement lorsque la logique est défaillante, garantissant ainsi qu'une suite de tests au vert signifie quelque chose.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-3" aria-expanded="true" aria-controls="od-acc-helixmemory-3-panel">
+              <span class="od-accordion__label">Pourquoi nous l'avons conçu</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-3-panel" role="region" aria-labelledby="od-acc-helixmemory-3">
+            <div class="od-accordion__inner">
+      <p>Contenu</p>
+      <p>Les agents AI nécessitent une mémoire durable et de haute qualité, mais l’écosystème est fragmenté — chaque projet de mémoire (Mem0, Cognee, Letta, Graphiti) excelle dans un domaine tout en présentant des lacunes dans d’autres. HelixMemory a été conçu pour offrir à HelixAgent une surface mémoire unifiée qui combine leurs forces sans imposer un verrouillage sur l’un d’eux.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-4" aria-expanded="true" aria-controls="od-acc-helixmemory-4-panel">
+              <span class="od-accordion__label">Pourquoi c’est révolutionnaire</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-4-panel" role="region" aria-labelledby="od-acc-helixmemory-4">
+            <div class="od-accordion__inner">
+      <p>Il met fin au choix forcé. Quatre systèmes de mémoire qui se disputent habituellement le même créneau deviennent des backends complémentaires derrière une seule interface — ainsi, une application bénéficie simultanément d’une extraction dynamique de faits, de graphes de connaissances sémantiques, d’une mémoire d’agent à état persistant et d’un raisonnement bi-temporel, avec une déduplication et un réordonnancement inter-sources gérés automatiquement. Ce qui était auparavant irréalisable — considérer « quel moteur de mémoire adopter ? » comme un faux dilemme — devient possible : HelixMemory vous permet de cumuler leurs atouts en une seule <code>MemoryStore</code> prête à l’emploi, sans hériter des angles morts d’un moteur ni s’engager dans un verrouillage.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-5" aria-expanded="true" aria-controls="od-acc-helixmemory-5-panel">
+              <span class="od-accordion__label">Ce qui est innovant</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-5-panel" role="region" aria-labelledby="od-acc-helixmemory-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>Une <strong>fusion multi-backend</strong> (collecte → déduplication → réordonnancement inter-sources) qui renvoie un ensemble de résultats classés, plutôt que d’imposer au client un seul magasin.</li>
+        <li>Un <strong>routage intelligent des écritures</strong> qui classe chaque mémoire en fonction de son contenu et l’envoie vers le moteur le mieux adapté pour la stocker, garantissant que les bonnes données atterrissent au bon endroit.</li>
+        <li>Une <strong>dégradation gracieuse</strong> via des disjoncteurs par backend — un moteur défaillant est isolé, sans être fatal, et les autres continuent de répondre.</li>
+        <li>Une <strong>consolidation des calculs en période d’inactivité</strong> (via Letta) qui retravaille la mémoire pendant les phases creuses plutôt qu’uniquement au moment des requêtes.</li>
+        <li>Une <strong>vérification anti-bluffer</strong> : un exécuteur de défis sur du code de production réel, couplé à un wrapper de mutation qui doit échouer lorsqu’un invariant est inversé — prouvant que la porte de test est un véritable contrôle, et non une tautologie.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-6" aria-expanded="true" aria-controls="od-acc-helixmemory-6-panel">
+              <span class="od-accordion__label">Principaux défis techniques et solutions apportées</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-6-panel" role="region" aria-labelledby="od-acc-helixmemory-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Réconcilier quatre backends hétérogènes en un ensemble de résultats cohérent</strong> — chaque moteur renvoie la mémoire dans son propre format, et une fusion naïve génère des doublons et des classements incomparables. Résolu grâce à un moteur de fusion typé qui collecte les sources, déduplique les chevauchements et réordonne l’ensemble sur une base commune, avec un invariant de comptage fusionné vérifié dans les tests pour éviter toute perte ou double comptage silencieux.</li>
+        <li><strong>Rester opérationnel lorsque qu’un backend tombe en panne</strong> — un moteur de mémoire inaccessible ne doit pas bloquer toute la couche. Résolu avec des disjoncteurs par backend qui suivent un automate d’états fermé → ouvert (après un seuil d’échec) → semi-ouvert (après un délai), isolant le backend défaillant et continuant à servir depuis les autres jusqu’à son rétablissement.</li>
+        <li><strong>Prouver que la logique mémoire fonctionne réellement, et pas seulement qu’elle compile</strong> — une suite de tests au vert est inutile si les tests ne peuvent pas échouer. Résolu avec un exécuteur de défis intégré qui pilote le code de production réel (routage, fusion, traducteur, disjoncteur) et un wrapper de mutation couplé qui inverse les invariants et exige que les tests passent au rouge, garantissant ainsi que la porte de contrôle n’est pas une simple tautologie.</li>
+      </ul>
+      <p>Contenu</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-7" aria-expanded="true" aria-controls="od-acc-helixmemory-7-panel">
+              <span class="od-accordion__label">Pile technologique</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-7-panel" role="region" aria-labelledby="od-acc-helixmemory-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (1.25+)</strong> — le SDK et son environnement d'exécution unifiés ; choisi car la lecture parallèle en éventail sur quatre backends pose un problème de concurrence, et les goroutines de Go en rendent le coût négligeable, tandis que ses types d'interface offrent à l'ensemble du système une seule couture propre (<code>MemoryStore</code>) sur laquelle les appelants peuvent s'appuyer.</li>
+        <li><strong>Mem0</strong> — le backend d'extraction dynamique de faits et de gestion des préférences ; utilisé pour la partie « quelles sont les préférences réelles de cet utilisateur / quels faits ont émergé » de la mémoire.</li>
+        <li><strong>Cognee</strong> — le backend de graphe de connaissances sémantique construit sur des pipelines ECL ; utilisé pour stocker des connaissances structurées et liées, plutôt que des faits isolés.</li>
+        <li><strong>Letta</strong> — le backend d'exécution d'agents à état persistant, doté de blocs de mémoire modifiables et de calcul en arrière-plan pendant les périodes d'inactivité ; utilisé lorsque la mémoire doit persister en tant qu'état actif de l'agent et être consolidée durant les phases d'inactivité.</li>
+        <li><strong>Graphiti</strong> — le backend de graphe de connaissances bi-temporel ; utilisé pour raisonner sur l'évolution des faits et des relations dans le temps, et non seulement sur leur valeur actuelle.</li>
+        <li><strong>PostgreSQL + Neo4j + Redis</strong> — les véritables datastores sur lesquels s'exécutent les backends, déployés pour des tests d'intégration réels via <code>make infra-start</code>, afin que la suite teste une infrastructure en conditions réelles plutôt que des simulacres.</li>
+        <li><strong>Prometheus</strong> — métriques et observabilité intégrées via le pipeline de fusion, permettant de mesurer en production le comportement de routage et de fusion, plutôt que de fonctionner en boîte noire.</li>
+        <li><strong>Interface de traduction i18n</strong> — une surface de chaînes de caractères organisée par espaces de noms (<code>helixmemory_</code>), maintenue en place pour qu'une future couche utilisateur puisse être localisée sans avoir à modifier le cœur du système.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixmemory-8" aria-expanded="true" aria-controls="od-acc-helixmemory-8-panel">
+              <span class="od-accordion__label">Statut et notes de transparence</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixmemory-8-panel" role="region" aria-labelledby="od-acc-helixmemory-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Statut : bêta.</strong> SDK fonctionnel ; conçu comme couche mémoire pour HelixAgent.</li>
+        <li><strong>Licence : à déterminer.</strong> Aucune LICENCE n'a été détectée via le GitHub API — NON VÉRIFIÉE / non déclarée.</li>
+        <li>Le nom d'affichage « HelixMemory » correspond au dépôt <code>memory</code>. Les chiffres de précision mentionnés dans le README proviennent des affirmations des fournisseurs en amont, et non de mesures effectuées par HelixMemory, et sont donc omis ici.</li>
+      </ul>
+      <p><strong>Niveau de priorité :</strong> Helix-primaire.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
