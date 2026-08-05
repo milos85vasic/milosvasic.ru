@@ -1,0 +1,317 @@
+---
+layout: default
+title: "HelixSkills — Miloš Vasić"
+description: "HelixSkills is a skills system for CLI AI agents that inherits the Helix Constitution as a submodule, so every universal governance rule applies unconditionally. It packages installable agent skills, MCP tool servers, Claude Code plugins, and reusable engines behind a registerable, documented catalog."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixskills.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixskills.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixskills.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixskills.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixskills.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "es",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixskills.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixSkills is a skills system for CLI AI agents that inherits the Helix Constitution as a submodule, so every universal governance rule applies unconditionally. It packages installable agent skills, MCP tool servers, Claude Code plugins, and reusable engines behind a registerable, documented catalog.",
+      "inLanguage": "es",
+      "license": "Apache-2.0",
+      "name": "HelixSkills",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixskills.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 5</p>
+      <h1>HelixSkills <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Shell</span><span class="od-chip">Git submodules</span><span class="od-chip">Model Context Protocol</span><span class="od-chip">Claude Code plugins</span><span class="od-chip">Reusable engines (continuum, token_optimizer)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/skills" rel="noopener noreferrer" target="_blank">HelixDevelopment/skills <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixskills">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M480,150 L480,198"/>
+<path class="conn" marker-end="url(#a)" d="M420,280 L200,338"/>
+<path class="conn" marker-end="url(#a)" d="M480,280 L400,338"/>
+<path class="conn" marker-end="url(#a)" d="M540,280 L640,338"/>
+<path class="conn" marker-end="url(#a)" d="M400,410 L340,458"/>
+<path class="conn" marker-end="url(#a)" d="M640,410 L600,458"/>
+<rect class="accent" x="360" y="70" width="240" height="80" rx="10"/>
+<text class="t" x="480" y="104">HelixConstitution</text>
+<text class="s" x="480" y="124">universal rules (submodule)</text>
+<rect class="box" x="360" y="200" width="240" height="80" rx="10"/>
+<text class="t" x="480" y="234">HelixSkills</text>
+<text class="s" x="480" y="254">mounts + cascades</text>
+<rect class="box" x="60" y="340" width="200" height="70" rx="10"/>
+<text class="t" x="160" y="375">7 Constitution skills</text>
+<rect class="box" x="300" y="340" width="200" height="70" rx="10"/>
+<text class="t" x="400" y="375">4 draft skills</text>
+<rect class="box" x="540" y="340" width="220" height="70" rx="10"/>
+<text class="t" x="650" y="375">Reusable engines</text>
+<text class="s" x="650" y="395">continuum · token_optimizer</text>
+<rect class="tint" x="200" y="460" width="240" height="70" rx="10"/>
+<text class="t" x="320" y="495">MCP tool servers</text>
+<rect class="tint" x="500" y="460" width="240" height="70" rx="10"/>
+<text class="t" x="620" y="495">Claude Code plugins</text>
+<text class="h" x="32" y="44">HelixSkills — governance inheritance</text>
+<text class="lbl" x="360" y="52">Rules cascade ↓</text>
+<text class="lbl" x="60" y="322">Skill catalog</text>
+<text class="note" x="200" y="540">Universal rules reach every registered skill + consuming agent</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Sistema de habilidades respaldado por constitución y gobernanza para agentes de CLI AI.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-0" aria-expanded="true" aria-controls="od-acc-helixskills-0-panel">
+              <span class="od-accordion__label">Resumen</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-0-panel" role="region" aria-labelledby="od-acc-helixskills-0">
+            <div class="od-accordion__inner">
+      <p>HelixSkills es un sistema de habilidades para agentes de CLI AI que incorpora el Helix Constitution como submódulo, por lo que todas las reglas universales de gobernanza se aplican de manera incondicional. Agrupa habilidades instalables para agentes, servidores de herramientas MCP, complementos de código Claude y motores reutilizables en un catálogo documentado y registrable.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-1" aria-expanded="true" aria-controls="od-acc-helixskills-1-panel">
+              <span class="od-accordion__label">Descripción breve</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-1-panel" role="region" aria-labelledby="od-acc-helixskills-1">
+            <div class="od-accordion__inner">
+      <p>HelixSkills es un sistema de habilidades para agentes de CLI AI. Integra el Helix Constitution como submódulo para que todas las reglas universales se apliquen, e incluye habilidades registrables (prefijo de acción, validador de medios, multitrack, sincronización de sesión, ciclo de vida de elementos procesables y más), dos servidores de herramientas MCP, dos complementos de código Claude y motores reutilizables.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-2" aria-expanded="true" aria-controls="od-acc-helixskills-2-panel">
+              <span class="od-accordion__label">Descripción detallada</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-2-panel" role="region" aria-labelledby="od-acc-helixskills-2">
+            <div class="od-accordion__inner">
+      <p>HelixSkills (repositorio <code>skills</code>, licencia Apache-2.0) es un sistema de habilidades para agentes de CLI AI, y parte de una inversión deliberada del orden habitual: primero la gobernanza, luego la capacidad. Hereda el Helix Constitution como submódulo <code>constitution/</code>, por lo que todas las reglas universales de <code>constitution/CLAUDE.md</code> y <code>constitution/Constitution.md</code> se aplican sin excepción —no como una convención que un agente pueda respetar, sino como un conjunto de normas físicamente integrado en el árbol del proyecto. Un agente que adopta HelixSkills no puede eludir la constitución; las reglas viajan con el código.</p>
+      <p>Mientras que la mayoría de los "marcos de habilidades" operan con abstracciones, HelixSkills ofrece un inventario concreto y registrable que puede instalarse directamente. Siete habilidades constitucionales se instalan mediante <code>register.sh</code>: action-prefix-system, media-validator, multitrack, reporting-workable-items, scheduled-work-queue, session-sync y workable-item-lifecycle —un abanico que va de intermedio a avanzado, cubriendo desde la nomenclatura disciplinada de acciones hasta la validación de medios y el ciclo de vida completo de una unidad de trabajo. Además, ya están indexadas y preparadas habilidades en borrador (Android overview, lenguaje Java/Kotlin, sistema operativo Linux), a la espera de activación. Dos servidores de herramientas MCP (media-validator y scheduled-work) exponen estas habilidades a los agentes a través de Model Context Protocol, mientras que dos complementos de código Claude (helix y scheduled-work) integran las mismas capacidades directamente en el entorno de ejecución del agente —un mismo conjunto de habilidades, accesible para los agentes independientemente de la interfaz que utilicen.</p>
+      <p>Bajo el catálogo se encuentran cuatro motores reutilizables de profundidad 1 —continuum (implementado), junto con session_orchestrator, token_optimizer y clickup_sync (en diseño)—, la infraestructura compartida que evita que las habilidades reinventen la misma funcionalidad básica. El token_optimizer, por sí solo, declara un grafo de dependencias explícito que se extiende a los paquetes del ecosistema vasic-digital (TOON, Embeddings, VectorDB, Normalize, conversation) y al LLMProvider de HelixDevelopment, lo que permite auditar su integración entre repositorios en lugar de dejarla implícita. Todo el sistema está respaldado por una documentación rigurosa: un catálogo de habilidades, un índice autogenerado del grafo de habilidades, páginas de detalle por repositorio y un registro franco de Lagunas y Riesgos que identifica lo que aún no está completado. El sistema completo se replica en GitHub, GitLab, GitFlic y GitVerse para garantizar resiliencia y acceso regional.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-3" aria-expanded="true" aria-controls="od-acc-helixskills-3-panel">
+              <span class="od-accordion__label">Por qué lo creamos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-3-panel" role="region" aria-labelledby="od-acc-helixskills-3">
+            <div class="od-accordion__inner">
+      <p>Los agentes CLI y AI necesitan capacidades coherentes, reguladas y reutilizables, no scripts improvisados que reinventen las reglas en cada caso. HelixSkills se desarrolló para ofrecer a los agentes un conjunto de habilidades empaquetado y registrable, vinculado a una constitución compartida, de modo que el comportamiento se mantenga consistente y auditable en todos los agentes y proyectos que lo adopten.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-4" aria-expanded="true" aria-controls="od-acc-helixskills-4-panel">
+              <span class="od-accordion__label">Por qué cambia las reglas del juego</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-4-panel" role="region" aria-labelledby="od-acc-helixskills-4">
+            <div class="od-accordion__inner">
+      <p>Hace que la capacidad de los agentes sea portátil y cumpla con las normas *por diseño*, no por disciplina. Cada habilidad es una unidad gobernada, versionada e instalable respaldada por un submódulo constitucional, de manera que, en el momento en que un agente registra una habilidad, hereda automáticamente el conjunto de reglas canónico, sin margen para desviaciones. Esto abre la puerta a algo que antes no era viable: trasladar una capacidad de un agente o proyecto a otro sabiendo que llega ya vinculada a la misma gobernanza, accesible a través de interfaces estándar (servidores MCP y complementos de código Claude), en lugar de un montón de scripts de integración ad hoc que reinventan las reglas en cada caso.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-5" aria-expanded="true" aria-controls="od-acc-helixskills-5-panel">
+              <span class="od-accordion__label">Qué tiene de innovador</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-5-panel" role="region" aria-labelledby="od-acc-helixskills-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Constitution como submódulo</strong>: las reglas de gobernanza universales se heredan, no se copian. Se integran en el árbol de modo que cada agente que las consume queda sujeto al mismo conjunto de reglas canónico, con actualizaciones que fluyen desde una única fuente de verdad en lugar de una docena de copias obsoletas.</li>
+        <li><strong>Habilidades entregadas como unidades auto-registrables</strong> (<code>register.sh</code>) y ensambladas en un índice de grafo de habilidades generado automáticamente, para que el catálogo permanezca accesible y nunca pierda sincronía con lo realmente instalado.</li>
+        <li><strong>Exposición multisuperficie</strong>: el mismo conjunto de habilidades llega a los agentes a través de servidores de herramientas MCP *y* complementos de código Claude. Escribir una vez, comunicarse con el entorno de ejecución que utilice el agente.</li>
+        <li><strong>Motores reutilizables de profundidad 1</strong> (continuum, token_optimizer, session_orchestrator, clickup_sync) compartidos en todo el ecosistema, cada uno con declaraciones explícitas y auditables de dependencias entre repositorios, en lugar de acoplamientos ocultos.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-6" aria-expanded="true" aria-controls="od-acc-helixskills-6-panel">
+              <span class="od-accordion__label">Principales desafíos técnicos y cómo los resolvimos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-6-panel" role="region" aria-labelledby="od-acc-helixskills-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Mantener el comportamiento de los agentes consistente y conforme a las reglas en múltiples habilidades y agentes</strong>: reimplementar la gobernanza por habilidad garantiza divergencias con el tiempo. Se resolvió integrando el Helix Constitution como submódulo, de modo que las reglas en <code>constitution/CLAUDE.md</code> y <code>constitution/Constitution.md</code> se apliquen de manera incondicional y se actualicen desde un único origen, en lugar de copiarse y quedar obsoletas.</li>
+        <li><strong>Hacer que un conjunto de habilidades en crecimiento sea instalable y detectable</strong>: un catálogo no sirve de nada si nadie puede encontrar o instalar lo que contiene. Se resolvió con el registro por habilidad mediante <code>register.sh</code>, que conecta cada una al instalarse, junto con un grafo de habilidades INDEX generado automáticamente y documentación detallada por repositorio, para que la detección refleje la realidad de forma automática.</li>
+        <li><strong>Llegar a agentes que operan en distintos entornos de ejecución</strong>: la misma capacidad no debería reconstruirse para cada host. Se resolvió empaquetando un único conjunto de habilidades tanto en definiciones de servidores de herramientas MCP (bajo <code>constitution/mcp/</code>) como en complementos de código Claude (bajo <code>constitution/plugins/</code>), de modo que una sola implementación esté disponible en todas las interfaces.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-7" aria-expanded="true" aria-controls="od-acc-helixskills-7-panel">
+              <span class="od-accordion__label">Pila tecnológica</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-7-panel" role="region" aria-labelledby="od-acc-helixskills-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Shell (lenguaje principal)</strong> — elegido porque las herramientas de instalación y registro deben ejecutarse en cualquier entorno donde resida un agente, sin necesidad de un entorno de ejecución previo; impulsa <code>register.sh</code> e <code>install_upstreams</code>, manteniendo la incorporación libre de dependencias y portátil.</li>
+        <li><strong>Submódulos de Git</strong> — seleccionados para heredar la gobernanza sin duplicación: el Helix Constitution se monta en <code>constitution/</code> como referencia en vivo, de modo que las actualizaciones de reglas se propagan mediante un único puntero en lugar de copiarse y pegarse para luego olvidarse.</li>
+        <li><strong>Model Context Protocol (MCP)</strong> — adoptado como la interfaz estándar de herramientas para agentes, independiente del entorno de ejecución; se definen dos servidores MCP (media-validator y scheduled-work) bajo <code>constitution/mcp/</code> para exponer habilidades como herramientas invocables.</li>
+        <li><strong>Complementos de código Claude</strong> — elegidos para integrar habilidades de forma nativa en el entorno de ejecución del agente sin necesidad de código adhesivo; dos complementos (helix y scheduled-work) se distribuyen bajo <code>constitution/plugins/</code>, replicando la superficie MCP para un host diferente.</li>
+        <li><strong>Motores reutilizables (continuum, token_optimizer, session_orchestrator, clickup_sync)</strong> — seleccionados para extraer la maquinaria compartida de habilidades individuales y reutilizarla en distintos proyectos; token_optimizer, por ejemplo, está conectado a los paquetes vasic-digital (TOON, Embeddings, VectorDB, Normalize, conversation) y al LLMProvider de HelixDevelopment mediante dependencias declaradas, en lugar de duplicar código.</li>
+        <li><strong>Espejado de Git en múltiples hosts (GitHub, GitLab, GitFlic, GitVerse)</strong> — implementado para que la caída de un único host o un bloqueo regional no interrumpa el acceso; el mismo repositorio se mantiene activo en cuatro forjas para garantizar resiliencia y alcance.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-8" aria-expanded="true" aria-controls="od-acc-helixskills-8-panel">
+              <span class="od-accordion__label">Estado y notas de transparencia</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-8-panel" role="region" aria-labelledby="od-acc-helixskills-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Estado: beta.</strong> Se han lanzado las siete habilidades constitucionales, dos servidores MCP y dos complementos; las habilidades en borrador están indexadas y pendientes de activación, y tres de los cuatro motores de profundidad 1 (session_orchestrator, token_optimizer y clickup_sync) aún están en fase de diseño.</li>
+        <li>El archivo README se refiere al proyecto como <code>helix_skills</code>; la ruta canónica en GitHub es <code>HelixDevelopment/skills</code>. La cifra de hallazgos registrados en el README es un dato autoinformado.</li>
+      </ul>
+      <p><strong>Nivel de prioridad:</strong> Helix-principal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

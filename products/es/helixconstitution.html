@@ -1,0 +1,342 @@
+---
+layout: default
+title: "HelixConstitution — Miloš Vasić"
+description: "HelixConstitution is the single, project-agnostic rulebook — added as a Git submodule by every Helix/vasic-digital project — that encodes non-negotiable engineering discipline (anti-bluff, evidence-only validation, data/host safety, documentation and test coverage) and propagates it to a fleet of 140+ repositories. It is the governance backbone that makes the whole family coherent."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixconstitution.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "es",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixconstitution.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixConstitution is the single, project-agnostic rulebook — added as a Git submodule by every Helix/vasic-digital project — that encodes non-negotiable engineering discipline (anti-bluff, evidence-only validation, data/host safety, documentation and test coverage) and propagates it to a fleet of 140+ repositories. It is the governance backbone that makes the whole family coherent.",
+      "inLanguage": "es",
+      "name": "HelixConstitution",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixconstitution.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 19</p>
+      <h1>HelixConstitution <span class="od-h1-badges"><span class="od-badge--status od-badge--status--shipped">shipped</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Git-submodule inheritance</span><span class="od-chip">find_constitution.sh (parent-walk + superproject recursion)</span><span class="od-chip">install_upstreams.sh (multi-provider push)</span><span class="od-chip">§1.1 mutation meta-tests</span><span class="od-chip">Propagation gates (CM-COVENANT-114-NNN-PROPAGATION)</span><span class="od-chip">submodules-catalogue.md</span><span class="od-chip">Multi-format export (md/html/pdf/docx)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/HelixConstitution" rel="noopener noreferrer" target="_blank">vasic-digital/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixconstitution">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixConstitution — inheritance &amp; propagation</text>
+<text class="lbl" x="40" y="96">Inheritance (extend, never weaken)</text>
+<text class="lbl" x="560" y="216">Fleet propagation · gate-checked</text>
+<text class="note" x="475" y="205">distributed as submodule</text>
+<rect class="accent" x="40" y="120" width="340" height="90" rx="10"/>
+<text class="t" x="210" y="154">Universal base Constitution</text>
+<text class="s" x="210" y="174">Git submodule · §11.4.x covenants</text>
+<rect class="box" x="40" y="250" width="340" height="80" rx="10"/>
+<text class="t" x="210" y="290">Project layer</text>
+<text class="s" x="210" y="310">own Constitution / CLAUDE / AGENTS</text>
+<rect class="box" x="40" y="360" width="340" height="80" rx="10"/>
+<text class="t" x="210" y="400">Subdirectory overrides</text>
+<text class="s" x="210" y="420">optional · most local</text>
+<rect class="accent" x="560" y="240" width="180" height="90" rx="10"/>
+<text class="t" x="650" y="274">Constitution repo</text>
+<text class="s" x="650" y="294">one source of truth</text>
+<rect class="box" x="800" y="120" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="150">HelixTrack</text>
+<rect class="box" x="800" y="186" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="216">HelixCode</text>
+<rect class="box" x="800" y="290" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="320">HelixQA</text>
+<rect class="dash" x="800" y="356" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="386">…140+ repos</text>
+<path class="conn" marker-end="url(#a)" d="M210,210 L210,248"/>
+<path class="conn" marker-end="url(#a)" d="M210,330 L210,358"/>
+<path class="conn" marker-end="url(#a)" d="M380,165 L558,262"/>
+<path class="conn" marker-end="url(#a)" d="M740,265 L798,148"/>
+<path class="conn" marker-end="url(#a)" d="M740,275 L798,212"/>
+<path class="conn" marker-end="url(#a)" d="M740,300 L798,314"/>
+<path class="conn" marker-end="url(#a)" d="M740,310 L798,380"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>La constitución universal de ingeniería que hereda cada proyecto — ley anti-engaño, aplicada mecánicamente, compartida como un submódulo de Git.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-0" aria-expanded="true" aria-controls="od-acc-helixconstitution-0-panel">
+              <span class="od-accordion__label">Resumen</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-0-panel" role="region" aria-labelledby="od-acc-helixconstitution-0">
+            <div class="od-accordion__inner">
+      <p>HelixConstitution es el único reglamento agnóstico a los proyectos —incorporado como submódulo de Git en cada proyecto Helix/vasic-digital— que codifica una disciplina de ingeniería innegociable (anti-engaño, validación basada únicamente en evidencia, seguridad de datos y hosts, documentación y cobertura de pruebas) y la propaga a una flota de más de 140 repositorios. Es la columna vertebral de gobernanza que dota de coherencia a todo el ecosistema.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-1" aria-expanded="true" aria-controls="od-acc-helixconstitution-1-panel">
+              <span class="od-accordion__label">Descripción breve</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-1-panel" role="region" aria-labelledby="od-acc-helixconstitution-1">
+            <div class="od-accordion__inner">
+      <p>Un Constitution universal e heredable, distribuido como submódulo de Git. Establece reglas obligatorias e innegociables —barreras de evidencia anti-engaño, inmunidad a falsos positivos, seguridad de datos y hosts, disciplina en cobertura y documentación— que cada proyecto que lo adopta hereda automáticamente y puede extender, pero nunca debilitar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-2" aria-expanded="true" aria-controls="od-acc-helixconstitution-2-panel">
+              <span class="od-accordion__label">Descripción detallada</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-2-panel" role="region" aria-labelledby="od-acc-helixconstitution-2">
+            <div class="od-accordion__inner">
+      <p>HelixConstitution es la fuente canónica y única de verdad para las prácticas de ingeniería compartidas por todos los proyectos que deciden adoptarlo como submódulo de Git —ley de ingeniería distribuida y versionada exactamente como el código—. Su pieza central —<code>Constitution.md</code>— es un documento de ~1 MB, versionado de forma continua, compuesto por cláusulas numeradas (la familia de pactos §11.4.x, actualmente hasta §11.4.170) y manuales operativos por agente (<code>CLAUDE.md</code>, <code>AGENTS.md</code>, <code>QWEN.md</code>, <code>GEMINI.md</code>), que lo importan por referencia para que tanto humanos como cada agente CLI consulten un mismo reglamento idéntico. La herencia está diseñada en tres capas: la base universal (este submódulo), la capa del proyecto (el propio Constitution/CLAUDE/AGENTS del proyecto que lo extiende) y una capa opcional por subdirectorio —evaluadas de arriba hacia abajo, donde un proyecto puede *endurecer* las reglas, pero está arquitectónicamente impedido de *relajarlas*—. El resultado es una flota de más de 140 repositorios que no pueden divergir en silencio, pues la disciplina que comparten está fijada, no memorizada.</p>
+      <p>El documento es intransigentemente agnóstico al dominio: cualquier mención a un proveedor específico, SKU de hardware, puerto o versión de biblioteca debe trasladarse al propio Constitution del proyecto que lo consume, y la universalidad nunca se da por sentada —debe *ganarse* superando una prueba explícita de cuatro partes antes de que una regla sea admitida en la base—. Su columna vertebral filosófica es el anti-engaño, expresado como una familia interconectada de pactos —§1.1 inmunidad a falsos positivos, §11.4 pacto de calidad para el usuario final, §11.4.6 prohibición de suposiciones, §11.4.69 taxonomía de evidencia positiva— cuyo efecto combinado traza una línea roja única: el listón para lanzar un producto nunca es "las pruebas pasan", sino "un usuario real puede usar la función", y todo resultado positivo debe respaldarse con evidencia física capturada o no cuenta. Un documento complementario, <code>submodules-catalogue.md</code> (142 repositorios), convierte la pregunta *"¿ya tenemos algo que haga esto?"* en un reflejo de catálogo primero, extender en lugar de reimplementar, antes de escribir una sola línea de código nuevo. Scripts auxiliares localizan el submódulo desde cualquier nivel de anidamiento y difunden cada commit a cuatro proveedores de Git independientes, de modo que el reglamento autoritativo único también resulta imposible de perder.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-3" aria-expanded="true" aria-controls="od-acc-helixconstitution-3-panel">
+              <span class="od-accordion__label">Por qué lo creamos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-3-panel" role="region" aria-labelledby="od-acc-helixconstitution-3">
+            <div class="od-accordion__inner">
+      <p>Múltiples aplicaciones de producto grandes y docenas de submódulos reutilizables desacoplados, creados por el mismo propietario, seguían redescubriendo las mismas reglas ganadas con esfuerzo —y seguían topándose con la misma clase de fallo: pruebas e informes de estado que afirmaban éxito mientras la función estaba rota para el usuario final ("falsos positivos" y "falsos negativos"). Cada anclaje forense en el Constitution registra un incidente real (por ejemplo, el falso positivo del enrutamiento de audio D3 del 20-05-2026, donde la validación se puso en verde con el campo "Códec en uso" vacío, o la interfaz de botón gigante del 25-06-2026 que superó las pruebas de igualdad de tokens mientras la pantalla real estaba rota). El Constitution existe para hacer mecánicamente imposible, de una vez y para siempre, toda esa clase de éxito deshonesto, de modo que la disciplina no se diluya entre proyectos ni caiga en el olvido.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-4" aria-expanded="true" aria-controls="od-acc-helixconstitution-4-panel">
+              <span class="od-accordion__label">Por qué es un cambio radical</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-4-panel" role="region" aria-labelledby="od-acc-helixconstitution-4">
+            <div class="od-accordion__inner">
+      <p>Transforma la cultura de ingeniería de un conjunto de documentación que la gente espera seguir en una ley heredada, versionada y aplicada mecánicamente —la diferencia entre una guía de estilo y un compilador—. Una actualización de submódulo actualiza las reglas para toda la flota de una vez, de forma atómica y trazable. Un único pacto anti-falsos positivos está *garantizado* presente en cada repositorio consumidor, no por confianza, sino por diseño: una puerta de propagación busca literalmente el número de cláusula en toda la flota, y una prueba de mutación asociada demuestra que la puerta en sí no miente —así que incluso la aplicación de las normas está aplicada—. La gobernanza deja de ser una aspiración en una wiki que nadie lee y se convierte en un hecho auditable y comprobable al que puede apuntar un trabajo de CI.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-5" aria-expanded="true" aria-controls="od-acc-helixconstitution-5-panel">
+              <span class="od-accordion__label">Qué tiene de innovador</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-5-panel" role="region" aria-labelledby="od-acc-helixconstitution-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Constitution como submódulo</strong>: la ley de ingeniería se distribuye y versiona exactamente como el código, con etiquetas deliberadas al estilo <code>v1.0.0</code> y fijación por proyecto, de modo que cada repositorio sabe *exactamente* a qué revisión de la ley está sujeto.</li>
+        <li><strong>Anti-falsos positivos como doctrina forense de primer orden</strong>: cada cláusula se remonta a un mandato literal del operador y, a menudo, al incidente real que la motivó, por lo que el reglamento se lee como jurisprudencia en lugar de opinión.</li>
+        <li><strong>Metapruebas de las propias reglas (§1.1)</strong>: cada puerta va acompañada de una mutación que debe cambiar PASS→FAIL, de modo que "la puerta no es un engaño" no se afirma, sino que se demuestra en cada ejecución; una puerta que nunca puede fallar se considera peor que no tener puerta alguna.</li>
+        <li><strong>Universalidad ganada</strong>: un test explícito de cuatro partes decide si una regla es verdaderamente universal o solo específica de un proyecto, manteniendo la base ágil, portable y libre de filtraciones de proveedores.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-6" aria-expanded="true" aria-controls="od-acc-helixconstitution-6-panel">
+              <span class="od-accordion__label">Cómo se usa en todos los productos (los poderes que otorga)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-6-panel" role="region" aria-labelledby="od-acc-helixconstitution-6">
+            <div class="od-accordion__inner">
+      <p>Como <strong>pilar de gobernanza obligatorio</strong>, el HelixConstitution no es un documento que la familia consulte: es la estructura portante sobre la que se construye la familia.</p>
+      <ul>
+        <li><strong>Columna vertebral de gobernanza</strong>: cada proyecto Helix/vasic-digital lo añade como submódulo e lo importa desde <code>CLAUDE.md</code> / <code>AGENTS.md</code> / <code>QWEN.md</code> / su propio <code>Constitution.md</code>; las reglas se aplican sin condiciones, desde el primer commit, sin opción de exclusión por proyecto.</li>
+        <li><strong>Puertas y mandatos</strong>: define el modelo de cobertura de cuatro capas —presencia en el código, supervivencia al build, comportamiento en runtime, puerta-no-falsa— que una función debe superar en los cuatro niveles antes de considerarse terminada, además de un creciente catálogo de mandatos nombrados: manejo de credenciales (§11.4.10), sincronización obligatoria de documentación (§11.4.60), mandato de submódulos en contenedores (§11.4.76), CodeGraph (§11.4.78), cobertura obligatoria de tipos de prueba (§11.4.169), entre otros.</li>
+        <li><strong>Propagación</strong>: las puertas <code>CM-COVENANT-114-NNN-PROPAGATION</code> verifican que el *texto literal* de la cláusula esté presente en toda la flota consumidora, de modo que un pacto no pueda eliminarse discretamente en un rincón del sistema; el incumplimiento es un bloqueo de lanzamiento sin escapatoria ni banderas para ignorarlo.</li>
+        <li><strong>Descubrimiento</strong>: <code>submodules-catalogue.md</code> convierte la pregunta "¿ya tenemos algo que haga X?" en una respuesta de un vistazo antes de crear cualquier nuevo módulo, eliminando el esfuerzo duplicado desde el origen.</li>
+        <li><strong>Consistencia de los agentes AI</strong>: la misma ley se expresa de forma idéntica para cada agente CLI (Claude Code, Codex/Cursor/Aider/OpenCode/Crush/Kimi a través de AGENTS.md, Qwen Code mediante QWEN.md), de modo que, sin importar qué herramienta toque el código, obedece uno y el mismo pacto.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-7" aria-expanded="true" aria-controls="od-acc-helixconstitution-7-panel">
+              <span class="od-accordion__label">Mayores desafíos técnicos y cómo los resolvimos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-7-panel" role="region" aria-labelledby="od-acc-helixconstitution-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Localizar el submódulo desde una profundidad anidada arbitraria</strong> — una regla enterrada tres submódulos de profundidad debe encontrar la ley sin saber dónde reside → <code>find_constitution.sh</code> recorre los directorios padre y sigue el puntero del superproyecto de Git de forma recursiva, respetando un parámetro de anulación <code>CONSTITUTION_DIR</code> y dos estructuras admitidas (<code>constitution/</code>, <code>submodules/constitution/</code>), de modo que la resolución es determinista sin importar la profundidad del anidamiento.</li>
+        <li><strong>Mantener un repositorio autoritativo en cuatro proveedores de Git</strong> — los espejos no sirven de nada si divergen → <code>install_upstreams.sh</code> lee los remotos declarativos <code>Upstreams/*.sh</code> y configura <code>origin</code> con múltiples URLs de envío, de manera que un único <code>git push</code> se distribuye atómicamente a GitHub (primario), GitLab, GitFlic y GitVerse, sin que ningún espejo quede desactualizado.</li>
+        <li><strong>Evitar la inflación de reglas / filtración de proyectos en la base universal</strong> — cada tentación de "agregarlo aquí" erosiona la portabilidad → se aplica a *cada* nueva regla la prueba de universalidad ganada en cuatro partes, junto con la clasificación universal vs. proyecto del §11.4.17, obligando a que las preocupaciones específicas de un proyecto se mantengan en la capa del proyecto, donde corresponden.</li>
+        <li><strong>Demostrar que el mecanismo de herencia realmente funciona</strong> — un filtro que nunca falla es un filtro en el que no se puede confiar → <code>meta_test_inheritance.sh</code>, una meta-prueba centinela, elimina deliberadamente el anclaje del §11.4 y verifica que el filtro lo detecte, de modo que el mecanismo de aplicación se revalida continuamente contra roturas silenciosas.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-8" aria-expanded="true" aria-controls="od-acc-helixconstitution-8-panel">
+              <span class="od-accordion__label">Pila tecnológica</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-8-panel" role="region" aria-labelledby="od-acc-helixconstitution-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Herencia mediante submódulos de Git</strong> — *por qué:* los submódulos de Git son el único mecanismo que permite que un reglamento sea autoritativo *y* esté versionado por consumidor, actualizándose mediante un cambio explícito y revisable, en lugar de una copia silenciosa; *cómo:* los proyectos que lo consumen añaden el submódulo y <code>@import</code> sus archivos de agente, y las tres capas se evalúan de arriba abajo con un contrato estricto de *extiende-sin-debilitar* en cada frontera.</li>
+        <li><strong><code>find_constitution.sh</code></strong> — *por qué:* las reglas son inútiles si el código profundamente anidado no puede encontrarlas de manera fiable, y codificar rutas fijas rompería en cuanto un proyecto se reorganizara; *cómo:* un recorrido por directorios padre más recursión con <code>git rev-parse --show-superproject-working-tree</code>, respaldado por un parámetro de anulación <code>CONSTITUTION_DIR</code>, resolviendo ambas estructuras admitidas.</li>
+        <li><strong><code>install_upstreams.sh</code> + <code>Upstreams/</code></strong> — *por qué:* la redundancia de cuatro proveedores solo es real si no requiere esfuerzo adicional para mantenerse, de lo contrario los espejos se degradan; *cómo:* los archivos <code>.sh</code> declarativos por remoto se materializan en un único <code>origin</code> multi-URL, condensando cuatro envíos en uno.</li>
+        <li><strong>Metapruebas de mutación del §1.1</strong> — *por qué:* un filtro que nunca falla es peor que no tener ninguno, porque genera falsa confianza; *cómo:* cada filtro se empareja con una mutación de eliminación/renombrado mediante <code>sed</code> que debe convertir PASS→FAIL y luego se restaura, de modo que cada filtro demuestra que sigue siendo efectivo en cada ejecución.</li>
+        <li><strong>Filtros de propagación (<code>CM-COVENANT-114-NNN-PROPAGATION</code>)</strong> — *por qué:* un pacto solo es universal si está verificablemente presente en *todos* los consumidores, no solo en el repositorio insignia; *cómo:* una búsqueda literal del número de cláusula en los consumidores, respaldada por una metaprueba del §1.1 que demuestra que la verificación de propagación puede fallar.</li>
+        <li><strong><code>submodules-catalogue.md</code> (§11.4.74)</strong> — *por qué:* la forma más rápida de violar la disciplina anti-duplicación es no saber lo que ya se posee; *cómo:* un inventario de 142 repositorios agrupados por capacidades, con una verificación del catálogo registrada en el rastreador *antes* de crear cualquier nuevo andamiaje.</li>
+        <li><strong>Exportación multiformato</strong> — *por qué:* la misma ley debe ser igualmente consumible por humanos que la leen, herramientas que la analizan y archivos que la preservan; *cómo:* cada documento canónico se emite como <code>.md</code> / <code>.html</code> / <code>.pdf</code> / <code>.docx</code> a partir de una única fuente.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-9" aria-expanded="true" aria-controls="od-acc-helixconstitution-9-panel">
+              <span class="od-accordion__label">Notas sobre estado y honestidad</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-9-panel" role="region" aria-labelledby="od-acc-helixconstitution-9">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Estado: enviado.</strong> Versión activa en uso como submódulo en toda la flota (repositorios públicos canónicos y espejo).</li>
+        <li><strong>Licencia: por determinar</strong> — no especificada explícitamente en el material fuente revisado; confirmar con el archivo LICENSE del repositorio antes de publicar.</li>
+        <li>Espejos adicionales en upstream: GitLab <code>helixdevelopment1/helixconstitution</code>, GitFlic <code>helixdevelopment/helixconstitution</code>, GitVerse <code>helixdevelopment/HelixConstitution</code>.</li>
+      </ul>
+      <p><strong>Nivel de prioridad:</strong> Helix-principal — pilar de gobernanza obligatorio en la construcción de todo lo perteneciente a la familia Helix.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

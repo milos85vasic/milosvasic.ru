@@ -1,0 +1,330 @@
+---
+layout: default
+title: "HelixOTA — Miloš Vasić"
+description: "Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixota.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixota.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixota.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixota.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixota.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixota.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixota.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "es",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixota.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max.",
+      "inLanguage": "es",
+      "license": "Apache-2.0",
+      "name": "HelixOTA",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixota.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 9</p>
+      <h1>HelixOTA <span class="od-h1-badges"><span class="od-badge--status od-badge--status--in-development">in-development</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">Kotlin / KMP</span><span class="od-chip">HTTP/3 QUIC</span><span class="od-chip">PostgreSQL</span><span class="od-chip">MinIO / S3</span><span class="od-chip">AOSP update_engine + AVB/dm-verity</span><span class="od-chip">React</span><span class="od-chip">OpenTelemetry</span><span class="od-chip">Prometheus / Grafana</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helix_ota" rel="noopener noreferrer" target="_blank">HelixDevelopment/helix_ota <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixota">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixOTA — three-plane architecture</text>
+<text class="lbl" x="40" y="92">Control plane</text>
+<text class="lbl" x="370" y="92">Data plane</text>
+<text class="lbl" x="700" y="92">Device</text>
+<text class="note" x="490" y="440">Extractable seams: control ↔ data · data ↔ device</text>
+<rect class="accent" x="40" y="110" width="240" height="80" rx="10"/>
+<text class="t" x="160" y="144">Control plane</text>
+<text class="s" x="160" y="164">Go + Gin · HTTP/3 QUIC</text>
+<rect class="box" x="40" y="210" width="240" height="64" rx="10"/>
+<text class="t" x="160" y="242">Rollout orchestrator</text>
+<text class="s" x="160" y="262">5→10→30→100 %</text>
+<rect class="box" x="40" y="290" width="240" height="64" rx="10"/>
+<text class="t" x="160" y="322">React dashboard</text>
+<rect class="box" x="370" y="110" width="240" height="80" rx="10"/>
+<text class="t" x="490" y="144">PostgreSQL</text>
+<text class="s" x="490" y="164">release metadata</text>
+<rect class="box" x="370" y="200" width="240" height="64" rx="10"/>
+<text class="t" x="490" y="232">MinIO / S3</text>
+<text class="s" x="490" y="252">artifact store</text>
+<rect class="box" x="370" y="280" width="240" height="64" rx="10"/>
+<text class="t" x="490" y="312">OpenTelemetry</text>
+<text class="s" x="490" y="332">Prometheus · Grafana</text>
+<rect class="accent" x="700" y="110" width="240" height="80" rx="10"/>
+<text class="t" x="820" y="144">Device agent</text>
+<text class="s" x="820" y="164">Kotlin / KMP</text>
+<rect class="box" x="700" y="210" width="240" height="64" rx="10"/>
+<text class="t" x="820" y="242">update_engine</text>
+<text class="s" x="820" y="262">AVB / dm-verity</text>
+<rect class="good" x="700" y="290" width="240" height="80" rx="10"/>
+<text class="gt" x="820" y="324">A/B slots</text>
+<text class="s" x="820" y="344">zero-brick rollback</text>
+<path class="conn" marker-end="url(#a)" d="M280,150 L368,150"/>
+<path class="conn" marker-end="url(#a)" d="M280,242 L368,232"/>
+<path class="conn" marker-end="url(#a)" d="M610,150 L698,150"/>
+<path class="conn" marker-end="url(#a)" d="M610,232 L698,242"/>
+<path class="conn" marker-end="url(#a)" d="M280,320 L698,330"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Actualizaciones universales y desacopladas por aire: cero bloqueos por diseño.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-0" aria-expanded="true" aria-controls="od-acc-helixota-0-panel">
+              <span class="od-accordion__label">Resumen</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-0-panel" role="region" aria-labelledby="od-acc-helixota-0">
+            <div class="od-accordion__inner">
+      <p>Helix OTA es un sistema universal de actualizaciones por aire (OTA) profundamente desacoplado: un plano de control Go junto con agentes cliente por sistema operativo, diseñado para distribuir actualizaciones seguras y escalonadas de firmware/aplicaciones a flotas que van desde una sola placa hasta millones de dispositivos. Su primer objetivo es Android 15 en el Orange Pi 5 Max.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-1" aria-expanded="true" aria-controls="od-acc-helixota-1-panel">
+              <span class="od-accordion__label">Descripción breve</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-1-panel" role="region" aria-labelledby="od-acc-helixota-1">
+            <div class="od-accordion__inner">
+      <p>Helix OTA es un sistema universal de actualizaciones por aire —un plano de control Go más agentes cliente por sistema operativo— diseñado para garantizar cero corrupción del sistema, validación de subidas y despliegues escalonados granulares. Su primer objetivo es Android 15 en el Orange Pi 5 Max, con adaptadores para Linux y Windows previstos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-2" aria-expanded="true" aria-controls="od-acc-helixota-2-panel">
+              <span class="od-accordion__label">Descripción detallada</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-2-panel" role="region" aria-labelledby="od-acc-helixota-2">
+            <div class="od-accordion__inner">
+      <p>Helix OTA es un sistema universal, genérico y profundamente desacoplado de actualizaciones por aire (OTA) construido bajo una promesa inquebrantable: una actualización nunca debe convertir un dispositivo funcional en un ladrillo. Está compuesto por un servidor <strong>plano de control</strong> Go, <strong>SDKs/agentes</strong> cliente por sistema operativo y un <strong>panel de gestión</strong>, y se ha diseñado desde cero para ser integrable en *cualquier* sistema operativo mediante adaptadores pluggables, en lugar de reconstruirse desde cero para cada plataforma. El primer objetivo de implementación es Android 15 (todas las variantes) en el Orange Pi 5 Max, donde el pipeline de compilación genera imágenes de flasheo junto con un archivo <code>.zip</code> validado de OTA y los archivos de hash obligatorios, de modo que ningún artefacto llega a un dispositivo sin una huella verificable; Linux, Windows y otros sistemas operativos figuran en la hoja de ruta tras la misma interfaz de adaptador, a la espera solo de su adaptador —no de una reescritura—.</p>
+      <p>El diseño se estructura en torno a garantías estrictas definidas por el operador, tratadas como invariantes arquitectónicas no negociables: cero corrupción del sistema, validación obligatoria de cada artefacto antes de su despliegue, despliegue granular (todo a la vez o escalonado al 5/10/30…100% con control de pausa y avance), observabilidad completa de la flota y escalabilidad lineal desde una sola placa en un banco de pruebas hasta millones de dispositivos en campo. La arquitectura bloqueada combina actualizaciones nativas A/B de Android en el dispositivo —<code>update_engine</code> de AOSP con AVB/dm-verity y retroceso automático ante fallos de arranque— con un plano de control Go personalizado y desacoplado, de modo que la seguridad reside tanto en la ruta de arranque cercana al silicio *como* en el servidor, no en una sola capa frágil. Se mantienen deliberadamente dos interfaces extraíbles: una interfaz de adaptador de sistema operativo que garantiza verdadera universalidad, y una interfaz de motor de despliegue que hace que las campañas escalonadas sean agnósticas al sistema operativo. Todo el sistema se descompone en seis submódulos públicos <code>ota-*</code> versionados de forma independiente —bloques de construcción reutilizables en lugar de un monolito—.</p>
+      <p>Helix OTA se encuentra actualmente en una fase de especificación, investigación y desarrollo de cobertura de pruebas; el repositorio alberga el corpus de diseño autoritativo, el pipeline de exportación de documentación y el andamiaje de submódulos, y es explícito —según su gobernanza anti-engaño— que aún no existen un servidor y un agente de producción terminados. Lo que se distribuye hoy es el plano y su andamiaje, etiquetado con honestidad como tal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-3" aria-expanded="true" aria-controls="od-acc-helixota-3-panel">
+              <span class="od-accordion__label">Por qué lo creamos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-3-panel" role="region" aria-labelledby="od-acc-helixota-3">
+            <div class="od-accordion__inner">
+      <p>OTA suele reinventarse para cada dispositivo y cada sistema operativo, y una mala actualización puede inutilizar toda una flota. Helix OTA se diseñó como un sistema de actualización universal y seguro por defecto, que cualquier SO puede adoptar mediante adaptadores, con garantías de reversión y validación integradas en la arquitectura desde el principio, en lugar de añadidas como parches.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-4" aria-expanded="true" aria-controls="od-acc-helixota-4-panel">
+              <span class="od-accordion__label">Por qué es un cambio radical</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-4-panel" role="region" aria-labelledby="od-acc-helixota-4">
+            <div class="od-accordion__inner">
+      <p>Rechaza tratar "no inutilizar un dispositivo" y "desplegar de forma gradual y observable" como características de mejor esfuerzo que uno espera que resistan bajo carga: son invariantes arquitectónicos integrados tanto en la ruta de arranque como en el plano de control. Además, al convertir el motor de despliegue y la capa del SO en costuras intercambiables —en lugar de supuestos rígidos—, el mismo plano de control puede gestionar Android hoy y estar listo para operar con otros sistemas operativos mañana, simplemente añadiendo un adaptador: sin bifurcaciones, sin reescrituras, sin reinventar las garantías de seguridad en las que ya confías.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-5" aria-expanded="true" aria-controls="od-acc-helixota-5-panel">
+              <span class="od-accordion__label">Qué lo hace innovador</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-5-panel" role="region" aria-labelledby="od-acc-helixota-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Dos costuras extraíbles</strong>: una costura de adaptador para el SO y un motor de despliegue agnóstico al sistema operativo, que convierten "universal" de un término de marketing en una propiedad estructural del código.</li>
+        <li><strong>Seguridad en profundidad</strong>: A/B nativo en el dispositivo (<code>update_engine</code>) + AVB/dm-verity + reversión automática ante fallos de arranque, superpuestos *sobre* la validación de artefactos en el servidor. Una actualización debe superar múltiples compuertas independientes antes de persistir.</li>
+        <li><strong>Descomposición basada en catálogo y desacoplada</strong>: seis submódulos <code>ota-*</code> reutilizables y versionados de forma independiente, que puedes consumir a la carta en lugar de tragarte un monolito.</li>
+        <li><strong>Transporte primario HTTP/3 (QUIC)</strong> con respaldo automático a HTTP/2 y compresión negociada Brotli/gzip: entrega moderna y de baja latencia que se degrada con elegancia en lugar de fallar.</li>
+        <li><strong>Ingeniería anti-engaño</strong>: el diseño y el estado se marcan explícitamente como en fase de especificación, y nunca se afirma que algo no construido esté ya implementado. La honestidad se impone como un valor de ingeniería de primer orden, no como una advertencia en letra pequeña.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-6" aria-expanded="true" aria-controls="od-acc-helixota-6-panel">
+              <span class="od-accordion__label">Principales desafíos técnicos y cómo los resolvimos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-6-panel" role="region" aria-labelledby="od-acc-helixota-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Garantizar que una actualización defectuosa nunca inutilice un dispositivo</strong>: la promesa más difícil en OTA. Se resolvió exigiendo A/B nativo en el dispositivo: <code>update_engine</code> escribe en la ranura inactiva mientras la activa sigue funcionando, AVB/dm-verity verifica criptográficamente la cadena de arranque, y si la nueva ranura falla al iniciar, el dispositivo revierte automáticamente. Todo respaldado por una validación obligatoria de artefactos previa al despliegue, de modo que un paquete corrupto se detecta antes de que abandone el servidor.</li>
+        <li><strong>Un sistema para múltiples sistemas operativos</strong>: se resolvió evitando integrar supuestos de Android en el núcleo. Una costura de adaptador para el SO, conectable, aísla las especificidades de la plataforma, y un motor de despliegue agnóstico al SO mantiene la lógica de las campañas portátil. Ambos se mantienen como submódulos independientes, de modo que añadir un nuevo SO es una ampliación, nunca una cirugía al conjunto.</li>
+        <li><strong>Despliegues por etapas y detenibles</strong>: se resolvió con un motor de despliegue dedicado que opera con cohortes porcentuales, umbrales de éxito/error y controles explícitos de pausa/avance. Se diseñó deliberadamente libre de acoplamiento HTTP para que el mismo motor pueda gestionar campañas independientemente del transporte.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-7" aria-expanded="true" aria-controls="od-acc-helixota-7-panel">
+              <span class="od-accordion__label">Pila tecnológica</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-7-panel" role="region" aria-labelledby="od-acc-helixota-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go + Gin</strong> — seleccionados por su modelo de concurrencia y su reducido impacto en el despliegue; impulsan el plano de control, el motor de despliegue y los validadores de artefactos, exponiendo la superficie principal <code>/api/v1</code> de REST.</li>
+        <li><strong>Kotlin/KMP</strong> — elegidos para que el agente OTA en Android pueda compartir lógica entre distintos objetivos; gestionan el ciclo completo del dispositivo: sondeo, descarga, verificación, aplicación e informe.</li>
+        <li><strong>HTTP/3 (QUIC) → HTTP/2</strong> — QUIC se utiliza como transporte principal para ofrecer entrega de baja latencia y resiliente en enlaces móviles con pérdidas, con retroceso automático a HTTP/2 para que ningún dispositivo quede aislado; <strong>Brotli/gzip</strong> se negocia por solicitud para reducir el tamaño de las cargas.</li>
+        <li><strong>PostgreSQL</strong> — seleccionado por su integridad relacional en el registro de dispositivos, campañas y telemetría, donde la precisión del estado de la flota es más importante que la velocidad bruta de escritura.</li>
+        <li><strong>MinIO / S3</strong> — elegidos como almacenamiento de blobs de artefactos para que las imágenes de firmware de gran tamaño residan en almacenamiento de objetos estándar, desacoplado de la capa relacional.</li>
+        <li><strong>AOSP <code>update_engine</code> + AVB/dm-verity + <code>boot_control</code></strong> — seleccionados porque reutilizar la maquinaria de Virtual A/B y arranque verificado de Android, probada en batalla, es más seguro que crear un actualizador personalizado; se emplean para gestionar los intercambios de ranuras y la verificación criptográfica del arranque en el dispositivo.</li>
+        <li><strong>React</strong> — elegido para el panel de gestión, donde los operadores inician sesión, suben artefactos, controlan los despliegues y supervisan el estado de la flota en un solo lugar.</li>
+        <li><strong>OpenTelemetry + Prometheus/Grafana</strong> — seleccionados para una instrumentación neutral en cuanto a proveedores; se utilizan para hacer observable cada etapa de un despliegue en métricas y paneles, en lugar de basarse en suposiciones.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-8" aria-expanded="true" aria-controls="od-acc-helixota-8-panel">
+              <span class="od-accordion__label">Estado y notas de transparencia</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-8-panel" role="region" aria-labelledby="od-acc-helixota-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Estado: en desarrollo.</strong> Según la política de transparencia del proyecto, <strong>aún no existe un servidor ni un agente en producción funcional</strong>; esta es una fase de especificación, investigación y desarrollo de cobertura de pruebas. El repositorio contiene el corpus de diseño oficial, la canalización de exportación de documentación y el andamiaje de submódulos.</li>
+        <li>Los seis submódulos públicos reutilizables (<code>ota-protocol</code>, <code>ota-artifact-validator</code>, <code>ota-rollout-engine</code>, <code>ota-update-engine-bridge</code>, <code>ota-android-agent</code>, <code>ota-telemetry-schema</code>) se encuentran en <code>github.com/HelixDevelopment/</code>.</li>
+        <li>Las cifras de cobertura de pruebas y latencia en el repositorio son el registro en curso del propio proyecto, no han sido confirmadas de forma independiente. Los números de cláusulas de HelixConstitution citados en el README NO ESTÁN VERIFICADOS.</li>
+        <li><strong>Licencia: Apache-2.0.</strong></li>
+      </ul>
+      <p><strong>Nivel de prioridad:</strong> Helix principal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

@@ -1,0 +1,312 @@
+---
+layout: default
+title: "HelixSpecifier — Miloš Vasić"
+description: "HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixspecifier.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixspecifier.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixspecifier.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixspecifier.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixspecifier.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixspecifier.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixspecifier.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "es",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixspecifier.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixSpecifier is a Go engine that fuses three development methodologies — SpecKit's spec-driven workflow, Superpowers' TDD discipline, and GSD's milestone lifecycle — into one adaptive flow. It classifies each task by effort and scales the amount of process up or down accordingly.",
+      "inLanguage": "es",
+      "name": "HelixSpecifier",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixspecifier.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 7</p>
+      <h1>HelixSpecifier <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">logrus</span><span class="od-chip">SpecKit pillar</span><span class="od-chip">Superpowers pillar</span><span class="od-chip">GSD pillar</span><span class="od-chip">Spec memory store</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/specifier" rel="noopener noreferrer" target="_blank">HelixDevelopment/specifier <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixspecifier">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixSpecifier — three pillars → one flow</text>
+<text class="lbl" x="60" y="72">Three pillars</text>
+<text class="note" x="620" y="288">effort in → ceremony out (scaling dial)</text>
+<rect class="box" x="60" y="90" width="240" height="80" rx="10"/>
+<text class="t" x="180" y="124">SpecKit</text>
+<text class="s" x="180" y="144">specification</text>
+<rect class="box" x="360" y="90" width="240" height="80" rx="10"/>
+<text class="t" x="480" y="124">Superpowers</text>
+<text class="s" x="480" y="144">capability skills</text>
+<rect class="box" x="660" y="90" width="240" height="80" rx="10"/>
+<text class="t" x="780" y="124">GSD</text>
+<text class="s" x="780" y="144">get-stuff-done</text>
+<rect class="accent" x="360" y="240" width="240" height="90" rx="10"/>
+<text class="t" x="480" y="274">Fusion engine</text>
+<text class="s" x="480" y="294">Go · adaptive ceremony</text>
+<rect class="good" x="360" y="390" width="240" height="80" rx="10"/>
+<text class="gt" x="480" y="424">Executed flow</text>
+<text class="s" x="480" y="444">+ quality score</text>
+<path class="conn" marker-end="url(#a)" d="M180,170 L420,238"/>
+<path class="conn" marker-end="url(#a)" d="M480,170 L480,238"/>
+<path class="conn" marker-end="url(#a)" d="M780,170 L540,238"/>
+<path class="conn" marker-end="url(#a)" d="M480,330 L480,388"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Desarrollo basado en especificaciones que ajusta su propia ceremonia al trabajo.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-0" aria-expanded="true" aria-controls="od-acc-helixspecifier-0-panel">
+              <span class="od-accordion__label">Resumen</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-0-panel" role="region" aria-labelledby="od-acc-helixspecifier-0">
+            <div class="od-accordion__inner">
+      <p>HelixSpecifier es un motor Go que fusiona tres metodologías de desarrollo —el flujo basado en especificaciones de SpecKit, la disciplina TDD de Superpowers y el ciclo de vida por hitos de GSD— en un único flujo adaptativo. Clasifica cada tarea según el esfuerzo requerido y ajusta la cantidad de proceso en consecuencia.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-1" aria-expanded="true" aria-controls="od-acc-helixspecifier-1-panel">
+              <span class="od-accordion__label">Descripción breve</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-1-panel" role="region" aria-labelledby="od-acc-helixspecifier-1">
+            <div class="od-accordion__inner">
+      <p>HelixSpecifier es un motor de fusión para desarrollo basado en especificaciones, diseñado para agentes AI. Combina SpecKit, Superpowers y GSD, clasifica el trabajo por nivel de esfuerzo, ejecuta fases de especificación respaldadas por debates, impone una proporción mínima de pruebas por código y aprende de cada flujo completado.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-2" aria-expanded="true" aria-controls="od-acc-helixspecifier-2-panel">
+              <span class="od-accordion__label">Descripción detallada</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-2-panel" role="region" aria-labelledby="od-acc-helixspecifier-2">
+            <div class="od-accordion__inner">
+      <p>HelixSpecifier es un motor de fusión para desarrollo basado en especificaciones (SDD, por sus siglas en inglés) escrito en Go (módulo <code>digital.vasic.helixspecifier</code>), desarrollado como componente del conjunto HelixAgent AI. Toma tres prácticas de desarrollo que normalmente existen en herramientas separadas —y en mentalidades distintas— y las fusiona en un único flujo de trabajo adaptativo: el proceso SDD de siete fases de SpecKit (Constitution, Especificar, Aclarar, Planificar, Tareas, Analizar, Implementar), la disciplina de desarrollo guiado por pruebas de Superpowers con ejecución paralela de subagentes, y la gestión del ciclo de vida por hitos de GSD. Cada pilar sigue desempeñando su función; el motor es lo que los integra en un flujo coherente en lugar de una cadena ensamblada manualmente.</p>
+      <p>Su idea central es la *ceremonia adaptativa*: el motor clasifica el trabajo entrante según su nivel de esfuerzo y ajusta la cantidad de proceso para que una corrección de una línea no pase por el mismo ritual exhaustivo que una funcionalidad importante —ni una funcionalidad importante se apruebe con el rigor de un error tipográfico—. Diez características avanzadas se construyen sobre esta base: ejecución paralela de tareas con concurrencia limitada, un "Constitution como Código" legible por máquina que aplica reglas obligatorias de forma automática, "TDD Nyquist" que supervisa e impone una proporción mínima entre pruebas e implementación, debates multironda y multiagente para refinar especificaciones, aprendizaje adaptativo de habilidades y competencias, análisis de código heredado, generación predictiva de especificaciones a partir de patrones históricos, transferencia de conocimiento entre proyectos, ajuste de ceremonia en tiempo de ejecución que se reconfigura sobre la marcha, y una memoria persistente de especificaciones con búsqueda semántica.</p>
+      <p>Se consume como un módulo Go —mediante <code>go get</code> o una directiva de reemplazo local— detrás de un motor API deliberadamente minimalista: se registran los tres pilares junto con un escalador de ceremonia y una memoria de especificaciones, se clasifica el esfuerzo del trabajo y, a continuación, se ejecuta el flujo completo para obtener un resultado con puntuación de calidad. La interfaz es sencilla; la orquestación que hay detrás, no. Al igual que el resto de la familia Helix, se desarrolla bajo un régimen de verificación anti-engaño, con un ejecutor de desafíos en proceso que prueba código real en lugar de simulaciones.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-3" aria-expanded="true" aria-controls="od-acc-helixspecifier-3-panel">
+              <span class="od-accordion__label">Por qué lo creamos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-3-panel" role="region" aria-labelledby="od-acc-helixspecifier-3">
+            <div class="od-accordion__inner">
+      <p>El desarrollo basado en especificaciones, el TDD riguroso y la gestión por hitos suelen ser tres prácticas independientes con herramientas distintas. HelixSpecifier se creó para que un agente AI (HelixAgent) pueda ejecutar las tres como un flujo coherente y autoescalable, en lugar de tener que unirlas manualmente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-4" aria-expanded="true" aria-controls="od-acc-helixspecifier-4-panel">
+              <span class="od-accordion__label">Por qué es un cambio de juego</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-4-panel" role="region" aria-labelledby="od-acc-helixspecifier-4">
+            <div class="od-accordion__inner">
+      <p>Hace que el proceso sea proporcional al trabajo —de forma automática—. Los equipos suelen atascarse en uno de dos extremos negativos: ceremonias excesivas en todo (seguro pero lento, y con resentimiento silencioso) o ausencia de ceremonias (rápido hasta que deja de serlo). HelixSpecifier elimina esa disyuntiva ajustando la ceremonia al esfuerzo clasificado de cada tarea y reajustándola en tiempo de ejecución a medida que el trabajo se revela. La capacidad que antes no era práctica es un proceso que se dimensiona por tarea —y, además, decisiones de especificación respaldadas por un debate multironda y multiagente con puntuación de posturas, en lugar de la primera suposición de un solo agente—.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-5" aria-expanded="true" aria-controls="od-acc-helixspecifier-5-panel">
+              <span class="od-accordion__label">Qué es innovador</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-5-panel" role="region" aria-labelledby="od-acc-helixspecifier-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Ceremonia adaptativa</strong>: nivel de proceso impulsado por métricas de calidad en tiempo real y ajustado durante la ejecución, no fijado de antemano.</li>
+        <li><strong>Nyquist TDD</strong>: un umbral de proporción entre pruebas e implementación (mínimo 2x), inspirado en el teorema de muestreo de Nyquist: para capturar fielmente un comportamiento, hay que muestrearlo muy por encima de su frecuencia, por lo que las pruebas deben superar en cantidad al código que cubren.</li>
+        <li><strong>Arquitectura de debate</strong>: refinamiento de especificaciones en múltiples rondas y con múltiples agentes, donde se proponen, puntúan y convergen posturas, reemplazando una sola opinión por un enfoque adversarial.</li>
+        <li><strong>Especificación predictiva</strong> y <strong>transferencia entre proyectos</strong>: el motor extrae patrones de flujos acumulados para anticipar especificaciones y trasladar conocimientos valiosos de un proyecto a otro.</li>
+        <li><strong>Constitution como Código</strong>: reglas de proyecto obligatorias convertidas en legibles por máquina y aplicadas por el motor, no dejadas al criterio de los revisores.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-6" aria-expanded="true" aria-controls="od-acc-helixspecifier-6-panel">
+              <span class="od-accordion__label">Principales desafíos técnicos y cómo los resolvimos</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-6-panel" role="region" aria-labelledby="od-acc-helixspecifier-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Fusionar tres metodologías sin que compitan entre sí</strong>: SpecKit, Superpowers y GSD asumen que dominan el flujo de trabajo. Se resolvió con un motor de fusión que registra cada pilar tras una interfaz común y los impulsa a través de un ciclo de vida compartido, de modo que se integran en un solo proceso en lugar de tres que chocan.</li>
+        <li><strong>Determinar cuánto proceso necesita realmente una tarea</strong>: si se sobrestima, todo se ralentiza; si se subestima, el trabajo arriesgado se entrega sin revisión. Se resolvió con un clasificador de esfuerzo que dimensiona el trabajo y alimenta un escalador de ceremonias que ajusta el nivel de proceso dinámicamente a medida que avanza la ejecución.</li>
+        <li><strong>Mantener alta la calidad de las especificaciones sin un guardián humano en cada decisión</strong>: se resolvió reemplazando las especificaciones de un solo intento por un refinamiento respaldado por debates, donde los agentes puntúan posturas en competencia a lo largo de varias rondas, y aplicando las proporciones de Nyquist TDD para que la implementación no supere a sus pruebas.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-7" aria-expanded="true" aria-controls="od-acc-helixspecifier-7-panel">
+              <span class="od-accordion__label">Pila tecnológica</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-7-panel" role="region" aria-labelledby="od-acc-helixspecifier-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong>: elegido para que el motor se distribuya como un binario importable sin dependencias en tiempo de ejecución; su modelo de concurrencia es lo que hace viable el despacho de tareas en paralelo con límites y las rondas de debate multiagente, en lugar de convertirse en un dolor de cabeza de hilos.</li>
+        <li><strong>logrus</strong>: registro estructurado integrado en el motor y los tres pilares, de modo que las decisiones de un flujo (clasificación, cambios de ceremonia, resultados de debates) sean legibles a posteriori.</li>
+        <li><strong>Pilar SpecKit</strong>: el proceso de desarrollo guiado por especificaciones en siete fases (Constitution → Especificar → Aclarar → Planificar → Tareas → Analizar → Implementar), que proporciona la columna vertebral disciplinada de cómo una especificación se convierte en código.</li>
+        <li><strong>Pilar Superpowers</strong>: disciplina TDD con ejecución paralela de subagentes, que aporta el rigor de pruebas primero y la distribución que mantiene honesta y ágil la implementación.</li>
+        <li><strong>Pilar GSD</strong>: gestión de hitos y ciclos de vida, que da al flujo su noción de "hecho" y su progresión a través de etapas.</li>
+        <li><strong>Almacén de memoria de especificaciones</strong>: un índice persistente y semánticamente buscable de especificaciones pasadas, el sustrato que hace posible la especificación predictiva y la transferencia entre proyectos, en lugar de empezar desde cero cada vez.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixspecifier-8" aria-expanded="true" aria-controls="od-acc-helixspecifier-8-panel">
+              <span class="od-accordion__label">Notas sobre estado y honestidad</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixspecifier-8-panel" role="region" aria-labelledby="od-acc-helixspecifier-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Estado: beta.</strong> Consumido como componente del módulo Go de HelixAgent.</li>
+        <li><strong>Licencia: por determinar.</strong> No se detectó ninguna LICENCIA mediante GitHub API — SIN VERIFICAR / no declarada.</li>
+        <li>El nombre para visualización "HelixSpecifier" se asigna al repositorio <code>specifier</code>.</li>
+      </ul>
+      <p><strong>Nivel de prioridad:</strong> Helix-principal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
