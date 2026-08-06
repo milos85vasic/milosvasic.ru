@@ -1,0 +1,329 @@
+---
+layout: default
+lang: fa
+title: "HelixLLM — Miloš Vasić"
+description: "HelixLLM is an enterprise-grade distributed LLM system in Go: a single binary with a mode system that scales from single-host development to multi-host production. It serves fully OpenAI- and Anthropic-compatible APIs over HTTP/3, with local llama.cpp inference, a scored multi-provider fallback chain, a RAG pipeline, and a ReAct agent system."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixllm.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixllm.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixllm.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixllm.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixllm.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixllm.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixllm.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixllm.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixllm.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixllm.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixllm.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixllm.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "fa",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixllm.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixLLM is an enterprise-grade distributed LLM system in Go: a single binary with a mode system that scales from single-host development to multi-host production. It serves fully OpenAI- and Anthropic-compatible APIs over HTTP/3, with local llama.cpp inference, a scored multi-provider fallback chain, a RAG pipeline, and a ReAct agent system.",
+      "inLanguage": "fa",
+      "name": "HelixLLM",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixllm.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// سطح: helix-primary · سفارش 4</p>
+      <h1>HelixLLM <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">اجازه‌نامه: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">HTTP/3 QUIC</span><span class="od-chip">TLS 1.3</span><span class="od-chip">llama.cpp</span><span class="od-chip">LLMsVerifier</span><span class="od-chip">gRPC</span><span class="od-chip">SSE</span><span class="od-chip">Kafka</span><span class="od-chip">Prometheus</span><span class="od-chip">OpenTelemetry</span></div>
+
+      <h2>منبع</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixLLM" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixLLM <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixllm">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixLLM — scored provider fallback chain</text>
+<text class="lbl" x="470" y="74">Ranked by LLMsVerifier (5-min refresh)</text>
+<text class="lbl" x="470" y="415">↓ skip on 429 / 5xx</text>
+<rect class="accent" x="40" y="240" width="150" height="80" rx="10"/>
+<text class="t" x="115" y="274">Request</text>
+<text class="s" x="115" y="294">OpenAI / Anthropic API</text>
+<rect class="box" x="240" y="240" width="170" height="80" rx="10"/>
+<text class="t" x="325" y="274">HTTP/3 Gateway</text>
+<text class="s" x="325" y="294">TLS 1.3 · QUIC</text>
+<rect class="box" x="470" y="90" width="200" height="52" rx="10"/>
+<text class="t" x="570" y="116">Chutes</text>
+<rect class="box" x="470" y="152" width="200" height="52" rx="10"/>
+<text class="t" x="570" y="178">OpenRouter</text>
+<rect class="box" x="470" y="214" width="200" height="52" rx="10"/>
+<text class="t" x="570" y="240">Cerebras</text>
+<rect class="box" x="470" y="276" width="200" height="52" rx="10"/>
+<text class="t" x="570" y="302">SambaNova</text>
+<rect class="box" x="470" y="338" width="200" height="52" rx="10"/>
+<text class="t" x="570" y="364">Together</text>
+<rect class="good" x="470" y="440" width="200" height="64" rx="10"/>
+<text class="gt" x="570" y="472">llama.cpp (local)</text>
+<text class="s" x="570" y="492">guaranteed fallback</text>
+<rect class="box" x="730" y="300" width="180" height="72" rx="10"/>
+<text class="t" x="820" y="334">Response</text>
+<text class="s" x="820" y="354">first success wins</text>
+<path class="conn" marker-end="url(#a)" d="M190,280 L238,280"/>
+<path class="conn" marker-end="url(#a)" d="M410,270 L468,116"/>
+<path class="conn" marker-end="url(#a)" d="M570,142 L570,150"/>
+<path class="conn" marker-end="url(#a)" d="M570,204 L570,212"/>
+<path class="conn" marker-end="url(#a)" d="M570,266 L570,274"/>
+<path class="conn" marker-end="url(#a)" d="M570,328 L570,336"/>
+<path class="conn" marker-end="url(#a)" d="M570,390 L570,438"/>
+<path class="conn" marker-end="url(#a)" d="M670,240 L728,320"/>
+<path class="conn" marker-end="url(#a)" d="M670,472 L728,346"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// معماری</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>یک باینری، شش حالت — استنتاج سازگار با OpenAI و Anthropic از لپ‌تاپ تا کلاستر چند میزبانه.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-0" aria-expanded="true" aria-controls="od-acc-helixllm-0-panel">
+              <span class="od-accordion__label">خلاصه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-0-panel" role="region" aria-labelledby="od-acc-helixllm-0">
+            <div class="od-accordion__inner">
+      <p>HelixLLM یک سیستم توزیع‌شده LLM در سطح سازمانی است که بر پایه Go ساخته شده است: یک باینری واحد با سیستمی از حالت‌ها که از توسعه تک‌میزبانه تا تولید چندمیزبانه مقیاس‌پذیر است. این سیستم رابط‌های برنامه‌نویسی کاملاً سازگار با OpenAI و Anthropic را از طریق HTTP/3 ارائه می‌دهد، با استنتاج محلی llama.cpp، زنجیره جایگزین چندارائه‌دهنده با امتیازدهی، پایپ‌لاین RAG و سیستم عامل ReAct.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-1" aria-expanded="true" aria-controls="od-acc-helixllm-1-panel">
+              <span class="od-accordion__label">توضیح کوتاه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-1-panel" role="region" aria-labelledby="od-acc-helixllm-1">
+            <div class="od-accordion__inner">
+      <p>HelixLLM یک سیستم توزیع‌شده LLM تک‌باینری و مبتنی بر Go است. این سیستم رابط‌های برنامه‌نویسی سازگار با OpenAI و Anthropic را از طریق HTTP/3 در دسترس قرار می‌دهد، استنتاج محلی llama.cpp را اجرا می‌کند، ارائه‌دهندگان ابری رایگان را به‌طور خودکار شناسایی و امتیازدهی کرده و در زنجیره جایگزین قرار می‌دهد، و علاوه بر این، پایپ‌لاین دانش RAG به همراه عامل ReAct با قابلیت فراخوانی ابزار را اضافه می‌کند — قابل استقرار در شش حالت مختلف.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-2" aria-expanded="true" aria-controls="od-acc-helixllm-2-panel">
+              <span class="od-accordion__label">توضیح مفصل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-2-panel" role="region" aria-labelledby="od-acc-helixllm-2">
+            <div class="od-accordion__inner">
+      <p>HelixLLM یک سیستم توزیع‌شده LLM در سطح سازمانی است که با Go و Gin ساخته شده و ترفند اصلی آن این است که یک مصنوع واحد برای تمام مقیاس‌ها خدمت‌رسانی می‌کند. این سیستم به یک باینری واحد کامپایل می‌شود که سیستم حالت‌های آن در زمان استقرار تصمیم می‌گیرد این باینری چه نقشی ایفا کند: آن را به صورت <code>full</code> برای نمونه‌ای همه‌کاره روی لپ‌تاپ اجرا کنید، یا مسئولیت‌ها را بین حالت‌های <code>gateway</code>، <code>brain</code>، <code>knowledge</code>، <code>agents</code> و <code>control</code> تقسیم کرده و روی چندین میزبان توزیع کنید — همان کد، با چینش متفاوت به جای بازنویسی، از دستگاه توسعه‌دهنده تا کلاستر تولیدی.</p>
+      <p>این سیستم به دو گویش مسلط است: رابط‌های برنامه‌نویسی کاملاً سازگار با OpenAI و Anthropic، به طوری که کلاینت‌های SDK موجود از هر دو اکوسیستم بدون تغییر کار می‌کنند، همه از طریق HTTP/3 (QUIC) با بازگشت خودکار به HTTP/2 و TLS نسخه ۱.۳ ارائه می‌شوند. استنتاج محلی از طریق llama.cpp با پشتیبانی از CUDA، Metal و ROCm انجام می‌شود، بنابراین همان بیلد روی سخت‌افزارهای انویدیا، اپل و ای‌ام‌دی به‌طور یکسان شتاب می‌گیرد. ویژگی برجسته آن زنجیره جایگزین چندارائه‌دهنده است که ناپایداری معروف استنتاج ابری رایگان را به منبعی مدیریت‌شده و خودترمیم‌شونده تبدیل می‌کند: HelixLLM به‌طور خودکار مدل‌های رایگان را از بیش از ۷ ارائه‌دهنده ابری (Chutes، OpenRouter، HuggingFace، Nvidia، Cerebras، SambaNova، Together) شناسایی می‌کند، هر ۵ دقیقه آن‌ها را از طریق LLMsVerifier امتیازدهی کرده و درخواست‌ها را از طریق زنجیره رتبه‌بندی‌شده با جایگزینی خودکار خطاهای ۴۲۹/۵xx هدایت می‌کند — همیشه با llama.cpp محلی به عنوان آخرین راهکار تضمین‌شده، به طوری که هیچ درخواستی صرفاً به دلیل عدم دسترسی به ارائه‌دهنده شکست نخورد.</p>
+      <p>فراتر از استنتاج خام، HelixLLM یک پلتفرم کامل کاربردی است: پایپ‌لاین دانش RAG (جذب، قطعه‌بندی، تعبیه، جستجوی vector) و سیستم عامل ReAct با قابلیت فراخوانی ابزار، جلسات مکالمه و یکپارچگی RAG در همان باینری گنجانده شده‌اند. سیستم حالت‌ها در سطح شبکه نیز سودمند است — در حالت <code>full</code> تمام لایه‌ها از طریق فراخوانی‌های مستقیم درون‌فرایندی Go با سربار شبکه صفر ارتباط برقرار می‌کنند، در حالی که همان باینری، زمانی که روی میزبان‌های مختلف توزیع می‌شود، از طریق gRPC، SSE و Kafka هماهنگ می‌شود. در پایان، مذاکره محتوا با Brotli/gzip، استریم SSE که با فرمت‌های OpenAI و Anthropic بایت‌به‌بایت مطابقت دارد، احراز هویت با کلید API و JWT همراه با محدودیت نرخ، معیارهای Prometheus، ردیابی OpenTelemetry و مجموعه بزرگی از زیرماژول‌های زیرساختی تولید Go تکمیل‌کننده این سیستم هستند.</p>
+      <p>محتوا</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-3" aria-expanded="true" aria-controls="od-acc-helixllm-3-panel">
+              <span class="od-accordion__label">چرا آن را ساختیم</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-3-panel" role="region" aria-labelledby="od-acc-helixllm-3">
+            <div class="od-accordion__inner">
+      <p>تیم‌ها به استنتاجی نیاز دارند که قابل حمل، سازگار با استانداردها و مقاوم باشد—بدون نیاز به بازنویسی کلاینت‌ها یا وابستگی به یک ارائه‌دهنده یا یک ماشین خاص. HelixLLM به گونه‌ای طراحی شد که همان باینری بتواند به صورت محلی برای توسعه اجرا شود و در عین حال به یک خوشهٔ تولیدی چند میزبانه مقیاس‌پذیر باشد، و با گویش‌های OpenAI و Anthropic که کلاینت‌ها از پیش استفاده می‌کنند، ارتباط برقرار کند.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-4" aria-expanded="true" aria-controls="od-acc-helixllm-4-panel">
+              <span class="od-accordion__label">چرا یک تغییردهندهٔ بازی است</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-4-panel" role="region" aria-labelledby="od-acc-helixllm-4">
+            <div class="od-accordion__inner">
+      <p>این ابزار کل پشتهٔ استنتاج—درگاه، استنتاج محلی، بازگشت به ابر، RAG و عامل‌ها—را در یک باینری واحد فشرده می‌کند که با یک کلید حالت کنترل می‌شود، به طوری که معماری‌ای که مستقر می‌کنید یک تصمیم زمان اجرا است نه یک پروژه بازطراحی پلتفرم. و چیزی را که پیش‌تر یک نقطه ضعف بود به یک قابلیت تبدیل می‌کند: قابلیت اطمینان ارائه‌دهندگان ابری به یک دغدغهٔ درجه یک و پیوسته اندازه‌گیری‌شده بدل می‌شود که توسط زنجیره‌ای خودترمیم‌شونده و امتیازدهی‌شده مدیریت می‌شود؛ زنجیره‌ای که هر چند دقیقه یک بار ارائه‌دهندگان را دوباره رتبه‌بندی می‌کند و همواره به استنتاج محلی تضمین‌شده تنزل می‌یابد. قابلیتی که این امر آزاد می‌کند، یک نقطهٔ پایانی واحد است که واقعاً می‌توانید به آن تکیه کنید—سازگار با استانداردها، قابل حمل از لپ‌تاپ تا خوشه، و ناتوان از خاموشی به دلیل محدودیت نرخ یا شکست یک ارائه‌دهندهٔ بالادستی.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-5" aria-expanded="true" aria-controls="od-acc-helixllm-5-panel">
+              <span class="od-accordion__label">نوآوری‌ها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-5-panel" role="region" aria-labelledby="od-acc-helixllm-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>یک باینری واحد با سیستمی شش‌حالته که به صورت یکپارچه یا در نقش‌های توزیع‌شده اجرا می‌شود—فراخوانی‌های مستقیم Go درون‌فرایندی در حالت <code>full</code>، و gRPC/SSE/Kafka در حالت‌های توزیع‌شده—به طوری که توپولوژی استقرار بدون تغییر کد یا هزینه‌های شبکه‌ای ناخواسته تغییر می‌کند.</li>
+        <li>زنجیره‌ای خودکشف‌شونده و امتیازدهی‌شده از ارائه‌دهندگان چندگانه با بیش از ۷ ارائه‌دهندهٔ رایگان که به طور پیوسته توسط LLMsVerifier رتبه‌بندی می‌شوند، با شکست خودکار در برابر خطاهای ۴۲۹/۵xx و بازگشت تضمین‌شده به llama.cpp به عنوان آخرین راهکار—تبدیل ظرفیت لایهٔ رایگان به ظرفیتی قابل اعتماد.</li>
+        <li>سطوح سازگار با هر دو استاندارد OpenAI و Anthropic که از طریق HTTP/3 ارائه می‌شوند، با بازگشت خودکار به HTTP/2، به طوری که کلاینت‌های هر دو اکوسیستم بدون نیاز به تغییر متصل می‌شوند.</li>
+        <li>استنتاج محلی که از CUDA، Metal و ROCm در یک کدبیس واحد پشتیبانی می‌کند—همان بیلد روی سخت‌افزارهای انویدیا، اپل و ای‌ام‌دی با شتاب اجرا می‌شود.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-6" aria-expanded="true" aria-controls="od-acc-helixllm-6-panel">
+              <span class="od-accordion__label">بزرگ‌ترین چالش‌های فنی و راه‌حل‌های ما</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-6-panel" role="region" aria-labelledby="od-acc-helixllm-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>مقیاس‌پذیری از یک میزبان به چند میزبان بدون بازنویسی.</strong> بیشتر سیستم‌ها مرز سخت‌گیرانه‌ای بین «توسعه محلی» و «تولید توزیع‌شده» قائل می‌شوند و عبور از این مرز به معنای بازطراحی معماری است. ما این مرز را با سیستمی حالت‌محور در یک باینری واحد حذف کردیم: همان لایه‌ها در حالت <code>full</code> از طریق فراخوانی‌های مستقیم درون‌فرایندی ارتباط برقرار می‌کنند و به طور شفاف در حالت‌های توزیع‌شده به gRPC/SSE/Kafka سوئیچ می‌کنند، به طوری که مقیاس‌پذیری تنها یک تغییر پیکربندی است نه یک انتقال.</li>
+        <li><strong>ارائه‌دهندگان ابری رایگان غیرقابل اعتماد و محدود به نرخ.</strong> استنتاج لایهٔ رایگان تا زمانی که با خطای ۴۲۹ مواجه نشود یا در میانهٔ درخواست ناپدید نشود، سریع است. ما آن را قابل اعتماد ساختیم با کشف خودکار مدل‌های موجود، امتیازدهی آن‌ها با LLMsVerifier، ردیابی پیشگیرانهٔ هدرهای محدودیت نرخ برای دور زدن ارائه‌دهندگانی که در آستانهٔ محدودسازی هستند، و شکست خودکار به پایین زنجیرهٔ رتبه‌بندی‌شده تا llama.cpp محلی—به طوری که ناپایداری این مجموعه هرگز به کلاینت نمی‌رسد.</li>
+        <li><strong>سازگاری کلاینت در دو اکوسیستم.</strong> بازنویسی کلاینت‌ها برای پذیرش یک بک‌اند استنتاجی جدید غیرممکن است. ما هر دو شکل API مربوط به OpenAI و Anthropic—تا جزئیات فرمت‌های استریم SSE متمایز آن‌ها—را پیاده‌سازی کردیم، به طوری که SDKهای هر دو اردوگاه به HelixLLM اشاره می‌کنند و به سادگی کار می‌کنند.</li>
+      </ul>
+      <p>محتوا</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-7" aria-expanded="true" aria-controls="od-acc-helixllm-7-panel">
+              <span class="od-accordion__label">پشته فناوری</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-7-panel" role="region" aria-labelledby="od-acc-helixllm-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go + Gin</strong> — انتخاب شده زیرا یک باینری واحد با اولویت همزمانی، چیزی است که کل سیستم حالت‌ها را ممکن می‌سازد: یک بیلد که می‌تواند هم به‌عنوان سرور لپ‌تاپ و هم نقش کلاستر عمل کند. این باینری کل سیستم و لایه HTTP دروازه را در خود جای می‌دهد.</li>
+        <li><strong>HTTP/3 (QUIC) + TLS ۱٫۳، با بازگشت به HTTP/2</strong> — انتخاب شده برای انتقال مدرن، کم‌تأخیر و مقاوم در برابر قطع اتصال، که به‌عنوان سطح سرور با مذاکره خودکار ارائه می‌شود تا کلاینت‌هایی که نمی‌توانند از QUIC استفاده کنند، به‌صورت خودکار به HTTP/2 بازگردند.</li>
+        <li><strong>llama.cpp (CUDA/Metal/ROCm)</strong> — انتخاب شده برای استنتاج محلی قابل‌حمل که روی بک‌اندهای انویدیا، اپل و ای‌ام‌دی از یک کدبیس واحد شتاب می‌گیرد؛ همچنین به‌عنوان تأمین‌کننده تضمینی آخرین راهکار عمل می‌کند تا زنجیره بازگشت هرگز به بن‌بست نرسد.</li>
+        <li><strong>LLMsVerifier</strong> — انتخاب شده تا پرسش «کدام تأمین‌کننده در حال حاضر خوب است» را به عدد تبدیل کند؛ این ابزار زنجیره بازگشت ابری را هر پنج دقیقه امتیازدهی و رتبه‌بندی می‌کند تا مسیریابی بر اساس کیفیت زنده انجام شود، نه فرضیات قدیمی.</li>
+        <li><strong>تأمین‌کنندگان ابری (Chutes، OpenRouter، HuggingFace، Nvidia، Cerebras، SambaNova، Together)</strong> — انتخاب شده برای بهره‌برداری از ظرفیت لایه رایگان در چندین منبع بالادستی؛ به‌صورت خودکار کشف و در یک زنجیره بازگشت واحد رتبه‌بندی می‌شوند تا هیچ تأمین‌کننده‌ای نقطه شکست نباشد.</li>
+        <li><strong>gRPC + SSE + Kafka</strong> — انتخاب شده به‌عنوان پروتکل‌های انتقال بین‌حالته برای استقرارهای توزیع‌شده: gRPC برای تماس‌های سرویس‌به‌سرویس، SSE برای جریان‌سازی و Kafka برای جریان رویدادهای غیرهمزمان بین نقش‌ها.</li>
+        <li><strong>پایگاه داده برداری / embeddings</strong> — انتخاب شده برای تقویت خط لوله دانش RAG از ابتدا تا انتها: دریافت، قطعه‌بندی، تعبیه و جستجو در اسناد برای پایه‌گذاری پاسخ‌های مدل.</li>
+        <li><strong>Prometheus + OpenTelemetry</strong> — انتخاب شده برای معیارها و ردیابی توزیع‌شده که یک درخواست را در هر حالتی که مستقر شده باشد دنبال می‌کند.</li>
+        <li><strong>زیرماژول‌های vasic-digital Go</strong> — انتخاب شده برای استفاده مجدد از زیرساخت‌های تولیدی سخت‌شده به‌جای بازسازی آن‌ها، تا پایه سیستم با پشته گسترده‌تر هماهنگ بماند.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-8" aria-expanded="true" aria-controls="od-acc-helixllm-8-panel">
+              <span class="od-accordion__label">وضعیت و یادداشت‌های شفافیت</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-8-panel" role="region" aria-labelledby="od-acc-helixllm-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>وضعیت: بتا.</strong> سیستم استنتاج توزیع‌شده کاربردی و در حال توسعه فعال.</li>
+        <li><strong>مجوز: نامشخص.</strong> مخزن در متادیتای خود هیچ مجوزی اعلام نکرده است (<code>licenseInfo</code> تهی) — این وضعیت تأیید نشده است و باید پیش از اعلام مجوز حل شود.</li>
+        <li>مخزن مرجع در حال حاضر به <code>github.com/HelixDevelopment/llm</code> ارجاع می‌دهد؛ مسیر <code>HelixLLM</code> به آن تغییر مسیر می‌دهد. آمار آستانه پوشش و تعداد زیرماژول‌ها در فایل README خوداظهاری شده است.</li>
+      </ul>
+      <p><strong>اولویت سطح:</strong> Helix-اصلی.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

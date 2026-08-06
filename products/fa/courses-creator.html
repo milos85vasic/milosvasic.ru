@@ -1,0 +1,300 @@
+---
+layout: default
+lang: fa
+title: "Courses-Creator — Miloš Vasić"
+description: "Courses-Creator is a toolkit that converts markdown scripts into professional video courses with AI-powered enhancements: multi-LLM content enrichment (OpenAI/Anthropic/Ollama), high-quality TTS and background music, and desktop, mobile, and web players — all Docker-deployed with Prometheus/Grafana monitoring."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/courses-creator.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "fa",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/courses-creator.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Courses-Creator is a toolkit that converts markdown scripts into professional video courses with AI-powered enhancements: multi-LLM content enrichment (OpenAI/Anthropic/Ollama), high-quality TTS and background music, and desktop, mobile, and web players — all Docker-deployed with Prometheus/Grafana monitoring.",
+      "inLanguage": "fa",
+      "name": "Courses-Creator",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/courses-creator.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// سطح: vasic-util-secondary · سفارش 22</p>
+      <h1>Courses-Creator <span class="od-h1-badges"><span class="od-badge--status od-badge--status--production">production</span><span class="od-tag--license">اجازه‌نامه: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">TypeScript</span><span class="od-chip">React</span><span class="od-chip">Electron</span><span class="od-chip">React Native</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Python</span><span class="od-chip">LLM providers (OpenAI, Anthropic, Ollama)</span><span class="od-chip">TTS (Bark, SpeechT5)</span><span class="od-chip">MCP</span><span class="od-chip">Docker Compose</span><span class="od-chip">nginx</span><span class="od-chip">Prometheus</span><span class="od-chip">Grafana</span></div>
+
+      <h2>منبع</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/Courses-Creator" rel="noopener noreferrer" target="_blank">vasic-digital/Courses-Creator <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="courses-creator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Courses-Creator — generation pipeline</text>
+<text class="lbl" x="40" y="122">Content in</text>
+<text class="lbl" x="860" y="122">Course out</text>
+<text class="note" x="300" y="300">Optional-AI: basic ↔ enhanced path selected by provider keys · one backend, three clients (desktop / mobile / web)</text>
+<path class="conn" marker-end="url(#a)" d="M200,195 L238,195"/>
+<path class="conn" marker-end="url(#a)" d="M410,195 L448,195"/>
+<path class="conn" marker-end="url(#a)" d="M610,195 L648,195"/>
+<path class="conn" marker-end="url(#a)" d="M820,195 L858,195"/>
+<rect class="box" x="40" y="150" width="160" height="90" rx="10"/>
+<text class="t" x="120" y="184">Markdown source</text>
+<text class="s" x="120" y="204">course outline</text>
+<rect class="accent" x="240" y="150" width="170" height="90" rx="10"/>
+<text class="t" x="325" y="184">LLM enrichment</text>
+<text class="s" x="325" y="204">OpenAI · Anthropic · Ollama</text>
+<rect class="box" x="450" y="150" width="160" height="90" rx="10"/>
+<text class="t" x="530" y="184">TTS + music</text>
+<text class="s" x="530" y="204">Bark · SpeechT5</text>
+<rect class="box" x="650" y="150" width="170" height="90" rx="10"/>
+<text class="t" x="735" y="184">Video assembly</text>
+<text class="s" x="735" y="204">render + mux</text>
+<rect class="good" x="860" y="150" width="110" height="90" rx="10"/>
+<text class="gt" x="915" y="195">Publish</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// معماری</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline">محتوا <strong>از مارک‌داون به دوره ویدیویی حرفه‌ای — ارتقایافته با AI، چندسکویی</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-0" aria-expanded="true" aria-controls="od-acc-courses-creator-0-panel">
+              <span class="od-accordion__label">خلاصه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-0-panel" role="region" aria-labelledby="od-acc-courses-creator-0">
+            <div class="od-accordion__inner">
+      <p>Courses-Creator جعبه‌ابزاری است که اسکریپت‌های مارک‌داون را به دوره‌های ویدیویی حرفه‌ای با ارتقاهای مبتنی بر AI تبدیل می‌کند: غنی‌سازی چندجانبه محتوا (OpenAI/Anthropic/Ollama)، صدای باکیفیت TTS و موسیقی پس‌زمینه، و پخش‌کننده‌های دسکتاپ، موبایل و وب — همه با استقرار Docker و نظارت Prometheus/Grafana.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-1" aria-expanded="true" aria-controls="od-acc-courses-creator-1-panel">
+              <span class="od-accordion__label">توضیح کوتاه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-1-panel" role="region" aria-labelledby="od-acc-courses-creator-1">
+            <div class="od-accordion__inner">
+      <p>مارک‌داون را به دوره‌های ویدیویی جذاب تبدیل می‌کند. یک موتور پردازش Go محتوا را از طریق چندین ارائه‌دهنده LLM غنی می‌سازد، روایت (Bark/SpeechT5 TTS) و موسیقی تولید می‌کند و آن را برای پخش‌کننده‌های Electron دسکتاپ، React Native موبایل و React وب ارائه می‌دهد، با استقرار کامل Docker و نظارت.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-2" aria-expanded="true" aria-controls="od-acc-courses-creator-2-panel">
+              <span class="od-accordion__label">توضیح مفصل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-2-panel" role="region" aria-labelledby="od-acc-courses-creator-2">
+            <div class="od-accordion__inner">
+      <p>تولید یک دوره ویدیویی معمولاً نیازمند کار یک استودیوی کوچک تولید است: نوشتن اسکریپت، ضبط روایت، تهیه موسیقی، ویرایش، کدگذاری و سپس ساخت پخش‌کننده برای هر پلتفرمی که مخاطبان ممکن است استفاده کنند. Courses-Creator کل این زنجیره را به یک ورودی — یک اسکریپت مارک‌داون — و یک دستور فشرده می‌کند. در مرکز آن یک پردازشگر هسته‌ای Go قرار دارد که یک خط لوله کامل ویدیو/صدا را اجرا می‌کند: محتوای نوشتاری را از طریق چندین ارائه‌دهنده LLM (OpenAI، Anthropic و Ollama محلی) غنی می‌سازد، روایت طبیعی را با موتورهای تبدیل متن به گفتار (Bark، SpeechT5) تولید می‌کند، موسیقی پس‌زمینه را اضافه می‌کند و قطعات را به دوره‌های ویدیویی نهایی مونتاژ می‌کند. وظیفه نویسنده در سطح ایده‌ها و کلمات باقی می‌ماند؛ سیستم صداگذاری، موسیقی‌گذاری و تولید را بر عهده می‌گیرد. و از آنجا که یک دوره تنها زمانی مفید است که مخاطبان بتوانند آن را تماشا کنند، ارائه آن به‌صورت چندسکویی طراحی شده است: یک اپلیکیشن سازنده Electron برای دسکتاپ، یک پخش‌کننده React Native برای موبایل و یک پخش‌کننده React برای وب، که همگی از یک سیستم REST API و پردازش پس‌زمینه تغذیه می‌شوند — یک بک‌اند، سه کلاینت درجه یک، بدون نیاز به پیاده‌سازی مجدد برای هر پلتفرم.</p>
+      <p>نکته مهم این است که این زیرساخت تولید است، نه یک دموی نمایشی. بک‌اند شامل پایداری PostgreSQL، پردازش پس‌زمینه برای رندرهای طولانی TTS/ویدیو که هرگز API را مسدود نمی‌کنند، پیاده‌سازی‌های سرور MCP برای ارتقای تقویت‌شده با ابزار، معیارهای Prometheus، احراز هویت JWT و یک پروکسی معکوس nginx است — و کل این مجموعه به‌عنوان یک استقرار Docker Compose با پروفایل‌های نظارتی Grafana/Prometheus عرضه می‌شود که می‌توانید آن را در یک مرحله راه‌اندازی کنید. AI یک لایه ارتقا است، نه یک وابستگی: هر ارائه‌دهنده LLM اختیاری است، بنابراین خط لوله حتی بدون کلیدهای API برای عملیات پایه کار می‌کند و با ارائه کلیدها، ارتقای پیشرفته فعال می‌شود. این تصمیم واحد، ابزار را هم برای یک علاقه‌مند که به‌صورت آفلاین روی لپ‌تاپ کار می‌کند و هم برای یک سازمانی که ارائه‌دهنده دلخواه خود را متصل می‌کند، مناسب می‌سازد — و کل خط لوله رسانه‌ای زیرین با تست‌های واحد، یکپارچه‌سازی و انتها به انتها پوشش داده شده است، نه اینکه صرفاً بر اعتماد متکی باشد.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-3" aria-expanded="true" aria-controls="od-acc-courses-creator-3-panel">
+              <span class="od-accordion__label">چرا آن را ساختیم</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-3-panel" role="region" aria-labelledby="od-acc-courses-creator-3">
+            <div class="od-accordion__inner">
+      <p>تولید دستی دوره‌های ویدیویی کند است: نوشتن، روایت، موسیقی‌گذاری و ویرایش هر کدام نیازمند تلاش و ابزارهای تخصصی هستند. Courses-Creator این فرآیند را به یک خط لوله مبتنی بر مارک‌داون فشرده می‌کند تا یک اسکریپت منبع واحد به یک دوره تولیدشده تبدیل شود، و AI جاهایی را پر می‌کند که در غیر این صورت انسان‌ها باید به‌صورت دستی انجام می‌دادند.</p>
+      <p>محتوا</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-4" aria-expanded="true" aria-controls="od-acc-courses-creator-4-panel">
+              <span class="od-accordion__label">چرا انقلابی است</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-4-panel" role="region" aria-labelledby="od-acc-courses-creator-4">
+            <div class="od-accordion__inner">
+      <p>این سیستم تولید دوره‌ها را از یک هنر تخصصی و چندابزاری به یک خط لولۀ نرم‌افزاری تکرارپذیر تبدیل می‌کند: تألیف، غنی‌سازی با AI، تولید روایت و موسیقی، و پخش چندسکویی، همگی در یک بستۀ قابل‌انتشار تجمیع شده‌اند. قابلیت تنزل کارآمد به حالت بدون کلید API، قدرت پنهان این سیستم است — همان پایگاه کد، هم برای خالق مستقل با بودجۀ محدود و هم برای یک شرکت با قرارداد ارائه‌دهندۀ ممتاز، بدون نیاز به بازنویسی چیزی در میان، قابل‌استفاده است.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-5" aria-expanded="true" aria-controls="od-acc-courses-creator-5-panel">
+              <span class="od-accordion__label">نوآوری‌ها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-5-panel" role="region" aria-labelledby="od-acc-courses-creator-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>خط لولۀ تبدیل مارک‌داون به ویدئو با قابلیت غنی‌سازی چندگانه و قابل‌تعویض (OpenAI/Anthropic/Ollama).</li>
+        <li>تولید خودکار TTS (Bark، SpeechT5) و موسیقی پس‌زمینه.</li>
+        <li>پیاده‌سازی سرورهای MCP درون موتور پردازش برای بهبود ابزارمحور.</li>
+        <li>یک بک‌اند که سه کلاینت درجه‌یک را سرویس‌دهی می‌کند (دسکتاپ Electron، موبایل React Native، وب React).</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-6" aria-expanded="true" aria-controls="od-acc-courses-creator-6-panel">
+              <span class="od-accordion__label">چالش‌ها و راه‌حل‌ها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-6-panel" role="region" aria-labelledby="od-acc-courses-creator-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>پردازش سنگین رسانه:</strong> با خط لولۀ Go به‌علاوۀ پردازش پس‌زمینه حل شده تا کارهای طولانی TTS/ویدئو، کلید API را مسدود نکنند.</li>
+        <li><strong>AI اختیاری اما قدرتمند:</strong> با اختیاری و قابل‌تعویض کردن ارائه‌دهندگان LLM و بازگشت کارآمد به قابلیت‌های پایه‌ای حل شده است.</li>
+        <li><strong>تحویل چندسکویی:</strong> با یک API مشترک REST و سه اپلیکیشن پخش‌کنندۀ اختصاصی حل شده است.</li>
+        <li><strong>قابلیت عملیاتی:</strong> با پروفایل‌های Docker Compose، Prometheus/Grafana و احراز هویت JWT داخلی حل شده است.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-7" aria-expanded="true" aria-controls="od-acc-courses-creator-7-panel">
+              <span class="od-accordion__label">پشته فناوری (چرایی و چگونگی)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-7-panel" role="region" aria-labelledby="od-acc-courses-creator-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> — موتور پردازش اصلی، API مشترک REST، اجراکنندۀ وظایف، خط لوله (بیش از ۹۷۲ هزار بایت، زبان غالب).</li>
+        <li><strong>TypeScript / React</strong> — پخش‌کنندۀ وب و رابط کاربری مشترک.</li>
+        <li><strong>Electron</strong> — اپلیکیشن خالق دسکتاپ.</li>
+        <li><strong>React Native</strong> — پخش‌کنندۀ موبایل.</li>
+        <li><strong>PostgreSQL</strong> — پایداری دوره/وظیفه.</li>
+        <li><strong>ارائه‌دهندگان LLM (OpenAI، Anthropic، Ollama)</strong> — بهبود محتوا.</li>
+        <li><strong>TTS (Bark، SpeechT5)</strong> — سنتز روایت.</li>
+        <li><strong>سرورهای MCP</strong> — یکپارچه‌سازی ابزار درون موتور.</li>
+        <li><strong>Docker Compose + nginx</strong> — استقرار تمام‌پشته و پروکسی معکوس.</li>
+        <li><strong>Prometheus + Grafana</strong> — نظارت.</li>
+      </ul>
+      <blockquote><p>نکته: راهنمای سریع شروع فایل README عمومی از یک کلون URL با نام‌جا‌نگهدار <code>your-org</code> استفاده می‌کند.</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
