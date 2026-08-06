@@ -1,0 +1,331 @@
+---
+layout: default
+lang: ar
+title: "HelixTranslate — Miloš Vasić"
+description: "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ar",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixtranslate.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly.",
+      "inLanguage": "ar",
+      "name": "HelixTranslate",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixtranslate.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 10</p>
+      <h1>HelixTranslate <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">QUIC / HTTP/3 (quic-go)</span><span class="od-chip">gRPC + Protocol Buffers</span><span class="od-chip">Gorilla WebSocket</span><span class="od-chip">PostgreSQL</span><span class="od-chip">SQLite</span><span class="od-chip">Redis</span><span class="od-chip">unidoc/unioffice + unipdf</span><span class="od-chip">Cobra</span><span class="od-chip">LLMsVerifier bridge</span><span class="od-chip">Docker / Podman</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixTranslate" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixTranslate <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixtranslate">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixTranslate — no silent fallback</text>
+<text class="lbl" x="40" y="214">Local runtimes — removed</text>
+<text class="note" x="612" y="200">if unavailable</text>
+<text class="note" x="620" y="268">if none verified</text>
+<rect class="accent" x="330" y="48" width="230" height="58" rx="10"/>
+<text class="t" x="445" y="82">Translation request</text>
+<rect class="box" x="330" y="132" width="230" height="72" rx="10"/>
+<text class="t" x="445" y="166">Explicit provider requested?</text>
+<rect class="box" x="330" y="236" width="230" height="72" rx="10"/>
+<text class="t" x="445" y="270">Verified model available?</text>
+<rect class="box" x="330" y="340" width="230" height="64" rx="10"/>
+<text class="t" x="445" y="374">Select strongest-verified</text>
+<rect class="box" x="330" y="432" width="230" height="58" rx="10"/>
+<text class="t" x="445" y="466">Deterministic fallback chain</text>
+<rect class="good" x="330" y="516" width="230" height="64" rx="10"/>
+<text class="gt" x="445" y="550">Translate on verified model</text>
+<rect class="tint" x="660" y="236" width="250" height="100" rx="10"/>
+<text class="t" x="785" y="270">Honest hard error</text>
+<text class="s" x="785" y="290">no silent fallback · no local runtime</text>
+<rect class="box" x="40" y="236" width="230" height="72" rx="10"/>
+<text class="t" x="155" y="270">Ollama · llama.cpp</text>
+<text class="s" x="155" y="290">removed from default path</text>
+<path class="conn" marker-end="url(#a)" d="M445,106 L445,130"/>
+<path class="conn" marker-end="url(#a)" d="M445,204 L445,234"/>
+<path class="conn" marker-end="url(#a)" d="M445,308 L445,338"/>
+<path class="conn" marker-end="url(#a)" d="M445,404 L445,430"/>
+<path class="conn" marker-end="url(#a)" d="M445,490 L445,514"/>
+<path class="conn" marker-end="url(#a)" d="M560,168 L658,270"/>
+<path class="conn" marker-end="url(#a)" d="M560,272 L658,300"/>
+<line class="strike" x1="40" y1="236" x2="270" y2="308"/>
+<line class="strike" x1="270" y1="236" x2="40" y2="308"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>ترجمة كتب بنموذج موثّق — مصممة لتكون صادقة، ولا تعتمد أبداً على التراجع الصامت.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-0" aria-expanded="true" aria-controls="od-acc-helixtranslate-0-panel">
+              <span class="od-accordion__label">الملخص</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-0-panel" role="region" aria-labelledby="od-acc-helixtranslate-0">
+            <div class="od-accordion__inner">
+      <p>HelixTranslate منصة ترجمة كتب إلكترونية عالية الأداء مبنية على Go، تترجم الكتب بين أكثر من 100 لغة باستخدام مزودي ترجمة موثّقين من LLM، مع مراقبة WebSocket في الوقت الفعلي وسياسة صارمة بعدم التراجع الصامت، حيث تفشل بوضوح بدلاً من التدهور بصمت.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
+              <span class="od-accordion__label">وصف مختصر</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
+            <div class="od-accordion__inner">
+      <p>أداة ترجمة كتب إلكترونية شاملة مبنية على Go. تترجم صيغ FB2، وEPUB، وTXT، وHTML، وPDF، وDOCX عبر أكثر من 100 لغة باستخدام أقوى نماذج LLM الموثّقة (عبر جسر LLMsVerifier)، مع واجهات برمجة التطبيقات REST/HTTP-3 وgRPC، ومعالجة موزعة ولوحة تحكم لمراقبة WebSocket في الوقت الفعلي.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
+              <span class="od-accordion__label">وصف مفصل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
+            <div class="od-accordion__inner">
+      <p>HelixTranslate نظام على مستوى المؤسسات مبني على Go لترجمة الكتب الكاملة بين اللغات باستخدام مزودي LLM — ليس فقرات أو مقتطفات فحسب، بل أعمال كاملة من البداية إلى النهاية. يقوم النظام بتحليل وإعادة توليد عدة صيغ للكتب الإلكترونية (FB2، وEPUB، وTXT، وHTML، وPDF، وDOCX)، ويدعم أكثر من 100 لغة مع الكشف التلقائي، ويوفر أدوات CLI وخوادم API (REST عبر HTTP/3، وgRPC، وتدفق أحداث WebSocket) بحيث يتناسب سواء مع سير عمل طرفي أو بنية خدمات موزعة. أما السمة المميزة له فهي *كيفية اختيار النموذج*: فبدلاً من ترميز مزود معين على أمل أن يبقى فعالاً، يفوّض HelixTranslate كل سلطة النماذج إلى جسر LLMsVerifier (<code>pkg/bridge</code>)، الذي يختار أقوى نموذج API *الموثّق* ويعيد سلسلة احتياطية مرتبة حسب الدرجات بشكل حتمي. يتم تحديد أهلية النموذج بناءً على درجة مرجحة تشمل الاستجابة، والكود، وغنى المزايا، والموثوقية — وبذلك فإن النموذج الذي يقوم بترجمتك قد حصل على مكانه من خلال إثبات كفاءته، وليس لمجرد وجوده في ملف الإعدادات.</p>
+      <p>الأهم من ذلك أن النظام يفرض مبدأ "عدم التراجع الصامت" مباشرة في الكود: فإذا لم يكن مفتاح مزود API موجوداً، أو طلب المشغل صراحةً مزوداً غير متاح، فإن خط الأنابيب يعيد خطأ صريحاً بدلاً من التحول بصمت إلى مزود آخر أو الرجوع إلى بيئة تشغيل محلية والتظاهر بأن كل شيء على ما يرام — وهي قاعدة تُطبق عبر بوابة مخصصة قبل البناء واختبار تحور مزدوج. تم إزالة بيئات التشغيل المحلية (Ollama، وllama.cpp) عن قصد من المسار الافتراضي حتى لا يحل محرك أضعف محل نموذج موثّق بصمت. حول نواة الترجمة، يوجد نظام مراقبة WebSocket في الوقت الفعلي: حيث يرسل أداة الترجمة CLI أحداثاً محددة إلى خادم المراقبة الذي يدير لوحة تحكم ويب مباشرة، بينما تقوم عمّال SSH البعيدون بتوزيع عبء العمل لترجمة موزعة. فوق ذلك، تُضاف طبقات متعددة من التنقيح لضمان الاتساق، وتحليل جودة في مرحلة الإعداد، وتخزين مؤقت للترجمة للتحكم في التكاليف عند المدخلات الطويلة، وضمان جودة مدفوع بالرؤية. يستجيب النظام بأكمله لدستور هندسي ضد التضليل: يجب أن تثبت الاختبارات نتائج حقيقية ومرئية للمستخدم، مدعومة باختبارات التحور الإلزامية بدلاً من علامات الاختيار الخضراء التي لا تثبت شيئاً.</p>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
+              <span class="od-accordion__label">لماذا أنشأناها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
+            <div class="od-accordion__inner">
+      <p>لترجمة الكتب الطويلة الموثوقة بصدق وأمانة — دون تقديم ترجمة "منقوصة لكنها موجودة". يقوم التصميم على مبدأ أن الترجمة المفقودة أو غير القابلة للتحقق يجب أن تكون خطأً واضحاً وصارماً، وأن اختيار النموذج يجب أن يتجه دائماً نحو مزود موثوق بدلاً من تخمين مسبق أو حل محلي صامت.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+              <span class="od-accordion__label">لماذا تُعد ثورة في المجال</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
+            <div class="od-accordion__inner">
+      <p>تفشل معظم مسارات الترجمة HelixTranslate بصمت — فهي تتراجع بهدوء إلى نموذج أضعف، أو تنزلق إلى بيئة تشغيل محلية، أو تصدر مخرجات جزئية بينما يظل اختبار الأداء باللون الأخضر ولا يلاحظ أحد الانحدار الحاد في الجودة. تجعل HelixTranslate هذا النمط من الفشل مستحيلاً هيكلياً: اختيار النموذج يخضع للتحقق، وسلسلة التراجع حتمية وشفافة بالكامل، و"عدم وجود مفتاح أو نموذج موثوق" يؤدي إلى خطأ صريح بدلاً من تجاهل صامت. هذا القرار التصميميّ الواحد يحول سؤال "هل تمت هذه الترجمة فعلاً باستخدام نموذج قادر وموثق؟" من أمل لا يمكن التحقق منه إلى ضمان تفرضه المنظومة بالنيابة عنك.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+              <span class="od-accordion__label">ما الجديد في هذا الحل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>توجيه النماذج عبر بوابة التحقق LLMsVerifier</strong> — يتم اختيار أقوى نموذج *موثق* تلقائياً، فيحدد المشغلون الغرض وليس أسماء الموردين، ولا يختارون مزوداً قد يكون غير متاح.</li>
+        <li><strong>ضمان عدم التراجع الصامت عبر الكود</strong> — أربعة مسارات توجيه صريحة (نموذج تجريبي / مُتحقق صريح / مزود صريح / افتراضي عبر البوابة)، كل منها يؤدي إلى خطأ صريح بدلاً من التحول الصامت، بالإضافة إلى إزالة البيئات المحلية من المسار الافتراضي بحيث لا يوجد خيار أضعف للتراجع *إليه*.</li>
+        <li><strong>التنفيذ الآلي</strong> — بوابة ما قبل البناء <code>CM-NO-LOCAL-RUNTIME</code> بالإضافة إلى اختبار تحور مزدوج يؤكد، أثناء البناء، أنه لا يتم إنشاء أي عميل بيئة محلية على المسار الافتراضي: لا يمكن أن يتآكل الضمان لأن البناء يفشل إذا حدث ذلك.</li>
+        <li><strong>سلسلة تراجع حتمية ومرتبة حسب الأداء</strong> — يُسمح بالانتقال بين النماذج *الموثقة* في حال الفشل، وهو أمر شفاف بالكامل، ويمثل تمييزاً مبدئياً عن التراجع الصامت الممنوع: أنت تعرف دائماً أي نموذج قادر تولّى المهمة.</li>
+        <li><strong>مراقبة WebSocket في الوقت الفعلي</strong> — أحداث الترجمة المُحددة تُبث مباشرة إلى لوحة التحكم، مع عمال SSH موزعين بحيث تكون مهمة ترجمة كتاب طويلة مرئية ومتوازية، لا صندوقاً أسود.</li>
+        <li><strong>نظام اختبار مضاد للخداع</strong> — اختبار التحور، التأكيدات السلبية، تشغيل الأنظمة الحقيقية، وضمان الجودة المدفوع بالرؤية تضمن جميعاً أن "اجتياز الاختبارات" لا يمكن أن يخفي خلسة "عدم عمل الميزة فعلياً".</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
+              <span class="od-accordion__label">أكبر التحديات التقنية وكيف تغلبنا عليها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>ضمان مسار ترجمة صادق (دون تدهور صامت).</strong> تم التغلب عليه من خلال تركيز كل سلطة النماذج في بوابة LLMsVerifier بحيث يكون هناك نقطة قرار واحدة للمراقبة، وترميز أربعة مسارات توجيه صريحة تفشل بصوت عالٍ بدلاً من التخمين، وإزالة خيارات التراجع المحلية بالكامل من المسار الافتراضي، وتثبيت القاعدة عبر بوابة بناء واختبار تحور يفشل البناء إذا تم إزالة الضمان.</li>
+        <li><strong>"الاختبارات ناجحة، لكن الميزات معطلة."</strong> يعترف الدستور بهذا النمط من الفشل ويواجهه بنظام اختبار مضاد للخداع: تأكيدات ملموسة ومرئية للمستخدم بدلاً من تفاصيل التنفيذ، وأنظمة حقيقية في الحلقة (النماذج التجريبية تقتصر على اختبارات الوحدة)، واختبار التحور الإلزامي (إحداث خلل متعمد في الميزة ويجب أن يفشل الاختبار)، وضمان الجودة المدفوع بالرؤية الذي يتفحص المخرجات فعلياً.</li>
+        <li><strong>الجودة في النصوص الطويلة والمتعددة الصيغ.</strong> تضغط المدخلات الطويلة على الاتساق والميزانية؛ تم التغلب على ذلك من خلال التنقيح متعدد المراحل الذي يعيد النظر في النص، وتحليل مسبق لحجم المهمة، وتخزين الترجمة لتجنب الدفع مرتين لنفس المقطع.</li>
+      </ul>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-7" aria-expanded="true" aria-controls="od-acc-helixtranslate-7-panel">
+              <span class="od-accordion__label">مجموعة الأدوات التقنية</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-7-panel" role="region" aria-labelledby="od-acc-helixtranslate-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> — تم اختياره لقدراته المتزامنة التي تتوافق بشكل طبيعي مع تحليل وترجمة وبث العديد من الفصول في وقت واحد؛ الواجهة الخلفية عالية التزامن، الوحدة <code>digital.vasic.translator</code>.</li>
+        <li><strong>Gin</strong> — تم اختياره كموجه HTTP سريع وبسيط لخدمة واجهة REST API.</li>
+        <li><strong>QUIC / HTTP/3 (quic-go)</strong> — تم اختياره لمنح واجهة REST API نقلاً حديثاً منخفض الكمون يتحمل الشبكات غير المثالية.</li>
+        <li><strong>gRPC + Protocol Buffers</strong> — تم اختياره لواجهة خدمة قوية الكتابة وعالية الأداء تعمل جنباً إلى جنب مع REST للمتصلين البرمجيين.</li>
+        <li><strong>Gorilla WebSocket</strong> — تم اختياره لنقل دفق أحداث الترجمة اللحظية والمكتوبة الذي يغذي لوحة المراقبة مباشرة.</li>
+        <li><strong>PostgreSQL، SQLite، Redis</strong> — تقسيم متعمد على ثلاث طبقات: PostgreSQL للبيانات العلائقية الدائمة، SQLite للحالة المضمنة/المحلية (يدعم أيضاً مخزن النماذج الموثقة للجسر، <code>data/verified_models.db</code>)، وRedis كذاكرة تخزين مؤقتة ساخنة.</li>
+        <li><strong>unidoc/unioffice + unipdf</strong> — تم اختيارهما للتعامل مع التنسيقات المعقدة: تحليل وإعادة توليد DOCX وPDF لضمان دورة تحويل موثوقة للكتب الإلكترونية متعددة التنسيقات.</li>
+        <li><strong>Cobra</strong> — تم اختياره كإطار عمل CLI الذي يشغل أداة <code>unified-translator</code> وأدواتها المصاحبة.</li>
+        <li><strong>golang-jwt (JWT HS256)</strong> — تم اختياره لمصادقة API عديمة الحالة، مقترناً بتحديد معدل الرموز لكل عنوان IP وتأمين النقل عبر TLS/QUIC للحفاظ على صلابة الواجهة.</li>
+        <li><strong>جسر LLMsVerifier (<code>pkg/bridge</code>)</strong> — العنصر المحوري: يستمد أقوى نموذج موثق بالإضافة إلى سلسلة الاحتياط الحتمية، ويعمل كنقطة تنفيذ واحدة لضمان عدم اللجوء إلى الاحتياط بصمت.</li>
+        <li><strong>Testify</strong> — تم اختياره لمجموعة اختبارات Go، بما في ذلك ملف الاختبار المخصص <code>provider_routing_test.go</code> وبوابات التعديل التي تحافظ على قواعد النزاهة سليمة.</li>
+        <li><strong>Docker / Podman (بدون صلاحيات الجذر) + Compose</strong> — تم اختيارهما للنشر الموزع والحاوياتي (<code>docker-compose.distributed.yml</code>)، مع Podman بدون صلاحيات الجذر لتعزيز الوضع الأمني.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-8" aria-expanded="true" aria-controls="od-acc-helixtranslate-8-panel">
+              <span class="od-accordion__label">ملاحظات الحالة والنزاهة</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-8-panel" role="region" aria-labelledby="od-acc-helixtranslate-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>الحالة: تجريبية.</strong> المنصة وظيفية؛ لكن رقم الإصدار غير متسق بين ملفات <code>VERSION</code>/<code>Makefile</code>/<code>AGENTS.md</code>، لذا يُعتبر غير مستقر.</li>
+        <li><strong>الرخصة: لم تُحدد بعد.</strong> ملف README يذكر رخصة MIT لكن هذا لم يُؤكد بوجود ملف LICENSE — يجب التحقق قبل التأكيد.</li>
+        <li>نقاط نهاية لوحة المراقبة/المراقبة محلية فقط وليست عامة. أرقام أداء WebSocket المذكورة في الوثائق هي أهداف مستهدفة وليست مؤكدة. لا يزال ملف <code>ARCHITECTURE.md</code> يسرد محركات Ollama/المحلية التي أُزيلت (معلومات قديمة).</li>
+      </ul>
+      <p><strong>طبقة الأولوية:</strong> Helix-الرئيسية (مجموعة LLM للبنية التحتية). تأتي ضمن عائلة منصة Helix بعد HelixTrack.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

@@ -1,0 +1,342 @@
+---
+layout: default
+lang: ar
+title: "HelixQA — Miloš Vasić"
+description: "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169)."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixqa.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixqa.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixqa.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixqa.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixqa.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixqa.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixqa.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixqa.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ar",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixqa.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169).",
+      "inLanguage": "ar",
+      "license": "Apache-2.0",
+      "name": "HelixQA",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixqa.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 20</p>
+      <h1>HelixQA <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go 1.24+</span><span class="od-chip">YAML test banks (pkg/testbank)</span><span class="od-chip">Crash/ANR detectors (ADB, pgrep)</span><span class="od-chip">Evidence collection (screenshots/logcat/video/stack traces)</span><span class="od-chip">Autonomous session (LLM + computer vision)</span><span class="od-chip">LLMsVerifier</span><span class="od-chip">LLMOrchestrator</span><span class="od-chip">VisionEngine (GoCV + LLM Vision)</span><span class="od-chip">DocProcessor</span><span class="od-chip">Anti-bluff gates + mutation ratchet</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helixqa" rel="noopener noreferrer" target="_blank">HelixDevelopment/helixqa <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/HelixQA" rel="noopener noreferrer" target="_blank">vasic-digital/HelixQA <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixqa">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M570,102 L745,102 L745,248"/>
+<path class="conn" marker-end="url(#a)" d="M745,334 L745,512 L572,512"/>
+<path class="conn" marker-end="url(#a)" d="M330,512 L155,512 L155,336"/>
+<path class="conn" marker-end="url(#a)" d="M155,250 L155,102 L328,102"/>
+<path class="conn" marker-end="url(#a)" d="M450,144 L450,266"/>
+<path class="conn" marker-end="url(#a)" d="M618,292 L562,306"/>
+<path class="conn" marker-end="url(#a)" d="M450,470 L450,374"/>
+<path class="conn" marker-end="url(#a)" d="M280,292 L338,306"/>
+<rect class="box" x="330" y="60" width="240" height="84" rx="10"/>
+<text class="t" x="450" y="94">1 · Setup</text>
+<text class="s" x="450" y="114">select LLMs · feature map</text>
+<rect class="box" x="620" y="250" width="250" height="84" rx="10"/>
+<text class="t" x="745" y="284">2 · Doc-Driven Verification</text>
+<text class="s" x="745" y="304">every documented feature</text>
+<rect class="box" x="330" y="470" width="240" height="84" rx="10"/>
+<text class="t" x="450" y="504">3 · Curiosity Exploration</text>
+<text class="s" x="450" y="524">edge cases · undocumented</text>
+<rect class="box" x="30" y="250" width="250" height="84" rx="10"/>
+<text class="t" x="155" y="284">4 · Report &amp; Cleanup</text>
+<text class="s" x="155" y="304">MD / HTML / JSON</text>
+<rect class="accent" x="340" y="268" width="220" height="104" rx="10"/>
+<text class="t" x="450" y="302">Captured evidence</text>
+<text class="s" x="450" y="322">screenshot · logcat · video</text>
+<text class="h" x="32" y="44">HelixQA — autonomous QA-session loop</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>تنسيق فحص الجودة المضاد للخداع — جلسات مستقلة عبر المنصات حيث يحمل كل نجاح دليلاً ملموساً على أن المستخدم الحقيقي قادر على استخدام الميزة.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-0" aria-expanded="true" aria-controls="od-acc-helixqa-0-panel">
+              <span class="od-accordion__label">ملخص</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-0-panel" role="region" aria-labelledby="od-acc-helixqa-0">
+            <div class="od-accordion__inner">
+      <p>HelixQA هو إطار عمل لتنسيق فحص الجودة المضاد للخداع لاختبار المنصات المتعددة (أندرويد، أندرويد تي في، الويب، سطح المكتب) يجمع بين بنوك الاختبارات YAML، وكشف الأعطال في الوقت الفعلي، والتقاط الأدلة خطوة بخطوة، وجلسات فحص الجودة الذاتية LLM المدعومة برؤية الحاسوب لإثبات عمل الميزات بشكل حقيقي من البداية إلى النهاية. وهو نوع الاختبار الإلزامي وفقاً لـ Constitution (§11.4.169).</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-1" aria-expanded="true" aria-controls="od-acc-helixqa-1-panel">
+              <span class="od-accordion__label">وصف مختصر</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-1-panel" role="region" aria-labelledby="od-acc-helixqa-1">
+            <div class="od-accordion__inner">
+      <p>منسق فحص الجودة المضاد للخداع (Go) الذي يشغل بنوك الاختبارات المكتوبة وجلسات فحص الجودة الذاتية بالكامل المدفوعة بـ LLM والرؤية الحاسوبية عبر المنصات — يكشف الأعطال، ويتحقق من كل خطوة مقابل الأدلة الملتقطة (لقطات الشاشة، سجلات النظام، مقاطع الفيديو، تتبع المكدس)، وينشئ تلقائياً تذاكر غنية بالأدلة لخطوط إصلاح AI.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-2" aria-expanded="true" aria-controls="od-acc-helixqa-2-panel">
+              <span class="od-accordion__label">وصف مفصل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-2-panel" role="region" aria-labelledby="od-acc-helixqa-2">
+            <div class="od-accordion__inner">
+      <p>HelixQA هو إطار عمل Go يتمحور تصميمه الوحيد وغير القابل للتفاوض حول القاعدة التنفيذية لـ Constitution §11.4: معيار الشحن ليس "اجتياز الاختبارات" بل "قدرة المستخدمين على استخدام الميزة"، لذا يجب أن يحمل كل نجاح يصدره دليلاً إيجابياً تم التقاطه أثناء التنفيذ — لا دليل، لا نجاح، بلا استثناءات. يعمل هذا الإطار بنمطين متكاملين يغطيان معاً السيناريوهات المكتوبة وغير المعروفة. أولاً، <strong>بنوك الاختبارات المكتوبة</strong> — مجموعات YAML من حالات الاختبار <code>TC-XXX</code> مع استهداف المنصة، الأولوية، الخطوات المرتبة (الاسم/الإجراء/المتوقع)، العلامات، والمراجع الوثائقية — تُنفذ مع التحقق من كل خطوة، وكشف الأعطال/ANR في الوقت الفعلي (ADB لأندرويد، ومراقبة العمليات للويب/سطح المكتب)، وجمع الأدلة المركزية، وإنشاء تذاكر Markdown تلقائياً جاهزة لخطوط إصلاح AI. ثانياً، <strong>جلسة فحص الجودة الذاتية بالكامل</strong> التي تسلم التطبيق لوكلاء مدعومين بـ LLM والرؤية الحاسوبية ليقودوه دون تدخل عبر أربع مراحل منظمة: الإعداد (اختيار نماذج اللغة الكبيرة، بناء خريطة الميزات من وثائق المشروع، إطلاق وكلاء CLI، تهيئة محرك الرؤية)، التحقق المدفوع بالوثائق الذي يتحقق من كل ميزة موثقة، الاستكشاف المدفوع بالفضول الذي يختبر حالات الحافة والسلوك غير الموثق، ثم إعداد التقرير والتنظيف إلى صيغة Markdown/HTML/JSON مع ربط كل نتيجة بدليل مرئي مؤرخ بالفيديو.</p>
+      <p>الأهم من ذلك، أنه لا يصحح عمله بنفسه: فهو يدمج أربعة وحدات فرعية خارجية Go (LLMsVerifier، LLMOrchestrator، VisionEngine، DocProcessor) ويعيد استخدام البنية التحتية المشتركة لـ <code>challenges</code> و<code>containers</code>، بحيث لا يكون المكون الذي يتنقل في التطبيق هو نفسه المكون الذي يحكم على نجاحه. تخضع مجموعته الخاصة لنفس المعيار الذي يفرضه على الآخرين عبر <code>make anti-bluff</code> (فحص ثابت + بيان مرساة السلوك + عجلة الطفرات) وتحدي منسق من ثماني مراحل مع طفرة مدمجة في §1.1. تربط مصفوفة تغطية أنواع الاختبار المكونة من 15 صفاً كل قدرة معلن عنها بأصل تنفيذي ملموس وشكل محدد للأدلة الملتقطة — بحيث تكون ادعاءات الإطار عن نفسه مقيدة بالأدلة تماماً كما هي الأحكام التي يصدرها بشأن المنتجات التي يختبرها.</p>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-3" aria-expanded="true" aria-controls="od-acc-helixqa-3-panel">
+              <span class="od-accordion__label">لماذا قمنا ببنائه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-3-panel" role="region" aria-labelledby="od-acc-helixqa-3">
+            <div class="od-accordion__inner">
+      <p>تسمح أنظمة ضمان الجودة التقليدية بإعطاء الضوء الأخضر بناءً على "نجاح التأكيد"، وهذا بالضبط ما يسمح لفئة الأخطاء التي يسميها Constitution بـ*التضليل* بالتسلل — ميزة يُبلّغ عن عملها بينما هي معطلة بالنسبة للمستخدم الحقيقي. بُني HelixQA لمنع حدوث ذلك تحديداً في ضمان الجودة: فهو يرفض تسجيل نتيجة "نجاح" دون دليل مادي ملموس (لقطة شاشة، سجلات النظام، فيديو، تتبع المكدس، تقرير) تم التقاطه أثناء التنفيذ الفعلي، ويعامل السطر الأخضر في الملخص الخالي من هذه الأدلة كخلل حرج يعادل غياب ميزة كاملة. كما يحل مشكلة العمل اليدوي — إذ لا يمكن لضمان الجودة اليدوي الشامل عبر منصات متعددة أن يتوسع — بجعل الجلسات مستقلة تماماً.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-4" aria-expanded="true" aria-controls="od-acc-helixqa-4-panel">
+              <span class="od-accordion__label">لماذا يعد تغييراً جذرياً</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-4-panel" role="region" aria-labelledby="od-acc-helixqa-4">
+            <div class="od-accordion__inner">
+      <p>إنه يدمج شيئين نادراً ما يجتمعان في أداة واحدة: بوابة ضمان جودة صارمة قائمة على الأدلة واستكشاف مستقل ذاتي القيادة. يعمل وكيل LLM المدعوم بالرؤية على فتح التطبيق *الفعلي*، والتحقق من كل ميزة موثقة، والبحث عن الأخطاء غير الموثقة التي لم يكتب لها أحد اختباراً، *ويُنتج في الوقت نفسه مسار أدلة بجودة محكمة* — ليحل محل عبارة "لقد اختبرناها" بعبارة "هذا هو الفيديو، وهذه سجلات النظام، وهذا هو التقرير". ولأنه وحدة فرعية لضمان الجودة تحمل اسم Constitution، فإن تبنيه لا يرفع مستوى أمانة ضمان الجودة لفريق واحد فحسب — بل يرفع الحد الأدنى لكل منتج مستهلك في العائلة بحركة واحدة.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-5" aria-expanded="true" aria-controls="od-acc-helixqa-5-panel">
+              <span class="od-accordion__label">ما الجديد فيه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-5-panel" role="region" aria-labelledby="od-acc-helixqa-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>عقد الأدلة المضاد للتضليل</strong> — يرتبط نجاح كل فحص بأدلة تشغيلية ملتقطة؛ فالسطر الأخضر في التكامل المستمر يُعتبر ضرورياً لكنه غير كافٍ أبداً، والسطر الأخضر الخالي من الأدلة يُقيّم كخلل حرج.</li>
+        <li><strong>استكشاف مستقل مدفوع بالوثائق والفضول</strong> — يتحقق من كل ميزة موثقة *ثم* يخرج عن النص، مستكشفاً الحالات الحدية التي يواجهها المستخدمون الحقيقيون (مدخلات فارغة، تفاعلات سريعة، مسارات غير موثقة) والتي لم يتوقعها أي مجموعة اختبارات مكتوبة يدوياً.</li>
+        <li><strong>أوراكل الرؤية</strong> — يجمع بين الرؤية الميكانيكية لـ GoCV ورؤية LLM API ليرى *حرفياً* واجهة المستخدم أثناء التشغيل، ملتقطاً حالات الانهيار البصري التي تتجاوزها تأكيدات المستوى الرمزي والخاصيات.</li>
+        <li><strong>بنوك الاختبارات الهيكلية لا النصية</strong> — تصف سلاسل البنوك الهيكل وتولد أسئلة LLM في وقت التشغيل (CONST-046)، لذا يعمل بنك واحد عبر اللغات بدلاً من الانهيار لحظة ترجمة نص واجهة المستخدم.</li>
+        <li><strong>تقارير مصممة لخطوط إصلاح AI</strong> — تصل تقارير ماركداون المولدة تلقائياً مع حزمة الأدلة الكاملة مرفقة، جاهزة للتسليم مباشرة لوكيل الإصلاح بدلاً من مسؤول الفرز البشري.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-6" aria-expanded="true" aria-controls="od-acc-helixqa-6-panel">
+              <span class="od-accordion__label">كيفية استخدامه عبر جميع المنتجات (القوى التي يمنحها)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-6-panel" role="region" aria-labelledby="od-acc-helixqa-6">
+            <div class="od-accordion__inner">
+      <p>باعتباره <strong>ركيزة جودة إلزامية</strong> (يشير Constitution §11.4.169 إلى وحدة <code>helix_qa</code> الفرعية كأحد أنواع الاختبارات المطلوبة)، يمنح HelixQA كل منتج في العائلة مجموعة القدرات ذاتها:</p>
+      <ul>
+        <li><strong>جلسات ضمان جودة مستقلة:</strong> تطلق أمر واحد <code>helixqa autonomous --project … --platforms android,desktop,web</code> وكيل LLM المدعوم بالرؤية ليقود التطبيقات الحقيقية دون إشراف نحو هدف تغطية محدد، وينتج تقارير وتذاكر وفيديوهات دون تدخل بشري.</li>
+        <li><strong>بنوك/مجموعات الاختبارات:</strong> بنوك YAML (الحد الأدنى للطابق 219 ≥30)، مستهدفة للمنصات، مرتبة حسب الأولوية، وقابلة للتتبع سطراً بسطر إلى الوثائق التي تتحقق منها.</li>
+        <li><strong>الأدلة الملتقطة:</strong> لقطات الشاشة، سجلات النظام، الفيديوهات، تتبع المكدس، والجدول الزمني الكامل — مركزية ومُرتبطة بكل تقرير، بحيث يمكن إعادة تشغيل أي حكم وتدقيقه لاحقاً.</li>
+        <li><strong>الأحكام المستقلة (§11.4.141 مبدأ الاستقلال):</strong> يحكم <code>issuedetector</code> المدعوم بـ LLM وأوراكل الرؤية على سلوك التطبيق قيد التشغيل بشكل مستقل عن الوكيل الذي قام بالتنقل فيه، مما يستبعد بشكل هيكلي الفشل الكلاسيكي الذي يحدث عندما يصنف النظام عمله بأنه صحيح.</li>
+        <li><strong>البوابة ومفتاح الطفرات:</strong> تضمن أوامر <code>make qa-all</code> / <code>make anti-bluff</code> و<code>challenges/scripts/helixqa_orchestrator_challenge.sh</code> (8 مراحل، طفرة مدمجة §1.1) إثبات أمانة HelixQA بشكل مستمر — ولا يوجد عمداً منفذ <code>--skip-helixqa</code> لإلغاء هذا الانضباط تحت ضغط المواعيد النهائية.</li>
+      </ul>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-7" aria-expanded="true" aria-controls="od-acc-helixqa-7-panel">
+              <span class="od-accordion__label">أكبر التحديات التقنية وكيفية التغلب عليها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-7-panel" role="region" aria-labelledby="od-acc-helixqa-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>منع الإيجابيات الكاذبة في ضمان الجودة نفسه</strong> — الأداة التي تكشف التلاعب يجب ألا تصبح تلاعباً بحد ذاتها ← كل خطوة يتم التحقق منها مقابل الأدلة الملتقطة، ويُحتسب النجاح بدون دليل كخلل بدلاً من نجاح، كما يربط بيان السلوك المرتبط بكل قدرة معلن عنها باختبار قابل للتنفيذ (CONST-035) بحيث لا يمكن الادعاء بأي قدرة دون وجود شيء يمارسها.</li>
+        <li><strong>تشغيل منصات غير متجانسة من عقل واحد</strong> — أندرويد، أندرويد تي في، الويب، وسطح المكتب لا يشتركون في نموذج إدخال موحد ← حزمة <code>navigator</code> واحدة تعمل كطبقة تجريدية فوق منفذي الإجراءات الخاصين بكل منصة (ADB، Playwright، X11) وكاشفات الأعطال لكل منصة (أندرويد/ويب/سطح المكتب)، بحيث يُكتب منطق التنسيق مرة واحدة وتبقى الاختلافات بين المنصات على الأطراف.</li>
+        <li><strong>جعل الوكلاء المستقلين مفيدين وليس فوضويين</strong> — يمكن لوكيل LLM غير الخاضع للإشراف أن يتجول في التطبيق إلى الأبد ← يقوم LLMsVerifier بتقييم واختيار النماذج المناسبة، ويدير LLMOrchestrator الوكلاء غير المرئيين CLI (opencode، claude-code، gemini، junie، qwen-code)، ويبني DocProcessor خريطة الميزات التي تمنح الاستكشاف هدفاً، ويحافظ VisionEngine على أن كل قرار يستند إلى البكسلات الحقيقية على الشاشة بدلاً من تخيلات النموذج.</li>
+        <li><strong>بنوك آمنة للتوطين</strong> — مجموعة اختبارات تعتمد على نصوص واجهة المستخدم الإنجليزية تتعطل في خمس عشرة لغة ← تصف البنوك الهيكل فقط، ويُحمل نص المطالبة المعروض للمستخدم بواسطة LLM/الموارد أثناء التشغيل (CONST-046)، بحيث يتحقق البنك نفسه من السلوك ذاته بغض النظر عن اللغة.</li>
+        <li><strong>إثبات أن البوابات ليست خداعاً</strong> — البوابة المضادة للتلاعب التي لا يمكن أن تفشل هي الخداع الأسمى ← تُزيل الطفرات المزدوجة في الفقرة 1.1 التقاط الأدلة أو تأكيدات مكافحة التلاعب وتتطلب من البوابة أن تفشل، كما يمنع مقياس الطفرات هذا الضمان من التآكل بصمت مع مرور الوقت.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-8" aria-expanded="true" aria-controls="od-acc-helixqa-8-panel">
+              <span class="od-accordion__label">مجموعة الأدوات التقنية</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-8-panel" role="region" aria-labelledby="od-acc-helixqa-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>منسق Go الإصدار 1.24+</strong> — *السبب:* يجب أن يعمل ضمان الجودة في أي مكان تعمل فيه المنتجات، لذا فإن ثنائي واحد مترابط بشكل ثابت وسريع وقابل للنقل يتفوق على البدائل الثقيلة وقت التشغيل؛ *الكيفية:* أمر <code>cmd/helixqa</code> CLI الذي يعرض أوامر فرعية قابلة للتكوين مثل <code>run</code> و<code>list</code> و<code>report</code> و<code>autonomous</code> و<code>version</code>.</li>
+        <li><strong>بنوك الاختبار YAML (<code>pkg/testbank</code>)</strong> — *السبب:* يجب أن تكون مجموعات الاختبارات وصفية وقابلة للقراءة، ويمكن تحريرها بواسطة البشر دون الحاجة إلى لمس Go؛ *الكيفية:* <code>version</code>/<code>name</code>/<code>test_cases[]</code> مع <code>id</code> و<code>category</code> و<code>priority</code> و<code>platforms</code> و<code>steps[]</code> مرتبة و<code>documentation_refs[]</code> لتتبع العودة إلى وثائق الميزات.</li>
+        <li><strong>كاشفات الأعطال/ANR (<code>pkg/detector</code>)</strong> — *السبب:* أهم حالات الفشل هي تلك التي تحدث أثناء التفاعل المباشر، وليس في تأكيد لاحق؛ *الكيفية:* ADB (<code>pidof</code>/<code>logcat</code>/<code>screencap</code>) لأندرويد و<code>pgrep</code> للويب وسطح المكتب، لمراقبة العملية أثناء تشغيل الاختبار لها.</li>
+        <li><strong>جمع الأدلة (<code>pkg/evidence</code>، <code>pkg/session</code>)</strong> — *السبب:* عقد مكافحة التلاعب لا يكون حقيقياً إلا إذا كان كل نجاح مدعوماً بأدلة مادية؛ *الكيفية:* لقطات الشاشة، سجلات النظام، مقاطع الفيديو، وتتبعات المكدس التي تُلتقط في جدول زمني <code>SessionRecorder</code> الذي ترتبط به كل التقارير.</li>
+        <li><strong>الجلسة المستقلة (<code>pkg/autonomous</code>، <code>pkg/navigator</code>، <code>pkg/issuedetector</code>)</strong> — *السبب:* لا يمكن توسيع نطاق ضمان الجودة اليدوي الشامل عبر أربع منصات، لذا يجب أن يقود الاستكشاف نفسه بنفسه؛ *الكيفية:* منسق جلسة رباعي المراحل <code>SessionCoordinator</code> بالإضافة إلى منفذي الإجراءات (ADB/Playwright/X11) وكشف أخطاء LLM الذي يشمل العيوب البصرية وتجربة المستخدم وإمكانية الوصول والوظيفية.</li>
+        <li><strong>الوحدات الفرعية الخارجية</strong> — *السبب:* إعادة الاستخدام وفك الاقتران (CONST-051)، والأهم من ذلك فصل الملاح عن المحكم؛ *الكيفية:* LLMsVerifier (تقييم النماذج)، LLMOrchestrator (الوكلاء غير المرئيين CLI)، VisionEngine (GoCV + رؤية LLM)، DocProcessor (خريطة الميزات/التغطية)، كل منها مكون مستقل مملوك بشكل منفصل.</li>
+        <li><strong>بوابات مكافحة التلاعب ومقياس الطفرات</strong> — *السبب:* للحفاظ على HelixQA ملتزماً بالعهد الدقيق في الفقرة 1.1 الذي تفرضه على كل شيء آخر؛ *الكيفية:* فحص <code>make anti-bluff</code> بالإضافة إلى بيان السلوك المرتبط ومقياس الطفرات، مع <code>helixqa_orchestrator_challenge.sh</code> كمحقق شامل من ثماني مراحل.</li>
+        <li><strong>مصفوفة تغطية من 15 صفاً (<code>docs/test-coverage.md</code>)</strong> — *السبب:* يلزم CONST-050(B) مجموعة مغلقة ومحسوبة بالكامل لأنواع الاختبارات دون فجوات؛ *الكيفية:* كل صف مرتبط بأصل تنفيذي ملموس وشكل محدد للأدلة الملتقطة، بحيث تكون التغطية حقيقة مؤكدة وليست مجرد ادعاء.</li>
+      </ul>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-9" aria-expanded="true" aria-controls="od-acc-helixqa-9-panel">
+              <span class="od-accordion__label">ملاحظات حول الحالة والنزاهة</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-9-panel" role="region" aria-labelledby="od-acc-helixqa-9">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>الحالة: تجريبية.</strong> قيد التطوير النشط (شعار حالة ملف README النسخة ٢١٩). تخضع لمعايير مكافحة التضليل الخاصة بها.</li>
+        <li><strong>الرخصة: Apache-2.0.</strong> التثبيت: <code>go install digital.vasic.helixqa/cmd/helixqa@latest</code>.</li>
+      </ul>
+      <p><strong>طبقة الأولوية:</strong> Helix-أساسية — ركيزة إلزامية لضمان الجودة ومكافحة التضليل في كيفية التحقق من أن مزايا عائلة Helix تعمل بالفعل.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

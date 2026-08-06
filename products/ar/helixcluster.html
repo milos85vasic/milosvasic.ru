@@ -1,0 +1,327 @@
+---
+layout: default
+lang: ar
+title: "HelixCluster — Miloš Vasić"
+description: "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcluster.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ar",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixcluster.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane.",
+      "inLanguage": "ar",
+      "name": "HelixCluster",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixcluster.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 14</p>
+      <h1>HelixCluster <span class="od-h1-badges"><span class="od-badge--status od-badge--status--in-development">in-development</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25 / toolchain 1.26.4)</span><span class="od-chip">Zig + C/C++</span><span class="od-chip">gRPC + Protocol Buffers</span><span class="od-chip">Raft (etcd-raft) + SWIM gossip</span><span class="od-chip">PostgreSQL 16 / Redis 7 / etcd v3.5 / SQLite</span><span class="od-chip">NATS / Kafka / RabbitMQ</span><span class="od-chip">WireGuard + ML-KEM-768/X25519 + AEAD</span><span class="od-chip">SPIFFE + JWT + OPA</span><span class="od-chip">Prometheus / Grafana / Jaeger</span><span class="od-chip">HashiCorp Vault</span><span class="od-chip">Kubernetes + Helm</span><span class="od-chip">React + TypeScript + Vite</span><span class="od-chip">TLA+</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helix_cluster" rel="noopener noreferrer" target="_blank">HelixDevelopment/helix_cluster <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixcluster">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixCluster — seven-layer stack</text>
+<text class="lbl" x="40" y="88">14 control-plane</text>
+<text class="lbl" x="40" y="106">microservices</text>
+<text class="lbl" x="40" y="548">heterogeneous</text>
+<text class="lbl" x="40" y="566">nodes T1–T8</text>
+<text class="note" x="490" y="632">Node tiers T1 (datacenter GPU) → T8 (handheld), unified under one control plane</text>
+<rect class="box" x="210" y="78" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="112">L7 · Federation &amp; Observability</text>
+<rect class="box" x="210" y="140" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="174">L6 · Security &amp; Attestation (SPIFFE, PQ-E2EE)</text>
+<rect class="box" x="210" y="202" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="236">L5 · Sessions &amp; Interactive Terminal</text>
+<rect class="box" x="210" y="264" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="298">L4 · AI Inference Routing</text>
+<rect class="accent" x="210" y="326" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="360">L3 · Omega Scheduler (two-level)</text>
+<rect class="box" x="210" y="388" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="422">L2 · Consensus &amp; Membership (Raft + SWIM)</text>
+<rect class="box" x="210" y="450" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="484">L1 · Node Runtime &amp; Transport (gRPC, WireGuard)</text>
+<rect class="box" x="210" y="512" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="546">L0 · Hardware Substrate (GPU → edge SBC)</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>نظام تشغيل موزَّع لأجهزة AI الحاسوبية — من وحدات معالجة الرسوميات في مراكز البيانات إلى الأجهزة المحمولة الطرفية، تحت مستوى تحكم موحَّد.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-0" aria-expanded="true" aria-controls="od-acc-helixcluster-0-panel">
+              <span class="od-accordion__label">الملخص</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-0-panel" role="region" aria-labelledby="od-acc-helixcluster-0">
+            <div class="od-accordion__inner">
+      <p>نظام Helix Cluster OS هو نظام تشغيل موزَّع من الجيل التالي يقوم بتنسيق العمليات الحاسوبية عبر عُقد غير متجانسة — بدءاً من وحدات معالجة الرسوميات في مراكز البيانات وصولاً إلى الحواسيب أحادية اللوحة والأجهزة المحمولة الطرفية — مُوحِّداً جدولة الحوسبة عالية الأداء، وتنسيق الحاويات، والاستدلال عبر AI/ML، وتشغيل المجموعات المتعددة المتعددة، والجلسات الآمنة متعددة المستأجرين تحت مستوى تحكم موحَّد.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-1" aria-expanded="true" aria-controls="od-acc-helixcluster-1-panel">
+              <span class="od-accordion__label">وصف مختصر</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-1-panel" role="region" aria-labelledby="od-acc-helixcluster-1">
+            <div class="od-accordion__inner">
+      <p>نظام تشغيل موزَّع قائم على Go / تجمع حوسبة لمشاركة GPU. يُوحِّد هذا النظام جدولة الحوسبة عالية الأداء (جدولة ثنائية المستوى على نموذج أوميغا)، وتنسيق الحاويات، وتوجيه استدلال AI، والتشغيل الموحَّد للمجموعات، والجلسات الآمنة متعددة المستأجرين عبر عُقد غير متجانسة، بتنسيق عبر بروتوكول SWIM للنميمة وإجماع Raft، مع تشفير شامل مقاوم للحوسبة الكمومية من طرف إلى طرف.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-2" aria-expanded="true" aria-controls="od-acc-helixcluster-2-panel">
+              <span class="od-accordion__label">وصف مفصل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-2-panel" role="region" aria-labelledby="od-acc-helixcluster-2">
+            <div class="od-accordion__inner">
+      <p>يقوم نظام Helix Cluster OS بتنسيق أعباء العمل الحاسوبية عبر أجهزة غير متجانسة بشكل جذري — من وحدات معالجة الرسوميات في مراكز البيانات إلى الحواسيب أحادية اللوحة الطرفية وحتى الأجهزة المحمولة — تحت مستوى تحكم موحَّد، مُعامِلاً رفاً من وحدات A100 ومجموعة من الحواسيب أحادية اللوحة كوحدة نسيج قابلة للعنونة بدلاً من عشرات الجزر غير المتوافقة. إنه مساحة عمل Go (مستودع أحادي مع وحدات فرعية من Git) تنفذ بنية مكونة من سبع طبقات، بدءاً من الطبقة المادية L0 وصولاً إلى الطبقة السابعة للتوحيد والمراقبة، بتنسيق عبر أربعة عشر خدمة مصغرة لمستوى التحكم. تُتتبَّع العضوية العقدية عبر بروتوكول SWIM للنميمة والاكتشاف بحيث يشفى النسيج تلقائياً عند انضمام العقد أو مغادرتها؛ بينما تعتمد الحالة المتسقة بقوة على إجماع Raft، مُنظَّمةً كمجموعات Raft لكل شريحة مع قراءات محلية للمستأجرين لضمان السرعة، وحماية STONITH لمنع العقد المقسَّمة من إفساد الحالة المشتركة. يتم وضع أعباء العمل عبر جدولة ثنائية المستوى على نموذج أوميغا — التوازي المتفائل، مطابقة ClassAd، الجدولة الجماعية، الإحلال بقيمة مضاعفة، ووضع قائم على القيود — ثم يتخطى ما كانت تقوم به جدولة الحوسبة عالية الأداء التقليدية: توجيه واعٍ للبصمة الكربونية والتكلفة/التكلفة الإجمالية للملكية، والتوسُّع التلقائي نحو السحابة عند الاندفاع، ومحولات الأسواق (Akash، io.net، RunPod، AWS Spot، Chutes) التي تسمح بتسريب الوظائف إلى القدرات المستأجرة عند نفاد العرض المحلي.</p>
+      <p>لا يرى المستخدمون النهائيون أياً من هذه الآليات مباشرة؛ بل يتفاعلون عبر نموذج جلسات نظيف (تخصيصات الحوسبة)، وطرفية WebSocket/PTY تفاعلية، ومسار داخلي لاستدلال AI، وقراءات استخدام التجمع. تُعتبر الأمان طبقة أساسية وليست إضافة لاحقة: هوية SPIFFE، وإثبات الجهاز (التحدي/الاستجابة، إثبات عمل GPU، الختم)، وبوابة KYC لمراقبة الصادرات، ونقل مشفر شامل مقاوم للحوسبة الكمومية من طرف إلى طرف مبني على تبادل مفاتيح هجين X25519 + ML-KEM-768 مع حماية سجلات AEAD ورفض إعادة التشغيل — مُصمَّم بحيث تظل حركة المرور الملتقطة اليوم سرية حتى أمام الخصوم الكموميين في المستقبل. لا يُفترض الصواب، بل *يُثبت*: اختبار المحاكاة الحتمية (تشغيلات مبرمجة على غرار FoundationDB، وحقن الأخطاء، ومحاكاة الشبكة، وإعادة التشغيل بايتاً ببايت، ومُدقِّق الخطية Porcupine) يعيد إنتاج حالات الفشل الموزَّعة عند الطلب، واختبار الطفرات المزدوج الإلزامي يثبت أن اختبارات الحماية فعَّالة بالفعل. تُحافظ البنية الوثائقية على الدقة عبر أدوات فحص آلية تفشل البناء لحظة انحراف الواقع عن الوثائق.</p>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-3" aria-expanded="true" aria-controls="od-acc-helixcluster-3-panel">
+              <span class="od-accordion__label">لماذا قمنا ببنائه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-3-panel" role="region" aria-labelledby="od-acc-helixcluster-3">
+            <div class="od-accordion__inner">
+      <p>لتشغيل أعباء عمل AI والحوسبة عالية الأداء عبر مستويات أجهزة متباينة تماماً دون الحاجة إلى تجميع مجدولات ومُنسِّقات ومكدسات استدلال منفصلة — وللقيام بذلك بضمان هندسي بأن كل ميزة تم شحنها تثبت *سلوك المستخدم النهائي الفعلي* (دون الاعتماد على اختبارات وهمية بدلاً من النماذج الحقيقية) وأن كل قدرة خاصة بنظام التشغيل تستخدم مرفقاً أصلياً حقيقياً لكل منصة (دون محاكاة خاصة بنظام لينكس فقط). المشكلة الدافعة، كما وردت في وثائق إدارة المستودع، هي نمط الفشل "الاختبارات تجتاز لكن الميزة لا تعمل فعلياً"، وهو ما صُمِّم المشروع بشكل صريح للقضاء عليه.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-4" aria-expanded="true" aria-controls="od-acc-helixcluster-4-panel">
+              <span class="od-accordion__label">لماذا يُعد ثورةً في المجال</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-4-panel" role="region" aria-labelledby="od-acc-helixcluster-4">
+            <div class="od-accordion__inner">
+      <p>إنه يدمج خمسة عناصر كانت عادةً خمسة مكدسات منفصلة — جدولة الحوسبة عالية الأداء، وتنسيق الحاويات، واستدلال AI، والفيدرالية متعددة المجموعات، والجلسات الآمنة متعددة المستأجرين — في مستوى تحكم واحد يمتد من وحدات معالجة الرسوميات في مراكز البيانات وصولاً إلى الأجهزة المحمولة على الحافة. ويحقق ذلك بميزانية دقة تُخصص عادةً للبنية التحتية المتخصصة: ضمانات صحة على مستوى الأساليب الرسمية (مواصفات TLA+، والمحاكاة الحتمية، وفحص الخطية)، ونقل سري ما بعد الكم، وهي نوعية الضمانات التي لا تحاول معظم المُنسِّقات توفيرها أصلاً. وفوق هذا التفوق التقني، فإن وضعية التكاليف والوعي البيئي بالإضافة إلى القدرة على التوسع عبر سوق الحوسبة السحابية تجعل منه أداة *اقتصادية* أيضاً — حيث يمكن للمجدول البحث تلقائياً عن طاقة أرخص أو أكثر استدامة أو احتياطية، مما يجعل نفس عبء العمل يكلف أقل وينبعث منه أقل دون الحاجة إلى إعادة كتابة الوظيفة.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-5" aria-expanded="true" aria-controls="od-acc-helixcluster-5-panel">
+              <span class="od-accordion__label">ما الجديد فيه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-5-panel" role="region" aria-labelledby="od-acc-helixcluster-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>اختبار المحاكاة الحتمية (DST)</strong> — محاكي مُبذر وقابل لإعادة الإنتاج بالكامل، يحقن الأخطاء، وانحراف الساعة، وتقسيمات الشبكة، ويعيد تشغيلها بايتاً ببايت، ويمرر النتيجة عبر مدقق الخطية "بوركباين"، بحيث يمكن إعادة إنتاج خطأ هايزنبرغ الذي يُكتشف مرة واحدة عند الطلب إلى الأبد.</li>
+        <li><strong>مجدول ثنائي المستوى بنموذج أوميغا</strong> — وضعية متفائلة للمزامنة مع مطابقة "كلاس أد"، وجدولة جماعية، وإخلاء مسبق بناءً على مضاعف القيمة، والتصميم المشترك للحالة الذي يسمح للعديد من المجدولات بالالتزام بمجموعة واحدة دون عنق زجاجة مركزي.</li>
+        <li><strong>توصيل الاستدلال السري/التشفير من طرف إلى طرف ما بعد الكم</strong> — تبادل مفاتيح هجين باستخدام X25519 وML-KEM-768 مع ربط زوج مفاتيح الاستجابة لكل طلب، والتشفير المصادق عليه مع رفض إعادة التشغيل (المقومات التشفيرية حقيقية ومختبرة؛ بينما يظل الاتصال السري متعدد العقد كامل الدورة قيد التخطيط/الموافقة بشكل صريح).</li>
+        <li><strong>الثقة القائمة على الإثبات</strong> — يجب على العقد *إثبات* هويتها: هوية SPIFFE، وإثبات عمل GPU، وختم الجهاز، وبوابة التحقق من الامتثال للرقابة على الصادرات، وتوليد وثائق الامتثال لقانون AI للاتحاد الأوروبي، بحيث تُكتسب الثقة عبر الأدلة بدلاً من افتراضها بناءً على موقع الشبكة.</li>
+        <li><strong>التنسيق الواعي بالتكلفة والكربون</strong> — نمذجة التكلفة الإجمالية للملكية، ووضعية واعية بالكربون، والتوسع نحو السحابة، واحتياطي الفشل N+K، ومحولات سوق الحوسبة السحابية، مما يجعل السعر والانبعاثات مدخلات أساسية للجدولة بدلاً من مجرد أفكار لاحقة.</li>
+        <li><strong>إجماع متعدد الرافعات</strong> — مجموعات رافعات لكل شريحة مع قراءات محلية لحامل الإيجار لتحقيق اتساق منخفض الكمون، مدعومة بسياج STONITH (IPMI / EC2 / Azure / SBD) بحيث تُزال العقدة المعطلة بشكل حاسم بدلاً من تركها لتخريب الحالة.</li>
+        <li><strong>فحوصات ميكانيكية ضد الانحراف</strong> — يفشل <code>archlint</code> البناء فوراً إذا كانت المكونات الموثقة تشير إلى مسار حزمة غير موجود، ومحرك سلسلة الوثائق يحافظ على تماسك البايتات بين Markdown وHTML وPDF وDOCX، بحيث لا يمكن للوثائق أن تكذب بصمت عن الكود.</li>
+      </ul>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-6" aria-expanded="true" aria-controls="od-acc-helixcluster-6-panel">
+              <span class="od-accordion__label">أكبر التحديات التقنية وكيفية حلّها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-6-panel" role="region" aria-labelledby="od-acc-helixcluster-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>"خدعة النجاح" (اجتياز الاختبارات على ميزات غير وظيفية).</strong> نمط الفشل الذي بُني المشروع بأكمله للقضاء عليه: مجموعة اختبارات خضراء فوق محاكيات زائفة. تم حل هذه المشكلة بفرض اختبار الطفرات المزدوج الإلزامي — فكل عنصر عمل يحمل اختبارًا حارسًا محددًا يجب أن يفشل تحت طفرة مستقلة في الكود قبل اعتبار العنصر مكتملاً، وبذلك يثبت نجاح الاختبار أنه يتحقق من سلوك حقيقي وليس مجرد محاكاة.</li>
+        <li><strong>التكافؤ عبر المنصات (عدم الاقتصار على محاكيات لينكس فقط).</strong> تم حل هذه المشكلة بواجهة مشتركة مقسمة عبر علامات البناء إلى مرافق أصلية لكل نظام تشغيل — مثل مجموعات التحكم في لينكس (<code>cgroup</code>) و<code>/proc</code> وواجهة نواة WireGuard، و<code>sysctl</code> و<code>vm_stat</code> وIOKit و<code>wireguard-go</code> في نظام macOS — ثم التحقق المتبادل مع مرجع نظام تشغيل مستقل، بحيث يقدم كل نظام حالة أصلية حقيقية بدلاً من افتراضات لينكس.</li>
+        <li><strong>الصحة الموزعة تحت ظروف الأعطال.</strong> تم حل هذه المشكلة من خلال اختبار المحاكاة الحتمية وأداة التحقق من قابلية التسلسل الخطي التي تنتج وتعيد تشغيل حالات التقسيم والتعطل وانحراف الساعة، مدعومة بمواصفات TLA+ الرسمية التي تحدد ثوابت التوافق والجدولة قبل كتابة أي سطر من الكود.</li>
+        <li><strong>انحراف الوثائق والبنية المعمارية.</strong> تم حل هذه المشكلة باستخدام <code>archlint</code> الذي يفشل عملية البناء عند اكتشاف أي حزمة موثقة ولكنها غير موجودة، وبوابة تحقق <code>docs_chain</code> دون أي استثناءات — فالانحراف يؤدي إلى فشل البناء، وليس مجرد صفحة ويكي قديمة.</li>
+        <li><strong>تحديد نطاق العمل غير المكتمل بصراحة.</strong> جولة الاستدلال متعددة العقد السرية مقصودة خلف تذكرة محددة وموسومة بـ"لم يتم التحقق منها من النهاية إلى النهاية بعد" بدلاً من تقديمها على أنها مكتملة — نفس الانضباط المطبق على ما لم يُنجز بعد كما هو مطبق على ما تم إنجازه.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-7" aria-expanded="true" aria-controls="od-acc-helixcluster-7-panel">
+              <span class="od-accordion__label">مجموعة التقنيات</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-7-panel" role="region" aria-labelledby="od-acc-helixcluster-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (go.mod: 1.25 / مجموعة الأدوات 1.26.4)</strong> — لغة مستوى التحكم عبر مساحة عمل تضم حوالي 30 وحدة؛ اختيرت لقدرتها على إدارة التوازي عبر الغوروتينات بتكلفة منخفضة، ولإنشاء ملفات تنفيذية ثابتة تنتشر بشكل متماثل من مراكز البيانات إلى الحواف.</li>
+        <li><strong>Zig (0.14+) + C/C++</strong> — تُستخدم حيث تتدخل بيئة تشغيل Go: في العناصر الأولية للنظام منخفضة المستوى ونوى GPU التي تتطلب تحكمًا حتميًا وخاليًا من التخصيص على مستوى العتاد.</li>
+        <li><strong>gRPC + Protocol Buffers</strong> — كل اتصال بين الأنظمة الفرعية عبر API (<code>api/v1/</code>) هو عقدة محددة الإصدارات والنوع، مما يسمح لتسعة عشر خدمة مصغرة بالتطور دون كسر بعضها البعض أو الحاجة إلى صياغة تنسيقات نقل يدوية.</li>
+        <li><strong>Raft (etcd-raft) + بروتوكول SWIM للنشر Gossip</strong> — تقسيم متعمد: يحمل Raft الحالة التي يجب أن تكون متسقة بقوة، بينما يتعامل بروتوكول SWIM Gossip مع العضوية والاكتشاف على نطاق واسع حيث يكون التوافق ثقيلاً للغاية.</li>
+        <li><strong>PostgreSQL 16، Redis 7، etcd v3.5، SQLite</strong> — المتجر المناسب لكل مهمة: Postgres للبيانات العلائقية الدائمة، Redis للذاكرة المؤقتة الساخنة، etcd للتنسيق، وSQLite المضمنة لسجل عناصر العمل المحلي للعقدة HXC.</li>
+        <li><strong>NATS 2.10 (JetStream)، Kafka 4.0 (KRaft)، RabbitMQ 3.13</strong> — ثلاثة أنظمة مراسلة لثلاثة أشكال من حركة البيانات: NATS/JetStream للحدث السريع الداخلي، Kafka للتدفقات عالية الإنتاجية والدائمة، وRabbitMQ لدلالات الوسيط التقليدية.</li>
+        <li><strong>شبكة WireGuard + ML-KEM-768/X25519 + AES-256-GCM/ChaCha20-Poly1305 + HKDF</strong> — WireGuard لشبكة خفيفة بين العقد، مغلفة بمصافحة هجينة مقاومة للكمبيوتر الكمي وتسجيلات مصادقة التشفير المصاحبة (AEAD) لضمان سرية النقل ضد المهاجمين التقليديين والكميين.</li>
+        <li><strong>SPIFFE + JWT (HS256) + التحكم في الوصول المستند إلى النطاق + OPA</strong> — هوية وتفويض متعدد الطبقات: SPIFFE لهوية الحملات، JWT للرموز، التحكم في الوصول المستند إلى النطاق للوصول العام، وOPA للتعبير عن السياسات الدقيقة ككود.</li>
+        <li><strong>Prometheus v2.50، Grafana 10.4، Jaeger 1.55، تتبع W3C</strong> — المقاييس ولوحات التحكم والتتبع الموزع مع انتشار سياق W3C، مما يسمح بتتبع الطلب عبر الخدمات ومستويات العتاد المختلفة.</li>
+        <li><strong>HashiCorp Vault 1.16</strong> — تُحفظ الأسرار والمواد الرئيسية خارج الكود والتكوين وتُصدر تحت المراجعة.</li>
+        <li><strong>Docker Compose، Kubernetes (kustomize، سياق أمان مقوى)، Helm</strong> — Compose للإعداد المحلي وKubernetes/Helm بسياقات أمان مقواة للنشر الفعلي، بتعريف واحد يُروج عبر البيئات المختلفة.</li>
+        <li><strong>React + TypeScript + Vite (Node 20+)</strong> — واجهة ويب سريعة وآمنة الأنواع للجلسات والمحطات الطرفية واستخدام الموارد.</li>
+        <li><strong>TLA+</strong> — المواصفات الرسمية لثوابت التوافق والجدولة، بحيث تُثبت الخصائص الأصعب في الاختبار على مستوى التصميم قبل التنفيذ.</li>
+      </ul>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-8" aria-expanded="true" aria-controls="od-acc-helixcluster-8-panel">
+              <span class="od-accordion__label">ملاحظات حول الحالة والنزاهة</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-8-panel" role="region" aria-labelledby="od-acc-helixcluster-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>الحالة: قيد التطوير.</strong> النسخة مبكرة (<code>0.1.0-dev</code>). العديد من الميزات المتقدمة — مثل الاستدلال متعدد العقد السري الكامل ذهابًا وإيابًا، وتسوية السوق، وملء الجدولة المدفوعة بالشهادات — تم تصنيفها بوضوح كـ <strong>مخطط لها</strong> / معتمدة على البنية التحتية في المستودع، ولا تُقدّم على أنها مكتملة العمل. أرقام التغطية مُعلنة ذاتيًا.</li>
+        <li><strong>الرخصة: لم تُحدد بعد.</strong> لم تُعلن بوضوح؛ عناوين URL في مخطط <code>Helm</code> (<code>HelixCluster/HelixCluster</code>) و<code>helixcluster.io</code> هي عناصر نائب غير مُتحقق منها ولا تتطابق مع المواقع البعيدة الحقيقية.</li>
+        <li>مشاريع حزمة <code>LLM</code> المرفقة (مثل <code>LLMOrchestrator</code>، <code>LLMProvider</code>، <code>LLMsVerifier</code>) هي وحدات فرعية منفصلة وليست خوادم نماذج مستضافة داخل العنقود.</li>
+      </ul>
+      <p><strong>درجة الأولوية:</strong> <code>Helix</code>-أساسية (<code>LLM</code>-عنقود البنية التحتية — الطبقة الحاسوبية التي يمكنها استضافة مهام الاستدلال والحوسبة). تأتي في المرتبة التالية بعد <code>HelixTrack</code>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

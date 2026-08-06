@@ -64,14 +64,22 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   }
 
-  // Initial language: stored > browser > en
+  // Initial language: explicit stored choice > this page's own <html lang> >
+  // browser > en. The page lang is the server-rendered default so a static
+  // localized page (e.g. /products/ru/ with <html lang="ru">) shows its native
+  // chrome immediately on load; a previously-stored user choice still wins.
   var initial = 'en';
+  var supported = langs.map(function (l) { return l.code; });
+  var pageLang = (root.getAttribute('lang') || '').slice(0, 2);
   try {
     var stored = localStorage.getItem('mv-lang');
-    var supported = langs.map(function (l) { return l.code; });
     if (stored && supported.indexOf(stored) > -1) initial = stored;
+    else if (pageLang && pageLang !== 'en' && supported.indexOf(pageLang) > -1) initial = pageLang;
     else { var nav = (navigator.language || 'en').slice(0, 2); if (supported.indexOf(nav) > -1) initial = nav; }
-  } catch (e) {}
+  } catch (e) {
+    // localStorage blocked (private mode): still honor the page's own lang.
+    if (pageLang && pageLang !== 'en' && supported.indexOf(pageLang) > -1) initial = pageLang;
+  }
   translate(initial);
 
   /* ---------- Mobile primary nav (hamburger) ---------- */

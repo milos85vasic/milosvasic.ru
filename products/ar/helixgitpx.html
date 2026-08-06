@@ -1,0 +1,332 @@
+---
+layout: default
+lang: ar
+title: "HelixGitpx — Miloš Vasić"
+description: "HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixgitpx.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ar",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixgitpx.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA.",
+      "inLanguage": "ar",
+      "name": "HelixGitpx",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixgitpx.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 17</p>
+      <h1>HelixGitpx <span class="od-h1-badges"><span class="od-badge--status od-badge--status--shipped">shipped</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go monorepo</span><span class="od-chip">Angular 19 + Nx</span><span class="od-chip">Kotlin Multiplatform + Compose</span><span class="od-chip">Kubernetes + Helm + Argo CD + Kustomize</span><span class="od-chip">OPA (Rego)</span><span class="od-chip">Docusaurus</span><span class="od-chip">Astro</span><span class="od-chip">mise</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixGitpx" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixGitpx <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixgitpx">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixGitpx — hub-and-spoke Git federation</text>
+<text class="lbl" x="40" y="74">Mirror hosts (11 forges)</text>
+<text class="note" x="340" y="262">conflict → policy / AI resolver → single truth</text>
+<path class="conn" marker-end="url(#a)" d="M380,310 L202,116"/>
+<path class="conn" marker-end="url(#a)" d="M380,320 L202,206"/>
+<path class="conn" marker-end="url(#a)" d="M380,335 L202,326"/>
+<path class="conn" marker-end="url(#a)" d="M380,350 L202,436"/>
+<path class="conn" marker-end="url(#a)" d="M590,310 L758,116"/>
+<path class="conn" marker-end="url(#a)" d="M590,320 L758,206"/>
+<path class="conn" marker-end="url(#a)" d="M590,335 L758,326"/>
+<path class="conn" marker-end="url(#a)" d="M590,350 L758,436"/>
+<path class="conn" marker-end="url(#a)" d="M485,280 L485,124"/>
+<path class="conn" marker-end="url(#a)" d="M430,390 L360,538"/>
+<path class="conn" marker-end="url(#a)" d="M540,390 L620,538"/>
+<rect class="accent" x="380" y="280" width="210" height="110" rx="10"/>
+<rect class="box" x="40" y="90" width="160" height="52" rx="10"/>
+<rect class="box" x="40" y="180" width="160" height="52" rx="10"/>
+<rect class="box" x="40" y="300" width="160" height="52" rx="10"/>
+<rect class="box" x="40" y="410" width="160" height="52" rx="10"/>
+<rect class="box" x="760" y="90" width="170" height="52" rx="10"/>
+<rect class="box" x="760" y="180" width="170" height="52" rx="10"/>
+<rect class="box" x="760" y="300" width="170" height="52" rx="10"/>
+<rect class="box" x="760" y="410" width="170" height="52" rx="10"/>
+<rect class="box" x="400" y="70" width="170" height="52" rx="10"/>
+<rect class="box" x="250" y="540" width="160" height="52" rx="10"/>
+<rect class="box" x="560" y="540" width="160" height="52" rx="10"/>
+<text class="t" x="485" y="314">Source-of-truth hub</text>
+<text class="s" x="485" y="334">Go platform · OPA policy</text>
+<text class="t" x="120" y="124">GitHub</text>
+<text class="t" x="120" y="214">GitLab</text>
+<text class="t" x="120" y="334">Gitea</text>
+<text class="t" x="120" y="444">Bitbucket</text>
+<text class="t" x="845" y="124">Azure DevOps</text>
+<text class="t" x="845" y="214">AWS CodeCommit</text>
+<text class="t" x="845" y="334">GitFlic</text>
+<text class="t" x="845" y="444">GitVerse</text>
+<text class="t" x="485" y="104">Gitee</text>
+<text class="t" x="330" y="574">Forgejo</text>
+<text class="t" x="640" y="574">SourceHut</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>مصدر واحد للحقيقة، مُنعكس في كل مكان — نظام Git موحد عبر عشرات المضيفين.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-0" aria-expanded="true" aria-controls="od-acc-helixgitpx-0-panel">
+              <span class="od-accordion__label">ملخص</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-0-panel" role="region" aria-labelledby="od-acc-helixgitpx-0">
+            <div class="od-accordion__inner">
+      <p>HelixGitpx (وكيل Git الموحد الموسع Helix) هو وكيل Git موحد يحافظ على مصدر واحد للحقيقة منعكساً عبر العديد من مضيفي Git الرئيسيين، ويحل النزاعات الحتمية باستخدام تدفقات مدعومة بسياسات وأداة AI. وقد وصل إلى الإصدار v1.0.0 GA.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-1" aria-expanded="true" aria-controls="od-acc-helixgitpx-1-panel">
+              <span class="od-accordion__label">وصف مختصر</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-1-panel" role="region" aria-labelledby="od-acc-helixgitpx-1">
+            <div class="od-accordion__inner">
+      <p>HelixGitpx هو وكيل Git موحد يعكس مصدراً واحداً للحقيقة عبر أكثر من عشرة مضيفين لـ Git — GitHub، GitLab، Gitea، Bitbucket، Azure DevOps، AWS CodeCommit وغيرها — ويحل تناقضات المزامنة باستخدام تدفقات مدعومة بسياسات وأداة AI. تم إصداره بالإصدار v1.0.0 GA.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-2" aria-expanded="true" aria-controls="od-acc-helixgitpx-2-panel">
+              <span class="od-accordion__label">وصف مفصل</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-2-panel" role="region" aria-labelledby="od-acc-helixgitpx-2">
+            <div class="od-accordion__inner">
+      <p>HelixGitpx — "وكيل Git الموحد الموسع Helix" — هو وكيل Git موحد يحافظ على مصدر واحد للحقيقة منعكساً عبر العديد من مضيفي Git الرئيسيين، ويحل النزاعات التي تنشأ حتماً لحظة وجود المستودع نفسه في أكثر من مكان. تشمل المضيفات المدعومة قائمة شاملة لنظام Git البيئي بأكمله: GitHub، GitLab، GitFlic، GitVerse، Gitea، Gitee، Bitbucket، Azure DevOps، AWS CodeCommit، Forgejo، SourceHut، بالإضافة إلى Git عبر HTTPS العام. ففي حين أن عملية <code>git push</code> البسيطة إلى عشرات المستودعات البعيدة إما أن تفشل تماماً أو، والأسوأ من ذلك، تسمح للمرايا بالانحراف بصمت، يتدخل HelixGitpx بتدفقات حل مدعومة بسياسات وأداة AI لإعادة التوفيق بين الاختلافات وإعادتها إلى مصدر واحد موثوق.</p>
+      <p>وقد وصل المشروع إلى الإصدار v1.0.0 GA، مع وضع علامات على المراحل من <code>m1-foundation</code> إلى <code>m8-ga</code> — مسار متسلسل بالكامل من الأساس إلى التوافر العام. تم تصميمه على ثلاثة مستويات لمنتج واحد: مستودع Go الأحادي (منصة تضم ثمانية عشر خدمة، وأدوات توليد الأكواد، وأدوات التهيئة) الذي يحمل محرك التوحيد؛ تطبيق Angular الويب المكون من 19 + Nx؛ وقذائف Kotlin متعددة المنصات + Compose التي توفر تجارب أصلية لأندرويد، iOS، وسطح المكتب من خلال كود مشترك. يتم تسليم المنصة بطريقة Kubernetes الأصلية في جوهرها — مخططات Helm، تطبيقات Argo CD، طبقات Kustomize، SQL، وسياسات OPA — مع خطوط أنابيب CI محكومة بعمليات نشر صريحة لمنع أي تحديثات عرضية. يتم نشر الوثائق العامة كموقع Docusaurus (docs.helixgitpx.io) إلى جانب موقع تسويقي Astro (helixgitpx.io).</p>
+      <p>الحوكمة صارمة ومبنية على دستور، وهذا ميزة وليس مجرد إجراء شكلي: الوثيقة الحاملة للمشروع هي Constitution، التي تنص مادتها الثانية على ضرورة وجود مصفوفة اختبار من سبعة أنواع بتغطية 100% *لكل نوع ولكل وحدة تم تعديلها*، مع السماح بالمحاكاة فقط في اختبارات الوحدة وعدم التسامح مع أي اختبار متخطى. يقوم مدقق لمرة واحدة بتشغيل كل فحص للقطع الأثرية بالإضافة إلى <code>go vet</code> و<code>go test</code> عبر مساحة العمل بأكملها، وكل عملية دفع تنتشر إلى جميع المضيفين الرئيسيين المُعدّين — لذا فإن عبارة "المرايا متزامنة" هي شيء يفرضه النظام مع كل التزام بدلاً من أن يكون شيئاً يتذكر الإنسان التحقق منه.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-3" aria-expanded="true" aria-controls="od-acc-helixgitpx-3-panel">
+              <span class="od-accordion__label">لماذا قمنا ببنائه</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-3-panel" role="region" aria-labelledby="od-acc-helixgitpx-3">
+            <div class="od-accordion__inner">
+      <p>الحفاظ على صحة المستودع عبر العديد من مضيفي Git — سواء لأغراض التكرار، السيادة، أو الوصول إلى منصات إقليمية — أمر هش ويتطلب تدخلاً يدوياً، كما أن المرايا المتباينة يصعب توفيقها. تم بناء HelixGitpx لجعل عملية المرآة متعددة المضيفين قدرة أساسية واعية بالنزاعات.</p>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-4" aria-expanded="true" aria-controls="od-acc-helixgitpx-4-panel">
+              <span class="od-accordion__label">لماذا يُعدّ ثورةً في المجال</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-4-panel" role="region" aria-labelledby="od-acc-helixgitpx-4">
+            <div class="od-accordion__inner">
+      <p>يحوّل هذا النظام ما كان يُعرف بـ"الدفع إلى عدة مستودعات وانتظار الأفضل" – تلك الحالة الهشّة والمعتمدة على التدخل اليدوي – إلى اتحادٍ منظمٍ قائمٍ على مصدرٍ موثوقٍ وحيدٍ للحقيقة، مع حلّ تلقائي للصراعات مدعومٍ بسياسات ومعرفات AI. ويحقق ذلك عبر مجموعة واسعة بشكلٍ غير معتاد من المضيفين، متعمّداً إدراج المنصات الإقليمية (GitFlic، GitVerse، Gitee) التي تتجاهلها معظم الأدوات بصمت، بحيث تتحوّل التكرار وسيادة البيانات والوصول إلى تلك النظم البيئية من عبءٍ صيانةٍ إلى قدرةٍ واحدةٍ تُضبَط مرةً واحدة.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-5" aria-expanded="true" aria-controls="od-acc-helixgitpx-5-panel">
+              <span class="od-accordion__label">ما الجديد؟</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-5-panel" role="region" aria-labelledby="od-acc-helixgitpx-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>تنوّع المصادر العليا</strong> – أكثر من اثنتي عشرة منصة استضافة Git، من GitHub وGitLab إلى المنصات الإقليمية مثل GitFlic وGitVerse وGitee، جميعها موحّدة خلف وكيلٍ واحد.</li>
+        <li><strong>حلّ الصراعات المدعوم بالسياسات ومعرفات AI</strong> – تُعالَج الاختلافات بواسطة محرك سياسات ومحلّل AI، وليس عبر مقارنة يدوية للمرايا.</li>
+        <li><strong>اتحاد قائم على مصدر وحيد للحقيقة</strong> – نموذج دفع شامل لجميع المصادر العليا حيث يكون مستودع واحد موثوقاً به هو الحقيقة، وكل مضيف هو مرآة تُحافظ على تزامنها التام.</li>
+        <li><strong>اختبار صارم يفرضه دستور صارم</strong> – سبعة أنواع من الاختبارات بتغطية كاملة لكل نوع دون استثناءات، مثبتة بواسطة نص برمجي أخضر اللون يُنفّذ دفعةً واحدة بدلاً من الاعتماد على الثقة العمياء.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-6" aria-expanded="true" aria-controls="od-acc-helixgitpx-6-panel">
+              <span class="od-accordion__label">أكبر التحديات التقنية وكيف تمّ التغلب عليها</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-6-panel" role="region" aria-labelledby="od-acc-helixgitpx-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>الاختلافات والصراعات عبر مصادر عليا متعددة.</strong> يبدأ المستودع نفسه في الانحراف بمجرد قبول مضيفين مختلفين لتعديلات متباينة. تمّ حلّ هذه المشكلة عبر تدفقات حلّ الصراعات المدعومة بالسياسات ومعرفات AI والمرتكزة على مصدر وحيد للحقيقة، بالإضافة إلى دفع متزامن لجميع المصادر العليا يضمن تقارب جميع المرايا نحو تلك الحقيقة الواحدة.</li>
+        <li><strong>دعم موحّد لمنصات Git غير المتجانسة.</strong> لكل منصة آليات مصادقة خاصة بها، وخصائص فريدة، ومعرفات API. تمّ التغلب على ذلك عبر نصوص ضبط لكل مصدر أعلى تحت مجلد <code>Upstreams/</code> وطبقة منصة تجرد تلك الاختلافات، بحيث يصبح إضافة منصة جديدة مسألة ضبط وليس إعادة كتابة.</li>
+        <li><strong>إثبات الصحة قبل كل دمج.</strong> تمّ حلّ ذلك عبر مصفوفة اختبارات إلزامية من سبعة أنواع ونص برمجي <code>verify-everything.sh</code> يعمل كحاجز يُنفّذ مجموعة الفحوصات الكاملة – ويتوقف بشكل نظيف عند عدم إمكانية الوصول إلى أي مجموعة، بحيث يمكن إثبات الصحة محلياً كما في بيئة التكامل المستمر.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-7" aria-expanded="true" aria-controls="od-acc-helixgitpx-7-panel">
+              <span class="od-accordion__label">مجموعة التقنيات</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-7-panel" role="region" aria-labelledby="od-acc-helixgitpx-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>مستودع Go الأحادي</strong> – المحرك الأساسي والاتحاد: منصة تضم 18 خدمة، توليد أكواد، وهياكل أساسية، محفوظة في مستودع واحد بحيث تُبنى وتُختبر المنظومة بأكملها كوحدة واحدة.</li>
+        <li><strong>Angular 19 + Nx</strong> – التطبيق الإلكتروني، حيث يوفر Nx بنية بناء وتخزين مؤقت للمستودع الأحادي الذي تحتاجه الواجهة الأمامية الكبيرة.</li>
+        <li><strong>Kotlin Multiplatform + Compose</strong> – أغلفة التطبيقات الأصلية لنظامي Android وiOS وسطح المكتب، تُولّد من قاعدة أكواد مشتركة، بحيث لا تعني ثلاثة منصات ثلاث تطبيقات منفصلة.</li>
+        <li><strong>Kubernetes + Helm + Argo CD + Kustomize</strong> – النشر السحابي الأصلي: تُغلّف Helm الإصدار، وتتكيف طبقات Kustomize مع كل بيئة، بينما يُنسّق Argo CD عبر GitOps لضمان تطابق حالة المجموعة مع Git.</li>
+        <li><strong>OPA (Rego)</strong> – السياسات ككود لحلّ الصراعات والتحكم في الوصول، مما يحافظ على قرارات التفويض واضحة وقابلة للتدقيق.</li>
+        <li><strong>Docusaurus</strong> – موقع الوثائق العام (docs.helixgitpx.io)؛ <strong>Astro</strong> – الموقع التسويقي (helixgitpx.io)، حيث يُخصص كل أداة لنوع المحتوى المناسب.</li>
+        <li><strong>mise</strong> – سلسلة أدوات مثبتة وقابلة للتكرار بحيث يبني كل مساهم وبيئة التكامل المستمر باستخدام الإصدارات ذاتها تماماً.</li>
+      </ul>
+      <p>المحتوى</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-8" aria-expanded="true" aria-controls="od-acc-helixgitpx-8-panel">
+              <span class="od-accordion__label">ملاحظات حول الحالة والنزاهة</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-8-panel" role="region" aria-labelledby="od-acc-helixgitpx-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>الحالة: تم الشحن.</strong> يُعلن ملف README للمشروع عن الإصدار v1.0.0 GA مع وضع علامات على المراحل من <code>m1-foundation</code> وحتى <code>m8-ga</code>. ("v1.0.0 GA" هو ما يدّعيه ملف README للمشروع نفسه).</li>
+        <li><strong>الرخصة: لم تُحدّد بعد.</strong> تشير تقارير GitHub وAPI إلى رخصة <code>MIT</code>، بينما يذكر قسم الرخصة في ملف README رخصة Apache-2.0 (للبرنامج) وCC-BY-SA-4.0 (للمستندات) — ينبغي التحقق من ملف LICENSE الفعلي قبل النشر.</li>
+        <li>عناوين الوثائق (docs.helixgitpx.io) والتسويق (helixgitpx.io) مأخوذة من ملف README ولم يتم جلبها بشكل مستقل — حالة التشغيل <strong>غير مؤكدة</strong>.</li>
+      </ul>
+      <p><strong>درجة الأولوية:</strong> Helix-أساسية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
