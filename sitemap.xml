@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://milosvasic.ru/</loc></url>
+  <url><loc>https://milosvasic.ru/ar/</loc></url>
+  <url><loc>https://milosvasic.ru/be/</loc></url>
+  <url><loc>https://milosvasic.ru/de/</loc></url>
+  <url><loc>https://milosvasic.ru/es/</loc></url>
+  <url><loc>https://milosvasic.ru/fa/</loc></url>
+  <url><loc>https://milosvasic.ru/fr/</loc></url>
+  <url><loc>https://milosvasic.ru/hi/</loc></url>
+  <url><loc>https://milosvasic.ru/ja/</loc></url>
+  <url><loc>https://milosvasic.ru/kk/</loc></url>
+  <url><loc>https://milosvasic.ru/ko/</loc></url>
   <url><loc>https://milosvasic.ru/portfolio/</loc></url>
   <url><loc>https://milosvasic.ru/portfolio/ar/</loc></url>
   <url><loc>https://milosvasic.ru/portfolio/be/</loc></url>
@@ -511,4 +521,8 @@
   <url><loc>https://milosvasic.ru/products/zh/task-bridge.html</loc></url>
   <url><loc>https://milosvasic.ru/products/zh/vasic-digital-reusable-module-suite.html</loc></url>
   <url><loc>https://milosvasic.ru/products/zh/visionengine.html</loc></url>
+  <url><loc>https://milosvasic.ru/ru/</loc></url>
+  <url><loc>https://milosvasic.ru/sr/</loc></url>
+  <url><loc>https://milosvasic.ru/tr/</loc></url>
+  <url><loc>https://milosvasic.ru/zh/</loc></url>
 </urlset>

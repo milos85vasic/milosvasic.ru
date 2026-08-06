@@ -52,12 +52,29 @@
     }
   }
 
+  // On pages with real per-language static routes (the home: window.MV_PAGE.paths
+  // = { en:'/', ru:'/ru/', … }) choosing a language NAVIGATES to the localized
+  // page so its fully-translated BODY loads — not just a client-side chrome swap.
+  // The current page's server lang is read once, before translate() mutates it.
+  var pageHomeLang = (root.getAttribute('lang') || 'en').slice(0, 2);
+  function chooseLang(code) {
+    var page = window.MV_PAGE;
+    var url = page && page.paths && page.paths[code];
+    if (url && code !== pageHomeLang) {
+      try { localStorage.setItem('mv-lang', code); } catch (e) {}
+      window.location.href = url;
+      return;
+    }
+    translate(code);
+    closeMenu();
+  }
+
   if (langMenu) {
     langs.forEach(function (l) {
       var b = document.createElement('button');
       b.type = 'button'; b.dataset.code = l.code; b.setAttribute('role', 'menuitem');
       b.innerHTML = '<span>' + l.name + '</span><span class="mono" style="margin-left:auto;opacity:.6">' + l.code.toUpperCase() + '</span>';
-      b.addEventListener('click', function () { translate(l.code); closeMenu(); });
+      b.addEventListener('click', function () { chooseLang(l.code); });
       langMenu.appendChild(b);
     });
   }
