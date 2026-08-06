@@ -1,0 +1,318 @@
+---
+layout: default
+title: "VisionEngine — Miloš Vasić"
+description: "VisionEngine is a decoupled Go toolkit that combines classic computer vision with LLM-based vision to analyze user interfaces, detect UI elements and visual issues, and build navigation graphs of app screen transitions — with pluggable multi-provider vision backends and OpenCV gated behind a build tag."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/visionengine.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/visionengine.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/visionengine.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/visionengine.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/visionengine.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/visionengine.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/visionengine.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/visionengine.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/visionengine.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/visionengine.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "zh",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/visionengine.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "VisionEngine is a decoupled Go toolkit that combines classic computer vision with LLM-based vision to analyze user interfaces, detect UI elements and visual issues, and build navigation graphs of app screen transitions — with pluggable multi-provider vision backends and OpenCV gated behind a build tag.",
+      "inLanguage": "zh",
+      "name": "VisionEngine",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/visionengine.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 23</p>
+      <h1>VisionEngine <span class="od-h1-badges"><span class="od-badge--status od-badge--status--active">active</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25+)</span><span class="od-chip">GoCV / OpenCV (build-tag-gated)</span><span class="od-chip">LLM vision providers (GPT-4o, Claude, Gemini, Qwen-VL, Kimi, StepGUI, Astica, Ollama)</span><span class="od-chip">Graph algorithms (BFS)</span><span class="od-chip">DOT / JSON / Mermaid exporters</span><span class="od-chip">i18n Translator seam</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/VisionEngine" rel="noopener noreferrer" target="_blank">HelixDevelopment/VisionEngine <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/VisionEngine" rel="noopener noreferrer" target="_blank">vasic-digital/VisionEngine <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="visionengine">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">VisionEngine — four-layer stack</text>
+<text class="lbl" x="300" y="72">Layered engine</text>
+<text class="lbl" x="720" y="72">Vision provider fallback</text>
+<text class="lbl" x="40" y="312">Build-tag split</text>
+<rect class="accent" x="300" y="90" width="380" height="64" rx="10"/>
+<text class="t" x="490" y="124">Analyzer</text>
+<text class="s" x="490" y="144">screen understanding</text>
+<rect class="box" x="300" y="170" width="380" height="64" rx="10"/>
+<text class="t" x="490" y="204">NavigationGraph</text>
+<text class="s" x="490" y="224">BFS pathfinding</text>
+<rect class="box" x="300" y="250" width="380" height="64" rx="10"/>
+<text class="t" x="490" y="284">LLM Vision</text>
+<text class="s" x="490" y="304">provider fallback chain</text>
+<rect class="box" x="300" y="330" width="380" height="64" rx="10"/>
+<text class="t" x="490" y="364">Config</text>
+<text class="s" x="490" y="384">i18n Translator seam</text>
+<rect class="box" x="720" y="90" width="220" height="50" rx="10"/>
+<text class="t" x="830" y="120">GPT-4o</text>
+<rect class="box" x="720" y="150" width="220" height="50" rx="10"/>
+<text class="t" x="830" y="180">Claude · Gemini</text>
+<rect class="box" x="720" y="210" width="220" height="50" rx="10"/>
+<text class="t" x="830" y="240">Qwen-VL · Kimi</text>
+<rect class="box" x="720" y="270" width="220" height="50" rx="10"/>
+<text class="t" x="830" y="300">StepGUI · Astica · Ollama</text>
+<rect class="dash" x="40" y="330" width="220" height="64" rx="10"/>
+<text class="t" x="150" y="364">default build</text>
+<text class="s" x="150" y="384">stub (no OpenCV)</text>
+<rect class="box" x="40" y="410" width="220" height="64" rx="10"/>
+<text class="t" x="150" y="444">-tags vision</text>
+<text class="s" x="150" y="464">GoCV / OpenCV</text>
+<rect class="good" x="300" y="430" width="380" height="64" rx="10"/>
+<text class="gt" x="490" y="464">Exporters</text>
+<text class="s" x="490" y="484">DOT · JSON · Mermaid</text>
+<path class="conn" marker-end="url(#a)" d="M490,154 L490,168"/>
+<path class="conn" marker-end="url(#a)" d="M490,234 L490,248"/>
+<path class="conn" marker-end="url(#a)" d="M490,314 L490,328"/>
+<path class="conn" marker-end="url(#a)" d="M680,270 L718,120"/>
+<path class="conn" marker-end="url(#a)" d="M830,140 L830,148"/>
+<path class="conn" marker-end="url(#a)" d="M830,200 L830,208"/>
+<path class="conn" marker-end="url(#a)" d="M830,260 L830,268"/>
+<path class="conn" marker-end="url(#a)" d="M490,394 L490,428"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>像用户一样观察 UI —— 结合计算机视觉与 LLM 视觉进行分析与导航</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-0" aria-expanded="true" aria-controls="od-acc-visionengine-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-0-panel" role="region" aria-labelledby="od-acc-visionengine-0">
+            <div class="od-accordion__inner">
+      <p>VisionEngine 是一个解耦的 Go 工具包，融合了经典计算机视觉与基于 LLM 的视觉技术，用于分析用户界面、检测 UI 元素及视觉问题，并构建应用屏幕转换的导航图谱。其多后端视觉提供程序可插拔，且 OpenCV 依赖通过构建标签隔离。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-1" aria-expanded="true" aria-controls="od-acc-visionengine-1-panel">
+              <span class="od-accordion__label">简要说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-1-panel" role="region" aria-labelledby="od-acc-visionengine-1">
+            <div class="od-accordion__inner">
+      <p>一个可复用的 Go 模块，用于 UI 分析与导航图谱构建。提供分析层（UI 元素、屏幕差异、视觉问题）、带 BFS 路径查找的导航图谱（支持 DOT/JSON/Mermaid 导出），以及针对 GPT-4o、Claude、Gemini、Qwen-VL 等的 LLM 视觉适配器。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-2" aria-expanded="true" aria-controls="od-acc-visionengine-2-panel">
+              <span class="od-accordion__label">详细说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-2-panel" role="region" aria-labelledby="od-acc-visionengine-2">
+            <div class="od-accordion__inner">
+      <p>大多数 UI 自动化测试实际上是"盲目"的。它们依赖无障碍树和 DOM 选择器——即机器眼中的界面——却忽略了人类真正感知的一切：按钮是否可见渲染、布局是否崩溃、跳转后的屏幕是否符合预期。VisionEngine 弥合了这一鸿沟，赋予自动化真正的感知能力，使其能像人类一样观察并理解 UI。该工具包由四个协同层次构成，从原始像素逐步构建至整个应用的理解：</p>
+      <p><strong>分析器（Analyzer）</strong> 定义了稳定的契约——包括接口（<code>Analyzer</code>、<code>VideoProcessor</code>）和值类型（<code>UIElement</code>、<code>ScreenAnalysis</code>、<code>ScreenDiff</code>、<code>Rect</code>、<code>Size</code>、<code>TextRegion</code>、<code>VisualIssue</code>、<code>ScreenIdentity</code>、<code>Action</code>、<code>KeyFrame</code>），并提供 <code>StubAnalyzer</code> 参考实现。用户可基于这一不变的契约检测元素、比对屏幕差异并发现视觉问题。</p>
+      <p><strong>导航图谱（NavigationGraph）</strong> 将视角从单一屏幕扩展至整个应用，将其建模为带有 BFS 路径查找的有向屏幕转换图，并支持三种导出后端（DOT、JSON、Mermaid）。这使自动化不仅能"看见"单个屏幕，还能规划通往任意目标的路径。同时，工具包内置压力测试、自动化测试、集成测试及安全测试套件，验证其有效性。</p>
+      <p><strong>LLM 视觉层</strong> 增强了现代多模态推理能力：通过 <code>VisionProvider</code> 接口，集成了 OpenAI（GPT-4o）、Anthropic（Claude）、Gemini、Qwen-VL、Kimi、StepGUI、Astica 及 Ollama 等适配器。这些适配器通过 <code>FallbackChain</code> 组合，确保在某个提供程序失效、限流或能力不足时，能优雅降级至下一个，避免拖垮整个运行流程。</p>
+      <p><strong>配置层</strong> 负责环境变量加载与验证，所有面向用户的错误信息均通过 <code>i18n.Translator</code> 处理。</p>
+      <p>让这一切真正可落地的关键在于：重型原生依赖是可选的。OpenCV 绑定通过构建标签 <code>-tags vision</code> 隔离，默认构建版本仅提供占位实现。这意味着整个模块可在任何 Go 1.25+ 环境下编译、测试和运行，无需 OpenCV 工具链，仅在用户明确选择时才引入原生依赖。这一设计使 VisionEngine 能轻松集成至普通 CI 环境，无需定制镜像。</p>
+      <p>完全遵循解耦原则（CONST-051(B)），VisionEngine 以同代码库子模块的形式被集成（如 HelixQA），为基于证据的 UI 测试提供了一双真正的"眼睛"。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-3" aria-expanded="true" aria-controls="od-acc-visionengine-3-panel">
+              <span class="od-accordion__label">为何构建</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-3-panel" role="region" aria-labelledby="od-acc-visionengine-3">
+            <div class="od-accordion__inner">
+      <p>仅依赖无障碍树或选择器的 UI 自动化测试，无法捕捉用户实际看到的内容。VisionEngine 增加了真正的视觉理解能力——元素检测、屏幕对比以及 LLM 视觉推理，并提供可导航的应用界面地图，使自动化既能感知 UI，又能在其中规划路径。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-4" aria-expanded="true" aria-controls="od-acc-visionengine-4-panel">
+              <span class="od-accordion__label">为何是颠覆性变革</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-4-panel" role="region" aria-labelledby="od-acc-visionengine-4">
+            <div class="od-accordion__inner">
+      <p>它将两种通常互不兼容的方法——快速、确定性的经典计算机视觉与灵活、语义化的 LLM 视觉——整合于同一接口之下，并通过回退链机制，让用户无需取舍，即可同时获得前者的精准与后者的推理能力。此外，通过严格将 OpenCV 设为可选项，它消除了通常与之相伴的性能代价：任何 Go 项目均可获得真正的 UI 感知能力，而无需在构建中引入原生视觉工具链。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-5" aria-expanded="true" aria-controls="od-acc-visionengine-5-panel">
+              <span class="od-accordion__label">创新之处</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-5-panel" role="region" aria-labelledby="od-acc-visionengine-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>双重感知</strong>：经典计算机视觉（OpenCV/GoCV）与多提供商 LLM 视觉，配备回退链。</li>
+        <li><strong>导航图谱</strong>：支持广度优先搜索（BFS）路径规划，并可导出 DOT/JSON/Mermaid 格式。</li>
+        <li><strong>构建标签门控 OpenCV</strong>：通过构建标签控制，确保模块在无原生依赖的情况下仍可构建与测试。</li>
+        <li><strong>完全解耦、国际化接缝、代码库统一的子模块</strong>（由 HelixQA 使用）。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-6" aria-expanded="true" aria-controls="od-acc-visionengine-6-panel">
+              <span class="od-accordion__label">挑战与解决方案</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-6-panel" role="region" aria-labelledby="od-acc-visionengine-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>原生依赖冲突</strong>：通过 <code>-tags vision</code> 标签门控及默认存根解决，确保无 OpenCV 的 CI/主机环境仍可正常构建与测试。</li>
+        <li><strong>视觉提供商不稳定</strong>：通过 <code>VisionProvider</code> 接口与 <code>FallbackChain</code> 组合器解决。</li>
+        <li><strong>复杂应用流程映射</strong>：通过有向导航图谱、BFS 路径规划及多格式导出解决。</li>
+        <li><strong>耦合问题</strong>：通过 CONST-051(B) 解耦方案及国际化翻译层解决。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-7" aria-expanded="true" aria-controls="od-acc-visionengine-7-panel">
+              <span class="od-accordion__label">技术栈（选择与实现）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-7-panel" role="region" aria-labelledby="od-acc-visionengine-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go（1.25+）</strong>：模块核心及全部四层架构。</li>
+        <li><strong>GoCV / OpenCV</strong>：经典计算机视觉，通过构建标签门控。</li>
+        <li><strong>LLM 视觉提供商（GPT-4o、Claude、Gemini、Qwen-VL、Kimi、StepGUI、Astica、Ollama）</strong>：通过适配器实现多模态 UI 推理。</li>
+        <li><strong>图算法（BFS）</strong>：导航路径规划。</li>
+        <li><strong>DOT / JSON / Mermaid 导出器</strong>：导航图谱可视化。</li>
+        <li><strong>国际化翻译层</strong>：解耦用户界面字符串。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

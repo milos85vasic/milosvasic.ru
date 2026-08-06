@@ -1,0 +1,304 @@
+---
+layout: default
+title: "Docs Chain — Miloš Vasić"
+description: "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docs-chain.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "zh",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/docs-chain.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically.",
+      "inLanguage": "zh",
+      "name": "Docs Chain",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/docs-chain.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 25</p>
+      <h1>Docs Chain <span class="od-h1-badges"><span class="od-badge--status od-badge--status--active">active</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">DAG + Kahn topological sort</span><span class="od-chip">SQLite (pure-Go modernc)</span><span class="od-chip">fsnotify</span><span class="od-chip">YAML config</span><span class="od-chip">exec transforms (Markdown → HTML/PDF/DOCX)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/docs_chain" rel="noopener noreferrer" target="_blank">vasic-digital/docs_chain <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="docs-chain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Docs Chain — dependency DAG · change propagation</text>
+<text class="lbl" x="40" y="216">Change propagates downstream</text>
+<text class="lbl" x="300" y="100">Transform outputs (exec)</text>
+<text class="lbl" x="610" y="384">Persisted state</text>
+<text class="note" x="500" y="512">Phases 1–5 implemented (GREEN) · Phases 6–7 planned</text>
+<rect class="box" x="40" y="230" width="170" height="90" rx="10"/>
+<text class="t" x="125" y="264">Markdown source</text>
+<text class="s" x="125" y="284">chain member</text>
+<rect class="accent" x="300" y="220" width="210" height="110" rx="10"/>
+<text class="t" x="405" y="275">DAG engine</text>
+<text class="s" x="405" y="295">Kahn topological sort</text>
+<rect class="box" x="610" y="90" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="125">HTML</text>
+<text class="s" x="710" y="145">exec transform</text>
+<rect class="box" x="610" y="190" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="225">PDF</text>
+<text class="s" x="710" y="245">exec transform</text>
+<rect class="box" x="610" y="290" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="325">DOCX</text>
+<text class="s" x="710" y="345">exec transform</text>
+<rect class="box" x="610" y="400" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="435">SQLite state</text>
+<text class="s" x="710" y="455">modernc pure-Go</text>
+<rect class="dash" x="40" y="400" width="170" height="70" rx="10"/>
+<text class="t" x="125" y="435">fsnotify watch</text>
+<text class="s" x="125" y="455">content-hash / mtime</text>
+<path class="conn" marker-end="url(#a)" d="M210,275 L298,275"/>
+<path class="conn" marker-end="url(#a)" d="M510,255 L608,125"/>
+<path class="conn" marker-end="url(#a)" d="M510,270 L608,225"/>
+<path class="conn" marker-end="url(#a)" d="M510,290 L608,325"/>
+<path class="conn" marker-end="url(#a)" d="M510,320 L608,435"/>
+<path class="conn" marker-end="url(#a)" d="M210,435 L298,320"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>任何被追踪的文档均无法失去同步——基于内容哈希、双向、原子化的同步机制。</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-0" aria-expanded="true" aria-controls="od-acc-docs-chain-0-panel">
+              <span class="od-accordion__label">概述</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-0-panel" role="region" aria-labelledby="od-acc-docs-chain-0">
+            <div class="od-accordion__inner">
+      <p>Docs Chain 是一款通用的、基于 Go 实现的双向文档与数据库依赖传播引擎。当注册链中的任一成员发生变化——无论是 Markdown 源文件、HTML/PDF/DOCX 导出文件，还是 SQLite 数据库——系统均会通过内容哈希检测变更，并以原子化方式将其传播至所有关联成员。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-1" aria-expanded="true" aria-controls="od-acc-docs-chain-1-panel">
+              <span class="od-accordion__label">简要说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
+            <div class="od-accordion__inner">
+      <p>一款基于 Go 的同步引擎，确保文档与数据库始终保持一致。它采用 Salsa 风格的内容哈希增量重算机制，基于 DAG（Kahn 拓扑排序、提前终止、双向同步边、原子重命名 + SQLite 事务提交），在任一关联文件变动时自动重新生成导出内容。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
+              <span class="od-accordion__label">详细说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
+            <div class="od-accordion__inner">
+      <p>Docs Chain 的诞生，源于你第 N+1 次编写那种脆弱的"Markdown 变动时重新生成 PDF"脚本后的顿悟。它彻底取代了这一类手工拼凑的同步胶水代码，转而提供一个真正的引擎。它将项目中的文档与数据库视为链式结构的成员，当任一成员变动时，系统会将变更沿所有声明方向传播至每一个关联成员，并以原子化方式重新生成和导出，确保任何被追踪的文件永不失去同步。其设计严谨性直接借鉴自增量构建系统而非脚本逻辑：<strong>变更检测基于内容哈希而非修改时间</strong>，因此 <code>touch</code> 命令不会触发任何操作，而单字节修改则会精准触发必要的重建——无误报，无遗漏。用一行话精确概括：它是基于 DAG 的 Salsa 风格内容哈希增量重算系统，采用 Kahn 拓扑排序、提前终止以剪枝未变子树、显式声明的双向 <code>sync</code> 权威边，以及原子重命名 + SQLite 事务提交机制，确保即使在传播过程中崩溃，也绝不会留下半成品导出文件。该引擎以 <code>vasic-digital</code> 子模块形式发布，并作为 HelixConstitution 子模块的核心组件被集成，因此任何采用该框架的项目均可开箱即用 Docs Chain，并通过上下文特定的 YAML 注册自定义链。实现状态遵循框架 §11.4.6 的透明原则：阶段 1–4（核心 DAG + 哈希、节点适配器/转换器、原子化传播协调器、配置驱动的多上下文 CLI，包含 <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>）已实现并测试通过；阶段 4b 增加通用双向 <code>md-to-sqlite</code>/<code>sqlite-to-md</code> 内置功能（纯 Go 实现、行级漂移检测、字节稳定的往返转换）及 <code>colorize-html</code> 内置功能；阶段 5 的全面端到端真实二进制测试已实现并通过。阶段 6–7（框架分发、ATMOSphere 集成）仍处于规划阶段，且需操作员手动启用。Herald 是首个实际下游用户，同步包含 66 份多格式文档的语料库，验证过程无误。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
+              <span class="od-accordion__label">为何构建它</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
+            <div class="od-accordion__inner">
+      <p>文档、导出内容与数据库在手动维护或脆弱脚本的管理下，瞬间便会失去同步。Docs Chain 将同步过程机械化、内容哈希精确化且原子化，确保链中任意位置的变更都能安全、准确地更新所有下游（及上游）内容。</p>
+      <p>内容</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
+              <span class="od-accordion__label">为何是颠覆性变革</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
+            <div class="od-accordion__inner">
+      <p>它将编译器和构建系统作者视为理所当然的严格保障机制——基于内容哈希的依赖图、最小化重新计算、原子提交——应用于文档和数据库领域，而这一领域长期以来依赖定时任务和良好愿望勉力维持。真正的双向同步意味着源与导出之间的关系在两个方向上均受强制约束，因此"文档过时"和"导出内容与源不符"不再是反复出现的错误，而是引擎无法容许的状态。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
+              <span class="od-accordion__label">创新之处</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>基于内容哈希（而非修改时间）的 DAG 增量重算，支持提前终止。</li>
+        <li>双向、明确权威的同步链路（文档 ↔ 导出 ↔ SQLite）。</li>
+        <li>原子重命名 + SQLite 事务提交，确保崩溃安全的传播。</li>
+        <li>纯 Go 的 <code>md-to-sqlite</code>/<code>sqlite-to-md</code> 往返转换，支持行级偏差检测。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-6" aria-expanded="true" aria-controls="od-acc-docs-chain-6-panel">
+              <span class="od-accordion__label">挑战与解决方案</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-6-panel" role="region" aria-labelledby="od-acc-docs-chain-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>误触重建</strong>：通过内容哈希检测而非时间戳解决。</li>
+        <li><strong>部分/损坏更新</strong>：通过原子重命名和 SQLite 事务解决。</li>
+        <li><strong>多成员顺序正确性</strong>：通过 Kahn 拓扑排序 + 提前终止解决。</li>
+        <li><strong>能力真实报告</strong>：通过标记每个阶段为"已实现"或"计划中"（依据 §11.4.6）解决。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-7" aria-expanded="true" aria-controls="od-acc-docs-chain-7-panel">
+              <span class="od-accordion__label">技术栈（为何选择及如何实现）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-7-panel" role="region" aria-labelledby="od-acc-docs-chain-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> —— 整个引擎（<code>internal/hash</code>、<code>graph</code>、<code>adapter</code>、<code>orchestrator</code>、<code>config</code>、<code>state</code>、<code>runner</code>、<code>cmd/docs_chain</code>）。</li>
+        <li><strong>DAG + Kahn 拓扑排序</strong> —— 依赖顺序排列，支持提前终止。</li>
+        <li><strong>SQLite（纯 Go modernc）</strong> —— 数据库成员及事务性提交。</li>
+        <li><strong>fsnotify</strong> —— <code>watch</code> 守护进程，实现实时传播。</li>
+        <li><strong>YAML 配置</strong> —— 每个上下文的链路注册。</li>
+        <li><strong>exec: 转换</strong> —— 可插拔的 Markdown→HTML/PDF/DOCX 生成。</li>
+      </ul>
+      <blockquote><p>路线图透明度：阶段 6–7（宪法分发、ATMOSphere 集成）为"计划中"/运营商控制 —— 尚未发布。</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

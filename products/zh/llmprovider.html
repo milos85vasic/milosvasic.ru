@@ -1,0 +1,333 @@
+---
+layout: default
+title: "LLMProvider — Miloš Vasić"
+description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "zh",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/llmprovider.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "inLanguage": "zh",
+      "name": "LLMProvider",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/llmprovider.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 13</p>
+      <h1>LLMProvider <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25.3)</span><span class="od-chip">net/http (stdlib)</span><span class="od-chip">logrus</span><span class="od-chip">testify</span><span class="od-chip">yaml.v3</span><span class="od-chip">digital.vasic.models</span><span class="od-chip">circuit / health / retry / apikeys / discovery packages</span><span class="od-chip">43 provider adapters + generic OpenAI-compatible adapter</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/LLMProvider" rel="noopener noreferrer" target="_blank">HelixDevelopment/LLMProvider <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="llmprovider">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">LLMProvider — one interface · 43 adapters</text>
+<text class="lbl" x="600" y="72">Vendor fan-out</text>
+<text class="lbl" x="40" y="392">Credentials</text>
+<rect class="box" x="40" y="230" width="180" height="90" rx="10"/>
+<text class="t" x="130" y="264">Application</text>
+<text class="s" x="130" y="284">Complete / Stream</text>
+<rect class="accent" x="280" y="200" width="220" height="150" rx="10"/>
+<text class="t" x="390" y="234">LLMProvider</text>
+<text class="s" x="390" y="254">single Go interface</text>
+<rect class="box" x="600" y="90" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="124">43 provider adapters</text>
+<text class="s" x="770" y="144">OpenAI · Anthropic · Gemini …</text>
+<rect class="box" x="600" y="165" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="199">Generic OpenAI-compatible</text>
+<text class="s" x="770" y="219">any /v1 endpoint</text>
+<rect class="dash" x="600" y="250" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="284">Honest discovery</text>
+<text class="s" x="770" y="304">live /v1/models + TTL cache</text>
+<rect class="dash" x="40" y="410" width="180" height="64" rx="10"/>
+<text class="t" x="130" y="444">apikeys</text>
+<text class="s" x="130" y="464">single credential source</text>
+<rect class="box" x="280" y="410" width="220" height="64" rx="10"/>
+<text class="t" x="390" y="444">Circuit breaker</text>
+<text class="s" x="390" y="464">closed→open→half-open</text>
+<rect class="box" x="560" y="410" width="240" height="64" rx="10"/>
+<text class="t" x="680" y="444">Retry</text>
+<text class="s" x="680" y="464">backoff + jitter · status-aware</text>
+<path class="conn" marker-end="url(#a)" d="M220,275 L278,275"/>
+<path class="conn" marker-end="url(#a)" d="M500,240 L598,119"/>
+<path class="conn" marker-end="url(#a)" d="M500,270 L598,194"/>
+<path class="conn" marker-end="url(#a)" d="M500,300 L598,279"/>
+<path class="conn" marker-end="url(#a)" d="M390,350 L390,408"/>
+<path class="conn" marker-end="url(#a)" d="M500,340 L640,408"/>
+<path class="conn" marker-end="url(#a)" d="M130,410 L280,350"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>一个接口，43家供应商——内置熔断、重试与健康监测机制。</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-0" aria-expanded="true" aria-controls="od-acc-llmprovider-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-0-panel" role="region" aria-labelledby="od-acc-llmprovider-0">
+            <div class="od-accordion__inner">
+      <p>LLMProvider 是一个通用的、可复用的 Go 模块，定义了统一的 <code>LLMProvider</code> 接口及其生产级弹性模式——熔断器、健康监测、带退避的重试、延迟加载——并在此统一契约下提供 43 个具体供应商实现，配备兼容 OpenAI 的通用适配器，且采用真实、无硬编码回退的模型发现机制。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
+              <span class="od-accordion__label">简要描述</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
+            <div class="od-accordion__inner">
+      <p>一个可复用的 Go 模块，提供单一 <code>LLMProvider</code> 接口（<code>Complete</code>、<code>CompleteStream</code>、<code>HealthCheck</code>、<code>GetCapabilities</code>、<code>ValidateConfig</code>），并集成容错基础设施——熔断器、健康监测、带抖动退避的重试、延迟初始化——覆盖 43 个供应商适配器及兼容 OpenAI 的通用适配器。线程安全。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
+              <span class="od-accordion__label">详细描述</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
+            <div class="od-accordion__inner">
+      <p>LLMProvider 是每个消费 LLM 的服务都需要却鲜有人构建完善的抽象层——那种将演示代码与能承受真实流量的系统区分开来的基础设施。它定义了一个统一的、能力感知的接口——<code>Complete</code>、<code>CompleteStream</code>、<code>HealthCheck</code>、<code>GetCapabilities</code>、<code>ValidateConfig</code>——使应用代码无论调用哪个后端（共 43 个），都只需面向同一个契约。同时，它还提供了将脆弱的供应商调用转化为可安全上线的生产级组件所需的运维强化机制。</p>
+      <p>一个三态熔断器（闭合→开启→半开启）透明地封装任意供应商——*包括其流式通道*，其中空流会被正确识别为失败——确保单个行为异常的后端触发熔断后，不会拖垮整个服务；中央 <code>CircuitBreakerManager</code> 实时跟踪所有熔断器状态。可配置的健康监测器持续评估供应商的健康状态（健康/降级/不健康/未知），基于阈值和间隔检查，使性能下降能被实时观测，而非等到故障发生才发现。重试逻辑在指数退避基础上叠加抖动机制，智能判断重试时机——仅重试值得重试的错误（429、5xx、瞬时网络故障），绝不浪费资源在 4xx 错误或已取消的上下文上，且延迟时间受限，避免退避风暴失控。延迟初始化模式则将每个供应商的构建推迟至首次实际使用时——这一设计刻意降低了注册全部 43 个供应商的开销。</p>
+      <p>该模块提供 43 个具体供应商包，以及一个兼容 OpenAI 的 <code>generic</code> 通用适配器，后者可针对*任意* <code>/v1/chat/completions</code> 端点实现完整接口——支持 Bearer 认证、SSE 流式传输及正确的 <code>[DONE]</code> 处理——因此，即使某供应商未提供专用包，只要将适配器指向其 URL 端点，即可立即成为一等公民。凭证统一通过 <code>apikeys</code> 解析（严格遵循 <code>ApiKey_&lt;Provider&gt;</code> 命名规范），从根源上杜绝了"测试套件通过硬编码密钥，实际密钥未接入，生产环境崩溃"这一类问题。模型发现机制极为严谨：通过 TTL 缓存查询实时供应商 API，且——根据治理要求——旧的硬编码回退方案已被彻底移除。当实时发现失败时，LLMProvider 宁可返回*空结果*，也不提供过时的目录，确保调用方绝不会收到看似有效却无法调用的模型 ID。所有组件均为线程安全设计，支持并发使用。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
+              <span class="od-accordion__label">我们为何构建它</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+            <div class="od-accordion__inner">
+      <p>生产环境中的 LLM 原始调用屡屡失效——供应商限流、服务降级或宕机，一个糟糕的后端便能拖垮整个服务。模型目录漂移不定，硬编码的列表却仍在分发早已失效的调用 ID。LLMProvider 将接口、弹性模式与真实发现机制集中化，让每个消费者免费获得容错能力与可靠性。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+              <span class="od-accordion__label">为何它是变革者</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+            <div class="od-accordion__inner">
+      <p>它将"集成 LLM 供应商"简化为一步到位——实现一个接口，或直接将通用适配器指向某个端点——随后自动且透明地为该供应商包裹断路器、健康监控与抖动退避重试机制。弹性不再是每个团队在首次故障后（在截止日期压力下拙劣地）重复发明的轮子，而是成为库中默认行为，覆盖全部 43 个后端。可靠性工程只需编写一次，经过严格测试，便能被所有引入者免费继承。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+              <span class="od-accordion__label">创新之处</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>统一能力感知接口</strong>——补全、流式传输、健康检查、能力查询与配置验证，全部整合为每个后端一致遵循的单一契约。</li>
+        <li><strong>透明断路器包装——包括流式传输。</strong> 断路器不仅保护请求/响应，还保护 <code>CompleteStream</code> 的通道，并将空流视为真正的失败——通过无死锁、解锁状态下的监听器通知机制实现。</li>
+        <li><strong>43 个供应商包 + 通用 OpenAI 兼容适配器</strong>——专用包保持轻量，任何未列入清单但支持 <code>/v1/chat/completions</code> 的供应商，只需将适配器指向其端点即可立即生效。</li>
+        <li><strong>单一凭证管理（<code>apikeys</code>）</strong>——仅有一处读取 <code>ApiKey_&lt;Provider&gt;</code> 环境变量，从结构上消除"测试通过、产品崩溃"的不一致问题，而非仅仅发出警告。</li>
+        <li><strong>真实模型发现（无硬编码回退）</strong>——供应商 API 实时更新，缓存基于 TTL；失败时返回 <code>nil</code>，绝不提供过期或虚构的目录，避免分发无法调用的 ID。</li>
+        <li><strong>惰性初始化（<code>sync.Once</code>）</strong>——构造延迟至首次使用，注册全部 43 个供应商的成本几乎为零，直到实际调用时才产生开销。</li>
+        <li><strong>反虚假、多地域挑战栈</strong>——真实运行器在五个地域测试断路、健康检查与重试行为，并通过配对变异测试（未变异代码必须正常退出；注入变异必须强制退出 99）进行验证，确保测试通过即代表行为可靠。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+              <span class="od-accordion__label">最大技术挑战及解决方案</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>级联供应商故障。</strong> 一个不稳定的后端绝不能拖垮整个服务。解决方案：采用三态断路器（闭合→开启→半开启），透明包装任何供应商及其流式传输，持续故障时触发开启，半开启状态下探测恢复，并由 <code>CircuitBreakerManager</code> 集中协调。</li>
+        <li><strong>瞬时错误与限流。</strong> 解决方案：基于状态感知的指数退避加抖动——<code>min(初始延迟×倍率^(n-1), 最大延迟) ± 抖动</code>，避免重试同步化形成"惊群效应"。仅重试应重试的错误（429、500、502、503、504 及网络错误），拒绝在上下文取消或其他 4xx 错误上浪费尝试。</li>
+        <li><strong>大量注册但未使用的供应商。</strong> 43 个供应商注册后，实际服务中仅少数被调用，提前构造纯属浪费。解决方案：通过 <code>sync.Once</code> 实现惰性初始化，仅实际调用的供应商才承担初始化成本。</li>
+        <li><strong>分发无效模型 ID。</strong> 解决方案：彻底移除硬编码的发现回退层（依据 CONST-036），实时发现失败时直接返回空值——同时采用防御性复制返回，确保调用者无法修改缓存或与其他读取者竞争。真实性通过结构而非约定强制保障。</li>
+        <li><strong>流式传输与并发正确性。</strong> 隐蔽的故障模式是断路器锁与监听器回调之间的死锁。解决方案：快照监听器，在解锁状态下以 5 秒超时通知，并在重置时先解锁再通知——所有组件均为并发设计，并通过 <code>-race</code> 测试套件验证。</li>
+      </ul>
+      <p>内容</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
+              <span class="od-accordion__label">技术栈</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go（1.25.3）</strong>——选用原因：一流的并发支持、静态二进制构建及强大的标准库；包含模块、接口、所有弹性原语及全部43个适配器。</li>
+        <li><strong><code>net/http</code>（标准库）</strong>——纯粹无依赖的HTTP实现：为各供应商客户端、通用OpenAI兼容适配器及实时发现调用提供动力，无需审计或修补第三方传输层。</li>
+        <li><strong>logrus</strong>——结构化、分级日志记录，精准覆盖运维人员关注的核心区域：熔断器状态切换及发现路径。</li>
+        <li><strong>testify</strong>——驱动测试套件，尤为关键的是，通过变异分支固定确保测试通过的真实性。</li>
+        <li><strong>yaml.v3</strong>——解析i18n语言包及配置文件，格式保持人工可编辑性。</li>
+        <li><strong><code>digital.vasic.models</code></strong>——共享的<code>LLMRequest</code>/<code>LLMResponse</code>/<code>ProviderCapabilities</code>类型，统一存放以确保所有适配器使用相同的术语体系（为文档化的运行时依赖）。</li>
+        <li><strong>第一方包</strong>——<code>circuit</code>（熔断）、<code>health</code>（健康检查）、<code>retry</code>（重试）、<code>apikeys</code>（API密钥）、<code>discovery</code>（发现）、<code>providers/</code>（43家供应商 + <code>generic</code>通用适配器）及<code>i18n</code>（国际化）：将弹性与集成层拆分为独立可测的小单元，避免单体架构。</li>
+        <li><strong><code>.env</code> + <code>~/api_keys.sh</code>（<code>ApiKey_&lt;Provider&gt;</code>命名规范）</strong>——单一明确的凭证来源，确保测试与生产环境的密钥配置方式一致。</li>
+        <li><strong>Makefile竞态测试套件（<code>-race -p 1</code>） + 挑战测试运行器</strong>——反虚假验证的核心支柱：竞态检测器验证并发正确性，挑战测试运行器通过混沌、DDoS、扩缩、压力、实时发现及无中断场景，全面验证真实行为。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+              <span class="od-accordion__label">状态与诚信说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>状态：Beta。</strong> 解耦可复用模块；GitHub代码库已公开。</li>
+        <li><strong>许可证：待定。</strong> 存在不一致——<code>doc.go</code>声明为MIT，但LICENSE文件采用Apache-2.0风格——发布前需确认。</li>
+        <li>LLMsVerifier为上游模型目录的唯一权威来源。<code>helix-deps.yaml</code>清单已过时（声明<code>deps: []</code>，但文档明确依赖<code>digital.vasic.models</code>）；发现模块的"Tier 2（models.dev）"为计划中的占位符，尚未启用。</li>
+      </ul>
+      <p><strong>优先级</strong>：Helix-主（LLM-基础设施集群——解耦可复用模块）。优先级低于HelixTrack。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

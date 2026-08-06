@@ -1,0 +1,373 @@
+---
+layout: default
+title: "HelixQA — Miloš Vasić"
+description: "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169)."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixqa.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixqa.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixqa.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixqa.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixqa.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixqa.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixqa.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "zh",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixqa.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169).",
+      "inLanguage": "zh",
+      "license": "Apache-2.0",
+      "name": "HelixQA",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixqa.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 20</p>
+      <h1>HelixQA <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go 1.24+</span><span class="od-chip">YAML test banks (pkg/testbank)</span><span class="od-chip">Crash/ANR detectors (ADB, pgrep)</span><span class="od-chip">Evidence collection (screenshots/logcat/video/stack traces)</span><span class="od-chip">Autonomous session (LLM + computer vision)</span><span class="od-chip">LLMsVerifier</span><span class="od-chip">LLMOrchestrator</span><span class="od-chip">VisionEngine (GoCV + LLM Vision)</span><span class="od-chip">DocProcessor</span><span class="od-chip">Anti-bluff gates + mutation ratchet</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helixqa" rel="noopener noreferrer" target="_blank">HelixDevelopment/helixqa <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/HelixQA" rel="noopener noreferrer" target="_blank">vasic-digital/HelixQA <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixqa">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M570,102 L745,102 L745,248"/>
+<path class="conn" marker-end="url(#a)" d="M745,334 L745,512 L572,512"/>
+<path class="conn" marker-end="url(#a)" d="M330,512 L155,512 L155,336"/>
+<path class="conn" marker-end="url(#a)" d="M155,250 L155,102 L328,102"/>
+<path class="conn" marker-end="url(#a)" d="M450,144 L450,266"/>
+<path class="conn" marker-end="url(#a)" d="M618,292 L562,306"/>
+<path class="conn" marker-end="url(#a)" d="M450,470 L450,374"/>
+<path class="conn" marker-end="url(#a)" d="M280,292 L338,306"/>
+<rect class="box" x="330" y="60" width="240" height="84" rx="10"/>
+<text class="t" x="450" y="94">1 · Setup</text>
+<text class="s" x="450" y="114">select LLMs · feature map</text>
+<rect class="box" x="620" y="250" width="250" height="84" rx="10"/>
+<text class="t" x="745" y="284">2 · Doc-Driven Verification</text>
+<text class="s" x="745" y="304">every documented feature</text>
+<rect class="box" x="330" y="470" width="240" height="84" rx="10"/>
+<text class="t" x="450" y="504">3 · Curiosity Exploration</text>
+<text class="s" x="450" y="524">edge cases · undocumented</text>
+<rect class="box" x="30" y="250" width="250" height="84" rx="10"/>
+<text class="t" x="155" y="284">4 · Report &amp; Cleanup</text>
+<text class="s" x="155" y="304">MD / HTML / JSON</text>
+<rect class="accent" x="340" y="268" width="220" height="104" rx="10"/>
+<text class="t" x="450" y="302">Captured evidence</text>
+<text class="s" x="450" y="322">screenshot · logcat · video</text>
+<text class="h" x="32" y="44">HelixQA — autonomous QA-session loop</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>反虚假测试质量保证编排——跨平台自主会话，每次通过均附带真实用户可操作功能的实证记录。</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-0" aria-expanded="true" aria-controls="od-acc-helixqa-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-0-panel" role="region" aria-labelledby="od-acc-helixqa-0">
+            <div class="od-accordion__inner">
+      <p>HelixQA 是一套反虚假测试质量保证编排框架，适用于跨平台测试（Android、Android TV、Web、桌面端），结合 YAML 测试库、实时崩溃检测、逐步实证记录捕获，以及基于 LLM 与计算机视觉的自主质量保证会话，以验证功能真正实现端到端运行。该框架为 Constitution 规定的强制性质量保证测试类型（§11.4.169）。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-1" aria-expanded="true" aria-controls="od-acc-helixqa-1-panel">
+              <span class="od-accordion__label">简要说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-1-panel" role="region" aria-labelledby="od-acc-helixqa-1">
+            <div class="od-accordion__inner">
+      <p>反虚假测试质量保证编排器（Go）可执行预设测试库，并运行跨平台的全自主、基于 LLM 与视觉驱动的质量保证会话——检测崩溃、逐步验证（截图、logcat、视频、堆栈跟踪等实证记录），并自动生成附带丰富证据的工单，供 AI 修复流水线使用。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-2" aria-expanded="true" aria-controls="od-acc-helixqa-2-panel">
+              <span class="od-accordion__label">详细说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-2-panel" role="region" aria-labelledby="od-acc-helixqa-2">
+            <div class="od-accordion__inner">
+      <p>HelixQA 是一套 Go 框架，其核心设计理念坚守 Constitution §11.4 运行规则：发布标准并非"测试通过"，而是"用户能够使用该功能"，因此其每次"通过"结果均需附带执行期间捕获的实时证据——无证据即无通过，绝无例外。该框架运行两种互补模式，全面覆盖脚本化与未知场景。</p>
+      <p>首先，<strong>预设测试库</strong>——由 YAML 提供的 <code>TC-XXX</code> 测试套件，包含平台定向、优先级、有序步骤（名称/操作/预期结果）、标签及文档引用，执行时逐步验证，实时检测崩溃/ANR（Android 通过 ADB，Web/桌面端通过进程监控），集中收集证据，并自动生成符合下游 AI 修复流水线格式的 Markdown 工单。</p>
+      <p>其次，<strong>全自主质量保证会话</strong>——将应用交由 LLM 驱动的智能体与计算机视觉接管，无人值守运行，分为四个严谨阶段：准备（选择大语言模型、基于项目文档构建功能地图、启动 CLI 智能体、初始化视觉引擎）、文档驱动验证（遍历所有已文档化功能）、好奇心驱动探索（主动测试边界情况及未文档化行为），最后生成包含视频时间戳证据链接的 Markdown/HTML/JSON 报告并完成清理。</p>
+      <p>关键在于，该框架不自行评判结果：它集成了四个外部 Go 子模块（LLMsVerifier、LLMOrchestrator、VisionEngine、DocProcessor），并复用共享的 <code>challenges</code> 与 <code>containers</code> 基础设施，确保应用导航组件与结果判定组件相互独立。其自身测试套件同样遵循与被测产品相同的标准，通过 <code>make anti-bluff</code>（静态扫描 + 行为锚点清单 + 变异棘轮）及内置 §1.1 变异的 8 阶段编排挑战进行验证。一份包含 15 行测试类型覆盖矩阵的文档，将每项宣称的功能与具体可执行资产及特定证据形式严格对应——框架对自身的承诺，与其对被测产品的判定一样，均需以实证为依据。</p>
+      <p>内容</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-3" aria-expanded="true" aria-controls="od-acc-helixqa-3-panel">
+              <span class="od-accordion__label">我们为何构建它</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-3-panel" role="region" aria-labelledby="od-acc-helixqa-3">
+            <div class="od-accordion__inner">
+      <p>传统的质量保证（QA）仅以「断言通过」为准绿灯放行，而Constitution所称的*虚假通过*——即功能在报告中显示正常，实则对真实用户失效——正是因此得以蒙混过关。HelixQA的诞生，正是为了从根本上杜绝这一现象：它拒绝在缺乏实际执行证据（截图、logcat日志、视频、堆栈跟踪、报告）的情况下给出「通过」评分，并将无证据支撑的绿色汇总行视为与缺失功能同等严重的缺陷。同时，它还解决了人力瓶颈——全面的人工QA无法跨平台规模化——通过实现完全自主的测试流程。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-4" aria-expanded="true" aria-controls="od-acc-helixqa-4-panel">
+              <span class="od-accordion__label">为何它是变革性的</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-4-panel" role="region" aria-labelledby="od-acc-helixqa-4">
+            <div class="od-accordion__inner">
+      <p>它将两种几乎从未在同一工具中并存的能力融为一体：严谨的证据驱动QA门控，与自主、自驱动的探索。一个集成LLM视觉模块的智能体能够打开*真实*应用，验证每一项文档记载的功能，主动搜寻未被任何测试用例覆盖的隐藏缺陷，*并在过程中生成可用于法庭质证级别的证据链*——「我们测试过」从此被「这是视频、这是日志、这是工单」所取代。而由于它是Constitution命名的QA子模块，采用它并非仅为单个团队提升QA诚信度——而是通过一次部署，为整个产品家族的所有衍生产品设定更高的质量基准。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-5" aria-expanded="true" aria-controls="od-acc-helixqa-5-panel">
+              <span class="od-accordion__label">创新之处</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-5-panel" role="region" aria-labelledby="od-acc-helixqa-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>反虚假通过证据契约</strong>：每项检查的「通过」必须绑定捕获的运行时证据；CI中的绿色状态线虽为必要条件，但绝非充分条件，无证据支撑的绿色汇总将被判定为严重缺陷。</li>
+        <li><strong>自主文档驱动 + 好奇心驱动探索</strong>：它不仅验证所有文档记载的功能，还会脱离脚本，探测真实用户可能遭遇的边界情况（空输入、快速交互、未文档化的路径）——这些都是手写测试套件无法预见的。</li>
+        <li><strong>视觉预言机</strong>：GoCV机器视觉与LLM视觉模块API能够*实时「看见」屏幕上的UI*，捕捉令基于令牌或属性的断言束手无策的视觉异常。</li>
+        <li><strong>结构化而非文本化的测试库</strong>：测试库中的字符串描述结构而非文本，在运行时驱动LLM生成问题提示（CONST-046），因此单一测试库可跨语言环境使用，无需因UI文本翻译而支离破碎。</li>
+        <li><strong>为AI修复流水线定制的工单</strong>：自动生成的Markdown工单附带完整证据包，可直接交付下游修复智能体处理，无需人工分拣。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-6" aria-expanded="true" aria-controls="od-acc-helixqa-6-panel">
+              <span class="od-accordion__label">如何在所有产品中应用（它赋予的能力）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-6-panel" role="region" aria-labelledby="od-acc-helixqa-6">
+            <div class="od-accordion__inner">
+      <p>作为<strong>强制质量支柱</strong>（Constitution §11.4.169将<code>helix_qa</code>子模块列为必备测试类型之一），HelixQA为家族中的每个产品赋予了相同的能力：</p>
+      <ul>
+        <li><strong>自主QA会话</strong>：单条命令<code>helixqa autonomous --project … --platforms android,desktop,web</code>即可释放一个集成LLM视觉模块的智能体，在无人值守的情况下驱动真实应用完成覆盖目标，并输出报告、工单和视频。</li>
+        <li><strong>测试库/套件</strong>：YAML测试库（第219轮迭代，基准≥30），针对特定平台优先级排序，且每行均可追溯至其验证的文档。</li>
+        <li><strong>捕获证据</strong>：截图、logcat日志、视频、堆栈跟踪及完整时间线——集中存储并链接至每份报告，确保任何判定均可事后重现与审核。</li>
+        <li><strong>独立判定（§11.4.141独立性原则）</strong>：其基于LLM的<code>issuedetector</code>与视觉预言机独立评判运行中应用的行为，结构性排除了「系统自证清白」的经典失效模式。</li>
+        <li><strong>门控 + 变异棘轮</strong>：<code>make qa-all</code> / <code>make anti-bluff</code>及<code>challenges/scripts/helixqa_orchestrator_challenge.sh</code>（8阶段，内置§1.1变异机制）持续验证HelixQA自身的诚信度——且刻意未提供<code>--skip-helixqa</code>逃生通道，以确保在截止日期压力下亦无法关闭这一质量约束。</li>
+      </ul>
+      <p>内容</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-7" aria-expanded="true" aria-controls="od-acc-helixqa-7-panel">
+              <span class="od-accordion__label">最大的技术挑战及解决方案</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-7-panel" role="region" aria-labelledby="od-acc-helixqa-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>避免 QA 工具本身出现误报</strong>——检测虚假信息的工具绝不能成为虚假信息的源头 → 每一步都需通过捕获的证据验证，缺乏证据的「通过」将被判定为缺陷而非合格，且行为锚定清单（CONST-035）将每项宣称的功能与可执行测试绑定，确保任何功能宣称都有实际测试支撑。</li>
+        <li><strong>用单一大脑驱动异构平台</strong>——Android、Android TV、Web 和桌面平台的输入模型各不相同 → 统一的 <code>navigator</code> 包抽象了平台特定的 ActionExecutors（ADB、Playwright、X11）及各平台崩溃检测器（Android/Web/桌面），使编排逻辑只需编写一次，平台差异则被隔离在边界处。</li>
+        <li><strong>让自主代理有用而非混乱</strong>——未受监督的 LLM 在应用中可能无休止地漫游 → LLMsVerifier 负责评分和选择合适的模型，LLMOrchestrator 管理无界面的 CLI 代理（opencode、claude-code、gemini、junie、qwen-code），DocProcessor 构建特征地图为探索提供目标，VisionEngine 则确保每个决策基于屏幕上的真实像素而非模型的臆想。</li>
+        <li><strong>支持本地化的测试库</strong>——硬编码英文 UI 文本的测试套件在十五种语言环境下会失效 → 测试库仅描述结构，用户可见的提示文本在运行时通过 LLM/资源加载（CONST-046），确保同一测试库能验证相同行为，无论语言环境如何变化。</li>
+        <li><strong>证明防虚假检查机制并非摆设</strong>——无法自证失败的防虚假检查机制本身就是最大的虚假 → 成对的 §1.1 变异测试会剥离类型的证据捕获或防虚假断言，要求检查机制必须失败，且变异棘轮机制防止这一保障随时间悄然弱化。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-8" aria-expanded="true" aria-controls="od-acc-helixqa-8-panel">
+              <span class="od-accordion__label">技术栈</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-8-panel" role="region" aria-labelledby="od-acc-helixqa-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go 1.24+ 编排器</strong></li>
+        <li>*原因*：QA 工具必须能在产品运行的任何环境中运行，因此单一静态链接、快速且可移植的二进制文件优于依赖运行时的替代方案；</li>
+        <li>*实现*：一个 <code>cmd/helixqa</code> CLI，提供可组合的子命令 <code>run</code> / <code>list</code> / <code>report</code> / <code>autonomous</code> / <code>version</code>。</li>
+      </ul>
+      <ul>
+        <li><strong>YAML 测试库（<code>pkg/testbank</code>）</strong></li>
+        <li>*原因*：测试套件应具备声明式和可读性，无需修改 Go 即可由人工编辑；</li>
+        <li>*实现*：包含 <code>version</code>/<code>name</code>/<code>test_cases[]</code>，每个测试用例拥有 <code>id</code>、<code>category</code>、<code>priority</code>、<code>platforms</code>、有序的 <code>steps[]</code> 及 <code>documentation_refs[]</code>，以确保可追溯至功能文档。</li>
+      </ul>
+      <ul>
+        <li><strong>崩溃/ANR 检测器（<code>pkg/detector</code>）</strong></li>
+        <li>*原因*：最关键的失败往往发生在交互过程中，而非事后断言；</li>
+        <li>*实现*：Android 使用 ADB（<code>pidof</code>/<code>logcat</code>/<code>screencap</code>），Web/桌面使用 <code>pgrep</code>，在测试驱动过程中实时监控进程。</li>
+      </ul>
+      <ul>
+        <li><strong>证据采集（<code>pkg/evidence</code>、<code>pkg/session</code>）</strong></li>
+        <li>*原因*：防虚假合约只有在每个「通过」结果都有实物证据支撑时才真实有效；</li>
+        <li>*实现*：通过 <code>SessionRecorder</code> 时间线捕获截图、logcat、视频及堆栈跟踪，每份报告均可回溯至证据。</li>
+      </ul>
+      <ul>
+        <li><strong>自主会话（<code>pkg/autonomous</code>、<code>pkg/navigator</code>、<code>pkg/issuedetector</code>）</strong></li>
+        <li>*原因*：在四个平台上进行全面的人工 QA 难以扩展，探索过程本身必须能够自动驱动；</li>
+        <li>*实现*：四阶段的 <code>SessionCoordinator</code>，结合 ActionExecutors（ADB/Playwright/X11）及 LLM 缺陷检测，覆盖视觉、UX、无障碍及功能性缺陷。</li>
+      </ul>
+      <ul>
+        <li><strong>外部子模块</strong></li>
+        <li>*原因*：复用与解耦（CONST-051），且——关键在于——将导航器与判定器分离；</li>
+        <li>*实现*：LLMsVerifier（模型评分）、LLMOrchestrator（无界面 CLI 代理）、VisionEngine（GoCV + LLM Vision）、DocProcessor（特征地图/覆盖率），每个组件独立维护。</li>
+      </ul>
+      <ul>
+        <li><strong>防虚假检查机制 + 变异棘轮</strong></li>
+        <li>*原因*：确保 HelixQA 严格遵守其对其他组件强制执行的 §1.1 约定；</li>
+        <li>*实现*：<code>make anti-bluff</code> 扫描，结合行为锚定清单和变异棘轮机制，并通过 <code>helixqa_orchestrator_challenge.sh</code> 作为 8 阶段端到端验证器。</li>
+      </ul>
+      <ul>
+        <li><strong>15 行覆盖率矩阵（<code>docs/test-coverage.md</code>）</strong></li>
+        <li>*原因*：CONST-050(B) 要求覆盖类型集必须封闭且无遗漏；</li>
+        <li>*实现*：每行绑定具体可执行资产及特定的证据捕获形式，确保覆盖率是可验证的事实而非主观宣称。</li>
+      </ul>
+      <p>内容</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-9" aria-expanded="true" aria-controls="od-acc-helixqa-9-panel">
+              <span class="od-accordion__label">状态与诚信说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-9-panel" role="region" aria-labelledby="od-acc-helixqa-9">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>状态：测试版。</strong> 处于积极开发阶段（README 状态横幅第 219 轮）。严守自身反虚假承诺标准。</li>
+        <li><strong>许可证：Apache-2.0。</strong> 安装命令：<code>go install digital.vasic.helixqa/cmd/helixqa@latest</code>。</li>
+      </ul>
+      <p><strong>优先级别：</strong> Helix-主线 —— Helix 系列验证功能是否真正可用的强制性质量/反虚假承诺支柱。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

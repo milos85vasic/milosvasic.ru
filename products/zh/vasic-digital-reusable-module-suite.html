@@ -1,0 +1,310 @@
+---
+layout: default
+title: "Vasic Digital Reusable Module Suite — Miloš Vasić"
+description: "A large family of generic, reusable modules published under the `digital.vasic.*` (Go) and Kotlin Multiplatform namespaces. Every module is standalone, independently tested and versioned, and consumed as an equal-codebase submodule by larger products (Catalogizer, HelixAgent, and the wider fleet). This page consolidates the many small utilities that would be noise as individual pages."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/vasic-digital-reusable-module-suite.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "zh",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "A large family of generic, reusable modules published under the `digital.vasic.*` (Go) and Kotlin Multiplatform namespaces. Every module is standalone, independently tested and versioned, and consumed as an equal-codebase submodule by larger products (Catalogizer, HelixAgent, and the wider fleet). This page consolidates the many small utilities that would be noise as individual pages.",
+      "inLanguage": "zh",
+      "name": "Vasic Digital Reusable Module Suite",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/vasic-digital-reusable-module-suite.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 28</p>
+      <h1>Vasic Digital Reusable Module Suite <span class="od-h1-badges"><span class="od-badge--status od-badge--status--scaffold">scaffold</span><span class="od-tag--license">license: UNVERIFIED (varies per module)</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (digital.vasic.*)</span><span class="od-chip">Kotlin Multiplatform (*-KMP)</span><span class="od-chip">Redis / PostgreSQL / SQLite</span><span class="od-chip">Prometheus / OpenTelemetry</span><span class="od-chip">WebSocket / HTTP/3 (quic-go) / mDNS</span><span class="od-chip">Vector DB / Embeddings / RAG / MCP</span><span class="od-chip">YAML (RedTeam fixtures, config)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital" rel="noopener noreferrer" target="_blank">vasic-digital <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="vasic-digital-reusable-module-suite">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M300,144 L180,178"/>
+<path class="conn" marker-end="url(#a)" d="M300,144 L500,178"/>
+<path class="conn" marker-end="url(#a)" d="M700,144 L560,178"/>
+<path class="conn" marker-end="url(#a)" d="M700,144 L820,178"/>
+<rect class="accent" x="200" y="80" width="200" height="64" rx="10"/>
+<rect class="accent" x="600" y="80" width="200" height="64" rx="10"/>
+<rect class="tint" x="40" y="180" width="280" height="60" rx="10"/>
+<rect class="tint" x="360" y="180" width="280" height="60" rx="10"/>
+<rect class="tint" x="680" y="180" width="280" height="60" rx="10"/>
+<rect class="box" x="40" y="255" width="280" height="48" rx="10"/>
+<rect class="box" x="40" y="313" width="280" height="48" rx="10"/>
+<rect class="box" x="40" y="371" width="280" height="48" rx="10"/>
+<rect class="box" x="360" y="255" width="280" height="48" rx="10"/>
+<rect class="box" x="360" y="313" width="280" height="48" rx="10"/>
+<rect class="box" x="360" y="371" width="280" height="48" rx="10"/>
+<rect class="box" x="680" y="255" width="280" height="48" rx="10"/>
+<rect class="box" x="680" y="313" width="280" height="48" rx="10"/>
+<rect class="box" x="680" y="371" width="280" height="48" rx="10"/>
+<rect class="dash" x="40" y="450" width="920" height="56" rx="10"/>
+<text class="t" x="300" y="114">HelixAgent</text>
+<text class="t" x="700" y="114">Catalogizer</text>
+<text class="t" x="180" y="210">Infrastructure</text>
+<text class="t" x="500" y="210">AI primitives</text>
+<text class="t" x="820" y="210">Guardrails</text>
+<text class="t" x="180" y="279">Redis · PostgreSQL · SQLite</text>
+<text class="t" x="180" y="337">WebSocket · HTTP/3 · mDNS</text>
+<text class="t" x="180" y="395">Prometheus · OpenTelemetry</text>
+<text class="t" x="500" y="279">Vector DB · Embeddings</text>
+<text class="t" x="500" y="337">RAG · MCP</text>
+<text class="t" x="500" y="395">Normalize · TOON</text>
+<text class="t" x="820" y="279">RedTeam fixtures (YAML)</text>
+<text class="t" x="820" y="337">Policy engine</text>
+<text class="t" x="820" y="395">Verification / LLMsVerifier</text>
+<text class="t" x="490" y="478">Go (digital.vasic.*) ↔ Kotlin Multiplatform (*-KMP) mirror pairs</text>
+<text class="h" x="32" y="44">Vasic Digital Reusable Module Suite — module map</text>
+<text class="lbl" x="200" y="64">Product apps</text>
+<text class="lbl" x="40" y="164">Reusable modules by cluster</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>一次构建，随处复用——一组小型、解耦、独立测试的Go与KMP模块</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-0" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-0-panel">
+              <span class="od-accordion__label">概述</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-0-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-0">
+            <div class="od-accordion__inner">
+      <p>一系列通用、可复用的模块，发布于<code>digital.vasic.*</code>（Go）及Kotlin Multiplatform命名空间下。每个模块均独立存在，拥有独立的测试与版本控制，并作为同等代码库的子模块被更大型产品（Catalogizer、HelixAgent及更广泛的模块群）所调用。本页面将众多小型工具整合于此，避免其作为独立页面显得过于琐碎。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-1" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-1-panel">
+              <span class="od-accordion__label">简要说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-1-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-1">
+            <div class="od-accordion__inner">
+      <p>一套精心设计的解耦<code>digital.vasic.*</code>模块集合，涵盖基础设施基元（认证、缓存、数据库、配置、可观测性）、AI/代理构建模块（RAG、向量数据库、嵌入、MCP、智能体、规划）及防御性LLM防护机制（红队测试、标准化处理），同时包含Kotlin Multiplatform镜像模块集。每个模块均通用、经过测试且可复用。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-2" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-2-panel">
+              <span class="od-accordion__label">详细说明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-2-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-2">
+            <div class="od-accordion__inner">
+      <p>vasic-digital组织的运作基于一项结构性抉择：采用"宪章+众多解耦可复用子模块"的理念，确保通用功能绝不重复开发。与单体架构不同，每个可复用组件均被提取为独立模块——拥有独立的代码库、测试及文档——并严格保持解耦，确保任何使用方的特定需求不会渗入其中。本页面将这些模块汇总，因单独来看，每个模块规模仅相当于一个库，若作为独立产品页面则显得过于零散；而整体来看，它们构成了组织真正的效率倍增器：一项私有工程资产，将"构建新产品"转化为"组装成熟组件"，并为"本模块群不重复造轮子"的承诺提供了切实支撑——它维护的是一个极为优秀的"轮子"，并将其应用于各处。</p>
+      <p>该模块套件涵盖三大类别。<strong>基础设施基元</strong>（Go）提供各类服务所需的基础组件：<code>auth</code>（JWT/bcrypt）、<code>cache</code>（Redis/TTL）、<code>database</code>（迁移、双SQLite/PostgreSQL）、<code>config</code>、<code>middleware</code>、<code>observability</code>（Prometheus/OpenTelemetry）、<code>ratelimiter</code>、<code>security</code>、<code>storage</code>（S3/MinIO）、<code>streaming</code>（WebSocket中心）、<code>eventbus</code>、<code>filesystem</code>（多协议）、<code>discovery</code>/<code>mdns</code>、<code>http3</code>、<code>recovery</code>、<code>concurrency</code>、<code>lazy</code>等。<strong>AI/代理构建模块</strong>（Go）为AI系统提供基础支撑：<code>rag</code>、<code>vectordb</code>、<code>embeddings</code>、<code>memory</code>、<code>conversation</code>（无限上下文压缩、事件溯源）、<code>mcp</code>（Model Context Protocol）、<code>toolschema</code>、<code>skillregistry</code>、<code>agentic</code>（基于图的工作流编排）、<code>planning</code>（HiPlan/MCTS/思维树）、<code>benchmark</code>（SWE-bench/HumanEval/MMLU）、<code>llmops</code>、<code>selfimprove</code>（奖励建模/RLHF）及<code>toon</code>（面向Token的对象表示法）。<strong>防御性LLM防护机制</strong>提供对抗鲁棒性工具：<code>RedTeam</code>（基于YAML的对抗性测试用例）、<code>Normalize</code>（对抗性输入规范化）。此外，<strong>Kotlin Multiplatform</strong>模块集还提供核心模块的跨平台镜像版本（Auth-KMP、Database-KMP、Security-KMP、UI-Components-KMP等）。</p>
+      <p>内容</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-3" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-3-panel">
+              <span class="od-accordion__label">我们为何构建它</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-3-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-3">
+            <div class="od-accordion__inner">
+      <p>每次从零开始开发多个产品（Catalogizer、HelixAgent、Herald等）既浪费资源，又难以保持一致性。将所有通用功能抽取为解耦且经过验证的模块后，修复和改进能够自动传递至整个产品线，而每个新产品则由经过验证的组件拼装而成。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-4" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-4-panel">
+              <span class="od-accordion__label">为何它是颠覆性的</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-4-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-4">
+            <div class="od-accordion__inner">
+      <p>这实际上是为构建以AI为核心的后端系统打造的私有"标准库"——大多数团队无暇构建这一层，因为他们总在第四五次重新解决身份验证、缓存和RAG基础设施等问题。在这里，基础设施原语、AI构建模块以及防御性LLM防护机制均以即插即用、独立测试的模块形式存在。这使得小团队能以通常需要更大规模团队才能达到的速度交付产品级系统，且不会在过程中积累重复性技术债务。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-5" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-5-panel">
+              <span class="od-accordion__label">创新之处</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-5-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>全产品线解耦规范（CONST-051）</strong>：子模块视为独立代码库，绝不包含消费者特定逻辑。</li>
+        <li><strong>专用AI原语层（RAG、向量数据库、嵌入模型、MCP、工具模式、智能体、规划、LLMOps）</strong>：以可复用模块形式呈现。</li>
+        <li><strong>防御性LLM防护集群（RedTeam、Normalize）</strong>：用于对抗性鲁棒性测试。</li>
+        <li><strong>并行Go + Kotlin Multiplatform模块集</strong>：共享相同设计规范。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-6" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-6-panel">
+              <span class="od-accordion__label">挑战与解决方案</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-6-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>避免数十个模块间的耦合腐化</strong>：通过宪章解耦协议及运行时注入消费者特定逻辑解决。</li>
+        <li><strong>保持多模块的一致性与可测试性</strong>：通过共享约定（每模块包含测试/文档/挑战）及HelixConstitution治理框架解决。</li>
+        <li><strong>跨平台覆盖</strong>：通过Kotlin Multiplatform核心模块镜像解决。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-7" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-7-panel">
+              <span class="od-accordion__label">技术栈（选择原因及实现方式）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-7-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> —— 大部分模块（<code>digital.vasic.*</code>）。</li>
+        <li><strong>Kotlin Multiplatform</strong> —— 跨平台镜像模块（身份验证/数据库/安全/UI/并发/限流器-KMP）。</li>
+        <li><strong>Redis / PostgreSQL / SQLite</strong> —— 缓存、数据库、存储原语。</li>
+        <li><strong>Prometheus / OpenTelemetry</strong> —— 可观测性模块。</li>
+        <li><strong>WebSocket / HTTP/3（quic-go）/ mDNS</strong> —— 网络模块。</li>
+        <li><strong>向量数据库 / embeddings / RAG / MCP</strong> —— AI原语模块。</li>
+        <li><strong>YAML</strong> —— RedTeam对抗性测试用例及配置。</li>
+      </ul>
+      <blockquote><p>未验证/开发中：多个组织仓库自标记为"脚手架/开发中"（如<code>PliniusCommon</code>、<code>I-LLM</code>、<code>HyperTune</code>、<code>AutoTemp</code>、<code>Veritas</code>、<code>Ouroborous</code>、<code>Claritas</code>、<code>LeakHub</code>、<code>GandalfSolutions</code>）。这些内容应视为早期阶段/脚手架，尚未正式发布。</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
