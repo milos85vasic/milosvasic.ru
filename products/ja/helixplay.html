@@ -1,0 +1,320 @@
+---
+layout: default
+lang: ja
+title: "HelixPlay — Miloš Vasić"
+description: "HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixplay.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixplay.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixplay.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixplay.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixplay.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixplay.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixplay.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixplay.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixplay.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixplay.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ja",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixplay.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners.",
+      "inLanguage": "ja",
+      "name": "HelixPlay",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixplay.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 18</p>
+      <h1>HelixPlay <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.26 root / 1.25+ submodules)</span><span class="od-chip">Wails v2</span><span class="od-chip">Flutter 3.29+</span><span class="od-chip">Angular 17+ (Go → WASM)</span><span class="od-chip">WebRTC / Pion v4</span><span class="od-chip">QUIC / quic-go</span><span class="od-chip">Custom UDP</span><span class="od-chip">Hardware encoders (NVENC / QSV / AMF / VideoToolbox)</span><span class="od-chip">Platform capture (DXGI / ScreenCaptureKit / PipeWire)</span><span class="od-chip">Docker / Podman</span><span class="od-chip">mDNS / rendezvous</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixPlay" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixPlay <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixplay">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 380" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixPlay — media pipeline (per-stage tech)</text>
+<text class="lbl" x="30" y="122">GPU host</text>
+<text class="lbl" x="880" y="122">Phone · TV · laptop · browser</text>
+<text class="note" x="420" y="320">Triple-stack clients (Wails · Flutter · Angular→WASM) over one Go core</text>
+<rect class="box" x="30" y="150" width="150" height="90" rx="10"/>
+<text class="t" x="105" y="184">Capture</text>
+<text class="s" x="105" y="204">DXGI · SCK · PipeWire</text>
+<rect class="box" x="200" y="150" width="150" height="90" rx="10"/>
+<text class="t" x="275" y="184">Encode</text>
+<text class="s" x="275" y="204">NVENC·QSV·AMF·VT</text>
+<rect class="box" x="370" y="150" width="150" height="90" rx="10"/>
+<text class="t" x="445" y="184">Packetize</text>
+<text class="s" x="445" y="204">RTP</text>
+<rect class="accent" x="540" y="150" width="150" height="90" rx="10"/>
+<text class="t" x="615" y="184">Transmit</text>
+<text class="s" x="615" y="204">WebRTC · QUIC · UDP</text>
+<rect class="box" x="710" y="150" width="150" height="90" rx="10"/>
+<text class="t" x="785" y="184">Decode</text>
+<text class="s" x="785" y="204">hardware</text>
+<rect class="good" x="880" y="150" width="150" height="90" rx="10"/>
+<text class="gt" x="955" y="184">Render</text>
+<text class="s" x="955" y="204">client</text>
+<path class="conn" marker-end="url(#a)" d="M180,195 L198,195"/>
+<path class="conn" marker-end="url(#a)" d="M350,195 L368,195"/>
+<path class="conn" marker-end="url(#a)" d="M520,195 L538,195"/>
+<path class="conn" marker-end="url(#a)" d="M690,195 L708,195"/>
+<path class="conn" marker-end="url(#a)" d="M860,195 L878,195"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>あらゆるGPU搭載マシンをクラウドゲーミング端末に変える</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-0" aria-expanded="true" aria-controls="od-acc-helixplay-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-0-panel" role="region" aria-labelledby="od-acc-helixplay-0">
+            <div class="od-accordion__inner">
+      <p>HelixPlayは、自己ホスティング可能なクラウドゲーミングプラットフォームです。GPUを搭載した任意のマシンをリモートストリーミングホストに変え、デスクトップ、モバイル、テレビ、ブラウザクライアントに据置型ゲーム機並みのゲーム体験を提供します。46のサブモジュールから成るGo中心のモノレポとして構築され、パートナー向けのホワイトラベル化にも対応しています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-1" aria-expanded="true" aria-controls="od-acc-helixplay-1-panel">
+              <span class="od-accordion__label">短い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-1-panel" role="region" aria-labelledby="od-acc-helixplay-1">
+            <div class="od-accordion__inner">
+      <p>HelixPlayは、自己ホスティング可能でオープンなホワイトラベル対応のクラウドゲーミングプラットフォームです。GPU搭載マシンをリモートストリーミングホストに変え、WebRTC/QUICを通じてデスクトップ、モバイル、テレビ、ブラウザクライアントに据置型ゲーム機並みのゲーム体験を提供します。Goをコアとし、Wails/Flutter/Angularのクライアントスタックを採用しています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-2" aria-expanded="true" aria-controls="od-acc-helixplay-2-panel">
+              <span class="od-accordion__label">長い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-2-panel" role="region" aria-labelledby="od-acc-helixplay-2">
+            <div class="od-accordion__inner">
+      <p>HelixPlayは、46のGitサブモジュールから構成されるGo中心のモノレポとして開発されたクラウドゲーミングプラットフォームです。既に所有しているゲーミングPCをストリーミングホストに変え、デスクトップ、モバイル、テレビ、ブラウザクライアントに据置型ゲーム機並みの体験を提供します。自己ホスティング可能でオープン、パートナー向けのホワイトラベル化にも対応しています。そのコンセプトは明確です。あなたのハードウェア、あなたのサービス、あなたのブランド。第三者のクラウドは介在しません。</p>
+      <p>その最大の設計上の特徴は、トリプルスタックのクライアント統合です。これは、他のあらゆる部分で効果を発揮する大胆なアーキテクチャ上の賭けです。Wailsデスクトップアプリ、Flutterモバイル/テレビアプリ、Angularウェブクライアントはすべて、*単一の*Goコア上に構築されており、ブラウザ向けにWASMにコンパイルされています。そのため、動作は一度記述するだけで、すべてのプラットフォームで共有され、三つに分岐することはありません。その下にはリアルタイムメディアパスが存在します。キャプチャ→エンコード→パケット化→送信→デコード→レンダリングという流れで、プラットフォームネイティブのキャプチャ（DXGI / ScreenCaptureKit / PipeWire）とハードウェアエンコーダ（NVENC / QSV / AMF / VideoToolbox）に接続されており、GPUが重い処理を担います。そして、WebRTC（Pion v4）、QUIC（quic-go）、低遅延を優先したカスタムUDPデータグラムを通じて転送されます。バックエンドコアはセッション、テナント、カタログ、認証を管理し、ホストエージェントはエッジでのキャプチャ、エンコード、転送を担当します。mDNS/ランデブー機能により、クライアントは手動設定なしでホストを発見できます。</p>
+      <p>HelixPlayは、ホワイトラベルSaaSを前提にゼロから設計されています。テナントごとのテーマ設定、カタログフィルタリング、OAuth2、課金機能を備えているため、パートナーは薄いリスキンではなく、完全にブランディングされたサービスを立ち上げることができます。また、あらゆるサービス、データベース、ビルド、テスト、スキャンがコンテナ内で実行されるコンテナネイティブな設計となっており、プラットフォーム全体のデプロイと検証の再現性を確保しています。Helixファミリー同様、グリーンテストはモックの通過ではなく、実際のエンドユーザーが利用可能な動作を保証することを目的とした「ブラフ禁止」の原則に基づいています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-3" aria-expanded="true" aria-controls="od-acc-helixplay-3-panel">
+              <span class="od-accordion__label">なぜ開発したのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-3-panel" role="region" aria-labelledby="od-acc-helixplay-3">
+            <div class="od-accordion__inner">
+      <p>商用のクラウドゲーミングはクローズドで中央集権的、そしてレンタル型です。HelixPlayは、GPUマシンを持つ誰もが、第三者のサービスに依存することなく、オープンで自己ホスティング可能、ホワイトラベル対応のストリーミングホストを運用できるようにするために開発されました。</p>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-4" aria-expanded="true" aria-controls="od-acc-helixplay-4-panel">
+              <span class="od-accordion__label">なぜこれはゲームチェンジャーなのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-4-panel" role="region" aria-labelledby="od-acc-helixplay-4">
+            <div class="od-accordion__inner">
+      <p>商用サービスが切り離してきた3つの要素を融合させた：自分で管理するハードウェア上でのセルフホスティング、3つのクライアントスタックを同時に動かす単一のGoコア、そしてホワイトラベルのマルチテナンシー。その結果、パートナーは他社のクラウドの容量を再販売してその制約の中で運用するのではなく、自社のGPU上で完全にブランディングされたクラウドゲーミングサービスを立ち上げることができる。これにより、エクスペリエンス、ユーザー、そして経済性を自ら所有することが可能になる。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-5" aria-expanded="true" aria-controls="od-acc-helixplay-5-panel">
+              <span class="od-accordion__label">革新的なポイント</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-5-panel" role="region" aria-labelledby="od-acc-helixplay-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>トリプルスタックのクライアント統合</strong> — Wails、Flutter、Angularがすべて単一のGoコア（ブラウザではWASM）上で動作。デスクトップ、モバイル、TV、ウェブが3つの異なる実装ではなく、1つの実装を共有する。</li>
+        <li><strong>セルフホスティング可能なホワイトラベルSaaS</strong> — テナントごとのテーマ設定、カタログフィルタリング、OAuth2、課金機能を内蔵。プラットフォームはデモではなく、ブランド化可能な製品として提供される。</li>
+        <li><strong>最新の低遅延トランスポート</strong> — WebRTC（Pion）、QUIC、カスタムUDPに加え、プラットフォームごとのハードウェアエンコーダー選択（NVENC / QSV / AMF / VideoToolbox）を採用。利便性よりも応答性を重視して最適化。</li>
+        <li><strong>46のサブモジュールによる分離アーキテクチャ</strong> — コンポーネントが明確に分離され、すべてがコンテナネイティブ。各サービス、データベース、ビルド、テスト、スキャンがコンテナ内で実行される。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-6" aria-expanded="true" aria-controls="od-acc-helixplay-6-panel">
+              <span class="od-accordion__label">最大の技術的課題とその解決方法</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-6-panel" role="region" aria-labelledby="od-acc-helixplay-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>異種ハードウェア間での低遅延ストリーミング。</strong> OSやGPUごとにキャプチャとエンコードの方法が異なり、遅延に対する許容度は低い。解決策として、プラットフォームに応じたキャプチャ／エンコードパス（DXGI / ScreenCaptureKit / PipeWire → NVENC / QSV / AMF / VideoToolbox）を採用し、WebRTC / QUIC / UDPを介して各マシンが最速のネイティブルートでピクセルデータを処理。</li>
+        <li><strong>デスクトップ、モバイル、TV、ウェブを横断する単一製品。</strong> トリプルスタッククライアント（Wails、Flutter、Angular）が単一のGoコアを共有し、ブラウザ向けにWASMにコンパイル。これにより、一度書かれた修正や機能が4つのプラットフォームすべてに反映され、4回の移植作業が不要に。</li>
+        <li><strong>マルチテナントのホワイトラベル運用。</strong> テナントごとのテーマ設定、カタログフィルタリング、OAuth2、課金機能をコアバックエンドに直接組み込むことで解決。テナントの分離とブランディングは、個別カスタマイズではなくプラットフォームの基本機能として実現。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-7" aria-expanded="true" aria-controls="od-acc-helixplay-7-panel">
+              <span class="od-accordion__label">テックスタック</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-7-panel" role="region" aria-labelledby="od-acc-helixplay-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go（1.26.2ルート / 1.25+サブモジュール）</strong> — 共有コアバックエンドおよびホストエージェント。ネイティブバイナリとWASMの両方にコンパイル可能な単一言語で、シングルコア・マルチクライアント設計を実現。</li>
+        <li><strong>Wails v2</strong> — デスクトップクライアント。Goコアを埋め込みWebViewにバインドし、デスクトップアプリがコアロジックを再実装することなく直接利用。</li>
+        <li><strong>Flutter 3.29+</strong> — モバイル／TVクライアント。FFIを介してGoコアを呼び出し、2つ目のバックエンドなしでスマートフォンやテレビ向けのネイティブUIを実現。</li>
+        <li><strong>Angular 17+</strong> — ウェブクライアント。同じGoコアをWASMにコンパイルして実行。ブラウザは機能を削減された環境ではなく、第一級のプラットフォームとして扱われる。</li>
+        <li><strong>WebRTC / Pion v4、QUIC / quic-go、カスタムUDP</strong> — 3種類のリアルタイムトランスポート。ネットワークやクライアントごとに最低遅延のパスを選択可能。</li>
+        <li><strong>ハードウェアエンコーダー（NVENC / QSV / AMF / VideoToolbox）</strong> および <strong>プラットフォームキャプチャ（DXGI / ScreenCaptureKit / PipeWire）</strong> — GPUによる高速化キャプチャ・エンコードパス。プラットフォームごとに最適なエンコード方式を選択し、CPUボトルネックを回避。</li>
+        <li><strong>コンテナ（Docker / Podman）</strong> — すべてのサービス、データベース、ビルド、テスト、スキャンがコンテナ化。システム全体のデプロイと検証を再現可能に。</li>
+        <li><strong>mDNS / レンデブー</strong> — ゼロコンフィグのホスト検出。クライアントがネットワーク上のストリーミングホストを自動的に発見。</li>
+      </ul>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-8" aria-expanded="true" aria-controls="od-acc-helixplay-8-panel">
+              <span class="od-accordion__label">ステータスと正確性に関する注意事項</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-8-panel" role="region" aria-labelledby="od-acc-helixplay-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>ステータス：ベータ版。</strong> READMEに記載されているレイテンシ目標（LAN：99.9パーセンタイルで30ミリ秒以下／WAN：同50ミリ秒以下）、「コンソールクラス／PS4 Proクラス」という表現、およびテストマトリックスのセル数は、いずれもプロジェクトが独自に設定した設計目標であり、第三者によるベンチマークは行われておらず、その旨を明記した上で提示しています。</li>
+        <li><strong>ライセンス：未定。</strong> GitHubおよびAPIによる確認ではLICENSEファイルが検出されず、ライセンスは未検証／未宣言となっています。</li>
+      </ul>
+      <p><strong>優先度区分：</strong> Helix-プライマリ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

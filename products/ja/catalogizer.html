@@ -1,0 +1,323 @@
+---
+layout: default
+lang: ja
+title: "Catalogizer — Miloš Vasić"
+description: "Catalogizer is a self-hostable media collection management system that automatically detects, categorizes, and organizes media across SMB, FTP, NFS, WebDAV, and local filesystems, with real-time monitoring, encrypted storage, external metadata enrichment, and a modern React UI backed by a high-performance Go API."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/catalogizer.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ja",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/catalogizer.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Catalogizer is a self-hostable media collection management system that automatically detects, categorizes, and organizes media across SMB, FTP, NFS, WebDAV, and local filesystems, with real-time monitoring, encrypted storage, external metadata enrichment, and a modern React UI backed by a high-performance Go API.",
+      "inLanguage": "ja",
+      "name": "Catalogizer",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/catalogizer.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 21</p>
+      <h1>Catalogizer <span class="od-h1-badges"><span class="od-badge--status od-badge--status--production">production</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">TypeScript</span><span class="od-chip">React</span><span class="od-chip">Tailwind</span><span class="od-chip">WebSockets</span><span class="od-chip">SQLCipher</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Redis</span><span class="od-chip">SMB/FTP/NFS/WebDAV</span><span class="od-chip">Prometheus</span><span class="od-chip">OpenTelemetry</span><span class="od-chip">Docker</span><span class="od-chip">Tauri/Rust</span><span class="od-chip">S3</span><span class="od-chip">Google Cloud Storage</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/Catalogizer" rel="noopener noreferrer" target="_blank">vasic-digital/Catalogizer <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Media-Types-TS" rel="noopener noreferrer" target="_blank">vasic-digital/Media-Types-TS <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Catalogizer-API-Client-TS" rel="noopener noreferrer" target="_blank">vasic-digital/Catalogizer-API-Client-TS <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Media-Player-React" rel="noopener noreferrer" target="_blank">vasic-digital/Media-Player-React <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Media-Browser-React" rel="noopener noreferrer" target="_blank">vasic-digital/Media-Browser-React <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Collection-Manager-React" rel="noopener noreferrer" target="_blank">vasic-digital/Collection-Manager-React <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Dashboard-Analytics-React" rel="noopener noreferrer" target="_blank">vasic-digital/Dashboard-Analytics-React <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/Auth-Context-React" rel="noopener noreferrer" target="_blank">vasic-digital/Auth-Context-React <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="catalogizer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Catalogizer — layered architecture · multi-protocol fan-out</text>
+<text class="lbl" x="40" y="96">Clients</text>
+<text class="lbl" x="720" y="74">Encrypted data layer</text>
+<text class="lbl" x="250" y="424">Multi-protocol fan-out</text>
+<path class="conn" marker-end="url(#a)" d="M240,140 L378,190"/>
+<path class="conn" marker-end="url(#a)" d="M240,215 L378,210"/>
+<path class="conn" marker-end="url(#a)" d="M240,290 L378,232"/>
+<path class="conn" marker-end="url(#a)" d="M610,175 L718,122"/>
+<path class="conn" marker-end="url(#a)" d="M610,200 L718,198"/>
+<path class="conn" marker-end="url(#a)" d="M610,225 L718,274"/>
+<path class="conn" marker-end="url(#a)" d="M610,262 L718,362"/>
+<path class="conn" marker-end="url(#a)" d="M380,440 L470,292"/>
+<path class="conn" marker-end="url(#a)" d="M620,440 L520,292"/>
+<rect class="box" x="40" y="110" width="200" height="60" rx="10"/>
+<text class="t" x="140" y="144">Web UI · React + Tailwind</text>
+<rect class="box" x="40" y="185" width="200" height="60" rx="10"/>
+<text class="t" x="140" y="219">Desktop · Tauri / Rust</text>
+<rect class="box" x="40" y="260" width="200" height="60" rx="10"/>
+<text class="t" x="140" y="294">Realtime · WebSockets</text>
+<rect class="accent" x="380" y="140" width="230" height="150" rx="10"/>
+<text class="t" x="495" y="174">Catalogizer Core</text>
+<text class="s" x="495" y="194">Go + Gin · unified API</text>
+<rect class="box" x="720" y="90" width="230" height="64" rx="10"/>
+<text class="t" x="835" y="122">SQLCipher</text>
+<text class="s" x="835" y="142">encrypted catalog</text>
+<rect class="box" x="720" y="166" width="230" height="64" rx="10"/>
+<text class="t" x="835" y="198">PostgreSQL</text>
+<rect class="box" x="720" y="242" width="230" height="64" rx="10"/>
+<text class="t" x="835" y="274">Redis cache</text>
+<rect class="box" x="720" y="330" width="230" height="64" rx="10"/>
+<text class="t" x="835" y="362">Prometheus · OTel</text>
+<text class="s" x="835" y="382">metrics · traces</text>
+<rect class="tint" x="250" y="440" width="230" height="72" rx="10"/>
+<text class="t" x="365" y="474">SMB · FTP · NFS · WebDAV</text>
+<text class="s" x="365" y="494">storage sources</text>
+<rect class="tint" x="520" y="440" width="230" height="72" rx="10"/>
+<text class="t" x="635" y="474">S3 · Google Cloud Storage</text>
+<text class="s" x="635" y="494">object storage</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>高度なマルチプロトコル・メディアコレクション管理 —— 所有するすべてを検出、分類、拡充</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-0" aria-expanded="true" aria-controls="od-acc-catalogizer-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-0-panel" role="region" aria-labelledby="od-acc-catalogizer-0">
+            <div class="od-accordion__inner">
+      <p>Catalogizerは、セルフホスティング可能なメディアコレクション管理システムです。SMB、FTP、NFS、WebDAV、ローカルファイルシステムを横断してメディアを自動検出・分類・整理し、リアルタイム監視、暗号化ストレージ、外部メタデータの拡充機能を備え、高性能なGo APIをバックエンドに持つ、モダンなReact UIを提供します。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-1" aria-expanded="true" aria-controls="od-acc-catalogizer-1-panel">
+              <span class="od-accordion__label">短い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-1-panel" role="region" aria-labelledby="od-acc-catalogizer-1">
+            <div class="od-accordion__inner">
+      <p>プロダクションレベルのマルチプロトコル・メディアライブラリ管理システム。Go/Gin REST APIは、SMB/FTP/NFS/WebDAV/ローカルソースから50種類以上のメディアを検出し、TMDB/IMDB/MusicBrainz/Steamなどからメタデータを拡充。リアルタイムのReactウェブアプリを、暗号化されたSQLCipherデータベース上で提供します。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-2" aria-expanded="true" aria-controls="od-acc-catalogizer-2-panel">
+              <span class="od-accordion__label">長い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-2-panel" role="region" aria-labelledby="od-acc-catalogizer-2">
+            <div class="od-accordion__inner">
+      <p>ほとんどのメディア管理ツールは、まず「すべてを一つのディスクに、一つの形式で、一つの種類にまとめろ」と要求します。しかし、Catalogizerはその逆の発想から始まります。あなたのコレクションはすでに存在し、NAS共有や互換性のないプロトコルに分散している――それをそのまま受け入れるのです。Catalogizerは、ストレージが既に使用しているプロトコル（SMB/CIFS、FTP/FTPS、NFS、WebDAV、ローカルファイルシステム）をサポートし、単一の統合クライアント抽象化レイヤーを通じて、Windows共有、FTPアーカイブ、WebDAVマウントを同一のものとして扱います。これにより、アプリケーションコードを変更することなく、ソースを混在・入れ替え・廃止できます。Goバックエンド（Gin REST API）はこれらのソースを常時監視し、ファイルが出現すると50種類以上のメディア（映画、テレビ番組、音楽、ゲーム、ソフトウェア、ドキュメンタリーなど）を検出・分類。TMDB、IMDB、TVDB、MusicBrainz、Spotify、Steamなどの外部プロバイダーからメタデータを取得し、ファイル名だけの状態から、アートワーク、キャスト、メタデータを備えた完全なカタログエントリへと拡充します。結果はWebSocketを介してTypeScript Reactフロントエンドにストリーミングされ、手動での更新ではなく、取り込みと同時にライブラリがリアルタイムで更新されます。また、すべてのメタデータは、JWTベースのロールベース認証で保護された暗号化SQLCipherデータベースに永続化されます。</p>
+      <p>ほとんどのカタログツールは、共有が切断されるとすぐに機能しなくなりますが、Catalogizerは障害時でも有用性を維持するよう設計されています。一時的なSMB障害は、指数バックオフ再接続、デッドホストへの過剰なアクセスを防ぐサーキットブレーカー、継続的なヘルスモニタリング、オフラインメタデータキャッシュによって吸収されます。これにより、ユーザーのリクエストは最後の正常状態から応答され、「一つのNASが再起動しただけでアプリ全体が停止する」のではなく、「一つのソースが劣化しているが、他は正常に動作する」という状態を実現します。カタログ管理にとどまらず、コレクションの運用ツールとしても機能します。成長傾向や品質・バージョンの追跡分析、プロフェッショナルなPDFレポート生成、PDFから画像/テキスト/HTMLへの変換サービス、お気に入りのエクスポート/インポート（JSON/CSV）、S3やGoogleクラウドストレージ、ローカルフォルダへの同期機能を備えています。また、Catalogizerは単に巨大なモノリスではなく、21の再利用可能な<code>digital.vasic.*</code> GoサブモジュールとTypeScriptクライアントパッケージから意図的に構成されており、それぞれが独立してテスト・バージョン管理されています。これにより、Catalogizerを支える堅牢な認証、ファイルシステム、ストリーミング、可観測性のコンポーネントは、より広範な製品ファミリーにも活用されています。品質保証も自己申告ではありません。ChallengesフレームワークとHelixQAが、すべての謳われた機能を、証拠に基づく検証によって裏付けます。</p>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-3" aria-expanded="true" aria-controls="od-acc-catalogizer-3-panel">
+              <span class="od-accordion__label">なぜ開発したのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-3-panel" role="region" aria-labelledby="od-acc-catalogizer-3">
+            <div class="od-accordion__inner">
+      <p>既存のメディア管理ツールは、単一のストレージバックエンドと単一のメディアタイプを前提としています。しかし実際のコレクションは、複数のNAS共有やプロトコルにまたがり、共有が切断されると機能が低下し、映画、音楽、ゲーム、ソフトウェアが混在しています。Catalogizerは、すべてのプロトコルを平等に扱い、不安定なネットワークストレージにも耐え、すべてのデータを包括する、権威ある豊富な情報を持つ暗号化カタログを提供するために開発されました。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-4" aria-expanded="true" aria-controls="od-acc-catalogizer-4-panel">
+              <span class="od-accordion__label">なぜゲームチェンジャーなのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-4-panel" role="region" aria-labelledby="od-acc-catalogizer-4">
+            <div class="od-accordion__inner">
+      <p>通常は複数のツールを重ねて実現するものを、Catalogizerは一つの自己ホスティング可能な暗号化パッケージに集約します。ストレージバックエンドを問わずに統一的に取り込むプロトコル非依存のインジェスト、ストレージ障害時にカタログを維持し続ける耐障害性、複数のプロバイダーからの豊富なメタデータで生ファイルを閲覧可能なライブラリに変えるエンリッチメント機能。モジュール分割アーキテクチャの真価は、その複利効果にあります。ファイルシステムクライアントの強化や新しいプロバイダープラグインの追加は一度行えば、すべての利用者に恩恵が及び、Catalogizerは周辺のエコシステムと共に着実に進化します。つまり、単なるメディアインデックスではなく、真に「メディアシステム」の違いを体現するもの――それはあなたが所有し、不安定なインフラにも耐え、その内部は約束ではなく実証されたものです。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-5" aria-expanded="true" aria-controls="od-acc-catalogizer-5-panel">
+              <span class="od-accordion__label">革新的なポイント</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-5-panel" role="region" aria-labelledby="od-acc-catalogizer-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>統一インターフェースによるマルチプロトコルファイルシステムクライアント（SMB/FTP/NFS/WebDAV/ローカル）。</li>
+        <li>ストレージ障害時でもカタログを利用可能にするオフラインキャッシュとサーキットブレーカー。</li>
+        <li>21の再利用可能な<code>digital.vasic.*</code> GoサブモジュールおよびTSクライアントモジュールへの完全な抽出。</li>
+        <li>保存時暗号化カタログ（SQLCipher）とUIへのリアルタイムWebSocket同期。</li>
+        <li>ChallengesフレームワークとHelixQA統合によるエビデンスベースの品質保証。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-6" aria-expanded="true" aria-controls="od-acc-catalogizer-6-panel">
+              <span class="od-accordion__label">課題と解決策</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-6-panel" role="region" aria-labelledby="od-acc-catalogizer-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>不安定なネットワークストレージ</strong>：指数バックオフ、サーキットブレーカー、ヘルスチェック、ソースが利用不能な場合にキャッシュメタデータを提供するエビクションポリシー付きオフラインキャッシュで解決。</li>
+        <li><strong>プロトコルの多様性</strong>：すべてのプロトコルを共通の<code>digital.vasic.filesystem</code>クライアントで抽象化し、上位レイヤーがプロトコルを意識しないように解決。</li>
+        <li><strong>データセキュリティ</strong>：SQLCipherによる保存時暗号化に加え、JWT/RBAC認証とリクエストサニタイズミドルウェアで解決。</li>
+        <li><strong>大規模な保守性</strong>：すべての汎用ロジックをモノリスではなく独立してテスト可能なサブモジュールに抽出することで解決。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-7" aria-expanded="true" aria-controls="od-acc-catalogizer-7-panel">
+              <span class="od-accordion__label">テックスタック（選定理由と実装方法）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-7-panel" role="region" aria-labelledby="od-acc-catalogizer-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go + Gin</strong> – 高性能なREST APIコア（<code>catalog-api</code>）。継続的な監視ワークロードにおける並行処理とスループットを重視して選定。</li>
+        <li><strong>TypeScript + React + Tailwind（Vite）</strong> – リアルタイム更新に対応したレスポンシブな<code>catalog-web</code> UI。</li>
+        <li><strong>WebSocket</strong> – バックエンドハブとUI間のライブデータ同期。</li>
+        <li><strong>SQLCipher（暗号化SQLite）</strong> – 保存時暗号化メタデータストア。<code>digital.vasic.database</code>を介したSQLite/PostgreSQLのデュアルサポート。</li>
+        <li><strong>SMB/FTP/NFS/WebDAVクライアント</strong> – <code>digital.vasic.filesystem</code>によるマルチプロトコルインジェスト。</li>
+        <li><strong>外部メタデータAPI（TMDB、IMDB、TVDB、MusicBrainz、Spotify、Steam）</strong> – エンリッチメント用プロバイダープラグイン。</li>
+        <li><strong>Prometheus + OpenTelemetry</strong> – <code>digital.vasic.observability</code>によるメトリクス/トレーシング。</li>
+        <li><strong>Docker / ビルダーコンテナ</strong> – 再現性のあるビルド（Tauri/Rustは<code>catalogizer-builder</code>を経由）。</li>
+        <li><strong>Redis</strong> – <code>digital.vasic.cache</code> / <code>ratelimiter</code>によるキャッシュとレート制限。</li>
+        <li><strong>S3 / Googleクラウドストレージ</strong> – クラウド同期とチェックポイントストレージ。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

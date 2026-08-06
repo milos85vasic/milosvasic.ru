@@ -1,0 +1,330 @@
+---
+layout: default
+lang: ja
+title: "LLMOrchestrator — Miloš Vasić"
+description: "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ja",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/llmorchestrator.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees.",
+      "inLanguage": "ja",
+      "license": "Apache-2.0",
+      "name": "LLMOrchestrator",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/llmorchestrator.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 12</p>
+      <h1>LLMOrchestrator <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25)</span><span class="od-chip">Go stdlib (+ testify, yaml.v3)</span><span class="od-chip">Pipe transport (JSON-lines over stdio)</span><span class="od-chip">File transport (inbox/outbox/shared)</span><span class="od-chip">sync.Mutex / sync.Cond</span><span class="od-chip">Circuit breaker + HealthMonitor</span><span class="od-chip">pkg/i18n Translator</span><span class="od-chip">Challenge harness</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/LLMOrchestrator" rel="noopener noreferrer" target="_blank">HelixDevelopment/LLMOrchestrator <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="llmorchestrator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">LLMOrchestrator — control-plane fan-out</text>
+<text class="lbl" x="620" y="52">Coding agents (spawned + driven)</text>
+<text class="lbl" x="40" y="340">Resilience</text>
+<path class="conn" marker-end="url(#a)" d="M220,255 L278,255"/>
+<path class="conn" marker-end="url(#a)" d="M520,220 L618,99"/>
+<path class="conn" marker-end="url(#a)" d="M520,235 L618,169"/>
+<path class="conn" marker-end="url(#a)" d="M520,255 L618,239"/>
+<path class="conn" marker-end="url(#a)" d="M520,275 L618,309"/>
+<path class="conn" marker-end="url(#a)" d="M520,295 L618,379"/>
+<path class="conn" marker-end="url(#a)" d="M400,330 L400,398"/>
+<path class="conn" marker-end="url(#a)" d="M220,392 L278,320"/>
+<rect class="box" x="40" y="210" width="180" height="90" rx="10"/>
+<text class="t" x="130" y="255">Client / caller</text>
+<rect class="accent" x="280" y="180" width="240" height="150" rx="10"/>
+<text class="t" x="400" y="225">MultiProviderPool</text>
+<text class="s" x="400" y="245">round-robin / preference</text>
+<rect class="box" x="620" y="70" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="104">OpenCode</text>
+<rect class="box" x="620" y="140" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="174">Claude Code</text>
+<rect class="box" x="620" y="210" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="244">Gemini</text>
+<rect class="box" x="620" y="280" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="314">Junie</text>
+<rect class="box" x="620" y="350" width="320" height="58" rx="10"/>
+<text class="t" x="780" y="384">Qwen Code</text>
+<rect class="dash" x="280" y="400" width="240" height="64" rx="10"/>
+<text class="t" x="400" y="434">Transport</text>
+<text class="s" x="400" y="454">pipe JSON-lines · file inbox/outbox</text>
+<rect class="box" x="40" y="360" width="180" height="64" rx="10"/>
+<text class="t" x="130" y="394">Circuit breaker</text>
+<text class="s" x="130" y="414">closed→open→half-open</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>あらゆるヘッドレスCLIコーディングエージェントのための単一コントロールプレーン</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-0" aria-expanded="true" aria-controls="od-acc-llmorchestrator-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-0-panel" role="region" aria-labelledby="od-acc-llmorchestrator-0">
+            <div class="od-accordion__inner">
+      <p>LLMOrchestratorは、スタンドアロンかつ再利用可能なGoモジュールであり、ヘッドレスCLIエージェント（OpenCode、Claude Code、Gemini、Junie、Qwen Code）を生成・管理し、ハイブリッドなパイプ＋ファイルプロトコルを介して通信を行うためのものです。エージェントごとのサーキットブレーカー、プラガブルなマルチプロバイダー選択機能、疎結合のi18n抽象化レイヤー、そしてブラフ防止テスト保証を備えています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-1" aria-expanded="true" aria-controls="od-acc-llmorchestrator-1-panel">
+              <span class="od-accordion__label">短い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-1-panel" role="region" aria-labelledby="od-acc-llmorchestrator-1">
+            <div class="od-accordion__inner">
+      <p>再利用可能なGoモジュールで、ハイブリッドなパイプ＋ファイルプロトコルを通じて複数のLLM駆動のCLIエージェントを生成・制御するための統一インターフェースを提供します。スレッドセーフなエージェントプーリング、サーキットブレーカー、選択可能なルーティング戦略を備え、意図的にコンシューマー非依存で設計されており、プラガブルなi18nトランスレーターを搭載しています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-2" aria-expanded="true" aria-controls="od-acc-llmorchestrator-2-panel">
+              <span class="od-accordion__label">長い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-2-panel" role="region" aria-labelledby="od-acc-llmorchestrator-2">
+            <div class="od-accordion__inner">
+      <p>LLMOrchestratorは、ヘッドレスCLIコーディングエージェントをオーケストレーションするための共有インフラストラクチャーです。マルチエージェントシステムに必要不可欠でありながら、各プロジェクトが独自に実装しがちなプロセス生成、メッセージフレーミング、結果解析といった機能を、OpenCode、Claude Code、Gemini CLI、Junie、Qwen Codeなどのツールに対して統一的に提供します。具体的には、統一された<code>Agent</code>インターフェース、スレッドセーフな<code>AgentPool</code>、そして複数のプロバイダーからエージェントを統合管理する<code>MultiProviderPool</code>を提供します。ルーティングは<code>AgentSelector</code>を通じてプラガブルに設計されており、要件を満たさないプロバイダーをスキップするラウンドロビン方式や、フォールバック付きの優先順位方式など、作業の分配方法は選択可能なポリシーとして実装されています。各エージェントは共通の<code>BaseAdapter</code>を基盤とするシンプルなアダプターとして実装されており、プロセスライフサイクル全体（パイプのセットアップ、SIGTERM→SIGKILLによる優雅な停止、再起動、生存確認など）を管理します。これは煩雑でエラーが発生しやすい部分ですが、一度解決されています。</p>
+      <p>通信は意図的にハイブリッド方式を採用し、用途に応じた最適なトランスポートを選択します。パイプトランスポートは、リクエストごとに読み取りデッドラインとレスポンス長制限を設けた改行区切りのJSONを使用し、高速なインタラクティブメッセージングを実現します。一方、ファイルトランスポートは、セッションごとのインボックス／アウトボックス／共有ディレクトリを使用し、パイプに収まらない大容量または永続的なデータを扱います。耐障害性は後付けではなく、構造的に組み込まれています。具体的には、エージェントごとに3回連続で失敗すると60秒間のクールダウンを経てハーフオープン状態で再試行するサーキットブレーカーを備え、バックグラウンドのヘルスモニターがエージェントの生存確認を行うため、ダウンしたエージェントは受信トラフィックを待たずに復旧できます。プールの取得はCPUを無駄に消費するビジーウェイトではなく、条件変数を用いてブロックします。また、レスポンスパーサーはステートレスで、並行呼び出しに対しても安全です。モジュールは厳密に疎結合設計が徹底されており、コンシューマー固有の要件が入り込むことはありません。また、ユーザー向けの文字列はすべてプラガブルなi18n <code>Translator</code>を通じて処理され、<code>NoopTranslator</code>を使用することで翻訳が存在しない場合にはメッセージIDがそのまま表示され、問題が隠蔽されることなく明示的に示されます。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-3" aria-expanded="true" aria-controls="od-acc-llmorchestrator-3-panel">
+              <span class="od-accordion__label">開発の背景</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-3-panel" role="region" aria-labelledby="od-acc-llmorchestrator-3">
+            <div class="od-accordion__inner">
+      <p>マルチエージェントシステムでは、CLIエージェントを確実に起動し、通信を行う必要があります。プロジェクトごとにプロセス生成、フレーミング、解析、障害対応を再実装することは非効率的でエラーの原因となります。LLMOrchestratorはこれらを一つの疎結合で再利用可能なモジュールに集約し、その専門性によって再利用性を確保しています。そして、その再利用性は、コンシューマー固有の要件が入り込む瞬間に失われてしまいます。</p>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-4" aria-expanded="true" aria-controls="od-acc-llmorchestrator-4-panel">
+              <span class="od-accordion__label">なぜこれはゲームチェンジャーなのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-4-panel" role="region" aria-labelledby="od-acc-llmorchestrator-4">
+            <div class="od-accordion__inner">
+      <p>「異種CLIエージェントの軍団を動かす」という作業が、プロジェクトごとの特注エンジニアリング作業から、単なるライブラリのインポートへと変わります。プーリング、サーキットブレーカー、ライフサイクル管理、プラガブルなルーティングといった問題はすでに解決済みで、実績も十分です。さらに、そのアンチブラフテストは「コンパイルが通る」だけで満足せず、実際のシステムをエンドツーエンドで検証するため、並行処理や障害発生時にも信頼できる抽象化が手に入ります。単に図面上で正しそうに見えるだけのものではありません。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-5" aria-expanded="true" aria-controls="od-acc-llmorchestrator-5-panel">
+              <span class="od-accordion__label">革新的なポイント</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-5-panel" role="region" aria-labelledby="od-acc-llmorchestrator-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>ハイブリッドパイプ＋ファイルプロトコル</strong> – インタラクティブな速度（JSON行のstdin/stdout、読み取りデッドライン、レスポンス上限）と、耐久性のあるファイルベースの交換（インボックス／アウトボックス／共有）を両立。レイテンシと耐久性をトレードオフする必要はありません。</li>
+        <li><strong>マルチプロバイダープールとプラガブルセレクター</strong> – 複数のCLIプロバイダーを統合する単一のファサード。ラウンドロビンや優先順ルーティングは、ハードコードではなくポリシーで選択可能です。</li>
+        <li><strong>エージェントごとのサーキットブレーカー＋バックグラウンドヘルスモニター</strong> – 自動的な劣化と復旧（3回の失敗で60秒間オープン → ハーフオープンプローブ）。不安定なエージェントは隔離され、手動介入なしで静かに復帰します。</li>
+        <li><strong>ノンビジーウェイトプーリング</strong> – <code>Acquire</code>は、<code>sync.Cond</code>上でブロックし、条件に合った健全なエージェントが解放されるか、コンテキストがキャンセルされるまでCPUを消費しません。</li>
+        <li><strong>厳密な疎結合＋アンチブラフi18n</strong> – <code>NoopTranslator</code>はメッセージIDをそのまま返すため、翻訳漏れがあっても空白でごまかされることはありません。</li>
+        <li><strong>セキュリティ・バイ・デフォルト</strong> – バイナリパスの許可リストにより、シェル補完やコマンドインジェクションのリスクを排除。さらに、パストラバーサル対策、1MiBのレスポンス上限（暴走出力防止）、APIキーのログマスキングを実装。</li>
+        <li><strong>アンチブラフ・チャレンジハーネス</strong> – 5つのロケール（en/sr/ja/es/de）で実際のディスク／JSON／パーサーのラウンドトリップを実行。機能が壊れた際には必ず非ゼロで終了するミューテーションゲートを併用し、テスト自体が機能することを証明します。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-6" aria-expanded="true" aria-controls="od-acc-llmorchestrator-6-panel">
+              <span class="od-accordion__label">最大の技術的課題とその解決策</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-6-panel" role="region" aria-labelledby="od-acc-llmorchestrator-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>信頼性の高いエージェントプロセスI/O</strong> – スポーンされたCLIプロセスとの通信は一見簡単そうで難しい。ハイブリッドパイプ＋ファイル転送、メッセージ／パーサーコントラクトによるワイヤーフォーマットの合意、<code>BaseAdapter</code>によるプロセスライフサイクルの一元管理（SIGTERMタイムアウトからSIGKILLフォールバックまで含む）で解決。</li>
+        <li><strong>ビジーウェイトなしの並行処理</strong> – ミューテックス＋条件変数を用いた<code>AgentPool</code>で、<code>Acquire</code>は条件に合ったエージェントが実際に解放されるまでスリープ。ステートレスで副作用のないパーサーにより、複数のゴルーチンからの安全な呼び出しを実現。</li>
+        <li><strong>プロバイダー障害の隔離</strong> – 1つの不良プロバイダーが他を巻き込まないよう、エージェントごとのサーキットブレーカーで影響範囲を限定。ヘルスモニターゴルーチンにより、リクエストがなくても自動的に復旧を促進。</li>
+        <li><strong>コンパイルだけでなく正しさの証明</strong> – チャレンジャーランナーで、en/sr/ja/es/deの数十の不変条件を実際のシステムで検証。さらに、ミューテーションゲート（<code>LLMORCH_MUTATE_RUNNER=1</code>が失敗する → ラッパー終了コード99）により、機能が壊れた際にゲート自体がブラフでないことを証明。</li>
+        <li><strong>翻訳漏れの不可視化防止</strong> – メッセージIDをそのまま返す<code>NoopTranslator</code>の仕組みと、コンシューマーごとの翻訳インジェクションにより、翻訳の欠落が常に可視化されるように解決。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-7" aria-expanded="true" aria-controls="od-acc-llmorchestrator-7-panel">
+              <span class="od-accordion__label">テックスタック</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-7-panel" role="region" aria-labelledby="od-acc-llmorchestrator-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go（バージョン1.25）</strong> — 優れた並行処理とクリーンなプロセス制御を備え、ライブエージェントプロセスのオーケストレーションにまさに適した選択。モジュール本体、エージェントアダプター、トランスポート、パーサーを実装。</li>
+        <li><strong>Go標準ライブラリのみ（+ testify、yaml.v3）</strong> — 依存関係を最小限に抑え、*LLM SDKを一切導入しない*という意図的な選択。これにより、モジュールは軽量かつ埋め込み可能となり、利用者側にベンダー固有の負担を強いることがない。</li>
+        <li><strong>パイプトランスポート（stdio上のJSON-lines）</strong> — 高速なインタラクティブメッセージングに最適。読み取りデッドラインとレスポンス長制限を設けることで、ハングアップや暴走したエージェントが呼び出し元を停止させるリスクを排除。</li>
+        <li><strong>ファイルトランスポート（inbox/outbox/共有）</strong> — セッションごとの耐久性と大容量アーティファクトの交換に適した選択。パイプでは不向きな用途に対応。</li>
+        <li><strong><code>sync.Mutex</code>/<code>sync.Cond</code></strong> — ビジーウェイトなしでブロッキングかつ公平なエージェントプールの取得を実現。</li>
+        <li><strong>サーキットブレーカー + ヘルスモニター</strong> — エージェントごとの耐障害性と*能動的な復旧*を両立。単なる障害検知にとどまらない。</li>
+        <li><strong><code>pkg/i18n</code> Translator</strong> — コア部分から利用者固有の文字列を切り離す、疎結合なローカライゼーションレイヤーとして採用。</li>
+        <li><strong>チャレンジハーネス（<code>challenges/runner</code>） + Makefile（<code>test -race</code>、<code>fuzz</code>、<code>cover</code>）</strong> — レース検出やパーサーファジングを含む、対抗条件下での正確性を実証するための厳格な検証フレームワーク。根拠に基づく検証を重視し、推測に頼らない。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-8" aria-expanded="true" aria-controls="od-acc-llmorchestrator-8-panel">
+              <span class="od-accordion__label">ステータスと正直な注意点</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-8-panel" role="region" aria-labelledby="od-acc-llmorchestrator-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>ステータス：ベータ版</strong>。複数のHelix/vasicプロジェクトでサブモジュールとして利用される、疎結合な再利用可能モジュール。<strong>ライセンス：Apache-2.0</strong>。GitHubリポジトリは公開済み。</li>
+        <li>モデルメタデータはHelixQA経由でLLMsVerifierから提供される。本モジュールはLLMsVerifier/VisionEngine/DocProcessorを直接インポートしない。親アプリケーションの<code>CLAUDE.md</code>（Gin/PostgreSQLなど）に記載されるスタックは<code>helix_code</code>を指し、本モジュールとは異なる。</li>
+      </ul>
+      <p><strong>優先度</strong>：Helixプライマリ（LLMインフラストラクチャクラスター — 疎結合な再利用可能モジュール）。HelixTrackに次ぐ優先順位。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

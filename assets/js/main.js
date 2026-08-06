@@ -74,6 +74,37 @@
   } catch (e) {}
   translate(initial);
 
+  /* ---------- Mobile primary nav (hamburger) ---------- */
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  if (navToggle && navLinks) {
+    var isNavOpen = function () { return navLinks.classList.contains('open'); };
+    var openNav = function () {
+      navLinks.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+    };
+    var closeNav = function () {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+    navToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      isNavOpen() ? closeNav() : openNav();
+    });
+    // Choosing a link navigates (default) AND closes the menu.
+    navLinks.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeNav);
+    });
+    // Click outside the menu/toggle closes it.
+    document.addEventListener('click', function (e) {
+      if (isNavOpen() && !navLinks.contains(e.target) && !navToggle.contains(e.target)) closeNav();
+    });
+    // Escape closes and restores focus to the toggle (keyboard operable).
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isNavOpen()) { closeNav(); navToggle.focus(); }
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.reveal');

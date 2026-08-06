@@ -1,0 +1,303 @@
+---
+layout: default
+lang: hi
+title: "Parallels-Utils — Miloš Vasić"
+description: "Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image \"matrices\" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/parallels-utils.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "hi",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/parallels-utils.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image \"matrices\" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory.",
+      "inLanguage": "hi",
+      "name": "Parallels-Utils",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/parallels-utils.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 32</p>
+      <h1>Parallels-Utils <span class="od-h1-badges"><span class="od-badge--status od-badge--status--active">active</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Shell (~5.3K bytes)</span><span class="od-chip">Python 3 (~3K bytes)</span><span class="od-chip">Parallels (macOS)</span><span class="od-chip">Settings files (.settings)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Server-Factory/Parallels-Utils" rel="noopener noreferrer" target="_blank">Server-Factory/Parallels-Utils <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="parallels-utils">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Parallels-Utils — image lifecycle (macOS)</text>
+<text class="lbl" x="30" y="122">Image lifecycle</text>
+<text class="lbl" x="360" y="274">One endpoint → many workstations</text>
+<text class="note" x="120" y="418">Settings (.settings): location · provider · sync feed the scripts</text>
+<rect class="box" x="30" y="150" width="150" height="80" rx="10"/>
+<text class="t" x="105" y="194">Build</text>
+<rect class="box" x="200" y="150" width="150" height="80" rx="10"/>
+<text class="t" x="275" y="194">Compress</text>
+<rect class="box" x="370" y="150" width="150" height="80" rx="10"/>
+<text class="t" x="445" y="194">Publish</text>
+<text class="s" x="445" y="214">provider endpoint</text>
+<rect class="box" x="540" y="150" width="150" height="80" rx="10"/>
+<text class="t" x="615" y="194">Retrieve</text>
+<rect class="good" x="710" y="150" width="150" height="80" rx="10"/>
+<text class="gt" x="785" y="194">Run</text>
+<text class="s" x="785" y="214">Parallels VM</text>
+<rect class="accent" x="370" y="290" width="160" height="70" rx="10"/>
+<text class="t" x="450" y="334">Provider endpoint</text>
+<text class="s" x="450" y="354">image matrix</text>
+<rect class="box" x="120" y="300" width="150" height="60" rx="10"/>
+<text class="t" x="195" y="334">Workstation A</text>
+<rect class="box" x="620" y="300" width="150" height="60" rx="10"/>
+<text class="t" x="695" y="334">Workstation B</text>
+<rect class="box" x="820" y="300" width="150" height="60" rx="10"/>
+<text class="t" x="895" y="334">Workstation C</text>
+<path class="conn" marker-end="url(#a)" d="M180,190 L198,190"/>
+<path class="conn" marker-end="url(#a)" d="M350,190 L368,190"/>
+<path class="conn" marker-end="url(#a)" d="M520,190 L538,190"/>
+<path class="conn" marker-end="url(#a)" d="M690,190 L708,190"/>
+<path class="conn" marker-end="url(#a)" d="M445,230 L448,288"/>
+<path class="conn" marker-end="url(#a)" d="M370,325 L272,330"/>
+<path class="conn" marker-end="url(#a)" d="M530,325 L618,330"/>
+<path class="conn" marker-end="url(#a)" d="M530,335 L818,332"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline">सामग्री <strong>अपने Parallels वर्चुअल मशीन इमेज को संपीड़ित करें, प्रकाशित करें और हर मशीन पर पुनः उपयोग करें।</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-0" aria-expanded="true" aria-controls="od-acc-parallels-utils-0-panel">
+              <span class="od-accordion__label">सारांश</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-0-panel" role="region" aria-labelledby="od-acc-parallels-utils-0">
+            <div class="od-accordion__inner">
+      <p>Parallels-Utils एक Server Factory टूलकिट है जो Parallels (macOS) वर्चुअल-मशीन इमेज के प्रबंधन के लिए है: विकास और परीक्षण के लिए उपयोग की जाने वाली इमेज "मैट्रिक्स" को संपीड़ित और सिंक्रोनाइज़ करना, उन्हें दूरस्थ एंडपॉइंट पर प्रकाशित करना, और उन्हें कई वर्कस्टेशनों या सर्वरों पर प्राप्त/चलाना। इसे स्वतंत्र रूप से या Server Factory के हिस्से के रूप में उपयोग किया जा सकता है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-1" aria-expanded="true" aria-controls="od-acc-parallels-utils-1-panel">
+              <span class="od-accordion__label">संक्षिप्त विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-1-panel" role="region" aria-labelledby="od-acc-parallels-utils-1">
+            <div class="od-accordion__inner">
+      <p>macOS पर Parallels वीएम इमेज के जीवनचक्र के लिए एक Shell/Python टूलकिट। यह Parallels इमेज को संपीड़ित और सिंक्रोनाइज़ करता है, उन्हें दूरस्थ एंडपॉइंट पर प्रकाशित करता है, और उन्हें कई कंप्यूटरों पर प्राप्त करके चलाता है — साधारण सेटिंग फ़ाइलों द्वारा संचालित, जिसे स्वतंत्र रूप से या Server Factory के भीतर उपयोग किया जा सकता है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-2" aria-expanded="true" aria-controls="od-acc-parallels-utils-2-panel">
+              <span class="od-accordion__label">विस्तृत विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-2-panel" role="region" aria-labelledby="od-acc-parallels-utils-2">
+            <div class="od-accordion__inner">
+      <p>Parallels-Utils macOS-आधारित विकास के लिए एक व्यावहारिक DevOps समस्या का समाधान करता है: टीमें Parallels वर्चुअल मशीनों के "मैट्रिक्स" (विकास और परीक्षण के लिए विभिन्न ऑपरेटिंग सिस्टम/कॉन्फ़िगरेशन) बनाती हैं, और इन इमेज को कई मशीनों पर लगातार संपीड़ित, प्रकाशित, प्राप्त और चलाने की आवश्यकता होती है। यह टूलकिट इसी जीवनचक्र को प्रदान करता है। एक सिंक्रोनाइज़ेशन तंत्र Parallels इमेज को संपीड़ित करता है और उन्हें सिंक में रखता है; एक प्रकाशन तंत्र इमेज को दूरस्थ एंडपॉइंट पर अपलोड करता है; और एक प्राप्ति तंत्र किसी भी वर्कस्टेशन या सर्वर को प्रकाशित इमेज खींचने और उन्हें वीएम के रूप में चलाने की सुविधा देता है। कॉन्फ़िगरेशन जानबूझकर सरल और फ़ाइल-आधारित है: <code>image_location.settings</code> फ़ाइल सिस्टम पर इमेज के स्थान को परिभाषित करती है, <code>image_provider.settings</code> प्रकाशित इमेज के लिए आधार URL को परिभाषित करती है, और <code>image_sync.sh</code> अपलोड स्क्रिप्ट को परिभाषित करता है — उदाहरण <code>Examples</code> डायरेक्टरी में दिए गए हैं। ऑपरेटर <code>publish_images.sh</code> का उपयोग प्रकाशित करने और <code>run.sh</code> का उपयोग वीएम लॉन्च करने के लिए करते हैं। इसके लिए उपयुक्त macOS संस्करण के लिए Parallels और Python 3 की आवश्यकता होती है। यह टूलकिट दोहरे उपयोग के लिए डिज़ाइन किया गया है: यह एक बड़े Server Factory प्रोजेक्ट के हिस्से के रूप में या पूरी तरह स्वतंत्र रूप से काम कर सकता है, जो संगठन के डिकपलिंग दर्शन को दर्शाता है। इसमें एक संक्षिप्त वीडियो ट्यूटोरियल का लिंक भी दिया गया है। Server-Factory परिवार का हिस्सा होने के नाते, यह Qemu-Utils (Linux/QEMU समकक्ष) का पूरक है, जिससे पारिस्थितिकी तंत्र को macOS/Parallels और क्रॉस-प्लेटफ़ॉर्म/QEMU बैकएंड पर वीएम-इमेज प्रबंधन मिलता है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-3" aria-expanded="true" aria-controls="od-acc-parallels-utils-3-panel">
+              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-3-panel" role="region" aria-labelledby="od-acc-parallels-utils-3">
+            <div class="od-accordion__inner">
+      <p>एक टीम में लगातार वीएम विकास/परीक्षण वातावरण साझा करना थकाऊ होता है — इमेज बड़ी होती हैं, और हर मशीन को एक ही मैट्रिक्स की आवश्यकता होती है। Parallels-Utils संपीड़न, प्रकाशन और प्राप्ति को स्वचालित करता है ताकि Parallels वीएम का एक मानक सेट हर जगह पुनः निर्मित किया जा सके।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-4" aria-expanded="true" aria-controls="od-acc-parallels-utils-4-panel">
+              <span class="od-accordion__label">यह क्यों गेम-चेंजर है</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-4-panel" role="region" aria-labelledby="od-acc-parallels-utils-4">
+            <div class="od-accordion__inner">
+      <p>यह भारी और बोझिल Parallels इमेज को प्रकाशन योग्य, सिंक करने योग्य आर्टिफैक्ट सेट में बदल देता है जिसे कोई भी मशीन खींचकर चला सकती है — इस तरह एक मानक विकास/परीक्षण वातावरण हर इंजीनियर द्वारा हाथ से बनाने की बजाय बस प्राप्त किया जा सकता है। यह बेहद सरल सेटिंग-फ़ाइल कॉन्फ़िगरेशन और Server Factory के बाकी हिस्सों पर शून्य निर्भरता के साथ ऐसा करता है, जो संगठन के डिकपलिंग दर्शन के अनुरूप है: अपने आप में उपयोगी, बड़े टूलचेन में एक अच्छा नागरिक।</p>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-5" aria-expanded="true" aria-controls="od-acc-parallels-utils-5-panel">
+              <span class="od-accordion__label">क्या नवीन है</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-5-panel" role="region" aria-labelledby="od-acc-parallels-utils-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>Parallels छवि "मैट्रिक्स" का देव/टेस्ट के लिए संपीड़न + तुल्यकालन।</li>
+        <li>प्रकाशित/प्राप्त कार्यप्रवाह जिससे छवियों का कई कंप्यूटरों पर पुनः उपयोग संभव।</li>
+        <li>सेटिंग्स-फ़ाइल-आधारित विन्यास (स्थान/प्रदाता/तुल्यकालन) जिसमें उदाहरण शामिल।</li>
+        <li>दोहरा उपयोग: स्वतंत्र रूप से या Server Factory घटक के रूप में।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-6" aria-expanded="true" aria-controls="od-acc-parallels-utils-6-panel">
+              <span class="od-accordion__label">चुनौतियाँ और समाधान</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-6-panel" role="region" aria-labelledby="od-acc-parallels-utils-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>बड़ी छवियों का वितरण:</strong> संपीड़न और दूरस्थ एंडपॉइंट पर प्रकाशित + प्राप्त करने के कार्यप्रवाह से हल।</li>
+        <li><strong>मशीनों के बीच पुनरुत्पादन:</strong> प्रदाता/स्थान सेटिंग्स से हल, जिससे हर होस्ट समान छवि समूह प्राप्त करता है।</li>
+        <li><strong>उपयोग में आसानी:</strong> सरल <code>publish_images.sh</code> / <code>run.sh</code> स्क्रिप्ट और उदाहरण सेटिंग्स फ़ाइलों से हल।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-7" aria-expanded="true" aria-controls="od-acc-parallels-utils-7-panel">
+              <span class="od-accordion__label">तकनीकी ढाँचा (क्यों + कैसे)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-7-panel" role="region" aria-labelledby="od-acc-parallels-utils-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Shell</strong> — प्रकाशित/चलाने/तुल्यकालन स्क्रिप्ट (मुख्य भाषा, ~5.3K बाइट्स)।</li>
+        <li><strong>Python 3</strong> — सहायक उपकरण (आवश्यक निर्भरता, ~3K बाइट्स)।</li>
+        <li><strong>Parallels (macOS)</strong> — प्रबंधित किया जाने वाला वर्चुअलाइज़ेशन बैकएंड।</li>
+        <li><strong>सेटिंग्स फ़ाइलें (<code>.settings</code>)</strong> — स्थान/प्रदाता/तुल्यकालन के लिए घोषणात्मक विन्यास।</li>
+      </ul>
+      <blockquote><p>टिप्पणी: GitHub रिपॉज़िटरी को Server-Factory संगठन के अंतर्गत फ़ोर्क के रूप में चिह्नित करता है। विशिष्ट, macOS-केन्द्रित। AI से संबंधित नहीं।</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

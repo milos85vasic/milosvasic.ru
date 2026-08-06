@@ -1,0 +1,308 @@
+---
+layout: default
+lang: hi
+title: "Server Factory — Additional Components — Miloš Vasić"
+description: "Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service \"factories\" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/server-factory-additional-components.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "hi",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/server-factory-additional-components.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service \"factories\" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products.",
+      "inLanguage": "hi",
+      "name": "Server Factory — Additional Components",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/server-factory-additional-components.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 33</p>
+      <h1>Server Factory — Additional Components <span class="od-h1-badges"><span class="od-badge--status od-badge--status--mixed">mixed</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Kotlin (service factories, on Core Framework)</span><span class="od-chip">Shell (Utils, Definitions packs)</span><span class="od-chip">Gradle</span><span class="od-chip">Docker (target runtime)</span><span class="od-chip">SSH / OpenSSH (Utils bootstrap)</span><span class="od-chip">SonarQube</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Server-Factory/Web-Service-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/Web-Service-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/SonarQube-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/SonarQube-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Caching-Proxy-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/Caching-Proxy-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Docker-Definitions" rel="noopener noreferrer" target="_blank">Server-Factory/Docker-Definitions <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Stack-Definitions" rel="noopener noreferrer" target="_blank">Server-Factory/Stack-Definitions <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Software-Definitions" rel="noopener noreferrer" target="_blank">Server-Factory/Software-Definitions <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Utils" rel="noopener noreferrer" target="_blank">Server-Factory/Utils <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="server-factory-additional-components">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Server Factory — Additional Components</text>
+<text class="lbl" x="400" y="52">Family tree</text>
+<text class="lbl" x="60" y="350">Data vs engine · bootstrap</text>
+<text class="note" x="500" y="512">Maturity: solid = flagship (Mail) · dashed = early-stage service factories (UNVERIFIED)</text>
+<rect class="accent" x="390" y="70" width="220" height="80" rx="10"/>
+<text class="t" x="490" y="104">Core Framework</text>
+<text class="s" x="490" y="124">Kotlin engine</text>
+<rect class="good" x="60" y="220" width="200" height="80" rx="10"/>
+<text class="gt" x="160" y="264">Mail Factory</text>
+<text class="s" x="160" y="284">flagship</text>
+<rect class="dash" x="290" y="220" width="200" height="80" rx="10"/>
+<text class="t" x="390" y="264">Web Service Factory</text>
+<text class="s" x="390" y="284">early-stage</text>
+<rect class="dash" x="520" y="220" width="200" height="80" rx="10"/>
+<text class="t" x="620" y="264">SonarQube Factory</text>
+<text class="s" x="620" y="284">early-stage</text>
+<rect class="dash" x="750" y="220" width="200" height="80" rx="10"/>
+<text class="t" x="850" y="264">Caching-Proxy Factory</text>
+<text class="s" x="850" y="284">early-stage</text>
+<rect class="box" x="60" y="370" width="270" height="70" rx="10"/>
+<text class="t" x="195" y="414">Definitions packs</text>
+<text class="s" x="195" y="434">Docker · Stack · Software</text>
+<rect class="box" x="360" y="370" width="270" height="70" rx="10"/>
+<text class="t" x="495" y="414">Utils</text>
+<text class="s" x="495" y="434">init_ssh_access.sh bootstrap</text>
+<path class="conn" marker-end="url(#a)" d="M470,150 L160,218"/>
+<path class="conn" marker-end="url(#a)" d="M490,150 L390,218"/>
+<path class="conn" marker-end="url(#a)" d="M510,150 L620,218"/>
+<path class="conn" marker-end="url(#a)" d="M540,150 L850,218"/>
+<path class="conn" marker-end="url(#a)" d="M195,368 L460,152"/>
+<path class="conn" marker-end="url(#a)" d="M495,368 L520,152"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Server Factory प्रोविज़निंग टूलचेन के सहायक घटक</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-0" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-0-panel">
+              <span class="od-accordion__label">सारांश</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-0-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-0">
+            <div class="od-accordion__inner">
+      <p>Mail Server Factory और कोर फ्रेमवर्क के अलावा, सर्वर-फैक्ट्री संगठन में कई छोटे घटक शामिल हैं: प्रति-सेवा "फैक्ट्रियाँ" (वेब सर्विस, SonarQube, कैशिंग प्रॉक्सी), घोषणात्मक कॉन्फ़िगरेशन पैक (Docker/स्टैक/सॉफ़्टवेयर परिभाषाएँ), और साझा यूटिल्स। यह संकलित पृष्ठ उन्हें ईमानदारी से प्रस्तुत करता है—कई प्रारंभिक चरण में हैं या अधूरे दस्तावेज़ीकरण वाले—न कि पूर्णतः निर्दिष्ट उत्पादों के रूप में।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-1" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-1-panel">
+              <span class="od-accordion__label">संक्षिप्त विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-1-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-1">
+            <div class="od-accordion__inner">
+      <p>Server Factory के सहायक रिपॉज़िटरी का समूह: वेब-सर्विस-फैक्ट्री, SonarQube-फैक्ट्री, और कैशिंग-प्रॉक्सी-फैक्ट्री (प्रति-सेवा प्रोविज़निंग टूल, अधिकतर प्रारंभिक चरण में); Docker/स्टैक/सॉफ़्टवेयर-परिभाषाएँ (फ्रेमवर्क द्वारा उपयोग किए जाने वाले घोषणात्मक कॉन्फ़िगरेशन पैक); और यूटिल्स (SSH-एक्सेस सहायक और सामान्य टूलिंग)। सभी कोर फ्रेमवर्क पर आधारित हैं।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-2" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-2-panel">
+              <span class="od-accordion__label">विस्तृत विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-2-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-2">
+            <div class="od-accordion__inner">
+      <p>यह पृष्ठ शेष सर्वर-फैक्ट्री रिपॉज़िटरी को एक साथ प्रस्तुत करता है क्योंकि व्यक्तिगत रूप से अधिकांश छोटे हैं या जानबूझकर कम दस्तावेज़ीकृत हैं, और प्रत्येक को एक पूर्ण उत्पाद के रूप में प्रस्तुत करना उनकी परिपक्वता को बढ़ा-चढ़ाकर दिखाएगा। ये तीन समूहों में विभाजित हैं। <strong>सेवा फैक्ट्रियाँ</strong> अन्य सर्वर भूमिकाओं के लिए Mail Server Factory पैटर्न का अनुसरण करती हैं: <strong>कैशिंग-प्रॉक्सी-फैक्ट्री</strong> ("अपना खुद का कैशिंग प्रॉक्सी सर्वर चलाएँ") कैशिंग प्रॉक्सी, सेल्फ-साइन्ड सर्टिफ़िकेट, और सुरक्षा-सर्टिफ़िकेट प्राप्ति के HTTP एंडपॉइंट को प्रमुख विशेषताओं के रूप में सूचीबद्ध करती है; <strong>SonarQube-फैक्ट्री</strong> ("अपना खुद का SonarQube सर्वर चलाएँ") सॉफ़्टवेयर-विकास उपयोग के लिए लक्षित है; और <strong>वेब-सर्विस-फैक्ट्री</strong> वेबसाइटों और माइक्रो-सर्विसेज़ जैसे लक्ष्यों को तैनात करने के लिए वेब सर्वर को स्थापित और कॉन्फ़िगर करती है। ये तीनों Kotlin प्रोजेक्ट हैं जो कोर फ्रेमवर्क पर निर्मित हैं, लेकिन उनके सार्वजनिक README अधिकतर प्लेसहोल्डर हैं ("Tbd." संगतता, विनिर्देश, सेटअप और उपयोग के लिए)—इसलिए बताए गए उद्देश्य से परे उनकी ठोस क्षमताएँ <strong>अपुष्ट</strong> हैं। <strong>परिभाषा पैक</strong>—<strong>Docker-परिभाषाएँ</strong>, <strong>स्टैक-परिभाषाएँ</strong>, और <strong>सॉफ़्टवेयर-परिभाषाएँ</strong>—घोषणात्मक कॉन्फ़िगरेशन रिपॉज़िटरी हैं जिन्हें फ्रेमवर्क Docker छवियों, स्टैक और सॉफ़्टवेयर के निर्माण/तैनाती के लिए उपयोग करता है; ये संस्करण-नियत डेटा पैक हैं, न कि एप्लिकेशन। <strong>यूटिल्स</strong> परिवार के लिए सामान्य सहायक प्रदान करता है, जिसमें <code>init_ssh_access.sh</code> स्क्रिप्ट शामिल है जो SSH कुंजी उत्पन्न करती है और इसे दूरस्थ होस्ट पर स्थापित करती है ताकि बाद के प्रोविज़निंग के लिए पासवर्ड-रहित रूट एक्सेस सक्षम हो सके। ये घटक मिलकर Mail Server Factory के आसपास प्रोविज़निंग टूलचेन को पूर्ण करते हैं।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-3" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-3-panel">
+              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-3-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-3">
+            <div class="od-accordion__inner">
+      <p>Server Factory मॉडल को सामान्यीकृत करने के लिए बनाया गया है: एक बार जब आप घोषणात्मक विवरण से मेल सर्वर प्रोविज़न कर सकते हैं, तो उसी इंजन से वेब सर्वर, कैशिंग प्रॉक्सी और कोड-क्वालिटी सर्वर भी प्रोविज़न किए जा सकने चाहिए—जिन्हें पुनः उपयोग योग्य परिभाषा पैक और साझा यूटिलिटीज़ द्वारा संचालित किया जाए, न कि प्रति भूमिका के लिए विशेष तर्क द्वारा। ये रिपॉज़िटरी उसी सामान्यीकरण की प्रक्रिया में हैं, जो सिद्ध पैटर्न को नए सर्वर प्रकारों तक विस्तारित करती हैं। यहाँ इनका मूल्य मॉडल की पहुँच के प्रमाण के रूप में है; उनकी परिपक्वता भिन्न है, और यह पृष्ठ जानबूझकर स्पष्ट करता है कि कौन से दिशा-निर्देश हैं और कौन से पूर्ण हैं।</p>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-4" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-4-panel">
+              <span class="od-accordion__label">यह क्यों एक गेम-चेंजर है (संतुलित दृष्टिकोण)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-4-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-4">
+            <div class="od-accordion__inner">
+      <p>समग्र रूप में, ये इस बात का प्रमाण हैं कि कोर फ्रेमवर्क विभिन्न सर्वर प्रकारों में पुनः उपयोगी है और घोषणात्मक डेटा (परिभाषाएँ) को निष्पादन (फैक्ट्रियाँ) से अलग करता है। व्यक्तिगत रूप से, सेवा फैक्ट्रियाँ प्रारंभिक चरण में हैं और इन्हें पूर्ण उत्पाद के रूप में नहीं, बल्कि दिशा-निर्देश के रूप में प्रस्तुत किया जाना चाहिए।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-5" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-5-panel">
+              <span class="od-accordion__label">क्या है नवीन</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-5-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>एक ही प्रोविज़निंग फ्रेमवर्क जो मेल/वेब/कैशिंग-प्रॉक्सी/SonarQube भूमिकाओं में सामान्यीकृत है।</li>
+        <li>घोषणात्मक परिभाषा पैक (Docker/स्टैक/सॉफ़्टवेयर) जो निष्पादन इंजन से अलग हैं।</li>
+        <li>साझा यूटिल्स (जैसे, एक-कमांड पासवर्ड-रहित SSH बूटस्ट्रैप) जो फैक्ट्रियों में पुनः उपयोगी हैं।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-6" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-6-panel">
+              <span class="od-accordion__label">चुनौतियाँ और समाधान</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-6-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>एक ही इंजन का विभिन्न सर्वर भूमिकाओं में पुनः उपयोग:</strong> कोर फ्रेमवर्क पर प्रत्येक फैक्ट्री बनाकर हल किया गया।</li>
+        <li><strong>कॉन्फ़िगरेशन को कोड से अलग करना:</strong> परिभाषा रिपॉज़िटरीज़ को संस्करण-संलग्न डेटा पैक के रूप में उपयोग करके हल किया गया।</li>
+        <li><strong>(असत्यापित):</strong> सेवा फैक्ट्रियों के README प्लेसहोल्डर हैं; सार्वजनिक दस्तावेज़ों से उनकी पूर्णता का सत्यापन संभव नहीं — इन्हें प्रारंभिक चरण के रूप में प्रस्तुत करें।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-7" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-7-panel">
+              <span class="od-accordion__label">तकनीकी स्टैक (क्यों + कैसे)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-7-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Kotlin</strong> — वेब-सर्विस-फैक्ट्री, SonarQube-फैक्ट्री, कैशिंग-प्रॉक्सी-फैक्ट्री (कोर फ्रेमवर्क पर निर्मित)।</li>
+        <li><strong>Shell</strong> — यूटिल्स और परिभाषा पैक (स्क्रिप्ट्स/कॉन्फ़िग)।</li>
+        <li><strong>Gradle</strong> — <code>./gradlew test</code> फैक्ट्रियों में बिल्ड/टेस्ट प्रवाह।</li>
+        <li><strong>Docker</strong> — Docker-परिभाषाओं द्वारा वर्णित लक्ष्य रनटाइम।</li>
+        <li><strong>SSH / OpenSSH</strong> — यूटिल्स का पासवर्ड-रहित एक्सेस बूटस्ट्रैप।</li>
+        <li><strong>SonarQube</strong> — वह सर्वर जिसे SonarQube-फैक्ट्री प्रोविज़न करती है (और जिसके विरुद्ध Mail Server Factory एक स्वच्छ गेट की रिपोर्ट करता है)।</li>
+      </ul>
+      <blockquote><p>ईमानदारी का नोट: इनमें से अधिकांश रिपॉज़िटरी संगठन के भीतर फ़ोर्क हैं; सेवा फैक्ट्रियाँ प्लेसहोल्डर-दस्तावेज़ीकृत हैं और संविधान §11.4.6 के अनुसार असत्यापित चिह्नित हैं। इन्हें स्पष्ट रूप से Mail Server Factory और कोर फ्रेमवर्क से निम्न श्रेणी में रखा गया है।</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

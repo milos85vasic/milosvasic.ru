@@ -1,0 +1,310 @@
+---
+layout: default
+lang: ja
+title: "Mail Server Factory — Miloš Vasić"
+description: "Mail Server Factory is a production-ready, automated mail-server provisioning tool. The user writes a simple JSON configuration; the Factory interprets it and performs all installations and initializations on the target OS, deploying a Docker-based, loosely-coupled mail stack across 12 connection types."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/mail-server-factory.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ja",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/mail-server-factory.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Mail Server Factory is a production-ready, automated mail-server provisioning tool. The user writes a simple JSON configuration; the Factory interprets it and performs all installations and initializations on the target OS, deploying a Docker-based, loosely-coupled mail stack across 12 connection types.",
+      "inLanguage": "ja",
+      "name": "Mail Server Factory",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/mail-server-factory.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 29</p>
+      <h1>Mail Server Factory <span class="od-h1-badges"><span class="od-badge--status od-badge--status--production">production</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Kotlin (2.0.21)</span><span class="od-chip">Shell</span><span class="od-chip">Docker</span><span class="od-chip">QEMU</span><span class="od-chip">JSON (declarative config)</span><span class="od-chip">Gradle 8.14.3 / Java 17</span><span class="od-chip">Caffeine</span><span class="od-chip">G1GC-tuned JVM</span><span class="od-chip">Prometheus-compatible metrics</span><span class="od-chip">Sieve</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Server-Factory/Mail-Server-Factory" rel="noopener noreferrer" target="_blank">Server-Factory/Mail-Server-Factory <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Server-Factory/Mail-Server-Factory-Website" rel="noopener noreferrer" target="_blank">Server-Factory/Mail-Server-Factory-Website <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="mail-server-factory">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Mail Server Factory — JSON → Docker mail stack</text>
+<text class="lbl" x="600" y="72">Installed Docker mail stack</text>
+<text class="lbl" x="40" y="400">Connection-type fan-out</text>
+<text class="note" x="500" y="524">Security: AES-256-GCM · firewall ports · TLS/HSTS · RBAC · audit log</text>
+<rect class="box" x="40" y="220" width="180" height="90" rx="10"/>
+<text class="t" x="130" y="254">JSON config</text>
+<text class="s" x="130" y="274">declarative recipe</text>
+<rect class="accent" x="280" y="190" width="220" height="150" rx="10"/>
+<text class="t" x="390" y="265">Factory engine</text>
+<text class="s" x="390" y="285">Kotlin 2.0 · JVM G1GC</text>
+<rect class="box" x="600" y="90" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="124">Postfix</text>
+<text class="s" x="770" y="144">SMTP</text>
+<rect class="box" x="600" y="160" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="194">Dovecot</text>
+<text class="s" x="770" y="214">IMAP / POP</text>
+<rect class="box" x="600" y="230" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="264">TLS / HSTS</text>
+<text class="s" x="770" y="284">certificates</text>
+<rect class="box" x="600" y="300" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="334">Sieve</text>
+<text class="s" x="770" y="354">filtering</text>
+<rect class="box" x="40" y="420" width="920" height="72" rx="10"/>
+<text class="t" x="490" y="464">Connection targets</text>
+<text class="s" x="490" y="484">local · SSH · Docker · K8s · AWS SSM · Azure · GCP · Libvirt</text>
+<path class="conn" marker-end="url(#a)" d="M220,265 L278,265"/>
+<path class="conn" marker-end="url(#a)" d="M500,230 L598,119"/>
+<path class="conn" marker-end="url(#a)" d="M500,250 L598,189"/>
+<path class="conn" marker-end="url(#a)" d="M500,270 L598,259"/>
+<path class="conn" marker-end="url(#a)" d="M500,300 L598,329"/>
+<path class="conn" marker-end="url(#a)" d="M390,340 L390,418"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>メールサーバーをボス級に運用──JSONで記述し、どこにでもデプロイ</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-0" aria-expanded="true" aria-controls="od-acc-mail-server-factory-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-0-panel" role="region" aria-labelledby="od-acc-mail-server-factory-0">
+            <div class="od-accordion__inner">
+      <p>Mail Server Factoryは、本番環境対応の自動メールサーバー構築ツールです。ユーザーがシンプルなJSON設定ファイルを記述すると、Factoryがそれを解釈し、対象OS上で必要なインストールと初期化をすべて実行。12種類の接続方式に対応した、Dockerベースの疎結合メールスタックをデプロイします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-1" aria-expanded="true" aria-controls="od-acc-mail-server-factory-1-panel">
+              <span class="od-accordion__label">簡単な説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-1-panel" role="region" aria-labelledby="od-acc-mail-server-factory-1">
+            <div class="od-accordion__inner">
+      <p>Kotlin／Shellツールで、JSONの記述をもとに完全にインストールされたDocker化メールサーバーを構築します。12種類の接続方式（SSH、Docker、Kubernetes、AWS SSM、Azure、GCP、Libvirtなど）に対応し、包括的なセキュリティフレームワーク、25種類のLinuxディストリビューションをサポート。439件のテストをパスしています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-2" aria-expanded="true" aria-controls="od-acc-mail-server-factory-2-panel">
+              <span class="od-accordion__label">詳細説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-2-panel" role="region" aria-labelledby="od-acc-mail-server-factory-2">
+            <div class="od-accordion__inner">
+      <p>本格的でセキュアなメールサーバーを立ち上げることは、システム管理における古典的な通過儀礼の一つであり──同時に、最も確実に苦痛を伴う作業の一つでもあります。Postfix、Dovecot、TLS証明書、DNSレコード、ファイアウォールルール、そしてディストリビューションごとの癖をすべて完璧に揃える必要があり、一つでも設定を誤れば、メールが静かにバウンスされたり、オープンリレーになってしまったりします。Mail Server Factoryは、こうした長年の経験とエラーを生みやすいノウハウをすべてソフトウェアに封じ込めました。見知らぬOS上で各コンポーネントを手作業で設定する代わりに、エンドユーザーはJSONドキュメントで望む結果を記述するだけ。FactoryはそのJSONを読み込み、対象OS上で必要なインストールと初期化手順を正確に実行し、Docker上で動作するメールスタックを立ち上げます。各コンポーネントは疎結合設計となっており、水平スケーラビリティを確保しつつ、個々のコンポーネントを独立してアップグレードや置き換えが可能です。また、意図的にリーチに依存しない設計となっており、12種類の接続方式を通じて、同じツールと同じJSONでローカルマシン、SSH経由のリモートホスト、DockerやKubernetesランタイム、AWS SSM／Azureシリアルコンソール／GCP OSログイン経由のクラウドインスタンス、Libvirt上のVMなど、どこにでも同じ宣言的記述をデプロイできます。</p>
+      <p>サポートするLinuxディストリビューションは25種類に及び、西側系（Ubuntu、Debian、CentOS、Fedora、AlmaLinux、Rocky、openSUSE）、ロシア系（ALT、Astra、ROSA）、中国系（openEuler、openKylin、Deepin）の各ファミリーに対応。preseed／kickstart／cloud-init／autoyastによる無人インストールや、テスト用のQEMUベースVM自動化も可能です。</p>
+      <p>エンタープライズ機能も充実しており、AES-256-GCM暗号化、パスワードおよびSSH鍵ポリシーの強制、メールポート（25／587／465／993／995）用の自動ファイアウォール設定、TLS／SSL（証明書検証とHSTS対応）、監査ログ、RBACを備えています。運用面では、JVMチューニング（G1GC）、Caffeineキャッシュ、コネクションプーリング、Prometheus互換メトリクス、構造化ログ、設定のホットリロード、シークレット管理などをサポート。プロジェクトは439件のテストを100％パスし、SonarQubeクオリティゲートもクリーンな状態です。Server-Factory組織のフラッグシッププロジェクトとなっています。</p>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-3" aria-expanded="true" aria-controls="od-acc-mail-server-factory-3-panel">
+              <span class="od-accordion__label">なぜ開発したのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-3-panel" role="region" aria-labelledby="od-acc-mail-server-factory-3">
+            <div class="od-accordion__inner">
+      <p>セキュアで本番環境に対応したメールサーバーの構築は、エラーが発生しやすくOSに依存することで知られています。Mail Server Factoryは、その専門知識を宣言的なJSONモデルと実行エンジンに集約し、正確でセキュアなDocker化されたメールスタックを、手動でのステップバイステップ作業なしに、サポート対象のあらゆるターゲット上で再現可能にします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-4" aria-expanded="true" aria-controls="od-acc-mail-server-factory-4-panel">
+              <span class="od-accordion__label">なぜ画期的なのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-4-panel" role="region" aria-labelledby="od-acc-mail-server-factory-4">
+            <div class="od-accordion__inner">
+      <p>メールサーバーのプロビジョニングを、専門家による数日間の「完璧を期す」作業から、設定ファイルの記述という行為へと格下げし、さらにその行為を12種類の接続方式と25のLinuxディストリビューションに対応させ、企業レベルのセキュリティデフォルトを最初から備えた形でポータブルにします。その結果は再現性があり、*検証可能*です。同じJSONからは常に同じセキュアなスタックが生成され、プロジェクトが報告する439件の合格テストとクリーンなSonarQubeゲートにより、作業を担うエンジン自体が評判に頼るのではなく、厳密に検証されています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-5" aria-expanded="true" aria-controls="od-acc-mail-server-factory-5-panel">
+              <span class="od-accordion__label">革新的な点</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-5-panel" role="region" aria-labelledby="od-acc-mail-server-factory-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>宣言的なJSON → ターゲットOS上での解釈型インストール／初期化。</li>
+        <li>1つのツールで対応する12種類の接続方式（ローカル、SSH、Docker、Kubernetes、AWS SSM、Azure、GCP、Libvirtなど）。</li>
+        <li>25種類のディストリビューションに対応した無人インストール（preseed/kickstart/cloud-init/autoyast）とQEMUによる自動化。</li>
+        <li>疎結合のDocker化スタックによる独立したスケーリング／アップグレード。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-6" aria-expanded="true" aria-controls="od-acc-mail-server-factory-6-panel">
+              <span class="od-accordion__label">課題と解決策</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-6-panel" role="region" aria-labelledby="od-acc-mail-server-factory-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>OS／ディストリビューションの多様性</strong>：ディストリビューションごとのレシピ、無人インストール設定、QEMUベースのクロスディストリビューションテストで解決。</li>
+        <li><strong>多数のデプロイターゲットへの対応</strong>：共通のインストールエンジンの下で12種類のプラガブルな接続方式を実装。</li>
+        <li><strong>デフォルトでのセキュリティ</strong>：AES-256-GCM、強制的な鍵／パスワードポリシー、自動ファイアウォールルール、TLS／HSTSで解決。</li>
+        <li><strong>正確性への信頼</strong>：439件のテストスイート（100％合格）とクリーンなSonarQubeゲートで解決。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-7" aria-expanded="true" aria-controls="od-acc-mail-server-factory-7-panel">
+              <span class="od-accordion__label">技術スタック（理由と方法）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-7-panel" role="region" aria-labelledby="od-acc-mail-server-factory-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Kotlin</strong> — Factoryエンジンおよびインストールステップロジック（179Kバイト；Kotlin 2.0.21）。</li>
+        <li><strong>Shell</strong> — プロビジョニングスクリプト、ISO／QEMUマネージャー、OS自動化（バイト数で支配的）。</li>
+        <li><strong>Docker</strong> — デプロイされた疎結合メールスタックのランタイム。</li>
+        <li><strong>QEMU</strong> — クロスディストリビューションインストールおよびテストのためのVM自動化。</li>
+        <li><strong>JSON</strong> — ユーザー向けの宣言的設定フォーマット。</li>
+        <li><strong>Gradle 8.14.3／Java 17</strong> — ビルドツールチェーン。</li>
+        <li><strong>Caffeine</strong> — マルチリージョンキャッシュ；<strong>G1GCチューニング済みJVM</strong>によるパフォーマンス向上。</li>
+        <li><strong>Prometheus互換メトリクス</strong> — モニタリング；Grafana／ELK対応。</li>
+        <li><strong>Sieve</strong> — メールフィルタリングルール（言語統計では小規模）。</li>
+      </ul>
+      <blockquote><p>注：GitHubは、Server-Factory組織内でのフォークリポジトリを示します。AI製品ラインよりも前のもので、AIユーティリティではなく、成熟したDevOps／プロビジョニングのフラッグシップとして位置付けられています。</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

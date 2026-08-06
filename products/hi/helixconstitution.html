@@ -1,0 +1,346 @@
+---
+layout: default
+lang: hi
+title: "HelixConstitution — Miloš Vasić"
+description: "HelixConstitution is the single, project-agnostic rulebook — added as a Git submodule by every Helix/vasic-digital project — that encodes non-negotiable engineering discipline (anti-bluff, evidence-only validation, data/host safety, documentation and test coverage) and propagates it to a fleet of 140+ repositories. It is the governance backbone that makes the whole family coherent."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixconstitution.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixconstitution.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "hi",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixconstitution.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixConstitution is the single, project-agnostic rulebook — added as a Git submodule by every Helix/vasic-digital project — that encodes non-negotiable engineering discipline (anti-bluff, evidence-only validation, data/host safety, documentation and test coverage) and propagates it to a fleet of 140+ repositories. It is the governance backbone that makes the whole family coherent.",
+      "inLanguage": "hi",
+      "name": "HelixConstitution",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixconstitution.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 19</p>
+      <h1>HelixConstitution <span class="od-h1-badges"><span class="od-badge--status od-badge--status--shipped">shipped</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Git-submodule inheritance</span><span class="od-chip">find_constitution.sh (parent-walk + superproject recursion)</span><span class="od-chip">install_upstreams.sh (multi-provider push)</span><span class="od-chip">§1.1 mutation meta-tests</span><span class="od-chip">Propagation gates (CM-COVENANT-114-NNN-PROPAGATION)</span><span class="od-chip">submodules-catalogue.md</span><span class="od-chip">Multi-format export (md/html/pdf/docx)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/vasic-digital/HelixConstitution" rel="noopener noreferrer" target="_blank">vasic-digital/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixconstitution">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixConstitution — inheritance &amp; propagation</text>
+<text class="lbl" x="40" y="96">Inheritance (extend, never weaken)</text>
+<text class="lbl" x="560" y="216">Fleet propagation · gate-checked</text>
+<text class="note" x="475" y="205">distributed as submodule</text>
+<rect class="accent" x="40" y="120" width="340" height="90" rx="10"/>
+<text class="t" x="210" y="154">Universal base Constitution</text>
+<text class="s" x="210" y="174">Git submodule · §11.4.x covenants</text>
+<rect class="box" x="40" y="250" width="340" height="80" rx="10"/>
+<text class="t" x="210" y="290">Project layer</text>
+<text class="s" x="210" y="310">own Constitution / CLAUDE / AGENTS</text>
+<rect class="box" x="40" y="360" width="340" height="80" rx="10"/>
+<text class="t" x="210" y="400">Subdirectory overrides</text>
+<text class="s" x="210" y="420">optional · most local</text>
+<rect class="accent" x="560" y="240" width="180" height="90" rx="10"/>
+<text class="t" x="650" y="274">Constitution repo</text>
+<text class="s" x="650" y="294">one source of truth</text>
+<rect class="box" x="800" y="120" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="150">HelixTrack</text>
+<rect class="box" x="800" y="186" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="216">HelixCode</text>
+<rect class="box" x="800" y="290" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="320">HelixQA</text>
+<rect class="dash" x="800" y="356" width="140" height="50" rx="10"/>
+<text class="t" x="870" y="386">…140+ repos</text>
+<path class="conn" marker-end="url(#a)" d="M210,210 L210,248"/>
+<path class="conn" marker-end="url(#a)" d="M210,330 L210,358"/>
+<path class="conn" marker-end="url(#a)" d="M380,165 L558,262"/>
+<path class="conn" marker-end="url(#a)" d="M740,265 L798,148"/>
+<path class="conn" marker-end="url(#a)" d="M740,275 L798,212"/>
+<path class="conn" marker-end="url(#a)" d="M740,300 L798,314"/>
+<path class="conn" marker-end="url(#a)" d="M740,310 L798,380"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>सार्वभौमिक इंजीनियरिंग संविधान जिसे हर परियोजना विरासत में पाती है — धोखाधड़ी-विरोधी कानून, यांत्रिक रूप से लागू, एक Git सबमॉड्यूल के रूप में साझा।</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-0" aria-expanded="true" aria-controls="od-acc-helixconstitution-0-panel">
+              <span class="od-accordion__label">सारांश</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-0-panel" role="region" aria-labelledby="od-acc-helixconstitution-0">
+            <div class="od-accordion__inner">
+      <p>HelixConstitution एकमात्र, परियोजना-निरपेक्ष नियमपुस्तिका है — जिसे हर Helix/vasic-digital परियोजना द्वारा Git सबमॉड्यूल के रूप में जोड़ा जाता है — जो अटल इंजीनियरिंग अनुशासन (धोखाधड़ी-विरोधी, साक्ष्य-आधारित सत्यापन, डेटा/होस्ट सुरक्षा, दस्तावेज़ीकरण और परीक्षण कवरेज) को कोडित करती है और इसे 140 से अधिक रिपॉजिटरीज़ के समूह में प्रसारित करती है। यह वह शासन-रीढ़ है जो पूरे परिवार को एकसूत्र में बाँधती है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-1" aria-expanded="true" aria-controls="od-acc-helixconstitution-1-panel">
+              <span class="od-accordion__label">संक्षिप्त विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-1-panel" role="region" aria-labelledby="od-acc-helixconstitution-1">
+            <div class="od-accordion__inner">
+      <p>एक सार्वभौमिक, विरासत में मिलने योग्य Constitution, जो Git सबमॉड्यूल के रूप में वितरित की जाती है। यह अनिवार्य, अटल नियमों को परिभाषित करती है — धोखाधड़ी-विरोधी साक्ष्य जाँच, गलत-सकारात्मक प्रतिरक्षा, डेटा और होस्ट सुरक्षा, कवरेज और दस्तावेज़ीकरण अनुशासन — जिन्हें हर उपभोग करने वाली परियोजना स्वतः विरासत में पाती है और विस्तारित कर सकती है, पर कमज़ोर नहीं कर सकती।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-2" aria-expanded="true" aria-controls="od-acc-helixconstitution-2-panel">
+              <span class="od-accordion__label">विस्तृत विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-2-panel" role="region" aria-labelledby="od-acc-helixconstitution-2">
+            <div class="od-accordion__inner">
+      <p>HelixConstitution उन इंजीनियरिंग प्रथाओं के लिए प्रामाणिक, एकमात्र सत्य-स्रोत है जो हर उस परियोजना द्वारा साझा की जाती हैं जो इसे Git सबमॉड्यूल के रूप में जोड़कर अपनाती है — इंजीनियरिंग कानून, कोड की तरह ही वितरित और संस्करण-बद्ध। इसका केंद्रबिंदु — <code>Constitution.md</code> — एक लगभग 1 MB का, निरंतर-संस्करणित दस्तावेज़ है जिसमें क्रमांकित धाराएँ (§11.4.x प्रतिज्ञा परिवार, वर्तमान में §11.4.170 तक) और प्रति-एजेंट संचालन नियमावली (<code>CLAUDE.md</code>, <code>AGENTS.md</code>, <code>QWEN.md</code>, <code>GEMINI.md</code>) शामिल हैं, जो इसे संदर्भ द्वारा आयात करती हैं ताकि मनुष्य और हर CLI एजेंट एक ही नियमपुस्तिका से पढ़ें। विरासत जानबूझकर तीन स्तरों की है: सार्वभौमिक आधार (यह सबमॉड्यूल), परियोजना स्तर (परियोजना का अपना Constitution/CLAUDE/AGENTS जो इसे विस्तारित करता है), और एक वैकल्पिक प्रति-सबडायरेक्टरी स्तर — ऊपर से नीचे तक मूल्यांकित, जहाँ परियोजना नियमों को *कड़ा* कर सकती है, पर उन्हें *कमज़ोर* करने की संरचनात्मक मनाही है। परिणामस्वरूप 140 से अधिक रिपॉजिटरीज़ का एक ऐसा समूह बनता है जो चुपचाप अलग नहीं हो सकता, क्योंकि उनके द्वारा साझा किया गया अनुशासन पिन किया हुआ है, याद नहीं रखा गया।</p>
+      <p>यह दस्तावेज़ अडिग रूप से डोमेन-निरपेक्ष है: किसी भी विक्रेता, हार्डवेयर SKU, पोर्ट या लाइब्रेरी संस्करण का नाम लेने वाली कोई भी बात उपभोग करने वाली परियोजना के अपने Constitution में स्थानांतरित होनी चाहिए, और सार्वभौमिकता कभी मान ली नहीं जाती — इसे आधार में नियम शामिल करने से पहले एक स्पष्ट चार-भागीय परीक्षण के विरुद्ध *सिद्ध* करना होता है। इसकी दार्शनिक रीढ़ धोखाधड़ी-विरोधी है, जो आपस में जुड़े प्रतिज्ञा परिवारों के रूप में व्यक्त की गई है — §1.1 गलत-सकारात्मक प्रतिरक्षा, §11.4 अंतिम-उपयोगकर्ता गुणवत्ता प्रतिज्ञा, §11.4.6 अनुमान-निषेध, §11.4.69 सकारात्मक-साक्ष्य वर्गीकरण — जिनका संयुक्त प्रभाव एक ही कठोर रेखा है: शिपिंग का मानदंड कभी "परीक्षण पास" नहीं होता, बल्कि यह होता है कि "एक वास्तविक उपयोगकर्ता इस सुविधा का उपयोग कर सकता है," और हर हरे परिणाम को पकड़े गए भौतिक साक्ष्य का हवाला देना चाहिए, अन्यथा वह गिनती में नहीं आता। एक सहयोगी <code>submodules-catalogue.md</code> (142 रिपॉज) "क्या हमारे पास पहले से ऐसा कुछ है जो यह काम करता है?" को एक कैटलॉग-प्रथम, विस्तारित-न-करें-फिर-से-लागू दृष्टिकोण में बदल देता है, इससे पहले कि एक भी नई पंक्ति कोड लिखी जाए। सहायक स्क्रिप्ट किसी भी नेस्टिंग गहराई से सबमॉड्यूल का पता लगाती हैं और हर कमिट को चार स्वतंत्र Git प्रदाताओं तक प्रसारित करती हैं, ताकि एकमात्र प्रामाणिक नियमपुस्तिका खोना भी असंभव हो।</p>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-3" aria-expanded="true" aria-controls="od-acc-helixconstitution-3-panel">
+              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-3-panel" role="region" aria-labelledby="od-acc-helixconstitution-3">
+            <div class="od-accordion__inner">
+      <p>एक ही स्वामी द्वारा लिखे गए कई बड़े उत्पाद ऐप्स और दर्जनों अलग-अलग पुनःप्रयोगी सबमॉड्यूल्स बार-बार उन्हीं कठिनाई से प्राप्त नियमों को फिर से खोजते रहे—और बार-बार उसी विफलता वर्ग से टकराते रहे: टेस्ट और स्टेटस रिपोर्ट्स जो सफलता का दावा करते हुए अंतिम उपयोगकर्ता के लिए फीचर को टूटा हुआ छोड़ देते हैं ("PASS-ब्लफ़" और "FAIL-ब्लफ़")। Constitution के प्रत्येक फोरेंसिक एंकर में एक वास्तविक घटना दर्ज है (जैसे 2026-05-20 का D3 ऑडियो-रूटिंग PASS-ब्लफ़, जहाँ "कोडेक इन यूज़" फ़ील्ड खाली होने के बावजूद वैलिडेशन हरा हो गया, या 2026-06-25 का विशाल-बटन UI जो टोकन-इक्वैलिटी टेस्ट पास कर गया जबकि असली स्क्रीन टूटी हुई थी)। Constitution का अस्तित्व इसी पूरे वर्ग के बेईमान सफलता को यांत्रिक रूप से असंभव बनाने के लिए है—एक बार, सार्वभौमिक रूप से—ताकि यह अनुशासन परियोजनाओं के बीच भटक न सके या चुपचाप भुला न दिया जाए।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-4" aria-expanded="true" aria-controls="od-acc-helixconstitution-4-panel">
+              <span class="od-accordion__label">यह क्यों गेम-चेंजर है</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-4-panel" role="region" aria-labelledby="od-acc-helixconstitution-4">
+            <div class="od-accordion__inner">
+      <p>यह इंजीनियरिंग संस्कृति को दस्तावेज़ीकरण-जिसे-लोगों-से-आशा-है-कि-पालन-करेंगे से बदलकर विरासत में मिले, वर्जनयुक्त, यांत्रिक रूप से लागू कानून में तब्दील कर देता है—जैसे शैली गाइड और कंपाइलर के बीच का अंतर। एक सबमॉड्यूल अपग्रेड पूरे बेड़े के नियमों को एक साथ, परमाणु रूप से और ट्रेसेबल तरीके से अपडेट कर देता है। एक एंटी-ब्लफ़ अनुबंध *गारंटी* के साथ हर उपभोगी रेपो में मौजूद होता है, भरोसे पर नहीं बल्कि निर्माण द्वारा: एक प्रोपेगेशन गेट पूरे बेड़े में क्लॉज़ नंबर को शाब्दिक रूप से खोजता है, और एक संबद्ध म्यूटेशन टेस्ट साबित करता है कि गेट खुद ब्लफ़ नहीं कर रहा—इसलिए लागू करने का तरीका भी लागू होता है। गवर्नेंस विकी पर लिखी गई एक आकांक्षा नहीं रह जाती, बल्कि एक ऑडिटेबल, टेस्टेबल तथ्य बन जाती है जिसे आप CI जॉब की ओर इशारा कर सकते हैं।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-5" aria-expanded="true" aria-controls="od-acc-helixconstitution-5-panel">
+              <span class="od-accordion__label">क्या है नवाचारी</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-5-panel" role="region" aria-labelledby="od-acc-helixconstitution-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Constitution-एज़-सबमॉड्यूल</strong> — इंजीनियरिंग कानून को ठीक कोड की तरह वितरित और वर्जन-पिन किया जाता है, जिसमें जानबूझकर <code>v1.0.0</code> शैली के टैग और प्रति-परियोजना पिनिंग होती है, ताकि हर रेपो को *ठीक-ठीक* पता हो कि वह किस संशोधन के कानून से बंधा है।</li>
+        <li><strong>एंटी-ब्लफ़ को प्रथम श्रेणी की फोरेंसिक सिद्धांत के रूप में</strong> — हर क्लॉज़ एक शब्दशः ऑपरेटर आदेश और अक्सर उस वास्तविक घटना से जुड़ा होता है जिसने उसे प्रेरित किया, इसलिए नियम-पुस्तिका राय के बजाय केस लॉ की तरह पढ़ी जाती है।</li>
+        <li><strong>नियमों का मेटा-टेस्टिंग (§1.1)</strong> — हर गेट के साथ एक म्यूटेशन जुड़ा होता है जिसे PASS→FAIL में बदलना ही होता है, इसलिए "गेट एक धोखा नहीं है" केवल दावा नहीं बल्कि हर रन पर साबित होता है; एक गेट जो कभी फेल नहीं हो सकता, उसे गेट न होने से भी बदतर माना जाता है।</li>
+        <li><strong>अर्जित सार्वभौमिकता</strong> — एक स्पष्ट चार-भागीय टेस्ट तय करता है कि कोई नियम वास्तव में सार्वभौमिक है या केवल परियोजना-विशिष्ट, ताकि आधार दुबला, पोर्टेबल और वेंडर लीकेज से मुक्त रहे।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-6" aria-expanded="true" aria-controls="od-acc-helixconstitution-6-panel">
+              <span class="od-accordion__label">सभी उत्पादों में इसका उपयोग कैसे होता है (इसकी शक्तियाँ)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-6-panel" role="region" aria-labelledby="od-acc-helixconstitution-6">
+            <div class="od-accordion__inner">
+      <p>एक <strong>अनिवार्य गवर्नेंस स्तंभ</strong> के रूप में, HelixConstitution वह दस्तावेज़ नहीं है जिसका परिवार परामर्श करता है—बल्कि वह भार वहन करने वाली संरचना है जिस पर परिवार खड़ा है:</p>
+      <ul>
+        <li><strong>गवर्नेंस की रीढ़:</strong> हर Helix/वैसिक-डिजिटल परियोजना इसे एक सबमॉड्यूल के रूप में जोड़ती है और <code>CLAUDE.md</code> / <code>AGENTS.md</code> / <code>QWEN.md</code> या अपने <code>Constitution.md</code> से आयात करती है; नियम बिना शर्त लागू होते हैं, पहले कमिट से ही, बिना किसी परियोजना-विशेष छूट के।</li>
+        <li><strong>गेट्स और आदेश:</strong> यह चार-स्तरीय कवरेज मॉडल को परिभाषित करता है—स्रोत मौजूद, बिल्ड में टिका रहे, रनटाइम पर व्यवहार करे, गेट ब्लफ़ न हो—जिसे एक फीचर को सभी चार स्तरों पर पार करना होता है तभी वह पूरा माना जाता है, साथ ही नामित आदेशों की एक बढ़ती सूची: क्रेडेंशियल हैंडलिंग (§11.4.10), हमेशा-सिंक दस्तावेज़ीकरण (§11.4.60), कंटेनर्स-सबमॉड्यूल आदेश (§11.4.76), कोडग्राफ (§11.4.78), अनिवार्य टेस्ट-टाइप कवरेज (§11.4.169), और अन्य।</li>
+        <li><strong>प्रसार:</strong> <code>CM-COVENANT-114-NNN-PROPAGATION</code> गेट्स यह सुनिश्चित करते हैं कि *शाब्दिक* क्लॉज़ टेक्स्ट उपभोगी बेड़े में मौजूद हो, ताकि अनुबंध को एस्टेट के किसी कोने में चुपचाप हटाया न जा सके; गैर-अनुपालन एक कठोर रिलीज़ ब्लॉकर है जिसमें कोई बचाव-रास्ता नहीं होता।</li>
+        <li><strong>खोज:</strong> <code>submodules-catalogue.md</code> "क्या हमारे पास पहले से ही ऐसा कुछ है जो X करता है?" का उत्तर एक नज़र में दे देता है, इससे पहले कि कोई नया मॉड्यूल बनाया जाए, जिससे डुप्लीकेट प्रयास जड़ पर ही खत्म हो जाता है।</li>
+        <li><strong>AI एजेंट्स में एकरूपता:</strong> वही कानून हर CLI एजेंट (Claude कोड, कोडेक्स/कर्सर/एडर/ओपनकोड/क्रश/किमी via AGENTS.md, Qwen कोड via QWEN.md) को समान रूप से व्यक्त किया जाता है, ताकि कोई भी टूल कोड को छुए, वह एक ही अनुबंध का पालन करे।</li>
+      </ul>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-7" aria-expanded="true" aria-controls="od-acc-helixconstitution-7-panel">
+              <span class="od-accordion__label">सबसे बड़ी तकनीकी चुनौतियाँ और उनके समाधान</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-7-panel" role="region" aria-labelledby="od-acc-helixconstitution-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>मनमाने गहराई वाले नेस्टेड सबमॉड्यूल का पता लगाना</strong> — तीन सबमॉड्यूल गहराई में दबी कोई नियमावली हो, उसे कानून का पता लगाना ही होता है, भले ही वह कहाँ स्थित हो → <code>find_constitution.sh</code> पैरेंट डायरेक्टरी में ऊपर की ओर चलता है और गिट सुपरप्रोजेक्ट पॉइंटर का पुनरावर्ती रूप से पालन करता है, <code>CONSTITUTION_DIR</code> ओवरराइड का सम्मान करता है और दो समर्थित लेआउट (<code>constitution/</code>, <code>submodules/constitution/</code>) का उपयोग करता है, ताकि नेस्टिंग कितनी भी गहरी क्यों न हो, समाधान हमेशा निर्धारक हो।</li>
+        <li><strong>चार गिट प्रदाताओं में एक रिपॉजिटरी को प्राधिकृत बनाए रखना</strong> — यदि मिरर ड्रिफ्ट हो जाएँ तो वे बेकार हो जाते हैं → <code>install_upstreams.sh</code> घोषणात्मक <code>Upstreams/*.sh</code> रिमोट्स को पढ़ता है और <code>origin</code> को कई पुश URL के साथ कॉन्फ़िगर करता है, ताकि एक ही <code>git push</code> GitHub (प्राथमिक), GitLab, GitFlic और GitVerse पर परमाणु रूप से प्रसारित हो जाए और कोई भी मिरर पीछे न रह जाए।</li>
+        <li><strong>सार्वभौमिक आधार में नियमों की अतिवृद्धि/परियोजना रिसाव रोकना</strong> — हर "इसे यहीं जोड़ दो" का प्रलोभन पोर्टेबिलिटी को कमजोर करता है → अर्जित-सार्वभौमिकता का चार-भागीय परीक्षण और §11.4.17 सार्वभौमिक-बनाम-परियोजना वर्गीकरण *प्रत्येक* नए नियम पर लागू किया जाता है, जिससे परियोजना-विशिष्ट चिंताओं को वापस परियोजना परत में धकेल दिया जाता है जहाँ उनका स्थान है।</li>
+        <li><strong>विरासत गेट की कार्यक्षमता साबित करना</strong> — एक ऐसा गेट जिसकी विफलता कभी दिखाई न दे, वह गेट भरोसेमंद नहीं होता → <code>meta_test_inheritance.sh</code>, एक प्रहरी मेटा-टेस्ट, जानबूझकर §11.4 एंकर को हटा देता है और दावा करता है कि गेट उसे पकड़ लेता है, ताकि प्रवर्तन तंत्र स्वयं ही चुपचाप टूटने के खिलाफ निरंतर पुनःसत्यापित होता रहे।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-8" aria-expanded="true" aria-controls="od-acc-helixconstitution-8-panel">
+              <span class="od-accordion__label">तकनीकी ढाँचा</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-8-panel" role="region" aria-labelledby="od-acc-helixconstitution-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>गिट-सबमॉड्यूल विरासत</strong> — *क्यों:* गिट सबमॉड्यूल ही एकमात्र ऐसा तंत्र है जो किसी नियमपुस्तिका को प्राधिकृत *और* उपभोक्ता के अनुसार संस्करण-बद्ध बनाए रखने की अनुमति देता है, जिसे स्पष्ट और समीक्षा योग्य अपग्रेड के माध्यम से निष्पादित किया जाता है, न कि चुपचाप कॉपी-पेस्ट करके; *कैसे:* उपभोग करने वाली परियोजनाएँ सबमॉड्यूल जोड़ती हैं और उसकी एजेंट फ़ाइलों को <code>@import</code> करती हैं, और तीनों परतों का मूल्यांकन ऊपर-से-नीचे किया जाता है, जहाँ हर सीमा पर "विस्तारित करता है, कमजोर नहीं" का कड़ा अनुबंध लागू होता है।</li>
+        <li><strong><code>find_constitution.sh</code></strong> — *क्यों:* नियम तब बेकार हो जाते हैं जब गहराई से नेस्टेड कोड उन्हें विश्वसनीय रूप से नहीं खोज पाता, और पथ हार्डकोड करने से परियोजना के पुनर्गठन के क्षण ही टूट जाएगी; *कैसे:* पैरेंट-डायरेक्टरी वॉक और <code>git rev-parse --show-superproject-working-tree</code> पुनरावर्तन, <code>CONSTITUTION_DIR</code> ओवरराइड द्वारा समर्थित, दोनों समर्थित लेआउट का समाधान करता है।</li>
+        <li><strong><code>install_upstreams.sh</code> + <code>Upstreams/</code></strong> — *क्यों:* चार प्रदाताओं की अतिरेक तभी वास्तविक होती है जब इसे बनाए रखने में शून्य अतिरिक्त प्रयास लगे, अन्यथा मिरर सड़ जाते हैं; *कैसे:* प्रति-रिमोट घोषणात्मक <code>.sh</code> फ़ाइलें एकल मल्टी-URL <code>origin</code> में परिवर्तित की जाती हैं, जिससे चार पुश एक में समाहित हो जाते हैं।</li>
+        <li><strong>§1.1 उत्परिवर्तन मेटा-टेस्ट</strong> — *क्यों:* एक ऐसा गेट जो कभी विफल न हो, वह न होने से भी बदतर है क्योंकि यह झूठा आत्मविश्वास पैदा करता है; *कैसे:* प्रत्येक गेट के साथ एक sed-आउट/रिनेम उत्परिवर्तन जोड़ा जाता है जो PASS→FAIL में बदलना चाहिए और फिर पुनर्स्थापित किया जाता है, ताकि हर गेट हर रन पर यह साबित करे कि वह अभी भी प्रभावी है।</li>
+        <li><strong>प्रसार गेट (<code>CM-COVENANT-114-NNN-PROPAGATION</code>)</strong> — *क्यों:* एक अनुबंध तभी सार्वभौमिक होता है जब वह *प्रत्येक* उपभोक्ता में सत्यापित रूप से मौजूद हो, न कि केवल प्रमुख रिपॉजिटरी में; *कैसे:* उपभोक्ताओं में क्लॉज-नंबर की शाब्दिक ग्रेपिंग, §1.1 उत्परिवर्तन द्वारा समर्थित, जो साबित करता है कि प्रसार जाँच स्वयं विफल हो सकती है।</li>
+        <li><strong><code>submodules-catalogue.md</code> (§11.4.74)</strong> — *क्यों:* डुप्लीकेशन-विरोधी अनुशासन का उल्लंघन करने का सबसे तेज़ तरीका यह है कि आपको पता ही न चले कि आपके पास पहले से क्या है; *कैसे:* 142 रिपॉजिटरी का क्षमता-आधारित सूचीपत्र, जिसमें कुछ भी नया बनाने से *पहले* सूची-जाँच ट्रैकर में दर्ज की जाती है।</li>
+        <li><strong>बहु-प्रारूप निर्यात</strong> — *क्यों:* एक ही कानून को मनुष्यों के पढ़ने, टूलिंग द्वारा पार्स करने और अभिलेखागार द्वारा संरक्षित करने के लिए समान रूप से उपभोग्य होना चाहिए; *कैसे:* प्रत्येक मानक दस्तावेज़ को एक ही स्रोत से <code>.md</code> / <code>.html</code> / <code>.pdf</code> / <code>.docx</code> के रूप में निर्यात किया जाता है।</li>
+      </ul>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixconstitution-9" aria-expanded="true" aria-controls="od-acc-helixconstitution-9-panel">
+              <span class="od-accordion__label">स्थिति एवं ईमानदारी संबंधी टिप्पणियाँ</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixconstitution-9-panel" role="region" aria-labelledby="od-acc-helixconstitution-9">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>स्थिति: प्रेषित।</strong> सक्रिय रूप से संस्करणबद्ध और पूरे बेड़े में उप-मॉड्यूल के रूप में उपयोग में (सार्वजनिक कैनोनिकल और मिरर रिपॉज़िटरीज़)।</li>
+        <li><strong>लाइसेंस: निर्धारित किया जाना शेष</strong> — समीक्षित स्रोत सामग्री में स्पष्ट रूप से उल्लेखित नहीं; प्रकाशन से पूर्व रिपॉज़िटरी के LICENSE से पुष्टि करें।</li>
+        <li>अतिरिक्त अपस्ट्रीम मिरर: GitLab <code>helixdevelopment1/helixconstitution</code>, GitFlic <code>helixdevelopment/helixconstitution</code>, GitVerse <code>helixdevelopment/HelixConstitution</code>।</li>
+      </ul>
+      <p><strong>प्राथमिकता स्तर:</strong> Helix-प्राथमिक — Helix परिवार में निर्मित हर चीज़ के लिए एक अनिवार्य शासन स्तंभ।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

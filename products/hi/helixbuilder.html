@@ -1,0 +1,317 @@
+---
+layout: default
+lang: hi
+title: "HelixBuilder — Miloš Vasić"
+description: "HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixbuilder.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixbuilder.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "hi",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixbuilder.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixBuilder is an AI-powered application-building pipeline installed and driven from the shell. It provisions category-specific toolchains — from coding and testing to generative media (animation, audio, images) — via a single install script.",
+      "inLanguage": "hi",
+      "license": "Apache-2.0",
+      "name": "HelixBuilder",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixbuilder.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 16</p>
+      <h1>HelixBuilder <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: Apache-2.0</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Shell</span><span class="od-chip">Category toolchains (General / Coder / Tester / Translation / Generative)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixBuilder" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixBuilder <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixbuilder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixBuilder — one install.sh → nine categories</text>
+<text class="lbl" x="400" y="52">Category selector fan-out</text>
+<text class="lbl" x="80" y="200">Pick your pipeline</text>
+<path class="conn" marker-end="url(#a)" d="M470,150 L180,218"/>
+<path class="conn" marker-end="url(#a)" d="M490,150 L480,218"/>
+<path class="conn" marker-end="url(#a)" d="M510,150 L780,218"/>
+<path class="conn" marker-end="url(#a)" d="M460,150 L180,308"/>
+<path class="conn" marker-end="url(#a)" d="M490,150 L480,308"/>
+<path class="conn" marker-end="url(#a)" d="M520,150 L780,308"/>
+<path class="conn" marker-end="url(#a)" d="M455,150 L180,398"/>
+<path class="conn" marker-end="url(#a)" d="M490,150 L480,398"/>
+<path class="conn" marker-end="url(#a)" d="M525,150 L780,398"/>
+<rect class="accent" x="400" y="70" width="180" height="80" rx="10"/>
+<text class="t" x="490" y="104">install.sh</text>
+<text class="s" x="490" y="124">category selector</text>
+<rect class="box" x="80" y="220" width="200" height="70" rx="10"/>
+<text class="t" x="180" y="255">General</text>
+<rect class="box" x="380" y="220" width="200" height="70" rx="10"/>
+<text class="t" x="480" y="255">Coder</text>
+<rect class="box" x="680" y="220" width="200" height="70" rx="10"/>
+<text class="t" x="780" y="255">Tester</text>
+<rect class="box" x="80" y="310" width="200" height="70" rx="10"/>
+<text class="t" x="180" y="345">Translation</text>
+<rect class="box" x="380" y="310" width="200" height="70" rx="10"/>
+<text class="t" x="480" y="345">Animation</text>
+<rect class="box" x="680" y="310" width="200" height="70" rx="10"/>
+<text class="t" x="780" y="345">Audio</text>
+<rect class="box" x="80" y="400" width="200" height="70" rx="10"/>
+<text class="t" x="180" y="435">JPEG</text>
+<rect class="box" x="380" y="400" width="200" height="70" rx="10"/>
+<text class="t" x="480" y="435">PNG</text>
+<rect class="box" x="680" y="400" width="200" height="70" rx="10"/>
+<text class="t" x="780" y="435">SVG</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>एक AI-संचालित पाइपलाइन, जो एप्लिकेशन बनाती है—एक श्रेणी के बाद एक श्रेणी।</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-0" aria-expanded="true" aria-controls="od-acc-helixbuilder-0-panel">
+              <span class="od-accordion__label">सारांश</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-0-panel" role="region" aria-labelledby="od-acc-helixbuilder-0">
+            <div class="od-accordion__inner">
+      <p>HelixBuilder एक AI-संचालित एप्लिकेशन निर्माण पाइपलाइन है, जिसे शेल से इंस्टॉल और संचालित किया जाता है। यह एक ही इंस्टॉलेशन स्क्रिप्ट के माध्यम से श्रेणी-विशिष्ट टूलचेन उपलब्ध कराता है—कोडिंग और परीक्षण से लेकर जनरेटिव मीडिया (एनीमेशन, ऑडियो, चित्र) तक।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-1" aria-expanded="true" aria-controls="od-acc-helixbuilder-1-panel">
+              <span class="od-accordion__label">संक्षिप्त विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-1-panel" role="region" aria-labelledby="od-acc-helixbuilder-1">
+            <div class="od-accordion__inner">
+      <p>HelixBuilder एक शेल-आधारित, AI-संचालित एप्लिकेशन निर्माण पाइपलाइन है। एक ही इंस्टॉलेशन स्क्रिप्ट किसी चुनी हुई श्रेणी—सामान्य, कोडर, परीक्षक, अनुवाद, या जनरेटिव मीडिया (एनीमेशन, ऑडियो, JPEG, PNG, SVG)—को स्थापित करती है, जिससे हर निर्माण प्रक्रिया को उसकी आवश्यकतानुसार अनुकूलित टूलचेन मिलता है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-2" aria-expanded="true" aria-controls="od-acc-helixbuilder-2-panel">
+              <span class="od-accordion__label">विस्तृत विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-2-panel" role="region" aria-labelledby="od-acc-helixbuilder-2">
+            <div class="od-accordion__inner">
+      <p>HelixBuilder, Helix परिवार की एक AI-संचालित एप्लिकेशन निर्माण पाइपलाइन है, जिसे मुख्य रूप से शेल टूलिंग के रूप में लागू किया गया है। इसका उद्देश्य एक ही कमांड के माध्यम से किसी विशिष्ट प्रकार के कार्य के लिए निर्माण/जनरेशन वर्कफ़्लो स्थापित करना है: प्रोजेक्ट रूट से <code>./install.sh</code> (वैकल्पिक रूप से श्रेणी तर्क के साथ) उस श्रेणी के लिए पाइपलाइन स्थापित करता है।</p>
+      <p>यह पाइपलाइन श्रेणियों में व्यवस्थित है, जिनमें से प्रत्येक AI-सहायता प्राप्त कार्य के एक अलग वर्ग से मेल खाती है: <code>General</code> (डिफ़ॉल्ट), <code>Coder</code>, <code>Tester</code>, <code>Translation</code>, और जनरेटिव श्रेणियों का एक समूह—<code>Generative/Animation</code>, <code>Generative/Audio</code>, <code>Generative/JPEG</code>, <code>Generative/PNG</code>, और <code>Generative/SVG</code>। इंस्टॉलर को बिना किसी तर्क के चलाने पर <code>General</code> श्रेणी चुनी जाती है; श्रेणी का नाम देने पर उस कार्य के लिए विशेष रूप से अनुकूलित टूलचेन स्थापित होता है। इसका लाभ यह है कि डेवलपर केवल उन्हीं क्षमताओं को इंस्टॉल करता है जिनकी उसे वास्तव में आवश्यकता होती है—कोड-जनरेशन वातावरण, परीक्षण पाइपलाइन, या छवि-जनरेशन स्टैक—बजाय एक भारी-भरकम मोनोलिथिक इंस्टॉलेशन और उसके साथ आने वाले रखरखाव के बोझ को उठाने के।</p>
+      <p>HelixBuilder अपाचे-2.0 लाइसेंस के तहत उपलब्ध है और व्यापक HelixDevelopment पुनःप्रयोग योग्य घटक पारिस्थितिकी तंत्र का हिस्सा है, जहाँ इसे "AI निर्माण पाइपलाइन" बिल्डिंग ब्लॉक के रूप में रखा गया है। इसका सार्वजनिक README जानबूझकर संक्षिप्त रखा गया है और रिपॉजिटरी के भीतर उपलब्ध विस्तृत दस्तावेज़ की ओर इशारा करता है; इंस्टॉलेशन प्रक्रिया और श्रेणी सूची के अलावा अन्य विवरण यहाँ नहीं दिए गए हैं।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-3" aria-expanded="true" aria-controls="od-acc-helixbuilder-3-panel">
+              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-3-panel" role="region" aria-labelledby="od-acc-helixbuilder-3">
+            <div class="od-accordion__inner">
+      <p>AI-सहायता प्राप्त कार्य में बहुत अलग-अलग टूलचेन शामिल होते हैं—कोडिंग, परीक्षण, अनुवाद और कई प्रकार के जनरेटिव मीडिया। HelixBuilder को इसलिए बनाया गया ताकि इनमें से प्रत्येक को मांग पर एक ही सुसंगत इंस्टॉलर के माध्यम से स्थापित किया जा सके, बजाय हर बार एक नया वातावरण तैयार करने के।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-4" aria-expanded="true" aria-controls="od-acc-helixbuilder-4-panel">
+              <span class="od-accordion__label">यह गेम-चेंजर क्यों है</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-4-panel" role="region" aria-labelledby="od-acc-helixbuilder-4">
+            <div class="od-accordion__inner">
+      <p>यह "X के लिए AI निर्माण वातावरण सेट अप करें"—जो आमतौर पर एक जटिल और त्रुटि-प्रवण प्रक्रिया होती है—को एक श्रेणीबद्ध कमांड में बदल देता है। इससे AI-सहायता प्राप्त निर्माण और जनरेशन पाइपलाइन दोहराने योग्य, साझा करने योग्य और हर उस प्रोजेक्ट के लिए सुसंगत बन जाती है जो इसे अपनाता है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-5" aria-expanded="true" aria-controls="od-acc-helixbuilder-5-panel">
+              <span class="od-accordion__label">क्या है नवीन</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-5-panel" role="region" aria-labelledby="od-acc-helixbuilder-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>श्रेणी-आधारित प्रावधान</strong> — एक ही इंस्टॉलर, कई विशेषीकृत पाइपलाइन (कोड, परीक्षण, अनुवाद, जनरेटिव मीडिया), जो एक ही प्रवेश बिंदु से सक्रिय होती हैं।</li>
+        <li><strong>जनरेटिव-मीडिया की व्यापकता</strong> — एनीमेशन, ऑडियो और कई छवि प्रारूप (JPEG/PNG/SVG) को स्वतंत्र निर्माण श्रेणियों के रूप में माना जाता है, न कि बाद में जोड़े गए अतिरिक्त के रूप में।</li>
+        <li><strong>Shell-मूल</strong> — यह लगभग किसी भी वातावरण में इंस्टॉल हो जाता है, बिना किसी भारी-भरकम रनटाइम पूर्वापेक्षा के, जो आपको सीधे काम करने योग्य पाइपलाइन तक पहुँचा देती है।</li>
+      </ul>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-6" aria-expanded="true" aria-controls="od-acc-helixbuilder-6-panel">
+              <span class="od-accordion__label">सबसे बड़ी तकनीकी चुनौतियाँ और उनके समाधान</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-6-panel" role="region" aria-labelledby="od-acc-helixbuilder-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>एक ही टूल से बिल्कुल अलग AI वर्कफ़्लो को संचालित करना</strong> — इंस्टॉलर में श्रेणीगत अमूर्तन के ज़रिए हल किया गया, ताकि हर श्रेणी अपनी खुद की टूलचेन का इस्तेमाल करे, जबकि सभी का एक साझा प्रवेश बिंदु हो। (इसके कार्यान्वयन की गहराई सार्वजनिक README में दर्ज नहीं है — अपुष्ट।)</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-7" aria-expanded="true" aria-controls="od-acc-helixbuilder-7-panel">
+              <span class="od-accordion__label">तकनीकी संरचना</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-7-panel" role="region" aria-labelledby="od-acc-helixbuilder-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Shell</strong> — मुख्य कार्यान्वयन भाषा और इंस्टॉल/ऑर्केस्ट्रेशन इंटरफ़ेस (<code>install.sh</code>); चुना गया क्योंकि शेल एंट्री पॉइंट लगभग हर उस जगह चलता है जहाँ बिल्ड होता है, जिससे "एक कमांड से प्रोविज़निंग" का वादा विभिन्न बिल्ड वातावरणों में बिना किसी पूर्व रनटाइम इंस्टॉलेशन के पोर्टेबल रहता है।</li>
+        <li><strong>श्रेणीगत टूलचेन</strong> — सामान्य / कोडर / परीक्षक / अनुवाद / जनरेटिव (एनीमेशन, ऑडियो, JPEG, PNG, SVG) के लिए प्रति-श्रेणी टूल सेट। हर श्रेणी के विशिष्ट अंतर्निहित टूल/मॉडल सार्वजनिक README में सूचीबद्ध नहीं हैं (अपुष्ट)।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixbuilder-8" aria-expanded="true" aria-controls="od-acc-helixbuilder-8-panel">
+              <span class="od-accordion__label">स्थिति और ईमानदारी संबंधी टिप्पणियाँ</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixbuilder-8-panel" role="region" aria-labelledby="od-acc-helixbuilder-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>स्थिति: बीटा।</strong> सार्वजनिक README न्यूनतम है (इंस्टॉल स्क्रिप्ट + श्रेणी सूची); प्रति-श्रेणी टूलिंग/मॉडल, AI प्रदाता और आंतरिक संरचना सार्वजनिक रूप से वर्णित नहीं हैं और इसलिए इनकी पुष्टि नहीं की गई है। <code>./Documentation/README.md</code> पर संदर्भित विस्तृत दस्तावेज़ पढ़े नहीं गए।</li>
+        <li><strong>लाइसेंस: Apache-2.0</strong> (GitHub API के अनुसार)।</li>
+      </ul>
+      <p><strong>प्राथमिकता स्तर:</strong> Helix-प्राथमिक।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

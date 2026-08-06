@@ -255,6 +255,17 @@
 }
 .od-lottie > svg { width: 100%; height: 100%; display: block; }
 
+/* -----------------------------------------------------------------------------
+ * 11. Floating "back to top" button. Compositor-only (opacity + transform);
+ *     hidden AND non-focusable (pointer-events:none) until JS adds `.is-visible`
+ *     after the scroll threshold. Reduced motion drops the transition below.
+ * -------------------------------------------------------------------------- */
+.od-to-top{position:fixed;bottom:var(--od-space-6);right:var(--od-space-6);z-index:90;width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer;background-color:var(--od-accent);color:var(--od-on-accent);border-radius:var(--od-radius-pill);box-shadow:var(--od-shadow-lg);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity var(--od-dur-fast) var(--od-ease-standard),transform var(--od-dur-fast) var(--od-ease-standard);}
+.od-to-top.is-visible{opacity:1;transform:none;pointer-events:auto;}
+.od-to-top:hover{transform:translateY(-2px);}
+.od-to-top:focus-visible{outline:2px solid var(--od-focus);outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){.od-to-top{transition:none;}}
+
 /* =============================================================================
  * REDUCED MOTION — neutralize ALL of the above. Instant final states, no loops.
  * ========================================================================== */

@@ -51,12 +51,12 @@
   <a class="skip-link" href="#top" data-i18n="a11y.skip">Skip to main content</a>
   <nav class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top">milos<span class="dot">.</span>vasic</a>
-      <div class="nav-links">
-        <a href="#work" data-i18n="nav.work">Work</a>
-        <a href="#experience" data-i18n="nav.experience">Experience</a>
-        <a href="#skills" data-i18n="nav.skills">Skills</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a class="brand" href="/#top">milos<span class="dot">.</span>vasic</a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#work" data-i18n="nav.work">Work</a>
+        <a href="/#experience" data-i18n="nav.experience">Experience</a>
+        <a href="/#skills" data-i18n="nav.skills">Skills</a>
+        <a href="/#contact" data-i18n="nav.contact">Contact</a>
       </div>
       <div class="nav-tools">
         <div class="lang-wrap">
@@ -64,6 +64,10 @@
           <div class="lang-menu" id="lang-menu" role="menu"></div>
         </div>
         <button class="icon-btn" id="theme-btn" aria-label="Toggle dark / light theme" title="Theme">◐</button>
+        <!-- Mobile primary-nav toggle: hidden ≥761px (CSS), shown ≤760px -->
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-controls="nav-links" aria-expanded="false">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -373,6 +377,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating back-to-top: hidden + non-focusable until motion.js reveals it past the scroll threshold -->
+  <button class="od-to-top" type="button" aria-label="Back to top"><svg class="od-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
 
   <script src="/assets/js/i18n.js"></script>
   <script src="/assets/js/main.js"></script>

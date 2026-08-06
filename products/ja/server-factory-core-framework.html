@@ -1,0 +1,295 @@
+---
+layout: default
+lang: ja
+title: "Server Factory Core Framework — Miloš Vasić"
+description: "Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each \"factory\" reuses one battle-tested foundation rather than re-implementing provisioning primitives."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/server-factory-core-framework.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ja",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/server-factory-core-framework.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each \"factory\" reuses one battle-tested foundation rather than re-implementing provisioning primitives.",
+      "inLanguage": "ja",
+      "name": "Server Factory Core Framework",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/server-factory-core-framework.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: serverfactory-tertiary · order 30</p>
+      <h1>Server Factory Core Framework <span class="od-h1-badges"><span class="od-badge--status od-badge--status--stable">stable</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Kotlin (~990K bytes)</span><span class="od-chip">Shell (minimal supporting scripts)</span><span class="od-chip">Gradle</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Server-Factory/Core-Framework" rel="noopener noreferrer" target="_blank">Server-Factory/Core-Framework <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="server-factory-core-framework">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<path class="conn" marker-end="url(#a)" d="M450,240 L450,126"/>
+<path class="conn" marker-end="url(#a)" d="M370,260 L262,182"/>
+<path class="conn" marker-end="url(#a)" d="M530,260 L638,182"/>
+<path class="conn" marker-end="url(#a)" d="M380,350 L200,400"/>
+<path class="conn" marker-end="url(#a)" d="M520,350 L700,400"/>
+<path class="conn" marker-end="url(#a)" d="M450,350 L450,438"/>
+<rect class="accent" x="350" y="240" width="200" height="110" rx="10"/>
+<text class="t" x="450" y="274">Core Framework</text>
+<text class="s" x="450" y="294">Kotlin shared engine</text>
+<rect class="box" x="350" y="60" width="200" height="64" rx="10"/>
+<text class="t" x="450" y="92">Mail Factory</text>
+<rect class="box" x="60" y="150" width="200" height="64" rx="10"/>
+<text class="t" x="160" y="182">Web Factory</text>
+<rect class="box" x="640" y="150" width="200" height="64" rx="10"/>
+<text class="t" x="740" y="182">SonarQube Factory</text>
+<rect class="box" x="60" y="400" width="200" height="64" rx="10"/>
+<text class="t" x="160" y="432">Caching-Proxy Factory</text>
+<rect class="box" x="640" y="400" width="200" height="64" rx="10"/>
+<text class="t" x="740" y="432">…future factories</text>
+<rect class="good" x="350" y="440" width="200" height="64" rx="10"/>
+<text class="gt" x="450" y="472">Target system</text>
+<text class="s" x="450" y="492">installed product</text>
+<text class="h" x="32" y="44">Server Factory Core Framework — shared engine hub</text>
+<text class="lbl" x="350" y="42">Factories as spokes</text>
+<text class="note" x="60" y="540">One fix in Core → propagates to every factory</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>すべてのServer Factoryを支える共通エンジン</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-0" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-0-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-0">
+            <div class="od-accordion__inner">
+      <p>Core Frameworkは、Server Factoryファミリーのプロビジョニングツールを支えるKotlinフレームワークです。Mail Server Factoryなどのプロジェクトが基盤とする共通エンジンと抽象化レイヤーを提供し、各「ファクトリー」が個別にプロビジョニングの基本機能を再実装するのではなく、実績のある一つの基盤を再利用できるようにします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-1" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-1-panel">
+              <span class="od-accordion__label">簡単な説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-1-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-1">
+            <div class="od-accordion__inner">
+      <p>Server Factoryエコシステムの基盤となる共通のKotlinフレームワーク。下流のファクトリー（Mail Server Factory、Web Service Factory、SonarQube Factoryなど）が利用する共通のプロビジョニングエンジン、接続抽象化レイヤー、インストールステップの機構を提供します。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-2" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-2-panel">
+              <span class="od-accordion__label">詳細な説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-2-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-2">
+            <div class="od-accordion__inner">
+      <p>Core Frameworkは、Server-Factoryファミリー全体を可能にする縁の下の力持ちです。個々の「ファクトリー」製品（Mail Server Factory、Web Service Factory、SonarQube Factory、Caching Proxy Factory）はすべて、この再利用可能なエンジンの上に構築されています。Server Factoryのアプローチは宣言型です。ユーザーは望むインフラを設定ファイルとして記述し、ファクトリーはその記述を解釈してターゲットシステムにソフトウェアをインストール・初期化します。そして、このパターンに共通する機構が実際に実装されているのがCore Frameworkです。具体的には、あらゆる種類のターゲットに到達するための接続・転送抽象化レイヤー、ソフトウェアがどのようにプロビジョニングされるかを定義するインストールステップモデル、そして各ファクトリーが個別に実装する必要のあった共通の基盤部分がここに集約されています。</p>
+      <p>これは、複数の製品を持つツールチェーンがいずれ直面する構造的な問い――「共通エンジンはどこに置くべきか」――に対する答えです。この答えを一度正しく出すことで、ファミリーは4つの微妙に異なるプロビジョナーに分裂することなく、一貫性を保っています。このKotlinフレームワークに集約することで、ファミリーはプロビジョニングロジックの重複を避け、動作の一貫性を維持します。Core Frameworkで改善された接続タイプやインストールの基本機能は、すべての下流ファクトリーに恩恵をもたらします。</p>
+      <p>その実態はほぼKotlin（約990KBのKotlinコードに薄いShellレイヤーを加えたもの）で、スクリプト集ではなくコードライブラリとしての役割を反映しています。下流のリポジトリはすべて、このCore Frameworkを標準的な依存関係として参照しています（Parallels-Utils、Qemu-Utils、Utils、Definitionsパックはすべて、Core Frameworkリポジトリをエコシステムの中心としてリンクしています）。READMEは意図的に最小限に抑えられており――他のプロジェクトのためのインフラであり、<code>version.txt</code>/<code>version_code.txt</code>でバージョン管理されています――また、後のAIの取り組みよりも前に開発されたため、組織の成熟したDevOpsツールチェーンの遺産の一部となっています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-3" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-3-panel">
+              <span class="od-accordion__label">なぜ開発したのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-3-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-3">
+            <div class="od-accordion__inner">
+      <p>各プロビジョニングツールには、ターゲットへの接続手段とソフトウェアのインストール・設定ステップという共通の核が必要です。これを製品ごとに再構築すれば、動作のばらつきやバグの増加を招きます。Core Frameworkはそれを一箇所に集約し、すべてのファクトリーが信頼できる一つのエンジンを共有できるようにします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-4" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-4-panel">
+              <span class="od-accordion__label">なぜ革新的なのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-4-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-4">
+            <div class="od-accordion__inner">
+      <p>これはファミリー全体で最も影響力の大きい部分です。ここで強化された接続タイプや改善されたインストールの基本機能は、すべてのファクトリーに即座に反映され、ツールチェーン全体が一つの投資から複利効果を得ることができます。「一度作って、どこでも再利用する」という哲学が最も効果を発揮する場所――インフラ自動化の基盤レイヤーで、正しい場所での修正が下流のすべてを修正するのです。</p>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-5" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-5-panel">
+              <span class="od-accordion__label">革新的なポイント</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-5-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>接続とインストール手順のロジックを抽象化した、再利用可能な単一のプロビジョニング・フレームワーク。</li>
+        <li>エンジン（コア・フレームワーク）と製品固有のファクトリー間の明確な分離。</li>
+        <li>再現性のある利用を実現するバージョン固定配布（<code>version.txt</code>/<code>version_code.txt</code>）。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-6" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-6-panel">
+              <span class="od-accordion__label">課題と解決策</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-6-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>プロビジョニング・ロジックの重複回避</strong>：全ファクトリーで共有されるフレームワークに共通機構を抽出することで解決。</li>
+        <li><strong>製品間での動作の一貫性</strong>：接続タイプと手順がどこでも同一に動作するよう、共通の抽象化を実施。</li>
+        <li><strong>（未検証）</strong>：特定の内部APIは公開READMEに記載されていない。インターフェースの詳細は「ファクトリーで共有されるフレームワーク」を超えて未検証とみなすこと。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-7" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-7-panel">
+              <span class="od-accordion__label">技術スタック（採用理由と使用方法）</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-7-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Kotlin</strong> — フレームワーク全体（約990KB）。Server Factoryファミリーの言語。</li>
+        <li><strong>Shell</strong> — 最小限の補助スクリプト。</li>
+        <li><strong>Gradle</strong> — ビルドツールチェーン（ファミリーの<code>./gradlew</code>使用と一貫性あり）。</li>
+      </ul>
+      <blockquote><p>注：GitHubは、Server-Factory組織内のフォークとしてリポジトリを示す。AI中心ではなく、プロビジョニング・ツールチェーンの基盤として提示。</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

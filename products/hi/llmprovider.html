@@ -1,0 +1,337 @@
+---
+layout: default
+lang: hi
+title: "LLMProvider — Miloš Vasić"
+description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "hi",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/llmprovider.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "inLanguage": "hi",
+      "name": "LLMProvider",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/llmprovider.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 13</p>
+      <h1>LLMProvider <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25.3)</span><span class="od-chip">net/http (stdlib)</span><span class="od-chip">logrus</span><span class="od-chip">testify</span><span class="od-chip">yaml.v3</span><span class="od-chip">digital.vasic.models</span><span class="od-chip">circuit / health / retry / apikeys / discovery packages</span><span class="od-chip">43 provider adapters + generic OpenAI-compatible adapter</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/LLMProvider" rel="noopener noreferrer" target="_blank">HelixDevelopment/LLMProvider <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="llmprovider">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">LLMProvider — one interface · 43 adapters</text>
+<text class="lbl" x="600" y="72">Vendor fan-out</text>
+<text class="lbl" x="40" y="392">Credentials</text>
+<rect class="box" x="40" y="230" width="180" height="90" rx="10"/>
+<text class="t" x="130" y="264">Application</text>
+<text class="s" x="130" y="284">Complete / Stream</text>
+<rect class="accent" x="280" y="200" width="220" height="150" rx="10"/>
+<text class="t" x="390" y="234">LLMProvider</text>
+<text class="s" x="390" y="254">single Go interface</text>
+<rect class="box" x="600" y="90" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="124">43 provider adapters</text>
+<text class="s" x="770" y="144">OpenAI · Anthropic · Gemini …</text>
+<rect class="box" x="600" y="165" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="199">Generic OpenAI-compatible</text>
+<text class="s" x="770" y="219">any /v1 endpoint</text>
+<rect class="dash" x="600" y="250" width="340" height="58" rx="10"/>
+<text class="t" x="770" y="284">Honest discovery</text>
+<text class="s" x="770" y="304">live /v1/models + TTL cache</text>
+<rect class="dash" x="40" y="410" width="180" height="64" rx="10"/>
+<text class="t" x="130" y="444">apikeys</text>
+<text class="s" x="130" y="464">single credential source</text>
+<rect class="box" x="280" y="410" width="220" height="64" rx="10"/>
+<text class="t" x="390" y="444">Circuit breaker</text>
+<text class="s" x="390" y="464">closed→open→half-open</text>
+<rect class="box" x="560" y="410" width="240" height="64" rx="10"/>
+<text class="t" x="680" y="444">Retry</text>
+<text class="s" x="680" y="464">backoff + jitter · status-aware</text>
+<path class="conn" marker-end="url(#a)" d="M220,275 L278,275"/>
+<path class="conn" marker-end="url(#a)" d="M500,240 L598,119"/>
+<path class="conn" marker-end="url(#a)" d="M500,270 L598,194"/>
+<path class="conn" marker-end="url(#a)" d="M500,300 L598,279"/>
+<path class="conn" marker-end="url(#a)" d="M390,350 L390,408"/>
+<path class="conn" marker-end="url(#a)" d="M500,340 L640,408"/>
+<path class="conn" marker-end="url(#a)" d="M130,410 L280,350"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>एक इंटरफ़ेस, ४३ प्रदाता — सर्किट ब्रेकर, पुनःप्रयास और स्वास्थ्य निगरानी के साथ।</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-0" aria-expanded="true" aria-controls="od-acc-llmprovider-0-panel">
+              <span class="od-accordion__label">सारांश</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-0-panel" role="region" aria-labelledby="od-acc-llmprovider-0">
+            <div class="od-accordion__inner">
+      <p>LLMProvider एक सामान्य, पुनःप्रयोगी Go मॉड्यूल है जो एकीकृत <code>LLMProvider</code> इंटरफ़ेस को परिभाषित करता है, साथ ही इसके आसपास उत्पादन-स्तरीय लचीलापन पैटर्न — सर्किट ब्रेकर, स्वास्थ्य निगरानी, बैकऑफ़ के साथ पुनःप्रयास, आलसी लोडिंग — और इस एक अनुबंध के पीछे ४३ ठोस प्रदाता कार्यान्वयन प्रदान करता है। इसमें OpenAI-संगत सामान्य एडेप्टर और ईमानदार, बिना-हार्डकोडेड-फॉलबैक मॉडल खोज शामिल है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
+              <span class="od-accordion__label">संक्षिप्त विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
+            <div class="od-accordion__inner">
+      <p>एक पुनःप्रयोगी Go मॉड्यूल जो एक <code>LLMProvider</code> इंटरफ़ेस (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) को उजागर करता है, साथ ही दोष-सहनशीलता तंत्र — सर्किट ब्रेकर, स्वास्थ्य मॉनिटर, जिटर्ड बैकऑफ़ पुनःप्रयास, आलसी आरंभ — ४३ प्रदाता एडेप्टर और एक सामान्य OpenAI-संगत एडेप्टर के साथ। थ्रेड-सुरक्षित।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
+              <span class="od-accordion__label">विस्तृत विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
+            <div class="od-accordion__inner">
+      <p>LLMProvider वह अमूर्त परत है जिसकी हर LLM-उपभोग करने वाली सेवा को आवश्यकता होती है, लेकिन जिसे लगभग कोई भी ठीक से नहीं बनाता — वह अनाकर्षक आधारभूत संरचना जो एक डेमो को उस प्रणाली से अलग करती है जो वास्तविक ट्रैफ़िक के संपर्क में आने पर भी जीवित रहती है। यह एकल, क्षमता-सचेत इंटरफ़ेस — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — को परिभाषित करता है, ताकि एप्लिकेशन कोड केवल एक अनुबंध को लक्षित करे, चाहे ४३ बैकएंड में से कोई भी कॉल का उत्तर दे। फिर यह परिचालन सुदृढ़ीकरण प्रदान करता है जो नाजुक प्रदाता कॉलों को उत्पादन में चलाने योग्य बनाता है, बिना सांस रोके।</p>
+      <p>एक तीन-स्थिति सर्किट ब्रेकर (बंद → खुला → अर्ध-खुला) किसी भी प्रदाता को पारदर्शी रूप से लपेटता है — *इसके स्ट्रीमिंग चैनल सहित*, जहाँ एक खाली स्ट्रीम को सही ढंग से विफलता के रूप में गिना जाता है — ताकि एक खराब बैकएंड खुलकर पूरे सेवा को गिराने से रोक सके; एक केंद्रीय <code>CircuitBreakerManager</code> हर ब्रेकर को एक साथ ट्रैक करता है। एक विन्यास योग्य स्वास्थ्य मॉनिटर प्रदाताओं को निरंतर स्वस्थ / अधोगामी / अस्वस्थ / अज्ञात स्थितियों में जाँचता है, ताकि गिरावट का अवलोकन किया जा सके, न कि आउटेज के माध्यम से इसकी खोज।</p>
+      <p>पुनःप्रयास तर्क में घातीय बैकऑफ़ के साथ जिटर जोड़ा गया है, जो स्थिति-सचेत निर्णय लेता है — उन त्रुटियों को पुनःप्रयास करें जिनका पुनःप्रयास सार्थक है (429, 5xx, क्षणिक नेटवर्क दोष), 4xx या रद्द किए गए संदर्भ पर चक्र बर्बाद न करें — विलंब को सीमित किया गया है ताकि बैकऑफ़ तूफान नियंत्रण से बाहर न हो। और आलसी-आरंभ पैटर्न प्रत्येक प्रदाता के निर्माण को उसके पहले वास्तविक उपयोग तक टालता है — एक जानबूझकर किया गया डिज़ाइन निर्णय जो सभी ४३ प्रदाताओं के पंजीकरण को लगभग निःशुल्क बनाए रखता है।</p>
+      <p>यह मॉड्यूल ४३ ठोस प्रदाता पैकेज के साथ-साथ एक <code>generic</code> OpenAI-संगत एडेप्टर भी प्रदान करता है, जो पूर्ण इंटरफ़ेस को *किसी भी* <code>/v1/chat/completions</code> एंडपॉइंट के विरुद्ध लागू करता है — Bearer प्रमाणीकरण, SSE स्ट्रीमिंग के साथ सही <code>[DONE]</code> हैंडलिंग — ताकि बिना समर्पित पैकेज वाले विक्रेता को भी आप एडेप्टर को उसके URL की ओर इंगित करते ही प्रथम श्रेणी का नागरिक बना सकें।</p>
+      <p>प्रमाण-पत्र एक ही स्थान (<code>apikeys</code>, <code>ApiKey_&lt;Provider&gt;</code> के सख्त परंपरा का उपयोग करते हुए) पर हल किए जाते हैं, जिससे "हार्डकोडेड कुंजी परीक्षण सूट पास करती है, वास्तविक कुंजी कभी जुड़ी नहीं थी, उत्पाद उत्पादन में विफल हो जाता है" जैसी पूरी श्रेणी की बग का स्रोत पर ही समाधान हो जाता है। मॉडल खोज जानबूझकर, लगभग हठपूर्वक ईमानदार है: यह TTL कैश के पीछे लाइव प्रदाता API को क्वेरी करती है, और — शासन के अनुसार — पुराने हार्डकोडेड फॉलबैक स्तर को पूरी तरह हटा दिया गया था। जब लाइव खोज विफल होती है, तो LLMProvider *कुछ भी* वापस नहीं करता, बजाय एक पुराने कैटलॉग के, ताकि कॉलर को कभी ऐसा मॉडल आईडी न दिया जाए जो वैध दिखे लेकिन जिसे लागू न किया जा सके। इस सबका हर हिस्सा समवर्ती उपयोग के लिए थ्रेड-सुरक्षित बनाया गया है।</p>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
+              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+            <div class="od-accordion__inner">
+      <p>नैव ज़ेड9टीईआरएम007ज़ेड9 कॉल प्रोडक्शन में विफल हो जाते हैं — प्रदाता दर-सीमित करते हैं, सेवा गिरा देते हैं या बंद हो जाते हैं, और एक खराब बैकएंड पूरे सेवा को अपने साथ ले डूबता है। मॉडल कैटलॉग बदलते रहते हैं, और हार्डकोडेड सूचियाँ ऐसे कॉलर आईडी थमा देती हैं जो अब काम नहीं करते। ज़ेड9टीईआरएम002ज़ेड9 इंटरफ़ेस को केंद्रीकृत करता है, लचीलापन पैटर्न और ईमानदार खोज को इस तरह से एकीकृत करता है कि हर उपभोक्ता को दोष सहनशीलता और सच्चाई मुफ़्त में मिल जाती है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+              <span class="od-accordion__label">यह गेम-चेंजर क्यों है</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+            <div class="od-accordion__inner">
+      <p>यह "ज़ेड9टीईआरएम007ज़ेड9 प्रदाता को एकीकृत करें" की प्रक्रिया को एक ही कदम में समेट देता है — एक इंटरफ़ेस लागू करें, या बस जेनेरिक एडाप्टर को किसी एंडपॉइंट पर निर्देशित करें — और फिर उस प्रदाता को स्वचालित और पारदर्शी रूप से सर्किट ब्रेकिंग, स्वास्थ्य निगरानी और जिटर्ड-बैकऑफ़ रिट्राई में लपेट देता है। लचीलापन अब हर टीम के लिए अलग से आविष्कार की जाने वाली चीज़ नहीं रह जाती (खराब तरीके से, डेडलाइन के दबाव में, पहले आउटेज के बाद), बल्कि यह लाइब्रेरी का डिफ़ॉल्ट व्यवहार बन जाता है, जो सभी 43 बैकएंड पर लागू होता है। विश्वसनीयता इंजीनियरिंग एक बार लिखी जाती है, कड़ी परीक्षा से गुज़रती है, और इसे आयात करने वाले हर व्यक्ति को मुफ़्त में मिल जाती है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+              <span class="od-accordion__label">क्या है नवाचारी</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>एक क्षमता-सचेत इंटरफ़ेस</strong> — पूरा होना, स्ट्रीमिंग, स्वास्थ्य, क्षमताएँ और कॉन्फ़िगरेशन सत्यापन एक ही अनुबंध में समाहित हैं, जिसे हर बैकएंड समान रूप से मानता है।</li>
+        <li><strong>पारदर्शी सर्किट-ब्रेकर रैपिंग — स्ट्रीम सहित।</strong> यह ब्रेकर <code>CompleteStream</code> के चैनल की रक्षा करता है, न कि केवल अनुरोध/प्रतिक्रिया की, और खाली स्ट्रीम को असफलता के रूप में मानता है — जिसमें डेडलॉक-सुरक्षित, ऑफ-लॉक श्रोता अधिसूचना शामिल है।</li>
+        <li><strong>43 प्रदाता पैकेज + एक जेनेरिक ज़ेड9टीईआरएम005ज़ेड9-संगत एडाप्टर</strong> — समर्पित पैकेज पतले रहते हैं, और <code>/v1/chat/completions</code> बोलने वाला कोई भी अपंजीकृत विक्रेता एडाप्टर को उस पर निर्देशित करते ही काम करने लगता है।</li>
+        <li><strong>एकल क्रेडेंशियल प्राधिकरण (<code>apikeys</code>)</strong> — केवल एक ही स्थान <code>ApiKey_&lt;Provider&gt;</code> पर्यावरण चर पढ़ता है, जिससे "हरे परीक्षण, टूटा उत्पाद" के बेमेल को संरचनात्मक रूप से समाप्त किया जाता है, न कि केवल चेतावनी देकर।</li>
+        <li><strong>ईमानदार मॉडल खोज (हार्डकोडेड फ़ॉलबैक नहीं)</strong> — TTL कैश के पीछे लाइव प्रदाता API; विफलता पर यह <code>nil</code> लौटाता है, कभी पुराना या गढ़ा हुआ कैटलॉग नहीं जो अनुपयोगी आईडी थमा दे।</li>
+        <li><strong>आलसी आरंभीकरण <code>sync.Once</code> के साथ</strong> — निर्माण का काम पहले उपयोग तक टाला जाता है, इसलिए सभी 43 प्रदाताओं को पंजीकृत करने की लागत तब तक लगभग शून्य रहती है जब तक आप वास्तव में किसी को कॉल नहीं करते।</li>
+        <li><strong>धोखाधड़ी-रोधी, बहु-स्थानीय चुनौती स्टैक</strong> — एक वास्तविक रनर जो पाँच स्थानों पर सर्किट, स्वास्थ्य और रिट्राई व्यवहार का परीक्षण करता है, जिसे युग्मित म्यूटेशन परीक्षण द्वारा नियंत्रित किया जाता है (अपरिवर्तित कोड को शून्य से बाहर निकलना चाहिए; इंजेक्ट किया गया म्यूटेशन 99 से बाहर निकलने को बाध्य करता है), ताकि पास होने वाला सूट सिद्ध रूप से काम करने वाले व्यवहार का प्रमाण दे।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+              <span class="od-accordion__label">सबसे बड़ी तकनीकी चुनौतियाँ और उनके समाधान</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>प्रदाताओं की श्रृंखलाबद्ध विफलताएँ।</strong> एक अस्थिर बैकएंड पूरे सेवा को अपने साथ नहीं ले डूबना चाहिए। इसका समाधान तीन-अवस्था सर्किट ब्रेकर (बंद → खुला → अर्ध-खुला) से किया गया, जो किसी भी प्रदाता और उसकी स्ट्रीम को पारदर्शी रूप से लपेटता है, निरंतर विफलता पर खुल जाता है, अर्ध-खुली अवस्था में पुनर्प्राप्ति की जाँच करता है, और इसे <code>CircuitBreakerManager</code> द्वारा केंद्रीय रूप से समन्वित किया जाता है।</li>
+        <li><strong>क्षणिक त्रुटियाँ और दर सीमाएँ।</strong> इसका समाधान स्थिति-सचेत घातांकीय बैकऑफ़ और जिटर से किया गया — <code>min(InitialDelay·Multiplier^(n-1), MaxDelay) ± जिटर</code> — ताकि रिट्राई फैल जाएँ और "थंडरिंग हर्ड" में समन्वित न हों। यह केवल उन्हीं स्थितियों में रिट्राई करता है जिनमें रिट्राई की जानी चाहिए (429, 500, 502, 503, 504, और नेटवर्क त्रुटियाँ), और रद्द किए गए संदर्भ या किसी अन्य 4xx पर प्रयास बर्बाद नहीं करता।</li>
+        <li><strong>कई पंजीकृत लेकिन अप्रयुक्त प्रदाताओं का स्केलिंग।</strong> 43 प्रदाता पंजीकृत होने पर भी किसी सेवा में केवल कुछ ही सक्रिय होते हैं, इसलिए उत्सुक निर्माण पूरी तरह व्यर्थ होता। इसका समाधान <code>sync.Once</code> द्वारा संरक्षित आलसी आरंभीकरण से किया गया, ताकि केवल उन्हीं प्रदाताओं को उनकी स्थापना लागत चुकानी पड़े जिन्हें आप वास्तव में कॉल करते हैं।</li>
+        <li><strong>अमान्य मॉडल आईडी थमा देना।</strong> इसका समाधान हार्डकोडेड खोज फ़ॉलबैक स्तर को पूरी तरह हटाकर (CONST-036 के अनुसार) और लाइव-खोज विफलता पर कुछ भी नहीं लौटाकर किया गया — साथ ही रक्षात्मक प्रतिलिपि-लौटाने से ताकि कॉलर कैश को बदल न सके या दूसरे पाठक के साथ दौड़ न लगा सके। सच्चाई को संरचनात्मक रूप से लागू किया जाता है, केवल परंपरा से नहीं।</li>
+        <li><strong>स्ट्रीमिंग + समवर्ती शुद्धता।</strong> सूक्ष्म विफलता मोड ब्रेकर के लॉक और उसके श्रोता कॉलबैक के बीच डेडलॉक है। इसका समाधान श्रोताओं का स्नैपशॉट लेकर और उन्हें ऑफ-लॉक अधिसूचित करके 5-सेकंड टाइमआउट के तहत किया गया, और रीसेट पर अधिसूचना से पहले अनलॉक करके — हर घटक समवर्ती उपयोग के लिए बनाया गया और <code>-race</code> सूट द्वारा सत्यापित।</li>
+      </ul>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
+              <span class="od-accordion__label">तकनीकी स्टैक</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (1.25.3)</strong> — प्रथम श्रेणी की समवर्तीता (कॉनकरेंसी), स्थैतिक बाइनरी और मज़बूत मानक लाइब्रेरी के लिए चुना गया; इसमें मॉड्यूल, इंटरफ़ेस, हर लचीलापन प्रिमिटिव और सभी 43 एडेप्टर शामिल हैं।</li>
+        <li><strong><code>net/http</code> (मानक लाइब्रेरी)</strong> — जानबूझकर निर्भरता-मुक्त HTTP: प्रति-प्रदाता क्लाइंट, सामान्य OpenAI-संगत एडेप्टर और लाइव डिस्कवरी कॉल को शक्ति प्रदान करता है, इसलिए किसी तीसरे पक्ष के ट्रांसपोर्ट की ऑडिट या पैचिंग की ज़रूरत नहीं।</li>
+        <li><strong>logrus</strong> — संरचित, स्तर-सचेत लॉगिंग, ठीक वहाँ जहाँ ऑपरेटरों को दृश्यता चाहिए: सर्किट ब्रेकर की स्थिति परिवर्तनों और डिस्कवरी पथ के भीतर।</li>
+        <li><strong>testify</strong> — टेस्ट सूट को संचालित करता है और, महत्वपूर्ण रूप से, म्यूटेशन-ब्रांच पिनिंग जो एक सफल रन को अर्थपूर्ण बनाती है।</li>
+        <li><strong>yaml.v3</strong> — i18n बंडल और कॉन्फ़िगरेशन को ऐसे प्रारूप में पार्स करता है जो मानव-संपादन योग्य बना रहता है।</li>
+        <li><strong><code>digital.vasic.models</code></strong> — साझा <code>LLMRequest</code> / <code>LLMResponse</code> / <code>ProviderCapabilities</code> प्रकार, एक ही स्थान पर रखे गए ताकि हर एडेप्टर एक ही शब्दावली का उपयोग करे (एक प्रलेखित रनटाइम निर्भरता)।</li>
+        <li><strong>स्वयं के पैकेज</strong> — <code>circuit</code>, <code>health</code>, <code>retry</code>, <code>apikeys</code>, <code>discovery</code>, <code>providers/</code> (43 विक्रेता + <code>generic</code>), और <code>i18n</code>: लचीलापन और एकीकरण सतह को छोटी, स्वतंत्र रूप से परीक्षण योग्य इकाइयों में विभाजित किया गया है, न कि एक मोनोलिथ में।</li>
+        <li><strong><code>.env</code> + <code>~/api_keys.sh</code> (<code>ApiKey_&lt;Provider&gt;</code> परंपरा)</strong> — क्रेडेंशियल की एकल, स्पष्ट स्रोत, ताकि कुंजियाँ परीक्षण और उत्पादन में एक ही तरीके से संयोजित हों।</li>
+        <li><strong>Makefile रेस सूट (<code>-race -p 1</code>) + चैलेंज रनर</strong> — विरोधाभास-विरोधी आधारशिला: रेस डिटेक्टर समवर्तीता की शुद्धता साबित करता है, और चैलेंज रनर वास्तविक व्यवहार को अराजकता, डीडॉस, स्केलिंग, तनाव, लाइव-डिस्कवरी और निलंबन-रहित परिदृश्यों के माध्यम से परखता है।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+              <span class="od-accordion__label">स्थिति और ईमानदारी संबंधी टिप्पणियाँ</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>स्थिति: बीटा।</strong> एक अलग पुन:प्रयोग योग्य मॉड्यूल; GitHub रिपॉज़िटरी सार्वजनिक है।</li>
+        <li><strong>लाइसेंस: निर्धारित नहीं।</strong> असंगत — <code>doc.go</code> MIT कहता है जबकि Apache-2.0 शैली का LICENSE फ़ाइल मौजूद है — प्रकाशन से पहले सत्यापित करें।</li>
+        <li>LLMsVerifier अपस्ट्रीम मॉडल कैटलॉग का एकमात्र स्रोत है। <code>helix-deps.yaml</code> मेनिफ़ेस्ट पुराना प्रतीत होता है (<code>deps: []</code> घोषित करता है जबकि दस्तावेज़ <code>digital.vasic.models</code> पर निर्भरता बताते हैं); डिस्कवरी का "टियर 2 (models.dev)" एक नियोजित स्टब है, सक्रिय नहीं।</li>
+      </ul>
+      <p><strong>प्राथमिकता स्तर:</strong> Helix-प्राथमिक (LLM-इन्फ़्रास्ट्रक्चर क्लस्टर — अलग पुन:प्रयोग योग्य मॉड्यूल)। HelixTrack के बाद आता है।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

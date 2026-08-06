@@ -287,6 +287,22 @@
   }
 
   /* ----------------------------------------------------------------------- *
+   * Floating "back to top" — show after threshold, smooth-scroll to top.
+   *   .od-to-top is hidden + non-focusable (pointer-events:none) until JS adds
+   *   `.is-visible`; reduced-motion callers get an instant jump (no smooth).
+   * --------------------------------------------------------------------- */
+  function initBackToTop() {
+    var btn = document.querySelector('.od-to-top');
+    if (!btn) return;
+    var SHOW_AT = 600, ticking = false;
+    function update(){ ticking=false; var y=window.pageYOffset||document.documentElement.scrollTop||0; btn.classList.toggle('is-visible', y>SHOW_AT); }
+    function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    btn.addEventListener('click', function(){ window.scrollTo({ top:0, behavior: reduced() ? 'auto' : 'smooth' }); });
+    update();
+  }
+
+  /* ----------------------------------------------------------------------- *
    * Boot
    * --------------------------------------------------------------------- */
   function boot() {
@@ -296,6 +312,7 @@
     try { initHighlights(); } catch (e) { warn(e); }
     try { initViewTransitions(); } catch (e) { warn(e); }
     try { initLottie(); } catch (e) { warn(e); }
+    try { initBackToTop(); } catch (e) { warn(e); }
   }
   function warn(e) { if (window.console && console.warn) console.warn('[od-motion]', e && e.message); }
 

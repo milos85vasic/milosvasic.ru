@@ -1,0 +1,335 @@
+---
+layout: default
+lang: hi
+title: "HelixAgent — Miloš Vasić"
+description: "HelixAgent is a production-ready, AI-powered ensemble LLM service in Go that intelligently combines responses from many language models — including a multi-round AI debate system and dynamic verification-based provider selection — to produce the most accurate and reliable output."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixagent.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixagent.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixagent.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixagent.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixagent.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixagent.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixagent.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixagent.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixagent.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixagent.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "hi",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixagent.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixAgent is a production-ready, AI-powered ensemble LLM service in Go that intelligently combines responses from many language models — including a multi-round AI debate system and dynamic verification-based provider selection — to produce the most accurate and reliable output.",
+      "inLanguage": "hi",
+      "license": "MIT",
+      "name": "HelixAgent",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixagent.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 3</p>
+      <h1>HelixAgent <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: MIT</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Redis</span><span class="od-chip">LLMsVerifier</span><span class="od-chip">Prometheus</span><span class="od-chip">Grafana</span><span class="od-chip">OpenTelemetry</span><span class="od-chip">Model Context Protocol</span><span class="od-chip">Neo4j</span><span class="od-chip">ClickHouse</span><span class="od-chip">Kafka</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixAgent" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixAgent <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixagent">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixAgent — ensemble debate flow</text>
+<text class="lbl" x="250" y="92">Provider ensemble · scored by LLMsVerifier</text>
+<text class="lbl" x="40" y="384">Debate protocol</text>
+<path class="conn" marker-end="url(#a)" d="M190,147 L248,127"/>
+<path class="conn" marker-end="url(#a)" d="M190,156 L248,188"/>
+<path class="conn" marker-end="url(#a)" d="M190,164 L248,248"/>
+<path class="conn" marker-end="url(#a)" d="M190,172 L248,308"/>
+<path class="conn" marker-end="url(#a)" d="M400,129 L468,192"/>
+<path class="conn" marker-end="url(#a)" d="M400,189 L468,205"/>
+<path class="conn" marker-end="url(#a)" d="M400,249 L468,220"/>
+<path class="conn" marker-end="url(#a)" d="M400,309 L468,235"/>
+<path class="conn" marker-end="url(#a)" d="M555,270 L555,352 L140,352 L140,398"/>
+<path class="conn" marker-end="url(#a)" d="M240,432 L268,432"/>
+<path class="conn" marker-end="url(#a)" d="M470,432 L498,432"/>
+<path class="conn" marker-end="url(#a)" d="M700,432 L728,432"/>
+<path class="conn" marker-end="url(#a)" d="M820,400 L820,236"/>
+<rect class="accent" x="40" y="110" width="150" height="74" rx="10"/>
+<text class="t" x="115" y="144">Prompt</text>
+<text class="s" x="115" y="164">one question</text>
+<rect class="box" x="250" y="104" width="150" height="50" rx="10"/>
+<text class="t" x="325" y="132">Claude</text>
+<rect class="box" x="250" y="164" width="150" height="50" rx="10"/>
+<text class="t" x="325" y="192">Gemini</text>
+<rect class="box" x="250" y="224" width="150" height="50" rx="10"/>
+<text class="t" x="325" y="252">Mistral</text>
+<rect class="box" x="250" y="284" width="150" height="50" rx="10"/>
+<text class="t" x="325" y="312">Grok (xAI)</text>
+<rect class="accent" x="470" y="150" width="170" height="120" rx="10"/>
+<text class="t" x="555" y="184">Debate Orchestrator</text>
+<text class="s" x="555" y="204">mesh / star / chain</text>
+<rect class="good" x="700" y="150" width="220" height="84" rx="10"/>
+<text class="gt" x="810" y="188">Synthesized Answer</text>
+<text class="s" x="810" y="208">the answer they agree on</text>
+<rect class="box" x="40" y="400" width="200" height="64" rx="10"/>
+<text class="t" x="140" y="432">Proposal</text>
+<rect class="box" x="270" y="400" width="200" height="64" rx="10"/>
+<text class="t" x="370" y="432">Critique</text>
+<rect class="box" x="500" y="400" width="200" height="64" rx="10"/>
+<text class="t" x="600" y="432">Review</text>
+<rect class="box" x="730" y="400" width="190" height="64" rx="10"/>
+<text class="t" x="825" y="432">Synthesis</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>एक मॉडल न चुनें — उन्हें बहस करने दें, और जिस उत्तर पर वे सहमत हों उसे लागू करें।</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-0" aria-expanded="true" aria-controls="od-acc-helixagent-0-panel">
+              <span class="od-accordion__label">सारांश</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-0-panel" role="region" aria-labelledby="od-acc-helixagent-0">
+            <div class="od-accordion__inner">
+      <p>HelixAgent एक उत्पादन-तैयार, AI-संचालित समूह LLM सेवा है जो Go में कई भाषा मॉडलों के प्रतिक्रियाओं को बुद्धिमानी से संयोजित करती है — जिसमें बहु-चरणीय AI बहस प्रणाली और गतिशील सत्यापन-आधारित प्रदाता चयन शामिल है — ताकि सबसे सटीक और विश्वसनीय आउटपुट प्राप्त किया जा सके।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-1" aria-expanded="true" aria-controls="od-acc-helixagent-1-panel">
+              <span class="od-accordion__label">संक्षिप्त विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-1-panel" role="region" aria-labelledby="od-acc-helixagent-1">
+            <div class="od-accordion__inner">
+      <p>HelixAgent एक Go-आधारित समूह LLM सेवा है जो कई प्रदाताओं को एक सटीक उत्तर में समाहित करती है। यह बहु-चरणीय AI बहसें आयोजित करती है, LLMsVerifier के माध्यम से प्रदाताओं का गतिशील मूल्यांकन करती है, आत्मविश्वास-भारित रणनीतियों के साथ रूटिंग करती है, और उत्पादन सुविधाएँ प्रदान करती है: कैशिंग, निगरानी, सुरक्षा सुरक्षा उपाय, और OpenAI-शैली के एपीआई।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-2" aria-expanded="true" aria-controls="od-acc-helixagent-2-panel">
+              <span class="od-accordion__label">विस्तृत विवरण</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-2-panel" role="region" aria-labelledby="od-acc-helixagent-2">
+            <div class="od-accordion__inner">
+      <p>HelixAgent एक उत्पादन-तैयार, AI-संचालित समूह LLM सेवा (MIT) है जो किसी एक मॉडल के उत्तर को परिकल्पना मानती है, निर्णय नहीं। यह किसी एक प्रदाता पर निर्भर नहीं रहती जो गलत, पक्षपाती या अस्थायी रूप से अनुपलब्ध हो सकता है, बल्कि कई भाषा मॉडलों के प्रतिक्रियाओं को संयोजित कर सबसे सटीक और विश्वसनीय आउटपुट पर पहुँचती है — और जब प्रश्न इतना जटिल हो कि उसका समाधान आवश्यक लगे, तो यह मॉडलों को एक संरचित, बहु-चरणीय बहस प्रक्रिया से गुजारती है। इसका प्रदाता समूह व्यापक है: इसके README में <code>internal/llm/providers/</code> के तहत कई LLM प्रदाताओं का उल्लेख है, जिनमें Claude, DeepSeek, Gemini, Mistral, Qwen, और xAI/Grok शामिल हैं।</p>
+      <p>महत्वपूर्ण बात यह है कि प्रदाता चयन कोई स्थिर प्राथमिकता सूची नहीं है — यह वास्तविक समय में अर्जित किया जाता है। एकीकृत LLMsVerifier से प्राप्त लाइव सत्यापन स्कोर रूटिंग और सर्वश्रेष्ठ प्रदर्शन करने वाले प्रदाता की ओर सहज पतन को संचालित करते हैं, साथ ही किसी प्रदाता के प्रदर्शन में गिरावट आने पर श्रेणीबद्ध त्रुटि रिपोर्टिंग भी की जाती है। AI बहस संचालक असहमति को संकेत में बदलता है: यह कई टोपोलॉजी (जाल, तारा, श्रृंखला) और एक अनुशासित चरण प्रोटोकॉल — प्रस्ताव → आलोचना → समीक्षा → संश्लेषण — का समर्थन करता है, जिसमें क्रॉस-बहस सीखने की व्यवस्था है ताकि समय के साथ मॉडलों को समन्वित करने की प्रणाली की क्षमता में सुधार हो सके। रूटिंग रणनीतियों में आत्मविश्वास-भारित चयन, बहुमत-मत सहमति, और अर्थगत-आशय पहचान शामिल हैं, सभी वास्तविक समय में स्ट्रीमिंग प्रतिक्रियाओं के साथ ताकि उत्तर टोकन-दर-टोकन प्राप्त हों, न कि पूरे समूह के निर्णय के बाद।</p>
+      <p>यह सेवा उत्पादन में जीवित रहने के लिए इंजीनियर की गई है, न कि केवल प्रदर्शन के लिए: PostgreSQL और Redis एक उच्च-उपलब्धता डेटा परत का निर्माण करते हैं, Prometheus/Grafana/OpenTelemetry मेट्रिक्स, डैशबोर्ड और ट्रेसिंग प्रदान करते हैं, और JWT प्रमाणीकरण, दर सीमित करने, सुरक्षा उपायों, और PII पहचान के साथ समूह को वास्तविक तैनाती के लिए आवश्यक नियंत्रणों में लपेटते हैं। यह लगभग बीस अलग-अलग मॉड्यूल्स (इवेंटबस, ऑब्ज़र्वेबिलिटी, ऑथ, स्टोरेज, वेक्टरडीबी, एम्बेडिंग्स, RAG, मेमोरी, MCP, और अन्य) के रूप में संगठित है, जिनमें से प्रत्येक एक अलग चिंता का विषय है, और यह एक LLM अनुकूलन ढाँचा (अर्थगत कैशिंग, संरचित आउटपुट, उन्नत स्ट्रीमिंग) के साथ आता है, जिसमें SGLang, LlamaIndex, LangChain, Guidance, और LMQL के लिए एकीकरण शामिल हैं। चूँकि पूरा होने और समूह के एंडपॉइंट OpenAI-संगत हैं, इसलिए मौजूदा क्लाइंट HelixAgent की ओर इशारा कर सकता है और बिना किसी पुनर्लेखन के समूह तर्क प्राप्त कर सकता है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-3" aria-expanded="true" aria-controls="od-acc-helixagent-3-panel">
+              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-3-panel" role="region" aria-labelledby="od-acc-helixagent-3">
+            <div class="od-accordion__inner">
+      <p>कोई भी एकल LLM गलत, पूर्वाग्रहित या अनुपलब्ध हो सकता है। HelixAgent को इसलिए बनाया गया ताकि एप्लिकेशन एक साथ कई मॉडलों से सलाह ले सकें, उनकी उत्तर की विश्वसनीयता को मापकर उनका मूल्यांकन कर सकें, और आवश्यकता पड़ने पर सहजता से विकल्प चुन सकें—इससे एकल प्रदाता पर निर्भरता की नाजुकता एक लचीले, आत्म-मूल्यांकन करने वाले समूह में बदल जाती है।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-4" aria-expanded="true" aria-controls="od-acc-helixagent-4-panel">
+              <span class="od-accordion__label">यह क्यों गेम-चेंजर है</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-4-panel" role="region" aria-labelledby="od-acc-helixagent-4">
+            <div class="od-accordion__inner">
+      <p>यह मल्टी-मॉडल सहमति को संचालित करता है—"कई मॉडलों से पूछो और उनके उत्तरों में सामंजस्य बैठाओ" को तदर्थ स्क्रिप्ट से निकालकर एक उत्पादन सेवा में बदल देता है। एक प्रदाता को हार्ड-कोड करके उम्मीद करने के बजाय, टीमों को लाइव सत्यापन स्कोर द्वारा संचालित रूटिंग मिलती है, उन सवालों के लिए एक संरचित बहस प्रोटोकॉल जहाँ एक बार का उत्तर पर्याप्त नहीं होता, और उत्पादन-स्तरीय लचीलापन (उच्च उपलब्धता डेटा परत, पूर्ण अवलोकन क्षमता, और सुरक्षा उपाय) जो OpenAI-संगत API के पीछे होता है। इसका लाभ है बिना व्यवधान के अपनाने की सुविधा: एक नाजुक एकल प्रदाता निर्भरता एक लचीले, आत्म-मूल्यांकन करने वाले समूह में बदल जाती है, और मौजूदा क्लाइंट केवल एंडपॉइंट बदलकर इसमें स्विच कर सकते हैं—अपने कोड में बदलाव किए बिना।</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-5" aria-expanded="true" aria-controls="od-acc-helixagent-5-panel">
+              <span class="od-accordion__label">क्या है नवाचारी</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-5-panel" role="region" aria-labelledby="od-acc-helixagent-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>संरचित बहु-चरणीय AI बहस जो मॉडल असहमति को एक संसाधन के रूप में उपयोग करती है: चुनने योग्य मेश/स्टार/चेन टोपोलॉजी, एक अनुशासित प्रस्ताव→आलोचना→समीक्षा→संश्लेषण प्रोटोकॉल, और समय के साथ संचित होने वाला क्रॉस-डिबेट लर्निंग।</li>
+        <li>लाइव LLMsVerifier स्कोर से अर्जित गतिशील प्रदाता चयन—स्थिर प्राथमिकता सूची के बजाय समूह उस प्रदाता को रूट करता है जो वास्तव में इस समय बेहतर प्रदर्शन कर रहा होता है, और जब कोई प्रदाता कमजोर पड़ता है तो सहजता से विकल्प चुन लेता है।</li>
+        <li>एक मूल Go LLM-अनुकूलन ढाँचा (सिमेंटिक कैश, संरचित आउटपुट, उन्नत स्ट्रीमिंग) जो स्वतंत्र रूप से खड़ा होता है, जिसमें बाहरी अनुकूलक (SGLang, LlamaIndex, LangChain, Guidance, LMQL) को आवश्यकता पड़ने पर जोड़ा जा सकता है, न कि अनिवार्य रूप से।</li>
+        <li>लगभग बीस अलग-अलग मॉड्यूल का एक मॉड्यूलर आर्किटेक्चर जो चिंताओं को अलग रखता है और बिग डेटा सुविधाओं जैसे वितरित मेमोरी और ज्ञान-ग्राफ स्ट्रीमिंग के द्वार खोलता है।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-6" aria-expanded="true" aria-controls="od-acc-helixagent-6-panel">
+              <span class="od-accordion__label">सबसे बड़ी तकनीकी चुनौतियाँ और उनका समाधान</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-6-panel" role="region" aria-labelledby="od-acc-helixagent-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>कई असमान प्रदाताओं में से चुनाव करना।</strong> प्रदाताओं की गुणवत्ता अलग-अलग होती है और समय के साथ बदलती रहती है, इसलिए कोई भी स्थिर रैंकिंग अगले दिन ही गलत साबित हो सकती है। हमने इसका समाधान निरंतर मापन द्वारा किया: LLMsVerifier स्कोर विश्वास-भारित और बहुमत-मत रूटिंग को संचालित करते हैं, जिसमें सहज फॉलबैक होता है ताकि प्रदर्शन में गिरावट आने पर प्रदाता को दरकिनार किया जा सके, न कि उस पर भरोसा किया जाए।</li>
+        <li><strong>वास्तव में कठिन सवालों का विश्वसनीय उत्तर प्राप्त करना।</strong> एक बार पूछे जाने पर एकल मॉडल की अपनी गलती पकड़ने का कोई तंत्र नहीं होता। डिबेट ऑर्केस्ट्रेटर इसे प्रदान करता है—बहु-टोपोलॉजी, चरणबद्ध बहस (प्रस्ताव → आलोचना → समीक्षा → संश्लेषण) जो मॉडलों को एक-दूसरे को चुनौती देने और परिष्कृत करने के लिए बाध्य करती है, इससे पहले कि अंतिम उत्तर संश्लेषित किया जाए।</li>
+        <li><strong>एक समूह को नोटबुक से बाहर उत्पादन में चलाना।</strong> कई प्रदाताओं तक विस्तार करने से विफलता की सतह बढ़ जाती है। हमने इसे PostgreSQL+Redis उच्च उपलब्धता डेटा परत, Prometheus/Grafana/OpenTelemetry अवलोकन क्षमता (जब कोई प्रदाता या रूट गड़बड़ करता है), और एक सुरक्षा परिधि के माध्यम से नियंत्रित किया जिसमें JWT प्रमाणीकरण, दर सीमित करना, एक गार्डरेल इंजन, और PII पहचान शामिल है।</li>
+      </ul>
+      <p>सामग्री</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-7" aria-expanded="true" aria-controls="od-acc-helixagent-7-panel">
+              <span class="od-accordion__label">तकनीकी स्टैक</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-7-panel" role="region" aria-labelledby="od-acc-helixagent-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> — चुना गया क्योंकि एकल अनुरोध को एक साथ कई प्रदाताओं तक फैलाना ठीक वही काम है जिसके लिए गो-रूटीन बनाए गए हैं, और सिंगल-बाइनरी डिप्लॉयमेंट ~20-मॉड्यूल सेवा को शिप करने में सरलता बनाए रखता है; यह पूरी सेवा और हर आंतरिक मॉड्यूल की रीढ़ है।</li>
+        <li><strong>Gin (वेब API)</strong> — तेज़, कम-ओवरहेड HTTP इंटरफ़ेस के लिए चुना गया; यह OpenAI-संगत <code>/v1</code> कम्पलीशन, चैट, स्ट्रीमिंग और एन्सेम्बल एंडपॉइंट्स को सेवा प्रदान करता है, जो मौजूदा क्लाइंट्स को बिना किसी बदलाव के एन्सेम्बल अपनाने की सुविधा देते हैं।</li>
+        <li><strong>PostgreSQL</strong> — सत्रों, विश्लेषण और बहस रिकॉर्ड्स के लिए स्थायी भंडारण के रूप में चुना गया, ताकि सहमति निर्णय और बहस इतिहास ऑडिट योग्य रहें; यह HA डेटा परत का आधार है।</li>
+        <li><strong>Redis</strong> — कम-विलंबता कैशिंग और टास्क क्यूइंग के लिए चुना गया; यह प्रतिक्रिया कैशिंग और सिमेंटिक कैश परत को शक्ति प्रदान करता है, जो बार-बार या लगभग समान प्रॉम्प्ट्स को अनावश्यक अनुमान से बचाता है।</li>
+        <li><strong>LLMsVerifier (एकीकृत)</strong> — प्रदाता विश्वसनीयता को एक मापी गई मात्रा बनाने के लिए चुना गया, न कि केवल एक धारणा; इसके स्कोर प्रदाताओं को रूटिंग के लिए रैंक करते हैं और किसी एक के प्रदर्शन में गिरावट आने पर फॉलबैक को संचालित करते हैं।</li>
+        <li><strong>Prometheus + Grafana + OpenTelemetry</strong> — चुना गया ताकि कई प्रदाताओं पर फैला एन्सेम्बल अवलोकन योग्य बना रहे; ये <code>helixagent_*</code> मेट्रिक्स, डैशबोर्ड और फैन-आउट के पार एंड-टू-एंड अनुरोध ट्रेसिंग को उजागर करते हैं।</li>
+        <li><strong>Model Context Protocol (MCP) एडेप्टर</strong> — खुले प्रोटोकॉल के माध्यम से विस्तारशीलता के लिए चुना गया; README में बाहरी टूल्स और संदर्भ को जोड़ने के लिए कई MCP एडेप्टर सूचीबद्ध हैं।</li>
+        <li><strong>Neo4j / ClickHouse / Kafka (बिगडेटा)</strong> — एकल नोड की सीमाओं को पार करने के लिए चुना गया: Neo4j और ClickHouse वितरित मेमोरी और ज्ञान-ग्राफ़ सुविधाओं को समर्थन देते हैं, और Kafka उस ग्राफ़ और इवेंट डेटा को बड़े पैमाने पर स्ट्रीम करता है।</li>
+        <li><strong>ऑप्टिमाइज़ेशन इंटीग्रेशन (SGLang, LlamaIndex, LangChain, Guidance, LMQL)</strong> — उपसर्ग कैशिंग, पुनर्प्राप्ति, टास्क डिकम्पोज़िशन और नियंत्रित पीढ़ी को वैकल्पिक सेवाओं के रूप में जोड़ने के लिए चुना गया, ताकि भारी ऑप्टिमाइज़ेशन उपलब्ध हो पर अनिवार्य न हो।</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-8" aria-expanded="true" aria-controls="od-acc-helixagent-8-panel">
+              <span class="od-accordion__label">स्थिति और ईमानदारी संबंधी टिप्पणियाँ</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-8-panel" role="region" aria-labelledby="od-acc-helixagent-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>स्थिति: बीटा।</strong> सेवा को उत्पादन-तैयार बताया गया है, लेकिन README में दिए गए प्रदर्शन और कवरेज आँकड़े (जैसे "1000+ अनुरोध/सेकंड", "&lt;500ms कैश्ड", प्रदाता और सत्यापन-स्क्रिप्ट की संख्या) परियोजना के स्वयं के दावे हैं, स्वतंत्र रूप से सत्यापित नहीं, और यहाँ जानबूझकर गुणात्मक रूप से रखे गए हैं।</li>
+        <li>प्रदाताओं की संख्या README में ही भिन्न है; पृष्ठ गुणात्मक "कई प्रदाता" के ढाँचे का उपयोग करता है।</li>
+      </ul>
+      <p><strong>प्राथमिकता स्तर:</strong> Helix-प्राथमिक।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

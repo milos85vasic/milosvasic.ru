@@ -1,0 +1,329 @@
+---
+layout: default
+lang: ja
+title: "HelixCode — Miloš Vasić"
+description: "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcode.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcode.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcode.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixcode.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcode.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcode.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcode.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ja",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixcode.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces.",
+      "inLanguage": "ja",
+      "license": "MIT",
+      "name": "HelixCode",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixcode.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 2</p>
+      <h1>HelixCode <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: MIT</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Redis</span><span class="od-chip">SSH</span><span class="od-chip">Model Context Protocol</span><span class="od-chip">llama.cpp</span><span class="od-chip">Ollama</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixCode" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixCode <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixcode">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixCode — layered architecture</text>
+<text class="lbl" x="40" y="90">API layer</text>
+<text class="lbl" x="40" y="240">Core services</text>
+<text class="lbl" x="40" y="462">Data layer</text>
+<path class="conn" marker-end="url(#a)" d="M220,164 L220,248"/>
+<path class="conn" marker-end="url(#a)" d="M480,164 L480,248"/>
+<path class="conn" marker-end="url(#a)" d="M740,164 L740,248"/>
+<path class="conn" marker-end="url(#a)" d="M360,332 L360,468"/>
+<path class="conn" marker-end="url(#a)" d="M600,332 L600,468"/>
+<rect class="box" x="120" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="220" y="134">REST API</text>
+<rect class="box" x="380" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="480" y="134">WebSocket</text>
+<rect class="box" x="640" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="740" y="134">MCP</text>
+<text class="s" x="740" y="154">multi-transport</text>
+<rect class="box" x="40" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="125" y="284">Auth &amp; Sessions</text>
+<text class="s" x="125" y="304">JWT</text>
+<rect class="box" x="226" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="311" y="284">Worker Pool</text>
+<text class="s" x="311" y="304">SSH · health monitor</text>
+<rect class="box" x="412" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="497" y="284">Task + Checkpointing</text>
+<text class="s" x="497" y="304">rollback / resume</text>
+<rect class="box" x="598" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="683" y="296">Project &amp; Workflow</text>
+<rect class="box" x="784" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="869" y="284">LLM Providers</text>
+<text class="s" x="869" y="304">llama.cpp · Ollama · OpenAI</text>
+<rect class="box" x="260" y="470" width="200" height="72" rx="10"/>
+<text class="t" x="360" y="504">PostgreSQL 15+</text>
+<text class="s" x="360" y="524">11-table schema</text>
+<rect class="box" x="500" y="470" width="200" height="72" rx="10"/>
+<text class="t" x="600" y="504">Redis 7</text>
+<text class="s" x="600" y="524">optional cache</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>作業を分割し、保存し、進行状況を決して失わない分散型AI開発プラットフォーム</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-0" aria-expanded="true" aria-controls="od-acc-helixcode-0-panel">
+              <span class="od-accordion__label">概要</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-0-panel" role="region" aria-labelledby="od-acc-helixcode-0">
+            <div class="od-accordion__inner">
+      <p>HelixCodeは、エンタープライズグレードのGoベース分散型AI開発プラットフォームです。SSHで管理されたワーカーのネットワークに開発作業を知的に分割し、自動チェックポイントとロールバック機能により作業の損失を防ぎます。複数のLLMプロバイダーとの統合、開発ライフサイクル全体のワークフロー、クロスプラットフォーム対応をREST、CLI、TUI、MCPインターフェースのもとに統合しています。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-1" aria-expanded="true" aria-controls="od-acc-helixcode-1-panel">
+              <span class="od-accordion__label">短い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-1-panel" role="region" aria-labelledby="od-acc-helixcode-1">
+            <div class="od-accordion__inner">
+      <p>HelixCodeは、Goで記述された分散型AI開発プラットフォームです。SSHベースのワーカーネットワークに作業を知的に分割し、自動チェックポイントとロールバックで進行状況を保護します。複数のLLMプロバイダーを統合し、REST、CLI、TUI、MCPインターフェースを通じて開発ライフサイクル全体をサポートします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-2" aria-expanded="true" aria-controls="od-acc-helixcode-2-panel">
+              <span class="od-accordion__label">長い説明</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-2-panel" role="region" aria-labelledby="od-acc-helixcode-2">
+            <div class="od-accordion__inner">
+      <p>HelixCodeは、エンタープライズグレードの分散型AI開発プラットフォーム（<code>dev.helix.code</code>、MITライセンス）であり、そのキャッチフレーズが示すシンプルな約束を文字通り実現します。それは「作業を分割し、保存し、進行状況を決して失わない」というものです。知的なタスク分割、自動作業保存、クロスプラットフォーム開発ワークフローを設計理念とし、分散コンピューティングに求められる並行処理と単一バイナリのポータビリティを実現するためにGoで記述されています。自動チェックポイント、ロールバック、リアルタイム監視は、オプションのアドオンではなく、第一級の機能として組み込まれています。</p>
+      <p>そのアーキテクチャは、REST + WebSocket + MCPのAPIレイヤーを、集中的なコアサービス群の上に構築しています。これには、JWT認証とセッション管理、ヘルスモニタリング付きSSHベースのワーカープール管理、チェックポイントと依存関係処理を備えたタスク管理、プロジェクトおよびワークフロー管理、統合LLMプロバイダーレイヤーが含まれます。これらはすべてPostgreSQL上に永続化され、Redisはオプションの調整およびキャッシング層として利用可能です。分散ワーカーはネットワーク上で自動インストールされるため、サーバーをマシンに向けるだけでスケールアウトが可能です。また、CLI、ターミナルUI、REST、モバイルフレームワークといった複数のクライアントインターフェースを備えているため、スクリプト、ターミナル、アプリから同じプラットフォームにアクセスできます。</p>
+      <p>HelixCodeは、開発ライフサイクル全体をエンドツーエンドでサポートします。計画、ビルド、テスト、リファクタリングのワークフローは、依存関係を認識し、複数セッションのコンテキストを追跡するため、長時間にわたる作業も中断やマシンの切り替えを跨いで継続できます。複数のLLMプロバイダー（llama.cpp、Ollama、OpenAI）を単一のインターフェースで統合し、利用可能なCPU/GPU/メモリを検出してモデルをマシンに適合させるハードウェア対応のモデル選択機能を備えています。また、単一の処理では不十分な問題に対して、連鎖思考やツリー思考といった高度な推論戦略もサポートしています。Model Context Protocolは複数のトランスポートを介して実装され、標準化されたツールやコンテキストの交換が可能です。さらに、Slack、Discord、メール、Telegramを通じたマルチチャネル通知により、分散作業の進捗状況をチームに伝えます。対応プラットフォームはLinux、macOS、Windows、Aurora OS、SymphonyOSです。</p>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-3" aria-expanded="true" aria-controls="od-acc-helixcode-3-panel">
+              <span class="od-accordion__label">なぜ開発したのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-3-panel" role="region" aria-labelledby="od-acc-helixcode-3">
+            <div class="od-accordion__inner">
+      <p>分散型かつAI支援の開発では、タスクが複数のマシンに分割されたり中断されたりすると、コンテキストや進捗が失われがちです。HelixCodeは、タスクの分割をインテリジェントに行い、作業の保存を自動化することで、大規模な開発作業を分割し、ワーカーネットワークに分散させ、チェックポイントを設定し、状態を失うことなく再開やロールバックを可能にします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-4" aria-expanded="true" aria-controls="od-acc-helixcode-4-panel">
+              <span class="od-accordion__label">なぜゲームチェンジャーなのか</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-4-panel" role="region" aria-labelledby="od-acc-helixcode-4">
+            <div class="od-accordion__inner">
+      <p>分散型AI開発を「耐久性のある」ものに変える――これは、チームが手作業でこれらの要素を組み合わせていた時代には実現不可能だった機能です。従来は3つの異なるツールに分かれていたものが、1つのプラットフォームに統合されます。分散コンピューティング（SSHワーカーネットワークによる自動インストールとヘルスモニタリング）、AI開発支援（複数プロバイダーのLLMによる推論とツール呼び出し）、そしてフルライフサイクルのワークフロー自動化です。これらを結びつけるのは、データベースを基盤としたチェックポイント機能です。タスクの状態、チェックポイント、依存関係がPostgreSQLに永続化されるため、複数のマシンやセッションにまたがるジョブでも、中断したまさにその地点からロールバックや再開が可能です。中断や作業の分割は、進捗の喪失要因ではなく、日常的で回復可能なイベントへと変わります。</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-5" aria-expanded="true" aria-controls="od-acc-helixcode-5-panel">
+              <span class="od-accordion__label">革新的なポイント</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-5-panel" role="region" aria-labelledby="od-acc-helixcode-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>作業保存をコア機能として実装</strong>：分散型開発タスクに自動チェックポイントとロールバックを適用し、中断やマシン障害が発生しても進捗が失われることなく、そのまま維持されます。</li>
+        <li><strong>ハードウェア認識型モデル選択</strong>：検出されたCPU/GPU/メモリを分析し、各タスクに対して実際に適切に動作するモデルを自動的に割り当て――ワーカーごとの手動調整は不要です。</li>
+        <li><strong>1つのプラットフォーム、5つのアクセス方法</strong>：REST、WebSocket、CLI、TUI、そしてMCPを提供。MCP自体も複数のトランスポート経由で公開されており、ツールやエージェントはどのような接続方法でも統合可能です。</li>
+        <li><strong>クロスプラットフォーム対応</strong>：従来のデスクトップOS（Linux、macOS、Windows）にとどまらず、Aurora OSやSymphonyOSにも対応。多くのツールが無視するプラットフォームまでワーカーフリートを拡大します。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-6" aria-expanded="true" aria-controls="od-acc-helixcode-6-panel">
+              <span class="od-accordion__label">最大の技術的課題とその解決策</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-6-panel" role="region" aria-labelledby="od-acc-helixcode-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>分散型で中断可能なタスクにおける作業の喪失防止</strong>。ジョブが複数のマシンに分割されると、クラッシュや中断が発生した場合、進行中の作業が孤立してしまうのが一般的です。私たちはタスク自体をチェックポイントと依存関係の担い手としてモデル化し、PostgreSQLに永続化することで、システムは最後の正常な状態にロールバックしたり、そこから再開したりできるようにしました。この耐久性は、脆弱なメモリ内状態ではなく、データ層に組み込まれています。</li>
+        <li><strong>異種混合ワーカーフリートの管理</strong>。Linux、macOS、Windows、Aurora、SymphonyOSなどのマシンで構成されるネットワークは、可用性やセットアップが常に変動します。これに対処するため、SSHベースの登録、新規ノードへの自動インストール、継続的なヘルスモニタリングを行う専用のワーカープールサービスを導入。これにより、マシンの出入りがあってもフリートは常に把握・制御可能な状態を維持します。</li>
+        <li><strong>プロバイダーとハードウェアの多様性</strong>。LLMのバックエンドやそれを実行するマシンは、性能が大きく異なります。これを統一されたLLMプロバイダーインターフェースで隠蔽し、ハードウェア検出（CPU/GPU/メモリ）と組み合わせることで、インテリジェントなモデル選択を実現。呼び出し側がプロバイダーやハードウェアを意識することなく、適切なモデルが適切なマシンに割り当てられます。</li>
+      </ul>
+      <p>コンテンツ</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-7" aria-expanded="true" aria-controls="od-acc-helixcode-7-panel">
+              <span class="od-accordion__label">テックスタック</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-7-panel" role="region" aria-labelledby="od-acc-helixcode-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go（1.26+ 内部モジュール）</strong> — ゴルーチンベースの並行処理と単一バイナリ出力が、分散ワーカーシステムに求められる要件に完璧に合致するため採用。オーケストレーションに必要な低コストな並列処理と、あらゆるノードに自動インストール可能な自己完結型バイナリを実現。コアサービスとCLI/serverバイナリを全て内包。</li>
+        <li><strong>Gin（HTTPフレームワーク）</strong> — 軽量かつ高速なRESTレイヤーを低オーバーヘッドで提供するため採用。全てのクライアントが利用する<code>/api/v1</code>インターフェース（認証、ワーカー、タスク、プロジェクト）を提供。</li>
+        <li><strong>PostgreSQL 15+（pgx/v5経由）</strong> — チェックポイントやロールバックに不可欠なトランザクショナルな永続性を確保するため、耐久性のあるシステム・オブ・レコードとして採用。11のテーブルから成る分散コンピューティングスキーマ（ユーザー、ワーカー、タスク、プロジェクト、セッション、llm_providers、通知）を保持し、作業の永続化を実現。</li>
+        <li><strong>Redis 7+（オプション、go-redis/v9）</strong> — キャッシュや調整層としてオプションで利用可能。ホットパスの高速化を図りつつ、最小限のデプロイではPostgresのみでも稼働可能なよう、ハードな依存関係にはしない設計。</li>
+        <li><strong>SSH</strong> — ワーカーコントロールのトランスポートとして採用。既に広く普及し、セキュリティも確立されているため、ワーカー登録、自動インストール、リモートコマンド実行をプール全体で行う際、専用エージェントの事前デプロイが不要。</li>
+        <li><strong>Model Context Protocol（MCP）</strong> — 標準化されたツールやコンテキストの交換プロトコルとして採用。外部ツールやエージェントが単一のオープンプロトコルを介して統合可能。クライアントの接続環境に応じたマルチトランスポート対応を実装。</li>
+        <li><strong>LLMプロバイダー（llama.cpp、Ollama、OpenAI）</strong> — ローカルおよびホステッド推論を統一インターフェースでカバーするため採用。ハードウェアに応じたタスクルーティングが可能で、呼び出し側はローカルモデルとホステッドモデルの違いを意識する必要なし。</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-8" aria-expanded="true" aria-controls="od-acc-helixcode-8-panel">
+              <span class="od-accordion__label">ステータスと正直な注意点</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-8-panel" role="region" aria-labelledby="od-acc-helixcode-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>ステータス：ベータ版。</strong> READMEでは「完全完了／全5フェーズ」と自己申告されているが、これはプロジェクト側の主張であり、第三者による検証は行われていないため、本ページではベータ版として扱う。</li>
+        <li>上記の詳細は全てリポジトリのREADMEに基づく。マーケティング表現（キャッチコピーなど）は編集上のものであり、ソースメトリクスではない。</li>
+      </ul>
+      <p><strong>優先度：</strong> Helixプライマリ。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
