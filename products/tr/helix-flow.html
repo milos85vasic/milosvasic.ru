@@ -1,0 +1,303 @@
+---
+layout: default
+lang: tr
+title: "Helix-Flow — Miloš Vasić"
+description: "Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*"
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helix-flow.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "tr",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helix-flow.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*",
+      "inLanguage": "tr",
+      "name": "Helix-Flow",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helix-flow.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// seviye: helix-primary · sipariş 15</p>
+      <h1>Helix-Flow <span class="od-h1-badges"><span class="od-badge--status od-badge--status--roadmap">roadmap</span><span class="od-tag--license">lisans: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Python</span><span class="od-chip">Shell</span><span class="od-chip">PostgreSQL / PL/pgSQL</span><span class="od-chip">Terraform / HCL</span><span class="od-chip">HTML / CSS / JavaScript</span></div>
+
+      <h2>Kaynak</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Helix-Flow/Platform" rel="noopener noreferrer" target="_blank">Helix-Flow/Platform <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helix-flow">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Helix-Flow — roadmap (planned platform)</text>
+<path class="conn" marker-end="url(#a)" d="M420,180 L160,238"/>
+<path class="conn" marker-end="url(#a)" d="M440,180 L350,238"/>
+<path class="conn" marker-end="url(#a)" d="M460,180 L550,238"/>
+<path class="conn" marker-end="url(#a)" d="M480,180 L740,238"/>
+<rect class="dash" x="300" y="90" width="300" height="90" rx="10"/>
+<text class="t" x="450" y="124">Helix-Flow Platform</text>
+<text class="s" x="450" y="144">roadmap · not yet built</text>
+<rect class="dash" x="60" y="240" width="180" height="80" rx="10"/>
+<text class="t" x="150" y="274">Go · Python · Shell</text>
+<text class="s" x="150" y="294">planned services</text>
+<rect class="dash" x="260" y="240" width="180" height="80" rx="10"/>
+<text class="t" x="350" y="274">PostgreSQL / PL·pgSQL</text>
+<text class="s" x="350" y="294">planned data</text>
+<rect class="dash" x="460" y="240" width="180" height="80" rx="10"/>
+<text class="t" x="550" y="274">Terraform / HCL</text>
+<text class="s" x="550" y="294">planned infra</text>
+<rect class="dash" x="660" y="240" width="180" height="80" rx="10"/>
+<text class="t" x="750" y="274">Web · HTML/CSS/JS</text>
+<text class="s" x="750" y="294">planned UI</text>
+<text class="lbl" x="300" y="72">Documented: tagline only</text>
+<text class="note" x="300" y="372">Conceptual by design — internals will be drawn once a real architecture doc exists</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// mimari</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Tüm AI çıkarım ihtiyaçlarınız için tek bir platform — güçlü AI modellerini daha hızlı, daha akıllı ve her ölçekte, öngörülebilir maliyetlerle çalıştırın.</strong> &gt; <strong>Doğruluk uyarısı (Helix Constitution §11.4.6):</strong> Helix-Flow gerçek ve halka açık bir kaynak kod deposuna sahip olmakla birlikte, README dosyası tek satırlık bir slogan içermekte ve yerel bir kopyası ya da tasarım/mimari belgeleri bulunmamaktadır. Aslında yalnızca iki şey belgelenmiştir: slogan ve deponun dili. Aşağıdaki diğer tüm ayrıntılar ya atlanmış ya da açıkça DOĞRULANMAMIŞ olarak işaretlenmiştir. Bu sayfa, asgari bir yer tutucu olup gerçek kaynak materyali sağlanana kadar genişletilmemelidir.</p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-0" aria-expanded="true" aria-controls="od-acc-helix-flow-0-panel">
+              <span class="od-accordion__label">Özet</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-0-panel" role="region" aria-labelledby="od-acc-helix-flow-0">
+            <div class="od-accordion__inner">
+      <p>Helix-Flow Platformu, AI çıkarımı için tek ve birleşik bir merkez olarak konumlandırılmıştır — güçlü modelleri daha hızlı, her ölçekte ve öngörülebilir maliyetlerle çalıştırır. *(Konumlandırma yalnızca slogandan alınmıştır; somut yetenekler mevcut kaynaklarda belgelenmemiştir.)*</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-1" aria-expanded="true" aria-controls="od-acc-helix-flow-1-panel">
+              <span class="od-accordion__label">Kısa açıklama</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-1-panel" role="region" aria-labelledby="od-acc-helix-flow-1">
+            <div class="od-accordion__inner">
+      <p>Helix-Flow Platformu (<code>Helix-Flow/Platform</code>), AI çıkarımını her ölçekte öngörülebilir maliyetlerle gerçekleştiren, halka açık ve Go tabanlı bir proje olarak sunulmaktadır. Kod tabanı Go, Python ve Terraform/HCL dillerini içermekte olup, altyapı-kod yönetimiyle dağıtılan bir çıkarım platformuna işaret etmektedir. Sloganın ötesindeki yetenekler DOĞRULANMAMIŞTIR.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-2" aria-expanded="true" aria-controls="od-acc-helix-flow-2-panel">
+              <span class="od-accordion__label">Uzun açıklama</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-2-panel" role="region" aria-labelledby="od-acc-helix-flow-2">
+            <div class="od-accordion__inner">
+      <p>Helix-Flow Platformu, <code>Helix-Flow</code> GitHub organizasyonundaki tek depodur ve tek satırlık README dosyası aracılığıyla "Tüm AI çıkarım ihtiyaçlarınız için tek bir platform" olarak tanıtılmakta, güçlü AI modellerini daha hızlı ve her ölçekte öngörülebilir maliyetlerle çalıştırmayı vurgulamaktadır. Bu sloganın ötesinde proje, herhangi bir açıklayıcı belge içermediğinden, mimarisi, özellikleri ve tasarımı kaynaklardan hareketle anlatılamaz.</p>
+      <p>*Gerçekten gözlemlenebilen* tek şey, deponun dil bileşimidir: Ağırlıklı olarak eşit oranlarda Go ve Python, önemli miktarda Shell, ayrıca HTML/CSS/JavaScript (web arayüzü), PL/pgSQL (PostgreSQL destekli bir bileşen), HCL (Terraform / altyapı-kod) ve Mermaid (diyagramlar) içermektedir. Bu bileşim bir araya getirildiğinde, Go kontrol/servis katmanı ile Python model araçlarını, bir PostgreSQL veri deposunu, web arayüzünü ve bulut dağıtımını altyapı-kod yönetimiyle birleştiren bir çıkarım sunma platformuna *uygun düşmektedir* — ancak bu yorum, dosya türlerinden çıkarılmıştır ve <strong>belgelenmiş bir iddia değildir</strong>. Motivasyon, yenilikler, teknik zorluklar ve somut teknoloji yığını gerekçesi gibi doğru ürün açıklamaları için gerçek bir README, mimari belge ya da yerel kopya gereklidir. Bu sayfa, mevcut kaynakların desteklediği noktaya kadar kasıtlı olarak sınırlandırılmıştır.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-3" aria-expanded="true" aria-controls="od-acc-helix-flow-3-panel">
+              <span class="od-accordion__label">Neden inşa ettik</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-3-panel" role="region" aria-labelledby="od-acc-helix-flow-3">
+            <div class="od-accordion__inner">
+      <p>*DOĞRULANMAMIŞ — mevcut kaynaklarda belgelenmemiştir.* Slogan, birleşik, ölçeklenebilir AI çıkarımı ile öngörülebilir/kontrol edilebilir maliyet hedefini ima etse de, herhangi bir gerekçe belirtilmemiştir. Burada herhangi bir motivasyon ileri sürülmemektedir.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-4" aria-expanded="true" aria-controls="od-acc-helix-flow-4-panel">
+              <span class="od-accordion__label">Neden oyunun kurallarını değiştiriyor</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-4-panel" role="region" aria-labelledby="od-acc-helix-flow-4">
+            <div class="od-accordion__inner">
+      <p>İçerik</p>
+      <p>*DOĞRULANMAMIŞ — belgelenmemiş.* Kaynak bulunana kadar çıkarıldı.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-5" aria-expanded="true" aria-controls="od-acc-helix-flow-5-panel">
+              <span class="od-accordion__label">Yenilikçi Yönler</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-5-panel" role="region" aria-labelledby="od-acc-helix-flow-5">
+            <div class="od-accordion__inner">
+      <p>*DOĞRULANMAMIŞ — belgelenmemiş.* Kaynak bulunana kadar çıkarıldı.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-6" aria-expanded="true" aria-controls="od-acc-helix-flow-6-panel">
+              <span class="od-accordion__label">En Büyük Teknik Zorluklar ve Çözümlerimiz</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-6-panel" role="region" aria-labelledby="od-acc-helix-flow-6">
+            <div class="od-accordion__inner">
+      <p>*DOĞRULANMAMIŞ — belgelenmemiş.* Kaynak bulunana kadar çıkarıldı.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-7" aria-expanded="true" aria-controls="od-acc-helix-flow-7-panel">
+              <span class="od-accordion__label">Teknoloji Yığını</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-7-panel" role="region" aria-labelledby="od-acc-helix-flow-7">
+            <div class="od-accordion__inner">
+      <p>Yalnızca depodaki dil bileşiminden gözlemlenmiştir — rol ve gerekçesi DOĞRULANMAMIŞTIR:</p>
+      <ul>
+        <li><strong>Go</strong> — ana dil; muhtemelen sunum/denetim katmanı. *(Rol DOĞRULANMAMIŞ.)*</li>
+        <li><strong>Python</strong> — neredeyse eşit pay; muhtemelen model/çıkarım araçları. *(Rol DOĞRULANMAMIŞ.)*</li>
+        <li><strong>Shell</strong> — yapı/dağıtım/otomasyon betikleri. *(Rol DOĞRULANMAMIŞ.)*</li>
+        <li><strong>PostgreSQL / PL/pgSQL</strong> — ilişkisel veri deposu bileşeni mevcut.</li>
+        <li><strong>Terraform / HCL</strong> — altyapı-kod olarak, bulut tabanlı dağıtımı ima ediyor.</li>
+        <li><strong>HTML / CSS / JavaScript</strong> — bir web arayüzü veya dokümantasyon yüzeyi.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-8" aria-expanded="true" aria-controls="od-acc-helix-flow-8-panel">
+              <span class="od-accordion__label">Durum ve Dürüstlük Notları</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-8-panel" role="region" aria-labelledby="od-acc-helix-flow-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Durum: yol haritası / yer tutucu.</strong> Bu, <code>Helix-Flow</code> organizasyonundaki tek depodur; herkese açık, son gönderim tarihi 27-04-2026, ana sayfası ayarlanmamış ve lisansı belirtilmemiş. Gerçek dokümantasyon oluşana kadar, ürün derinliğinde sorumlu bir şekilde sunulamaz.</li>
+        <li><strong>Lisans: BELİRLENECEK</strong> (depoda belirtilmemiş).</li>
+      </ul>
+      <p><strong>Öncelik seviyesi:</strong> Helix-birincil (bir Helix-platform ailesi çıkarım ürünü), ancak şu anda kaynak materyale bağlı olarak bloke durumda. HelixTrack’dan sonra sıralanıyor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

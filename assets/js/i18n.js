@@ -757,3 +757,37 @@ window.MV_I18N = {
     'contact.lead': 'Dünya genelinde üst düzey mühendislik, platform/SDK ve teknik liderlik pozisyonlarına açığım. Bana ulaşmanın en hızlı yolu e-posta.'
   },
 };
+
+/* Early chrome applier: a localized static page (e.g. /products/ru/ with
+   <html lang="ru">) should render its native UI immediately on load, without a
+   manual switch. Reads document.documentElement.lang and, when no explicit user
+   choice is stored (localStorage['mv-lang']), applies that language's dictionary
+   right away. Self-contained and idempotent — main.js re-runs its own translate()
+   just after, and an explicit stored choice always wins (handled below + main.js).
+   Does not write localStorage, mutate the switcher, or touch theme logic. */
+(function () {
+  try {
+    var dict = window.MV_I18N || {};
+    var langs = (window.MV_LANGS || []).map(function (l) { return l.code; });
+    var stored = null;
+    try { stored = localStorage.getItem('mv-lang'); } catch (e) {}
+    if (stored && langs.indexOf(stored) > -1) return; // honor user's choice
+    var pageLang = (document.documentElement.getAttribute('lang') || '').slice(0, 2);
+    if (!pageLang || pageLang === 'en') return;
+    if (langs.indexOf(pageLang) < 0 || !dict[pageLang]) return;
+    var apply = function () {
+      var table = dict[pageLang];
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (table && table[key] != null) el.innerHTML = table[key];
+      });
+      var root = document.documentElement;
+      root.setAttribute('dir', (pageLang === 'ar' || pageLang === 'fa' || pageLang === 'he') ? 'rtl' : 'ltr');
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', apply);
+    } else {
+      apply();
+    }
+  } catch (e) { /* never block page render on i18n */ }
+})();

@@ -1,0 +1,337 @@
+---
+layout: default
+lang: tr
+title: "HelixTrack — Miloš Vasić"
+description: "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtrack.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "tr",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixtrack.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile.",
+      "inLanguage": "tr",
+      "name": "HelixTrack",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixtrack.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// seviye: helix-primary · sipariş 1</p>
+      <h1>HelixTrack <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">lisans: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">HTTP/3 QUIC</span><span class="od-chip">PostgreSQL</span><span class="od-chip">SQLite</span><span class="od-chip">SQLCipher</span><span class="od-chip">Redis</span><span class="od-chip">Angular 19</span><span class="od-chip">Tauri 2.0</span><span class="od-chip">Kotlin</span><span class="od-chip">Swift</span><span class="od-chip">Docker</span></div>
+
+      <h2>Kaynak</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/Helix-Track/Core" rel="noopener noreferrer" target="_blank">Helix-Track/Core <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/Helix-Track/Website" rel="noopener noreferrer" target="_blank">Helix-Track/Website <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixtrack">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixTrack — architecture map</text>
+<text class="lbl" x="40" y="96">Native clients</text>
+<text class="lbl" x="650" y="60">Decoupled services · HTTP/3 QUIC</text>
+<text class="lbl" x="650" y="344">Encrypted data layer</text>
+<text class="note" x="278" y="178">UDP discovery</text>
+<rect class="box" x="40" y="110" width="190" height="60" rx="10"/>
+<text class="t" x="135" y="144">Web · Angular 19</text>
+<rect class="box" x="40" y="180" width="190" height="60" rx="10"/>
+<text class="t" x="135" y="214">Desktop · Tauri 2.0</text>
+<rect class="box" x="40" y="250" width="190" height="60" rx="10"/>
+<text class="t" x="135" y="284">Android · Kotlin</text>
+<rect class="box" x="40" y="320" width="190" height="60" rx="10"/>
+<text class="t" x="135" y="354">iOS · Swift</text>
+<rect class="accent" x="330" y="205" width="250" height="120" rx="10"/>
+<text class="t" x="455" y="244">HelixTrack Core</text>
+<text class="s" x="455" y="264">Go + Gin · unified /do API</text>
+<rect class="box" x="650" y="80" width="250" height="62" rx="10"/>
+<text class="t" x="775" y="114">Auth service</text>
+<rect class="box" x="650" y="154" width="250" height="62" rx="10"/>
+<text class="t" x="775" y="188">Permissions service</text>
+<rect class="box" x="650" y="228" width="250" height="62" rx="10"/>
+<text class="t" x="775" y="262">Localization service</text>
+<rect class="box" x="650" y="360" width="250" height="72" rx="10"/>
+<text class="t" x="775" y="394">PostgreSQL / SQLite</text>
+<text class="s" x="775" y="414">SQLCipher AES-256</text>
+<rect class="box" x="650" y="452" width="250" height="60" rx="10"/>
+<text class="t" x="775" y="486">Redis cache</text>
+<path class="conn" marker-end="url(#a)" d="M230,140 L328,240"/>
+<path class="conn" marker-end="url(#a)" d="M230,210 L328,255"/>
+<path class="conn" marker-end="url(#a)" d="M230,280 L328,272"/>
+<path class="conn" marker-end="url(#a)" d="M230,350 L328,288"/>
+<path class="conn" marker-end="url(#a)" d="M580,240 L648,111"/>
+<path class="conn" marker-end="url(#a)" d="M580,255 L648,185"/>
+<path class="conn" marker-end="url(#a)" d="M580,270 L648,259"/>
+<path class="conn" marker-end="url(#a)" d="M580,300 L648,396"/>
+<path class="conn" marker-end="url(#a)" d="M580,312 L648,482"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// mimari</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>JIRA’a özgür dünyadan bir alternatif.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-0" aria-expanded="true" aria-controls="od-acc-helixtrack-0-panel">
+              <span class="od-accordion__label">Özet</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-0-panel" role="region" aria-labelledby="od-acc-helixtrack-0">
+            <div class="od-accordion__inner">
+      <p>HelixTrack, JIRA’a (ve Belgeler eklentisi aracılığıyla Confluence’a) modern, kapsamlı ve açık kaynaklı bir alternatif sunan, çok platformlu bir proje yönetimi ve sorun takip sistemi. Go tabanlı mikro hizmetler mimarisine dayanan bu sistem, web, masaüstü ve mobil için yerel istemcilerle çalışıyor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
+              <span class="od-accordion__label">Kısa açıklama</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
+            <div class="od-accordion__inner">
+      <p>Açık kaynaklı JIRA/Confluence alternatifi. Go mikro hizmetler arka ucu ("HelixTrack Çekirdeği"), proje ve sorun takibi için birleşik bir REST API arayüzü ile Confluence tarzı bir belge çalışma alanı sunuyor. Bu arayüz, HTTP/3 QUIC üzerinden web, masaüstü, Android ve iOS için yerel istemcilere servis ediliyor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
+              <span class="od-accordion__label">Uzun açıklama</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
+            <div class="od-accordion__inner">
+      <p>HelixTrack, mühendislik ekiplerinin en çok bağımlı olduğu iki ürün olan JIRA ve Confluence’a açık kaynaklı, özgür bir alternatif olarak konumlandırılmış bir proje yönetimi ve sorun takip platformu. Bu iki ürünün tam bir yerine geçen HelixTrack, sahibi olduğunuz ve istediğiniz yerde çalıştırabileceğiniz bir yazılım olarak yeniden tasarlandı. Kalbinde <strong>HelixTrack Çekirdeği</strong> yer alıyor: Go ile Gin çatısı kullanılarak yazılmış, REST API tabanlı bir mikro hizmet. Sorun takibi, çevik/scrum panoları, ekip yönetimi ve hiyerarşik izin motoru sunan bu çekirdek, yerel bir işlem içi motor ile HTTP destekli bir hizmet arasında değiştirilebilir bir yetkilendirme modeline sahip. Böylece aynı yetkilendirme sistemi, tek bir dizüstü bilgisayardan dağıtık bir kümeye kadar her ölçekte uygulama koduna dokunmadan çalışabiliyor. REST arayüzünü onlarca farklı rotaya yaymak yerine, Çekirdek tüm işlemleri tek bir eylem yönlendirmeli <code>/do</code> uç noktası üzerinden yürütüyor. İstek/yanıt yapısı da tek tip (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> giriş, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> çıkış). Her istemci aynı küçük sözleşmeyi kullanıyor ve yeni bir özellik eklemek, yeni bir URL tanımlamak yerine yalnızca bir eylem eklemek anlamına geliyor. Çekirdek, HTTP/3 QUIC üzerinden iletişim kuran, ayrık Kimlik Doğrulama, İzin Yönetimi ve Yerelleştirme hizmetleriyle entegre çalışıyor. Bu hizmetler ayrı makinelerde veya kümelerde çalıştırılabiliyor ya da test ortamlarında tamamen devre dışı bırakılabiliyor. Veriler, sıfır kurulumlu geliştirme için SQLite’de, üretim ortamında ise PostgreSQL’de saklanıyor. Ayrıca SQLCipher (AES-256) ile disk üzerinde şifreleniyor; böylece hassas proje verileri varsayılan olarak korunuyor, ek bir önlem olarak değil. <strong>Belgeler V2</strong> eklentisi, takip sistemini tam bir bilgi platformuna dönüştürüyor: Confluence tarzı bir çalışma alanı sunan bu eklenti, alanlar, sayfalar, sürüm kontrolü, şablonlar, gerçek zamanlı WebSocket iş birliği ve analizler içeriyor. Böylece wiki ve sorun takip sistemi nihayet tek bir arka uç altında birleşiyor, iki ayrı ürünün bir araya getirilmesiyle değil. Çekirdeğin etrafında ise birden fazla istemci uygulaması bulunuyor: Angular web istemcisi, Tauri + Angular masaüstü istemcisi, yerel Android (Kotlin) ve iOS (Swift) uygulamaları, ayrıca HarmonyOS ve Aurora OS istemcileri ile bir ekran koruyucu. Tüm bu istemciler aynı arka uca bağlanıyor ve UDP yayını sayesinde yerel ağlarda sunucuyu otomatik olarak keşfediyor. Böylece yeni bir istemci, elle yapılandırma gerektirmeden sunucusunu bulabiliyor. İstemci uygulamaları ayrı, özel depolarda tutuluyor ve burada yalnızca ürün düzeyinde sunuluyor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
+              <span class="od-accordion__label">Neden inşa ettik</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
+            <div class="od-accordion__inner">
+      <p>Ekiplere, JIRA + Confluence yığınına gerçekten açık, kendi sunucularında barındırılabilir bir alternatif sunmak için — "özgür dünyaya" yönelik olarak — satıcı bağımlılığı olmadan, kurumsal düzeyde izleme, belgeler ve iş birliğini tek bir açık kaynak lisansı altında birleştirdik.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
+              <span class="od-accordion__label">Neden oyunun kurallarını değiştiriyor</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
+            <div class="od-accordion__inner">
+      <p>İki ağır ticari ürünü — sorun izleme ve wiki/belge yığını — tek bir açık, yüksek performanslı, kendi sunucunuzda barındırılabilir platformda birleştiriyor ve bunu mevcut rakiplerin hiç sunmadığı bir şeyle eşleştiriyor: Gerçek çok platformlu *yerel* istemciler (web, masaüstü, Android, iOS, ayrıca HarmonyOS ve Aurora OS). Hepsi tek bir arka uç sözleşmesiyle çalışıyor. Kazanç, ödün vermeden sahiplik. HTTP/3 her yerde, tamamen ayrıştırılmış mikro hizmet mimarisi ve beklemedeki veriler için SQLCipher AES-256 şifrelemesi, genellikle yalnızca tescilli SaaS sistemlerine özgü performans ve güvenlik seviyesini, kendi altyapınızda barındırdığınız bir sisteme taşıyor — koltuk lisansları yok, satıcı bağımlılığı yok, verileriniz altyapınızdan çıkmıyor. Ekipler, JIRA-plus-Confluence deneyimini zaten bildikleri şekilde, kendi donanımlarında, tek bir açık kaynak lisansı altında yaşıyor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
+              <span class="od-accordion__label">Yenilikçi yönleri</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>Eylem tabanlı birleşik <code>/do</code> API — tek bir uç nokta, tek bir zarf, eyleme yönlendirme. Yeni yetenekler yeni URL’ler yerine yeni eylemler olarak geliyor; böylece saldırı yüzeyi, istemci kodu ve dokümantasyon yükü, tüm platformların paylaştığı tek bir sözleşmeye indirgeniyor.</li>
+        <li>HTTP/3 QUIC, *varsayılan* hizmetler arası iletişim aracı olarak — modern, düşük gecikmeli, bağlantı dayanıklı ağ iletişimi, sonradan eklenmiş değil, baştan itibaren entegre.</li>
+        <li>Yerel, süreç içi bir uygulama ile HTTP destekli bir hizmet arasında değiştirilebilir bir izin motoru; isteğe bağlı, bağımsız olarak dağıtılabilir Kimlik Doğrulama, İzinler ve Yerelleştirme hizmetleriyle birlikte — tek bir süreçte ya da kümede çalıştırsanız da aynı yetkilendirme modeli.</li>
+        <li><code>--space-root</code> bayrağıyla çoklu alan veri yalıtımı: Her proje kendi izole veritabanına ve varlık deposuna sahip oluyor; böylece kiracılar ve projeler, sorgu filtreleriyle değil, depolama sınırında ayrılıyor.</li>
+        <li>Beklemedeki veriler için SQLCipher AES-256 şifreleme — hassas proje verileri, varsayılan olarak ve şeffaf bir şekilde diskte korunuyor.</li>
+        <li>Yerel ağlarda UDP yayınıyla otomatik istemci-sunucu keşfi — istemci, Core’u sıfır manuel yapılandırma ile buluyor.</li>
+        <li>Belgeler V2, gerçek bir "Confluence alternatifi" — iyimser kilitlemeyle paralel düzenleme, çakışma tespiti ve tam değişiklik geçmişi sunan, izleyiciyle aynı arka uca sahip gerçek iş birliği belgeleri.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-6" aria-expanded="true" aria-controls="od-acc-helixtrack-6-panel">
+              <span class="od-accordion__label">En büyük teknik zorluklar ve çözümlerimiz</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-6-panel" role="region" aria-labelledby="od-acc-helixtrack-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Altı istemci platformu, tek arka uç, sıfır sözleşme sapması.</strong> Web/Angular, Masaüstü/Tauri, Android/Kotlin, iOS/Swift, HarmonyOS ve Aurora istemcilerini sürdürmek, normalde altı farklı API entegrasyonu anlamına gelir ve bunlar zamanla senkronizasyonu kaybeder. Bu riski, tek eyleme yönlendirmeli <code>/do</code> API ve sabit zarfını *tek* sözleşme haline getirerek ortadan kaldırdık — her istemci bunu aynı şekilde hedefliyor. Üstüne UDP yayınıyla hizmet keşfini ekledik; böylece istemciler Core’u ağda elle yapılandırılmış uç noktalar olmadan bulabiliyor.</li>
+        <li><strong>Hizmetleri ayırırken gecikme bedeli ödememek.</strong> Kimlik Doğrulama, İzinler ve Yerelleştirme’yi bağımsız olarak dağıtılabilir hizmetlere bölmek, normalde her çağrı için ek bir ağ atlaması anlamına gelir. Tüm hizmetler arası çağrılarda HTTP/3 QUIC kullanarak bu atlamaları hızlı ve bağlantı dayanıklı tuttuk; her hizmetin bağımsız olarak çalıştırılabilir olmasını sağladık — hatta test yapılandırmalarında tamamen devre dışı bırakılabilir — böylece ayrıştırma, sabit bir maliyet değil, dağıtım tercihi haline geldi.</li>
+        <li><strong>Confluence düzeyinde iş birliği, yazım kaybı karmaşası olmadan.</strong> Gerçek zamanlı çok yazarlı düzenleme, çakışan yazımlara davetiye çıkarır. Belgeler V2, iyimser kilitleme altında alanlar/sayfalar/sürümler, açık çakışma tespiti, geri dönülebilir tam değişiklik geçmişi ve gerçek zamanlı WebSocket senkronizasyonuyla bunu çözüyor — iş birliği tutarlı kalıyor, düzenlemeler sessizce ezilmiyor.</li>
+        <li><strong>Beklemedeki şifreleme, performansı öldürmeden.</strong> SQLCipher AES-256 diskteki verileri korur, ancak her sorgu için ek yük getirir. Bunu, çok katmanlı önbelleklemeyle (Yerelleştirme hizmetindeki Redis önünde bellek içi LRU) dengeledik; böylece çok dilli aramalar gibi sıcak yollar hızlı kalırken veriler şifreli duruyor.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-7" aria-expanded="true" aria-controls="od-acc-helixtrack-7-panel">
+              <span class="od-accordion__label">Teknoloji Yığını</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-7-panel" role="region" aria-labelledby="od-acc-helixtrack-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go + Gin</strong> — yüksek iş hacmi ve düşük gecikme süreli HTTP hizmetleri için tek ikili dosya dağıtım modeliyle seçildi; Core'un REST API bileşenini, JWT/CORS ara yazılımını ve tüm sistemi yönlendiren eylem tabanlı <code>/do</code> yönlendiricisini içerir.</li>
+        <li><strong>HTTP/3 QUIC</strong> — Core ile Kimlik Doğrulama/Yetkilendirme/Yerelleştirme hizmetleri arasındaki iletişim için seçildi; QUIC'un çoklu bağlantı ve bağlantı aktarım tasarımı, TCP'un takıldığı durumlarda kuyruk gecikmesini azaltır ve dengesiz bağlantılarla başa çıkar.</li>
+        <li><strong>PostgreSQL (prod) / SQLite (dev)</strong> — hem izleme hem de belgeler şemasını kapsayan büyük ölçekli ilişkisel model için tek bir veritabanı altyapısı: SQLite, yerel geliştirmeyi sıfır kurulum ve dosya tabanlı hale getirirken, Postgres üretim ölçeğinde özel bir <code>production</code> compose profili aracılığıyla devreye girer.</li>
+        <li><strong>SQLCipher (AES-256)</strong> — hassas proje verilerinin korunması için uygulama katmanında ek şifreleme gerektirmeyen, sorgu yazımını değiştirmeyen ve veritabanı düzeyinde şeffaf şifreleme sağlayan çözüm olarak seçildi.</li>
+        <li><strong>Redis</strong> — Yerelleştirme hizmetinin arkasında bellek içi LRU önbelleği ile birlikte kullanılan paylaşımlı önbellek katmanı olarak seçildi; bu iki katmanlı önbellek, altında şifreleme yükü olsa bile sıcak çok dilli sorguları hızlı tutar.</li>
+        <li><strong>Uber Zap + Lumberjack</strong> — yapılandırılmış, düşük bellek kullanımlı ve otomatik log döndürme özelliğine sahip günlükleme sistemi olarak seçildi; böylece Core, sınırsız log büyümesi olmadan üretim ortamında gözlemlenebilir kalır.</li>
+        <li><strong>golang-jwt / JWT</strong> — durum bilgisi tutmayan kimlik doğrulama mekanizması olarak seçildi; imzalı token, her <code>/do</code> zarfının <code>jwt</code> alanında taşınır ve böylece tüm istemcilerde kimlik doğrulama tek tip hale gelir.</li>
+        <li><strong>Angular 19 (+ Material, RxJS)</strong> — tepki veren, bileşen odaklı bir tarayıcı istemcisi için, kutudan çıkan olgun Material tasarım sistemiyle birlikte seçildi.</li>
+        <li><strong>Tauri 2.0 + Rust + Angular</strong> — Angular arayüzünü Rust destekli bir web görünümü içinde yeniden kullanarak tam bir tarayıcı çalışma zamanı paketlemek yerine, küçük bir ayak iziyle yerel bir masaüstü kabuğu sunmak için seçildi.</li>
+        <li><strong>Kotlin (Android) / Swift + SwiftUI (iOS)</strong> — mobil kullanıcıların sarılmış bir web görünümü yerine gerçekten yerel, platforma özgü istemcilere sahip olmasını sağlamak için seçildi.</li>
+        <li><strong>Docker / Docker Compose (Podman uyumlu)</strong> — yeniden üretilebilir, konteyner tabanlı dağıtım için seçildi; <code>/health</code> kontrolleri entegre edilmiş durumda ve Podman uyumluluğu sayesinde herhangi bir arka plan hizmeti veya satıcı zorunluluğu bulunmuyor.</li>
+        <li><strong>Testify (Go); Cypress/Playwright/Karma+Jasmine (istemciler)</strong> — tek bir arka uç ve çok sayıda istemci mimarisine uygun olarak, arka uç sözleşmesini ve istemci arayüzlerini bağımsız olarak kapsayan katmanlı otomatik testler için seçildi.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-8" aria-expanded="true" aria-controls="od-acc-helixtrack-8-panel">
+              <span class="od-accordion__label">Durum ve Dürüstlük Notları</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-8-panel" role="region" aria-labelledby="od-acc-helixtrack-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Durum: beta.</strong> HelixTrack Core, çalışan bir REST API mikro hizmetidir; <strong>Belgeler V2</strong> eklentisi yaklaşık %95 tamamlanmış olarak belgelenmiş olup, bilinen bir veritabanı alan eşleştirme sorunu nedeniyle henüz tam olarak sunulmamaktadır.</li>
+        <li><strong>Lisans: Belirlenmedi.</strong> <code>CLAUDE.md</code> dosyasında MIT lisansı belirtilmiş olsa da, kayıtlı <code>core/LICENSE</code> dosyası Apache 2.0'dır — lisansın kesin olarak belirlenebilmesi için bu çelişkinin giderilmesi gerekmektedir.</li>
+        <li>Projenin README dosyasında belirtilen performans rakamları (örn. 50.000+ istek/saniye, milisaniyenin altında sorgu süreleri) bağımsız olarak yayımlanmış ölçümler değil, tasarım/hedef değerleridir ve bu nedenle yukarıdaki iddialarda yer almamıştır.</li>
+        <li>İstemci uygulamaları (Web, Masaüstü, Android, iOS, Aurora, HarmonyOS) <strong>özel</strong> depolarda bulunmaktadır ve yalnızca ürün düzeyinde tanımlanmıştır.</li>
+      </ul>
+      <p>İçerik</p>
+      <p><strong>Öncelik kademesi:</strong> Helix-birincil ve Helix-Track ürün serisinin amiral gemisi — Server Factory projelerinin önünde yer alır.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

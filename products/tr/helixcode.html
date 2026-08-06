@@ -1,0 +1,328 @@
+---
+layout: default
+lang: tr
+title: "HelixCode — Miloš Vasić"
+description: "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixcode.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcode.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcode.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixcode.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcode.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcode.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcode.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "tr",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixcode.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces.",
+      "inLanguage": "tr",
+      "license": "MIT",
+      "name": "HelixCode",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixcode.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// seviye: helix-primary · sipariş 2</p>
+      <h1>HelixCode <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">lisans: MIT</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">PostgreSQL</span><span class="od-chip">Redis</span><span class="od-chip">SSH</span><span class="od-chip">Model Context Protocol</span><span class="od-chip">llama.cpp</span><span class="od-chip">Ollama</span></div>
+
+      <h2>Kaynak</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixCode" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixCode <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixcode">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixCode — layered architecture</text>
+<text class="lbl" x="40" y="90">API layer</text>
+<text class="lbl" x="40" y="240">Core services</text>
+<text class="lbl" x="40" y="462">Data layer</text>
+<path class="conn" marker-end="url(#a)" d="M220,164 L220,248"/>
+<path class="conn" marker-end="url(#a)" d="M480,164 L480,248"/>
+<path class="conn" marker-end="url(#a)" d="M740,164 L740,248"/>
+<path class="conn" marker-end="url(#a)" d="M360,332 L360,468"/>
+<path class="conn" marker-end="url(#a)" d="M600,332 L600,468"/>
+<rect class="box" x="120" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="220" y="134">REST API</text>
+<rect class="box" x="380" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="480" y="134">WebSocket</text>
+<rect class="box" x="640" y="100" width="200" height="64" rx="10"/>
+<text class="t" x="740" y="134">MCP</text>
+<text class="s" x="740" y="154">multi-transport</text>
+<rect class="box" x="40" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="125" y="284">Auth &amp; Sessions</text>
+<text class="s" x="125" y="304">JWT</text>
+<rect class="box" x="226" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="311" y="284">Worker Pool</text>
+<text class="s" x="311" y="304">SSH · health monitor</text>
+<rect class="box" x="412" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="497" y="284">Task + Checkpointing</text>
+<text class="s" x="497" y="304">rollback / resume</text>
+<rect class="box" x="598" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="683" y="296">Project &amp; Workflow</text>
+<rect class="box" x="784" y="250" width="170" height="82" rx="10"/>
+<text class="t" x="869" y="284">LLM Providers</text>
+<text class="s" x="869" y="304">llama.cpp · Ollama · OpenAI</text>
+<rect class="box" x="260" y="470" width="200" height="72" rx="10"/>
+<text class="t" x="360" y="504">PostgreSQL 15+</text>
+<text class="s" x="360" y="524">11-table schema</text>
+<rect class="box" x="500" y="470" width="200" height="72" rx="10"/>
+<text class="t" x="600" y="504">Redis 7</text>
+<text class="s" x="600" y="524">optional cache</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// mimari</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>İşi dağıtan, koruyan ve asla kaybetmeyen AI tabanlı dağıtık geliştirme platformu.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-0" aria-expanded="true" aria-controls="od-acc-helixcode-0-panel">
+              <span class="od-accordion__label">Özet</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-0-panel" role="region" aria-labelledby="od-acc-helixcode-0">
+            <div class="od-accordion__inner">
+      <p>HelixCode, kurumsal düzeyde, Go tabanlı dağıtık bir AI geliştirme platformudur. Geliştirme işlerini, SSH tarafından yönetilen çalışanlar ağı üzerinde akıllı bir şekilde bölümlere ayırır, otomatik kontrol noktaları ve geri alma işlevleriyle ilerlemeyi korur ve hiçbir işin kaybolmamasını sağlar. Çoklu LLM sağlayıcı entegrasyonunu, tam geliştirme yaşam döngüsü iş akışlarını ve platformlar arası teslimatı REST, CLI, TUI ve MCP arayüzleri altında birleştirir.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-1" aria-expanded="true" aria-controls="od-acc-helixcode-1-panel">
+              <span class="od-accordion__label">Kısa Açıklama</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-1-panel" role="region" aria-labelledby="od-acc-helixcode-1">
+            <div class="od-accordion__inner">
+      <p>HelixCode, Go ile yazılmış dağıtık bir AI geliştirme platformudur. İşleri, SSH tabanlı çalışan ağları üzerinde akıllı görevlere böler, otomatik kontrol noktaları ve geri alma ile ilerlemeyi korur, birden fazla LLM sağlayıcısını entegre eder ve REST, CLI, TUI ve MCP arayüzleri aracılığıyla tam geliştirme yaşam döngüsünü yönetir.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-2" aria-expanded="true" aria-controls="od-acc-helixcode-2-panel">
+              <span class="od-accordion__label">Uzun Açıklama</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-2-panel" role="region" aria-labelledby="od-acc-helixcode-2">
+            <div class="od-accordion__inner">
+      <p>HelixCode, kurumsal düzeyde dağıtık bir AI geliştirme platformudur (<code>dev.helix.code</code>, MIT) ve sloganıyla verdiği basit vaadi kelimesi kelimesine yerine getirir: işi böl, koru ve asla yerini kaybetme. Akıllı görev bölümü, otomatik iş koruması ve platformlar arası geliştirme iş akışları için tasarlanmış olup, dağıtık bilgi işlem gereksinimleri için Go ile yazılmıştır. Otomatik kontrol noktaları, geri alma ve gerçek zamanlı izleme, isteğe bağlı eklentiler değil, temel öncelikler olarak sunulur.</p>
+      <p>Mimarisinde, REST + WebSocket + MCP API yüzeyi altında odaklanmış çekirdek hizmetler yer alır: JWT kimlik doğrulama ve oturum yönetimi, sağlık izleme özelliğine sahip SSH tabanlı çalışan havuzu yönetimi, kontrol noktaları ve bağımlılık yönetimi içeren görev yönetimi, proje ve iş akışı yönetimi ile birleşik LLM sağlayıcı katmanı. Tüm bunlar PostgreSQL üzerinde kalıcı hale getirilirken, Redis isteğe bağlı koordinasyon ve önbellek katmanı olarak sunulur. Dağıtık çalışanlar ağ üzerinden otomatik olarak kurulur; bu sayede sistemin ölçeklendirilmesi, sunucunun bir makineye yönlendirilmesi kadar basit hale gelir. Çoklu istemci arayüzleri CLI, terminal kullanıcı arayüzü, REST ve mobil çerçeveleri kapsar; böylece aynı platform bir betikten, terminalden veya bir uygulamadan erişilebilir.</p>
+      <p>HelixCode, baştan sona eksiksiz bir geliştirme yaşam döngüsünü yönetir: planlama, oluşturma, test etme ve yeniden yapılandırma iş akışları, bağımlılık farkındalığı ve çoklu oturum bağlamı takibiyle otomatik olarak yürütülür. Böylece uzun süren bir çalışma, kesintiler ve makine sınırları arasında bile akışını korur. Birden fazla LLM sağlayıcısını (llama.cpp, Ollama ve OpenAI) tek bir arayüz altında birleştirir, mevcut CPU/GPU/belleği algılayarak modele uygun donanım seçimi yapar ve zincirleme düşünme ve ağaç tabanlı düşünme gibi ileri akıl yürütme stratejilerini, tek seferlik çözümlerin yetersiz kaldığı sorunlar için destekler. Model Context Protocol, standartlaştırılmış araç ve bağlam alışverişi için birden fazla iletim protokolü üzerinden uygulanır. Dağıtık çalışmalar ilerledikçe Slack, Discord, e-posta ve Telegram üzerinden çok kanallı bildirimlerle ekipler bilgilendirilir. Platform, Linux, macOS, Windows, Aurora OS ve SymphonyOS’u hedefler.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-3" aria-expanded="true" aria-controls="od-acc-helixcode-3-panel">
+              <span class="od-accordion__label">Neden inşa ettik</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-3-panel" role="region" aria-labelledby="od-acc-helixcode-3">
+            <div class="od-accordion__inner">
+      <p>Dağıtık ve AI destekli geliştirme, görevler makineler arasında bölündüğünde ya da kesintiye uğradığında genellikle bağlam ve ilerleme kaybına yol açar. HelixCode, görev bölmeyi akıllı hale getirmek ve çalışma korumasını otomatikleştirmek için inşa edildi — böylece büyük bir geliştirme çabası parçalara ayrılabilir, bir çalışan ağına dağıtılabilir, kontrol noktaları alınabilir ve durum kaybı olmadan devam ettirilebilir ya da geri alınabilir.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-4" aria-expanded="true" aria-controls="od-acc-helixcode-4-panel">
+              <span class="od-accordion__label">Neden oyunun kurallarını değiştiriyor</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-4-panel" role="region" aria-labelledby="od-acc-helixcode-4">
+            <div class="od-accordion__inner">
+      <p>Dağıtık AI geliştirmeyi *kalıcı* hale getiriyor — bu, ekiplerin bu parçaları elle bir araya getirirken asla pratik olmayan bir yetenek. Normalde üç ayrı araçta bulunan üç şey tek bir platformda birleşiyor: dağıtık hesaplama (otomatik kurulum ve sağlık izleme özellikli SSH çalışan ağları), AI geliştirme desteği (akıl yürütme ve araç çağırma özellikli çoklu sağlayıcı LLMs) ve tam yaşam döngüsü iş akışı otomasyonu. Bağlayıcı doku, veritabanı destekli kontrol noktaları: Görev durumu, kontrol noktaları ve bağımlılıklar PostgreSQL’da saklandığından, birçok makine ve oturumu kapsayan bir iş, tam olarak kaldığı yerden geri alınabilir ya da devam ettirilebilir. Kesintiler ve bölünmüş çalışmalar, ilerleme kaybının kaynağı olmaktan çıkıp rutin, kurtarılabilir olaylara dönüşüyor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-5" aria-expanded="true" aria-controls="od-acc-helixcode-5-panel">
+              <span class="od-accordion__label">Yenilikçi olan ne</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-5-panel" role="region" aria-labelledby="od-acc-helixcode-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Çalışma koruması temel bir ilke olarak:</strong> Dağıtık geliştirme görevlerine otomatik kontrol noktaları ve geri alma uygulanması, böylece ilerleme kesintiye ya da makine arızasına uğradığında yok olacağına hayatta kalıyor.</li>
+        <li><strong>Donanıma duyarlı model seçimi:</strong> Algılanan CPU/GPU/belleği inceleyerek her görevi makinenin gerçekten iyi çalıştırabileceği bir modelle eşleştiriyor — çalışan başına manuel ayarlama gerektirmiyor.</li>
+        <li><strong>Tek platform, beş giriş noktası:</strong> REST, WebSocket, CLI, TUI ve MCP; MCP’un kendisi de birden fazla iletim yöntemi üzerinden sunuluyor, böylece araçlar ve aracılar nasıl bağlanırlarsa bağlansınlar entegre olabiliyor.</li>
+        <li><strong>Platformlar arası erişim:</strong> Genellikle masaüstü üçlüsüyle sınırlı kalmayıp Aurora OS ve SymphonyOS’u da kapsayarak, çoğu aracın göz ardı ettiği platformlara kadar çalışan filosunu genişletiyor.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-6" aria-expanded="true" aria-controls="od-acc-helixcode-6-panel">
+              <span class="od-accordion__label">En büyük teknik zorluklar ve çözümlerimiz</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-6-panel" role="region" aria-labelledby="od-acc-helixcode-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Dağıtık, kesintiye açık görevlerde çalışmanın kaybolmaması.</strong> Bir iş makineler arasında bölündüğünde, herhangi bir çökme ya da kesinti normalde devam eden işi yarıda bırakır. Biz görevi kendisini kontrol noktaları ve bağımlılıkların taşıyıcısı olarak modelledik, PostgreSQL’da sakladık; böylece sistem, son iyi duruma geri dönebilir ya da oradan devam edebilir — dayanıklılık, kırılgan bellek içi durumda değil, veri katmanında yaşıyor.</li>
+        <li><strong>Heterojen bir çalışan filosunun yönetimi.</strong> Linux, macOS, Windows, Aurora ve SymphonyOS makinelerinden oluşan bir ağ, kullanılabilirlik ve kurulum açısından sürekli değişen bir hedef. Bunu, SSH tabanlı kayıt, yeni düğümlere otomatik kurulum ve sürekli sağlık izleme yapan özel bir çalışan havuzu hizmetiyle çözüyoruz; böylece makineler gelip giderken filo biliniyor ve kontrol altında kalıyor.</li>
+        <li><strong>Sağlayıcı ve donanım heterojenliği.</strong> LLM arka uçları ve bunları çalıştıran makineler yetenek açısından büyük farklılıklar gösteriyor. Bunu, birleşik bir LLM sağlayıcı arayüzü arkasına gizledik ve bunu, donanım tespiti (CPU/GPU/bellek) ile eşleştirdik; bu da akıllı model seçimini yönlendiriyor, böylece doğru model doğru makineye iniyor ve çağıran tarafın her ikisi hakkında da akıl yürütmesine gerek kalmıyor.</li>
+      </ul>
+      <p>İçerik</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-7" aria-expanded="true" aria-controls="od-acc-helixcode-7-panel">
+              <span class="od-accordion__label">Teknoloji Yığını</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-7-panel" role="region" aria-labelledby="od-acc-helixcode-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (1.26+ iç modül)</strong> — Dağıtık işçi sistemi için tam olarak ihtiyaç duyulan özelliklere sahip olduğu için seçildi: orkestrasyon için ucuz paralellik sağlayan goroutine tabanlı eşzamanlılık ve herhangi bir düğüme otomatik olarak yüklenen, bağımsız çalışabilen bir ikili dosya. Tüm çekirdek hizmetleri ve CLI/sunucu ikili dosyalarını içerir.</li>
+        <li><strong>Gin (HTTP çatısı)</strong> — Düşük ek yük ile hızlı ve minimal bir REST katmanı sunması nedeniyle seçildi; tüm istemcilerin bağlandığı <code>/api/v1</code> yüzeyini (kimlik doğrulama, işçiler, görevler, projeler) sunar.</li>
+        <li><strong>PostgreSQL 15+ (pgx/v5 üzerinden)</strong> — Dayanıklı kayıt sistemi olarak seçildi çünkü kontrol noktaları ve geri alma işlemleri için işlemsel kalıcılık gereklidir; dağıtık hesaplama şemasının 11 tablosunu (kullanıcılar, işçiler, görevler, projeler, oturumlar, ysa_sağlayıcıları, bildirimler) barındırarak işlerin korunmasını sağlar.</li>
+        <li><strong>Redis 7+ (isteğe bağlı, go-redis/v9)</strong> — Zorunlu bir bağımlılık haline gelmeden sıcak yolları hızlandıran isteğe bağlı bir önbellek ve koordinasyon katmanı olarak seçildi; bu sayede minimal bir kurulum yalnızca PostgreSQL ile çalışabilir.</li>
+        <li><strong>SSH</strong> — İşçi kontrol iletişim kanalı olarak seçildi çünkü zaten her yerde mevcut ve güvenli; özel bir aracıya ihtiyaç duymadan tüm havuzda işçi kaydı, otomatik kurulum ve uzaktan komut yürütme işlemlerini yönetir.</li>
+        <li><strong>Model Context Protocol (MCP)</strong> — Dış araçlar ve aracılarla standartlaştırılmış araç ve bağlam alışverişi için seçildi; istemcilerin bağlandığı her ortamda çalışabilen çoklu iletişim desteği ile uygulandı.</li>
+        <li><strong>LLM sağlayıcıları (llama.cpp, Ollama, OpenAI)</strong> — Yerel ve barındırılan çıkarım işlemlerini tek bir birleşik arayüz altında toplamak için seçildi; böylece donanıma duyarlı seçim, bir görevi çağıranın farkında olmadan yerel veya barındırılan bir modele yönlendirebilir.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-8" aria-expanded="true" aria-controls="od-acc-helixcode-8-panel">
+              <span class="od-accordion__label">Durum ve Dürüstlük Notları</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-8-panel" role="region" aria-labelledby="od-acc-helixcode-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Durum: beta.</strong> README dosyası "TAMAMLANMIŞ / tüm 5 aşama" durumunu bildiriyor; bu tamamlılık proje tarafından beyan edilen bir durum olup bağımsız olarak doğrulanmadığı için sayfa bunu beta olarak değerlendiriyor.</li>
+        <li>Yukarıdaki tüm ayrıntılar, depo README dosyasından alınmıştır; pazarlama ifadeleri (sloganlar) kaynak metriklerden ziyade editöryeldir.</li>
+      </ul>
+      <p><strong>Öncelik katmanı:</strong> Helix-birincil.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
