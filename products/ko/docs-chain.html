@@ -1,0 +1,305 @@
+---
+layout: default
+lang: ko
+title: "Docs Chain — Miloš Vasić"
+description: "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docs-chain.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "ko",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/docs-chain.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically.",
+      "inLanguage": "ko",
+      "name": "Docs Chain",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/docs-chain.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 25</p>
+      <h1>Docs Chain <span class="od-h1-badges"><span class="od-badge--status od-badge--status--active">active</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">DAG + Kahn topological sort</span><span class="od-chip">SQLite (pure-Go modernc)</span><span class="od-chip">fsnotify</span><span class="od-chip">YAML config</span><span class="od-chip">exec transforms (Markdown → HTML/PDF/DOCX)</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/docs_chain" rel="noopener noreferrer" target="_blank">vasic-digital/docs_chain <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="docs-chain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">Docs Chain — dependency DAG · change propagation</text>
+<text class="lbl" x="40" y="216">Change propagates downstream</text>
+<text class="lbl" x="300" y="100">Transform outputs (exec)</text>
+<text class="lbl" x="610" y="384">Persisted state</text>
+<text class="note" x="500" y="512">Phases 1–5 implemented (GREEN) · Phases 6–7 planned</text>
+<rect class="box" x="40" y="230" width="170" height="90" rx="10"/>
+<text class="t" x="125" y="264">Markdown source</text>
+<text class="s" x="125" y="284">chain member</text>
+<rect class="accent" x="300" y="220" width="210" height="110" rx="10"/>
+<text class="t" x="405" y="275">DAG engine</text>
+<text class="s" x="405" y="295">Kahn topological sort</text>
+<rect class="box" x="610" y="90" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="125">HTML</text>
+<text class="s" x="710" y="145">exec transform</text>
+<rect class="box" x="610" y="190" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="225">PDF</text>
+<text class="s" x="710" y="245">exec transform</text>
+<rect class="box" x="610" y="290" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="325">DOCX</text>
+<text class="s" x="710" y="345">exec transform</text>
+<rect class="box" x="610" y="400" width="200" height="70" rx="10"/>
+<text class="t" x="710" y="435">SQLite state</text>
+<text class="s" x="710" y="455">modernc pure-Go</text>
+<rect class="dash" x="40" y="400" width="170" height="70" rx="10"/>
+<text class="t" x="125" y="435">fsnotify watch</text>
+<text class="s" x="125" y="455">content-hash / mtime</text>
+<path class="conn" marker-end="url(#a)" d="M210,275 L298,275"/>
+<path class="conn" marker-end="url(#a)" d="M510,255 L608,125"/>
+<path class="conn" marker-end="url(#a)" d="M510,270 L608,225"/>
+<path class="conn" marker-end="url(#a)" d="M510,290 L608,325"/>
+<path class="conn" marker-end="url(#a)" d="M510,320 L608,435"/>
+<path class="conn" marker-end="url(#a)" d="M210,435 L298,320"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>추적된 문서는 절대 동기화에서 벗어날 수 없습니다 — 콘텐츠 해시 기반, 양방향, 원자적 처리.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-0" aria-expanded="true" aria-controls="od-acc-docs-chain-0-panel">
+              <span class="od-accordion__label">요약</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-0-panel" role="region" aria-labelledby="od-acc-docs-chain-0">
+            <div class="od-accordion__inner">
+      <p>Docs Chain는 범용의 Go로 구현된 양방향 문서-데이터베이스 의존성 전파 엔진입니다. 등록된 체인의 구성원이 변경되면 — 마크다운 소스, HTML/PDF/DOCX 내보내기 파일, 또는 SQLite 데이터베이스 — 엔진은 콘텐츠 해시를 통해 변경을 감지하고 연결된 모든 구성원에 원자적으로 전파합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-1" aria-expanded="true" aria-controls="od-acc-docs-chain-1-panel">
+              <span class="od-accordion__label">간략 설명</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
+            <div class="od-accordion__inner">
+      <p>문서와 데이터베이스를 동기화 상태로 유지하는 Go 엔진입니다. DAG(칸 위상 정렬, 조기 중단, 양방향 동기화 엣지, 원자적 이름 변경 + SQLite 트랜잭션 커밋)를 기반으로 한 샐사 스타일의 콘텐츠 해시 기반 증분 재계산을 사용하여 연결된 아티팩트가 변경될 때마다 내보내기를 재생성합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
+              <span class="od-accordion__label">상세 설명</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
+            <div class="od-accordion__inner">
+      <p>Docs Chain는 "마크다운이 변경되면 PDF를 재생성한다"는 취약한 셸 스크립트를 한 번 더 작성한 후에야 구축하게 되는 솔루션입니다. 이 엔진은 수작업으로 작성된 동기화 코드의 전 범주를 대체합니다. 프로젝트의 문서와 데이터베이스를 체인의 구성원으로 모델링하고, 어떤 구성원이든 변경되면 선언된 모든 방향으로 그 변경을 연결된 모든 구성원에 전파하여 — 재생성 및 내보내기를 원자적으로 수행함으로써 추적된 아티팩트가 절대 동기화에서 벗어나지 않도록 합니다. 이 설계는 스크립팅이 아닌 증분 빌드 시스템의 엄격함을 그대로 차용했습니다. 변경 감지는 <strong>mtime이 아닌 콘텐츠 해시</strong>로 이루어지므로 <code>touch</code> 명령은 아무런 작업도 유발하지 않으며, 1바이트의 수정은 정확히 필요한 재빌드만 실행합니다 — 오탐지나 누락된 변경 없이 말입니다. 한 줄로 요약하자면, 이는 DAG를 기반으로 한 샐사 스타일의 콘텐츠 해시 기반 증분 재계산으로, 칸 위상 정렬, 조기 중단(변경되지 않은 하위 트리 가지치기), 선언된 권한을 가진 양방향 <code>sync</code> 엣지, 원자적 이름 변경 및 SQLite 트랜잭션 커밋을 통해 전파 중 중단되어도 불완전한 내보내기 파일이 남지 않도록 보장합니다. <code>vasic-digital</code> 서브모듈로 제공되며, HelixConstitution 서브모듈의 핵심 구성 요소로 사용됩니다. 따라서 헌장을 채택한 모든 프로젝트는 기본적으로 Docs Chain를 활용하며, 컨텍스트별 YAML를 통해 자체 체인을 등록합니다. 구현 상태는 헌장 §11.4.6에 따라 투명하게 공개됩니다. 1~4단계(핵심 DAG + 해싱, 노드 어댑터/변환, 원자적 전파 오케스트레이터, <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>를 지원하는 구성 기반 멀티 컨텍스트 CLI)는 구현 및 테스트 완료되었습니다. 4b단계에서는 범용 양방향 <code>md-to-sqlite</code>/<code>sqlite-to-md</code> 내장 기능(순수 Go, 행 수준 드리프트, 바이트 안정적 왕복 변환)과 <code>colorize-html</code> 내장 기능을 추가합니다. 5단계의 종합적인 실 바이너리 e2e 테스트는 구현 완료되었으며 GREEN 상태입니다. 6~7단계(헌장 배포, ATMOSphere 연동)는 계획 단계로, 운영자 권한으로 제한됩니다. Herald는 첫 번째 실제 하류 소비자로, 66개 문서의 멀티 포맷 코퍼스를 동기화하여 오류 없이 작동함을 검증합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
+              <span class="od-accordion__label">개발 배경</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
+            <div class="od-accordion__inner">
+      <p>문서, 내보내기 파일, 데이터베이스는 수작업이나 취약한 스크립트로 관리되는 순간부터 동기화에서 벗어납니다. Docs Chain는 동기화를 기계적이며 콘텐츠 해시 기반의 정확하고 원자적인 프로세스로 전환하여, 체인의 어느 한 부분에서 변경이 발생하더라도 하류(및 상류)의 모든 요소를 안전하고 정확하게 업데이트합니다.</p>
+      <p>콘텐츠</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
+              <span class="od-accordion__label">왜 혁신적인가</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
+            <div class="od-accordion__inner">
+      <p>컴파일러와 빌드 시스템 개발자들이 당연하게 여기는, 오랜 노력 끝에 얻은 정확성 보장 기법들—콘텐츠 해시 기반 의존성 그래프, 최소 재계산, 원자적 커밋—을 이제껏 크론 잡과 선의에만 의존해왔던 문서화와 데이터베이스라는 영역에 적용합니다. 진정한 양방향 동기화는 소스와 그 출력물 간의 관계를 양방향으로 강제하므로, "문서가 최신 상태가 아니다"나 "출력물이 소스와 일치하지 않는다"와 같은 문제는 더 이상 반복되는 버그가 아니라 엔진이 허용하지 않는 상태가 됩니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
+              <span class="od-accordion__label">혁신적인 점</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>콘텐츠 해시(수정 시각 아님)를 기반으로 한 DAG 상의 증분 재계산 및 조기 중단.</li>
+        <li>양방향, 명시적 권한 동기화 간선(문서 ↔ 출력물 ↔ SQLite).</li>
+        <li>원자적 이름 변경 + SQLite 트랜잭션 커밋을 통한 충돌 안전 전파.</li>
+        <li>순수 Go 기반 <code>md-to-sqlite</code>/<code>sqlite-to-md</code> 왕복 변환 및 행 수준 변화 감지.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-6" aria-expanded="true" aria-controls="od-acc-docs-chain-6-panel">
+              <span class="od-accordion__label">도전 과제와 해결 방안</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-6-panel" role="region" aria-labelledby="od-acc-docs-chain-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>불필요한 재빌드</strong>: 콘텐츠 해시 감지로 해결(타임스탬프 대신).</li>
+        <li><strong>부분적/손상된 업데이트</strong>: 원자적 이름 변경과 SQLite 트랜잭션으로 해결.</li>
+        <li><strong>다중 멤버 정렬의 정확성</strong>: 칸 위상 정렬 + 조기 중단으로 해결.</li>
+        <li><strong>정직한 기능 보고</strong>: 각 단계별 구현 상태(§11.4.6 기준 IMPLEMENTED vs PLANNED)를 명시하여 해결.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-7" aria-expanded="true" aria-controls="od-acc-docs-chain-7-panel">
+              <span class="od-accordion__label">기술 스택(이유와 방법)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-7-panel" role="region" aria-labelledby="od-acc-docs-chain-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> — 전체 엔진(<code>internal/hash</code>, <code>graph</code>, <code>adapter</code>, <code>orchestrator</code>, <code>config</code>, <code>state</code>, <code>runner</code>, <code>cmd/docs_chain</code>).</li>
+        <li><strong>DAG + 칸 위상 정렬</strong> — 조기 중단 기능이 있는 의존성 정렬.</li>
+        <li><strong>SQLite(순수 Go modernc)</strong> — DB 멤버 및 트랜잭션 커밋.</li>
+        <li><strong>fsnotify</strong> — 실시간 전파를 위한 <code>watch</code> 데몬.</li>
+        <li><strong>YAML 설정</strong> — 컨텍스트별 체인 등록.</li>
+        <li><strong>exec: 변환</strong> — 플러그형 Markdown→HTML/PDF/DOCX 생성.</li>
+      </ul>
+      <blockquote><p>로드맵 투명성: 6~7단계(헌법 배포, ATMOSphere 연동)는 PLANNED / 운영자 제한 상태—아직 출시되지 않음.</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
