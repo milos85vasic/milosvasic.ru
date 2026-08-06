@@ -1,0 +1,332 @@
+---
+layout: default
+title: "HelixTranslate — Miloš Vasić"
+description: "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "kk",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixtranslate.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly.",
+      "inLanguage": "kk",
+      "name": "HelixTranslate",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixtranslate.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 10</p>
+      <h1>HelixTranslate <span class="od-h1-badges"><span class="od-badge--status od-badge--status--beta">beta</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">Gin</span><span class="od-chip">QUIC / HTTP/3 (quic-go)</span><span class="od-chip">gRPC + Protocol Buffers</span><span class="od-chip">Gorilla WebSocket</span><span class="od-chip">PostgreSQL</span><span class="od-chip">SQLite</span><span class="od-chip">Redis</span><span class="od-chip">unidoc/unioffice + unipdf</span><span class="od-chip">Cobra</span><span class="od-chip">LLMsVerifier bridge</span><span class="od-chip">Docker / Podman</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/HelixTranslate" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixTranslate <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixtranslate">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixTranslate — no silent fallback</text>
+<text class="lbl" x="40" y="214">Local runtimes — removed</text>
+<text class="note" x="612" y="200">if unavailable</text>
+<text class="note" x="620" y="268">if none verified</text>
+<rect class="accent" x="330" y="48" width="230" height="58" rx="10"/>
+<text class="t" x="445" y="82">Translation request</text>
+<rect class="box" x="330" y="132" width="230" height="72" rx="10"/>
+<text class="t" x="445" y="166">Explicit provider requested?</text>
+<rect class="box" x="330" y="236" width="230" height="72" rx="10"/>
+<text class="t" x="445" y="270">Verified model available?</text>
+<rect class="box" x="330" y="340" width="230" height="64" rx="10"/>
+<text class="t" x="445" y="374">Select strongest-verified</text>
+<rect class="box" x="330" y="432" width="230" height="58" rx="10"/>
+<text class="t" x="445" y="466">Deterministic fallback chain</text>
+<rect class="good" x="330" y="516" width="230" height="64" rx="10"/>
+<text class="gt" x="445" y="550">Translate on verified model</text>
+<rect class="tint" x="660" y="236" width="250" height="100" rx="10"/>
+<text class="t" x="785" y="270">Honest hard error</text>
+<text class="s" x="785" y="290">no silent fallback · no local runtime</text>
+<rect class="box" x="40" y="236" width="230" height="72" rx="10"/>
+<text class="t" x="155" y="270">Ollama · llama.cpp</text>
+<text class="s" x="155" y="290">removed from default path</text>
+<path class="conn" marker-end="url(#a)" d="M445,106 L445,130"/>
+<path class="conn" marker-end="url(#a)" d="M445,204 L445,234"/>
+<path class="conn" marker-end="url(#a)" d="M445,308 L445,338"/>
+<path class="conn" marker-end="url(#a)" d="M445,404 L445,430"/>
+<path class="conn" marker-end="url(#a)" d="M445,490 L445,514"/>
+<path class="conn" marker-end="url(#a)" d="M560,168 L658,270"/>
+<path class="conn" marker-end="url(#a)" d="M560,272 L658,300"/>
+<line class="strike" x1="40" y1="236" x2="270" y2="308"/>
+<line class="strike" x1="270" y1="236" x2="40" y2="308"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Тексерілген модельді кітаптарды аудару — адалдық жобаланған, ешқашан үнсіз резервтік нұсқаға көшпейді.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-0" aria-expanded="true" aria-controls="od-acc-helixtranslate-0-panel">
+              <span class="od-accordion__label">Қысқаша мазмұны</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-0-panel" role="region" aria-labelledby="od-acc-helixtranslate-0">
+            <div class="od-accordion__inner">
+      <p>HelixTranslate — Go негізіндегі жоғары өнімді электрондық кітаптарды аудару платформасы. Ол 100-нан астам тілдер арасында кітаптарды тексерілген LLM провайдерлері арқылы аударады, нақты уақыттағы WebSocket мониторингімен және үнсіз резервтік нұсқаға көшпеу саясатымен жұмыс істейді. Мұндай саясат сәтсіздіктерді ашық түрде көрсетеді, ешқашан бейхабар түрде сапасын төмендетпейді.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
+              <span class="od-accordion__label">Қысқаша сипаттама</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
+            <div class="od-accordion__inner">
+      <p>Go негізіндегі әмбебап электрондық кітаптарды аудару құралы. FB2, EPUB, TXT, HTML, PDF және DOCX форматтарын 100-нан астам тілге аударады. Тексерілген ең мықты LLM модельдерін (LLMsVerifier көпір арқылы) пайдаланады, REST/HTTP-3 және gRPC API-ларымен, таратылған өңдеу жүйесімен және нақты уақыттағы WebSocket мониторингілік тақтасымен жабдықталған.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
+              <span class="od-accordion__label">Толық сипаттама</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
+            <div class="od-accordion__inner">
+      <p>HelixTranslate — Go негізіндегі кәсіпорын деңгейіндегі жүйе. Ол кітаптарды тілдер арасында аудару үшін LLM провайдерлерін пайдаланады. Бұл жүйе абзацтар немесе үзінділерді емес, кітаптың басынан аяғына дейінгі толық мәтінді аударады. Көптеген электрондық кітап форматтарын (FB2, EPUB, TXT, HTML, PDF, DOCX) талдайды және қайта құрастырады, 100-нан астам тілді автоматты түрде анықтайды, сондай-ақ CLI құралдары мен API серверлерін (REST HTTP/3 арқылы, gRPC және WebSocket оқиғалар ағыны) ұсынады. Бұл жүйе терминалдағы жұмыс ағымына да, сервис торына да бірдей сәйкес келеді.</p>
+      <p>Оның айқын ерекшелігі — *модельді қалай таңдауы*. Провайдерді қатаң түрде белгілеп, оның әрқашан жұмыс істей беретініне үміттену орнына, HelixTranslate барлық модельдерді таңдау билігін LLMsVerifier көпірге (<code>pkg/bridge</code>) тапсырады. Ол ең мықты *тексерілген* API модельді таңдап, анықталған, бағалау бойынша реттелген резервтік тізбек қайтарады. Модельдің жарамдылығы жауапкершілік, код, мүмкіндіктердің байлығы және сенімділік көрсеткіштері бойынша салмақталған бағалау арқылы анықталады. Демек, сіздің аударманы орындайтын модель өз орнын дәлелдеп, жұмыс істейтінін көрсетіп алған, конфигурациялық файлда көрінгені үшін емес.</p>
+      <p>Мәні жағынан, жүйе кодта тікелей "үнсіз резервтік нұсқаға көшпеу" талабын жүзеге асырады: егер провайдердің API кілті жоқ болса немесе оператор қолжетімсіз провайдерді сұраса, жүйе адал қате қайтарады, ешқашан бейхабар түрде провайдерді ауыстырмайды немесе жергілікті орындау ортасына көшіп, барлығы жақсы екендігіне әрекет жасамайды. Бұл ереже арнайы құрылыс алдындағы тексеру арқылы және мутациялық тестпен бекітілген. Жергілікті орындау орталары (Ollama, llama.cpp) әдейі әдепкі жолдан алынып тасталған, бұл тексерілмеген әлсіз модель ешқашан тексерілген модельдің орнына үнсіз түрде тұрып қалмауы үшін жасалған.</p>
+      <p>Аудару ядросының айналасында нақты уақыттағы WebSocket мониторинг жүйесі орналасқан: аударма CLI типтелген оқиғаларды мониторинг серверіне жібереді, ол веб-тақтада тікелей көрсетіледі, ал қашықтағы SSH жұмысшылары жүктемені таратып өңдейді. Жүйеге көп кезеңді өңдеу, сапа талдауының дайындық кезеңі, аудармаларды кешіру (ұзақ мәтіндер үшін шығынды бақылау мақсатында), көруге негізделген сапалық тексеру қосылған. Бүкіл платформа адалдыққа негізделген инженерлік конституцияға бағынады: тесттер нақты, пайдаланушыға көрінетін нәтижелерді дәлелдеуі керек, ал мутациялық тестсіз жасыл белгілер ештеңені дәлелдемейді.</p>
+      <p>Мазмұны</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
+              <span class="od-accordion__label">Неге құрастырдық</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
+            <div class="od-accordion__inner">
+      <p>Кітап сияқты ұзақ мәтіндерді сенімді және *адал* аудару үшін — "сапасы төмен болса да бар" аударманы ешқашан жібермеу үшін. Жобаның негізгі қағидасы: жоқ немесе тексерілмеген аударма қатты және айқын қате болуы керек, ал модель таңдауы әрқашан нақты тексерілген провайдерге бағытталуы тиіс, ешқашан алдын ала белгіленген болжамға немесе үнсіз жергілікті резервтік нұсқаға ауыспауы керек.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+              <span class="od-accordion__label">Неге бұл өзгерістің бастамасы</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
+            <div class="od-accordion__inner">
+      <p>LLM аударма құбырларының көпшілігі үнсіз істен шығады — олар әлсіз модельге тыныш ауысады, жергілікті орындау ортасына түседі немесе толық емес нәтиже шығарады, ал сынақ жинағы жасыл түспен жанып тұрады да, ешкім сападағы күрт құлдырауды байқамайды. HelixTranslate осы бүкіл істен шығу режимін құрылымдық түрде мүмкін етпейді: модель таңдауы тексеру арқылы бақыланады, резервтік тізбек анықталған және толық ашық, ал "кілт жоқ / тексерілген модель жоқ" жағдайы үнсіз шартсыз қатеге әкеледі, емес "бәрібір" деген көзқарасқа. Бұл жалғыз жобалау шешімі "осы аударма шынымен қабілетті, тексерілген модельде орындалды ма?" деген сұрақты тексеру мүмкін емес үміттен жүйенің өз тарапынан кепілдік берілетін кепілдікке айналдырады.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+              <span class="od-accordion__label">Қандай жаңалықтар бар</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Тексеру арқылы бақыланатын модель маршруттауы</strong> LLMsVerifier көпір арқылы жүзеге асырылады — ең мықты *тексерілген* модель автоматты түрде таңдалады, сондықтан операторлар мақсатты көрсетеді, провайдер атауларын емес, және ешқашан тоқтап қалуы мүмкін провайдерді қолмен таңдамайды.</li>
+        <li><strong>Үнсіз резервтік ауысуға тыйым салу кепілдігі кодта жүзеге асырылған</strong> — төрт анық маршруттау тармағы (макет / анық тексеруші / анық провайдер / көпір әдепкісі), олардың әрқайсысы үнсіз ауысудың орнына қатаң қате шығарады, сондай-ақ әдепкі жолдан жергілікті орындау орталары әдейі алынып тасталған, сондықтан әлсіз резервтік нұсқаға түсу мүмкін емес.</li>
+        <li><strong>Механикалық бақылау</strong> — <code>CM-NO-LOCAL-RUNTIME</code> құрастыру алдындағы қақпа және онымен байланысты мутациялық сынақ құрастыру кезінде жергілікті орындау клиенті әдепкі жолда ешқашан құрылмайтынын растайды: кепілдік бұзылса, құрастыру сәтсіз болады.</li>
+        <li><strong>Анықталған, бағалау бойынша реттелген резервтік тізбек</strong> — *тексерілген* модельдер арасындағы провайдерден провайдерге ауысуға рұқсат етіледі және толық ашық, бұл үнсіз резервтік ауысуға тыйым салынғаннан принципті түрде ерекшеленеді: жұмыс қай қабілетті модельге жүктелгенін әрқашан білесіз.</li>
+        <li><strong>WebSocket мониторингі нақты уақытта</strong> — типтелген аударма оқиғалары тікелей тақтаға ағып келеді, ал SSH таратылған жұмысшылары арқылы кітап көлеміндегі тапсырма көрінетін және параллель түрде орындалады, қара жәшік емес.</li>
+        <li><strong>Алдауға қарсы сынақ режимі</strong> — мутациялық сынақтар, теріс растаулар, нақты жүйелік орындаулар және көру арқылы сапалық бақылау бірге "сынақтар сәтті өтті" деген жағдайда "мәлімет шынымен жұмыс істемейді" дегенді үнсіз жасыра алмайтындай етеді.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
+              <span class="od-accordion__label">Ең үлкен техникалық қиындықтар және оларды қалай шештік</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Адал аударма құбырының кепілдігін беру (үнсіз құлдыраусыз).</strong> Барлық модельдердің билігін LLMsVerifier көпірінде орталықтандыру арқылы шешілді, сондықтан бақылау үшін бір ғана шешім нүктесі бар, төрт анық маршруттау тармағы әрқайсысы болжаудың орнына қатты қате шығарады, жергілікті орындау резервтік нұсқалары әдепкі жолдан толығымен алынып тасталды, ал ережені құрастыру қақпасы және мутациялық сынақ арқылы бекітілді, егер кепілдік бұзылса, құрастыру сәтсіз болады.</li>
+        <li><strong>"Сынақтар жасыл, мүмкіндіктер бұзылған."</strong> Конституция осы істен шығу режимін тікелей атап, оны Алдауға қарсы сынақ режимі арқылы жеңеді: нақты пайдаланушыға көрінетін растаулар, іске қосылған нақты жүйелер (макеттер тек бірлік сынақтарында қолданылады), міндетті мутациялық сынақтар (мәліметті әдейі бұзып, сынақ қызыл түсуі *керек*), және шығысты шынымен көріп тексерілетін сапалық бақылау.</li>
+        <li><strong>Ұзақ және әртүрлі форматтағы сапа.</strong> Кітап көлеміндегі мәліметтер біркелкілік пен бюджетке қысым жасайды; көп реттік өңдеу арқылы шешілді, онда мәтін қайта қаралады, алдын ала талдау кезеңінде жұмыс көлемі бағаланады, ал аударма кеші аударманың бір бөлігі үшін екі рет төлеуден сақтайды.</li>
+      </ul>
+      <p>Мазмұны</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-7" aria-expanded="true" aria-controls="od-acc-helixtranslate-7-panel">
+              <span class="od-accordion__label">Технологиялық стек</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-7-panel" role="region" aria-labelledby="od-acc-helixtranslate-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> — таңдалды, себебі оның параллелділік примитивтері таралымды, аударманы және көптеген тарауларды бір мезгілде ағылшыннан ағытуды табиғи түрде қолдайды; жоғары параллелділік артқы жағы, <code>digital.vasic.translator</code> модулі.</li>
+        <li><strong>Gin</strong> — жылдам, минималды HTTP маршрутизаторы ретінде таңдалды, REST API бетіне қызмет көрсету үшін.</li>
+        <li><strong>QUIC / HTTP/3 (quic-go)</strong> — REST API бетіне төмен кешігумен, қазіргі заманғы тасымалдауды қамтамасыз ету үшін таңдалды, ол нашар желілерде де төзімді болып қалады.</li>
+        <li><strong>gRPC + Protocol Buffers</strong> — REST жүйесімен қатар жұмыс істейтін, күшті типтелген, жоғары өнімділіктегі қызметтік интерфейс үшін таңдалды, бұл бағдарламалық шақырушыларға арналған.</li>
+        <li><strong>Gorilla WebSocket</strong> — мониторингтік тақтаға тікелей ағылшын-аударма оқиғаларының ағынын тасымалдау үшін таңдалды.</li>
+        <li><strong>PostgreSQL, SQLite, Redis</strong> — әдейі үш деңгейге бөлінген: PostgreSQL — төзімді реляциялық деректер үшін, SQLite — жергілікті күйді сақтау үшін (сонымен қатар көпірдің расталған модельдер қоры <code>data/verified_models.db</code> базасын қолдайды), ал Redis — жылдам кэш ретінде.</li>
+        <li><strong>unidoc/unioffice + unipdf</strong> — қиын форматтармен жұмыс істеу үшін таңдалды: DOCX және PDF таралымдарын және қайта жаңғыртуды қамтиды, бұл көп форматты электрондық кітаптардың дөңгелек айналымды сақтауына мүмкіндік береді.</li>
+        <li><strong>Cobra</strong> — <code>unified-translator</code> және оның серіктес құралдарын басқаратын CLI фреймворкі ретінде таңдалды.</li>
+        <li><strong>golang-jwt (JWT HS256)</strong> — күйсіз API аутентификациясы үшін таңдалды, әрбір IP үшін токендердің шекті санымен және TLS/QUIC көлік қауіпсіздігімен бірге қолданылады, бұл бетті қатаң қорғауға көмектеседі.</li>
+        <li><strong>LLMsVerifier көпір (<code>pkg/bridge</code>)</strong> — негізгі бөлік: ең мықты расталған модельді және оның анықталған резервтік тізбегін алады, сонымен қатар "резервтік нұсқаға үнсіз көшу жоқ" кепілдігін қатаң сақтау нүктесі болып табылады.</li>
+        <li><strong>Testify</strong> — Go сынақ жинағы үшін таңдалды, оған арналған <code>provider_routing_test.go</code> және адалдық ережелерін қатаң сақтайтын өзгерістер қақпалары кіреді.</li>
+        <li><strong>Docker / Podman (rootless) + Compose</strong> — контейнерленген, таратылған орналастыру үшін таңдалды (<code>docker-compose.distributed.yml</code>), қауіпсіздік деңгейін жоғарылату үшін rootless Podman қолданылады.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-8" aria-expanded="true" aria-controls="od-acc-helixtranslate-8-panel">
+              <span class="od-accordion__label">Жүйенің жағдайы мен адалдық ескертпелері</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-8-panel" role="region" aria-labelledby="od-acc-helixtranslate-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Жағдайы: бета.</strong> Жұмыс істейтін платформа; нұсқасы <code>VERSION</code>/Makefile/<code>AGENTS.md</code> файлдарында әртүрлі көрсетілген, сондықтан тұрақсыз деп есептеледі.</li>
+        <li><strong>Лицензиясы: анықталмаған.</strong> README файлы MIT лицензиясын көрсетеді, бірақ бұл LICENSE файлымен расталмаған — жарияламас бұрын тексеріңіз.</li>
+        <li>Мониторингтік тақта мен бақылау нүктелері тек жергілікті желіде қол жетімді, жалпыға ашық емес. Құжаттамадағы WebSocket өнімділік көрсеткіштері мақсат ретінде көрсетілген, расталмаған. <code>ARCHITECTURE.md</code> файлында жойылған Ollama/жергілікті қозғалтқыштар (ескірген) көрсетілген.</li>
+      </ul>
+      <p><strong>Басымдық деңгейі:</strong> Helix-негізгі (LLM-инфрақұрылым кластері). Helix платформалық отбасында HelixTrack кейінгі орында.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

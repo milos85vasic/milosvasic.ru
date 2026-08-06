@@ -1,0 +1,292 @@
+---
+layout: default
+title: "task_bridge — Miloš Vasić"
+description: "task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/task-bridge.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "kk",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/task-bridge.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics.",
+      "inLanguage": "kk",
+      "name": "task_bridge",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/task-bridge.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: vasic-util-secondary · order 26</p>
+      <h1>task_bridge <span class="od-h1-badges"><span class="od-badge--status od-badge--status--scaffold">scaffold</span><span class="od-tag--license">license: UNVERIFIED</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go</span><span class="od-chip">SQLite (workable-items SSoT)</span><span class="od-chip">raksul/go-clickup (MIT dependency)</span><span class="od-chip">HMAC-SHA256 webhook verification</span><span class="od-chip">cron + webhooks</span><span class="od-chip">pkg/config runtime injection boundary</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/vasic-digital/task_bridge" rel="noopener noreferrer" target="_blank">vasic-digital/task_bridge <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="task-bridge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">task_bridge — three-way sync (P1 scaffold)</text>
+<text class="lbl" x="380" y="72">Single source of truth</text>
+<text class="note" x="400" y="300">last-edit-wins</text>
+<text class="note" x="60" y="490">Decoupling: consumer injects creds / IDs → generic engine</text>
+<rect class="accent" x="380" y="90" width="220" height="80" rx="10"/>
+<text class="t" x="490" y="124">SQLite SSoT</text>
+<text class="s" x="490" y="144">workable-items</text>
+<rect class="box" x="120" y="330" width="220" height="80" rx="10"/>
+<text class="t" x="230" y="374">Tracker docs</text>
+<text class="s" x="230" y="394">markdown SSoT</text>
+<rect class="dash" x="640" y="330" width="220" height="80" rx="10"/>
+<text class="t" x="750" y="374">ClickUp</text>
+<text class="s" x="750" y="394">go-clickup (planned)</text>
+<rect class="dash" x="380" y="430" width="220" height="80" rx="10"/>
+<text class="t" x="490" y="474">Daemon</text>
+<text class="s" x="490" y="494">webhook HMAC-SHA256 + cron</text>
+<path class="conn" marker-end="url(#a)" d="M420,170 L280,328"/>
+<path class="conn" marker-end="url(#a)" d="M560,170 L700,328"/>
+<path class="conn" marker-end="url(#a)" d="M340,370 L638,370"/>
+<path class="conn" marker-end="url(#a)" d="M470,430 L490,172"/>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>Тапсырмалар тақтаңыз бен шындықтың бірден-бір көзі — екі бағытта да мінсіз үйлесімді.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-0" aria-expanded="true" aria-controls="od-acc-task-bridge-0-panel">
+              <span class="od-accordion__label">Қысқаша мазмұны</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-0-panel" role="region" aria-labelledby="od-acc-task-bridge-0">
+            <div class="od-accordion__inner">
+      <p>task_bridge — Go жүйесіндегі жалпылама, бөлектелген, екі бағыттағы тапсырма/тақта үйлестіру қозғалтқышы. Ол жобаның <strong>жұмыс элементтерінің SQLite шындық көзі</strong> мен тапсырмалар құжаттамасын, сондай-ақ қашықтағы тақтамен (алғашқы нысаны: ClickUp; болашақта Jira мен Linear) детерминирленген «соңғы өзгеріс жеңеді», алдымен сынақ режимі, мәліметтерді бұзбайтын принциптермен үйлестіреді.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-1" aria-expanded="true" aria-controls="od-acc-task-bridge-1-panel">
+              <span class="od-accordion__label">Қысқаша сипаттама</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-1-panel" role="region" aria-labelledby="od-acc-task-bridge-1">
+            <div class="od-accordion__inner">
+      <p>Жобаның түріне байланыссыз Go ішкі модулі, ол SQLite жұмыс элементтерінің бірден-бір шындық көзін ↔ тапсырмалар құжаттамасын ↔ қашықтағы тақтамен (алғашқысы ClickUp) екі бағытта үйлестіреді. Детерминирленген «соңғы өзгеріс жеңеді», алдымен сынақ режимі, HMAC-растаулы вебхуктіктер; әрбір құпия сөз мен идентификатор тұтынушымен жұмыс барысында енгізіледі.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-2" aria-expanded="true" aria-controls="od-acc-task-bridge-2-panel">
+              <span class="od-accordion__label">Кеңейтілген сипаттамасы</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-2-panel" role="region" aria-labelledby="od-acc-task-bridge-2">
+            <div class="od-accordion__inner">
+      <p>Әрбір команда ерте ме, кеш пе, бір жұмыстың екі есебін жүргізеді: шынайысы — код, құжаттама, ішкі дерекқор — және менеджерлер бақылайтын тақтасы, мысалы, ClickUp. Екі жақтың кез келгеніне тиген сәтте олар бір-бірінен алшақтайды, ал оларды қолмен үйлестіру — дәл сондай ұзақ, қатеге бейім жұмыс, оны ешкім сенімді түрде атқармайды. task_bridge осы алшақтықты жою үшін бар үш көріністі бір жүйе ретінде қарастырады да, оларды бір-бірімен үйлесімді ұстайды: жобаның <strong>SQLite жұмыс элементтерінің бірден-бір шындық көзі</strong>, оның <strong>тапсырмалар құжаттамасы</strong> және <strong>қашықтағы тақтасы</strong> — алғашқы қолдау көрсетілетін тақта ClickUp, ал болашақта Jira мен Linear қосылады. Үйлестіру детерминирленген («соңғы өзгеріс жеңеді»), алдымен сынақ режимімен жүзеге асырылады және бір ғана шартсыз кепілдікті ұстанады: ол ешқашан мәліметтерді бұзбайды немесе жоғалтпайды, сондай-ақ бір жақтың ескіртілген күйінде қалдырмайды. Мұндай салада абайсыз үйлестіру бір апталық жұмысты жоя алатын болса, осы қауіпсіздік ұстанымы — бүкіл мәні. Архитектуралық тұрғыдан ол басқа жобалар тұтынатын қатаң ішкі модуль болып табылады және жобаның түріне байланыссыздық шартына сәйкес толығымен жалпылама (§11.4.28): ол жобаға байланысты мәндерді жібере бермейді, ал әрбір құпия сөз, тақта/папка идентификаторы, элемент кілті өрісі мен дерекқор жолы тұтынушымен жұмыс барысында <code>pkg/config.Config</code> арқылы енгізіледі. Модуль анық қабаттастырылған: CLI (<code>reconcile</code>/<code>push</code>/<code>pull</code>/<code>resolve</code>/<code>status</code>/<code>conflicts</code>/<code>init</code>) және ұзақ мерзімді демоны (вебхуктік қабылдағыш + мерзімді үйлестіру); MIT лицензиясы бойынша <code>raksul/go-clickup</code> үстінде жұқа клиенттік орауыш; тақта/папка URL-дерін ID-ге айналдыратын резолвер (API тірі зондтамалары арқылы, URL грамматикасын болжамай); жергілікті жұмыс элементтері мен қашықтағы тапсырма өрістері арасындағы сәйкестендіргіш; «соңғы өзгеріс жеңеді» үйлестіру қозғалтқышы анық қақтығыс нәтижелерімен; <code>X-Signature</code> HMAC-SHA256 растайтын вебхуктік қабылдағыш. Ол өз жетілгендігі туралы ашық айтады: бұл P1 негізгі құрылымы — жобаның құрылымы, интерфейстері, кіру нүктелері мен бөлектеу шекарасы дайын, бірақ үйлестіру логикасы мен ClickUp-пен тірі байланыс әлі жүзеге асырылмаған (әрбір бос орын анық «жүзеге асырылмаған» қатесін қайтарады, жалған мәліметтерді қолданбау ережесі бойынша).</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-3" aria-expanded="true" aria-controls="od-acc-task-bridge-3-panel">
+              <span class="od-accordion__label">Неліктен жасадық</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-3-panel" role="region" aria-labelledby="od-acc-task-bridge-3">
+            <div class="od-accordion__inner">
+      <p>Командалар жұмыстың «шынайы» күйін кодта/құжаттамада сақтайды, ал менеджерлер ClickUp сияқты тақтада жұмыс істейді — және олар үнемі алшақтайды. task_bridge оларды бір жүйеге айналдырып, детерминирленген және қауіпсіз үйлестіреді, сонда ешбір жақ ескірмейді немесе қате болмайды.</p>
+      <p>Мазмұны</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-4" aria-expanded="true" aria-controls="od-acc-task-bridge-4-panel">
+              <span class="od-accordion__label">Неге бұл ойынды өзгертетін шешім</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-4-panel" role="region" aria-labelledby="od-acc-task-bridge-4">
+            <div class="od-accordion__inner">
+      <p>Екі жақты тақта синхрондауы әдетте бір реттік, қатты байланыстырылған интеграция болып келеді, оны әр команда нашар қайта құрастырады. task_bridge оны қайта пайдалануға болатын, аккредитация енгізілген кітапхана ретінде қайта қарастырады, мұнда деректер қауіпсіздігінің қатаң кепілдіктері енгізілген — алдымен сынақ режимі, анықталған соңғы өзгеріс жеңеді, HMAC-растаулы оқиғалар — осылайша кез келген жоба сенімді тақта интеграциясын конфигурацияны енгізу арқылы қабылдай алады, ал енді тағы бір морт сынғақ байланыстырушыны жоба ішінде жазудың қажеті жоқ.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-5" aria-expanded="true" aria-controls="od-acc-task-bridge-5-panel">
+              <span class="od-accordion__label">Инновациялық жақтары</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-5-panel" role="region" aria-labelledby="od-acc-task-bridge-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li>Үш жақты екі бағытты синхрондау: SQLite SSoT ↔ трекер құжаттары ↔ қашықтағы тақта.</li>
+        <li>Толық дербестендіру (§11.4.28): жоба мәніндегі ештеңе жоқ; барлығы іске қосу кезінде енгізіледі.</li>
+        <li>Өміршең API URL→ID түрлендіруі орнына морт сынғақ URL-грамматикалық талдау.</li>
+        <li>Тікелей оқиғаларды қабылдау үшін HMAC-SHA256-растаулы вебхуқтар.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-6" aria-expanded="true" aria-controls="od-acc-task-bridge-6-panel">
+              <span class="od-accordion__label">Мәселелер мен шешімдер</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-6-panel" role="region" aria-labelledby="od-acc-task-bridge-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Үш дереккөз арасындағы деректер қауіпсіздігі:</strong> анықталған соңғы өзгеріс жеңеді, алдымен сынақ режимі және ашық конфликтілердің нәтижелері арқылы шешілді.</li>
+        <li><strong>Қайта пайдалану мүмкіндігі байланыссыз:</strong> <code>pkg/config</code> енгізу шекарасы арқылы шешілді (жобаға тән ештеңе жіберілмейді).</li>
+        <li><strong>Тақтаның сенімді анықталуы:</strong> тікелей API зондтау арқылы URL-дерді ID-ге түрлендіру арқылы шешілді.</li>
+        <li><strong>Шындыққа сай құрылым:</strong> іске асырылмаған бөліктер ашық "іске асырылмаған" қатесін қайтарады (жалған емес).</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-7" aria-expanded="true" aria-controls="od-acc-task-bridge-7-panel">
+              <span class="od-accordion__label">Технологиялық стек (неге және қалай)</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-7-panel" role="region" aria-labelledby="od-acc-task-bridge-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go</strong> — қозғалтқыш, CLI (<code>cmd/task_bridge</code>) және демоны (<code>cmd/task_bridged</code>).</li>
+        <li><strong>SQLite</strong> — жұмыс элементтерінің жалғыз шындық көзі.</li>
+        <li><strong><code>raksul/go-clickup</code> (MIT)</strong> — ClickUp көлік қабықшасы.</li>
+        <li><strong>HMAC-SHA256</strong> — вебхуқ қолтаңбасын тексеру.</li>
+        <li><strong>cron + вебхуқтар</strong> — демонының үйлестіруі және тікелей оқиғаларды қабылдауы.</li>
+        <li><strong><code>pkg/config</code></strong> — іске қосу кезіндегі аккредитация/ID енгізу шекарасы.</li>
+      </ul>
+      <blockquote><p>Шындық жағдайы: бұл <strong>P1 құрылымы</strong> — синхрондау логикасы әлі іске асырылмаған. Жіберілген ретінде ұсынуға болмайды.</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>

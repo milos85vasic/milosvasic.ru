@@ -1,0 +1,325 @@
+---
+layout: default
+title: "HelixCluster — Miloš Vasić"
+description: "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane."
+seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcluster.html\"/>"
+---
+
+<!-- OpenDesign assets (fonts → brand → components → animations → overlays), linked from the page so the default layout head stays untouched. -->
+<link rel="stylesheet" href="{{ '/assets/od/fonts.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/components-extended.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
+<script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  </svg>
+  <style>
+    .od-icon{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+    /* Accessible skip link: on-screen 1px (SR-reachable) instead of transformed off-screen; reveals on focus */
+    .od-skip-link{position:absolute;top:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%);padding:0}
+    .od-skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none;padding:var(--od-space-2) var(--od-space-4)}
+    .od-brand{font-family:var(--od-font-display);font-weight:700;font-size:var(--od-fs-lg);color:var(--od-text);text-decoration:none}
+    .od-header__actions{display:flex;align-items:center;gap:var(--od-space-4)}
+    .od-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--od-space-2);padding:var(--od-space-2) var(--od-space-3)}
+    .od-theme-toggle .od-icon--sun{display:none}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--sun{display:inline-block}
+    :root[data-theme="dark"] .od-theme-toggle .od-icon--moon{display:none}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .od-theme-toggle .od-icon--moon{display:none}:root:not([data-theme="light"]) .od-theme-toggle .od-icon--sun{display:inline-block}}
+    .od-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--od-space-3);margin-bottom:var(--od-space-6)}
+    .od-chip-row{display:flex;flex-wrap:wrap;gap:var(--od-space-2);margin-bottom:var(--od-space-6)}
+    .od-h1-badges{display:inline-flex;flex-wrap:wrap;gap:var(--od-space-3);vertical-align:middle}
+    .od-repo-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--od-space-2)}
+    .od-repo-list a{display:inline-flex;align-items:center;gap:var(--od-space-2);overflow-wrap:anywhere;word-break:break-word}
+    .od-diagram{border:1px dashed var(--od-border);border-radius:var(--od-radius-lg);background:var(--od-surface);padding:var(--od-space-10) var(--od-space-6);text-align:center;color:var(--od-text-muted)}
+    .od-diagram__note{font-family:var(--od-font-mono);font-size:var(--od-fs-sm);color:var(--od-text-muted);margin:0}
+    /* responsive media: never let an image/diagram cause horizontal overflow */
+    img,svg{max-width:100%;height:auto}
+    .od-product-media img{width:100%;height:auto;border-radius:var(--od-radius-lg)}
+    /* narrow-viewport (≤320px) safety: break long tokens/bold runs so nothing
+       forces horizontal overflow */
+    .od-product-detail{overflow-wrap:anywhere}
+    .od-product-detail p,.od-product-detail li,.od-product-detail strong,.od-product-detail code{overflow-wrap:anywhere;word-break:break-word}
+    /* editorial intro: bold hook as tagline, short desc as lede (fix #5) */
+    .od-product-detail__tagline{font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight);color:var(--od-text);margin:0 0 var(--od-space-4)}
+    .od-product-detail__lede{font-size:var(--od-fs-lg);line-height:var(--od-lh-normal);color:var(--od-text-muted);margin:0 0 var(--od-space-6)}
+    .od-product-detail blockquote{border-inline-start:3px solid var(--od-accent);padding-inline-start:var(--od-space-4);margin:0 0 var(--od-space-4);color:var(--od-text-muted)}
+    /* Accordion (disclosure) chrome for the deep product sections. The library
+       (motion/animations.css) owns the chevron rotation, panel fade + reduced-
+       motion neutralization; here we only style the trigger button + layout so it
+       reads as an editorial heading, not a default button. GPU-safe: no animated
+       width/height/box-shadow. */
+    .od-accordion{margin-top:var(--od-space-8);border-top:1px solid var(--od-border)}
+    .od-accordion__item{border-bottom:1px solid var(--od-border)}
+    .od-accordion__heading{margin:0}
+    .od-accordion__trigger{display:flex;align-items:center;justify-content:space-between;gap:var(--od-space-4);width:100%;padding:var(--od-space-5) 0;background:none;border:0;cursor:pointer;color:var(--od-text);text-align:start;font-family:var(--od-font-display);font-size:var(--od-fs-xl);font-weight:700;line-height:var(--od-lh-tight);letter-spacing:var(--od-tracking-tight)}
+    .od-accordion__trigger:hover .od-accordion__label{color:var(--od-accent)}
+    .od-accordion__trigger:focus-visible{outline:2px solid var(--od-accent);outline-offset:3px;border-radius:var(--od-radius-sm)}
+    .od-accordion__label{transition:color var(--od-dur-fast,150ms) var(--od-ease-standard,ease)}
+    .od-accordion__icon{flex:none;width:1.5em;height:1.5em;color:var(--od-text-muted)}
+    .od-accordion__inner{padding:0 0 var(--od-space-6)}
+    .od-accordion__inner>:first-child{margin-top:0}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://milosvasic.ru/#identity",
+      "@type": "Person",
+      "image": "https://milosvasic.ru/assets/images/profile-800.jpg",
+      "name": "Miloš Vasić",
+      "sameAs": [
+        "https://github.com/milos85vasic",
+        "https://gitlab.com/milos85vasic",
+        "https://t.me/milos85vasic"
+      ],
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/#website",
+      "@type": "WebSite",
+      "inLanguage": "kk",
+      "name": "Miloš Vasić",
+      "publisher": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "url": "https://milosvasic.ru/"
+    },
+    {
+      "@id": "https://milosvasic.ru/products/helixcluster.html#app",
+      "@type": "SoftwareApplication",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@id": "https://milosvasic.ru/#identity"
+      },
+      "description": "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane.",
+      "inLanguage": "kk",
+      "name": "HelixCluster",
+      "operatingSystem": "Cross-platform",
+      "url": "https://milosvasic.ru/products/helixcluster.html"
+    }
+  ]
+}
+</script>
+
+    <article class="od-section od-product-detail od-reveal">
+      <p class="od-section__eyebrow">// tier: helix-primary · order 14</p>
+      <h1>HelixCluster <span class="od-h1-badges"><span class="od-badge--status od-badge--status--in-development">in-development</span><span class="od-tag--license">license: TBD</span></span></h1>
+
+      <div class="od-chip-row"><span class="od-chip">Go (1.25 / toolchain 1.26.4)</span><span class="od-chip">Zig + C/C++</span><span class="od-chip">gRPC + Protocol Buffers</span><span class="od-chip">Raft (etcd-raft) + SWIM gossip</span><span class="od-chip">PostgreSQL 16 / Redis 7 / etcd v3.5 / SQLite</span><span class="od-chip">NATS / Kafka / RabbitMQ</span><span class="od-chip">WireGuard + ML-KEM-768/X25519 + AEAD</span><span class="od-chip">SPIFFE + JWT + OPA</span><span class="od-chip">Prometheus / Grafana / Jaeger</span><span class="od-chip">HashiCorp Vault</span><span class="od-chip">Kubernetes + Helm</span><span class="od-chip">React + TypeScript + Vite</span><span class="od-chip">TLA+</span></div>
+
+      <h2>Source</h2>
+      <ul class="od-repo-list">
+        <li><a href="https://github.com/HelixDevelopment/helix_cluster" rel="noopener noreferrer" target="_blank">HelixDevelopment/helix_cluster <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/HelixDevelopment/HelixConstitution" rel="noopener noreferrer" target="_blank">HelixDevelopment/HelixConstitution <svg class="od-icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+
+      <figure class="od-diagram" data-slug="helixcluster">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" font-family="'Inter',system-ui,sans-serif">
+<style>
+svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8fafc;--panel2:#eef2f7;--tint:#f4dde1;--good:#dcfce7;--goodln:#16a34a;--goodink:#14532d;}
+@media(prefers-color-scheme:dark){svg{--ink:#e2e8f0;--muted:#cbd5e1;--line:#64748b;--accent:#ff6b81;--panel:#1e293b;--panel2:#273449;--tint:#3a2530;--good:#14321f;--goodln:#4ade80;--goodink:#bbf7d0;}}
+.box{fill:var(--panel);stroke:var(--line);stroke-width:1.5;}
+.accent{fill:var(--panel);stroke:var(--accent);stroke-width:2;}
+.tint{fill:var(--tint);stroke:var(--accent);stroke-width:1.5;}
+.good{fill:var(--good);stroke:var(--goodln);stroke-width:1.5;}
+.dash{fill:var(--panel2);stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4;}
+.t{fill:var(--ink);font-size:15px;font-weight:700;text-anchor:middle;}
+.s{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.gt{fill:var(--goodink);font-size:15px;font-weight:700;text-anchor:middle;}
+.h{fill:var(--ink);font-size:20px;font-weight:700;}
+.lbl{fill:var(--muted);font-size:12px;font-weight:600;}
+.note{fill:var(--muted);font-size:11px;text-anchor:middle;}
+.conn{stroke:var(--line);stroke-width:1.75;fill:none;}
+.strike{stroke:var(--accent);stroke-width:2.5;}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+<text class="h" x="32" y="44">HelixCluster — seven-layer stack</text>
+<text class="lbl" x="40" y="88">14 control-plane</text>
+<text class="lbl" x="40" y="106">microservices</text>
+<text class="lbl" x="40" y="548">heterogeneous</text>
+<text class="lbl" x="40" y="566">nodes T1–T8</text>
+<text class="note" x="490" y="632">Node tiers T1 (datacenter GPU) → T8 (handheld), unified under one control plane</text>
+<rect class="box" x="210" y="78" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="112">L7 · Federation &amp; Observability</text>
+<rect class="box" x="210" y="140" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="174">L6 · Security &amp; Attestation (SPIFFE, PQ-E2EE)</text>
+<rect class="box" x="210" y="202" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="236">L5 · Sessions &amp; Interactive Terminal</text>
+<rect class="box" x="210" y="264" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="298">L4 · AI Inference Routing</text>
+<rect class="accent" x="210" y="326" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="360">L3 · Omega Scheduler (two-level)</text>
+<rect class="box" x="210" y="388" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="422">L2 · Consensus &amp; Membership (Raft + SWIM)</text>
+<rect class="box" x="210" y="450" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="484">L1 · Node Runtime &amp; Transport (gRPC, WireGuard)</text>
+<rect class="box" x="210" y="512" width="560" height="54" rx="10"/>
+<text class="t" x="490" y="546">L0 · Hardware Substrate (GPU → edge SBC)</text>
+</svg>
+<figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// architecture</figcaption>
+</figure>
+
+      <p class="od-product-detail__tagline"><strong>AI есептеуіштер үшін таратылған операциялық жүйе — мәліметтер орталығының GPU-ларынан бастап шеткі қол құрылғыларына дейін бір басқару жазықтығында.</strong></p>
+      <div class="od-accordion">
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-0" aria-expanded="true" aria-controls="od-acc-helixcluster-0-panel">
+              <span class="od-accordion__label">Қысқаша мазмұны</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-0-panel" role="region" aria-labelledby="od-acc-helixcluster-0">
+            <div class="od-accordion__inner">
+      <p>Helix Cluster OS — келесі буын таратылған операциялық жүйе, ол әртүрлі түйіндер арасындағы есептеуді үйлестіреді — мәліметтер орталығының GPU-ларынан бастап шеткі бір тақшалы компьютерлер мен қол құрылғыларына дейін — жоғары өнімді есептеудің жоспарлауын, контейнерлерді үйлестіруді, AI/ML деректерді өңдеуді, федерацияланған көп кластерлік жұмысты және қауіпсіз көп пайдаланушылық сеанстарды бір басқару жазықтығында біріктіреді.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-1" aria-expanded="true" aria-controls="od-acc-helixcluster-1-panel">
+              <span class="od-accordion__label">Қысқаша сипаттама</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-1-panel" role="region" aria-labelledby="od-acc-helixcluster-1">
+            <div class="od-accordion__inner">
+      <p>Go негізіндегі таратылған ОЖ / GPU бөлісуші есептеу кластері. Ол жоғары өнімді есептеудің жоспарлауын (Omega үлгісіндегі екі деңгейлі жоспарлаушы), контейнерлерді үйлестіруді, AI деректерді өңдеудің маршрутталуын, федерацияны және әртүрлі түйіндер арасындағы қауіпсіз көп пайдаланушылық сеанстарды біріктіреді, SWIM тарату және Raft консенсусы арқылы үйлестіріледі, пост-кванттық сквозной шифрлаумен.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-2" aria-expanded="true" aria-controls="od-acc-helixcluster-2-panel">
+              <span class="od-accordion__label">Толық сипаттама</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-2-panel" role="region" aria-labelledby="od-acc-helixcluster-2">
+            <div class="od-accordion__inner">
+      <p>Helix Cluster OS есептеу жүктемесін радикалды түрде әртүрлі аппараттық құралдар арасында үйлестіреді — мәліметтер орталығының GPU-лары, шеткі бір тақшалы компьютерлер, тіпті қол құрылғылары — бір басқару жазықтығында, A100 тізбектерін және бірнеше SBC-ны бір адрестелетін торап ретінде қарастырады, онда әрқайсысы бір-бірімен үйлеспейтін аралдар емес. Бұл Go жұмыс кеңістігі (монорепозиторий және git субмодульдері) жеті деңгейлі стек жүзеге асырады, L0 аппараттық субстраттан бастап L7 федерациясы мен бақылауға дейін, онөрнек микросервистермен үйлестіріледі. Түйіндердің мүшелігі SWIM тарату және ашу арқылы бақыланады, сондықтан торап түйіндер қосылып немесе шығып жатқанда өздігінен қалпына келеді; күшті консистентті күй Raft консенсусы арқылы жүреді, әрбір шардқа арналған Raft топтары ретінде ұйымдастырылған, жылдамдық үшін лизинг иесінің жергілікті оқуымен және STONITH қоршауымен, бөлінген түйіннің ортақ күйді бүлдіре алмауына кепілдік береді. Жүктемені орналастыру Omega үлгісіндегі екі деңгейлі жоспарлаушы арқылы жүзеге асырылады — оптимистік параллелизм, ClassAd сәйкестендіру, топтық жоспарлау, құндылық-көбейткіш алдын ала қайта жоспарлау және шектеулерге негізделген орналастыру — содан кейін классикалық жоғары өнімді есептеу жоспарлаушысынан әрі қарай дамытылады: көміртегіге сезімтал және құны/TCO-ға сезімтал маршруттау, бұлтқа кенеттен ауысудың автоматты масштабталуы және нарықтық адаптерлер (Akash, io.net, RunPod, AWS Spot, Chutes), олар жергілікті ресурстар таусылған кезде жалға алынған қуатқа жүктемені аударуға мүмкіндік береді.</p>
+      <p>Соңғы пайдаланушылар осы механизмдердің ешқайсысын тікелей көрмейді; олар таза сеанс үлгісі (есептеу бөлімдері), интерактивті WebSocket/PTY терминалы, ішкі AI деректерді өңдеу маршруты және пулдың пайдалану көрсеткіштері арқылы әрекеттеседі. Қауіпсіздік негізгі деңгей ретінде қарастырылады, қосымша емес: SPIFFE идентификациясы, құрылғының куәландыруы (шақыру/жауап, GPU жұмысының дәлелі, мөрлеу), экспорттық бақылаудың KYC қақпасы және пост-кванттық сквозной шифрланған тасымалдау X25519 + ML-KEM-768 гибридті кілт алмасуы негізінде AEAD жазба қорғауымен және қайталауды болдырмаумен құрылған — бұл бүгінгі күні жазылған трафиктің ертеңгі күннің кванттық қарсыласына қарсы құпиялығын сақтау үшін жасалған. Дұрыстық тексерілмейді, ол *дәлелденеді*: детерминирленген симуляциялық сынақтар (FoundationDB стиліндегі тұқымды іске қосулар, қате енгізу, желі симуляциясы, байт-байттық қайталау және Porcupine линеаризациялық тексеруші) таратылған ақауларды талап бойынша қайталайды, ал міндетті жұптық өзгеріс сынақтары қорғау сынақтарының шын мәнінде әсер ететінін дәлелдейді. Архитектура мен құжаттама шындық пен құжаттама арасындағы алшақтықтың пайда болған сәтінде құрылысты тоқтататын механикалық линттер арқылы адал сақталады.</p>
+      <p>Мазмұны</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-3" aria-expanded="true" aria-controls="od-acc-helixcluster-3-panel">
+              <span class="od-accordion__label">Неліктен құрастырдық</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-3-panel" role="region" aria-labelledby="od-acc-helixcluster-3">
+            <div class="od-accordion__inner">
+      <p>AI және HPC жүктемелерін әртүрлі аппараттық деңгейлерде жеке жоспарлаушыларды, оркестраторларды және интерпретациялау стектілерін біріктірмей-ақ, сондай-ақ әрбір жеткізілген мүмкіндіктің *нақты соңғы пайдаланушының мінез-құлқына* сәйкес келетіндігін (ешқашан жасыл сынақтарды стабтармен алмастырмай) және әрбір операциялық жүйеге тән мүмкіндіктің әр платформа үшін нақты туынды құралдарды қолданатынын инженерлік кепілдікпен іске асыру үшін құрастырдық. Репозиторийдің басқару құжатында келтірілген қозғаушы мәселе – жоба ашық түрде жоюға арналған «сынақтар өтеді, бірақ мүмкіндік шын мәнінде жұмыс істемейді» деген сәтсіздік режимі.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-4" aria-expanded="true" aria-controls="od-acc-helixcluster-4-panel">
+              <span class="od-accordion__label">Неліктен бұл өзгерістің бастамашысы</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-4-panel" role="region" aria-labelledby="od-acc-helixcluster-4">
+            <div class="od-accordion__inner">
+      <p>Ол әдетте бес жеке стек болып келетін бес нәрсені – HPC жоспарлауын, контейнер оркестрациясын, AI интерпретациялауын, көп кластерлік федерацияны және қауіпсіз көп пайдаланушылық сессияларды бір ғана басқару жазықтығына біріктіреді, ол мәліметтер орталығының GPU-ларынан бастап шеткі қол құрылғыларына дейін созылады. Сонымен қатар, ол мамандандырылған инфрақұрылымға арналған қатаң бюджетпен іске асырылады: формалды әдістер деңгейіндегі дұрыстық (TLA+ спецификациялары, детерминирленген симуляция, сызықтық тексеру) және кванттан кейінгі құпия тасымалдау, яғни көптеген оркестраторлар тіпті әрекет жасамайтын кепілдіктер. Техникалық айырмашылықтардан басқа, құны мен көміртегінің әсерін ескеретін орналастыру және бұлттық нарық арқылы кеңейту оны *экономикалық* рычаг етеді – жоспарлаушы автоматты түрде арзанырақ, жасыл немесе бос қуатты іздей алады, сондықтан бірдей жүктемеге жұмсалатын шығын аз болады және шығарындылар да аз болады, ешкім жұмыс жазбасын қайта жазуы қажет емес.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-5" aria-expanded="true" aria-controls="od-acc-helixcluster-5-panel">
+              <span class="od-accordion__label">Қандай жаңалықтар бар</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-5-panel" role="region" aria-labelledby="od-acc-helixcluster-5">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Детерминирленген симуляциялық сынақ (DST)</strong> – тұқымды, толық қайталанғыш симулятор, ол ақауларды, уақыттың ауытқуын және желінің бөлінуін енгізеді, оларды байт-байт қайта ойнатып, Porcupine сызықтық тексеруі арқылы өткізеді, сондықтан бір рет ұсталған Хайзенбаг мәңгілікке бұйрық бойынша қайталануы мүмкін.</li>
+        <li><strong>Омега-моделінің екі деңгейлі жоспарлаушысы</strong> – оптимистік параллелизмді орналастыру ClassAd сәйкестендіруімен, топтық жоспарлау және құнды көбейткіш алдын ала тоқтату, ортақ күй дизайны бір кластерге көп жоспарлаушылардың орталықтық түйінсіз жұмыс істеуіне мүмкіндік береді.</li>
+        <li><strong>Кванттан кейінгі E2EE / құпия интерпретациялау сымдары</strong> – әр сұранысқа жауап-кілт жұбының байланыстырылуымен және қайталауды қабылдамайтын AEAD-пен X25519 + ML-KEM-768 гибридті кілт алмасуы (криптографиялық примитивтер нақты және сынақтан өткен; толық құпия көп түйінді айналым әлі ПЛАНДАЛҒАН/шектеулі).</li>
+        <li><strong>Сенімділікті куәландыру арқылы</strong> – түйіндер *не екенін дәлелдеуі* керек: SPIFFE идентификациясы, GPU жұмысының дәлелі, құрылғының мөрлеуі, экспорттық бақылау KYC қақпасы және ЕО AI актісінің құжаттамасын жасау, сондықтан сенімділік дәлелмен, желілік орнымен емес, алынады.</li>
+        <li><strong>Құнды және көміртекті ескеретін оркестрация</strong> – TCO моделі, көміртекті ескеретін орналастыру, бұлтқа кеңейту, N+K апаттық резерв және бұлттық нарық адаптерлері, бұл бағаны және шығарындыларды жоспарлаудың бастапқы деректері етіп, екінші ой ретінде емес.</li>
+        <li><strong>Көп Raft консенсусы</strong> – төмен кешіктірілген консистенттілік үшін шарттық Raft топтары және лизинг иесінің жергілікті оқылуы, STONITH қоршауымен (IPMI / EC2 / Azure / SBD) қолдаулы, сондықтан тоқыраған түйін анық жойылады, күйді бүлдірмейді.</li>
+        <li><strong>Антидрейф механикалық линттері</strong> – құжатталған компонент пакеттік жолға сәйкес келмесе, <code>archlint</code> құрылысты дереу тоқтатады, ал құжаттама тізбегінің қозғалтқышы Markdown / HTML / PDF / DOCX байттық консистенттігін сақтайды, сондықтан құжаттама код туралы тыныштықпен өтірік айта алмайды.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-6" aria-expanded="true" aria-controls="od-acc-helixcluster-6-panel">
+              <span class="od-accordion__label">Ең үлкен техникалық қиындықтар және оларды қалай шештік</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-6-panel" role="region" aria-labelledby="od-acc-helixcluster-6">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>«PASS-bluff» (сынақтар функционалсыз мүмкіндіктерде өтеді).</strong> Жобаның барлық негізі осы ақауды жоюға бағытталған: стабтар үстіндегі жасыл топтама. Міндетті түрде жұп мутациялық тестілеуді қолдану арқылы шешілді — әрбір жұмыс элементі атаулы қорғаушы сынақпен бірге жүреді, ол тәуелсіз код мутациясы кезінде *сәтсіз болуы* керек, содан кейін элемент аяқталған деп белгіленеді. Осылайша өтетін сынақ нақты әрекетті тексергенін дәлелдейді, емес стабты.</li>
+        <li><strong>Кросс-платформалық теңдік (Linux-ке ғана арналған стабтар жоқ).</strong> Ортақ интерфейсті құрастыру тегтері арқылы нақты әрбір ОЖ мүмкіндіктеріне бөлу арқылы шешілді — Linux cgroup / <code>/proc</code> / ядро WireGuard, macOS <code>sysctl</code> / <code>vm_stat</code> / IOKit / <code>wireguard-go</code> — содан кейін тәуелсіз ОЖ оракулымен қайта тексеру жүргізіледі, әрбір платформа нағыз тума жағдайды емес, Linux-тің жалған мәліметтерін емес, хабарлайды.</li>
+        <li><strong>Ақаулар кезіндегі таратылған дұрыстық.</strong> Детерминирленген симуляциялық тестілеу және линеаризациялау тексерушісі арқылы шешілді, олар бөлінулерді, апаттарды және уақыттың ауытқуын жасап, қайта ойнатып, TLA+ формальды спецификацияларымен қолдау көрсетеді. Бұл консенсус пен жоспарлау инварианттарын код жазылмастан бұрын бекітеді.</li>
+        <li><strong>Құжаттама мен архитектураның ауытқуы.</strong> <code>archlint</code> арқылы шешілді, ол құжатталған, бірақ жоқ пакеттің картасын тапқан кезде құрастыруды сәтсіз аяқтайды, ал <code>docs_chain</code> тексеру қақпасы қашып құтылу мүмкіндігінсіз — ауытқу құрастырудың бұзылуына әкеледі, ескі вики-бетке емес.</li>
+        <li><strong>Аяқталмаған жұмыстың шынайы көлемі.</strong> Құпия көп түйінді инференциялық айналым әдейі билет арқылы шектеліп, «әлі толық тексерілмеген» деп белгіленген, емес әзір деп көрсетілген — бұл тәртіп әлі жасалмаған нәрсеге де, жасалған нәрсеге де бірдей қолданылады.</li>
+      </ul>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-7" aria-expanded="true" aria-controls="od-acc-helixcluster-7-panel">
+              <span class="od-accordion__label">Технологиялық стек</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-7-panel" role="region" aria-labelledby="od-acc-helixcluster-7">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Go (go.mod: 1.25 / құралдар тізбегі 1.26.4)</strong> — шамамен 30 модульден тұратын жұмыс кеңістігіндегі басқару жазығының тілі; таңдалған себебі — арзан goroutine параллелизмі және статикалық бинарлық файлдар, олар датаорталықтан шеткі құрылғыларға дейін бірдей орнатылады.</li>
+        <li><strong>Zig (0.14+) + C/C++</strong> — Go-тің орындау уақыты кедергі келтіретін жерлерде қолданылады: төмен деңгейлі жүйелік примитивтер және GPU ядролары, оларға аппараттық құралдарды детерминирленген, бөлінгішсіз басқару қажет.</li>
+        <li><strong>gRPC + Protocol Buffers</strong> — әрбір қосымшааралық API (<code>api/v1/</code>) типтелген, нұсқаланған келісімшарт болып табылады, сондықтан он төрт микросервис бір-біріне зиян келтірмей және қолмен жасалған сым форматысыз дамиды.</li>
+        <li><strong>Raft (etcd-raft) + SWIM gossip</strong> — әдейі бөлінген: Raft *мәжбүрлі түрде күшті консистентті* күйді тасымалдайды, ал SWIM gossip мүшелік пен ашуды масштабта консенсус тым ауыр болар жерде өңдейді.</li>
+        <li><strong>PostgreSQL 16, Redis 7 кластері, etcd v3.5, SQLite</strong> — әрбір жұмысқа лайықты қойма: Postgres тұрақты реляциялық күй үшін, Redis ыстық кэш үшін, etcd үйлестіру үшін, ал кірістірілген SQLite түйіндік HXC жұмыс элементінің тізілімі үшін.</li>
+        <li><strong>NATS 2.10 (JetStream), Kafka 4.0 (KRaft), RabbitMQ 3.13</strong> — үш хабарламалық арқау үш түрлі трафик үшін: NATS/JetStream жылдам ішкі оқиғалар үшін, Kafka жоғары өткізгіштік ағындар үшін, RabbitMQ классикалық брокерлік семантика үшін.</li>
+        <li><strong>WireGuard желісі + ML-KEM-768/X25519 + AES-256-GCM/ChaCha20-Poly1305 + HKDF</strong> — WireGuard түйіндер арасындағы жеңіл желі үшін, гибридті пост-кванттық қол қою және AEAD жазбаларымен оралған, сондықтан тасымалдау классикалық және кванттық шабуылшылардан құпия болып табылады.</li>
+        <li><strong>SPIFFE + JWT (HS256) + көлемдік RBAC + OPA</strong> — қабатталған идентификация және рұқсаттау: SPIFFE жұмыс жүктемесінің идентификациясы үшін, JWT токендер үшін, көлемдік RBAC кең көлемді рұқсат үшін, ал OPA нәзік саясатты код түрінде білдіру үшін.</li>
+        <li><strong>Prometheus v2.50, Grafana 10.4, Jaeger 1.55, W3C трассировкасы</strong> — метрикалар, дашбордтар және таратылған трассировкалар W3C контекстінің таратылуымен, сондықтан сұраныс қызметтер мен аппараттық деңгейлер бойынша бақылана алады.</li>
+        <li><strong>HashiCorp Vault 1.16</strong> — құпиялар мен кілттік материалдар кодтан және конфигурациядан тыс сақталып, аудит астында беріледі.</li>
+        <li><strong>Docker Compose, Kubernetes (kustomize, қатаң securityContext), Helm</strong> — жергілікті іске қосу үшін Compose, ал нақты орнатулар үшін Kubernetes/Helm қатаң қауіпсіздік контекстерімен, бір анықтама орталар бойынша ілгерілетіледі.</li>
+        <li><strong>React + TypeScript + Vite (Node 20+)</strong> — сессиялар, терминалдар және пулдың пайдаланылуы үшін жылдам, типтік қауіпсіз веб-интерфейс.</li>
+        <li>**Z9TERM0</li>
+      </ul>
+      <p>Мазмұн</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-8" aria-expanded="true" aria-controls="od-acc-helixcluster-8-panel">
+              <span class="od-accordion__label">Жағдай және ақиқаттық ескертпелер</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-8-panel" role="region" aria-labelledby="od-acc-helixcluster-8">
+            <div class="od-accordion__inner">
+      <ul>
+        <li><strong>Жағдайы: әзірленіп жатыр.</strong> Нұсқасы алғашқы (<code>0.1.0-dev</code>). Көптеген жетілдірілген мүмкіндіктер — толық құпиялы көп түйінді интерпретациялық айналым, маркетплейс есептесуі және куәландыруға негізделген кестелік жоспарлау популяциясы — репозиторийде анық түрде <strong>ЖОСПАРЛАНҒАН / инфрақұрылымға байланысты</strong> деп белгіленген және <strong>толық жұмыс істейтін</strong> болып көрсетілмеген. Қамту көрсеткіштері өзіндік баяндама бойынша берілген.</li>
+        <li><strong>Лицензиясы: анықталмаған.</strong> Анық жарияланбаған; Helm кестесінің <code>HelixCluster/HelixCluster</code> және <code>helixcluster.io</code> URL-дері тексерілмеген орынбасарлар болып табылады және нақты қашықтағы серверлермен сәйкес келмейді.</li>
+        <li>Қосылған LLM стегі жобалары (LLMOrchestrator, LLMProvider, LLMsVerifier) кластер ішінде орналастырылмаған модельдік серверлер емес, жеке бөлінген субмодульдер.</li>
+      </ul>
+      <p><strong>Басымдық деңгейі:</strong> Helix-негізгі (LLM-инфрақұрылымдық кластер — интерпретациялық және есептеу жұмыстарын орналастыра алатын есептеу негізі). HelixTrack-дан кейін орналасады.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
