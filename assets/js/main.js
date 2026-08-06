@@ -33,6 +33,14 @@
       var key = el.getAttribute('data-i18n');
       if (table && table[key] != null) el.innerHTML = table[key];
     });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria');
+      if (table && table[key] != null) el.setAttribute('aria-label', table[key]);
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-title');
+      if (table && table[key] != null) el.setAttribute('title', table[key]);
+    });
     root.setAttribute('lang', code);
     root.setAttribute('dir', (code === 'ar' || code === 'fa' || code === 'he') ? 'rtl' : 'ltr');
     if (langBtn) langBtn.textContent = code.toUpperCase();

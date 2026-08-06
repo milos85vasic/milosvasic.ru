@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,17 +38,16 @@
 {"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Miloš Vasić"},"description":"Miloš Vasić — AI engineer building verifiable AI-development systems: autonomous coding agents, LLM orchestration, and constitution-governed tooling. 15+ years shipping production software across mobile, backend, desktop, and web.","headline":"Miloš Vasić","image":"https://milosvasic.ru/assets/images/profile-square-800.jpg","name":"Milos Vasic","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://milosvasic.ru/assets/images/profile-square-800.jpg"},"name":"Miloš Vasić"},"sameAs":["https://github.com/milos85vasic","https://gitlab.com/milos85vasic","https://t.me/milos85vasic"],"url":"https://milosvasic.ru/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  
+  <link rel="alternate" hreflang="en" href="https://milosvasic.ru/"/><link rel="alternate" hreflang="x-default" href="https://milosvasic.ru/"/>
   <!-- Fonts are self-hosted via assets/od/fonts.css (linked by the OD asset bundle);
        the remote Google Fonts CDN was redundant + render-blocking and has been removed. -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- WCAG 2.2 AA: Focus appearance via CSS custom property -->
   <style>:root { --focus-w: 2.5px; --focus-offset: 3px; }</style>
 </head>
-<body>
-  <!-- WCAG 2.2 AA: Skip navigation link (SC 2.4.1, 2.4.11) -->
+<body><!-- WCAG 2.2 AA: Skip navigation link (SC 2.4.1, 2.4.11) -->
   <a class="skip-link" href="#top" data-i18n="a11y.skip">Skip to main content</a>
-  <nav class="nav" aria-label="Primary">
+  <nav class="nav" aria-label="Primary" data-i18n-aria="aria.primaryNav">
     <div class="wrap nav-inner">
       <a class="brand" href="/#top">milos<span class="dot">.</span>vasic</a>
       <div class="nav-links" id="nav-links">
@@ -60,12 +58,12 @@
       </div>
       <div class="nav-tools">
         <div class="lang-wrap">
-          <button class="icon-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Change language" title="Language">EN</button>
+          <button class="icon-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Change language" data-i18n-aria="aria.changeLang" title="Language" data-i18n-title="title.language">EN</button>
           <div class="lang-menu" id="lang-menu" role="menu"></div>
         </div>
-        <button class="icon-btn" id="theme-btn" aria-label="Toggle dark / light theme" title="Theme">◐</button>
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle dark / light theme" data-i18n-aria="aria.toggleTheme" title="Theme" data-i18n-title="title.theme">◐</button>
         <!-- Mobile primary-nav toggle: hidden ≥761px (CSS), shown ≤760px -->
-        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-controls="nav-links" aria-expanded="false">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" data-i18n-aria="aria.menu" aria-controls="nav-links" aria-expanded="false">
           <span class="nav-toggle-bars" aria-hidden="true"></span>
         </button>
       </div>
@@ -358,7 +356,7 @@
         <a href="https://t.me/milos85vasic">Telegram</a>
         <a href="mailto:i@mvasic.ru">i@mvasic.ru</a>
       </div>
-      <p class="mono">© 2026 Miloš Vasić — Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.</p>
+      <p class="mono">© 2026 Miloš Vasić — <span data-i18n="footer.text">Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.</span></p>
     </div>
   </footer>
 
@@ -366,7 +364,7 @@
   <div class="dl-modal" id="dl-modal" hidden role="dialog" aria-modal="true" aria-labelledby="dl-title" data-base="/downloads/">
     <div class="dl-backdrop" data-dl-close></div>
     <div class="dl-card" role="document">
-      <button class="dl-x" type="button" data-dl-close aria-label="Close">×</button>
+      <button class="dl-x" type="button" data-dl-close aria-label="Close" data-i18n-aria="aria.close">×</button>
       <p class="eyebrow" data-i18n="dl.heading">Download</p>
       <h3 id="dl-title" class="dl-doc-name">CV</h3>
       <p class="dl-choose" data-i18n="dl.choose">Choose your language</p>
@@ -379,10 +377,13 @@
   </div>
 
   <!-- Floating back-to-top: hidden + non-focusable until motion.js reveals it past the scroll threshold -->
-  <button class="od-to-top" type="button" aria-label="Back to top"><svg class="od-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
+  <button class="od-to-top" type="button" aria-label="Back to top" data-i18n-aria="aria.backToTop"><svg class="od-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
 
-  <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/main.js"></script>
+  <!-- defer: non-blocking, downloaded in parallel during parse, executed in
+       document order after the DOM is ready. i18n.js still runs before main.js
+       (defer preserves order), so the language switcher/theme wiring is intact. -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/articles.js" defer></script>
   <script src="/assets/js/downloads.js" defer></script>
 </body>

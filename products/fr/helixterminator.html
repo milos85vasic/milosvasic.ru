@@ -187,7 +187,7 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-0-panel" role="region" aria-labelledby="od-acc-helixterminator-0">
             <div class="od-accordion__inner">
-      <p>HelixTerminator est une plateforme d’entreprise pour terminal et gestion de sessions SSH, conçue comme un système de microservices Go avec des clients Flutter multiplateformes. Elle gère, enregistre et sécurise les sessions distantes selon un modèle de confiance zéro, intègre la collaboration en temps réel et superpose une assistance AI au terminal.</p>
+      <p>HelixTerminator est une plateforme d'entreprise pour les terminaux et la gestion des sessions SSH, conçue comme un système de microservices Go avec des clients Flutter multiplateformes. Elle gère, enregistre et sécurise les sessions distantes selon un modèle de confiance zéro, ajoute une collaboration en temps réel et superpose une assistance AI au terminal.</p>
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-1-panel" role="region" aria-labelledby="od-acc-helixterminator-1">
             <div class="od-accordion__inner">
-      <p>HelixTerminator est une plateforme terminale d’entreprise à confiance zéro et de gestion de sessions SSH : un backend en microservices Go associé à des clients Flutter couvrant six plateformes. Elle administre les hôtes, établit les connexions, enregistre les sessions, permet la collaboration en temps réel et ajoute une aide contextuelle AI pour les commandes, l’explication des sorties et la réponse aux incidents.</p>
+      <p>HelixTerminator est une plateforme de gestion des terminaux et des sessions SSH d'entreprise, basée sur une confiance zéro : un backend en microservices Go et des clients Flutter couvrant six plateformes. Elle gère les hôtes, établit les connexions, enregistre les sessions, permet la collaboration en temps réel et intègre une assistance AI pour l'aide aux commandes, l'explication des sorties et la réponse aux incidents.</p>
             </div>
           </div>
         </div>
@@ -213,35 +213,36 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-2-panel" role="region" aria-labelledby="od-acc-helixterminator-2">
             <div class="od-accordion__inner">
-      <p>HelixTerminator est une plateforme terminale et d’accès distant de niveau entreprise, structurée en deux modules — une Plateforme Terminal et un Courtier de Connexions — déployés via un catalogue de microservices Go et un client Flutter unique compatible avec six plateformes. Son ambition est de remplacer définitivement les outils SSH improvisés : plus de clients par machine, de prolifération de clés privées ou de lacunes d’audit, mais un système unique, gouverné, traçable et collaboratif, où l’accès distant est traité comme une infrastructure plutôt qu’une habitude personnelle.</p>
-      <p>Le backend gère l’intégralité du cycle de vie de l’accès distant, de bout en bout. Les hôtes et groupes sont administrés via des chaînes de bastions/serveurs relais ; un proxy SSH gère l’authentification par mot de passe, clé publique et certificat ; un proxy d’E/S terminal diffuse la session via WebSocket ; SFTP prend en charge les transferts résumables ; et des fonctionnalités comme le transfert de ports, la gestion de snippets et d’espaces de travail, ainsi que l’enregistrement de sessions sont assemblées en lectures asciinema signées, reproductibles et fiables. La sécurité repose sur une approche de confiance zéro par conception, et non en tant qu’ajustement a posteriori : un coffre-fort assure un stockage secret en aveugle, un service PKI émet des certificats SSH à durée de vie limitée pour éviter toute conservation de justificatifs permanents susceptibles d’être volés, des trousseaux de clés matériels (Secure Enclave / Android Keystore / DPAPI / HSM) maintiennent les clés hors du disque, FIDO2/WebAuthn et OIDC/SAML sécurisent l’authentification, et un journal d’audit en appendice, chaîné par Merkle, produit des preuves infalsifiables conformes aux normes SOC 2 et ISO 27001. Par ailleurs, la collaboration en temps réel permet à plusieurs opérateurs de partager une même session en direct, avec des rôles d’observateur, de copilote ou de propriétaire, synchronisés par une synchronisation de tampons CRDT.</p>
-      <p>Un service AI s’intègre au terminal lui-même, offrant l’autocomplétion des commandes, une explication en langage clair des sorties, la détection d’anomalies, la génération de runbooks et une assistance active en cas d’incident — transformant le terminal d’un simple canal passif en un assistant opérationnel aux moments critiques. L’ensemble de la plateforme est natif des conteneurs — Kubernetes, Helm, Terraform — et s’appuie sur une pile d’observabilité complète incluant OpenTelemetry, Grafana, Jaeger et Loki. Elle s’intègre à l’écosystème Helix via un pont HelixTrack et un agent local HelixLLM, le tout fonctionnant sous le Constitution de Helix avec des mécanismes de vérification d’héritage anti-usurpation.</p>
+      <p>HelixTerminator est une plateforme d'entreprise pour les terminaux et l'accès à distance, structurée en deux modules — une Plateforme Terminal et un Courtier de Connexion — déployés via un catalogue de microservices Go et un client Flutter unique prenant en charge six plateformes. Son ambition est de remplacer entièrement les outils SSH ad hoc : plus de clients par machine, de prolifération de clés privées ni de lacunes d'audit, mais un système unique, gouverné, auditable et collaboratif qui considère l'accès à distance comme une infrastructure plutôt qu'une habitude personnelle.</p>
+      <p>Le backend gère l'intégralité du cycle de vie de l'accès à distance de bout en bout. Les hôtes et groupes sont administrés via des chaînes de bastions/serveurs relais ; un proxy SSH gère l'authentification par mot de passe, clé publique et certificat ; un proxy d'E/S terminal diffuse la session via WebSocket ; SFTP prend en charge les transferts résumables ; et des fonctionnalités telles que le transfert de ports, la gestion de snippets et d'espaces de travail, ainsi que l'enregistrement de sessions sont assemblées en lectures asciinema signées, que vous pouvez rejouer en toute confiance. La sécurité est conçue selon le principe de la confiance zéro, et non comme une réflexion a posteriori : un coffre-fort assure le stockage secret en mode zéro connaissance, un service PKI émet des certificats SSH à courte durée de vie afin qu'aucune credential permanente ne traîne et ne puisse être volée, des trousseaux de clés matériels (Secure Enclave / Android Keystore / DPAPI / HSM) gardent les clés hors du disque, FIDO2/WebAuthn et OIDC/SAML sécurisent l'authentification, et un journal d'audit en appendice-only, chaîné par Merkle, produit des preuves infalsifiables pour les audits SOC 2 / ISO 27001. Par ailleurs, la collaboration en temps réel permet à plusieurs opérateurs de partager une même session en direct, avec des rôles d'observateur, de copilote ou de propriétaire, maintenus cohérents par une synchronisation de tampons CRDT.</p>
+      <p>Un service AI s'intègre au terminal lui-même, offrant l'autocomplétion des commandes, des explications en langage clair des sorties, la détection d'anomalies, la génération de runbooks et une assistance pratique en cas d'incident — transformant le terminal d'un simple canal en un assistant au moment précis où cela compte. L'ensemble de la plateforme est natif des conteneurs — Kubernetes, Helm, Terraform, et une pile complète d'observabilité incluant OpenTelemetry, Grafana, Jaeger et Loki — et s'intègre à l'écosystème Helix via un pont HelixTrack et un agent local HelixLLM. Le tout fonctionne sous le Constitution de Helix, avec des portes de vérification d'héritage anti-usurpation.</p>
+      <p>Contenu</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixterminator-3" aria-expanded="true" aria-controls="od-acc-helixterminator-3-panel">
-              <span class="od-accordion__label">Pourquoi nous l'avons conçu</span>
+              <span class="od-accordion__label">Pourquoi nous l’avons conçu</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-3-panel" role="region" aria-labelledby="od-acc-helixterminator-3">
             <div class="od-accordion__inner">
-      <p>Les équipes gèrent des infrastructures distantes via des clients SSH dispersés, sans piste d'audit partagée, sans gestion cohérente des secrets et sans moyen de collaborer en direct sur un incident. HelixTerminator a été créé pour transformer l'accès distant en une plateforme gouvernée, en mode *zero-trust* et conçue pour les équipes, plutôt qu'en un outil par poste de travail.</p>
+      <p>Les équipes gèrent des infrastructures distantes via des clients SSH dispersés, sans piste d’audit partagée, sans gestion cohérente des secrets et sans moyen de collaborer en direct sur un incident. HelixTerminator a été créé pour faire de l’accès distant une plateforme gouvernée, *zero-trust* et conçue pour les équipes, plutôt qu’un outil par poste de travail.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixterminator-4" aria-expanded="true" aria-controls="od-acc-helixterminator-4-panel">
-              <span class="od-accordion__label">Pourquoi c'est révolutionnaire</span>
+              <span class="od-accordion__label">Pourquoi c’est révolutionnaire</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-4-panel" role="region" aria-labelledby="od-acc-helixterminator-4">
             <div class="od-accordion__inner">
-      <p>Il condense une liste d'achats entière en une seule plateforme. Le client SSH, le coffre-fort de secrets, la couche bastion/PKI, l'enregistrement des sessions, l'audit de conformité et la collaboration en temps réel sont des éléments que les équipes achètent, assemblent et réconcilient habituellement séparément – chacun présentant ses propres lacunes aux points de jonction. HelixTerminator les intègre en un système unifié et gouverné, puis va plus loin que ces outils pris individuellement : il superpose une couche AI directement sur le terminal pour expliquer les sorties inconnues et rédiger des procédures *pendant qu'un incident est en cours*. Une capacité autrefois irréalisable devient réalité : une session d'accès distant à la fois sécurisée en *zero-trust*, enregistrée de manière infalsifiable, partagée en direct entre opérateurs et assistée par AI – le tout simultanément, depuis une seule interface.</p>
+      <p>Il condense une liste d’achats entière en une seule plateforme. Le client SSH, le coffre-fort de secrets, la couche bastion/PKI, l’enregistrement des sessions, l’audit de conformité et la collaboration en temps réel sont des éléments que les équipes achètent, assemblent et réconcilient habituellement séparément – chacun présentant ses propres lacunes aux points de jonction. HelixTerminator les livre sous la forme d’un système unifié et gouverné, puis va plus loin que ces outils pris individuellement : il superpose une couche AI directement sur le terminal pour expliquer les sorties inconnues et rédiger des procédures *pendant qu’un incident est en cours*. Une capacité autrefois irréalisable devient réalité : une session d’accès distant à la fois sécurisée en *zero-trust*, enregistrée de manière infalsifiable, partagée en direct entre opérateurs et assistée par AI – le tout simultanément, depuis une seule interface.</p>
             </div>
           </div>
         </div>
@@ -255,11 +256,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-5-panel" role="region" aria-labelledby="od-acc-helixterminator-5">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Architecture à double module</strong> (Plateforme Terminal + Courtier de Connexions) coordonnée via un registre de services, permettant à la plateforme et à la couche de courtage d'évoluer et de s'adapter indépendamment.</li>
-        <li><strong>Sécurité *zero-trust* de bout en bout</strong> : certificats SSH éphémères émis par une PKI, coffre-fort à connaissance nulle, trousseaux de clés sécurisés par matériel et journal d'audit chaîné par Merkle – aucun identifiant permanent, aucune piste invérifiable.</li>
-        <li><strong>Collaboration en temps réel sur les sessions</strong> grâce à la synchronisation des tampons via CRDT et à des rôles explicites (observateur / copilote / propriétaire), permettant à plusieurs opérateurs de travailler sur un même terminal sans se marcher sur les pieds.</li>
-        <li><strong>Assistance AI intégrée au terminal en direct</strong> : autocomplétion, explication des sorties, détection d'anomalies et assistance aux procédures/incidents, disponibles exactement là où l'opérateur en a besoin.</li>
-        <li><strong>Client Flutter multiplateforme</strong> développé à partir d'une seule base de code, assurant une expérience cohérente sur ordinateur, mobile et web.</li>
+        <li><strong>Architecture à double module</strong> (Plateforme Terminal + Courtier de Connexions) coordonnée via un registre de services, permettant à la plateforme et à la couche de courtage d’évoluer et de s’adapter indépendamment.</li>
+        <li><strong>Sécurité *zero-trust* de bout en bout</strong> : certificats SSH éphémères émis par une PKI, coffre-fort à connaissance nulle, trousseaux de clés matériels et journal d’audit chaîné par Merkle – aucun identifiant permanent, aucune piste invérifiable.</li>
+        <li><strong>Collaboration en temps réel sur les sessions</strong> grâce à une synchronisation de tampon basée sur les CRDT et des rôles explicites (observateur / copilote / propriétaire), permettant à plusieurs opérateurs de travailler sur un même terminal sans se marcher sur les pieds.</li>
+        <li><strong>Assistance AI intégrée au terminal en direct</strong> : autocomplétion, explication des sorties, détection d’anomalies et assistance aux procédures/incidents, disponibles exactement là où l’opérateur en a besoin.</li>
+        <li><strong>Client Flutter multiplateforme</strong> développé à partir d’une seule base de code, garantissant une expérience cohérente sur les postes de travail, les appareils mobiles et le web.</li>
       </ul>
             </div>
           </div>
@@ -274,10 +275,10 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-6-panel" role="region" aria-labelledby="od-acc-helixterminator-6">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Sécuriser l'accès distant sans aucun identifiant permanent à voler</strong> – les clés à longue durée de vie sont le talon d'Achille classique des brèches de sécurité. Solution : un service PKI émettant des certificats SSH éphémères à la demande, un coffre-fort à connaissance nulle stockant des secrets que le serveur lui-même ne peut pas lire, et un stockage matériel des clés (Secure Enclave / Android Keystore / DPAPI / HSM) pour éviter que les données privées ne restent exposées sur le disque.</li>
-        <li><strong>Permettre à plusieurs opérateurs de piloter une même session sans corrompre le tampon</strong> – les modifications concurrentes sur un terminal partagé posent un problème de cohérence complexe. Solution : synchronisation des tampons basée sur les CRDT, préférée à la transformation opérationnelle (conformément à l'ADR-006), car les CRDT convergent sans arbitre central.</li>
-        <li><strong>Rendre les preuves de conformité impossibles à altérer discrètement</strong> – un journal d'audit modifiable ne prouve rien. Solution : un journal en *append-only* chaîné par Merkle, où toute tentative de falsification brise la chaîne de hachage, produisant des preuves exportables pour les normes SOC 2 / ISO 27001 / FedRAMP.</li>
-        <li><strong>Offrir une expérience utilisateur cohérente sur ordinateur, mobile et web sans maintenir trois bases de code</strong> – solution : un client unique Flutter/Dart reposant sur le patron BLoC, Flutter étant préféré à Electron (conformément à l'ADR-001) pour cibler six plateformes à partir d'une seule source de vérité.</li>
+        <li><strong>Sécuriser l’accès distant sans aucun identifiant permanent à voler</strong> – les clés à longue durée de vie sont le talon d’Achille classique des brèches. Solution : un service PKI émettant des certificats SSH éphémères à la demande, un coffre-fort à connaissance nulle protégeant des secrets que le serveur lui-même ne peut pas lire, et un stockage matériel des clés (Secure Enclave / Android Keystore / DPAPI / HSM) pour que les données privées ne soient jamais exposées sur le disque.</li>
+        <li><strong>Permettre à plusieurs opérateurs de piloter une même session sans corrompre le tampon</strong> – les modifications concurrentes sur un terminal partagé posent un problème de cohérence complexe. Solution : une synchronisation de tampon basée sur les CRDT, préférée à la transformation opérationnelle (conformément à l’ADR-006), car les CRDT convergent sans arbitre central.</li>
+        <li><strong>Rendre les preuves de conformité impossibles à altérer discrètement</strong> – un journal d’audit modifiable ne prouve rien. Solution : un journal en *append-only* chaîné par Merkle, où toute tentative de falsification brise la chaîne de hachage, produisant des preuves exportables pour les normes SOC 2 / ISO 27001 / FedRAMP.</li>
+        <li><strong>Offrir une expérience utilisateur cohérente sur poste de travail, mobile et web sans trois bases de code distinctes</strong> – solution : un client unique Flutter/Dart reposant sur le patron BLoC, Flutter étant préféré à Electron (conformément à l’ADR-001) pour cibler six plateformes à partir d’une seule source de vérité.</li>
       </ul>
       <p>Contenu</p>
             </div>
@@ -294,14 +295,14 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go microservices</strong> — la flotte backend (SSH proxy, terminal, vault, PKI, audit, et autres) ; choisie pour son modèle de concurrence et son empreinte d'exécution réduite, idéale pour les services gérant de nombreuses sessions de streaming longues simultanément (ADR-002 : Go plutôt que Rust/Node).</li>
-        <li><strong>Flutter / Dart (BLoC)</strong> — un seul code client pour six plateformes, avec BLoC garantissant une gestion prévisible de l'état ; Flutter préféré à Electron (ADR-001) pour éviter de maintenir des interfaces natives et web distinctes.</li>
+        <li><strong>Flutter / Dart (BLoC)</strong> — une seule base de code client pour six plateformes, avec BLoC assurant une gestion prévisible de l'état ; Flutter préféré à Electron (ADR-001) pour éviter de maintenir des interfaces natives et web distinctes.</li>
         <li><strong>PostgreSQL</strong> — la base de données principale, choisie plutôt que CockroachDB (ADR-004) pour son cœur transactionnel mature et bien maîtrisé.</li>
         <li><strong>Kafka + RabbitMQ</strong> — la couche de messagerie et de streaming transportant les segments de session et les événements (ADR-003), combinant un journal durable avec une file d'attente flexible.</li>
         <li><strong>Redis</strong> — stocke les tampons de défilement des terminaux et l'état des sessions actives lorsque la faible latence prime sur la durabilité.</li>
-        <li><strong>SPIFFE/SPIRE + mTLS</strong> — émet des identités cryptographiques pour les charges de travail (ADR-005), permettant une authentification mutuelle du trafic inter-services et étendant le principe de *zero trust* à l'intérieur du maillage, et non seulement à sa périphérie.</li>
+        <li><strong>SPIFFE/SPIRE + mTLS</strong> — émet des identités cryptographiques pour les charges de travail (ADR-005), permettant une authentification mutuelle du trafic inter-services et étendant le principe de *zero trust* au sein du maillage, et non seulement à sa périphérie.</li>
         <li><strong>Ed25519 (EdDSA)</strong> — signe les JWT et les enregistrements de session (ADR-009), offrant des signatures modernes et rapides qui rendent les sessions enregistrées vérifiables.</li>
-        <li><strong>Kubernetes + Helm + Terraform</strong> — déploiement natif en conteneurs avec une infrastructure reproductible et versionnée (ADR-007/008).</li>
-        <li><strong>OpenTelemetry, Grafana, Jaeger, Loki</strong> — la pile d'observabilité pour les traces, métriques, tableaux de bord et journaux ; <strong>Falco, Trivy, Cosign, Sealed Secrets</strong> — détection des menaces en temps réel, analyse des images, signature des artefacts et livraison chiffrée des secrets tout au long de la chaîne d'approvisionnement.</li>
+        <li><strong>Kubernetes + Helm + Terraform</strong> — déploiement natif pour conteneurs avec une infrastructure reproductible et versionnée (ADR-007/008).</li>
+        <li><strong>OpenTelemetry, Grafana, Jaeger, Loki</strong> — la pile d'observabilité pour le traçage, les métriques, les tableaux de bord et les journaux ; <strong>Falco, Trivy, Cosign, Sealed Secrets</strong> — détection des menaces en temps réel, analyse des images, signature des artefacts et livraison chiffrée des secrets tout au long de la chaîne d'approvisionnement.</li>
       </ul>
             </div>
           </div>
@@ -316,7 +317,7 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
           <div class="od-accordion__panel is-open" id="od-acc-helixterminator-8-panel" role="region" aria-labelledby="od-acc-helixterminator-8">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Statut : bêta.</strong> Un codebase substantiel et en développement actif (créé le 2026-07-04). Les chiffres de spécifications numériques du dossier de recherche MVP du projet (nombre de points de terminaison, de tables et de services) sont des cibles de conception issues de <code>docs/research/mvp/</code>, et non confirmés comme pleinement implémentés. Ils sont donc présentés ici comme une portée architecturale plutôt que comme des métriques livrées. Les affirmations concernant la latence, les SLO et le caractère « prêt pour la production » n'ont pas été vérifiées de manière indépendante.</li>
+        <li><strong>Statut : bêta.</strong> Une base de code substantielle et en développement actif (créée le 2026-07-04). Les chiffres de spécifications numériques du dossier de recherche MVP du projet (nombre de points de terminaison, de tables et de services) sont des objectifs de conception issus de <code>docs/research/mvp/</code>, non confirmés comme entièrement implémentés, et sont donc présentés ici comme une portée architecturale plutôt que comme des métriques livrées. Les affirmations concernant la latence, les SLO et le caractère « prêt pour la production » n'ont pas été vérifiées de manière indépendante.</li>
         <li><strong>Licence : Apache-2.0</strong> (conformément à GitHub API).</li>
       </ul>
       <p><strong>Niveau de priorité :</strong> Helix-primary.</p>

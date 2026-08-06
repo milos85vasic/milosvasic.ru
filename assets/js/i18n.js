@@ -21,6 +21,7 @@ window.MV_LANGS = [
 
 window.MV_I18N = {
   en: {
+    'footer.text': 'Belgrade · Dubna. Built as a static site, deployed on GitHub Pages.', 'aria.changeLang': 'Change language', 'aria.toggleTheme': 'Toggle dark / light theme', 'aria.menu': 'Menu', 'aria.close': 'Close', 'aria.backToTop': 'Back to top', 'aria.primaryNav': 'Primary', 'title.language': 'Language', 'title.theme': 'Theme',
     'a11y.skip': 'Skip to main content',
     'nav.work': 'Work', 'nav.experience': 'Experience', 'nav.skills': 'Skills', 'nav.contact': 'Contact',
     'hero.role': 'SDK &amp; platform engineering for mobile, backend, desktop &amp; web.',
@@ -55,6 +56,7 @@ window.MV_I18N = {
     'contact.lead': 'Open to senior engineering, platform/SDK, and technical leadership roles worldwide. The fastest way to reach me is email.'
   },
   ru: {
+    'footer.text': 'Belgrade · Dubna. Создан как статический сайт, развернут на GitHub Pages.', 'aria.changeLang': 'Сменить язык', 'aria.toggleTheme': 'Переключить темную / светлую тему', 'aria.menu': 'Меню', 'aria.close': 'Закрыть', 'aria.backToTop': 'Вернуться наверх', 'aria.primaryNav': 'Основная навигация', 'title.language': 'Язык', 'title.theme': 'Тема',
     'a11y.skip': 'Перейти к содержанию',
     'nav.work': 'Проекты', 'nav.experience': 'Опыт', 'nav.skills': 'Навыки', 'nav.contact': 'Контакты',
     'hero.role': 'Разработка SDK и платформ для мобильных, серверных, десктоп и веб-решений.',
@@ -89,6 +91,7 @@ window.MV_I18N = {
     'contact.lead': 'Открыт к senior-ролям в инженерии, платформенной/SDK-разработке и техническому лидерству по всему миру. Быстрее всего — по email.'
   },
   sr: {
+    'footer.text': 'Belgrade · Dubna. Изграђено као статички сајт, објављено на GitHub Pages.', 'aria.changeLang': 'Промени језик', 'aria.toggleTheme': 'Промени тамну / светлу тему', 'aria.menu': 'Мени', 'aria.close': 'Затвори', 'aria.backToTop': 'Назад на врх', 'aria.primaryNav': 'Главна', 'title.language': 'Језик', 'title.theme': 'Тема',
     'a11y.skip': 'Пређи на садржај',
     'nav.work': 'Радови', 'nav.experience': 'Искуство', 'nav.skills': 'Вештине', 'nav.contact': 'Контакт',
     'hero.role': 'Развој SDK-ова и платформи за мобилне, серверске, десктоп и веб системе.',
@@ -123,6 +126,7 @@ window.MV_I18N = {
     'contact.lead': 'Отворен за senior инжењерске, платформске/SDK и техничке лидерске позиције широм света. Најбрже преко мејла.'
   },
   de: {
+    'footer.text': 'Belgrade · Dubna. Als statische Website erstellt, auf GitHub Pages bereitgestellt.', 'aria.changeLang': 'Sprache ändern', 'aria.toggleTheme': 'Dunkles / helles Thema umschalten', 'aria.menu': 'Menü', 'aria.close': 'Schließen', 'aria.backToTop': 'Zurück nach oben', 'aria.primaryNav': 'Hauptnavigation', 'title.language': 'Sprache', 'title.theme': 'Thema',
     'a11y.skip': 'Zum Inhalt springen',
     'nav.work': 'Projekte', 'nav.experience': 'Erfahrung', 'nav.skills': 'Skills', 'nav.contact': 'Kontakt',
     'hero.role': 'SDK- &amp; Plattform-Engineering für Mobile, Backend, Desktop &amp; Web.',
@@ -157,6 +161,7 @@ window.MV_I18N = {
     'contact.lead': 'Offen für Senior-Engineering-, Plattform-/SDK- und technische Führungsrollen weltweit. Am schnellsten per E-Mail.'
   },
   es: {
+    'footer.text': 'Belgrade · Dubna. Construido como sitio estático, desplegado en GitHub Pages.', 'aria.changeLang': 'Cambiar idioma', 'aria.toggleTheme': 'Cambiar tema oscuro / claro', 'aria.menu': 'Menú', 'aria.close': 'Cerrar', 'aria.backToTop': 'Volver al principio', 'aria.primaryNav': 'Principal', 'title.language': 'Idioma', 'title.theme': 'Tema',
     'a11y.skip': 'Saltar al contenido',
     'nav.work': 'Proyectos', 'nav.experience': 'Experiencia', 'nav.skills': 'Habilidades', 'nav.contact': 'Contacto',
     'hero.role': 'Ingeniería de SDK y plataformas para móvil, backend, escritorio y web.',
@@ -191,6 +196,7 @@ window.MV_I18N = {
     'contact.lead': 'Abierto a roles senior de ingeniería, plataforma/SDK y liderazgo técnico en todo el mundo. La vía más rápida es el email.'
   },
   fr: {
+    'footer.text': 'Belgrade · Dubna. Construit comme un site statique, déployé sur GitHub Pages.', 'aria.changeLang': 'Changer de langue', 'aria.toggleTheme': 'Basculer le thème sombre / clair', 'aria.menu': 'Menu', 'aria.close': 'Fermer', 'aria.backToTop': 'Retour en haut', 'aria.primaryNav': 'Principal', 'title.language': 'Langue', 'title.theme': 'Thème',
     'a11y.skip': 'Aller au contenu',
     'nav.work': 'Projets', 'nav.experience': 'Expérience', 'nav.skills': 'Compétences', 'nav.contact': 'Contact',
     'hero.role': 'Ingénierie SDK &amp; plateformes pour mobile, backend, desktop &amp; web.',
@@ -226,6 +232,7 @@ window.MV_I18N = {
   },
   /* ---- NEW: be/kk/ar/fa/zh/ja/ko/hi/tr (HelixTranslate containerized engine) ---- */
   be: {
+    'footer.text': 'Belgrade · Dubna. Зроблена як статычны сайт, разгорнута на GitHub Pages.', 'aria.changeLang': 'Змяніць мову', 'aria.toggleTheme': 'Пераключыць цёмную / светлую тэму', 'aria.menu': 'Меню', 'aria.close': 'Закрыць', 'aria.backToTop': 'Вярнуцца ўверх', 'aria.primaryNav': 'Асноўнае', 'title.language': 'Мова', 'title.theme': 'Тэма',
     'a11y.skip': 'Перайсці да асноўнага зместу',
     'nav.work': 'Праца',
     'nav.experience': 'Досвед',
@@ -285,6 +292,7 @@ window.MV_I18N = {
     'contact.lead': 'Адкрыты да прапановаў на пазіцыі старшага інжынера, інжынера платформаў/SDK і тэхнічнага лідара па ўсім свеце. Самы хуткі спосаб звязацца са мной — электронная пошта.'
   },
   kk: {
+    'footer.text': 'Belgrade · Dubna. Статикалық сайт ретінде жасалған, GitHub Pages-те орналастырылған.', 'aria.changeLang': 'Тілді ауыстыру', 'aria.toggleTheme': 'Қараңғы / ақшыл теманы ауыстыру', 'aria.menu': 'Мәзір', 'aria.close': 'Жабу', 'aria.backToTop': 'Басына оралу', 'aria.primaryNav': 'Негізгі', 'title.language': 'Тіл', 'title.theme': 'Тема',
     'a11y.skip': 'Негізгі мазмұнға өту',
     'nav.work': 'Жұмыс',
     'nav.experience': 'Тәжірибе',
@@ -344,6 +352,7 @@ window.MV_I18N = {
     'contact.lead': 'Әлемнің кез келген жеріндегі аға инженерлік, платформалық/SDK және техникалық жетекшілік лауазымдарына ашықпын. Мені тез арада табудың ең оңай жолы — электрондық пошта.'
   },
   ar: {
+    'footer.text': 'Belgrade · Dubna. تم بناؤه كموقع ثابت، تم نشره على GitHub Pages.', 'aria.changeLang': 'تغيير اللغة', 'aria.toggleTheme': 'تبديل السمة الداكنة / الفاتحة', 'aria.menu': 'القائمة', 'aria.close': 'إغلاق', 'aria.backToTop': 'العودة إلى الأعلى', 'aria.primaryNav': 'الرئيسية', 'title.language': 'اللغة', 'title.theme': 'السمة',
     'a11y.skip': 'الانتقال إلى المحتوى الرئيسي',
     'nav.work': 'العمل',
     'nav.experience': 'الخبرة',
@@ -403,6 +412,7 @@ window.MV_I18N = {
     'contact.lead': 'متاح لشغل أدوار هندسية عليا، منصات/SDK، والقيادة التقنية على مستوى العالم. أسرع طريقة للتواصل معي هي عبر البريد الإلكتروني.'
   },
   fa: {
+    'footer.text': 'Belgrade · Dubna. ساخته شده به عنوان یک سایت استاتیک، مستقر شده روی GitHub Pages.', 'aria.changeLang': 'تغییر زبان', 'aria.toggleTheme': 'تغییر تم تاریک / روشن', 'aria.menu': 'منو', 'aria.close': 'بستن', 'aria.backToTop': 'بازگشت به بالا', 'aria.primaryNav': 'اصلی', 'title.language': 'زبان', 'title.theme': 'تم',
     'a11y.skip': 'رفتن به محتوای اصلی',
     'nav.work': 'کارها',
     'nav.experience': 'تجربه',
@@ -462,6 +472,7 @@ window.MV_I18N = {
     'contact.lead': 'آماده پذیرش نقش‌های ارشد مهندسی، پلتفرم/SDK و رهبری فنی در سطح جهانی. سریع‌ترین راه برای تماس با من ایمیل است.'
   },
   zh: {
+    'footer.text': 'Belgrade · Dubna. 构建为静态网站，部署在 GitHub Pages。', 'aria.changeLang': '切换语言', 'aria.toggleTheme': '切换深色 / 浅色主题', 'aria.menu': '菜单', 'aria.close': '关闭', 'aria.backToTop': '返回顶部', 'aria.primaryNav': '主导航', 'title.language': '语言', 'title.theme': '主题',
     'a11y.skip': '跳转至主要内容',
     'nav.work': '作品',
     'nav.experience': '经历',
@@ -521,6 +532,7 @@ window.MV_I18N = {
     'contact.lead': '欢迎全球范围内的高级工程师、平台/SDK及技术领导岗位合作机会。最快联系方式：电子邮件。'
   },
   ja: {
+    'footer.text': 'Belgrade · Dubna. 静的サイトとして構築され、GitHub Pagesにデプロイされています。', 'aria.changeLang': '言語を変更', 'aria.toggleTheme': 'ダーク / ライトテーマの切り替え', 'aria.menu': 'メニュー', 'aria.close': '閉じる', 'aria.backToTop': 'トップに戻る', 'aria.primaryNav': 'メイン', 'title.language': '言語', 'title.theme': 'テーマ',
     'a11y.skip': 'メインコンテンツへスキップ',
     'nav.work': '業績',
     'nav.experience': '経歴',
@@ -580,6 +592,7 @@ window.MV_I18N = {
     'contact.lead': '世界中のシニアエンジニア、プラットフォーム/SDK、技術リーダーシップのポジションに興味あり。最も迅速な連絡方法はメール。'
   },
   ko: {
+    'footer.text': 'Belgrade · Dubna. 정적 사이트로 구축, GitHub Pages에 배포됨.', 'aria.changeLang': '언어 변경', 'aria.toggleTheme': '어두운 / 밝은 테마 전환', 'aria.menu': '메뉴', 'aria.close': '닫기', 'aria.backToTop': '맨 위로', 'aria.primaryNav': '주요', 'title.language': '언어', 'title.theme': '테마',
     'a11y.skip': '본문으로 건너뛰기',
     'nav.work': '작업',
     'nav.experience': '경력',
@@ -639,6 +652,7 @@ window.MV_I18N = {
     'contact.lead': '전 세계의 시니어 엔지니어, 플랫폼/SDK, 기술 리더십 직무에 열려 있습니다. 가장 빠른 연락 방법은 이메일입니다.'
   },
   hi: {
+    'footer.text': 'Belgrade · Dubna. एक स्थिर साइट के रूप में बनाया गया, GitHub Pages पर तैनात।', 'aria.changeLang': 'भाषा बदलें', 'aria.toggleTheme': 'डार्क / लाइट थीम टॉगल करें', 'aria.menu': 'मेनू', 'aria.close': 'बंद करें', 'aria.backToTop': 'शीर्ष पर वापस', 'aria.primaryNav': 'प्राथमिक', 'title.language': 'भाषा', 'title.theme': 'थीम',
     'a11y.skip': 'मुख्य सामग्री पर जाएँ',
     'nav.work': 'कार्य',
     'nav.experience': 'अनुभव',
@@ -698,6 +712,7 @@ window.MV_I18N = {
     'contact.lead': 'विश्वभर में वरिष्ठ इंजीनियरिंग, प्लेटफ़ॉर्म/SDK और तकनीकी नेतृत्व भूमिकाओं के लिए खुला हूँ। मुझसे संपर्क का सबसे तेज़ तरीका ईमेल है।'
   },
   tr: {
+    'footer.text': 'Belgrade · Dubna. Statik bir site olarak oluşturuldu, GitHub Pages üzerinde dağıtıldı.', 'aria.changeLang': 'Dili değiştir', 'aria.toggleTheme': 'Koyu / açık temayı değiştir', 'aria.menu': 'Menü', 'aria.close': 'Kapat', 'aria.backToTop': 'Başa dön', 'aria.primaryNav': 'Ana', 'title.language': 'Dil', 'title.theme': 'Tema',
     'a11y.skip': 'Ana içeriğe geç',
     'nav.work': 'İşler',
     'nav.experience': 'Deneyim',
@@ -780,6 +795,14 @@ window.MV_I18N = {
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var key = el.getAttribute('data-i18n');
         if (table && table[key] != null) el.innerHTML = table[key];
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-aria');
+        if (table && table[key] != null) el.setAttribute('aria-label', table[key]);
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-title');
+        if (table && table[key] != null) el.setAttribute('title', table[key]);
       });
       var root = document.documentElement;
       root.setAttribute('dir', (pageLang === 'ar' || pageLang === 'fa' || pageLang === 'he') ? 'rtl' : 'ltr');
