@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/vasic-digital-reusable-module-suite.html","be":"/products/be/vasic-digital-reusable-module-suite.html","de":"/products/de/vasic-digital-reusable-module-suite.html","en":"/products/vasic-digital-reusable-module-suite.html","es":"/products/es/vasic-digital-reusable-module-suite.html","fa":"/products/fa/vasic-digital-reusable-module-suite.html","fr":"/products/fr/vasic-digital-reusable-module-suite.html","hi":"/products/hi/vasic-digital-reusable-module-suite.html","ja":"/products/ja/vasic-digital-reusable-module-suite.html","kk":"/products/kk/vasic-digital-reusable-module-suite.html","ko":"/products/ko/vasic-digital-reusable-module-suite.html","ru":"/products/ru/vasic-digital-reusable-module-suite.html","sr":"/products/sr/vasic-digital-reusable-module-suite.html","tr":"/products/tr/vasic-digital-reusable-module-suite.html","zh":"/products/zh/vasic-digital-reusable-module-suite.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
@@ -181,88 +186,88 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 <figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// архитектура</figcaption>
 </figure>
 
-      <p class="od-product-detail__tagline"><strong>Izgradi jednom, koristi svuda — flota malih, odvojenih, nezavisno testiranih Go i KMP modula.</strong></p>
+      <p class="od-product-detail__tagline"><strong>Изгради једном, користи свуда — флота малих, одвојених, независно тестираних Go и KMP модула.</strong></p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-0" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-0-panel">
-              <span class="od-accordion__label">Sažetak</span>
+              <span class="od-accordion__label">Сажетак</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-0-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-0">
             <div class="od-accordion__inner">
-      <p>Velika porodica generičkih, ponovo upotrebljivih modula objavljenih pod <code>digital.vasic.*</code> (Go) i Kotlin Multiplatform imenskim prostorima. Svaki modul je samostalan, nezavisno testiran i verzioniran, a koristi se kao podmodul sa jednakom kodnom bazom u većim proizvodima (Catalogizer, HelixAgent i šira flota). Ova stranica objedinjuje brojne male alate koji bi, prikazani pojedinačno, predstavljali suvišan šum.</p>
+      <p>Велика породица генеричких, поново употребљивих модула објављених под <code>digital.vasic.*</code> (Go) и Kotlin Multiplatform именским просторима. Сваки модул је самосталан, независно тестиран и верзиониран, а користи се као подмодул са једнаком кодном базом у већим производима (Catalogizer, HelixAgent и шира флота). Ова страница обједињује бројне мале алате који би, приказани појединачно, представљали сувишан шум.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-1" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-1-panel">
-              <span class="od-accordion__label">Kratak opis</span>
+              <span class="od-accordion__label">Кратак опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-1-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-1">
             <div class="od-accordion__inner">
-      <p>Kurirana kolekcija odvojenih <code>digital.vasic.*</code> modula — infrastrukturni primitivi (autentifikacija, keš, baza podataka, konfiguracija, opservabilnost), gradivni blokovi za AI/agente (RAG, VectorDB, Embeddings, MCP, Agentic, Planiranje) i odbrambeni LLM sigurnosni mehanizmi (RedTeam, Normalize) — uz paralelni set Kotlin Multiplatform modula. Svaki je generički, testiran i ponovo upotrebljiv.</p>
+      <p>Курирана колекција одвојених <code>digital.vasic.*</code> модула — инфраструктурни примитиви (аутентификација, кеш, база података, конфигурација, опсервабилност), градивни блокови за AI/агенте (RAG, VectorDB, Ембеддингс, MCP, Агентиц, Планирање) и одбрамбени LLM сигурносни механизми (RedTeam, Нормализе) — уз паралелни сет Kotlin Multiplatform модула. Сваки је генерички, тестиран и поново употребљив.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-2" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-2-panel">
-              <span class="od-accordion__label">Detaljan opis</span>
+              <span class="od-accordion__label">Детаљан опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-2-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-2">
             <div class="od-accordion__inner">
-      <p>Organizacija vasic-digital zasniva se na jednoj strukturalnoj opkladi: filozofiji „ustava + mnoštva odvojenih, ponovo upotrebljivih podmodula" u kojoj se generička funkcionalnost nikada ne piše dvaput. Umesto monolitnih rešenja, svaki ponovo upotrebljivi segment izdvaja se u sopstveni mali modul — sopstveni repozitorijum, sopstvene testove, sopstvenu dokumentaciju — i strogo se odvaja kako specifičnosti jednog korisnika nikada ne bi procurele u njega. Ova stranica ih grupiše jer bi, posmatrani pojedinačno, svaki predstavlja biblioteku koja bi kao samostalna stranica proizvela samo šum. Zajedno, oni su pravi multiplikator snage organizacije: privatni inženjerski resurs koji pretvara „izgradnju novog proizvoda" u „sastavljanje dokazanih delova", i konkretna potvrda tvrdnje da ova flota ne izmišlja toplu vodu — ona održava jedno veoma dobro točak i kotrlja ga svuda.</p>
-      <p>Skup obuhvata tri klastera. <strong>Infrastrukturni primitivi</strong> (Go) pružaju osnovnu strukturu koju svaka usluga zahteva: <code>auth</code> (JWT/bcrypt), <code>cache</code> (Redis/TTL), <code>database</code> (migracije, dualni SQLite/PostgreSQL), <code>config</code>, <code>middleware</code>, <code>observability</code> (Prometheus/OpenTelemetry), <code>ratelimiter</code>, <code>security</code>, <code>storage</code> (S3/MinIO), <code>streaming</code> (WebSocket čvorište), <code>eventbus</code>, <code>filesystem</code> (višeprotokolni), <code>discovery</code>/<code>mdns</code>, <code>http3</code>, <code>recovery</code>, <code>concurrency</code>, <code>lazy</code> i još mnogo toga. <strong>Gradivni blokovi za AI/agente</strong> (Go) pružaju podlogu za sisteme zasnovane na AI: <code>rag</code>, <code>vectordb</code>, <code>embeddings</code>, <code>memory</code>, <code>conversation</code> (kompresija beskonačnog konteksta, event sourcing), <code>mcp</code> (Model Context Protocol), <code>toolschema</code>, <code>skillregistry</code>, <code>agentic</code> (orkestracija tokova rada zasnovana na grafovima), <code>planning</code> (HiPlan/MCTS/Stablo-mišljenja), <code>benchmark</code> (SWE-bench/HumanEval/MMLU), <code>llmops</code>, <code>selfimprove</code> (modelovanje nagrada/RLHF) i <code>toon</code> (Token-Oriented Object Notation). <strong>Odbrambeni LLM sigurnosni mehanizmi</strong> nude alate za robusnost u uslovima napada: <code>RedTeam</code> (adverzarijalni scenariji vođeni YAML), <code>Normalize</code> (kanonizacija ulaza pod napadom). Paralelni <strong>Kotlin Multiplatform</strong> set preslikava ključne module (Auth-KMP, Database-KMP, Security-KMP, UI-Components-KMP itd.) za cross-platform aplikacije.</p>
+      <p>Организација vasic-digital заснива се на једној структуралној опклади: филозофији „устава + мноштва одвојених, поново употребљивих подмодула" у којој се генеричка функционалност никада не пише двапут. Уместо монолитних решења, сваки поново употребљиви сегмент издваја се у сопствени мали модул — сопствени репозиторијум, сопствене тестове, сопствену документацију — и строго се одваја како специфичности једног корисника никада не би процуреле у њега. Ова страница их групише јер би, посматрани појединачно, сваки представља библиотеку која би као самостална страница произвела само шум. Заједно, они су прави мултипликатор снаге организације: приватни инжењерски ресурс који претвара „изградњу новог производа" у „састављање доказаних делова", и конкретна потврда тврдње да ова флота не измишља топлу воду — она одржава једно веома добро точак и котрља га свуда.</p>
+      <p>Скуп обухвата три кластера. <strong>Инфраструктурни примитиви</strong> (Go) пружају основну структуру коју свака услуга захтева: <code>auth</code> (JWT/bcrypt), <code>cache</code> (Redis/TTL), <code>database</code> (миграције, дуални SQLite/PostgreSQL), <code>config</code>, <code>middleware</code>, <code>observability</code> (Prometheus/OpenTelemetry), <code>ratelimiter</code>, <code>security</code>, <code>storage</code> (S3/MinIO), <code>streaming</code> (WebSocket чвориште), <code>eventbus</code>, <code>filesystem</code> (вишепротоколни), <code>discovery</code>/<code>mdns</code>, <code>http3</code>, <code>recovery</code>, <code>concurrency</code>, <code>lazy</code> и још много тога. <strong>Градивни блокови за AI/агенте</strong> (Go) пружају подлогу за системе засноване на AI: <code>rag</code>, <code>vectordb</code>, <code>embeddings</code>, <code>memory</code>, <code>conversation</code> (компресија бесконачног контекста, евент соурцинг), <code>mcp</code> (Model Context Protocol), <code>toolschema</code>, <code>skillregistry</code>, <code>agentic</code> (оркестрација токова рада заснована на графовима), <code>planning</code> (HiPlan/MCTS/Стабло-мишљења), <code>benchmark</code> (SWE-bench/HumanEval/MMLU), <code>llmops</code>, <code>selfimprove</code> (моделовање награда/RLHF) и <code>toon</code> (Токен-Ориентед Објецт Нотатион). <strong>Одбрамбени LLM сигурносни механизми</strong> нуде алате за робусност у условима напада: <code>RedTeam</code> (адверзаријални сценарији вођени YAML), <code>Normalize</code> (канонизација улаза под нападом). Паралелни <strong>Kotlin Multiplatform</strong> сет пресликава кључне модуле (Аутх-KMP, Датабасе-KMP, Security-KMP, UI-Цомпонентс-KMP итд.) за цросс-платформ апликације.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-3" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-3-panel">
-              <span class="od-accordion__label">Zašto smo ga izgradili</span>
+              <span class="od-accordion__label">Зашто смо га изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-3-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-3">
             <div class="od-accordion__inner">
-      <p>Isporuka mnogih proizvoda (Catalogizer, HelixAgent, Herald i drugih) od nule svaki put je rasipanje resursa i nedoslednost. Izvlačenje svih generičkih zahteva u odvojene, testirane module znači da se ispravke i poboljšanja šire kroz ceo sistem, a svaki novi proizvod sastavlja se od proverenih delova.</p>
+      <p>Испорука многих производа (Catalogizer, HelixAgent, Herald и других) од нуле сваки пут је расипање ресурса и недоследност. Извлачење свих генеричких захтева у одвојене, тестиране модуле значи да се исправке и побољшања шире кроз цео систем, а сваки нови производ саставља се од проверених делова.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-4" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-4-panel">
-              <span class="od-accordion__label">Zašto je revolucionarno</span>
+              <span class="od-accordion__label">Зашто је револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-4-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-4">
             <div class="od-accordion__inner">
-      <p>U suštini, radi se o privatnoj „standardnoj biblioteci" za izgradnju backend sistema usmerenih na AI – sloj koji većina timova nikada ne stigne da izgradi jer su previše zauzeti ponovnim rešavanjem autentifikacije, keširanja i infrastrukturnih detalja RAG po peti put. Ovde infrastrukturne primitive, gradivni blokovi za AI i odbrambeni mehanizmi LLM postoje kao gotovi, nezavisno testirani moduli, što malom timu omogućava da isporuči sisteme na nivou finalnog proizvoda tempom koji obično zahteva mnogo veći tim – i to bez duga dupliciranja koji obično prati takav proces.</p>
+      <p>У суштини, ради се о приватној „стандардној библиотеци" за изградњу бацкенд система усмерених на AI – слој који већина тимова никада не стигне да изгради јер су превише заузети поновним решавањем аутентификације, кеширања и инфраструктурних детаља RAG по пети пут. Овде инфраструктурне примитиве, градивни блокови за AI и одбрамбени механизми LLM постоје као готови, независно тестирани модули, што малом тиму омогућава да испоручи системе на нивоу финалног производа темпом који обично захтева много већи тим – и то без дуга дуплицирања који обично прати такав процес.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-5" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-5-panel">
-              <span class="od-accordion__label">Šta je inovativno</span>
+              <span class="od-accordion__label">Шта је иновативно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-5-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-5">
             <div class="od-accordion__inner">
       <ul>
-        <li>Disciplina razdvajanja na nivou celog sistema (CONST-051): podmoduli tretirani kao ravnopravne kodne baze, bez specifičnosti potrošača.</li>
-        <li>Namenski sloj primitiva za AI (RAG, VectorDB, Embeddings, MCP, ToolSchema, Agentic, Planning, LLMOps) kao ponovo upotrebljivi moduli.</li>
-        <li>Klaster odbrambenih mehanizama LLM (RedTeam, Normalize) za robusnost u uslovima napada.</li>
-        <li>Paralelni setovi modula Go + Kotlin Multiplatform koji dele iste konvencije.</li>
+        <li>Дисциплина раздвајања на нивоу целог система (ЦОНСТ-051): подмодули третирани као равноправне кодне базе, без специфичности потрошача.</li>
+        <li>Наменски слој примитива за AI (RAG, VectorDB, Ембеддингс, MCP, ToolSchema, Агентиц, Планнинг, LLMOps) као поново употребљиви модули.</li>
+        <li>Кластер одбрамбених механизама LLM (RedTeam, Нормализе) за робусност у условима напада.</li>
+        <li>Паралелни сетови модула Go + Kotlin Multiplatform који деле исте конвенције.</li>
       </ul>
             </div>
           </div>
@@ -270,16 +275,16 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-6" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-6-panel">
-              <span class="od-accordion__label">Izazovi i rešenja</span>
+              <span class="od-accordion__label">Изазови и решења</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-6-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-6">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Izbegavanje truljenja sprega između desetina modula:</strong> rešeno ugovorom o razdvajanju iz ustava i dinamičkim ubrizgavanjem specifičnosti potrošača.</li>
-        <li><strong>Održavanje doslednosti i testiranosti mnogih modula:</strong> rešeno zajedničkom konvencijom (testovi/dokumentacija/Izazovi po modulu) i upravljačkom kičmom HelixConstitution.</li>
-        <li><strong>Pokrivenost više platformi:</strong> rešeno ogledalom osnovnih modula za Kotlin Multiplatform.</li>
+        <li><strong>Избегавање труљења спрега између десетина модула:</strong> решено уговором о раздвајању из устава и динамичким убризгавањем специфичности потрошача.</li>
+        <li><strong>Одржавање доследности и тестираности многих модула:</strong> решено заједничком конвенцијом (тестови/документација/Изазови по модулу) и управљачком кичмом HelixConstitution.</li>
+        <li><strong>Покривеност више платформи:</strong> решено огледалом основних модула за Kotlin Multiplatform.</li>
       </ul>
             </div>
           </div>
@@ -287,22 +292,22 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-vasic-digital-reusable-module-suite-7" aria-expanded="true" aria-controls="od-acc-vasic-digital-reusable-module-suite-7-panel">
-              <span class="od-accordion__label">Tehnološki stek (zašto + kako)</span>
+              <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-vasic-digital-reusable-module-suite-7-panel" role="region" aria-labelledby="od-acc-vasic-digital-reusable-module-suite-7">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Go</strong> — većina modula (<code>digital.vasic.*</code>).</li>
-        <li><strong>Kotlin Multiplatform</strong> — moduli-ogledala za više platformi (Auth/Database/Security/UI/Concurrency/RateLimiter-KMP).</li>
-        <li><strong>Redis / PostgreSQL / SQLite</strong> — primitive za keš, bazu podataka i skladištenje.</li>
-        <li><strong>Prometheus / OpenTelemetry</strong> — modul za opservabilnost.</li>
-        <li><strong>WebSocket / HTTP/3 (quic-go) / mDNS</strong> — mrežni moduli.</li>
-        <li><strong>Vector DB / embeddings / RAG / MCP</strong> — moduli primitiva za AI.</li>
-        <li><strong>YAML</strong> — RedTeam napadački scenariji i konfiguracija.</li>
+        <li><strong>Go</strong> — већина модула (<code>digital.vasic.*</code>).</li>
+        <li><strong>Kotlin Multiplatform</strong> — модули-огледала за више платформи (Аутх/Датабасе/Security/UI/Concurrency/RateLimiter-KMP).</li>
+        <li><strong>Redis / PostgreSQL / SQLite</strong> — примитиве за кеш, базу података и складиштење.</li>
+        <li><strong>Prometheus / OpenTelemetry</strong> — модул за опсервабилност.</li>
+        <li><strong>WebSocket / HTTP/3 (quic-го) / мДНС</strong> — мрежни модули.</li>
+        <li><strong>Вецтор ДБ / ембеддингс / RAG / MCP</strong> — модули примитива за AI.</li>
+        <li><strong>YAML</strong> — RedTeam нападачки сценарији и конфигурација.</li>
       </ul>
-      <blockquote><p>NEVERIFIKOVANO / U RAZVOJU: nekoliko organizacionih repozitorijuma označeno je kao „SCAFFOLD / U RAZVOJU" (npr. <code>PliniusCommon</code>, <code>I-LLM</code>, <code>HyperTune</code>, <code>AutoTemp</code>, <code>Veritas</code>, <code>Ouroborous</code>, <code>Claritas</code>, <code>LeakHub</code>, <code>GandalfSolutions</code>). Predstaviti ih kao rane faze/skelu, a ne kao isporučene proizvode.</p></blockquote>
+      <blockquote><p>НЕВЕРИФИКОВАНО / У РАЗВОЈУ: неколико организационих репозиторијума означено је као „СЦАФФОЛД / У РАЗВОЈУ" (нпр. <code>PliniusCommon</code>, <code>I-LLM</code>, <code>HyperTune</code>, <code>AutoTemp</code>, <code>Veritas</code>, <code>Ouroborous</code>, <code>Claritas</code>, <code>LeakHub</code>, <code>GandalfSolutions</code>). Представити их као ране фазе/скелу, а не као испоручене производе.</p></blockquote>
             </div>
           </div>
         </div>

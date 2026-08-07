@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on the portfolio navigates to that language's portfolio
+     page (/portfolio/<lang>/) so its translated BODY loads — not a chrome-only
+     swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/portfolio/ar/","be":"/portfolio/be/","de":"/portfolio/de/","en":"/portfolio/","es":"/portfolio/es/","fa":"/portfolio/fa/","fr":"/portfolio/fr/","hi":"/portfolio/hi/","ja":"/portfolio/ja/","kk":"/portfolio/kk/","ko":"/portfolio/ko/","ru":"/portfolio/ru/","sr":"/portfolio/sr/","tr":"/portfolio/tr/","zh":"/portfolio/zh/"},"type":"portfolio"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>

@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/task-bridge.html","be":"/products/be/task-bridge.html","de":"/products/de/task-bridge.html","en":"/products/task-bridge.html","es":"/products/es/task-bridge.html","fa":"/products/fa/task-bridge.html","fr":"/products/fr/task-bridge.html","hi":"/products/hi/task-bridge.html","ja":"/products/ja/task-bridge.html","kk":"/products/kk/task-bridge.html","ko":"/products/ko/task-bridge.html","ru":"/products/ru/task-bridge.html","sr":"/products/sr/task-bridge.html","tr":"/products/tr/task-bridge.html","zh":"/products/zh/task-bridge.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
@@ -164,87 +169,87 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 <figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// архитектура</figcaption>
 </figure>
 
-      <p class="od-product-detail__tagline"><strong>Vaša radna tabla i vaš izvor istine, besprekorno sinhronizovani — u oba smera.</strong></p>
+      <p class="od-product-detail__tagline"><strong>Ваша радна табла и ваш извор истине, беспрекорно синхронизовани — у оба смера.</strong></p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-0" aria-expanded="true" aria-controls="od-acc-task-bridge-0-panel">
-              <span class="od-accordion__label">Sažetak</span>
+              <span class="od-accordion__label">Сажетак</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-0-panel" role="region" aria-labelledby="od-acc-task-bridge-0">
             <div class="od-accordion__inner">
-      <p>task_bridge je generički, odvojeni, dvosmerni motor za sinhronizaciju zadataka/tabli u Go. Održava sinhronizaciju izvodljivih stavki projekta (SQLite) kao izvora istine sa dokumentima za praćenje i udaljenom tablom (prvi cilj: ClickUp; planirani Jira/Linear) koristeći determinističko pravilo poslednje izmene pobeđuje, prvo suvo izvođenje i semantiku koja nikada ne kvari podatke.</p>
+      <p>task_bridge је генерички, одвојени, двосмерни мотор за синхронизацију задатака/табли у Go. Одржава синхронизацију изводљивих ставки пројекта (SQLite) као извора истине са документима за праћење и удаљеном таблом (први циљ: ClickUp; планирани Jira/Линеар) користећи детерминистичко правило последње измене побеђује, прво суво извођење и семантику која никада не квари податке.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-1" aria-expanded="true" aria-controls="od-acc-task-bridge-1-panel">
-              <span class="od-accordion__label">Kratak opis</span>
+              <span class="od-accordion__label">Кратак опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-1-panel" role="region" aria-labelledby="od-acc-task-bridge-1">
             <div class="od-accordion__inner">
-      <p>Projektno-agnostički potmodul Go koji dvosmerno sinhronizuje izvodljive stavke SQLite (SSoT) ↔ dokumente za praćenje ↔ udaljenu tablu (prvi ClickUp). Determinističko pravilo poslednje izmene pobeđuje, prvo suvo izvođenje, HMAC-verifikovani vebhukovi; svaki kredencijal i ID ubacuje korisnik tokom izvršavanja.</p>
+      <p>Пројектно-агностички потмодул Go који двосмерно синхронизује изводљиве ставке SQLite (SSoT) ↔ документе за праћење ↔ удаљену таблу (први ClickUp). Детерминистичко правило последње измене побеђује, прво суво извођење, HMAC-верификовани вебхукови; сваки креденцијал и ИД убацује корисник током извршавања.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-2" aria-expanded="true" aria-controls="od-acc-task-bridge-2-panel">
-              <span class="od-accordion__label">Detaljan opis</span>
+              <span class="od-accordion__label">Детаљан опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-2-panel" role="region" aria-labelledby="od-acc-task-bridge-2">
             <div class="od-accordion__inner">
-      <p>Svaki tim na kraju vodi dve knjige istog posla: pravu — kod, dokumentaciju, internu bazu — i onu koju prate menadžeri, tablu poput ClickUp-a. One se razilaze čim se bilo koja strana promeni, a ručno usklađivanje je upravo ona dosadna, sklona greškama zaduženja koja niko pouzdano ne obavlja. task_bridge je stvoren da ukloni taj jaz tretirajući sva tri prikaza kao jedan sistem koji se održava u savršenoj sinhronizaciji: <strong>izvodljive stavke projekta (SQLite) kao jedinstveni izvor istine</strong>, <strong>dokumentaciju za praćenje</strong> i <strong>udaljenu tablu</strong> — prvi podržani sistem je ClickUp, dok su Jira i Linear planirani za budućnost. Sinhronizacija je deterministička (poslednja izmena pobeđuje), prvo se izvršava suva proba, a osmišljena je oko jedne nepregovorive garancije: nikada neće oštetiti ili izgubiti podatke, niti će tiho ostaviti jednu stranu zastarelom. U domenu gde nepažljiva sinhronizacija može pregaziti nedeljni rad, ta sigurnosna pozicija je čitava poenta. Arhitektonski, radi se o strogo definisanom potmodulu koji koriste drugi projekti i potpuno je agnostičan u odnosu na projekat, u skladu sa ugovorom o odvajanju iz ustava (§11.4.28): ne isporučuje nikakve projektno-specifične vrednosti, a svaki kredencijal, ID table/foldera, polje ključa stavke i putanja do baze podataka ubacuje korisnik tokom izvršavanja putem <code>pkg/config.Config</code>. Modul je jasno slojevit: CLI (<code>reconcile</code>/<code>push</code>/<code>pull</code>/<code>resolve</code>/<code>status</code>/<code>conflicts</code>/<code>init</code>) i dugoročni demon (primalac vebhukova + cron sinhronizacija); tanak klijentski omotač oko MIT-licenciranog <code>raksul/go-clickup</code>; rezolver koji pretvara URL-ove tabela/foldera u ID-e putem uživo API sondi (bez nagađanja URL gramatike); maper između lokalnih izvodljivih stavki i polja udaljenih zadataka; motor za sinhronizaciju po principu poslednje izmene sa eksplicitnim ishodima sukoba; i primalac vebhukova koji verifikuje <code>X-Signature</code> HMAC-SHA256. Iskren je po pitanju zrelosti: ovo je P1 skelet — raspored, interfejsi, ulazne tačke i granica odvajanja su postavljeni, ali logika sinhronizacije i pozivi uživo ka ClickUp-u još nisu implementirani (svaki stub vraća eksplicitnu grešku *not-implemented*, prema pravilu bez lažnih podataka).</p>
+      <p>Сваки тим на крају води две књиге истог посла: праву — код, документацију, интерну базу — и ону коју прате менаџери, таблу попут ClickUp-а. Оне се разилазе чим се било која страна промени, а ручно усклађивање је управо она досадна, склона грешкама задужења која нико поуздано не обавља. task_bridge је створен да уклони тај јаз третирајући сва три приказа као један систем који се одржава у савршеној синхронизацији: <strong>изводљиве ставке пројекта (SQLite) као јединствени извор истине</strong>, <strong>документацију за праћење</strong> и <strong>удаљену таблу</strong> — први подржани систем је ClickUp, док су Jira и Линеар планирани за будућност. Синхронизација је детерминистичка (последња измена побеђује), прво се извршава сува проба, а осмишљена је око једне непреговориве гаранције: никада неће оштетити или изгубити податке, нити ће тихо оставити једну страну застарелом. У домену где непажљива синхронизација може прегазити недељни рад, та сигурносна позиција је читава поента. Архитектонски, ради се о строго дефинисаном потмодулу који користе други пројекти и потпуно је агностичан у односу на пројекат, у складу са уговором о одвајању из устава (§11.4.28): не испоручује никакве пројектно-специфичне вредности, а сваки креденцијал, ИД табле/фолдера, поље кључа ставке и путања до базе података убацује корисник током извршавања путем <code>pkg/config.Config</code>. Модул је јасно слојевит: CLI (<code>reconcile</code>/<code>push</code>/<code>pull</code>/<code>resolve</code>/<code>status</code>/<code>conflicts</code>/<code>init</code>) и дугорочни демон (прималац вебхукова + црон синхронизација); танак клијентски омотач око МИТ-лиценцираног <code>raksul/go-clickup</code>; резолвер који претвара URL-ове табела/фолдера у ИД-е путем уживо API сонди (без нагађања URL граматике); мапер између локалних изводљивих ставки и поља удаљених задатака; мотор за синхронизацију по принципу последње измене са експлицитним исходима сукоба; и прималац вебхукова који верификује <code>X-Signature</code> HMAC-SHA256. Искрен је по питању зрелости: ово је P1 скелет — распоред, интерфејси, улазне тачке и граница одвајања су постављени, али логика синхронизације и позиви уживо ка ClickUp-у још нису имплементирани (сваки стуб враћа експлицитну грешку *нот-имплементед*, према правилу без лажних података).</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-3" aria-expanded="true" aria-controls="od-acc-task-bridge-3-panel">
-              <span class="od-accordion__label">Zašto smo ga napravili</span>
+              <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-3-panel" role="region" aria-labelledby="od-acc-task-bridge-3">
             <div class="od-accordion__inner">
-      <p>Timovi čuvaju „pravu" sliku posla u kodu/dokumentaciji, dok menadžeri žive na tabli poput ClickUp-a — i one se stalno razilaze. task_bridge ih čini jednim sistemom, sinhronizujući deterministički i bezbedno tako da nijedna strana ne postane zastarela ili netačna.</p>
+      <p>Тимови чувају „праву" слику посла у коду/документацији, док менаџери живе на табли попут ClickUp-а — и оне се стално разилазе. task_bridge их чини једним системом, синхронизујући детерминистички и безбедно тако да ниједна страна не постане застарела или нетачна.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-4" aria-expanded="true" aria-controls="od-acc-task-bridge-4-panel">
-              <span class="od-accordion__label">Zašto je ovo revolucionarno</span>
+              <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-4-panel" role="region" aria-labelledby="od-acc-task-bridge-4">
             <div class="od-accordion__inner">
-      <p>Dvosmerna sinhronizacija tabela obično je jednokratna, čvrsto povezana integracija koju svaki tim loše ponovo izgrađuje. task_bridge je preoblikuje u ponovo upotrebljivu biblioteku s ubrizganim poverljivim podacima i ugrađenim strogim garancijama bezbednosti podataka — prvo simulacija, determinističko rešavanje sukoba poslednjom izmenom, HMAC-verifikovani događaji — tako da svaki projekat može da usvoji pouzdanu integraciju tabela ubrizgavanjem konfiguracije umesto pisanja još jednog krhkog konektora povezanog s internim strukturama.</p>
+      <p>Двосмерна синхронизација табела обично је једнократна, чврсто повезана интеграција коју сваки тим лоше поново изграђује. task_bridge је преобликује у поново употребљиву библиотеку с убризганим поверљивим подацима и уграђеним строгим гаранцијама безбедности података — прво симулација, детерминистичко решавање сукоба последњом изменом, HMAC-верификовани догађаји — тако да сваки пројекат може да усвоји поуздану интеграцију табела убризгавањем конфигурације уместо писања још једног крхког конектора повезаног с интерним структурама.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-5" aria-expanded="true" aria-controls="od-acc-task-bridge-5-panel">
-              <span class="od-accordion__label">Šta je inovativno</span>
+              <span class="od-accordion__label">Шта је иновативно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-5-panel" role="region" aria-labelledby="od-acc-task-bridge-5">
             <div class="od-accordion__inner">
       <ul>
-        <li>Trostruka dvosmerna sinhronizacija: SQLite SSoT ↔ dokumenti tragača ↔ udaljena tabela.</li>
-        <li>Potpuna razdvojenost (§11.4.28): nijedna vrednost projekta nije ugrađena; sve se ubrizgava tokom izvršavanja.</li>
-        <li>Resolucija Live-API URL→ID umesto krhkog parsiranja URL-gramatike.</li>
-        <li>HMAC-SHA256-verifikovani unos vebhukova za događaje u realnom vremenu.</li>
+        <li>Трострука двосмерна синхронизација: SQLite SSoT ↔ документи трагача ↔ удаљена табела.</li>
+        <li>Потпуна раздвојеност (§11.4.28): ниједна вредност пројекта није уграђена; све се убризгава током извршавања.</li>
+        <li>Ресолуција Ливе-API URL→ИД уместо крхког парсирања URL-граматике.</li>
+        <li>HMAC-SHA256-верификовани унос вебхукова за догађаје у реалном времену.</li>
       </ul>
             </div>
           </div>
@@ -252,17 +257,17 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-6" aria-expanded="true" aria-controls="od-acc-task-bridge-6-panel">
-              <span class="od-accordion__label">Izazovi i rešenja</span>
+              <span class="od-accordion__label">Изазови и решења</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-6-panel" role="region" aria-labelledby="od-acc-task-bridge-6">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Bezbednost podataka između tri izvora:</strong> rešeno determinističkim rešavanjem sukoba poslednjom izmenom, prvom simulacijom i eksplicitnim ishodima konflikata.</li>
-        <li><strong>Ponovna upotrebljivost bez sprezanja:</strong> rešeno preko granice ubrizgavanja <code>pkg/config</code> (nema isporučenih specifičnosti projekta).</li>
-        <li><strong>Pouzdana identifikacija tabela:</strong> rešeno razrešavanjem URL-ova u ID-ove putem Live-API sondi.</li>
-        <li><strong>Iskrena skela:</strong> rešeno tako što neimplementirani stubovi vraćaju eksplicitne greške tipa „nije implementirano" (nema lažnih rešenja).</li>
+        <li><strong>Безбедност података између три извора:</strong> решено детерминистичким решавањем сукоба последњом изменом, првом симулацијом и експлицитним исходима конфликата.</li>
+        <li><strong>Поновна употребљивост без спрезања:</strong> решено преко границе убризгавања <code>pkg/config</code> (нема испоручених специфичности пројекта).</li>
+        <li><strong>Поуздана идентификација табела:</strong> решено разрешавањем URL-ова у ИД-ове путем Ливе-API сонди.</li>
+        <li><strong>Искрена скела:</strong> решено тако што неимплементирани стубови враћају експлицитне грешке типа „није имплементирано" (нема лажних решења).</li>
       </ul>
             </div>
           </div>
@@ -270,21 +275,21 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-7" aria-expanded="true" aria-controls="od-acc-task-bridge-7-panel">
-              <span class="od-accordion__label">Tehnički stek (zašto + kako)</span>
+              <span class="od-accordion__label">Технички стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-task-bridge-7-panel" role="region" aria-labelledby="od-acc-task-bridge-7">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Go</strong> — motor, CLI (<code>cmd/task_bridge</code>) i demon (<code>cmd/task_bridged</code>).</li>
-        <li><strong>SQLite</strong> — jedinstveni izvor istine za radne stavke.</li>
-        <li><strong><code>raksul/go-clickup</code> (MIT)</strong> — omotač za ClickUp transport.</li>
-        <li><strong>HMAC-SHA256</strong> — verifikacija potpisa vebhukova.</li>
-        <li><strong>cron + vebhukovi</strong> — usklađivanje demona + unos događaja u realnom vremenu.</li>
-        <li><strong><code>pkg/config</code></strong> — granica ubrizgavanja poverljivih podataka/ID-ova tokom izvršavanja.</li>
+        <li><strong>Go</strong> — мотор, CLI (<code>cmd/task_bridge</code>) и демон (<code>cmd/task_bridged</code>).</li>
+        <li><strong>SQLite</strong> — јединствени извор истине за радне ставке.</li>
+        <li><strong><code>raksul/go-clickup</code> (МИТ)</strong> — омотач за ClickUp транспорт.</li>
+        <li><strong>HMAC-SHA256</strong> — верификација потписа вебхукова.</li>
+        <li><strong>црон + вебхукови</strong> — усклађивање демона + унос догађаја у реалном времену.</li>
+        <li><strong><code>pkg/config</code></strong> — граница убризгавања поверљивих података/ИД-ова током извршавања.</li>
       </ul>
-      <blockquote><p>Iskrenost o statusu: ovo je <strong>P1 skela</strong> — logika sinhronizacije još nije implementirana. Ne predstavljati kao isporučeno rešenje.</p></blockquote>
+      <blockquote><p>Искреност о статусу: ово је <strong>P1 скела</strong> — логика синхронизације још није имплементирана. Не представљати као испоручено решење.</p></blockquote>
             </div>
           </div>
         </div>

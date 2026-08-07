@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/helixgitpx.html","be":"/products/be/helixgitpx.html","de":"/products/de/helixgitpx.html","en":"/products/helixgitpx.html","es":"/products/es/helixgitpx.html","fa":"/products/fa/helixgitpx.html","fr":"/products/fr/helixgitpx.html","hi":"/products/hi/helixgitpx.html","ja":"/products/ja/helixgitpx.html","kk":"/products/kk/helixgitpx.html","ko":"/products/ko/helixgitpx.html","ru":"/products/ru/helixgitpx.html","sr":"/products/sr/helixgitpx.html","tr":"/products/tr/helixgitpx.html","zh":"/products/zh/helixgitpx.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>

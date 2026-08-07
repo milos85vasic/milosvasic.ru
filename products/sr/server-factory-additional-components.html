@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/server-factory-additional-components.html","be":"/products/be/server-factory-additional-components.html","de":"/products/de/server-factory-additional-components.html","en":"/products/server-factory-additional-components.html","es":"/products/es/server-factory-additional-components.html","fa":"/products/fa/server-factory-additional-components.html","fr":"/products/fr/server-factory-additional-components.html","hi":"/products/hi/server-factory-additional-components.html","ja":"/products/ja/server-factory-additional-components.html","kk":"/products/kk/server-factory-additional-components.html","ko":"/products/ko/server-factory-additional-components.html","ru":"/products/ru/server-factory-additional-components.html","sr":"/products/sr/server-factory-additional-components.html","tr":"/products/tr/server-factory-additional-components.html","zh":"/products/zh/server-factory-additional-components.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
@@ -181,86 +186,86 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 <figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// архитектура</figcaption>
 </figure>
 
-      <p class="od-product-detail__tagline"><strong>Sporedni elementi alata Server Factory za provizioniranje.</strong></p>
+      <p class="od-product-detail__tagline"><strong>Споредни елементи алата Server Factory за провизионирање.</strong></p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-0" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-0-panel">
-              <span class="od-accordion__label">Sažetak</span>
+              <span class="od-accordion__label">Сажетак</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-0-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-0">
             <div class="od-accordion__inner">
-      <p>Pored Mail Server Factory i Osnovnog okvira, organizacija Server-Factory obuhvata nekoliko manjih komponenti: „fabrike" po usluzi (Web Service, SonarQube, Keširajući proxy), deklarativne konfiguracione pakete (Docker/Stack/Definicije softvera) i zajedničke pomoćne alate (Utils). Ova konsolidovana stranica prikazuje ih iskreno – neke su u ranoj fazi ili tek delimično dokumentovane – umesto da ih predstavlja kao potpuno definisane proizvode.</p>
+      <p>Поред Mail Server Factory и Основног оквира, организација Server-Factory обухвата неколико мањих компоненти: „фабрике" по услузи (Web Сервице, SonarQube, Кеширајући proxy), декларативне конфигурационе пакете (Docker/Стацк/Дефиниције софтвера) и заједничке помоћне алате (Утилс). Ова консолидована страница приказује их искрено – неке су у раној фази или тек делимично документоване – уместо да их представља као потпуно дефинисане производе.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-1" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-1-panel">
-              <span class="od-accordion__label">Kratak opis</span>
+              <span class="od-accordion__label">Кратак опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-1-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-1">
             <div class="od-accordion__inner">
-      <p>Grupa repozitorijuma koji podržavaju Server Factory: Web-Service-Factory, SonarQube-Factory i Caching-Proxy-Factory (alati za provizioniranje po usluzi, uglavnom u ranoj fazi); Docker/Stack/Software-Definitions (deklarativni konfiguracioni paketi koje koristi okvir); i Utils (pomoćni alati za pristup SSH i opštu alatku). Sve se oslanjaju na Osnovni okvir.</p>
+      <p>Група репозиторијума који подржавају Server Factory: Web-Сервице-Factory, SonarQube-Factory и Цацхинг-Proxy-Factory (алати за провизионирање по услузи, углавном у раној фази); Docker/Стацк/Software-Дефинитионс (декларативни конфигурациони пакети које користи оквир); и Утилс (помоћни алати за приступ SSH и општу алатку). Све се ослањају на Основни оквир.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-2" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-2-panel">
-              <span class="od-accordion__label">Detaljan opis</span>
+              <span class="od-accordion__label">Детаљан опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-2-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-2">
             <div class="od-accordion__inner">
-      <p>Ova stranica objedinjuje preostale repozitorijume Server-Factoryja jer su, pojedinačno, većina njih mali ili namerno nedovoljno dokumentovani, pa bi ih predstavljanje kao gotovih proizvoda precenilo njihovu zrelost. Mogu se podeliti u tri grupe. <strong>Fabrike usluga</strong> slede obrazac Mail Server Factory za druge uloge servera: <strong>Caching-Proxy-Factory</strong> („Pokrenite sopstveni keširajući proxy server") navodi keširajući proxy, sertifikat sa samopotpisom i HTTP krajnju tačku za dobijanje sigurnosnog sertifikata kao ključne funkcije; <strong>SonarQube-Factory</strong> („Pokrenite sopstveni SonarQube server") namenjen je razvoju softvera; a <strong>Web-Service-Factory</strong> instancira i konfigurira veb-server za implementaciju ciljeva kao što su veb-sajtovi i mikrousluge. Sve tri su Kotlin projekti izgrađeni na Osnovnom okviru, ali njihovi javni README fajlovi uglavnom služe kao privremeni sadržaj („Tbd." za kompatibilnost, specifikacije, podešavanje i upotrebu) – pa su njihove konkretne mogućnosti izvan navedene namene NEVERIFIKOVANE. <strong>Definicioni paketi</strong> – <strong>Docker-Definitions</strong>, <strong>Stack-Definitions</strong> i <strong>Software-Definitions</strong> – jesu deklarativni konfiguracioni repozitorijumi koje okvir koristi da bi znao kako da gradi/implementira slike Docker, stekove i softver; to su verzijski vezani paketi podataka, a ne aplikacije. <strong>Utils</strong> pruža opšte pomoćne alate za porodicu, uključujući skript <code>init_ssh_access.sh</code> koji generiše ključ SSH i instalira ga na udaljeni host kako bi omogućio root pristup bez lozinke za naknadno provizioniranje. Zajedno, ove komponente zaokružuju lanac alata za provizioniranje oko vodećeg Mail Server Factory.</p>
+      <p>Ова страница обједињује преостале репозиторијуме Сервер-Factoryja јер су, појединачно, већина њих мали или намерно недовољно документовани, па би их представљање као готових производа преценило њихову зрелост. Могу се поделити у три групе. <strong>Фабрике услуга</strong> следе образац Mail Server Factory за друге улоге сервера: <strong>Цацхинг-Proxy-Factory</strong> („Покрените сопствени кеширајући proxy сервер") наводи кеширајући proxy, сертификат са самопотписом и ХТТП крајњу тачку за добијање сигурносног сертификата као кључне функције; <strong>SonarQube-Factory</strong> („Покрените сопствени SonarQube сервер") намењен је развоју софтвера; а <strong>Web-Сервице-Factory</strong> инстанцира и конфигурира веб-сервер за имплементацију циљева као што су веб-сајтови и микроуслуге. Све три су Kotlin пројекти изграђени на Основном оквиру, али њихови јавни РЕАДМЕ фајлови углавном служе као привремени садржај („Тбд." за компатибилност, спецификације, подешавање и употребу) – па су њихове конкретне могућности изван наведене намене НЕВЕРИФИКОВАНЕ. <strong>Дефинициони пакети</strong> – <strong>Docker-Дефинитионс</strong>, <strong>Стацк-Дефинитионс</strong> и <strong>Software-Дефинитионс</strong> – јесу декларативни конфигурациони репозиторијуми које оквир користи да би знао како да гради/имплементира слике Docker, стекове и софтвер; то су верзијски везани пакети података, а не апликације. <strong>Утилс</strong> пружа опште помоћне алате за породицу, укључујући скрипт <code>init_ssh_access.sh</code> који генерише кључ SSH и инсталира га на удаљени хост како би омогућио роот приступ без лозинке за накнадно провизионирање. Заједно, ове компоненте заокружују ланац алата за провизионирање око водећег Mail Server Factory.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-3" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-3-panel">
-              <span class="od-accordion__label">Zašto smo ga napravili</span>
+              <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-3-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-3">
             <div class="od-accordion__inner">
-      <p>Model Server Factory stvoren je da bude univerzalno primenljiv: kada jednom možete da provizionirate mejl-server iz deklarativnog opisa, isti mehanizam bi trebalo da može da provizionira i veb-server, keširajuće proxyje i servere za kontrolu kvaliteta koda – napajane ponovljivo upotrebljivim definicionim paketima i zajedničkim pomoćnim alatima, umesto prilagođene logike za svaku ulogu. Ovi repozitorijumi predstavljaju upravo tu generalizaciju u razvoju, proširujući dokazani obrazac na nove tipove servera. Njihova vrednost ovde je kao dokaz dosega modela; njihova zrelost varira, a ova stranica namerno razjašnjava šta je tek u planu, a šta je već ostvareno.</p>
+      <p>Модел Server Factory створен је да буде универзално применљив: када једном можете да провизионирате мејл-сервер из декларативног описа, исти механизам би требало да може да провизионира и веб-сервер, кеширајуће proxyje и сервере за контролу квалитета кода – напајане поновљиво употребљивим дефиниционим пакетима и заједничким помоћним алатима, уместо прилагођене логике за сваку улогу. Ови репозиторијуми представљају управо ту генерализацију у развоју, проширујући доказани образац на нове типове сервера. Њихова вредност овде је као доказ досега модела; њихова зрелост варира, а ова страница намерно разјашњава шта је тек у плану, а шта је већ остварено.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-4" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-4-panel">
-              <span class="od-accordion__label">Zašto je ovo revolucionarno (umereno)</span>
+              <span class="od-accordion__label">Зашто је ово револуционарно (умерено)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-4-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-4">
             <div class="od-accordion__inner">
-      <p>Kao skup, ovi alati demonstriraju ponovnu upotrebljivost Osnovnog okvira na različitim tipovima servera i razdvajaju deklarativne podatke (Definicije) od izvršavanja (fabrike). Pojedinačno, fabrike usluga su u ranoj fazi i treba ih predstaviti kao smernice, a ne kao gotove proizvode.</p>
+      <p>Као скуп, ови алати демонстрирају поновну употребљивост Основног оквира на различитим типовима сервера и раздвајају декларативне податке (Дефиниције) од извршавања (фабрике). Појединачно, фабрике услуга су у раној фази и треба их представити као смернице, а не као готове производе.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-5" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-5-panel">
-              <span class="od-accordion__label">Šta je inovativno</span>
+              <span class="od-accordion__label">Шта је иновативно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-5-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-5">
             <div class="od-accordion__inner">
       <ul>
-        <li>Jedan okvir za obezbeđivanje generalizovan za uloge mejla, veba, keširajućeg proksija i SonarQube.</li>
-        <li>Deklarativni paketi Definicija (Docker/Stack/Software) odvojeni od izvršnog motora.</li>
-        <li>Deljene alatke (npr. jednokomandno podizanje sistema bez lozinke putem SSH) ponovo korišćene u fabrikama.</li>
+        <li>Један оквир за обезбеђивање генерализован за улоге мејла, веба, кеширајућег проксија и SonarQube.</li>
+        <li>Декларативни пакети Дефиниција (Docker/Стацк/Software) одвојени од извршног мотора.</li>
+        <li>Дељене алатке (нпр. једнокомандно подизање система без лозинке путем SSH) поново коришћене у фабрикама.</li>
       </ul>
             </div>
           </div>
@@ -268,16 +273,16 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-6" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-6-panel">
-              <span class="od-accordion__label">Izazovi i rešenja</span>
+              <span class="od-accordion__label">Изазови и решења</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-6-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-6">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Korišćenje jednog motora za različite uloge servera:</strong> rešeno izgradnjom svake fabrike na Osnovnom okviru.</li>
-        <li><strong>Razdvajanje konfiguracije od koda:</strong> rešeno repozitorijumima Definicija kao verzijski označenim paketima podataka.</li>
-        <li><strong>(NEVERIFIKOVANO):</strong> README fajlovi fabrika usluga su privremeni; njihova potpunost implementacije nije proverljiva iz javne dokumentacije — predstaviti kao rano-stadijumske.</li>
+        <li><strong>Коришћење једног мотора за различите улоге сервера:</strong> решено изградњом сваке фабрике на Основном оквиру.</li>
+        <li><strong>Раздвајање конфигурације од кода:</strong> решено репозиторијумима Дефиниција као верзијски означеним пакетима података.</li>
+        <li><strong>(НЕВЕРИФИКОВАНО):</strong> РЕАДМЕ фајлови фабрика услуга су привремени; њихова потпуност имплементације није проверљива из јавне документације — представити као рано-стадијумске.</li>
       </ul>
             </div>
           </div>
@@ -285,21 +290,21 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-7" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-7-panel">
-              <span class="od-accordion__label">Tehnološki stek (zašto + kako)</span>
+              <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-7-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-7">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Kotlin</strong> — Fabrika veb-usluga, Fabrika SonarQube, Fabrika keširajućeg proksija (izgrađene na Osnovnom okviru).</li>
-        <li><strong>Shell</strong> — Alatke i paketi Definicija (skripte/konfiguracije).</li>
-        <li><strong>Gradle</strong> — tok izgradnje/testiranja <code>./gradlew test</code> u fabrikama.</li>
-        <li><strong>Docker</strong> — ciljno izvršno okruženje opisano Definicijama Docker.</li>
-        <li><strong>SSH / OpenSSH</strong> — podizanje sistema bez lozinke putem alatki.</li>
-        <li><strong>SonarQube</strong> — server koji obezbeđuje Fabrika SonarQube (i protiv kojeg Mail Server Factory izveštava o čistoj proveri).</li>
+        <li><strong>Kotlin</strong> — Фабрика веб-услуга, Фабрика SonarQube, Фабрика кеширајућег проксија (изграђене на Основном оквиру).</li>
+        <li><strong>Shell</strong> — Алатке и пакети Дефиниција (скрипте/конфигурације).</li>
+        <li><strong>Gradle</strong> — ток изградње/тестирања <code>./gradlew test</code> у фабрикама.</li>
+        <li><strong>Docker</strong> — циљно извршно окружење описано Дефиницијама Docker.</li>
+        <li><strong>SSH / OpenSSH</strong> — подизање система без лозинке путем алатки.</li>
+        <li><strong>SonarQube</strong> — сервер који обезбеђује Фабрика SonarQube (и против којег Mail Server Factory извештава о чистој провери).</li>
       </ul>
-      <blockquote><p>Napomena o iskrenosti: većina ovih repozitorijuma su forkovi unutar organizacije; fabrike usluga su dokumentovane kao privremene i označene kao NEVERIFIKOVANE prema ustavu §11.4.6. Jasno rangirane ispod Mail Server Factory i Osnovnog okvira.</p></blockquote>
+      <blockquote><p>Напомена о искрености: већина ових репозиторијума су форкови унутар организације; фабрике услуга су документоване као привремене и означене као НЕВЕРИФИКОВАНЕ према уставу §11.4.6. Јасно рангиране испод Mail Server Factory и Основног оквира.</p></blockquote>
             </div>
           </div>
         </div>

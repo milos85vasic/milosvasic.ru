@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/server-factory-additional-components.html","be":"/products/be/server-factory-additional-components.html","de":"/products/de/server-factory-additional-components.html","en":"/products/server-factory-additional-components.html","es":"/products/es/server-factory-additional-components.html","fa":"/products/fa/server-factory-additional-components.html","fr":"/products/fr/server-factory-additional-components.html","hi":"/products/hi/server-factory-additional-components.html","ja":"/products/ja/server-factory-additional-components.html","kk":"/products/kk/server-factory-additional-components.html","ko":"/products/ko/server-factory-additional-components.html","ru":"/products/ru/server-factory-additional-components.html","sr":"/products/sr/server-factory-additional-components.html","tr":"/products/tr/server-factory-additional-components.html","zh":"/products/zh/server-factory-additional-components.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>

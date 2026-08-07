@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/parallels-utils.html","be":"/products/be/parallels-utils.html","de":"/products/de/parallels-utils.html","en":"/products/parallels-utils.html","es":"/products/es/parallels-utils.html","fa":"/products/fa/parallels-utils.html","fr":"/products/fr/parallels-utils.html","hi":"/products/hi/parallels-utils.html","ja":"/products/ja/parallels-utils.html","kk":"/products/kk/parallels-utils.html","ko":"/products/ko/parallels-utils.html","ru":"/products/ru/parallels-utils.html","sr":"/products/sr/parallels-utils.html","tr":"/products/tr/parallels-utils.html","zh":"/products/zh/parallels-utils.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
@@ -177,87 +182,87 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 <figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// архитектура</figcaption>
 </figure>
 
-      <p class="od-product-detail__tagline"><strong>Kompresujte, objavite i ponovo koristite svoje Parallels VM slike na svakom računaru.</strong></p>
+      <p class="od-product-detail__tagline"><strong>Компресујте, објавите и поново користите своје Parallels VM слике на сваком рачунару.</strong></p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-0" aria-expanded="true" aria-controls="od-acc-parallels-utils-0-panel">
-              <span class="od-accordion__label">Sažetak</span>
+              <span class="od-accordion__label">Сажетак</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-0-panel" role="region" aria-labelledby="od-acc-parallels-utils-0">
             <div class="od-accordion__inner">
-      <p>Parallels-Utils je Server Factory alat za upravljanje Parallels (macOS) slikama virtuelnih mašina: kompresovanje i sinhronizovanje „matrica" slika koje se koriste za razvoj i testiranje, njihovo objavljivanje na udaljenom čvorištu te preuzimanje i pokretanje na više radnih stanica ili servera. Može se koristiti samostalno ili kao deo Server Factory.</p>
+      <p>Parallels-Utils је Server Factory алат за управљање Parallels (macOS) сликама виртуелних машина: компресовање и синхронизовање „матрица" слика које се користе за развој и тестирање, њихово објављивање на удаљеном чворишту те преузимање и покретање на више радних станица или сервера. Може се користити самостално или као део Server Factory.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-1" aria-expanded="true" aria-controls="od-acc-parallels-utils-1-panel">
-              <span class="od-accordion__label">Kratak opis</span>
+              <span class="od-accordion__label">Кратак опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-1-panel" role="region" aria-labelledby="od-acc-parallels-utils-1">
             <div class="od-accordion__inner">
-      <p>Shell/Python alat za upravljanje životnim ciklusom Parallels VM slika na macOS-u. Kompresuje i sinhronizuje Parallels slike, objavljuje ih na udaljeno čvorište te ih preuzima i pokreće na više računara — vođen jednostavnim konfiguracionim datotekama, upotrebljiv samostalno ili u okviru Server Factory.</p>
+      <p>Shell/Python алат за управљање животним циклусом Parallels VM слика на macOS-у. Компресује и синхронизује Parallels слике, објављује их на удаљено чвориште те их преузима и покреће на више рачунара — вођен једноставним конфигурационим датотекама, употребљив самостално или у оквиру Server Factory.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-2" aria-expanded="true" aria-controls="od-acc-parallels-utils-2-panel">
-              <span class="od-accordion__label">Detaljan opis</span>
+              <span class="od-accordion__label">Детаљан опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-2-panel" role="region" aria-labelledby="od-acc-parallels-utils-2">
             <div class="od-accordion__inner">
-      <p>Parallels-Utils rešava praktičan DevOps problem u razvoju zasnovanom na macOS-u: timovi kreiraju „matrice" Parallels virtuelnih mašina (različiti operativni sistemi/konfiguracije koje se koriste za razvoj i testiranje), a te slike moraju biti kompresovane, objavljene, preuzete i dosledno pokrenute na više računara. Alat pruža upravo taj životni ciklus. Mehanizam za sinhronizaciju kompresuje Parallels slike i održava ih ažurnim; mehanizam za objavljivanje šalje slike na udaljeno čvorište; a mehanizam za preuzimanje omogućava svakoj radnoj stanici ili serveru da povuče objavljene slike i pokrene ih kao VM. Konfiguracija je namerno jednostavna i vođena datotekama: <code>image_location.settings</code> definiše lokaciju slika u fajl sistemu, <code>image_provider.settings</code> definiše osnovni URL za objavljene slike, a <code>image_sync.sh</code> definiše skriptu za otpremanje — uz primere koji se isporučuju u direktorijumu <code>Examples</code>. Operatori koriste <code>publish_images.sh</code> za objavljivanje i <code>run.sh</code> za pokretanje VM. Potreban je Parallels za odgovarajuću verziju macOS-a i Python 3. Alat je dizajniran za dvostruku upotrebu: može da funkcioniše kao deo većeg Server Factory projekta ili potpuno samostalno, što odražava filozofiju odvajanja organizacije. Čak sadrži i link ka kratkom video tutorijalu. Kao deo porodice Server-Factory, dopunjava Qemu-Utils (Linux/QEMU ekvivalent), pružajući ekosistemu upravljanje VM slikama na macOS/Parallels i cross-platform/QEMU backendima.</p>
+      <p>Parallels-Utils решава практичан DevOps проблем у развоју заснованом на macOS-у: тимови креирају „матрице" Parallels виртуелних машина (различити оперативни системи/конфигурације које се користе за развој и тестирање), а те слике морају бити компресоване, објављене, преузете и доследно покренуте на више рачунара. Алат пружа управо тај животни циклус. Механизам за синхронизацију компресује Parallels слике и одржава их ажурним; механизам за објављивање шаље слике на удаљено чвориште; а механизам за преузимање омогућава свакој радној станици или серверу да повуче објављене слике и покрене их као VM. Конфигурација је намерно једноставна и вођена датотекама: <code>image_location.settings</code> дефинише локацију слика у фајл систему, <code>image_provider.settings</code> дефинише основни URL за објављене слике, а <code>image_sync.sh</code> дефинише скрипту за отпремање — уз примере који се испоручују у директоријуму <code>Examples</code>. Оператори користе <code>publish_images.sh</code> за објављивање и <code>run.sh</code> за покретање VM. Потребан је Parallels за одговарајућу верзију macOS-а и Python 3. Алат је дизајниран за двоструку употребу: може да функционише као део већег Server Factory пројекта или потпуно самостално, што одражава филозофију одвајања организације. Чак садржи и линк ка кратком видео туторијалу. Као део породице Server-Factory, допуњава Qemu-Utils (Linux/QEMU еквивалент), пружајући екосистему управљање VM сликама на macOS/Parallels и цросс-платформ/QEMU бацкендима.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-3" aria-expanded="true" aria-controls="od-acc-parallels-utils-3-panel">
-              <span class="od-accordion__label">Zašto smo ga napravili</span>
+              <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-3-panel" role="region" aria-labelledby="od-acc-parallels-utils-3">
             <div class="od-accordion__inner">
-      <p>Deljenje konzistentnih VM okruženja za razvoj i testiranje među timom je zamorno — slike su velike, a svaki računar zahteva istu matricu. Parallels-Utils automatizuje kompresiju, objavljivanje i preuzimanje tako da se kanonski skup Parallels VM može reprodukovati svuda.</p>
+      <p>Дељење конзистентних VM окружења за развој и тестирање међу тимом је заморно — слике су велике, а сваки рачунар захтева исту матрицу. Parallels-Utils аутоматизује компресију, објављивање и преузимање тако да се канонски скуп Parallels VM може репродуковати свуда.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-4" aria-expanded="true" aria-controls="od-acc-parallels-utils-4-panel">
-              <span class="od-accordion__label">Zašto je revolucionaran</span>
+              <span class="od-accordion__label">Зашто је револуционаран</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-4-panel" role="region" aria-labelledby="od-acc-parallels-utils-4">
             <div class="od-accordion__inner">
-      <p>Pretvara teške i nespretne Parallels slike u objavljiv, sinhronizovani skup artefakata koji svaki računar može da povuče i pokrene — tako da kanonsko razvojno/testno okruženje prestaje da bude nešto što svaki inženjer ručno ponovo kreira i postaje nešto što jednostavno preuzmete. Radi to uz trivijalnu konfiguraciju putem datoteka i bez ikakve zavisnosti od ostatka Server Factory, ostajući veran filozofiji odvajanja organizacije: koristan sam za sebe, dobar građanin u većem alatu.</p>
+      <p>Претвара тешке и неспретне Parallels слике у објављив, синхронизовани скуп артефаката који сваки рачунар може да повуче и покрене — тако да канонско развојно/тестно окружење престаје да буде нешто што сваки инжењер ручно поново креира и постаје нешто што једноставно преузмете. Ради то уз тривијалну конфигурацију путем датотека и без икакве зависности од остатка Server Factory, остајући веран филозофији одвајања организације: користан сам за себе, добар грађанин у већем алату.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-5" aria-expanded="true" aria-controls="od-acc-parallels-utils-5-panel">
-              <span class="od-accordion__label">Šta je inovativno</span>
+              <span class="od-accordion__label">Шта је иновативно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-5-panel" role="region" aria-labelledby="od-acc-parallels-utils-5">
             <div class="od-accordion__inner">
       <ul>
-        <li>Kompresija + sinhronizacija „matrica" slika Parallels za razvojno/testiranje.</li>
-        <li>Tok rada objavljivanja/preuzimanja kako bi slike bile ponovo upotrebljive na više računara.</li>
-        <li>Konfiguracija vođena datotekama podešavanja (lokacija/pružalac/sinhronizacija) uz priložene primere.</li>
-        <li>Dvostruka namena: samostalno ili kao komponenta Server Factory.</li>
+        <li>Компресија + синхронизација „матрица" слика Parallels за развојно/тестирање.</li>
+        <li>Ток рада објављивања/преузимања како би слике биле поново употребљиве на више рачунара.</li>
+        <li>Конфигурација вођена датотекама подешавања (локација/пружалац/синхронизација) уз приложене примере.</li>
+        <li>Двострука намена: самостално или као компонента Server Factory.</li>
       </ul>
             </div>
           </div>
@@ -265,16 +270,16 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-6" aria-expanded="true" aria-controls="od-acc-parallels-utils-6-panel">
-              <span class="od-accordion__label">Izazovi i rešenja</span>
+              <span class="od-accordion__label">Изазови и решења</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-6-panel" role="region" aria-labelledby="od-acc-parallels-utils-6">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Distribucija velikih slika:</strong> rešeno kompresijom i tokom rada objavljivanja na udaljeni krajnji čvor + preuzimanja.</li>
-        <li><strong>Ponovljivost na različitim mašinama:</strong> rešeno podešavanjima pružaoca/lokacije tako da svaki host razrešava isti skup slika.</li>
-        <li><strong>Jednostavnost korišćenja:</strong> rešeno jednostavnim skriptama <code>publish_images.sh</code> / <code>run.sh</code> i primerima datoteka podešavanja.</li>
+        <li><strong>Дистрибуција великих слика:</strong> решено компресијом и током рада објављивања на удаљени крајњи чвор + преузимања.</li>
+        <li><strong>Поновљивост на различитим машинама:</strong> решено подешавањима пружаоца/локације тако да сваки хост разрешава исти скуп слика.</li>
+        <li><strong>Једноставност коришћења:</strong> решено једноставним скриптама <code>publish_images.sh</code> / <code>run.sh</code> и примерима датотека подешавања.</li>
       </ul>
             </div>
           </div>
@@ -282,19 +287,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-7" aria-expanded="true" aria-controls="od-acc-parallels-utils-7-panel">
-              <span class="od-accordion__label">Tehnološki stek (zašto + kako)</span>
+              <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-7-panel" role="region" aria-labelledby="od-acc-parallels-utils-7">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Shell</strong> — skripte za objavljivanje/pokretanje/sinhronizaciju (primarni jezik, ~5,3K bajtova).</li>
-        <li><strong>Python 3</strong> — pomoćni alati (obavezna zavisnost, ~3K bajtova).</li>
-        <li><strong>Parallels (macOS)</strong> — virtualizacioni backend koji se upravlja.</li>
-        <li><strong>Datoteke podešavanja (<code>.settings</code>)</strong> — deklarativna konfiguracija za lokaciju/pružaoca/sinhronizaciju.</li>
+        <li><strong>Shell</strong> — скрипте за објављивање/покретање/синхронизацију (примарни језик, ~5,3К бајтова).</li>
+        <li><strong>Python 3</strong> — помоћни алати (обавезна зависност, ~3К бајтова).</li>
+        <li><strong>Parallels (macOS)</strong> — виртуализациони бацкенд који се управља.</li>
+        <li><strong>Датотеке подешавања (<code>.settings</code>)</strong> — декларативна конфигурација за локацију/пружаоца/синхронизацију.</li>
       </ul>
-      <blockquote><p>Napomena: GitHub označava repozitorijum kao fork unutar organizacije Server-Factory. Specifično za macOS, niša. Nije povezano sa AI.</p></blockquote>
+      <blockquote><p>Напомена: GitHub означава репозиторијум као форк унутар организације Server-Factory. Специфично за macOS, ниша. Није повезано са AI.</p></blockquote>
             </div>
           </div>
         </div>

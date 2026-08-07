@@ -78,7 +78,10 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 :focus-visible { outline: 2.5px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+/* Shared content container: a 24px horizontal gutter that grows to clear the
+   safe-area inset (notch / rounded corners) in landscape, so page content never
+   sits flush to the viewport edge at any breakpoint. (BUG #66) */
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: max(24px, env(safe-area-inset-left), env(safe-area-inset-right)); }
 
 /* ---- Mono utility / eyebrow (signature device) ---------------------------- */
 .eyebrow {
@@ -548,13 +551,18 @@ body.mv-article-lock { overflow: hidden; }
 .dl-modal.open { opacity:1; }
 .dl-modal[hidden] { display:none; }
 .dl-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(4px); }
-.dl-card { position:relative; background:var(--surface,#15151c); color:var(--text,#eee); border:1px solid var(--border,#2a2a35); border-radius:var(--radius,14px); padding:1.75rem; max-width:420px; width:calc(100% - 2rem); box-shadow:var(--shadow,0 20px 60px rgba(0,0,0,.5)); transform:translateY(8px) scale(.98); transition:transform .2s ease; }
+/* Card is a bounded flex column: the header (eyebrow/name/choose) stays fixed and
+   the language list scrolls, so the full list (all 15 languages) is always
+   reachable even at a short viewport (BUG #64). max-height uses dvh where
+   supported so the mobile URL bar can't clip it; safe-area padding keeps the last
+   row clear of the home indicator. */
+.dl-card { position:relative; display:flex; flex-direction:column; background:var(--surface,#15151c); color:var(--text,#eee); border:1px solid var(--border,#2a2a35); border-radius:var(--radius,14px); padding:1.75rem; max-width:420px; width:calc(100% - 2rem); max-height:min(90vh,760px); max-height:min(90dvh,760px); box-shadow:var(--shadow,0 20px 60px rgba(0,0,0,.5)); transform:translateY(8px) scale(.98); transition:transform .2s ease; }
 .dl-modal.open .dl-card { transform:none; }
 .dl-x { position:absolute; top:.5rem; right:.7rem; background:none; border:none; font-size:1.6rem; line-height:1; color:inherit; cursor:pointer; opacity:.7; }
 .dl-x:hover { opacity:1; }
 .dl-doc-name { margin:.1rem 0 .2rem; }
 .dl-choose { opacity:.75; margin:.25rem 0 1rem; }
-.dl-langs { display:flex; flex-direction:column; gap:.6rem; }
+.dl-langs { display:flex; flex-direction:column; gap:.6rem; flex:1 1 auto; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; margin-inline:-.25rem; padding-inline:.25rem; padding-bottom:env(safe-area-inset-bottom,0px); }
 .dl-lang { display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; border:1px solid var(--border,#2a2a35); border-radius:10px; text-decoration:none; color:inherit; transition:border-color .15s, background .15s; }
 .dl-lang:hover { border-color:var(--accent,#a31e39); background:rgba(163,30,57,.08); }
 .dl-lang .mono { opacity:.6; font-size:.8rem; }

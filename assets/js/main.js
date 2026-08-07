@@ -52,15 +52,21 @@
     }
   }
 
-  // On pages with real per-language static routes (the home: window.MV_PAGE.paths
-  // = { en:'/', ru:'/ru/', … }) choosing a language NAVIGATES to the localized
-  // page so its fully-translated BODY loads — not just a client-side chrome swap.
-  // The current page's server lang is read once, before translate() mutates it.
+  // Choosing a language ALWAYS takes the user to that language's real content.
+  // Home/product/portfolio pages expose window.MV_PAGE.paths = { en:'/',
+  // de:'/products/de/x.html', … } and the switcher NAVIGATES to the matching
+  // localized page so its fully-translated BODY loads. If THIS page type has no
+  // localized variant for the chosen language (path absent, or MV_PAGE not
+  // emitted on the page at all), we gracefully navigate to the localized HOME
+  // (/ for EN, /<lang>/ otherwise) — never a silent chrome-only swap that leaves
+  // the main content in the old language (BUG #63). The current page's server
+  // lang is read once, before translate() mutates it.
   var pageHomeLang = (root.getAttribute('lang') || 'en').slice(0, 2);
+  function homeURL(code) { return code === 'en' ? '/' : '/' + code + '/'; }
   function chooseLang(code) {
     var page = window.MV_PAGE;
-    var url = page && page.paths && page.paths[code];
-    if (url && code !== pageHomeLang) {
+    var url = (page && page.paths && page.paths[code]) || homeURL(code);
+    if (code !== pageHomeLang) {
       try { localStorage.setItem('mv-lang', code); } catch (e) {}
       window.location.href = url;
       return;

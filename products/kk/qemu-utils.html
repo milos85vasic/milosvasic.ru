@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/qemu-utils.html","be":"/products/be/qemu-utils.html","de":"/products/de/qemu-utils.html","en":"/products/qemu-utils.html","es":"/products/es/qemu-utils.html","fa":"/products/fa/qemu-utils.html","fr":"/products/fr/qemu-utils.html","hi":"/products/hi/qemu-utils.html","ja":"/products/ja/qemu-utils.html","kk":"/products/kk/qemu-utils.html","ko":"/products/ko/qemu-utils.html","ru":"/products/ru/qemu-utils.html","sr":"/products/sr/qemu-utils.html","tr":"/products/tr/qemu-utils.html","zh":"/products/zh/qemu-utils.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>

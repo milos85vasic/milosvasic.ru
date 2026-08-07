@@ -13,6 +13,11 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
 <link rel="stylesheet" href="{{ '/assets/od/animations.css' | relative_url }}"/>
 <link rel="stylesheet" href="{{ '/assets/od/overlays.css' | relative_url }}"/>
 <script defer src="{{ '/assets/od/motion.js' | relative_url }}"></script>
+<!-- window.MV_PAGE feeds the shared layout's language switcher (assets/js/main.js):
+     choosing a language on this product page navigates to that language's product
+     page (/products/<lang>/<slug>.html) so its translated BODY loads — not a
+     chrome-only swap. (BUG #63) -->
+<script>window.MV_PAGE={"paths":{"ar":"/products/ar/helixtrack.html","be":"/products/be/helixtrack.html","de":"/products/de/helixtrack.html","en":"/products/helixtrack.html","es":"/products/es/helixtrack.html","fa":"/products/fa/helixtrack.html","fr":"/products/fr/helixtrack.html","hi":"/products/hi/helixtrack.html","ja":"/products/ja/helixtrack.html","kk":"/products/kk/helixtrack.html","ko":"/products/ko/helixtrack.html","ru":"/products/ru/helixtrack.html","sr":"/products/sr/helixtrack.html","tr":"/products/tr/helixtrack.html","zh":"/products/zh/helixtrack.html"},"type":"product"};</script>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
@@ -181,90 +186,90 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 <figcaption class="od-section__eyebrow" style="margin-top:var(--od-space-2)">// архитектура</figcaption>
 </figure>
 
-      <p class="od-product-detail__tagline"><strong>JIRA alternativa za slobodan svet.</strong></p>
+      <p class="od-product-detail__tagline"><strong>JIRA алтернатива за слободан свет.</strong></p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-0" aria-expanded="true" aria-controls="od-acc-helixtrack-0-panel">
-              <span class="od-accordion__label">Sažetak</span>
+              <span class="od-accordion__label">Сажетак</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-0-panel" role="region" aria-labelledby="od-acc-helixtrack-0">
             <div class="od-accordion__inner">
-      <p>HelixTrack je sveobuhvatna, moderna, open-source alternativa JIRA (a preko proširenja Documents i Confluence-u) — višeplatformski sistem za upravljanje projektima i praćenje problema, izgrađen na Go mikroservisnoj pozadini s izvornim klijentima za veb, desktop i mobilne uređaje.</p>
+      <p>HelixTrack је свеобухватна, модерна, опен-соурце алтернатива JIRA (а преко проширења Доцументс и Confluence-у) — вишеплатформски систем за управљање пројектима и праћење проблема, изграђен на Go микросервисној позадини с изворним клијентима за веб, десктоп и мобилне уређаје.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
-              <span class="od-accordion__label">Kratak opis</span>
+              <span class="od-accordion__label">Кратак опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
             <div class="od-accordion__inner">
-      <p>Open-source alternativa JIRA/Confluence-u. Go mikroservisna pozadina („HelixTrack Core") izlaže jedinstveni REST API za praćenje projekata i problema, uz Confluence-stilski radni prostor za dokumente, koji se servira izvorno na veb, desktop, Android i iOS klijentima preko HTTP/3 QUIC protokola.</p>
+      <p>Опен-соурце алтернатива JIRA/Confluence-у. Go микросервисна позадина („HelixTrack Цоре") излаже јединствени REST API за праћење пројеката и проблема, уз Confluence-стилски радни простор за документе, који се сервира изворно на веб, десктоп, Android и iOS клијентима преко HTTP/3 QUIC протокола.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
-              <span class="od-accordion__label">Detaljan opis</span>
+              <span class="od-accordion__label">Детаљан опис</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
             <div class="od-accordion__inner">
-      <p>HelixTrack je open-source platforma za upravljanje projektima i praćenje problema, postavljena kao alternativa iz slobodnog sveta JIRA i Confluence-u — potpuna zamena za dva proizvoda kojima su inženjerske organizacije najčešće vezane, ponovo izgrađena kao softver koji posedujete i možete pokretati bilo gde. U njenom srcu je <strong>HelixTrack Core</strong>, REST API mikroservis napisan u Go-u s okvirom Gin, koji nudi potpuno praćenje problema, agilne/scrum table, upravljanje timovima i hijerarhijski sistem dozvola čija se implementacija može zameniti između lokalnog procesa i HTTP servisa — tako da isti model autorizacije skalira od jednog laptopa do distribuiranog klastera bez menjanja aplikativnog koda. Umesto da širi REST površinu preko desetina ruta, Core sve usmerava kroz jednu, akcijom usmerenu <code>/do</code> krajnju tačku s jedinstvenim omotačem zahteva i odgovora (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> na ulazu, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> na izlazu): svaki klijent govori isti mali ugovor, a dodavanje nove funkcionalnosti znači dodavanje akcije, a ne novog URL-a koji treba dokumentovati, osigurati i verzionisati. Core se integriše s odvojenim servisima za autentifikaciju, dozvole i lokalizaciju koji komuniciraju preko HTTP/3 QUIC protokola i mogu raditi na odvojenim mašinama ili klasterima, ili se potpuno isključiti u testnim konfiguracijama. Podaci se čuvaju u SQLite-u za razvoj bez podešavanja i u PostgreSQL-u u produkciji, a šifruju se u mirovanju pomoću SQLCipher (AES-256), tako da su osetljivi podaci o projektima podrazumevano zaštićeni na disku, a ne naknadno. <strong>Documents V2</strong> proširenje pretvara tragač u potpunu platformu znanja: Confluence-stilski radni prostor sa prostorima, stranicama, kontrolom verzija, šablonima, saradnjom u realnom vremenu (WebSocket) i analitikom — wiki i tragač za problemima konačno žive iza jednog backend-a umesto kao dva proizvoda spojena na silu. Oko Core-a se nalaze različite klijentske aplikacije: Angular veb klijent, Tauri + Angular desktop klijent, izvorne Android (Kotlin) i iOS (Swift) aplikacije, kao i klijenti za HarmonyOS i Aurora OS, uz screensaver — sve komunicira s istom pozadinom i automatski je pronalazi na lokalnoj mreži putem UDP emitovanja, tako da novi klijent pronalazi server bez ručnog podešavanja. Klijentske aplikacije se održavaju kao odvojena, privatna repozitorijuma i ovde su predstavljene samo na nivou proizvoda.</p>
+      <p>HelixTrack је опен-соурце платформа за управљање пројектима и праћење проблема, постављена као алтернатива из слободног света JIRA и Confluence-у — потпуна замена за два производа којима су инжењерске организације најчешће везане, поново изграђена као софтвер који поседујете и можете покретати било где. У њеном срцу је <strong>HelixTrack Цоре</strong>, REST API микросервис написан у Go-у с оквиром Gin, који нуди потпуно праћење проблема, агилне/сцрум табле, управљање тимовима и хијерархијски систем дозвола чија се имплементација може заменити између локалног процеса и ХТТП сервиса — тако да исти модел ауторизације скалира од једног лаптопа до дистрибуираног кластера без мењања апликативног кода. Уместо да шири REST површину преко десетина рута, Цоре све усмерава кроз једну, акцијом усмерену <code>/do</code> крајњу тачку с јединственим омотачем захтева и одговора (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> на улазу, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> на излазу): сваки клијент говори исти мали уговор, а додавање нове функционалности значи додавање акције, а не новог URL-а који треба документовати, осигурати и верзионисати. Цоре се интегрише с одвојеним сервисима за аутентификацију, дозволе и локализацију који комуницирају преко HTTP/3 QUIC протокола и могу радити на одвојеним машинама или кластерима, или се потпуно искључити у тестним конфигурацијама. Подаци се чувају у SQLite-у за развој без подешавања и у PostgreSQL-у у продукцији, а шифрују се у мировању помоћу SQLCipher (AES-256), тако да су осетљиви подаци о пројектима подразумевано заштићени на диску, а не накнадно. <strong>Доцументс В2</strong> проширење претвара трагач у потпуну платформу знања: Confluence-стилски радни простор са просторима, страницама, контролом верзија, шаблонима, сарадњом у реалном времену (WebSocket) и аналитиком — wiki и трагач за проблемима коначно живе иза једног бацкенд-а уместо као два производа спојена на силу. Око Цоре-а се налазе различите клијентске апликације: Angular веб клијент, Tauri + Angular десктоп клијент, изворне Android (Kotlin) и iOS (Swift) апликације, као и клијенти за HarmonyOS и Aurora OS, уз сцреенсавер — све комуницира с истом позадином и аутоматски је проналази на локалној мрежи путем UDP емитовања, тако да нови клијент проналази сервер без ручног подешавања. Клијентске апликације се одржавају као одвојена, приватна репозиторијума и овде су представљене само на нивоу производа.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
-              <span class="od-accordion__label">Zašto smo ga napravili</span>
+              <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
             <div class="od-accordion__inner">
-      <p>Da bismo timovima ponudili zaista otvorenu, samostalno hostovanu zamenu za JIRA + Confluence stek — „za slobodan svet" — bez zavisnosti od dobavljača, kombinujući praćenje poslova, dokumente i saradnju na nivou preduzeća pod jednom otvorenom licencom.</p>
+      <p>Да бисмо тимовима понудили заиста отворену, самостално хостовану замену за JIRA + Confluence стек — „за слободан свет" — без зависности од добављача, комбинујући праћење послова, документе и сарадњу на нивоу предузећа под једном отвореном лиценцом.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
-              <span class="od-accordion__label">Zašto je ovo revolucionarno</span>
+              <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
             <div class="od-accordion__inner">
-      <p>Spaja dva komercijalna teškaška — praćenje problema i stek za vikije/dokumente — u jednu otvorenu, visokoperformantnu, samostalno hostovanu platformu, i uparuje ih sa nečim što konkurencija nikada nije ponudila: istinski multiplatformske *native* klijente (veb, desktop, Android, iOS, plus HarmonyOS i Aurora OS), sve pokretane jednim ugovorom na backendu. Ključna prednost je vlasništvo bez kompromisa. Dizajn zasnovan na HTTP/3 svuda, potpuno razdvojenim mikroservisima i enkripciji SQLCipher AES-256 pri mirovanju donosi performanse i sigurnosni nivo koji su inače rezervisani za vlasničke SaaS sisteme — u sistem koji sami hostujete, bez licenci po korisniku, bez zavisnosti od dobavljača i bez podataka koji napuštaju vašu infrastrukturu. Timovi dobijaju iskustvo JIRA-plus-Confluence koje već poznaju, na sopstvenom hardveru, pod jednom otvorenom licencom.</p>
+      <p>Спаја два комерцијална тешкашка — праћење проблема и стек за викије/документе — у једну отворену, високоперформантну, самостално хостовану платформу, и упарује их са нечим што конкуренција никада није понудила: истински мултиплатформске *нативе* клијенте (веб, десктоп, Android, iOS, плус HarmonyOS и Aurora OS), све покретане једним уговором на бацкенду. Кључна предност је власништво без компромиса. Дизајн заснован на HTTP/3 свуда, потпуно раздвојеним микросервисима и енкрипцији SQLCipher AES-256 при мировању доноси перформансе и сигурносни ниво који су иначе резервисани за власничке SaaS системе — у систем који сами хостујете, без лиценци по кориснику, без зависности од добављача и без података који напуштају вашу инфраструктуру. Тимови добијају искуство JIRA-плус-Confluence које већ познају, на сопственом хардверу, под једном отвореном лиценцом.</p>
             </div>
           </div>
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
-              <span class="od-accordion__label">Šta je inovativno</span>
+              <span class="od-accordion__label">Шта је иновативно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
             <div class="od-accordion__inner">
       <ul>
-        <li>Ujedinjeni akcioni <code>/do</code> API — jedna krajnja tačka, jedan omotač, usmeravanje akcija. Nove mogućnosti stižu kao nove akcije, a ne kao nove URL adrese, što smanjuje napadnu površinu, klijentski kod i teret dokumentacije na jedan ugovor koji dele sve platforme.</li>
-        <li>HTTP/3 QUIC kao *podrazumevani* interservisni transport — moderna mrežna komunikacija sa niskom latencijom i otporna na prekide veze između servisa od prvog dana, a ne naknadno dodata.</li>
-        <li>Mehanizam za dozvole koji se može zameniti između lokalne implementacije u procesu i servisa pokretanog preko HTTP-a, uz opcione, nezavisno implementirane servise za autentifikaciju, dozvole i lokalizaciju — isti model autorizacije bez obzira da li pokrećete jedan proces ili klaster.</li>
-        <li>Izolacija podataka u više prostora pomoću <code>--space-root</code> zastavice: svaki projekat dobija svoju izolovanu bazu podataka i skladište resursa, tako da su stanari i projekti razdvojeni na nivou skladišta, a ne pomoću filtera u upitima.</li>
-        <li>Enkripcija SQLCipher AES-256 pri mirovanju — osetljivi podaci projekta su podrazumevano zaštićeni na disku, transparentno.</li>
-        <li>Automatsko otkrivanje klijenta i servera putem UDP emitovanja na lokalnim mrežama — klijent pronalazi Core bez ikakve ručne konfiguracije.</li>
-        <li>Dokumenti V2, prava „alternativa Confluence-u", sa optimističkim zaključavanjem paralelne obrade, detekcijom konflikata i kompletnom istorijom izmena — pravi kolaborativni dokumenti koji žive iza istog backenda kao i tragač.</li>
+        <li>Уједињени акциони <code>/do</code> API — једна крајња тачка, један омотач, усмеравање акција. Нове могућности стижу као нове акције, а не као нове URL адресе, што смањује нападну површину, клијентски код и терет документације на један уговор који деле све платформе.</li>
+        <li>HTTP/3 QUIC као *подразумевани* интерсервисни транспорт — модерна мрежна комуникација са ниском латенцијом и отпорна на прекиде везе између сервиса од првог дана, а не накнадно додата.</li>
+        <li>Механизам за дозволе који се може заменити између локалне имплементације у процесу и сервиса покретаног преко ХТТП-а, уз опционе, независно имплементиране сервисе за аутентификацију, дозволе и локализацију — исти модел ауторизације без обзира да ли покрећете један процес или кластер.</li>
+        <li>Изолација података у више простора помоћу <code>--space-root</code> заставице: сваки пројекат добија своју изоловану базу података и складиште ресурса, тако да су станари и пројекти раздвојени на нивоу складишта, а не помоћу филтера у упитима.</li>
+        <li>Енкрипција SQLCipher AES-256 при мировању — осетљиви подаци пројекта су подразумевано заштићени на диску, транспарентно.</li>
+        <li>Аутоматско откривање клијента и сервера путем UDP емитовања на локалним мрежама — клијент проналази Цоре без икакве ручне конфигурације.</li>
+        <li>Документи В2, права „алтернатива Confluence-у", са оптимистичким закључавањем паралелне обраде, детекцијом конфликата и комплетном историјом измена — прави колаборативни документи који живе иза истог бацкенда као и трагач.</li>
       </ul>
             </div>
           </div>
@@ -272,17 +277,17 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-6" aria-expanded="true" aria-controls="od-acc-helixtrack-6-panel">
-              <span class="od-accordion__label">Najveći tehnički izazovi i kako smo ih rešili</span>
+              <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-6-panel" role="region" aria-labelledby="od-acc-helixtrack-6">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Šest klijentskih platformi, jedan backend, nula odstupanja u ugovoru.</strong> Održavanje klijenata za Web/Angular, Desktop/Tauri, Android/Kotlin, iOS/Swift, HarmonyOS i Aurora obično znači šest različitih integracija API koje vremenom gube sinhronizaciju. Taj rizik smo eliminisali tako što smo učinili jedini ugovor akciono usmereni <code>/do</code> API sa fiksnim omotačem — svaki klijent ga cilja na identičan način — i dodali UDP emitovanje za otkrivanje servisa kako bi klijenti pronalazili Core na mreži bez ručno podešenih krajnjih tačaka.</li>
-        <li><strong>Razdvajanje servisa bez plaćanja cene latencije.</strong> Podela autentifikacije, dozvola i lokalizacije na nezavisno implementirane servise obično dodaje mrežni skok po pozivu. Usvojili smo HTTP/3 QUIC za sve interservisne pozive kako bismo zadržali te skokove brzim i otpornim na prekide veze, a svaki servis učinili nezavisno pokretljivim — čak i potpuno isključenim u testnim konfiguracijama — tako da razdvajanje postane izbor pri implementaciji, a ne fiksni trošak.</li>
-        <li><strong>Kolaboracija na nivou Confluence-a bez gubitka izmena.</strong> Uređivanje u realnom vremenu sa više autora podstiče konflikte. Dokumenti V2 to rešavaju pomoću prostora/stranica/verzionisanja pod optimističkim zaključavanjem, uz eksplicitnu detekciju konflikata, kompletnu istoriju izmena kao rezervnu opciju i sinhronizaciju u realnom vremenu WebSocket — kolaboracija koja ostaje konzistentna umesto da tiho pregazi izmene.</li>
-        <li><strong>Enkripcija pri mirovanju bez žrtvovanja propusnosti.</strong> SQLCipher AES-256 štiti podatke na disku, ali dodaje troškove po upitu; to smo kompenzovali višeslojnim keširanjem (LRU u memoriji ispred Redis u servisu za lokalizaciju) tako da vrući putevi poput višjezičnih pretraga ostaju brzi, a podaci i dalje enkriptovani.</li>
+        <li><strong>Шест клијентских платформи, један бацкенд, нула одступања у уговору.</strong> Одржавање клијената за Web/Angular, Десктоп/Tauri, Android/Kotlin, iOS/Swift, HarmonyOS и Аурора обично значи шест различитих интеграција API које временом губе синхронизацију. Тај ризик смо елиминисали тако што смо учинили једини уговор акционо усмерени <code>/do</code> API са фиксним омотачем — сваки клијент га циља на идентичан начин — и додали UDP емитовање за откривање сервиса како би клијенти проналазили Цоре на мрежи без ручно подешених крајњих тачака.</li>
+        <li><strong>Раздвајање сервиса без плаћања цене латенције.</strong> Подела аутентификације, дозвола и локализације на независно имплементиране сервисе обично додаје мрежни скок по позиву. Усвојили смо HTTP/3 QUIC за све интерсервисне позиве како бисмо задржали те скокове брзим и отпорним на прекиде везе, а сваки сервис учинили независно покретљивим — чак и потпуно искљученим у тестним конфигурацијама — тако да раздвајање постане избор при имплементацији, а не фиксни трошак.</li>
+        <li><strong>Колаборација на нивоу Confluence-а без губитка измена.</strong> Уређивање у реалном времену са више аутора подстиче конфликте. Документи В2 то решавају помоћу простора/страница/верзионисања под оптимистичким закључавањем, уз експлицитну детекцију конфликата, комплетну историју измена као резервну опцију и синхронизацију у реалном времену WebSocket — колаборација која остаје конзистентна уместо да тихо прегази измене.</li>
+        <li><strong>Енкрипција при мировању без жртвовања пропусности.</strong> SQLCipher AES-256 штити податке на диску, али додаје трошкове по упиту; то смо компензовали вишеслојним кеширањем (LRU у меморији испред Redis у сервису за локализацију) тако да врући путеви попут вишјезичних претрага остају брзи, а подаци и даље енкриптовани.</li>
       </ul>
             </div>
           </div>
@@ -290,25 +295,25 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-7" aria-expanded="true" aria-controls="od-acc-helixtrack-7-panel">
-              <span class="od-accordion__label">Tehnološki stack</span>
+              <span class="od-accordion__label">Технолошки стацк</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-7-panel" role="region" aria-labelledby="od-acc-helixtrack-7">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Go + Gin</strong> — izabrani za HTTP usluge visokog protoka i niske latencije sa scenarijem implementacije u obliku jednog binarnog fajla; sadrže Core-ov REST API, njegov JWT/CORS middleware i ruter sa akcijama na <code>/do</code> koji stoji ispred celog sistema.</li>
-        <li><strong>HTTP/3 QUIC</strong> — izabran kao transportni sloj između Core-a i njegovih usluga za autentifikaciju, dozvole i lokalizaciju, jer QUIC-ov dizajn sa multipleksiranim vezama i migracijom konekcija smanjuje kašnjenje u repnom delu i preživljava nestabilne veze gde TCP zastaje.</li>
-        <li><strong>PostgreSQL (prod) / SQLite (dev)</strong> — jedan relacion model koji podržava veliku šemu za praćenje i dokumente na oba motora: SQLite omogućava lokalni razvoj bez podešavanja i zasnovan na fajlovima, dok Postgres preuzima ulogu u produkciji putem namenski definisanog <code>production</code> Compose profila.</li>
-        <li><strong>SQLCipher (AES-256)</strong> — izabran za transparentnu enkripciju na nivou baze podataka u mirovanju, tako da zaštita osetljivih projekatskih podataka ne zahteva kriptografiju na nivou aplikacije niti izmene u načinu pisanja upita.</li>
-        <li><strong>Redis</strong> — izabran kao zajednički keš sloj iza keša u memoriji sa LRU algoritmom u okviru Lokalizacione usluge, što obezbeđuje dvoslojni keš koji održava brzinu pregleda u više jezika čak i uz dodatni teret enkripcije.</li>
-        <li><strong>Uber Zap + Lumberjack</strong> — izabrani za strukturirano, efikasno logovanje sa ugrađenom rotacijom, kako bi Core ostao uočljiv u produkciji bez neograničenog rasta log fajlova.</li>
-        <li><strong>golang-jwt / JWT</strong> — izabrani kao mehanizam za bezstanjnu autentifikaciju; potpisani token putuje u <code>jwt</code> polju svakog <code>/do</code> omotača, čime je autentifikacija ujednačena za sve klijente.</li>
-        <li><strong>Angular 19 (+ Material, RxJS)</strong> — izabran za reaktivni, komponentno vođeni veb klijent sa zrelim Material dizajnerskim sistemom odmah na raspolaganju.</li>
-        <li><strong>Tauri 2.0 + Rust + Angular</strong> — izabrani za isporuku nativnog desktop omotača sa minimalnim zauzećem prostora, ponovnim korišćenjem Angular UI-a unutar Rust webview-a umesto uključivanja kompletnog browser runtime-a.</li>
-        <li><strong>Kotlin (Android) / Swift + SwiftUI (iOS)</strong> — izabrani kako bi mobilni korisnici dobili zaista nativne, platformski prilagođene klijente umesto omotanog veb prikaza.</li>
-        <li><strong>Docker / Docker Compose (kompatibilno sa Podman)</strong> — izabrani za reproduktivno, kontejnerizovano implementiranje sa ugrađenim <code>/health</code> proverama, kao i kompatibilnost sa Podman, čime se ne nameće potreba za daemonima ili specifičnim dobavljačima.</li>
-        <li><strong>Testify (Go); Cypress/Playwright/Karma+Jasmine (klijenti)</strong> — izabrani za višeslojno automatizovano testiranje koje pokriva ugovor sa backend-om i klijentske UI-ove nezavisno, u skladu sa arhitekturom jednog backend-a i više klijenata.</li>
+        <li><strong>Go + Gin</strong> — изабрани за ХТТП услуге високог протока и ниске латенције са сценаријем имплементације у облику једног бинарног фајла; садрже Цоре-ов REST API, његов JWT/CORS middleware и рутер са акцијама на <code>/do</code> који стоји испред целог система.</li>
+        <li><strong>HTTP/3 QUIC</strong> — изабран као транспортни слој између Цоре-а и његових услуга за аутентификацију, дозволе и локализацију, јер QUIC-ов дизајн са мултиплексираним везама и миграцијом конекција смањује кашњење у репном делу и преживљава нестабилне везе где TCP застаје.</li>
+        <li><strong>PostgreSQL (прод) / SQLite (дев)</strong> — један релацион модел који подржава велику шему за праћење и документе на оба мотора: SQLite омогућава локални развој без подешавања и заснован на фајловима, док Postgres преузима улогу у продукцији путем наменски дефинисаног <code>production</code> Цомпосе профила.</li>
+        <li><strong>SQLCipher (AES-256)</strong> — изабран за транспарентну енкрипцију на нивоу базе података у мировању, тако да заштита осетљивих пројекатских података не захтева криптографију на нивоу апликације нити измене у начину писања упита.</li>
+        <li><strong>Redis</strong> — изабран као заједнички кеш слој иза кеша у меморији са LRU алгоритмом у оквиру Локализационе услуге, што обезбеђује двослојни кеш који одржава брзину прегледа у више језика чак и уз додатни терет енкрипције.</li>
+        <li><strong>Uber Зап + Lumberjack</strong> — изабрани за структурирано, ефикасно логовање са уграђеном ротацијом, како би Цоре остао уочљив у продукцији без неограниченог раста лог фајлова.</li>
+        <li><strong>голанг-jwt / JWT</strong> — изабрани као механизам за безстањну аутентификацију; потписани токен путује у <code>jwt</code> пољу сваког <code>/do</code> омотача, чиме је аутентификација уједначена за све клијенте.</li>
+        <li><strong>Angular 19 (+ Материал, RxJS)</strong> — изабран за реактивни, компонентно вођени веб клијент са зрелим Материал дизајнерским системом одмах на располагању.</li>
+        <li><strong>Tauri 2.0 + Rust + Angular</strong> — изабрани за испоруку нативног десктоп омотача са минималним заузећем простора, поновним коришћењем Angular UI-а унутар Rust webview-а уместо укључивања комплетног browser рунтиме-а.</li>
+        <li><strong>Kotlin (Android) / Swift + SwiftUI (iOS)</strong> — изабрани како би мобилни корисници добили заиста нативне, платформски прилагођене клијенте уместо омотаног веб приказа.</li>
+        <li><strong>Docker / Docker Цомпосе (компатибилно са Podman)</strong> — изабрани за репродуктивно, контејнеризовано имплементирање са уграђеним <code>/health</code> проверама, као и компатибилност са Podman, чиме се не намеће потреба за даемонима или специфичним добављачима.</li>
+        <li><strong>Testify (Go); Cypress/Playwright/Karma+Jasmine (клијенти)</strong> — изабрани за вишеслојно аутоматизовано тестирање које покрива уговор са бацкенд-ом и клијентске UI-ове независно, у складу са архитектуром једног бацкенд-а и више клијената.</li>
       </ul>
             </div>
           </div>
@@ -316,19 +321,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-8" aria-expanded="true" aria-controls="od-acc-helixtrack-8-panel">
-              <span class="od-accordion__label">Status i napomene o iskrenosti</span>
+              <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-8-panel" role="region" aria-labelledby="od-acc-helixtrack-8">
             <div class="od-accordion__inner">
       <ul>
-        <li><strong>Status: beta.</strong> HelixTrack Core je funkcionalni REST API mikroservis; <strong>Documents V2</strong> ekstenzija je dokumentovana kao otprilike 95% kompletirana sa poznatim problemom mapiranja polja u bazi podataka, te se ne predstavlja kao potpuno isporučena.</li>
-        <li><strong>Licenca: nije definitivno određena.</strong> <code>CLAUDE.md</code> navodi MIT, ali <code>core/LICENSE</code> fajl zvaničnog zapisa je Apache 2.0 — ova nesaglasnost mora biti razrešena pre nego što se licenca konačno odredi.</li>
-        <li>Performansni podaci navedeni u README fajlu projekta (npr. 50.000+ zahteva u sekundi, vreme upita ispod milisekunde) predstavljaju projektovane/marketinške ciljeve, a ne nezavisno objavljene benchmark rezultate, te su stoga izostavljeni iz navedenih tvrdnji.</li>
-        <li>Klijentske aplikacije (Web, Desktop, Android, iOS, Aurora, HarmonyOS) nalaze se u <strong>privatnim</strong> repozitorijumima i opisuju se isključivo na nivou proizvoda.</li>
+        <li><strong>Статус: бета.</strong> HelixTrack Цоре је функционални REST API микросервис; <strong>Доцументс В2</strong> екстензија је документована као отприлике 95% комплетирана са познатим проблемом мапирања поља у бази података, те се не представља као потпуно испоручена.</li>
+        <li><strong>Лиценца: није дефинитивно одређена.</strong> <code>CLAUDE.md</code> наводи МИТ, али <code>core/LICENSE</code> фајл званичног записа је Апацхе 2.0 — ова несагласност мора бити разрешена пре него што се лиценца коначно одреди.</li>
+        <li>Перформансни подаци наведени у РЕАДМЕ фајлу пројекта (нпр. 50.000+ захтева у секунди, време упита испод милисекунде) представљају пројектоване/маркетиншке циљеве, а не независно објављене бенцхмарк резултате, те су стога изостављени из наведених тврдњи.</li>
+        <li>Клијентске апликације (Web, Десктоп, Android, iOS, Аурора, HarmonyOS) налазе се у <strong>приватним</strong> репозиторијумима и описују се искључиво на нивоу производа.</li>
       </ul>
-      <p><strong>Prioritetni nivo:</strong> Helix-primary i vodeći proizvod linije Helix-Track — rangiran ispred svih projekata Server Factory.</p>
+      <p><strong>Приоритетни ниво:</strong> Helix-primary и водећи производ линије Helix-Track — рангиран испред свих пројеката Server Factory.</p>
             </div>
           </div>
         </div>
