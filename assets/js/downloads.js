@@ -21,11 +21,13 @@
   var langsWrap = modal.querySelector('.dl-langs');
   var FILES = { cv: 'Milos_Vasic_CV', cl: 'Milos_Vasic_Cover_Letter', portfolio: 'Portfolio' };
   // Languages actually present in /downloads/ per document (no silent 404s).
-  // Kept in sync by the auto-publish pipeline as each language completes.
-  // Only languages with a real, validated PDF on disk (DE dropped — it was
-  // English mislabeled as German; portfolio now has genuine RU/SR editions).
-  // More languages get appended by deploy-langs.sh as translations complete.
-  var AVAIL = { cv: ['EN', 'SR', 'RU'], cl: ['EN', 'SR', 'RU'], portfolio: ['EN', 'SR', 'RU'] };
+  // Kept in sync by the auto-publish pipeline (deploy-langs.sh + build-pdfs.sh)
+  // which regenerates a real, validated PDF per COMPLETE language every deploy.
+  // All 15 supported languages now have genuine CV/Cover-Letter/Portfolio PDFs
+  // on disk (verified), so the switcher offers the full set. EN stays first as
+  // the default/fallback; order otherwise follows the deploy language order.
+  var ALL15 = ['EN', 'SR', 'RU', 'DE', 'ES', 'FR', 'BE', 'ZH', 'KK', 'HI', 'JA', 'KO', 'AR', 'TR', 'FA'];
+  var AVAIL = { cv: ALL15, cl: ALL15, portfolio: ALL15 };
   // Native display names for each language suffix.
   var LANG_NAMES = {
     EN: 'English', SR: 'Српски', RU: 'Русский', DE: 'Deutsch', ES: 'Español',
