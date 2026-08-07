@@ -10,8 +10,17 @@
 /test/version_tmp/
 /tmp/
 
-# Used by dotenv library to load environment variables.
-# .env
+# Secrets & credentials (Helix Constitution §11.4.10 — no secrets in VCS)
+.env
+*.env
+.env.*
+.mcp.json
+api_keys.sh
+**/api_keys.sh
+secrets.sh
+*.pem
+id_rsa
+id_ed25519
 
 # Ignore Byebug command history file.
 .byebug_history
