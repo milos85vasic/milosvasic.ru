@@ -2,7 +2,7 @@
 layout: default
 lang: kk
 title: "LLMProvider — Miloš Vasić"
-description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+description: "LLMProvider — жалпы қолданылатын, қайта пайдаланылатын Go модулі. Ол біріккен LLMProvider интерфейсін және оған байланысты өндірістік төзімділік үлгілерін анықтайды: схемалық қорғағыш, денсаулық мониторингі, кері шегінумен қайталау, кейін жүктеу. Сонымен қатар, бір келісімшарт арқылы 43 нақты провайдердің іске асыруын ұсынады, OpenAI-ке үйлесімді жалпылама адаптер және адал, қатты кодталмаған резервтік модельді анықтау жүйесі бар."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "description": "LLMProvider — жалпы қолданылатын, қайта пайдаланылатын Go модулі. Ол біріккен LLMProvider интерфейсін және оған байланысты өндірістік төзімділік үлгілерін анықтайды: схемалық қорғағыш, денсаулық мониторингі, кері шегінумен қайталау, кейін жүктеу. Сонымен қатар, бір келісімшарт арқылы 43 нақты провайдердің іске асыруын ұсынады, OpenAI-ке үйлесімді жалпылама адаптер және адал, қатты кодталмаған резервтік модельді анықтау жүйесі бар.",
       "inLanguage": "kk",
       "name": "LLMProvider",
       "operatingSystem": "Cross-platform",
@@ -185,6 +185,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Бір интерфейс, 43 провайдер — схемалық қорғағыштар, қайталаулар және денсаулық мониторингі кіріктірілген.</strong></p>
+      <p class="od-product-detail__lede">Қайта пайдаланылатын Go модулі бір <code>LLMProvider</code> интерфейсін (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) және ақауға төзімділік механизмдерін ұсынады: схемалық қорғағыш, денсаулық мониторы, кері шегінумен қайталау, кейін жүктеу. 43 провайдер адаптері және OpenAI-ке үйлесімді жалпылама адаптермен бірге. Өзара әрекеттесуге қауіпсіз.</p>
+      <p>LLMProvider — әрбір LLM-ті пайдаланатын қызметке қажет, бірақ ешкім дұрыс жасай алмайтын абстракциялық қабат. Ол нақты демо мен нақты трафикпен кездескенде тірі қалатын жүйені бөліп тұратын қарапайым құбырларды қамтиды. Бір ғана мүмкіндіктерге негізделген интерфейсті анықтайды — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — осылайша қолданба коды 43 бекендтің қайсысы сұрауды қабылдағанына қарамастан бір ғана келісімшартқа бағытталады. Содан кейін ол өндірістік ортада сенімсіз провайдер шақыруларын өміршең жүйеге айналдыратын операциялық қатаңдықты ұсынады. Үш күйлі схемалық қорғағыш (жабық → ашық → жартылай ашық) кез келген провайдерді — *оның ағындық арнасын қоса алғанда* — мөлдір түрде орап алады, мұнда бос ағын сәтсіздік ретінде дұрыс есептеледі. Бір ғана дұрыс жұмыс істемейтін бекенд бүкіл қызметті тоқтата алады. Орталық <code>CircuitBreakerManager</code> барлық қорғағыштарды бірден бақылайды. Реттелетін денсаулық мониторы провайдерлерді белгілі бір уақыт аралығындағы тексерулер арқылы сау / төмендетілген / ауру / белгісіз күйлерге бөледі, осылайша төмендеу апатқа ұшырағанға дейін байқалады. Қайталау логикасы кері шегінуді әртүрлі кідірістермен біріктіреді, мәнді шешімдер қабылдайды: қайталауға тұрарлық қателерді (429, 5xx, уақытша желілік ақаулар) қайталайды, 4xx немесе тоқтатылған контексті қайталауға тырыспайды. Кідірістер шектеледі, сондықтан кері шегіну дауылы қашып кетпейді. Ал кейін жүктеу үлгісі әрбір провайдердің құрылымын оның алғашқы нақты қолданысына дейін кейінге қалдырады — бұл әдейі жасалған шешім, ол 43 провайдердің барлығын тіркеуді тегін етеді.</p>
+      <p>Модуль 43 нақты провайдер пакетін және <code>generic</code> OpenAI-ке үйлесімді адаптерді ұсынады, ол толық интерфейсті *кез келген* <code>/v1/chat/completions</code> соңына қарсы іске асырады — Bearer аутентификациясы, SSE ағыны дұрыс <code>[DONE]</code> өңдеуімен. Арнайы пакеті жоқ вендор да сіз адаптерді оның URL-не бағыттаған сәттен бастап бірінші дәрежелі азамат болып саналады. Мәнмәтіндер бір ғана жерде (<code>apikeys</code>, қатаң <code>ApiKey_&lt;Provider&gt;</code> келісімі бойынша) шешіледі, бұл "қатты кодталған кілт сынақ жинағын өткізеді, нақты кілт ешқашан қосылмаған, өнім өндірісте істен шығады" деген қателерді алдын алады. Модельді анықтау әдейі, тіпті қатаң түрде адал: ол TTL кэші арқылы тірі провайдер API-ларын сұрайды, ал басқару саясаты бойынша ескі қатты кодталған резервтік деңгей толығымен жойылды. Тірі анықтау сәтсіз болған кезде LLMProvider ештеңе қайтармайды, ескі каталогты емес, сондықтан шақырушыға шақырылмайтын модель идентификаторы берілмейді. Бұл барлығы өзара әрекеттесу үшін ағынға қауіпсіз құрылған.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -202,38 +205,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
-              <span class="od-accordion__label">Қысқаша сипаттама</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
-            <div class="od-accordion__inner">
-      <p>Қайта пайдаланылатын Go модулі бір <code>LLMProvider</code> интерфейсін (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) және ақауға төзімділік механизмдерін ұсынады: схемалық қорғағыш, денсаулық мониторы, кері шегінумен қайталау, кейін жүктеу. 43 провайдер адаптері және OpenAI-ке үйлесімді жалпылама адаптермен бірге. Өзара әрекеттесуге қауіпсіз.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
-              <span class="od-accordion__label">Толық сипаттама</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
-            <div class="od-accordion__inner">
-      <p>LLMProvider — әрбір LLM-ті пайдаланатын қызметке қажет, бірақ ешкім дұрыс жасай алмайтын абстракциялық қабат. Ол нақты демо мен нақты трафикпен кездескенде тірі қалатын жүйені бөліп тұратын қарапайым құбырларды қамтиды. Бір ғана мүмкіндіктерге негізделген интерфейсті анықтайды — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — осылайша қолданба коды 43 бекендтің қайсысы сұрауды қабылдағанына қарамастан бір ғана келісімшартқа бағытталады. Содан кейін ол өндірістік ортада сенімсіз провайдер шақыруларын өміршең жүйеге айналдыратын операциялық қатаңдықты ұсынады. Үш күйлі схемалық қорғағыш (жабық → ашық → жартылай ашық) кез келген провайдерді — *оның ағындық арнасын қоса алғанда* — мөлдір түрде орап алады, мұнда бос ағын сәтсіздік ретінде дұрыс есептеледі. Бір ғана дұрыс жұмыс істемейтін бекенд бүкіл қызметті тоқтата алады. Орталық <code>CircuitBreakerManager</code> барлық қорғағыштарды бірден бақылайды. Реттелетін денсаулық мониторы провайдерлерді белгілі бір уақыт аралығындағы тексерулер арқылы сау / төмендетілген / ауру / белгісіз күйлерге бөледі, осылайша төмендеу апатқа ұшырағанға дейін байқалады. Қайталау логикасы кері шегінуді әртүрлі кідірістермен біріктіреді, мәнді шешімдер қабылдайды: қайталауға тұрарлық қателерді (429, 5xx, уақытша желілік ақаулар) қайталайды, 4xx немесе тоқтатылған контексті қайталауға тырыспайды. Кідірістер шектеледі, сондықтан кері шегіну дауылы қашып кетпейді. Ал кейін жүктеу үлгісі әрбір провайдердің құрылымын оның алғашқы нақты қолданысына дейін кейінге қалдырады — бұл әдейі жасалған шешім, ол 43 провайдердің барлығын тіркеуді тегін етеді.</p>
-      <p>Модуль 43 нақты провайдер пакетін және <code>generic</code> OpenAI-ке үйлесімді адаптерді ұсынады, ол толық интерфейсті *кез келген* <code>/v1/chat/completions</code> соңына қарсы іске асырады — Bearer аутентификациясы, SSE ағыны дұрыс <code>[DONE]</code> өңдеуімен. Арнайы пакеті жоқ вендор да сіз адаптерді оның URL-не бағыттаған сәттен бастап бірінші дәрежелі азамат болып саналады. Мәнмәтіндер бір ғана жерде (<code>apikeys</code>, қатаң <code>ApiKey_&lt;Provider&gt;</code> келісімі бойынша) шешіледі, бұл "қатты кодталған кілт сынақ жинағын өткізеді, нақты кілт ешқашан қосылмаған, өнім өндірісте істен шығады" деген қателерді алдын алады. Модельді анықтау әдейі, тіпті қатаң түрде адал: ол TTL кэші арқылы тірі провайдер API-ларын сұрайды, ал басқару саясаты бойынша ескі қатты кодталған резервтік деңгей толығымен жойылды. Тірі анықтау сәтсіз болған кезде LLMProvider ештеңе қайтармайды, ескі каталогты емес, сондықтан шақырушыға шақырылмайтын модель идентификаторы берілмейді. Бұл барлығы өзара әрекеттесу үшін ағынға қауіпсіз құрылған.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">Неліктен құрастырдық</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
             <div class="od-accordion__inner">
       <p>Naive LLM шақырулары өндірісте істемейді — провайдерлер шектеу қояды, сапасын төмендетеді немесе жұмыс істемей қалады, ал бір дұрыс емес бэкэнд бүкіл қызметті құлатып жібереді. Модель каталогтары ауытқиды, ал қатаң кодталған тізімдер шақырушыларға енді жұмыс істемейтін ID-ларды береді. LLMProvider интерфейсті, төзімділік үлгілерін және ақиқатты ашуды орталықтандырады, осылайша әрбір тұтынушы ақауға төзімділік пен шынайылықты тегін алады.</p>
             </div>
@@ -241,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
               <span class="od-accordion__label">Неліктен бұл ойынды өзгертеді</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
             <div class="od-accordion__inner">
       <p>Бұл «LLM провайдерін біріктіруді» бір ғана әрекетке айналдырады — бір интерфейсті жүзеге асыру немесе жалпы адаптерді соңғы нүктеге бағыттау жеткілікті, содан кейін ол провайдерді автоматты түрде және ашық түрде схема бұзушы, денсаулықты бақылау және кездейсоқ кері шегіну қайталаумен қаптайды. Төзімділік енді әр команда өздігінен қайта ойлап табуға тиіс нәрсе (жаман, мерзімнен тыс, алғашқы ақаудан кейін) болмай, кітапхананың барлық 43 бэкэндтегі әдепкі мінез-құлқына айналады. Сенімділік инженериясы бір рет жазылып, қатаң сынақтан өтеді және оны импорттаған әркім тегін алады.</p>
             </div>
@@ -254,12 +230,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">Инновациялық жақтары</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Бір қабілетті интерфейс</strong> — аяқтау, ағынды жіберу, денсаулықты тексеру, қабілеттер мен конфигурацияны тексеру бір келісімшартқа біріктірілген, оны әр бэкэнд бірдей қастерлейді.</li>
@@ -275,12 +251,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
               <span class="od-accordion__label">Ең үлкен техникалық қиындықтар және оларды қалай шештік</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Провайдерлердің тізбекті ақаулары.</strong> Бір тұрақсыз бэкэнд бүкіл қызметті құлатып жібермеуі керек. Бұл үш күйлі схема бұзушымен шешілді (жабық → ашық → жартылай ашық), ол кез келген провайдерді *және оның ағындысын* ашық түрде қаптайды, тұрақты ақау кезінде ашық күйге ауысады, жартылай ашық күйде қалпына келуді тексереді және <code>CircuitBreakerManager</code> арқылы орталықтандырылған.</li>
@@ -295,12 +271,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
-              <span class="od-accordion__label">Технологиялық стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+              <span class="od-accordion__label">Қалай құрылды</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25.3)</strong> — бірінші дәрежелі параллелділік, статикалық бинарлық файлдар және мықты стандартты кітапхана үшін таңдалған; модульді, интерфейсті, барлық төзімділік примитивтерін және 43 адаптерді қамтиды.</li>
@@ -318,12 +294,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
               <span class="od-accordion__label">Жағдай және ақиқат жазбалары</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Жағдайы: бета.</strong> Ажыратылған қайта пайдаланылатын модуль; GitHub репозиторийі ашық.</li>

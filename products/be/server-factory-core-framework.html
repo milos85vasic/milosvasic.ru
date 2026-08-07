@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "Server Factory Core Framework — Miloš Vasić"
-description: "Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each \"factory\" reuses one battle-tested foundation rather than re-implementing provisioning primitives."
+description: "Core Framework — гэта фрэймворк Kotlin, які ляжыць у аснове сямейства інструментаў разгортвання Server Factory. Ён забяспечвае агульны рухавік і абстракцыі, на якіх будуюцца такія праекты, як Mail Server Factory, каб кожная «фабрыка» выкарыстоўвала адзін правераны ў баях фундамент замест таго, каб паўтараць прымітывы разгортвання."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/server-factory-core-framework.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/server-factory-core-framework.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Core Framework is the Kotlin framework that underpins the Server Factory family of provisioning tools. It provides the common engine and abstractions that projects such as Mail Server Factory build upon, so each \"factory\" reuses one battle-tested foundation rather than re-implementing provisioning primitives.",
+      "description": "Core Framework — гэта фрэймворк Kotlin, які ляжыць у аснове сямейства інструментаў разгортвання Server Factory. Ён забяспечвае агульны рухавік і абстракцыі, на якіх будуюцца такія праекты, як Mail Server Factory, каб кожная «фабрыка» выкарыстоўвала адзін правераны ў баях фундамент замест таго, каб паўтараць прымітывы разгортвання.",
       "inLanguage": "be",
       "name": "Server Factory Core Framework",
       "operatingSystem": "Cross-platform",
@@ -175,6 +175,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Агульны рухавік кожнага Server Factory.</strong></p>
+      <p class="od-product-detail__lede">Агульны фрэймворк Kotlin, які ляжыць у аснове экасістэмы Server Factory. Ён забяспечвае агульны рухавік разгортвання, абстракцыі падлучэнняў і механізм крокаў усталявання, якія выкарыстоўваюцца далейшымі фабрыкамі (Mail Server Factory, Web Service Factory, SonarQube Factory і іншыя).</p>
+      <p><strong>Core Framework</strong> — гэта тая няўлоўная інжынерная частка, якая робіць магчымым усё сямейства Server-Factory: паўторна выкарыстоўваны рухавік, на якім будуецца кожны асобны прадукт «фабрыкі» (Mail Server Factory, Web Service Factory, SonarQube Factory, Caching Proxy Factory). Падыход Server Factory з’яўляецца дэкларатыўным — карыстальнік апісвае інфраструктуру, якую ён хоча, у выглядзе канфігурацыі, а фабрыка інтэрпрэтуе гэты апісанне, каб усталяваць і ініцыялізаваць праграмнае забеспячэнне на мэтавай сістэме. І менавіта ў <strong>Core Framework</strong> жыве механізм, агульны для гэтага шаблону: абстракцыі падлучэнняў і транспарту, якія дасягаюць кожнага тыпу мэтавай сістэмы, мадэль крокаў усталявання, якая кадзіруе *як* праграмнае забеспячэнне разгортваецца, і агульная інфраструктура, якую ў адваротным выпадку кожнай фабрыцы давялося б пісаць самастойна. Гэта адказ на структурнае пытанне, з якім рана ці позна сутыкаецца любы інструментальны ланцужок з некалькіх прадуктаў: дзе павінен знаходзіцца агульны рухавік? І калі адказ на гэтае пытанне дадзены правільна адзін раз, гэта захоўвае цэласнасць сямейства замест таго, каб яно распадалася на чатыры крыху розныя разгортвальнікі. Цэнтралізацыя гэтага ў адным фрэймворку Kotlin дазваляе сямейству пазбегнуць дублявання лагікі разгортвання ў прадуктах і захоўвае аднастайнасць паводзін: паляпшэнне тыпу падлучэння ці прымітыву усталявання ў <strong>Core Framework</strong> прыносіць карысць кожнай далейшай фабрыцы. Ён амаль цалкам напісаны на Kotlin (прыкладна 990 Кб кода Kotlin з тонкім пластом Shell), што адлюстроўвае яго ролю як бібліятэкі кода, а не калекцыі скрыптоў. Далейшыя рэпазіторыі спасылаюцца на яго як на кананічную залежнасць (Parallels-Utils, Qemu-Utils, Utils і пакеты Definitions усе звяртаюцца да рэпазіторыя <strong>Core Framework</strong> як да цэнтра экасістэмы). Яго README наўмысна мінімальны — гэта інфраструктура для іншых праектаў, версіі якой кіруюцца праз <code>version.txt</code>/<code>version_code.txt</code> — і ён з’явіўся раней за пазнейшую працу AI, што робіць яго часткай сталай спадчыны DevOps-інструментарыя арганізацыі.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -192,37 +194,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-1" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
+              <span class="od-accordion__label">Праблема, якую мы паставілі перад сабой вырашыць</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-1-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-1">
-            <div class="od-accordion__inner">
-      <p>Агульны фрэймворк Kotlin, які ляжыць у аснове экасістэмы Server Factory. Ён забяспечвае агульны рухавік разгортвання, абстракцыі падлучэнняў і механізм крокаў усталявання, якія выкарыстоўваюцца далейшымі фабрыкамі (Mail Server Factory, Web Service Factory, SonarQube Factory і іншыя).</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-2" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-2-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-2">
-            <div class="od-accordion__inner">
-      <p><strong>Core Framework</strong> — гэта тая няўлоўная інжынерная частка, якая робіць магчымым усё сямейства Server-Factory: паўторна выкарыстоўваны рухавік, на якім будуецца кожны асобны прадукт «фабрыкі» (Mail Server Factory, Web Service Factory, SonarQube Factory, Caching Proxy Factory). Падыход Server Factory з’яўляецца дэкларатыўным — карыстальнік апісвае інфраструктуру, якую ён хоча, у выглядзе канфігурацыі, а фабрыка інтэрпрэтуе гэты апісанне, каб усталяваць і ініцыялізаваць праграмнае забеспячэнне на мэтавай сістэме. І менавіта ў <strong>Core Framework</strong> жыве механізм, агульны для гэтага шаблону: абстракцыі падлучэнняў і транспарту, якія дасягаюць кожнага тыпу мэтавай сістэмы, мадэль крокаў усталявання, якая кадзіруе *як* праграмнае забеспячэнне разгортваецца, і агульная інфраструктура, якую ў адваротным выпадку кожнай фабрыцы давялося б пісаць самастойна. Гэта адказ на структурнае пытанне, з якім рана ці позна сутыкаецца любы інструментальны ланцужок з некалькіх прадуктаў: дзе павінен знаходзіцца агульны рухавік? І калі адказ на гэтае пытанне дадзены правільна адзін раз, гэта захоўвае цэласнасць сямейства замест таго, каб яно распадалася на чатыры крыху розныя разгортвальнікі. Цэнтралізацыя гэтага ў адным фрэймворку Kotlin дазваляе сямейству пазбегнуць дублявання лагікі разгортвання ў прадуктах і захоўвае аднастайнасць паводзін: паляпшэнне тыпу падлучэння ці прымітыву усталявання ў <strong>Core Framework</strong> прыносіць карысць кожнай далейшай фабрыцы. Ён амаль цалкам напісаны на Kotlin (прыкладна 990 Кб кода Kotlin з тонкім пластом Shell), што адлюстроўвае яго ролю як бібліятэкі кода, а не калекцыі скрыптоў. Далейшыя рэпазіторыі спасылаюцца на яго як на кананічную залежнасць (Parallels-Utils, Qemu-Utils, Utils і пакеты Definitions усе звяртаюцца да рэпазіторыя <strong>Core Framework</strong> як да цэнтра экасістэмы). Яго README наўмысна мінімальны — гэта інфраструктура для іншых праектаў, версіі якой кіруюцца праз <code>version.txt</code>/<code>version_code.txt</code> — і ён з’явіўся раней за пазнейшую працу AI, што робіць яго часткай сталай спадчыны DevOps-інструментарыя арганізацыі.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-3" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-3-panel">
-              <span class="od-accordion__label">Навошта мы яго стварылі</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-3-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-3">
             <div class="od-accordion__inner">
       <p>Кожнаму інструменту разгортвання патрэбны адны і тыя ж асновы: спосабы падлучэння да мэтавых сістэм і крокі для ўсталявання/наладкі праграмнага забеспячэння. Калі б гэта паўтаралася для кожнага прадукту, паводзіны сталі б фрагментаванымі, а колькасць памылак павялічылася б. <strong>Core Framework</strong> цэнтралізуе гэта, каб усе фабрыкі выкарыстоўвалі адзін надзейны рухавік.</p>
             </div>
@@ -230,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-4" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-2" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-4-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-4">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-2-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-2">
             <div class="od-accordion__inner">
       <p>Гэта найбольш уплывовы пункт ва ўсім сямействе: калі тып падлучэння ўдасканалены ці прымітыў усталявання палепшаны тут, гэтае паляпшэнне і магчымасці распаўсюджваюцца на ўсе фабрыкі адначасова, таму ўвесь інструментальны ланцужок павялічвае сваю эфектыўнасць дзякуючы адной інвестыцыі. Гэта філасофія «ствары адзін раз, выкарыстоўвай усюды», прымененая там, дзе яна прыносіць найбольшую карысць — на ўзроўні фундаменту аўтаматызацыі інфраструктуры, дзе выпраўленне ў правільным месцы выпраўляе ўсё, што ідзе далей.</p>
       <p>Змест</p>
@@ -244,12 +220,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-5" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-3" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-5-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-5">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-3-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Адзін зноў выкарыстоўваемы фрэймворк для правізіянінгу, які абстрагуе логіку падлучэння і ўстаноўкі.</li>
@@ -261,12 +237,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-6" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-4" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-4-panel">
               <span class="od-accordion__label">Праблемы і рашэнні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-6-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-6">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-4-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Пазбяганне дублявання логікі правізіянінгу:</strong> вырашана шляхам вынясення агульнай механікі ў адзіны фрэймворк, які выкарыстоўваецца ўсімі фабрыкамі.</li>
@@ -278,12 +254,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-7" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-core-framework-5" aria-expanded="true" aria-controls="od-acc-server-factory-core-framework-5-panel">
               <span class="od-accordion__label">Тэхнічны стэк (чаму + як)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-7-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-7">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-core-framework-5-panel" role="region" aria-labelledby="od-acc-server-factory-core-framework-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Kotlin</strong> — увесь фрэймворк (~990K байтаў); мова сямейства Server Factory.</li>

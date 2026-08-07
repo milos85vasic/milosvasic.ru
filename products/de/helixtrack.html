@@ -2,7 +2,7 @@
 layout: default
 lang: de
 title: "HelixTrack — Miloš Vasić"
-description: "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile."
+description: "HelixTrack ist eine umfassende, moderne Open-Source-Alternative zu JIRA (und über die Documents-Erweiterung auch zu Confluence) – ein plattformübergreifendes Projektmanagement- und Issue-Tracking-System, das auf einem Go-Microservices-Backend basiert und native Clients für Web, Desktop und Mobile bietet."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtrack.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile.",
+      "description": "HelixTrack ist eine umfassende, moderne Open-Source-Alternative zu JIRA (und über die Documents-Erweiterung auch zu Confluence) – ein plattformübergreifendes Projektmanagement- und Issue-Tracking-System, das auf einem Go-Microservices-Backend basiert und native Clients für Web, Desktop und Mobile bietet.",
       "inLanguage": "de",
       "name": "HelixTrack",
       "operatingSystem": "Cross-platform",
@@ -187,54 +187,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>JIRA-Alternative für die freie Welt.</strong></p>
+      <p class="od-product-detail__lede">Open-Source-Alternative zu JIRA/Confluence. Ein Go-Microservices-Backend („HelixTrack Core") stellt eine einheitliche REST-API-Schnittstelle für Projekt- und Issue-Tracking sowie einen Confluence-ähnlichen Dokumentenarbeitsbereich bereit, die über HTTP/3-QUIC an native Web-, Desktop-, Android- und iOS-Clients ausgeliefert wird.</p>
+      <p>HelixTrack ist eine umfassende, moderne Open-Source-Alternative zu JIRA (und über die Documents-Erweiterung auch zu Confluence) – ein plattformübergreifendes Projektmanagement- und Issue-Tracking-System, das auf einem Go-Microservices-Backend basiert und native Clients für Web, Desktop und Mobile bietet.</p>
+      <p>HelixTrack ist eine Open-Source-Plattform für Projektmanagement und Issue-Tracking, die als Alternative aus der freien Welt zu JIRA und Confluence positioniert ist – ein vollständiger Ersatz für die beiden Produkte, in die die meisten technischen Organisationen fest eingebunden sind, neu entwickelt als Software, die Ihnen gehört und die Sie überall betreiben können. Ihr Herzstück ist <strong>HelixTrack Core</strong>, ein REST-API-Microservice in Go, entwickelt mit dem Gin-Framework. Er bietet vollständiges Issue-Tracking, Agile/Scrum-Boards, Teamverwaltung und eine hierarchische Berechtigungsengine, deren Implementierung zwischen einer lokalen In-Process-Engine und einem HTTP-basierten Dienst austauschbar ist – sodass dasselbe Autorisierungsmodell von einem einzelnen Laptop bis hin zu einem verteilten Cluster skaliert, ohne den Anwendungscode anzupassen. Statt eine REST-Oberfläche über Dutzende Routen zu verteilen, leitet Core alles über einen einzigen, aktionsbasierten <code>/do</code>-Endpunkt mit einem einheitlichen Anfrage-/Antwort-Schema (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> rein, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> raus): Jeder Client spricht denselben minimalen Vertrag, und das Hinzufügen einer Funktion bedeutet das Hinzufügen einer Aktion, nicht eines neuen URL, der dokumentiert, abgesichert und versioniert werden muss. Core integriert sich mit entkoppelten Authentifizierungs-, Berechtigungs- und Lokalisierungsdiensten, die über HTTP/3-QUIC kommunizieren und auf separaten Maschinen oder Clustern laufen können – oder in Testkonfigurationen vollständig deaktiviert werden. Die Daten werden in SQLite für die Entwicklung ohne Setup-Aufwand und in PostgreSQL für die Produktion gespeichert und standardmäßig mit SQLCipher (AES-256) verschlüsselt, sodass sensible Projektdaten auf der Festplatte geschützt sind – nicht als nachträglicher Gedanke, sondern von vornherein. Die <strong>Documents V2</strong>-Erweiterung verwandelt den Tracker in eine vollständige Wissensplattform: ein Confluence-ähnlicher Arbeitsbereich mit Bereichen, Seiten, Versionskontrolle, Vorlagen, Echtzeit-WebSocket-Kollaboration und Analysen – endlich Wiki und Issue-Tracker in einem Backend vereint, statt zwei Produkte künstlich zusammenzufügen. Um Core herum gruppieren sich mehrere Client-Anwendungen: ein Angular-Webclient, ein Tauri- + Angular-Desktopclient, native Android- (Kotlin) und iOS-Apps (Swift) sowie Clients für HarmonyOS und Aurora OS und ein Bildschirmschoner – alle kommunizieren mit demselben Backend und finden es automatisch im lokalen Netzwerk über UDP-Broadcast, sodass ein neuer Client seinen Server ohne manuelle Konfiguration erkennt. Die Client-Anwendungen werden in separaten, privaten Repositories gepflegt und sind hier nur auf Produktebene dargestellt.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-0" aria-expanded="true" aria-controls="od-acc-helixtrack-0-panel">
-              <span class="od-accordion__label">Zusammenfassung</span>
+              <span class="od-accordion__label">Entstehungsgeschichte</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-0-panel" role="region" aria-labelledby="od-acc-helixtrack-0">
-            <div class="od-accordion__inner">
-      <p>HelixTrack ist eine umfassende, moderne Open-Source-Alternative zu JIRA (und über die Documents-Erweiterung auch zu Confluence) – ein plattformübergreifendes Projektmanagement- und Issue-Tracking-System, das auf einem Go-Microservices-Backend basiert und native Clients für Web, Desktop und Mobile bietet.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
-              <span class="od-accordion__label">Kurzbeschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
-            <div class="od-accordion__inner">
-      <p>Open-Source-Alternative zu JIRA/Confluence. Ein Go-Microservices-Backend („HelixTrack Core") stellt eine einheitliche REST-API-Schnittstelle für Projekt- und Issue-Tracking sowie einen Confluence-ähnlichen Dokumentenarbeitsbereich bereit, die über HTTP/3-QUIC an native Web-, Desktop-, Android- und iOS-Clients ausgeliefert wird.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
-              <span class="od-accordion__label">Ausführliche Beschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
-            <div class="od-accordion__inner">
-      <p>HelixTrack ist eine Open-Source-Plattform für Projektmanagement und Issue-Tracking, die als Alternative aus der freien Welt zu JIRA und Confluence positioniert ist – ein vollständiger Ersatz für die beiden Produkte, in die die meisten technischen Organisationen fest eingebunden sind, neu entwickelt als Software, die Ihnen gehört und die Sie überall betreiben können. Ihr Herzstück ist <strong>HelixTrack Core</strong>, ein REST-API-Microservice in Go, entwickelt mit dem Gin-Framework. Er bietet vollständiges Issue-Tracking, Agile/Scrum-Boards, Teamverwaltung und eine hierarchische Berechtigungsengine, deren Implementierung zwischen einer lokalen In-Process-Engine und einem HTTP-basierten Dienst austauschbar ist – sodass dasselbe Autorisierungsmodell von einem einzelnen Laptop bis hin zu einem verteilten Cluster skaliert, ohne den Anwendungscode anzupassen. Statt eine REST-Oberfläche über Dutzende Routen zu verteilen, leitet Core alles über einen einzigen, aktionsbasierten <code>/do</code>-Endpunkt mit einem einheitlichen Anfrage-/Antwort-Schema (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> rein, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> raus): Jeder Client spricht denselben minimalen Vertrag, und das Hinzufügen einer Funktion bedeutet das Hinzufügen einer Aktion, nicht eines neuen URL, der dokumentiert, abgesichert und versioniert werden muss. Core integriert sich mit entkoppelten Authentifizierungs-, Berechtigungs- und Lokalisierungsdiensten, die über HTTP/3-QUIC kommunizieren und auf separaten Maschinen oder Clustern laufen können – oder in Testkonfigurationen vollständig deaktiviert werden. Die Daten werden in SQLite für die Entwicklung ohne Setup-Aufwand und in PostgreSQL für die Produktion gespeichert und standardmäßig mit SQLCipher (AES-256) verschlüsselt, sodass sensible Projektdaten auf der Festplatte geschützt sind – nicht als nachträglicher Gedanke, sondern von vornherein. Die <strong>Documents V2</strong>-Erweiterung verwandelt den Tracker in eine vollständige Wissensplattform: ein Confluence-ähnlicher Arbeitsbereich mit Bereichen, Seiten, Versionskontrolle, Vorlagen, Echtzeit-WebSocket-Kollaboration und Analysen – endlich Wiki und Issue-Tracker in einem Backend vereint, statt zwei Produkte künstlich zusammenzufügen. Um Core herum gruppieren sich mehrere Client-Anwendungen: ein Angular-Webclient, ein Tauri- + Angular-Desktopclient, native Android- (Kotlin) und iOS-Apps (Swift) sowie Clients für HarmonyOS und Aurora OS und ein Bildschirmschoner – alle kommunizieren mit demselben Backend und finden es automatisch im lokalen Netzwerk über UDP-Broadcast, sodass ein neuer Client seinen Server ohne manuelle Konfiguration erkennt. Die Client-Anwendungen werden in separaten, privaten Repositories gepflegt und sind hier nur auf Produktebene dargestellt.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
-              <span class="od-accordion__label">Warum wir es entwickelt haben</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
             <div class="od-accordion__inner">
       <p>Um Teams eine wirklich offene, selbst hostbare Alternative zum JIRA- und Confluence-Stack zu bieten – „für die freie Welt" – ohne Vendor-Lock-in, die unternehmensreife Tracking-, Dokumenten- und Kollaborationsfunktionen unter einer einzigen Open-Source-Lizenz vereint.</p>
             </div>
@@ -242,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
-              <span class="od-accordion__label">Warum es ein Game-Changer ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
+              <span class="od-accordion__label">Was es einzigartig macht</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
             <div class="od-accordion__inner">
       <p>Es vereint zwei schwere kommerzielle Produkte – Issue-Tracking und das Wiki-/Dokumenten-Stack – in einer offenen, leistungsstarken, selbst hostbaren Plattform und kombiniert dies mit etwas, das die etablierten Anbieter nie boten: echte *native* Multiplattform-Clients (Web, Desktop, Android, iOS sowie HarmonyOS und Aurora OS), die alle von einem einzigen Backend-Vertrag gesteuert werden. Der entscheidende Vorteil ist Eigentümerschaft ohne Kompromisse. Ein HTTP/3-überall-Ansatz, ein vollständig entkoppeltes Microservices-Design und SQLCipher-AES-256-Verschlüsselung im Ruhezustand bringen die Leistung und Sicherheit, die sonst nur proprietären SaaS-Lösungen vorbehalten ist, in ein System, das Sie selbst hosten – ohne Benutzerlizenzen, ohne Vendor-Lock-in, ohne dass Daten Ihre Infrastruktur verlassen. Teams erhalten das gewohnte JIRA-plus-Confluence-Erlebnis auf ihrer eigenen Hardware und unter einer einzigen Open-Source-Lizenz.</p>
             </div>
@@ -255,12 +219,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
-              <span class="od-accordion__label">Was innovativ ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
+              <span class="od-accordion__label">Die Innovationen im Inneren</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Vereinheitlichte aktionsbasierte <code>/do</code>-API – ein Endpunkt, ein Umschlag, aktionsgesteuerte Weiterleitung. Neue Funktionen kommen als neue Aktionen, nicht als neue URLs, was die Angriffsfläche, den Client-Code und den Dokumentationsaufwand auf einen einzigen, von allen Plattformen geteilten Vertrag reduziert.</li>
@@ -276,12 +240,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-6" aria-expanded="true" aria-controls="od-acc-helixtrack-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
               <span class="od-accordion__label">Größte technische Herausforderungen &amp; wie wir sie gelöst haben</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-6-panel" role="region" aria-labelledby="od-acc-helixtrack-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Sechs Client-Plattformen, ein Backend, null Vertragsabweichung.</strong> Die Wartung von Web/Angular-, Desktop/Tauri-, Android/Kotlin-, iOS/Swift-, HarmonyOS- und Aurora-Clients bedeutet normalerweise sechs divergierende API-Integrationen, die mit der Zeit auseinanderlaufen. Wir haben dieses Risiko minimiert, indem wir den einzigen aktionsgesteuerten <code>/do</code>-API-Endpunkt und dessen festes Umschlagformat zum *einzigen* Vertrag gemacht haben – jeder Client richtet sich identisch danach aus. Darüber hinaus haben wir UDP-Broadcast-basierte Diensterkennung integriert, sodass Clients Core im Netzwerk ohne manuell konfigurierte Endpunkte finden.</li>
@@ -294,12 +258,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-7" aria-expanded="true" aria-controls="od-acc-helixtrack-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
               <span class="od-accordion__label">Tech-Stack</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-7-panel" role="region" aria-labelledby="od-acc-helixtrack-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> – ausgewählt für Hochdurchsatz- und Niedriglatenz-HTTP-Dienste mit einer Single-Binary-Bereitstellung; beinhaltet Core’s REST-API, die JWT-/CORS-Middleware sowie den aktionsbasierten <code>/do</code>-Router, der das gesamte System bedient.</li>
@@ -320,12 +284,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-8" aria-expanded="true" aria-controls="od-acc-helixtrack-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
               <span class="od-accordion__label">Status &amp; Transparenzhinweise</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-8-panel" role="region" aria-labelledby="od-acc-helixtrack-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Status: Beta.</strong> HelixTrack Core ist ein funktionierender REST-API-Mikrodienst; die <strong>Dokumente-V2</strong>-Erweiterung ist zu etwa 95 % fertiggestellt, weist jedoch ein bekanntes Problem bei der Datenbankfeldzuordnung auf und gilt daher nicht als vollständig ausgeliefert.</li>

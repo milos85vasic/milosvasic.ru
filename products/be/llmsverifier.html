@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "LLMsVerifier — Miloš Vasić"
-description: "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported."
+description: "LLMsVerifier — гэта платформа класа enterprise для праверкі, маніторынгу і аптымізацыі вялікіх моўных мадэляў ад розных пастаўшчыкоў, заснаваная на абавязковым тэсце праверкі «Ці бачыш ты мой код?», каб толькі тыя мадэлі, якія сапраўды працуюць, атрымлівалі статус прыдатных да выкарыстання ці экспарту."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmsverifier.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported.",
+      "description": "LLMsVerifier — гэта платформа класа enterprise для праверкі, маніторынгу і аптымізацыі вялікіх моўных мадэляў ад розных пастаўшчыкоў, заснаваная на абавязковым тэсце праверкі «Ці бачыш ты мой код?», каб толькі тыя мадэлі, якія сапраўды працуюць, атрымлівалі статус прыдатных да выкарыстання ці экспарту.",
       "inLanguage": "be",
       "name": "LLMsVerifier",
       "operatingSystem": "Cross-platform",
@@ -172,6 +172,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Праверка. Маніторынг. Аптымізацыя.</strong></p>
+      <p class="od-product-detail__lede">Платформа Go, якая правярае, тэстуе, маніторыць і аптымізуе вялікія моўныя мадэлі ад некалькіх пастаўшчыкоў. Кожная мадэль павінна прайсці абавязковы тэст на бачнасць кода перад выкарыстаннем; затым яна праходзіць праверку на затрымку, стрымінг, выклік функцый, апрацоўку візуальных дадзеных і эмбедынгаў, а пасля гэтага экспартуе толькі правераныя канфігурацыі для інструментаў AI і CLI.</p>
+      <p>LLMsVerifier — гэта ўсебаковая платформа для праверкі, маніторынгу і аптымізацыі прадукцыйнасці LLM ад розных пастаўшчыкоў. Яе асноўны прынцып — *абавязковая праверка*, і кампанія не ідзе на кампрамісы: перад тым, як мадэль атрымае статус прыдатнай да выкарыстання ці будзе дазволена ў экспартаванай канфігурацыі, яна павінна пацвердзіць праходжанне тэсту «Ці бачыш ты мой код?», які здзяйсняе рэальныя HTTP-запыты да пастаўшчыка і аналізуе адказ на наяўнасць сапраўднага разумення, а не проста пераканаўчай імітацыі. Мадэль, якая не можа даказальна ўбачыць і зразумець ваш увод, проста ніколі не атрымае сцяжок «прыдатная». Пасля гэтага бар’ера рухавік праверкі запускае поўны камплект тэстаў на здольнасці — існаванне, адказнасць, затрымку, стрымінг, выклік функцый, апрацоўку візуальных дадзеных, embeddings — а рухавік справаздач пераўтварае вынікі ў markdown і справаздачы JSON, з якімі можна працаваць.</p>
+      <p>Сістэма мае мадульную і падзеюарыентаваную архітэктуру, якая прапануе інтэрфейсы CLI, TUI, вэб і REST API на базе ядра з рухавіка праверкі, рухавіка справаздач і мэнэджара канфігурацый. Аднак платформа не абмяжоўваецца толькі праверкай. У яе дададзеныя дадатковыя ўзроўні: шаблон «Супервізар/Работнік» для дэкампзіцыі задач на базе LLM, кіраванне кантэкстам праз слізгальнае акно з падсумоўваннем праз LLM, каб вельмі доўгія сесіі не гублялі кантэкст, рэзервовае захоўванне на воблаку, сістэма пераключэння на рэзервовыя каналы з засцерагальнікамі і маршрутызацыяй на аснове затрымкі. Навакольная інфраструктура мае прадукцыйную форму: шына падзей pub/sub, планаванне праз cron, выяўленне коштаў і абмежаванняў, база дадзеных vector для RAG і сістэма экспарту. Асаблівая сістэма брандынгу дадае суфікс <code>(llmsvd)</code> да кожнай згенераванай пары пастаўшчык/мадэль, каб правераны вывад можна было адразу адрозніць і ніколі не блытаць з неправераным — і толькі правераныя мадэлі трапляюць у экспартаваныя канфігурацыі для інструментаў AI CLI, такіх як OpenCode, Crush і Claude Code. Платформа пастаўляецца з тымі аперацыйнымі інструментамі, якія сапраўды патрэбныя камандам у прадукцыйным асяроддзі: разгортванне Docker/Kubernetes/Helm, маніторынг Prometheus/Grafana, аўтэнтыфікацыя праз LDAP/SSO і шыфраванне даных SQLCipher.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -189,38 +192,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-1" aria-expanded="true" aria-controls="od-acc-llmsverifier-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-1-panel" role="region" aria-labelledby="od-acc-llmsverifier-1">
-            <div class="od-accordion__inner">
-      <p>Платформа Go, якая правярае, тэстуе, маніторыць і аптымізуе вялікія моўныя мадэлі ад некалькіх пастаўшчыкоў. Кожная мадэль павінна прайсці абавязковы тэст на бачнасць кода перад выкарыстаннем; затым яна праходзіць праверку на затрымку, стрымінг, выклік функцый, апрацоўку візуальных дадзеных і эмбедынгаў, а пасля гэтага экспартуе толькі правераныя канфігурацыі для інструментаў AI і CLI.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-2" aria-expanded="true" aria-controls="od-acc-llmsverifier-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-2-panel" role="region" aria-labelledby="od-acc-llmsverifier-2">
-            <div class="od-accordion__inner">
-      <p>LLMsVerifier — гэта ўсебаковая платформа для праверкі, маніторынгу і аптымізацыі прадукцыйнасці LLM ад розных пастаўшчыкоў. Яе асноўны прынцып — *абавязковая праверка*, і кампанія не ідзе на кампрамісы: перад тым, як мадэль атрымае статус прыдатнай да выкарыстання ці будзе дазволена ў экспартаванай канфігурацыі, яна павінна пацвердзіць праходжанне тэсту «Ці бачыш ты мой код?», які здзяйсняе рэальныя HTTP-запыты да пастаўшчыка і аналізуе адказ на наяўнасць сапраўднага разумення, а не проста пераканаўчай імітацыі. Мадэль, якая не можа даказальна ўбачыць і зразумець ваш увод, проста ніколі не атрымае сцяжок «прыдатная». Пасля гэтага бар’ера рухавік праверкі запускае поўны камплект тэстаў на здольнасці — існаванне, адказнасць, затрымку, стрымінг, выклік функцый, апрацоўку візуальных дадзеных, embeddings — а рухавік справаздач пераўтварае вынікі ў markdown і справаздачы JSON, з якімі можна працаваць.</p>
-      <p>Сістэма мае мадульную і падзеюарыентаваную архітэктуру, якая прапануе інтэрфейсы CLI, TUI, вэб і REST API на базе ядра з рухавіка праверкі, рухавіка справаздач і мэнэджара канфігурацый. Аднак платформа не абмяжоўваецца толькі праверкай. У яе дададзеныя дадатковыя ўзроўні: шаблон «Супервізар/Работнік» для дэкампзіцыі задач на базе LLM, кіраванне кантэкстам праз слізгальнае акно з падсумоўваннем праз LLM, каб вельмі доўгія сесіі не гублялі кантэкст, рэзервовае захоўванне на воблаку, сістэма пераключэння на рэзервовыя каналы з засцерагальнікамі і маршрутызацыяй на аснове затрымкі. Навакольная інфраструктура мае прадукцыйную форму: шына падзей pub/sub, планаванне праз cron, выяўленне коштаў і абмежаванняў, база дадзеных vector для RAG і сістэма экспарту. Асаблівая сістэма брандынгу дадае суфікс <code>(llmsvd)</code> да кожнай згенераванай пары пастаўшчык/мадэль, каб правераны вывад можна было адразу адрозніць і ніколі не блытаць з неправераным — і толькі правераныя мадэлі трапляюць у экспартаваныя канфігурацыі для інструментаў AI CLI, такіх як OpenCode, Crush і Claude Code. Платформа пастаўляецца з тымі аперацыйнымі інструментамі, якія сапраўды патрэбныя камандам у прадукцыйным асяроддзі: разгортванне Docker/Kubernetes/Helm, маніторынг Prometheus/Grafana, аўтэнтыфікацыя праз LDAP/SSO і шыфраванне даных SQLCipher.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-3" aria-expanded="true" aria-controls="od-acc-llmsverifier-3-panel">
               <span class="od-accordion__label">Чаму мы яе стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-3-panel" role="region" aria-labelledby="od-acc-llmsverifier-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-1-panel" role="region" aria-labelledby="od-acc-llmsverifier-1">
             <div class="od-accordion__inner">
       <p>Таму што праверка толькі праз канфігурацыю — ненадзейная: ключ API можа скончыцца, мадэль можа быць знята з эксплуатацыі, а файл канфігурацыі нічога не гаворыць пра рэальную затрымку, рэальныя памылкі ці пра тое, ці можа мадэль сапраўды ўбачыць і зразумець ваш увод. LLMsVerifier замяняе прынцып «гэта ёсць у канфігурацыі, значыць павінна працаваць» на доказы: толькі тыя мадэлі, якія даказальна адказваюць правільна, атрымліваюць статус прыдатных і экспартуюцца.</p>
       <p>Змесціва</p>
@@ -229,12 +205,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-4" aria-expanded="true" aria-controls="od-acc-llmsverifier-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-2" aria-expanded="true" aria-controls="od-acc-llmsverifier-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе гульню</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-4-panel" role="region" aria-labelledby="od-acc-llmsverifier-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-2-panel" role="region" aria-labelledby="od-acc-llmsverifier-2">
             <div class="od-accordion__inner">
       <p>Гэта робіць флаты LLM *надзейнымі* — слова, якое рэдка заслугоўваецца ў прасторы, дзе канфігурацыі хлусяць праз недаказанне. Замест таго каб спадзявацца, што настроеная мадэль будзе працаваць, каманды атрымліваюць абавязковую, правераную гарантыю, што кожная мадэль у працы прайшла рэальную верифікацыю, а маніторынг, пераключэнне на рэзервовыя сродкі і экспарт толькі правераных мадэляў замыкаюць цыкл ад доказу да прадукцыйнага асяроддзя. У экасістэме Helix гэта становіцца адзінай крыніцай праўды для метаданых мадэляў LLM, пастаўшчыкоў і верифікацыі: іншыя сэрвісы (у тым ліку HelixTranslate) звяртаюцца да яе, і ўся платформа атрымлівае адзін сумленны адказ на пытанне «якія мадэлі сапраўды працуюць зараз?» замест таго, каб кожная каманда падтрымлівала ўласныя надзеі.</p>
             </div>
@@ -242,12 +218,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-5" aria-expanded="true" aria-controls="od-acc-llmsverifier-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-3" aria-expanded="true" aria-controls="od-acc-llmsverifier-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-5-panel" role="region" aria-labelledby="od-acc-llmsverifier-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-3-panel" role="region" aria-labelledby="od-acc-llmsverifier-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Абавязковая верифікацыя «Ці бачыш ты мой код?»</strong> — рэальны, падтрыманы HTTP бар’ер разумення, які павінна прайсці мадэль, перш чым яе можна будзе выкарыстоўваць; галоўная адметнасць прадукту і прычына, па якой нічога неправеранага не праскочыць.</li>
@@ -263,12 +239,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-6" aria-expanded="true" aria-controls="od-acc-llmsverifier-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-4" aria-expanded="true" aria-controls="od-acc-llmsverifier-4-panel">
               <span class="od-accordion__label">Галоўныя тэхнічныя выклікі і як мы іх пераадолелі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-6-panel" role="region" aria-labelledby="od-acc-llmsverifier-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-4-panel" role="region" aria-labelledby="od-acc-llmsverifier-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Доказ таго, што мадэль сапраўды працуе, а не проста наладжана.</strong> Уся сутнасць і найбольшая складанасць. Вырашана праз абавязковы тэст бачнасці кода, які робіць рэальныя запыты да API і аналізуе адказы на разуменне, падтрыманы шырокім наборам тэстаў на магчымасці, — а потым адмаўляецца экспартаваць усё, што не прайшло праверку, так што ў прадукцыйнае асяроддзе трапляе толькі тое, што даказана, а не проста наладжана.</li>
@@ -282,12 +258,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-7" aria-expanded="true" aria-controls="od-acc-llmsverifier-7-panel">
-              <span class="od-accordion__label">Тэхналагічны стэк</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-5" aria-expanded="true" aria-controls="od-acc-llmsverifier-5-panel">
+              <span class="od-accordion__label">Інжынерны стэк</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-7-panel" role="region" aria-labelledby="od-acc-llmsverifier-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-5-panel" role="region" aria-labelledby="od-acc-llmsverifier-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — абраны ў якасці асноўнай мовы платформы за сваю канкурэнтнасць; кіруе шматпатокавым рухавіком праверкі, які можа аналізаваць шмат мадэляў паралельна, а таксама навакольнымі сэрвісамі.</li>
@@ -310,12 +286,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-8" aria-expanded="true" aria-controls="od-acc-llmsverifier-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-6" aria-expanded="true" aria-controls="od-acc-llmsverifier-6-panel">
               <span class="od-accordion__label">Стан і заўвагі аб шчырасці</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-8-panel" role="region" aria-labelledby="od-acc-llmsverifier-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-6-panel" role="region" aria-labelledby="od-acc-llmsverifier-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Стан: бэта.</strong> Крынічны код Go рэалізуе рэальную HTTP-правярку (адзін састарэлы дакумент, які апісвае праверку як канфігурацыйную, з’яўляецца пажаданнем і састарэлым — аўтарытэтным з’яўляецца код).</li>

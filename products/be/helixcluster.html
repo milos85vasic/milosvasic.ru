@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "HelixCluster — Miloš Vasić"
-description: "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane."
+description: "Helix Cluster OS — гэта аперацыйная сістэма наступнага пакалення для размеркаваных вылічэнняў, якая аркеструе працоўныя нагрузкі на рознатыпных вузлах — ад датацэнтравых GPU да адзінаплатавых камп’ютараў на краі сеткі і мабільных прылад, аб’ядноўваючы HPC-дыспетчараванне, аркестрацыю кантэйнераў, AI/ML-інферэнцыю, федэратыўнае кіраванне некалькімі кластарамі і бяспечныя сесіі з некалькімі карыстальнікамі пад адзінай панэллю кіравання."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcluster.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcluster.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Helix Cluster OS is a next-generation distributed operating system that orchestrates compute across heterogeneous nodes — from datacenter GPUs down to edge SBCs and handhelds — unifying HPC scheduling, container orchestration, AI/ML inference, federated multi-cluster operation, and secure multi-tenant sessions under a single control plane.",
+      "description": "Helix Cluster OS — гэта аперацыйная сістэма наступнага пакалення для размеркаваных вылічэнняў, якая аркеструе працоўныя нагрузкі на рознатыпных вузлах — ад датацэнтравых GPU да адзінаплатавых камп’ютараў на краі сеткі і мабільных прылад, аб’ядноўваючы HPC-дыспетчараванне, аркестрацыю кантэйнераў, AI/ML-інферэнцыю, федэратыўнае кіраванне некалькімі кластарамі і бяспечныя сесіі з некалькімі карыстальнікамі пад адзінай панэллю кіравання.",
       "inLanguage": "be",
       "name": "HelixCluster",
       "operatingSystem": "Cross-platform",
@@ -173,6 +173,10 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Размеркаваная аперацыйная сістэма для AI-вылічэнняў — ад датацэнтравых GPU да мабільных прылад на краі сеткі пад адзінай панэллю кіравання.</strong></p>
+      <p class="od-product-detail__lede">Размеркаваная АС на базе Go / кластар сумеснага выкарыстання GPU-рэсурсаў. Яна аб’ядноўвае HPC-дыспетчараванне (двухузроўневы дыспетчар у мадэлі Omega), аркестрацыю кантэйнераў, маршрутызацыю AI-інферэнцыі, федэрацыю і бяспечныя сесіі з некалькімі карыстальнікамі на рознатыпных вузлах, каардынаваныя праз SWIM-шаштанне і кансэнсус Raft з постквантавым шыфраваннем ад канца да канца.</p>
+      <p>Helix Cluster OS аркеструе працоўныя нагрузкі на радыкальна рознатыпным абсталяванні — ад датацэнтравых GPU да адзінаплатавых камп’ютараў на краі сеткі і нават мабільных прылад — пад адзінай панэллю кіравання, разглядаючы стойку з A100 і жменю SBC як адзіную даступную сетку замест дванаццаці несумяшчальных астравоў. Гэта Go-працоўная прастора (монарэпа з git-падмадулямі), якая рэалізуе сяміўзроўневы стэк — ад узроўню L0 (апаратнае забеспячэнне) да ўзроўню L7 (федэрацыя і назіральнасць), каардынаваны чатырнаццаццю мікрасэрвісамі панэлі кіравання. Удзельніцтва вузлоў адсочваецца праз SWIM-шаштанне і аўтаматычнае выяўленне, што дазваляе сетцы самааднаўляцца пры далучэнні ці адключэнні вузлоў; моцна ўзгоднены стан захоўваецца праз кансэнсус Raft, арганізаваны ў выглядзе Raft-груп па шардах з лакальнымі чытаннямі праз трымальнікаў лізінгу для хуткасці і STONITH-агароджай, каб гарантаваць, што падзелены вузел не зможа сапсаваць агульны стан. Размяшчэнне працоўных нагрузак ажыццяўляецца праз двухузроўневы дыспетчар у мадэлі Omega — аптымістычная канкурэнтнасць, адпаведнасць ClassAd, групавое дыспетчараванне, прыярытэтнае перанакіраванне з каэфіцыентам каштоўнасці і размяшчэнне на аснове абмежаванняў — і выходзіць за рамкі класічнага HPC-дыспетчара: маршрутызацыя з улікам вугляроднага следу і кошту/агульнай вартасці валодання, аўтаматычнае маштабаванне з пераходам у воблака і адаптары рынкаў (Akash, io.net, RunPod, AWS Spot, Chutes), якія дазваляюць задачы пераносіць на арэндаваныя рэсурсы, калі лакальныя сродкі вычарпаны.</p>
+      <p>Карыстальнікі не бачаць гэтай тэхнічнай машынерыі непасрэдна: яны ўзаемадзейнічаюць праз чыстую мадэль сесій (выдзяленне вылічальных рэсурсаў), інтэрактыўны WebSocket/PTY-тэрмінал, унутраны маршрут AI-інферэнцыі і чытанні выкарыстання пулаў. Бяспека з’яўляецца прыярытэтным узроўнем, а не дадаткам: ідэнтыфікацыя SPIFFE, пацвярджэнне прылады (выклік/адказ, доказ GPU-работы, замыканне), шлюз KYC для кантролю экспарту і постквантавы транспарт з шыфраваннем ад канца да канца на базе гібрыднага абмену ключамі X25519 + ML-KEM-768 з абаронай AEAD-запісаў і адхіленнем паўтораў — распрацаваны такім чынам, каб захоплены сёння трафік заставаўся канфідэнцыйным нават перад квантавым супернікам будучыні. Карэктнасць не дэкларуецца, а *дэманструецца*: дэтэрмінісцкае тэставанне сімуляцыяй (запускі з фіксаванымі наборам зыходных дадзеных у стылі FoundationDB, ін’екцыя збояў, сімуляцыя сеткі, паўтор на ўзроўні байтаў і праверка лінеарызаванасці з дапамогай Porcupine) узнаўляе размеркаваныя збоі на заказ, а абавязковае парнае мутацыйнае тэставанне пацвярджае, што тэсты-ахоўнікі сапраўды працуюць. Архітэктура і дакументацыя застаюцца адпаведнымі рэчаіснасці дзякуючы аўтаматычным праверкам, якія перарываюць зборку, калі рэальнасць і дакументацыя разыходзяцца.</p>
+      <p>Змест</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -190,39 +194,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-1" aria-expanded="true" aria-controls="od-acc-helixcluster-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-1-panel" role="region" aria-labelledby="od-acc-helixcluster-1">
-            <div class="od-accordion__inner">
-      <p>Размеркаваная АС на базе Go / кластар сумеснага выкарыстання GPU-рэсурсаў. Яна аб’ядноўвае HPC-дыспетчараванне (двухузроўневы дыспетчар у мадэлі Omega), аркестрацыю кантэйнераў, маршрутызацыю AI-інферэнцыі, федэрацыю і бяспечныя сесіі з некалькімі карыстальнікамі на рознатыпных вузлах, каардынаваныя праз SWIM-шаштанне і кансэнсус Raft з постквантавым шыфраваннем ад канца да канца.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-2" aria-expanded="true" aria-controls="od-acc-helixcluster-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-2-panel" role="region" aria-labelledby="od-acc-helixcluster-2">
-            <div class="od-accordion__inner">
-      <p>Helix Cluster OS аркеструе працоўныя нагрузкі на радыкальна рознатыпным абсталяванні — ад датацэнтравых GPU да адзінаплатавых камп’ютараў на краі сеткі і нават мабільных прылад — пад адзінай панэллю кіравання, разглядаючы стойку з A100 і жменю SBC як адзіную даступную сетку замест дванаццаці несумяшчальных астравоў. Гэта Go-працоўная прастора (монарэпа з git-падмадулямі), якая рэалізуе сяміўзроўневы стэк — ад узроўню L0 (апаратнае забеспячэнне) да ўзроўню L7 (федэрацыя і назіральнасць), каардынаваны чатырнаццаццю мікрасэрвісамі панэлі кіравання. Удзельніцтва вузлоў адсочваецца праз SWIM-шаштанне і аўтаматычнае выяўленне, што дазваляе сетцы самааднаўляцца пры далучэнні ці адключэнні вузлоў; моцна ўзгоднены стан захоўваецца праз кансэнсус Raft, арганізаваны ў выглядзе Raft-груп па шардах з лакальнымі чытаннямі праз трымальнікаў лізінгу для хуткасці і STONITH-агароджай, каб гарантаваць, што падзелены вузел не зможа сапсаваць агульны стан. Размяшчэнне працоўных нагрузак ажыццяўляецца праз двухузроўневы дыспетчар у мадэлі Omega — аптымістычная канкурэнтнасць, адпаведнасць ClassAd, групавое дыспетчараванне, прыярытэтнае перанакіраванне з каэфіцыентам каштоўнасці і размяшчэнне на аснове абмежаванняў — і выходзіць за рамкі класічнага HPC-дыспетчара: маршрутызацыя з улікам вугляроднага следу і кошту/агульнай вартасці валодання, аўтаматычнае маштабаванне з пераходам у воблака і адаптары рынкаў (Akash, io.net, RunPod, AWS Spot, Chutes), якія дазваляюць задачы пераносіць на арэндаваныя рэсурсы, калі лакальныя сродкі вычарпаны.</p>
-      <p>Карыстальнікі не бачаць гэтай тэхнічнай машынерыі непасрэдна: яны ўзаемадзейнічаюць праз чыстую мадэль сесій (выдзяленне вылічальных рэсурсаў), інтэрактыўны WebSocket/PTY-тэрмінал, унутраны маршрут AI-інферэнцыі і чытанні выкарыстання пулаў. Бяспека з’яўляецца прыярытэтным узроўнем, а не дадаткам: ідэнтыфікацыя SPIFFE, пацвярджэнне прылады (выклік/адказ, доказ GPU-работы, замыканне), шлюз KYC для кантролю экспарту і постквантавы транспарт з шыфраваннем ад канца да канца на базе гібрыднага абмену ключамі X25519 + ML-KEM-768 з абаронай AEAD-запісаў і адхіленнем паўтораў — распрацаваны такім чынам, каб захоплены сёння трафік заставаўся канфідэнцыйным нават перад квантавым супернікам будучыні. Карэктнасць не дэкларуецца, а *дэманструецца*: дэтэрмінісцкае тэставанне сімуляцыяй (запускі з фіксаванымі наборам зыходных дадзеных у стылі FoundationDB, ін’екцыя збояў, сімуляцыя сеткі, паўтор на ўзроўні байтаў і праверка лінеарызаванасці з дапамогай Porcupine) узнаўляе размеркаваныя збоі на заказ, а абавязковае парнае мутацыйнае тэставанне пацвярджае, што тэсты-ахоўнікі сапраўды працуюць. Архітэктура і дакументацыя застаюцца адпаведнымі рэчаіснасці дзякуючы аўтаматычным праверкам, якія перарываюць зборку, калі рэальнасць і дакументацыя разыходзяцца.</p>
-      <p>Змест</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-3" aria-expanded="true" aria-controls="od-acc-helixcluster-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-3-panel" role="region" aria-labelledby="od-acc-helixcluster-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-1-panel" role="region" aria-labelledby="od-acc-helixcluster-1">
             <div class="od-accordion__inner">
       <p>Каб запускаць AI і HPC-нагрузкі на кардынальна розных узроўнях абсталявання без неабходнасці злучаць асобныя дыспетчары, аркестратары і стэкі інферэнсу — і рабіць гэта з інжынернай гарантыяй, што кожная выпушчаная функцыя дэманструе *рэальную паводзіны канчатковага карыстальніка* (ніколі не зялёныя тэсты замест рэальных даных) і што кожная магчымасць, спецыфічная для аперацыйнай сістэмы, выкарыстоўвае сапраўдны натыўны механізм для кожнай платформы (без імітацый толькі для Linux). Галоўная праблема, сфармуляваная ў кіраванні рэпазіторыя, — гэта рэжым адмовы тыпу «тэсты прайшлі, але функцыя на самой справе не працуе», які праект створаны менавіта для таго, каб выключыць.</p>
             </div>
@@ -230,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-4" aria-expanded="true" aria-controls="od-acc-helixcluster-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-2" aria-expanded="true" aria-controls="od-acc-helixcluster-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-4-panel" role="region" aria-labelledby="od-acc-helixcluster-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-2-panel" role="region" aria-labelledby="od-acc-helixcluster-2">
             <div class="od-accordion__inner">
       <p>Ён аб’ядноўвае пяць звычайна асобных стэкаў — дыспетчараванне HPC, аркестрацыю кантэйнераў, інферэнс AI, федэрацыю некалькіх кластараў і бяспечныя шматкарыстальніцкія сесіі — у адзіную панэль кіравання, якая распасціраецца ад GPU ў датацэнтрах да мабільных прылад на краі сеткі. І робіць гэта з бюджэтам строгасці, які звычайна прымяняецца толькі да спецыялізаванай інфраструктуры: карэктнасць узроўню фармальных метадаў (спецыфікацыі TLA+, дэтэрмінісцкае мадэляванне, праверка лінеарызаванасці) і постквантавы канфідэнцыйны транспарт — тыя гарантыі, якія большасць аркестратараў нават не спрабуе забяспечыць. Апроч тэхнічных адрозненняў, размяшчэнне з улікам кошту і вугляроднага следу, а таксама магчымасць аўтаматычнага пераходу на рэсурсы воблачнага рынку робяць яго *эканамічным* рычагом: дыспетчар можа аўтаматычна шукаць таннейшыя, экалагічна чыстыя ці свабодныя магутнасці, таму адна і тая ж нагрузка каштуе менш і выкідвае менш CO₂ без неабходнасці перапісваць задачу.</p>
             </div>
@@ -243,12 +219,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-5" aria-expanded="true" aria-controls="od-acc-helixcluster-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-3" aria-expanded="true" aria-controls="od-acc-helixcluster-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-5-panel" role="region" aria-labelledby="od-acc-helixcluster-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-3-panel" role="region" aria-labelledby="od-acc-helixcluster-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Дэтэрмінісцкае сімуляцыйнае тэсціраванне (DST)</strong> — сімулятар з фіксаваным наборам выпадковых значэнняў, які цалкам паўтарае вынікі, уводзіць збоі, разыходжанне гадзіннікаў і падзелы сеткі, паўтарае іх байт за байтам і прапускае вынік праз правершчык лінеарызаванасці Porcupine, каб адзін раз знойдзены хайзенбаг можна было паўтараць па запыце назаўжды.</li>
@@ -265,12 +241,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-6" aria-expanded="true" aria-controls="od-acc-helixcluster-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-4" aria-expanded="true" aria-controls="od-acc-helixcluster-4-panel">
               <span class="od-accordion__label">Найбольшыя тэхнічныя праблемы і спосабы іх вырашэння</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-6-panel" role="region" aria-labelledby="od-acc-helixcluster-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-4-panel" role="region" aria-labelledby="od-acc-helixcluster-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>«PASS-bluff» (тэсты праходзяць на нефункцыянальных магчымасцях).</strong> Гэта той рэжым адмовы, які ўвесь праект закліканы знішчыць: зялёны набор тэстаў на заглушках. Вырашана з дапамогай абавязковага парнага мутацыйнага тэсціравання — кожны элемент працы суправаджаецца тэстам-ахоўнікам з указаннем імя, які *павінен праваліцца* пры незалежнай мутацыі кода, перш чым элемент можа быць пазначаны як завершаны. Такім чынам, праходны тэст даказвае, што правяраецца рэальная паводзіна, а не макет.</li>
@@ -284,12 +260,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-7" aria-expanded="true" aria-controls="od-acc-helixcluster-7-panel">
-              <span class="od-accordion__label">Тэхналагічны стэк</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-5" aria-expanded="true" aria-controls="od-acc-helixcluster-5-panel">
+              <span class="od-accordion__label">Інжынерны стэк</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-7-panel" role="region" aria-labelledby="od-acc-helixcluster-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-5-panel" role="region" aria-labelledby="od-acc-helixcluster-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (go.mod: 1.25 / toolchain 1.26.4)</strong> — мова кіравальнай плоскасці ў працоўнай прасторы з ~30 модулямі. Абрана за танную канкурэнтнасць з дапамогай гаруцін і статычныя бінарныя файлы, якія разгортваюцца аднолькава ад датацэнтра да краю сеткі.</li>
@@ -312,12 +288,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-8" aria-expanded="true" aria-controls="od-acc-helixcluster-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcluster-6" aria-expanded="true" aria-controls="od-acc-helixcluster-6-panel">
               <span class="od-accordion__label">Статус і заўвагі да сумленнасці</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-8-panel" role="region" aria-labelledby="od-acc-helixcluster-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcluster-6-panel" role="region" aria-labelledby="od-acc-helixcluster-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: у распрацоўцы.</strong> Гэта ранняя версія (<code>0.1.0-dev</code>). Некалькі пашыраных функцый — поўны канфідэнцыйны шматвузлавы інферэнсны цыкл, разлікі на рынку і фарміраванне раскладаў на аснове пацверджанняў — азначаны як ЗАПЛАНАВАНЫЯ / абмежаваныя інфраструктурай у рэпазіторыі і <strong>не</strong> падаюцца як цалкам працуючыя. Паказчыкі пакрыцця паведамляюцца аўтарамі.</li>

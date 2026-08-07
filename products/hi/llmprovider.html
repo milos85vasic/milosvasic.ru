@@ -2,7 +2,7 @@
 layout: default
 lang: hi
 title: "LLMProvider — Miloš Vasić"
-description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+description: "LLMProvider एक सामान्य, पुनःप्रयोगी Go मॉड्यूल है जो एकीकृत LLMProvider इंटरफ़ेस को परिभाषित करता है, साथ ही इसके आसपास उत्पादन-स्तरीय लचीलापन पैटर्न — सर्किट ब्रेकर, स्वास्थ्य निगरानी, बैकऑफ़ के साथ पुनःप्रयास, आलसी लोडिंग — और इस एक अनुबंध के पीछे ४३ ठोस प्रदाता कार्यान्वयन प्रदान करता है। इसमें OpenAI-संगत सामान्य एडेप्टर और ईमानदार, बिना-हार्डकोडेड-फॉलबैक मॉडल खोज शामिल है।"
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "description": "LLMProvider एक सामान्य, पुनःप्रयोगी Go मॉड्यूल है जो एकीकृत LLMProvider इंटरफ़ेस को परिभाषित करता है, साथ ही इसके आसपास उत्पादन-स्तरीय लचीलापन पैटर्न — सर्किट ब्रेकर, स्वास्थ्य निगरानी, बैकऑफ़ के साथ पुनःप्रयास, आलसी लोडिंग — और इस एक अनुबंध के पीछे ४३ ठोस प्रदाता कार्यान्वयन प्रदान करता है। इसमें OpenAI-संगत सामान्य एडेप्टर और ईमानदार, बिना-हार्डकोडेड-फॉलबैक मॉडल खोज शामिल है।",
       "inLanguage": "hi",
       "name": "LLMProvider",
       "operatingSystem": "Cross-platform",
@@ -185,59 +185,23 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>एक इंटरफ़ेस, ४३ प्रदाता — सर्किट ब्रेकर, पुनःप्रयास और स्वास्थ्य निगरानी के साथ।</strong></p>
-      <div class="od-accordion">
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-0" aria-expanded="true" aria-controls="od-acc-llmprovider-0-panel">
-              <span class="od-accordion__label">सारांश</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-0-panel" role="region" aria-labelledby="od-acc-llmprovider-0">
-            <div class="od-accordion__inner">
+      <p class="od-product-detail__lede">एक पुनःप्रयोगी Go मॉड्यूल जो एक <code>LLMProvider</code> इंटरफ़ेस (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) को उजागर करता है, साथ ही दोष-सहनशीलता तंत्र — सर्किट ब्रेकर, स्वास्थ्य मॉनिटर, जिटर्ड बैकऑफ़ पुनःप्रयास, आलसी आरंभ — ४३ प्रदाता एडेप्टर और एक सामान्य OpenAI-संगत एडेप्टर के साथ। थ्रेड-सुरक्षित।</p>
       <p>LLMProvider एक सामान्य, पुनःप्रयोगी Go मॉड्यूल है जो एकीकृत <code>LLMProvider</code> इंटरफ़ेस को परिभाषित करता है, साथ ही इसके आसपास उत्पादन-स्तरीय लचीलापन पैटर्न — सर्किट ब्रेकर, स्वास्थ्य निगरानी, बैकऑफ़ के साथ पुनःप्रयास, आलसी लोडिंग — और इस एक अनुबंध के पीछे ४३ ठोस प्रदाता कार्यान्वयन प्रदान करता है। इसमें OpenAI-संगत सामान्य एडेप्टर और ईमानदार, बिना-हार्डकोडेड-फॉलबैक मॉडल खोज शामिल है।</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
-              <span class="od-accordion__label">संक्षिप्त विवरण</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
-            <div class="od-accordion__inner">
-      <p>एक पुनःप्रयोगी Go मॉड्यूल जो एक <code>LLMProvider</code> इंटरफ़ेस (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) को उजागर करता है, साथ ही दोष-सहनशीलता तंत्र — सर्किट ब्रेकर, स्वास्थ्य मॉनिटर, जिटर्ड बैकऑफ़ पुनःप्रयास, आलसी आरंभ — ४३ प्रदाता एडेप्टर और एक सामान्य OpenAI-संगत एडेप्टर के साथ। थ्रेड-सुरक्षित।</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
-              <span class="od-accordion__label">विस्तृत विवरण</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
-            <div class="od-accordion__inner">
       <p>LLMProvider वह अमूर्त परत है जिसकी हर LLM-उपभोग करने वाली सेवा को आवश्यकता होती है, लेकिन जिसे लगभग कोई भी ठीक से नहीं बनाता — वह अनाकर्षक आधारभूत संरचना जो एक डेमो को उस प्रणाली से अलग करती है जो वास्तविक ट्रैफ़िक के संपर्क में आने पर भी जीवित रहती है। यह एकल, क्षमता-सचेत इंटरफ़ेस — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — को परिभाषित करता है, ताकि एप्लिकेशन कोड केवल एक अनुबंध को लक्षित करे, चाहे ४३ बैकएंड में से कोई भी कॉल का उत्तर दे। फिर यह परिचालन सुदृढ़ीकरण प्रदान करता है जो नाजुक प्रदाता कॉलों को उत्पादन में चलाने योग्य बनाता है, बिना सांस रोके।</p>
       <p>एक तीन-स्थिति सर्किट ब्रेकर (बंद → खुला → अर्ध-खुला) किसी भी प्रदाता को पारदर्शी रूप से लपेटता है — *इसके स्ट्रीमिंग चैनल सहित*, जहाँ एक खाली स्ट्रीम को सही ढंग से विफलता के रूप में गिना जाता है — ताकि एक खराब बैकएंड खुलकर पूरे सेवा को गिराने से रोक सके; एक केंद्रीय <code>CircuitBreakerManager</code> हर ब्रेकर को एक साथ ट्रैक करता है। एक विन्यास योग्य स्वास्थ्य मॉनिटर प्रदाताओं को निरंतर स्वस्थ / अधोगामी / अस्वस्थ / अज्ञात स्थितियों में जाँचता है, ताकि गिरावट का अवलोकन किया जा सके, न कि आउटेज के माध्यम से इसकी खोज।</p>
       <p>पुनःप्रयास तर्क में घातीय बैकऑफ़ के साथ जिटर जोड़ा गया है, जो स्थिति-सचेत निर्णय लेता है — उन त्रुटियों को पुनःप्रयास करें जिनका पुनःप्रयास सार्थक है (429, 5xx, क्षणिक नेटवर्क दोष), 4xx या रद्द किए गए संदर्भ पर चक्र बर्बाद न करें — विलंब को सीमित किया गया है ताकि बैकऑफ़ तूफान नियंत्रण से बाहर न हो। और आलसी-आरंभ पैटर्न प्रत्येक प्रदाता के निर्माण को उसके पहले वास्तविक उपयोग तक टालता है — एक जानबूझकर किया गया डिज़ाइन निर्णय जो सभी ४३ प्रदाताओं के पंजीकरण को लगभग निःशुल्क बनाए रखता है।</p>
       <p>यह मॉड्यूल ४३ ठोस प्रदाता पैकेज के साथ-साथ एक <code>generic</code> OpenAI-संगत एडेप्टर भी प्रदान करता है, जो पूर्ण इंटरफ़ेस को *किसी भी* <code>/v1/chat/completions</code> एंडपॉइंट के विरुद्ध लागू करता है — Bearer प्रमाणीकरण, SSE स्ट्रीमिंग के साथ सही <code>[DONE]</code> हैंडलिंग — ताकि बिना समर्पित पैकेज वाले विक्रेता को भी आप एडेप्टर को उसके URL की ओर इंगित करते ही प्रथम श्रेणी का नागरिक बना सकें।</p>
       <p>प्रमाण-पत्र एक ही स्थान (<code>apikeys</code>, <code>ApiKey_&lt;Provider&gt;</code> के सख्त परंपरा का उपयोग करते हुए) पर हल किए जाते हैं, जिससे "हार्डकोडेड कुंजी परीक्षण सूट पास करती है, वास्तविक कुंजी कभी जुड़ी नहीं थी, उत्पाद उत्पादन में विफल हो जाता है" जैसी पूरी श्रेणी की बग का स्रोत पर ही समाधान हो जाता है। मॉडल खोज जानबूझकर, लगभग हठपूर्वक ईमानदार है: यह TTL कैश के पीछे लाइव प्रदाता API को क्वेरी करती है, और — शासन के अनुसार — पुराने हार्डकोडेड फॉलबैक स्तर को पूरी तरह हटा दिया गया था। जब लाइव खोज विफल होती है, तो LLMProvider *कुछ भी* वापस नहीं करता, बजाय एक पुराने कैटलॉग के, ताकि कॉलर को कभी ऐसा मॉडल आईडी न दिया जाए जो वैध दिखे लेकिन जिसे लागू न किया जा सके। इस सबका हर हिस्सा समवर्ती उपयोग के लिए थ्रेड-सुरक्षित बनाया गया है।</p>
       <p>सामग्री</p>
-            </div>
-          </div>
-        </div>
+      <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
-              <span class="od-accordion__label">हमने इसे क्यों बनाया</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-0" aria-expanded="true" aria-controls="od-acc-llmprovider-0-panel">
+              <span class="od-accordion__label">वह खुजली जिसे हमें खुजलाना था</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-0-panel" role="region" aria-labelledby="od-acc-llmprovider-0">
             <div class="od-accordion__inner">
       <p>नैव ज़ेड9टीईआरएम007ज़ेड9 कॉल प्रोडक्शन में विफल हो जाते हैं — प्रदाता दर-सीमित करते हैं, सेवा गिरा देते हैं या बंद हो जाते हैं, और एक खराब बैकएंड पूरे सेवा को अपने साथ ले डूबता है। मॉडल कैटलॉग बदलते रहते हैं, और हार्डकोडेड सूचियाँ ऐसे कॉलर आईडी थमा देती हैं जो अब काम नहीं करते। ज़ेड9टीईआरएम002ज़ेड9 इंटरफ़ेस को केंद्रीकृत करता है, लचीलापन पैटर्न और ईमानदार खोज को इस तरह से एकीकृत करता है कि हर उपभोक्ता को दोष सहनशीलता और सच्चाई मुफ़्त में मिल जाती है।</p>
             </div>
@@ -245,12 +209,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
               <span class="od-accordion__label">यह गेम-चेंजर क्यों है</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
             <div class="od-accordion__inner">
       <p>यह "ज़ेड9टीईआरएम007ज़ेड9 प्रदाता को एकीकृत करें" की प्रक्रिया को एक ही कदम में समेट देता है — एक इंटरफ़ेस लागू करें, या बस जेनेरिक एडाप्टर को किसी एंडपॉइंट पर निर्देशित करें — और फिर उस प्रदाता को स्वचालित और पारदर्शी रूप से सर्किट ब्रेकिंग, स्वास्थ्य निगरानी और जिटर्ड-बैकऑफ़ रिट्राई में लपेट देता है। लचीलापन अब हर टीम के लिए अलग से आविष्कार की जाने वाली चीज़ नहीं रह जाती (खराब तरीके से, डेडलाइन के दबाव में, पहले आउटेज के बाद), बल्कि यह लाइब्रेरी का डिफ़ॉल्ट व्यवहार बन जाता है, जो सभी 43 बैकएंड पर लागू होता है। विश्वसनीयता इंजीनियरिंग एक बार लिखी जाती है, कड़ी परीक्षा से गुज़रती है, और इसे आयात करने वाले हर व्यक्ति को मुफ़्त में मिल जाती है।</p>
             </div>
@@ -258,12 +222,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
               <span class="od-accordion__label">क्या है नवाचारी</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>एक क्षमता-सचेत इंटरफ़ेस</strong> — पूरा होना, स्ट्रीमिंग, स्वास्थ्य, क्षमताएँ और कॉन्फ़िगरेशन सत्यापन एक ही अनुबंध में समाहित हैं, जिसे हर बैकएंड समान रूप से मानता है।</li>
@@ -279,12 +243,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">सबसे बड़ी तकनीकी चुनौतियाँ और उनके समाधान</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>प्रदाताओं की श्रृंखलाबद्ध विफलताएँ।</strong> एक अस्थिर बैकएंड पूरे सेवा को अपने साथ नहीं ले डूबना चाहिए। इसका समाधान तीन-अवस्था सर्किट ब्रेकर (बंद → खुला → अर्ध-खुला) से किया गया, जो किसी भी प्रदाता और उसकी स्ट्रीम को पारदर्शी रूप से लपेटता है, निरंतर विफलता पर खुल जाता है, अर्ध-खुली अवस्था में पुनर्प्राप्ति की जाँच करता है, और इसे <code>CircuitBreakerManager</code> द्वारा केंद्रीय रूप से समन्वित किया जाता है।</li>
@@ -299,12 +263,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
               <span class="od-accordion__label">तकनीकी स्टैक</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25.3)</strong> — प्रथम श्रेणी की समवर्तीता (कॉनकरेंसी), स्थैतिक बाइनरी और मज़बूत मानक लाइब्रेरी के लिए चुना गया; इसमें मॉड्यूल, इंटरफ़ेस, हर लचीलापन प्रिमिटिव और सभी 43 एडेप्टर शामिल हैं।</li>
@@ -322,12 +286,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
               <span class="od-accordion__label">स्थिति और ईमानदारी संबंधी टिप्पणियाँ</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>स्थिति: बीटा।</strong> एक अलग पुन:प्रयोग योग्य मॉड्यूल; GitHub रिपॉज़िटरी सार्वजनिक है।</li>

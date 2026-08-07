@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "LLMsVerifier — Miloš Vasić"
-description: "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported."
+description: "LLMsVerifier је платформа пословне класе за верификацију, надгледање и оптимизацију великих језичких модела (LLM) код различитих провајдера, изграђена на обавезном тесту верификације „Видиш ли мој код?\" како би само модели за које је доказано да заиста функционишу икада били означени као употребљиви или извезани."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmsverifier.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported.",
+      "description": "LLMsVerifier је платформа пословне класе за верификацију, надгледање и оптимизацију великих језичких модела (LLM) код различитих провајдера, изграђена на обавезном тесту верификације „Видиш ли мој код?\" како би само модели за које је доказано да заиста функционишу икада били означени као употребљиви или извезани.",
       "inLanguage": "sr",
       "name": "LLMsVerifier",
       "operatingSystem": "Cross-platform",
@@ -172,6 +172,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Верификуј. Надгледај. Оптимизуј.</strong></p>
+      <p class="od-product-detail__lede">Платформа Go која верификује, тестира перформансе, надгледа и оптимизује LLM-ове код више провајдера. Сваки модел мора проћи обавезни тест видљивости кода пре употребе; затим се проверавају латенција, стримовање, позиви функција, визуелна обрада и уградња, а извозе се само верификоване конфигурације за алате AI и CLI.</p>
+      <p>LLMsVerifier је свеобухватна платформа за верификацију, надгледање и оптимизацију перформанси LLM модела код различитих провајдера. Њен основни принцип је *обавезна верификација*, и у томе је непопустљива: пре него што се било који модел означи као употребљив — или дозволи у извозну конфигурацију — мора изричито да прође тест *„Видиш ли мој код?"*, који шаље стварне ХТТП захтеве провајдеру и анализира одговор како би утврдио стварно разумевање, а не само веродостојан одјек. Модел који не може недвосмислено да види и разуме ваш унос једноставно никада не добија ознаку „употребљив". Након те провере, Верификациони мотор спроводи комплетну серију тестова способности — постојање, респонсивност, латенција, стримовање, позиви функција, визуелна обрада, ембеддингс — а Извештајни мотор резултате претвара у markdown и JSON извештаје на основу којих можете предузимати акције.</p>
+      <p>Систем је модуларан и вођен догађајима, нудећи CLI, TUI, веб и REST API интерфејсе преко језгра које чине Верификациони мотор, Извештајни мотор и Менаџер конфигурација, и не зауставља се на верификацији. Напредни слојеви додају Супервизор/Радник образац за декомпозицију задатака покретаних LLM моделима, управљање контекстом помоћу клизећег прозора и LLM сумаризације како веома дуге сесије не би доживеле колапс, чување контролних тачака у облаку и систем за преузимање у случају отказа са прекидачима струјног кола и рутирањем заснованим на латенцији. Околна инфраструктура је прилагођена продукцији: магистрала догађаја типа пуб/суб, распоред црон послова, детекција цена и ограничења, вецтор база података за RAG, и систем за извоз. Посебна конвенција брендирања додаје суфикс *(ллмсвд)* сваком генерисаном провајдеру/моделу, тако да се верификовани излаз може препознати на први поглед и никада не може бити помешан са непровереним — а само верификовани модели се икада уписују у извезене конфигурације за AI CLI алате попут OpenCode, Crush и Claude Цоде. Долази са оперативним алатима које тимови заиста користе у продукцији: Docker/Kubernetes/Helm имплементација, Prometheus/Grafana надгледање, LDAP/SSO и SQLCipher енкриптовано складиштење.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -189,38 +192,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-1" aria-expanded="true" aria-controls="od-acc-llmsverifier-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-1-panel" role="region" aria-labelledby="od-acc-llmsverifier-1">
-            <div class="od-accordion__inner">
-      <p>Платформа Go која верификује, тестира перформансе, надгледа и оптимизује LLM-ове код више провајдера. Сваки модел мора проћи обавезни тест видљивости кода пре употребе; затим се проверавају латенција, стримовање, позиви функција, визуелна обрада и уградња, а извозе се само верификоване конфигурације за алате AI и CLI.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-2" aria-expanded="true" aria-controls="od-acc-llmsverifier-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-2-panel" role="region" aria-labelledby="od-acc-llmsverifier-2">
-            <div class="od-accordion__inner">
-      <p>LLMsVerifier је свеобухватна платформа за верификацију, надгледање и оптимизацију перформанси LLM модела код различитих провајдера. Њен основни принцип је *обавезна верификација*, и у томе је непопустљива: пре него што се било који модел означи као употребљив — или дозволи у извозну конфигурацију — мора изричито да прође тест *„Видиш ли мој код?"*, који шаље стварне ХТТП захтеве провајдеру и анализира одговор како би утврдио стварно разумевање, а не само веродостојан одјек. Модел који не може недвосмислено да види и разуме ваш унос једноставно никада не добија ознаку „употребљив". Након те провере, Верификациони мотор спроводи комплетну серију тестова способности — постојање, респонсивност, латенција, стримовање, позиви функција, визуелна обрада, ембеддингс — а Извештајни мотор резултате претвара у markdown и JSON извештаје на основу којих можете предузимати акције.</p>
-      <p>Систем је модуларан и вођен догађајима, нудећи CLI, TUI, веб и REST API интерфејсе преко језгра које чине Верификациони мотор, Извештајни мотор и Менаџер конфигурација, и не зауставља се на верификацији. Напредни слојеви додају Супервизор/Радник образац за декомпозицију задатака покретаних LLM моделима, управљање контекстом помоћу клизећег прозора и LLM сумаризације како веома дуге сесије не би доживеле колапс, чување контролних тачака у облаку и систем за преузимање у случају отказа са прекидачима струјног кола и рутирањем заснованим на латенцији. Околна инфраструктура је прилагођена продукцији: магистрала догађаја типа пуб/суб, распоред црон послова, детекција цена и ограничења, вецтор база података за RAG, и систем за извоз. Посебна конвенција брендирања додаје суфикс *(ллмсвд)* сваком генерисаном провајдеру/моделу, тако да се верификовани излаз може препознати на први поглед и никада не може бити помешан са непровереним — а само верификовани модели се икада уписују у извезене конфигурације за AI CLI алате попут OpenCode, Crush и Claude Цоде. Долази са оперативним алатима које тимови заиста користе у продукцији: Docker/Kubernetes/Helm имплементација, Prometheus/Grafana надгледање, LDAP/SSO и SQLCipher енкриптовано складиштење.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-3" aria-expanded="true" aria-controls="od-acc-llmsverifier-3-panel">
               <span class="od-accordion__label">Зашто смо је изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-3-panel" role="region" aria-labelledby="od-acc-llmsverifier-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-1-panel" role="region" aria-labelledby="od-acc-llmsverifier-1">
             <div class="od-accordion__inner">
       <p>Зато што је провера само на основу конфигурације непоуздана — API кључ може истећи, модел може бити застарео, а конфигурациони фајл вам не говори ништа о стварној латенцији, стварним грешкама или томе да ли модел заиста види и разуме ваш унос. LLMsVerifier замењује *„налази се у конфигурацији, дакле мора да ради"* доказом: само модели који недвосмислено одговарају исправно бивају означени као употребљиви и извозе се.</p>
             </div>
@@ -228,12 +204,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-4" aria-expanded="true" aria-controls="od-acc-llmsverifier-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-2" aria-expanded="true" aria-controls="od-acc-llmsverifier-2-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-4-panel" role="region" aria-labelledby="od-acc-llmsverifier-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-2-panel" role="region" aria-labelledby="od-acc-llmsverifier-2">
             <div class="od-accordion__inner">
       <p>Чини LLM флоте *поузданим* — реч која се ретко заслужује у свемиру подешавања која лажу изостављањем. Уместо да се тимови надају да ће конфигурисани модел радити, добијају строго спроведену, тестабилну гаранцију да је сваки модел у употреби прошао стварну верификацију, уз мониторинг, преусмеравање у случају грешке и извоз само верификованих модела који затварају круг од доказа до продукције. У оквиру Helix екосистема постаје једини извор истине за LLM моделе, провајдере и метаподатке верификације: други сервиси (међу њима и HelixTranslate) усмеравају саобраћај према њему, па цела платформа наслеђује један поштен одговор на питање *„који модели заиста сада раде?"* уместо да сваки тим одржава сопствено оптимистично нагађање.</p>
             </div>
@@ -241,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-5" aria-expanded="true" aria-controls="od-acc-llmsverifier-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-3" aria-expanded="true" aria-controls="od-acc-llmsverifier-3-panel">
+              <span class="od-accordion__label">Идеје вредне позајмљивања</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-5-panel" role="region" aria-labelledby="od-acc-llmsverifier-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-3-panel" role="region" aria-labelledby="od-acc-llmsverifier-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Обавезна верификација *„Видиш ли мој код?"</strong>* — стварна, ХТТП-ослоњена провера разумевања коју модел мора да прође пре него што уопште постане употребљив; потписна карактеристика производа и разлог што ништа непроверено не проклизне.</li>
@@ -262,12 +238,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-6" aria-expanded="true" aria-controls="od-acc-llmsverifier-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-4" aria-expanded="true" aria-controls="od-acc-llmsverifier-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-6-panel" role="region" aria-labelledby="od-acc-llmsverifier-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-4-panel" role="region" aria-labelledby="od-acc-llmsverifier-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Доказивање да модел заиста ради, а не само да је конфигурисан.</strong> Цела поента, и најтежи део. Решено обавезним тестом видљивости кода који прави стварне API позиве и анализира одговоре на потврдно разумевање, подржано широким скупом тестова могућности — а затим одбијањем извоза свега што није прошло, тако да продукцију не контролише конфигурација, већ доказ.</li>
@@ -280,12 +256,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-7" aria-expanded="true" aria-controls="od-acc-llmsverifier-7-panel">
-              <span class="od-accordion__label">Технолошки стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-5" aria-expanded="true" aria-controls="od-acc-llmsverifier-5-panel">
+              <span class="od-accordion__label">Инжењерски стек</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-7-panel" role="region" aria-labelledby="od-acc-llmsverifier-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-5-panel" role="region" aria-labelledby="od-acc-llmsverifier-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — изабран као основни програмски језик због подршке конкурентности; покреће вишедретвени Верификациони мотор који може истовремено да испитује више модела, као и околне сервисе.</li>
@@ -308,12 +284,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-8" aria-expanded="true" aria-controls="od-acc-llmsverifier-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-6" aria-expanded="true" aria-controls="od-acc-llmsverifier-6-panel">
               <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-8-panel" role="region" aria-labelledby="od-acc-llmsverifier-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-6-panel" role="region" aria-labelledby="od-acc-llmsverifier-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> Изворни код Go имплементира стварну ХТТП верификацију (један застарели документ који верификацију описује као искључиво конфигурациону представља аспирацију и застарео је — ауторитативан је код).</li>

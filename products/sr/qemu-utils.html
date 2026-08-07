@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "Qemu-Utils — Miloš Vasić"
-description: "Qemu-Utils is a Server Factory toolkit for comprehensive QEMU virtualization management: automated VM image distribution and compression, local caching, bridge/TAP network configuration, ISO-based OS installation, and cross-platform (Linux/macOS) execution with hardware acceleration. Usable standalone or within Server Factory."
+description: "Qemu-Utils је Server Factory алат за свеобухватно управљање QEMU виртуализацијом: аутоматизована дистрибуција и компресија VM слика, локално кеширање, конфигурација мрежа са мостовима/TAP-ом, инсталација оперативних система са ISO-а и извршавање на више платформи (Linux/macOS) уз хардверско убрзање. Може се користити самостално или унутар Server Factory окружења."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/qemu-utils.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Qemu-Utils is a Server Factory toolkit for comprehensive QEMU virtualization management: automated VM image distribution and compression, local caching, bridge/TAP network configuration, ISO-based OS installation, and cross-platform (Linux/macOS) execution with hardware acceleration. Usable standalone or within Server Factory.",
+      "description": "Qemu-Utils је Server Factory алат за свеобухватно управљање QEMU виртуализацијом: аутоматизована дистрибуција и компресија VM слика, локално кеширање, конфигурација мрежа са мостовима/TAP-ом, инсталација оперативних система са ISO-а и извршавање на више платформи (Linux/macOS) уз хардверско убрзање. Може се користити самостално или унутар Server Factory окружења.",
       "inLanguage": "sr",
       "name": "Qemu-Utils",
       "operatingSystem": "Cross-platform",
@@ -183,6 +183,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>QEMU VM слике, управљане као артефакти — преузимање, покретање, умрежавање, објављивање</strong></p>
+      <p class="od-product-detail__lede">Shell алат за управљање животним циклусом QEMU виртуелних машина. Преузима, кешира и покреће унапред конфигурисане QEMU диск слике, компресује их и објављује на удаљене крајње тачке, аутоматизује умрежавање преко мостова/TAP-а, подржава инсталације са ISO-а и ради на Linuxu и macOS-у уз одговарајуће хардверско убрзање.</p>
+      <p>Qemu-Utils примењује дисциплину управљања артефактима — начин на који тимови већ третирају излазе из буилд процеса и контејнерске слике — на нешто што је обично остављено као гомила ад-хоц позива <code>qemu-system-*</code>: виртуелне машине. Попут свог Parallels „брата", овај алат третира VM слике као првокласне дистрибутивне ресурсе, матрице система које се користе у развоју и тестирању, али циља на истински вишеплатформски QEMU бацкенд. Његов животни циклус затвара пун круг: преузима и кешира унапред конфигурисане QEMU диск слике, аутоматски их преузима са удаљених крајњих тачака, одржава одвојене локалне кеш меморије за компресоване и некомпресоване слике како би се велика слика преузела само једном и потом јефтино покретала, те компресује и објављује слике назад на удаљене сервере за остатак тима. А будући да је VM којој нико не може приступити бескорисна, аутоматизује део који сви мрзе — умрежавање — управљајући мостовима и TAP интерфејсима за VM конективност уместо да оператеру оставља да их ручно подешава. Подржава инсталације оперативних система са ISO слика и заиста је вишеплатформски — ради на Linuxu и macOS-у уз одговарајуће хардверско убрзање за сваку платформу. Конфигурација и рад прате исти једноставан, скриптом вођен Server Factory образац, а алат може да се користи као део већег Server Factory пројекта или потпуно самостално, у складу са филозофијом одвајања организације. Документација је опсежнија него код већине мањих Server Factory репозиторијума (са одељцима за преглед, функције, захтеве, брзи почетак, конфигурацију, употребу, умрежавање, решавање проблема и архитектуру), што одражава његову улогу као главног пута за управљање VM-овима у Linux/QEMU окружењима. Заједно са Parallels-Utils, Server Factory екосистему пружа управљање VM сликама на macOS/Parallels и Linux-плус-macOS/QEMU виртуализацији.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -200,37 +202,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-1" aria-expanded="true" aria-controls="od-acc-qemu-utils-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-1-panel" role="region" aria-labelledby="od-acc-qemu-utils-1">
-            <div class="od-accordion__inner">
-      <p>Shell алат за управљање животним циклусом QEMU виртуелних машина. Преузима, кешира и покреће унапред конфигурисане QEMU диск слике, компресује их и објављује на удаљене крајње тачке, аутоматизује умрежавање преко мостова/TAP-а, подржава инсталације са ISO-а и ради на Linuxu и macOS-у уз одговарајуће хардверско убрзање.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-2" aria-expanded="true" aria-controls="od-acc-qemu-utils-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-2-panel" role="region" aria-labelledby="od-acc-qemu-utils-2">
-            <div class="od-accordion__inner">
-      <p>Qemu-Utils примењује дисциплину управљања артефактима — начин на који тимови већ третирају излазе из буилд процеса и контејнерске слике — на нешто што је обично остављено као гомила ад-хоц позива <code>qemu-system-*</code>: виртуелне машине. Попут свог Parallels „брата", овај алат третира VM слике као првокласне дистрибутивне ресурсе, матрице система које се користе у развоју и тестирању, али циља на истински вишеплатформски QEMU бацкенд. Његов животни циклус затвара пун круг: преузима и кешира унапред конфигурисане QEMU диск слике, аутоматски их преузима са удаљених крајњих тачака, одржава одвојене локалне кеш меморије за компресоване и некомпресоване слике како би се велика слика преузела само једном и потом јефтино покретала, те компресује и објављује слике назад на удаљене сервере за остатак тима. А будући да је VM којој нико не може приступити бескорисна, аутоматизује део који сви мрзе — умрежавање — управљајући мостовима и TAP интерфејсима за VM конективност уместо да оператеру оставља да их ручно подешава. Подржава инсталације оперативних система са ISO слика и заиста је вишеплатформски — ради на Linuxu и macOS-у уз одговарајуће хардверско убрзање за сваку платформу. Конфигурација и рад прате исти једноставан, скриптом вођен Server Factory образац, а алат може да се користи као део већег Server Factory пројекта или потпуно самостално, у складу са филозофијом одвајања организације. Документација је опсежнија него код већине мањих Server Factory репозиторијума (са одељцима за преглед, функције, захтеве, брзи почетак, конфигурацију, употребу, умрежавање, решавање проблема и архитектуру), што одражава његову улогу као главног пута за управљање VM-овима у Linux/QEMU окружењима. Заједно са Parallels-Utils, Server Factory екосистему пружа управљање VM сликама на macOS/Parallels и Linux-плус-macOS/QEMU виртуализацији.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-3" aria-expanded="true" aria-controls="od-acc-qemu-utils-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-3-panel" role="region" aria-labelledby="od-acc-qemu-utils-3">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-1-panel" role="region" aria-labelledby="od-acc-qemu-utils-1">
             <div class="od-accordion__inner">
       <p>Припрема и тестирање на више оперативних система захтевају репродуктивне VM-ове, а чисти QEMU је ниског нивоа и компликован — посебно када су у питању умрежавање и дистрибуција слика. Qemu-Utils обухвата QEMU у управљив алат како би слике и њихове мреже биле репродуктивне на различитим машинама.</p>
             </div>
@@ -238,12 +214,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-4" aria-expanded="true" aria-controls="od-acc-qemu-utils-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-2" aria-expanded="true" aria-controls="od-acc-qemu-utils-2-panel">
               <span class="od-accordion__label">Зашто је револуционаран</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-4-panel" role="region" aria-labelledby="od-acc-qemu-utils-4">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-2-panel" role="region" aria-labelledby="od-acc-qemu-utils-2">
             <div class="od-accordion__inner">
       <p>Обухвата четири ствари које чисти QEMU чине болним — дистрибуцију слика, кеширање, умрежавање и инсталацију са ISO-а — у један вишеплатформски алат, претварајући зид компликованих командних заставица у поновљив, објављив VM ток рада који цео тим може да дели и репродукује идентично на Linuxu и macOS-у.</p>
             </div>
@@ -251,12 +227,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-5" aria-expanded="true" aria-controls="od-acc-qemu-utils-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-3" aria-expanded="true" aria-controls="od-acc-qemu-utils-3-panel">
+              <span class="od-accordion__label">Шта је заиста ново</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-5-panel" role="region" aria-labelledby="od-acc-qemu-utils-5">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-3-panel" role="region" aria-labelledby="od-acc-qemu-utils-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Потпун животни циклус слике <strong>QEMU</strong>: преузимање/кеширање/извршавање + компресија/објављивање, са компримованим и некомпримованим кешом.</li>
@@ -269,12 +245,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-6" aria-expanded="true" aria-controls="od-acc-qemu-utils-6-panel">
-              <span class="od-accordion__label">Изазови и решења</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-4" aria-expanded="true" aria-controls="od-acc-qemu-utils-4-panel">
+              <span class="od-accordion__label">Тешки делови — и поправке</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-6-panel" role="region" aria-labelledby="od-acc-qemu-utils-6">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-4-panel" role="region" aria-labelledby="od-acc-qemu-utils-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Сложеност умрежавања виртуелних машина:</strong> решено аутоматским управљањем мостом и TAP интерфејсима.</li>
@@ -287,12 +263,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-7" aria-expanded="true" aria-controls="od-acc-qemu-utils-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-5" aria-expanded="true" aria-controls="od-acc-qemu-utils-5-panel">
               <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-7-panel" role="region" aria-labelledby="od-acc-qemu-utils-7">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-5-panel" role="region" aria-labelledby="od-acc-qemu-utils-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Shell</strong> — комплетан алат (~79,5К бајтова); скрипте за управљање сликама, мрежом и виртуелним машинама.</li>

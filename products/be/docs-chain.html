@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "Docs Chain — Miloš Vasić"
-description: "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically."
+description: "Docs Chain — універсальны рухавік распаўсюджвання залежнасцей паміж дакументамі і базамі даных, рэалізаваны на Go, з двухбаковай працай. Калі змяняецца любы элемент зарэгістраванага ланцужка — зыходны Markdown-файл, экспарт у фармаце HTML/PDF/DOCX ці база даных SQLite — сістэма выяўляе змену па хэшы змесціва і атамарна распаўсюджвае яе па ўсіх звязаных элементах."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docs-chain.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically.",
+      "description": "Docs Chain — універсальны рухавік распаўсюджвання залежнасцей паміж дакументамі і базамі даных, рэалізаваны на Go, з двухбаковай працай. Калі змяняецца любы элемент зарэгістраванага ланцужка — зыходны Markdown-файл, экспарт у фармаце HTML/PDF/DOCX ці база даных SQLite — сістэма выяўляе змену па хэшы змесціва і атамарна распаўсюджвае яе па ўсіх звязаных элементах.",
       "inLanguage": "be",
       "name": "Docs Chain",
       "operatingSystem": "Cross-platform",
@@ -182,6 +182,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline">Змесціва <strong>Ніводзін адсочаны дакумент не можа выйсці з сінхранізацыі — кантэнт-хэшаваны, двухбаковы, атамарны.</strong></p>
+      <p class="od-product-detail__lede">Рухавік на Go, які падтрымлівае сінхранізацыю дакументаў і баз даных. Выкарыстоўваючы інкрэментнае перавылічэнне з кантэнт-хэшаваннем у стылі Salsa на аснове DAG (тапалагічнае сартаванне па Канах, ранняе спыненне, двухбаковыя рэбры сінхранізацыі, атамарнае перайменаванне + каміты транзакцый SQLite), ён перагенеруе экспарты пры змене любога звязанага артэфакта.</p>
+      <p>Docs Chain — гэта тое, што ствараецца, калі вы ўжо разоў з дзесятак напісалі той самы няўстойлівы скрыпт «перагенераваць PDF, калі зменіцца Markdown». Ён замяняе ўвесь гэты рукапісны «клей» для сінхранізацыі сапраўдным рухавіком. Сістэма мадэлюе дакументы і базы даных праекта як элементы ланцужка і, калі змяняецца любы з іх, распаўсюджвае гэтую змену па ўсіх звязаных элементах ва ўсіх абвешчаных кірунках — перагенеруючы і пераэкспартуючы атамарна, каб ніводзін адсочаны артэфакт ніколі не выйшаў з сінхранізацыі. Дызайн запазычвае сваю строгасць непасрэдна з інкрэментных сістэм зборкі, а не са скрыптоў: выяўленне змен адбываецца па <strong>хэшы змесціва, а не па mtime</strong>, таму каманда <code>touch</code> нічога не спрабуе, а аднабайтавая рэдактура запускае менавіта тыя перазборкі, якія патрэбны — без ілжывых трывог і прапушчаных змен. Фармальна гэта можна выразіць адным радком: інкрэментнае перавылічэнне з кантэнт-хэшаваннем у стылі Salsa на аснове DAG, з тапалагічным сартаваннем па Канах, раннім спыненнем, якое адсякае нязмененыя паддрэвы, абвешчанымі двухбаковымі рэбрамі сінхранізацыі з аўтарытэтам, атамарным перайменаваннем і камітамі транзакцый SQLite, каб пры краху падчас распаўсюджвання ніколі не засталося напалову запісанага экспарту. Пастаўляецца як падмадуль <code>vasic-digital</code> і выкарыстоўваецца як асноўны кампанент падмадуля HelixConstitution, таму любы праект, які прымае канстытуцыю, атрымлівае Docs Chain з самага пачатку і рэгіструе ўласныя ланцужкі праз кантэкстныя YAML. Рэалізацыя адкрыта паказвае свой статус (згодна з §11.4.6 канстытуцыі): Этапы 1–4 (асноўны DAG + хэшаванне, адаптары/трансфармацыі вузлоў, аркестратар распаўсюджвання з атамарнасцю, канфігурацыйнае кіраванне некалькімі кантэкстамі CLI з камандамі <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>) рэалізаваны і пратэставаны; Этап 4b дадае ўбудаваныя двухбаковыя пераўтваральнікі <code>md-to-sqlite</code>/<code>sqlite-to-md</code> (чысты Go, дрэйф на ўзроўні радкоў, байтастабільны кругавы абмен) і ўбудаваны <code>colorize-html</code>; Этап 5 — поўнамаштабнае рэальнае бінарнае канцавое тэставанне — рэалізаваны і ПРАЙШОЎ. Этапы 6–7 (распаўсюджванне канстытуцыі, інтэграцыя з ATMOSphere) застаюцца ЗАПЛАНАВАНЫМІ і даступнымі толькі праз аператарныя засаўкі. Herald — першы рэальны спажывец ніжэй па патоку, які сінхранізуе корпус з 66 дакументаў у некалькіх фарматах і пацвярджае чысціню.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -199,37 +201,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-1" aria-expanded="true" aria-controls="od-acc-docs-chain-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
-            <div class="od-accordion__inner">
-      <p>Рухавік на Go, які падтрымлівае сінхранізацыю дакументаў і баз даных. Выкарыстоўваючы інкрэментнае перавылічэнне з кантэнт-хэшаваннем у стылі Salsa на аснове DAG (тапалагічнае сартаванне па Канах, ранняе спыненне, двухбаковыя рэбры сінхранізацыі, атамарнае перайменаванне + каміты транзакцый SQLite), ён перагенеруе экспарты пры змене любога звязанага артэфакта.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
-            <div class="od-accordion__inner">
-      <p>Docs Chain — гэта тое, што ствараецца, калі вы ўжо разоў з дзесятак напісалі той самы няўстойлівы скрыпт «перагенераваць PDF, калі зменіцца Markdown». Ён замяняе ўвесь гэты рукапісны «клей» для сінхранізацыі сапраўдным рухавіком. Сістэма мадэлюе дакументы і базы даных праекта як элементы ланцужка і, калі змяняецца любы з іх, распаўсюджвае гэтую змену па ўсіх звязаных элементах ва ўсіх абвешчаных кірунках — перагенеруючы і пераэкспартуючы атамарна, каб ніводзін адсочаны артэфакт ніколі не выйшаў з сінхранізацыі. Дызайн запазычвае сваю строгасць непасрэдна з інкрэментных сістэм зборкі, а не са скрыптоў: выяўленне змен адбываецца па <strong>хэшы змесціва, а не па mtime</strong>, таму каманда <code>touch</code> нічога не спрабуе, а аднабайтавая рэдактура запускае менавіта тыя перазборкі, якія патрэбны — без ілжывых трывог і прапушчаных змен. Фармальна гэта можна выразіць адным радком: інкрэментнае перавылічэнне з кантэнт-хэшаваннем у стылі Salsa на аснове DAG, з тапалагічным сартаваннем па Канах, раннім спыненнем, якое адсякае нязмененыя паддрэвы, абвешчанымі двухбаковымі рэбрамі сінхранізацыі з аўтарытэтам, атамарным перайменаваннем і камітамі транзакцый SQLite, каб пры краху падчас распаўсюджвання ніколі не засталося напалову запісанага экспарту. Пастаўляецца як падмадуль <code>vasic-digital</code> і выкарыстоўваецца як асноўны кампанент падмадуля HelixConstitution, таму любы праект, які прымае канстытуцыю, атрымлівае Docs Chain з самага пачатку і рэгіструе ўласныя ланцужкі праз кантэкстныя YAML. Рэалізацыя адкрыта паказвае свой статус (згодна з §11.4.6 канстытуцыі): Этапы 1–4 (асноўны DAG + хэшаванне, адаптары/трансфармацыі вузлоў, аркестратар распаўсюджвання з атамарнасцю, канфігурацыйнае кіраванне некалькімі кантэкстамі CLI з камандамі <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>) рэалізаваны і пратэставаны; Этап 4b дадае ўбудаваныя двухбаковыя пераўтваральнікі <code>md-to-sqlite</code>/<code>sqlite-to-md</code> (чысты Go, дрэйф на ўзроўні радкоў, байтастабільны кругавы абмен) і ўбудаваны <code>colorize-html</code>; Этап 5 — поўнамаштабнае рэальнае бінарнае канцавое тэставанне — рэалізаваны і ПРАЙШОЎ. Этапы 6–7 (распаўсюджванне канстытуцыі, інтэграцыя з ATMOSphere) застаюцца ЗАПЛАНАВАНЫМІ і даступнымі толькі праз аператарныя засаўкі. Herald — першы рэальны спажывец ніжэй па патоку, які сінхранізуе корпус з 66 дакументаў у некалькіх фарматах і пацвярджае чысціню.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
             <div class="od-accordion__inner">
       <p>Дакументацыя, экспарты і базы даных разыходзяцца адразу ж, як толькі іх пачынаюць падтрымліваць уручную ці з дапамогай няўстойлівых скрыптоў. Docs Chain робіць сінхранізацыю механічнай, дакладнай па хэшы змесціва і атамарнай, каб змена ў любым месцы ланцужка правільна і бяспечна абнаўляла ўсё, што знаходзіцца ніжэй (і вышэй) па патоку.</p>
       <p>Змест</p>
@@ -238,12 +214,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
             <div class="od-accordion__inner">
       <p>Гэта бярэ дакладнасць і гарантыі, якія аўтары кампілятараў і сістэм зборкі лічаць належнай здабычай — графы залежнасцей з кантролем зместу, мінімальнае перавылічэнне, атамныя каміты — і накіроўвае іх на дакументацыю і базы даных, вобласць, якая гістарычна трымалася на cron-заданнях і добрых намерах. Сапраўдная двухбаковая сінхранізацыя азначае, што сувязь паміж крыніцай і яе экспартам кантралюецца ў абодвух кірунках, таму такія праблемы, як "дакументацыя састарэла" ці "экспарт не адпавядае крыніцы", перастаюць быць паўтаральнымі памылкамі і становяцца станамі, якія рухавік проста не дазволіць існаваць.</p>
             </div>
@@ -251,12 +227,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Інкрэментнае перавылічэнне па графе залежнасцей з кантролем зместу (не па часу змянення) і раннім спыненнем.</li>
@@ -269,12 +245,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-6" aria-expanded="true" aria-controls="od-acc-docs-chain-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
               <span class="od-accordion__label">Праблемы і рашэнні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-6-panel" role="region" aria-labelledby="od-acc-docs-chain-6">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Лішнія перазборы:</strong> вырашана дзякуючы кантролю зместу замест штампаў часу.</li>
@@ -287,12 +263,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-7" aria-expanded="true" aria-controls="od-acc-docs-chain-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
               <span class="od-accordion__label">Тэхнічны стэк (навошта + як)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-7-panel" role="region" aria-labelledby="od-acc-docs-chain-7">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — увесь рухавік (<code>internal/hash</code>, <code>graph</code>, <code>adapter</code>, <code>orchestrator</code>, <code>config</code>, <code>state</code>, <code>runner</code>, <code>cmd/docs_chain</code>).</li>

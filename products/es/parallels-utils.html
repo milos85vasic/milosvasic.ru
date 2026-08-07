@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "Parallels-Utils — Miloš Vasić"
-description: "Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image \"matrices\" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory."
+description: "Parallels-Utils es un kit de herramientas Server Factory para gestionar imágenes de máquinas virtuales Parallels (macOS): comprimir y sincronizar \"matrices\" de imágenes utilizadas en desarrollo y pruebas, publicarlas en un punto remoto y recuperarlas/ejecutarlas en múltiples estaciones de trabajo o servidores. Puede usarse de forma independiente o como parte de Server Factory."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/parallels-utils.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image \"matrices\" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory.",
+      "description": "Parallels-Utils es un kit de herramientas Server Factory para gestionar imágenes de máquinas virtuales Parallels (macOS): comprimir y sincronizar \"matrices\" de imágenes utilizadas en desarrollo y pruebas, publicarlas en un punto remoto y recuperarlas/ejecutarlas en múltiples estaciones de trabajo o servidores. Puede usarse de forma independiente o como parte de Server Factory.",
       "inLanguage": "es",
       "name": "Parallels-Utils",
       "operatingSystem": "Cross-platform",
@@ -183,54 +183,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Comprime, publica y reutiliza tus imágenes de VM Parallels en cualquier máquina.</strong></p>
+      <p class="od-product-detail__lede">Un kit de herramientas Shell/Python para el ciclo de vida de imágenes de VM Parallels en macOS. Comprime y sincroniza imágenes Parallels, las publica en un punto remoto y las recupera y ejecuta en varios equipos, todo controlado mediante archivos de configuración simples y utilizable de manera autónoma o dentro de Server Factory.</p>
+      <p>Parallels-Utils es un kit de herramientas Server Factory para gestionar imágenes de máquinas virtuales Parallels (macOS): comprimir y sincronizar "matrices" de imágenes utilizadas en desarrollo y pruebas, publicarlas en un punto remoto y recuperarlas/ejecutarlas en múltiples estaciones de trabajo o servidores. Puede usarse de forma independiente o como parte de Server Factory.</p>
+      <p>Parallels-Utils resuelve un problema práctico de DevOps en el desarrollo basado en macOS: los equipos crean "matrices" de máquinas virtuales Parallels (diferentes sistemas operativos/configuraciones para desarrollo y pruebas), y esas imágenes deben comprimirse, publicarse, recuperarse y ejecutarse de manera consistente en múltiples equipos. El kit de herramientas ofrece precisamente ese ciclo de vida. Un mecanismo de sincronización comprime las imágenes Parallels y las mantiene actualizadas; un mecanismo de publicación las sube a un punto remoto; y un mecanismo de recuperación permite que cualquier estación de trabajo o servidor descargue las imágenes publicadas y las ejecute como VM. La configuración es intencionalmente sencilla y basada en archivos: <code>image_location.settings</code> define la ubicación de las imágenes en el sistema de archivos, <code>image_provider.settings</code> establece la base URL para las imágenes publicadas, y <code>image_sync.sh</code> define el script de carga, con ejemplos incluidos en un directorio <code>Examples</code>. Los operadores usan <code>publish_images.sh</code> para publicar y <code>run.sh</code> para lanzar las VM. Requiere Parallels para la versión correspondiente de macOS y Python 3. El kit está diseñado para un uso dual: puede funcionar como parte de un proyecto Server Factory más amplio o de forma completamente independiente, reflejando la filosofía de desacoplamiento de la organización. Incluso incluye un enlace a un breve tutorial en video. Como parte de la familia Server-Factory, complementa a Qemu-Utils (el equivalente para Linux/QEMU), brindando al ecosistema gestión de imágenes de VM tanto en macOS/Parallels como en backends multiplataforma/QEMU.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-0" aria-expanded="true" aria-controls="od-acc-parallels-utils-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">La comezón que teníamos que rascar</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-0-panel" role="region" aria-labelledby="od-acc-parallels-utils-0">
-            <div class="od-accordion__inner">
-      <p>Parallels-Utils es un kit de herramientas Server Factory para gestionar imágenes de máquinas virtuales Parallels (macOS): comprimir y sincronizar "matrices" de imágenes utilizadas en desarrollo y pruebas, publicarlas en un punto remoto y recuperarlas/ejecutarlas en múltiples estaciones de trabajo o servidores. Puede usarse de forma independiente o como parte de Server Factory.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-1" aria-expanded="true" aria-controls="od-acc-parallels-utils-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-1-panel" role="region" aria-labelledby="od-acc-parallels-utils-1">
-            <div class="od-accordion__inner">
-      <p>Un kit de herramientas Shell/Python para el ciclo de vida de imágenes de VM Parallels en macOS. Comprime y sincroniza imágenes Parallels, las publica en un punto remoto y las recupera y ejecuta en varios equipos, todo controlado mediante archivos de configuración simples y utilizable de manera autónoma o dentro de Server Factory.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-2" aria-expanded="true" aria-controls="od-acc-parallels-utils-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-2-panel" role="region" aria-labelledby="od-acc-parallels-utils-2">
-            <div class="od-accordion__inner">
-      <p>Parallels-Utils resuelve un problema práctico de DevOps en el desarrollo basado en macOS: los equipos crean "matrices" de máquinas virtuales Parallels (diferentes sistemas operativos/configuraciones para desarrollo y pruebas), y esas imágenes deben comprimirse, publicarse, recuperarse y ejecutarse de manera consistente en múltiples equipos. El kit de herramientas ofrece precisamente ese ciclo de vida. Un mecanismo de sincronización comprime las imágenes Parallels y las mantiene actualizadas; un mecanismo de publicación las sube a un punto remoto; y un mecanismo de recuperación permite que cualquier estación de trabajo o servidor descargue las imágenes publicadas y las ejecute como VM. La configuración es intencionalmente sencilla y basada en archivos: <code>image_location.settings</code> define la ubicación de las imágenes en el sistema de archivos, <code>image_provider.settings</code> establece la base URL para las imágenes publicadas, y <code>image_sync.sh</code> define el script de carga, con ejemplos incluidos en un directorio <code>Examples</code>. Los operadores usan <code>publish_images.sh</code> para publicar y <code>run.sh</code> para lanzar las VM. Requiere Parallels para la versión correspondiente de macOS y Python 3. El kit está diseñado para un uso dual: puede funcionar como parte de un proyecto Server Factory más amplio o de forma completamente independiente, reflejando la filosofía de desacoplamiento de la organización. Incluso incluye un enlace a un breve tutorial en video. Como parte de la familia Server-Factory, complementa a Qemu-Utils (el equivalente para Linux/QEMU), brindando al ecosistema gestión de imágenes de VM tanto en macOS/Parallels como en backends multiplataforma/QEMU.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-3" aria-expanded="true" aria-controls="od-acc-parallels-utils-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-3-panel" role="region" aria-labelledby="od-acc-parallels-utils-3">
             <div class="od-accordion__inner">
       <p>Compartir entornos consistentes de desarrollo y pruebas en VM entre un equipo es tedioso: las imágenes son grandes y cada máquina necesita la misma matriz. Parallels-Utils automatiza la compresión, publicación y recuperación para que un conjunto canónico de VM Parallels sea reproducible en cualquier lugar.</p>
             </div>
@@ -238,12 +202,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-4" aria-expanded="true" aria-controls="od-acc-parallels-utils-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-1" aria-expanded="true" aria-controls="od-acc-parallels-utils-1-panel">
               <span class="od-accordion__label">Por qué es un cambio radical</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-4-panel" role="region" aria-labelledby="od-acc-parallels-utils-4">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-1-panel" role="region" aria-labelledby="od-acc-parallels-utils-1">
             <div class="od-accordion__inner">
       <p>Convierte imágenes Parallels pesadas y difíciles de manejar en un conjunto de artefactos publicables y sincronizables que cualquier máquina puede descargar y ejecutar. Así, un entorno canónico de desarrollo y pruebas deja de ser algo que cada ingeniero reconstruye manualmente para convertirse en algo que simplemente se obtiene. Lo logra con una configuración mínima mediante archivos de ajustes y sin depender del resto de Server Factory, manteniéndose fiel a la filosofía de desacoplamiento de la organización: útil por sí mismo, pero también un buen integrante en la cadena de herramientas más amplia.</p>
             </div>
@@ -251,12 +215,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-5" aria-expanded="true" aria-controls="od-acc-parallels-utils-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-2" aria-expanded="true" aria-controls="od-acc-parallels-utils-2-panel">
               <span class="od-accordion__label">Qué es innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-5-panel" role="region" aria-labelledby="od-acc-parallels-utils-5">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-2-panel" role="region" aria-labelledby="od-acc-parallels-utils-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Compresión + sincronización de las "matrices" de imágenes Parallels para desarrollo/pruebas.</li>
@@ -269,12 +233,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-6" aria-expanded="true" aria-controls="od-acc-parallels-utils-6-panel">
-              <span class="od-accordion__label">Desafíos y soluciones</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-3" aria-expanded="true" aria-controls="od-acc-parallels-utils-3-panel">
+              <span class="od-accordion__label">Dónde se complicó y cómo lo resolvimos</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-6-panel" role="region" aria-labelledby="od-acc-parallels-utils-6">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-3-panel" role="region" aria-labelledby="od-acc-parallels-utils-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Distribución de imágenes grandes:</strong> resuelto mediante compresión y un flujo de publicación a un punto remoto + recuperación.</li>
@@ -286,12 +250,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-7" aria-expanded="true" aria-controls="od-acc-parallels-utils-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-4" aria-expanded="true" aria-controls="od-acc-parallels-utils-4-panel">
               <span class="od-accordion__label">Tecnologías empleadas (por qué y cómo)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-7-panel" role="region" aria-labelledby="od-acc-parallels-utils-7">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-4-panel" role="region" aria-labelledby="od-acc-parallels-utils-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Shell</strong> — los scripts de publicación/ejecución/sincronización (lenguaje principal, ~5,3K bytes).</li>

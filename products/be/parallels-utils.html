@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "Parallels-Utils — Miloš Vasić"
-description: "Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image \"matrices\" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory."
+description: "Parallels-Utils — гэта набор інструментаў Server Factory для кіравання вобразамі Parallels (macOS) віртуальных машын: сцісканне і сінхранізацыя «матрыц» вобразаў, якія выкарыстоўваюцца для распрацоўкі і тэсціравання, публікацыя іх на аддалены вузел, а таксама атрыманне і запуск на некалькіх рабочых станцыях ці серверах. Можа выкарыстоўвацца самастойна ці ў складзе Server Factory."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/parallels-utils.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/parallels-utils.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Parallels-Utils is a Server Factory toolkit for managing Parallels (macOS) virtual-machine images: compressing and synchronizing image \"matrices\" used for development and testing, publishing them to a remote endpoint, and retrieving/running them on multiple workstations or servers. Usable standalone or as part of Server Factory.",
+      "description": "Parallels-Utils — гэта набор інструментаў Server Factory для кіравання вобразамі Parallels (macOS) віртуальных машын: сцісканне і сінхранізацыя «матрыц» вобразаў, якія выкарыстоўваюцца для распрацоўкі і тэсціравання, публікацыя іх на аддалены вузел, а таксама атрыманне і запуск на некалькіх рабочых станцыях ці серверах. Можа выкарыстоўвацца самастойна ці ў складзе Server Factory.",
       "inLanguage": "be",
       "name": "Parallels-Utils",
       "operatingSystem": "Cross-platform",
@@ -183,6 +183,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Сціскайце, публікуйце і паўторна выкарыстоўвайце вобразы Parallels VM на любой машыне.</strong></p>
+      <p class="od-product-detail__lede">Набор інструментаў Shell/Python для кіравання жыццёвым цыклам вобразаў Parallels VM на macOS. Ён сціскае і сінхранізуе вобразы Parallels, публікуе іх на аддалены вузел, а таксама атрымлівае і запускае на некалькіх камп’ютарах — кіруецца простымі файламі наладак, можа выкарыстоўвацца самастойна ці ў складзе Server Factory.</p>
+      <p>Parallels-Utils вырашае практычную праблему DevOps для распрацоўкі на базе macOS: каманды ствараюць «матрыцы» віртуальных машын Parallels (розныя аперацыйныя сістэмы і канфігурацыі для распрацоўкі і тэсціравання), і гэтыя вобразы трэба сціскаць, публікаваць, атрымліваць і запускаць аднолькава на многіх машынах. Набор інструментаў забяспечвае менавіта такі жыццёвы цыкл. Механізм сінхранізацыі сціскае вобразы Parallels і падтрымлівае іх у аднолькавым стане; механізм публікацыі загружае вобразы на аддалены вузел; механізм атрымання дазваляе любой рабочай станцыі ці серверу загрузіць апублікаваныя вобразы і запусціць іх як віртуальныя машыны. Канфігураванне наўмысна простае і кіруецца файламі: <code>image_location.settings</code> вызначае месцазнаходжанне вобразаў у файлавай сістэме, <code>image_provider.settings</code> — базавы URL для апублікаваных вобразаў, а <code>image_sync.sh</code> — скрыпт загрузкі, прыклады якіх даступныя ў каталогу <code>Examples</code>. Аператары выкарыстоўваюць <code>publish_images.sh</code> для публікацыі і <code>run.sh</code> для запуску ВМ. Для працы патрабуецца Parallels для адпаведнай версіі macOS і Python 3. Набор інструментаў распрацаваны для двухмэтавага выкарыстання: ён можа працаваць як частка буйнога праекта Server Factory ці цалкам самастойна, што адлюстроўвае філасофію дэкаплінгу арганізацыі. У камплекце нават дададзена спасылка на кароткі відэаурок. У складзе сямейства Server-Factory ён дапаўняе Qemu-Utils (аналаг для Linux/QEMU), забяспечваючы кіраванне вобразамі ВМ як на платформе macOS/Parallels, так і на кросплатформавых QEMU-базаваных сэрвісах.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -200,37 +202,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-1" aria-expanded="true" aria-controls="od-acc-parallels-utils-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-1-panel" role="region" aria-labelledby="od-acc-parallels-utils-1">
-            <div class="od-accordion__inner">
-      <p>Набор інструментаў Shell/Python для кіравання жыццёвым цыклам вобразаў Parallels VM на macOS. Ён сціскае і сінхранізуе вобразы Parallels, публікуе іх на аддалены вузел, а таксама атрымлівае і запускае на некалькіх камп’ютарах — кіруецца простымі файламі наладак, можа выкарыстоўвацца самастойна ці ў складзе Server Factory.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-2" aria-expanded="true" aria-controls="od-acc-parallels-utils-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-2-panel" role="region" aria-labelledby="od-acc-parallels-utils-2">
-            <div class="od-accordion__inner">
-      <p>Parallels-Utils вырашае практычную праблему DevOps для распрацоўкі на базе macOS: каманды ствараюць «матрыцы» віртуальных машын Parallels (розныя аперацыйныя сістэмы і канфігурацыі для распрацоўкі і тэсціравання), і гэтыя вобразы трэба сціскаць, публікаваць, атрымліваць і запускаць аднолькава на многіх машынах. Набор інструментаў забяспечвае менавіта такі жыццёвы цыкл. Механізм сінхранізацыі сціскае вобразы Parallels і падтрымлівае іх у аднолькавым стане; механізм публікацыі загружае вобразы на аддалены вузел; механізм атрымання дазваляе любой рабочай станцыі ці серверу загрузіць апублікаваныя вобразы і запусціць іх як віртуальныя машыны. Канфігураванне наўмысна простае і кіруецца файламі: <code>image_location.settings</code> вызначае месцазнаходжанне вобразаў у файлавай сістэме, <code>image_provider.settings</code> — базавы URL для апублікаваных вобразаў, а <code>image_sync.sh</code> — скрыпт загрузкі, прыклады якіх даступныя ў каталогу <code>Examples</code>. Аператары выкарыстоўваюць <code>publish_images.sh</code> для публікацыі і <code>run.sh</code> для запуску ВМ. Для працы патрабуецца Parallels для адпаведнай версіі macOS і Python 3. Набор інструментаў распрацаваны для двухмэтавага выкарыстання: ён можа працаваць як частка буйнога праекта Server Factory ці цалкам самастойна, што адлюстроўвае філасофію дэкаплінгу арганізацыі. У камплекце нават дададзена спасылка на кароткі відэаурок. У складзе сямейства Server-Factory ён дапаўняе Qemu-Utils (аналаг для Linux/QEMU), забяспечваючы кіраванне вобразамі ВМ як на платформе macOS/Parallels, так і на кросплатформавых QEMU-базаваных сэрвісах.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-3" aria-expanded="true" aria-controls="od-acc-parallels-utils-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-3-panel" role="region" aria-labelledby="od-acc-parallels-utils-3">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-1-panel" role="region" aria-labelledby="od-acc-parallels-utils-1">
             <div class="od-accordion__inner">
       <p>Абмен аднолькавымі асяроддзямі распрацоўкі і тэсціравання ВМ паміж членамі каманды — працаёмкі працэс: вобразы вялікія, і кожнай машыне патрэбна аднолькавая матрыца. Parallels-Utils аўтаматызуе сцісканне, публікацыю і атрыманне, каб кананічны набор вобразаў Parallels ВМ можна было паўторна ствараць на любой машыне.</p>
             </div>
@@ -238,12 +214,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-4" aria-expanded="true" aria-controls="od-acc-parallels-utils-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-2" aria-expanded="true" aria-controls="od-acc-parallels-utils-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-4-panel" role="region" aria-labelledby="od-acc-parallels-utils-4">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-2-panel" role="region" aria-labelledby="od-acc-parallels-utils-2">
             <div class="od-accordion__inner">
       <p>Ён ператварае цяжкія і нязграбныя вобразы Parallels у набор артэфактаў, якія можна публікаваць і сінхранізаваць, каб любая машына магла іх загрузіць і запусціць. Такім чынам, кананічныя асяроддзі распрацоўкі і тэсціравання перастаюць быць нечым, што кожны інжынер стварае ўручную, і становяцца тым, што проста загружаецца. Гэта дасягаецца з дапамогай мінімальнага канфігуравання праз файлы наладак і без залежнасцей ад астатняй часткі Server Factory, што адпавядае філасофіі дэкаплінгу арганізацыі: карысны сам па сабе і добра інтэгруецца ў вялікі інструментальны ланцужок.</p>
       <p>Змест</p>
@@ -252,12 +228,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-5" aria-expanded="true" aria-controls="od-acc-parallels-utils-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-3" aria-expanded="true" aria-controls="od-acc-parallels-utils-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-5-panel" role="region" aria-labelledby="od-acc-parallels-utils-5">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-3-panel" role="region" aria-labelledby="od-acc-parallels-utils-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Сцісканне і сінхранізацыя "матрыц" выяў Parallels для распрацоўкі і тэсціравання.</li>
@@ -270,12 +246,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-6" aria-expanded="true" aria-controls="od-acc-parallels-utils-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-4" aria-expanded="true" aria-controls="od-acc-parallels-utils-4-panel">
               <span class="od-accordion__label">Праблемы і рашэнні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-6-panel" role="region" aria-labelledby="od-acc-parallels-utils-6">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-4-panel" role="region" aria-labelledby="od-acc-parallels-utils-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Распаўсюджванне вялікіх выяў:</strong> вырашана праз сцісканне і працэс публікацыі на аддалены канцавы пункт з наступным атрыманнем.</li>
@@ -287,12 +263,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-7" aria-expanded="true" aria-controls="od-acc-parallels-utils-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-parallels-utils-5" aria-expanded="true" aria-controls="od-acc-parallels-utils-5-panel">
               <span class="od-accordion__label">Тэхнічны стэк (навошта і як)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-7-panel" role="region" aria-labelledby="od-acc-parallels-utils-7">
+          <div class="od-accordion__panel is-open" id="od-acc-parallels-utils-5-panel" role="region" aria-labelledby="od-acc-parallels-utils-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Shell</strong> — скрыпты публікацыі/запуску/сінхранізацыі (асноўная мова, ~5,3К байт).</li>

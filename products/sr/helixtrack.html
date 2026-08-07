@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "HelixTrack — Miloš Vasić"
-description: "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile."
+description: "HelixTrack је свеобухватна, модерна, опен-соурце алтернатива JIRA (а преко проширења Доцументс и Confluence-у) — вишеплатформски систем за управљање пројектима и праћење проблема, изграђен на Go микросервисној позадини с изворним клијентима за веб, десктоп и мобилне уређаје."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtrack.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile.",
+      "description": "HelixTrack је свеобухватна, модерна, опен-соурце алтернатива JIRA (а преко проширења Доцументс и Confluence-у) — вишеплатформски систем за управљање пројектима и праћење проблема, изграђен на Go микросервисној позадини с изворним клијентима за веб, десктоп и мобилне уређаје.",
       "inLanguage": "sr",
       "name": "HelixTrack",
       "operatingSystem": "Cross-platform",
@@ -187,6 +187,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>JIRA алтернатива за слободан свет.</strong></p>
+      <p class="od-product-detail__lede">Опен-соурце алтернатива JIRA/Confluence-у. Go микросервисна позадина („HelixTrack Цоре") излаже јединствени REST API за праћење пројеката и проблема, уз Confluence-стилски радни простор за документе, који се сервира изворно на веб, десктоп, Android и iOS клијентима преко HTTP/3 QUIC протокола.</p>
+      <p>HelixTrack је опен-соурце платформа за управљање пројектима и праћење проблема, постављена као алтернатива из слободног света JIRA и Confluence-у — потпуна замена за два производа којима су инжењерске организације најчешће везане, поново изграђена као софтвер који поседујете и можете покретати било где. У њеном срцу је <strong>HelixTrack Цоре</strong>, REST API микросервис написан у Go-у с оквиром Gin, који нуди потпуно праћење проблема, агилне/сцрум табле, управљање тимовима и хијерархијски систем дозвола чија се имплементација може заменити између локалног процеса и ХТТП сервиса — тако да исти модел ауторизације скалира од једног лаптопа до дистрибуираног кластера без мењања апликативног кода. Уместо да шири REST површину преко десетина рута, Цоре све усмерава кроз једну, акцијом усмерену <code>/do</code> крајњу тачку с јединственим омотачем захтева и одговора (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> на улазу, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> на излазу): сваки клијент говори исти мали уговор, а додавање нове функционалности значи додавање акције, а не новог URL-а који треба документовати, осигурати и верзионисати. Цоре се интегрише с одвојеним сервисима за аутентификацију, дозволе и локализацију који комуницирају преко HTTP/3 QUIC протокола и могу радити на одвојеним машинама или кластерима, или се потпуно искључити у тестним конфигурацијама. Подаци се чувају у SQLite-у за развој без подешавања и у PostgreSQL-у у продукцији, а шифрују се у мировању помоћу SQLCipher (AES-256), тако да су осетљиви подаци о пројектима подразумевано заштићени на диску, а не накнадно. <strong>Доцументс В2</strong> проширење претвара трагач у потпуну платформу знања: Confluence-стилски радни простор са просторима, страницама, контролом верзија, шаблонима, сарадњом у реалном времену (WebSocket) и аналитиком — wiki и трагач за проблемима коначно живе иза једног бацкенд-а уместо као два производа спојена на силу. Око Цоре-а се налазе различите клијентске апликације: Angular веб клијент, Tauri + Angular десктоп клијент, изворне Android (Kotlin) и iOS (Swift) апликације, као и клијенти за HarmonyOS и Aurora OS, уз сцреенсавер — све комуницира с истом позадином и аутоматски је проналази на локалној мрежи путем UDP емитовања, тако да нови клијент проналази сервер без ручног подешавања. Клијентске апликације се одржавају као одвојена, приватна репозиторијума и овде су представљене само на нивоу производа.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -204,37 +206,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
-            <div class="od-accordion__inner">
-      <p>Опен-соурце алтернатива JIRA/Confluence-у. Go микросервисна позадина („HelixTrack Цоре") излаже јединствени REST API за праћење пројеката и проблема, уз Confluence-стилски радни простор за документе, који се сервира изворно на веб, десктоп, Android и iOS клијентима преко HTTP/3 QUIC протокола.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
-            <div class="od-accordion__inner">
-      <p>HelixTrack је опен-соурце платформа за управљање пројектима и праћење проблема, постављена као алтернатива из слободног света JIRA и Confluence-у — потпуна замена за два производа којима су инжењерске организације најчешће везане, поново изграђена као софтвер који поседујете и можете покретати било где. У њеном срцу је <strong>HelixTrack Цоре</strong>, REST API микросервис написан у Go-у с оквиром Gin, који нуди потпуно праћење проблема, агилне/сцрум табле, управљање тимовима и хијерархијски систем дозвола чија се имплементација може заменити између локалног процеса и ХТТП сервиса — тако да исти модел ауторизације скалира од једног лаптопа до дистрибуираног кластера без мењања апликативног кода. Уместо да шири REST површину преко десетина рута, Цоре све усмерава кроз једну, акцијом усмерену <code>/do</code> крајњу тачку с јединственим омотачем захтева и одговора (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> на улазу, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> на излазу): сваки клијент говори исти мали уговор, а додавање нове функционалности значи додавање акције, а не новог URL-а који треба документовати, осигурати и верзионисати. Цоре се интегрише с одвојеним сервисима за аутентификацију, дозволе и локализацију који комуницирају преко HTTP/3 QUIC протокола и могу радити на одвојеним машинама или кластерима, или се потпуно искључити у тестним конфигурацијама. Подаци се чувају у SQLite-у за развој без подешавања и у PostgreSQL-у у продукцији, а шифрују се у мировању помоћу SQLCipher (AES-256), тако да су осетљиви подаци о пројектима подразумевано заштићени на диску, а не накнадно. <strong>Доцументс В2</strong> проширење претвара трагач у потпуну платформу знања: Confluence-стилски радни простор са просторима, страницама, контролом верзија, шаблонима, сарадњом у реалном времену (WebSocket) и аналитиком — wiki и трагач за проблемима коначно живе иза једног бацкенд-а уместо као два производа спојена на силу. Око Цоре-а се налазе различите клијентске апликације: Angular веб клијент, Tauri + Angular десктоп клијент, изворне Android (Kotlin) и iOS (Swift) апликације, као и клијенти за HarmonyOS и Aurora OS, уз сцреенсавер — све комуницира с истом позадином и аутоматски је проналази на локалној мрежи путем UDP емитовања, тако да нови клијент проналази сервер без ручног подешавања. Клијентске апликације се одржавају као одвојена, приватна репозиторијума и овде су представљене само на нивоу производа.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
             <div class="od-accordion__inner">
       <p>Да бисмо тимовима понудили заиста отворену, самостално хостовану замену за JIRA + Confluence стек — „за слободан свет" — без зависности од добављача, комбинујући праћење послова, документе и сарадњу на нивоу предузећа под једном отвореном лиценцом.</p>
             </div>
@@ -242,12 +218,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
             <div class="od-accordion__inner">
       <p>Спаја два комерцијална тешкашка — праћење проблема и стек за викије/документе — у једну отворену, високоперформантну, самостално хостовану платформу, и упарује их са нечим што конкуренција никада није понудила: истински мултиплатформске *нативе* клијенте (веб, десктоп, Android, iOS, плус HarmonyOS и Aurora OS), све покретане једним уговором на бацкенду. Кључна предност је власништво без компромиса. Дизајн заснован на HTTP/3 свуда, потпуно раздвојеним микросервисима и енкрипцији SQLCipher AES-256 при мировању доноси перформансе и сигурносни ниво који су иначе резервисани за власничке SaaS системе — у систем који сами хостујете, без лиценци по кориснику, без зависности од добављача и без података који напуштају вашу инфраструктуру. Тимови добијају искуство JIRA-плус-Confluence које већ познају, на сопственом хардверу, под једном отвореном лиценцом.</p>
             </div>
@@ -255,12 +231,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
+              <span class="od-accordion__label">Иновације унутра</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Уједињени акциони <code>/do</code> API — једна крајња тачка, један омотач, усмеравање акција. Нове могућности стижу као нове акције, а не као нове URL адресе, што смањује нападну површину, клијентски код и терет документације на један уговор који деле све платформе.</li>
@@ -276,12 +252,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-6" aria-expanded="true" aria-controls="od-acc-helixtrack-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-6-panel" role="region" aria-labelledby="od-acc-helixtrack-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Шест клијентских платформи, један бацкенд, нула одступања у уговору.</strong> Одржавање клијената за Web/Angular, Десктоп/Tauri, Android/Kotlin, iOS/Swift, HarmonyOS и Аурора обично значи шест различитих интеграција API које временом губе синхронизацију. Тај ризик смо елиминисали тако што смо учинили једини уговор акционо усмерени <code>/do</code> API са фиксним омотачем — сваки клијент га циља на идентичан начин — и додали UDP емитовање за откривање сервиса како би клијенти проналазили Цоре на мрежи без ручно подешених крајњих тачака.</li>
@@ -294,12 +270,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-7" aria-expanded="true" aria-controls="od-acc-helixtrack-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
               <span class="od-accordion__label">Технолошки стацк</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-7-panel" role="region" aria-labelledby="od-acc-helixtrack-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> — изабрани за ХТТП услуге високог протока и ниске латенције са сценаријем имплементације у облику једног бинарног фајла; садрже Цоре-ов REST API, његов JWT/CORS middleware и рутер са акцијама на <code>/do</code> који стоји испред целог система.</li>
@@ -320,12 +296,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-8" aria-expanded="true" aria-controls="od-acc-helixtrack-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-6" aria-expanded="true" aria-controls="od-acc-helixtrack-6-panel">
               <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-8-panel" role="region" aria-labelledby="od-acc-helixtrack-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-6-panel" role="region" aria-labelledby="od-acc-helixtrack-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> HelixTrack Цоре је функционални REST API микросервис; <strong>Доцументс В2</strong> екстензија је документована као отприлике 95% комплетирана са познатим проблемом мапирања поља у бази података, те се не представља као потпуно испоручена.</li>

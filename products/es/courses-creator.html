@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "Courses-Creator — Miloš Vasić"
-description: "Courses-Creator is a toolkit that converts markdown scripts into professional video courses with AI-powered enhancements: multi-LLM content enrichment (OpenAI/Anthropic/Ollama), high-quality TTS and background music, and desktop, mobile, and web players — all Docker-deployed with Prometheus/Grafana monitoring."
+description: "Courses-Creator es un conjunto de herramientas que convierte guiones en Markdown en cursos de vídeo profesionales con mejoras potenciadas por AI: enriquecimiento de contenido multi-LLM (OpenAI/Anthropic/Ollama), TTS y música de fondo de alta calidad, y reproductores para escritorio, móvil y web — todo desplegado con Docker e integrado con monitorización Prometheus/Grafana."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/courses-creator.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/courses-creator.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Courses-Creator is a toolkit that converts markdown scripts into professional video courses with AI-powered enhancements: multi-LLM content enrichment (OpenAI/Anthropic/Ollama), high-quality TTS and background music, and desktop, mobile, and web players — all Docker-deployed with Prometheus/Grafana monitoring.",
+      "description": "Courses-Creator es un conjunto de herramientas que convierte guiones en Markdown en cursos de vídeo profesionales con mejoras potenciadas por AI: enriquecimiento de contenido multi-LLM (OpenAI/Anthropic/Ollama), TTS y música de fondo de alta calidad, y reproductores para escritorio, móvil y web — todo desplegado con Docker e integrado con monitorización Prometheus/Grafana.",
       "inLanguage": "es",
       "name": "Courses-Creator",
       "operatingSystem": "Cross-platform",
@@ -172,55 +172,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>De Markdown a curso profesional en vídeo — mejorado con AI, multiplataforma.</strong></p>
+      <p class="od-product-detail__lede">Transforma Markdown en cursos de vídeo atractivos. Un motor de procesamiento Go enriquece el contenido mediante múltiples proveedores LLM, genera narración (Bark/SpeechT5 TTS) y música, y los distribuye en reproductores Electron para escritorio, React Native para móvil y React para web, con despliegue Docker completo y monitorización.</p>
+      <p>Courses-Creator es un conjunto de herramientas que convierte guiones en Markdown en cursos de vídeo profesionales con mejoras potenciadas por AI: enriquecimiento de contenido multi-LLM (OpenAI/Anthropic/Ollama), TTS y música de fondo de alta calidad, y reproductores para escritorio, móvil y web — todo desplegado con Docker e integrado con monitorización Prometheus/Grafana.</p>
+      <p>Producir un curso en vídeo suele requerir el trabajo de un pequeño estudio: guionizar, grabar la narración, buscar música, editar, codificar y luego desarrollar reproductores para cada plataforma que puedan usar los alumnos. Courses-Creator comprime toda esa cadena en una única entrada —un guion en Markdown— y un solo comando. En su núcleo, cuenta con un procesador Go que ejecuta una completa cadena de producción de vídeo y audio: enriquece el contenido escrito mediante múltiples proveedores LLM (OpenAI, Anthropic y Ollama local), sintetiza narración natural con motores de texto a voz (Bark, SpeechT5), añade música de fondo y ensambla las piezas en vídeos de curso terminados. La tarea del autor se limita a las ideas y las palabras; el sistema se encarga de la locución, la banda sonora y la producción. Y como un curso solo es útil si la gente puede verlo, la entrega está diseñada para ser multiplataforma: una aplicación creadora Electron para escritorio, un reproductor React Native para móvil y un reproductor React para web, todos alimentados por el mismo sistema REST API y de trabajos en segundo plano —un backend, tres clientes de primera categoría, sin necesidad de reimplementar para cada superficie.</p>
+      <p>Lo crucial es que se trata de infraestructura de producción, no de un *demo reel*. El backend incluye persistencia PostgreSQL, procesamiento de trabajos en segundo plano para que los renders largos de TTS/vídeo nunca bloqueen el API, implementaciones de servidor MCP para mejoras asistidas por herramientas, métricas Prometheus, autenticación JWT y un proxy inverso nginx —y todo el conjunto se despliega como un *Compose* Docker con perfiles de monitorización Grafana/Prometheus que pueden ponerse en marcha en un solo paso. La capa AI es un nivel de mejora, no una dependencia: cada proveedor LLM es opcional, por lo que la cadena de producción funciona sin claves API para operaciones básicas y activa el enriquecimiento premium en cuanto se proporcionan las claves. Esta única decisión hace que la misma herramienta sea viable tanto para un aficionado que trabaja sin conexión en un portátil como para una empresa que integra su proveedor preferido —y toda la cadena de producción multimedia subyacente está respaldada por pruebas unitarias, de integración y *end-to-end*, en lugar de basarse en la fe.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-0" aria-expanded="true" aria-controls="od-acc-courses-creator-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">Historia de origen</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-courses-creator-0-panel" role="region" aria-labelledby="od-acc-courses-creator-0">
-            <div class="od-accordion__inner">
-      <p>Courses-Creator es un conjunto de herramientas que convierte guiones en Markdown en cursos de vídeo profesionales con mejoras potenciadas por AI: enriquecimiento de contenido multi-LLM (OpenAI/Anthropic/Ollama), TTS y música de fondo de alta calidad, y reproductores para escritorio, móvil y web — todo desplegado con Docker e integrado con monitorización Prometheus/Grafana.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-1" aria-expanded="true" aria-controls="od-acc-courses-creator-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-1-panel" role="region" aria-labelledby="od-acc-courses-creator-1">
-            <div class="od-accordion__inner">
-      <p>Transforma Markdown en cursos de vídeo atractivos. Un motor de procesamiento Go enriquece el contenido mediante múltiples proveedores LLM, genera narración (Bark/SpeechT5 TTS) y música, y los distribuye en reproductores Electron para escritorio, React Native para móvil y React para web, con despliegue Docker completo y monitorización.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-2" aria-expanded="true" aria-controls="od-acc-courses-creator-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-2-panel" role="region" aria-labelledby="od-acc-courses-creator-2">
-            <div class="od-accordion__inner">
-      <p>Producir un curso en vídeo suele requerir el trabajo de un pequeño estudio: guionizar, grabar la narración, buscar música, editar, codificar y luego desarrollar reproductores para cada plataforma que puedan usar los alumnos. Courses-Creator comprime toda esa cadena en una única entrada —un guion en Markdown— y un solo comando. En su núcleo, cuenta con un procesador Go que ejecuta una completa cadena de producción de vídeo y audio: enriquece el contenido escrito mediante múltiples proveedores LLM (OpenAI, Anthropic y Ollama local), sintetiza narración natural con motores de texto a voz (Bark, SpeechT5), añade música de fondo y ensambla las piezas en vídeos de curso terminados. La tarea del autor se limita a las ideas y las palabras; el sistema se encarga de la locución, la banda sonora y la producción. Y como un curso solo es útil si la gente puede verlo, la entrega está diseñada para ser multiplataforma: una aplicación creadora Electron para escritorio, un reproductor React Native para móvil y un reproductor React para web, todos alimentados por el mismo sistema REST API y de trabajos en segundo plano —un backend, tres clientes de primera categoría, sin necesidad de reimplementar para cada superficie.</p>
-      <p>Lo crucial es que se trata de infraestructura de producción, no de un *demo reel*. El backend incluye persistencia PostgreSQL, procesamiento de trabajos en segundo plano para que los renders largos de TTS/vídeo nunca bloqueen el API, implementaciones de servidor MCP para mejoras asistidas por herramientas, métricas Prometheus, autenticación JWT y un proxy inverso nginx —y todo el conjunto se despliega como un *Compose* Docker con perfiles de monitorización Grafana/Prometheus que pueden ponerse en marcha en un solo paso. La capa AI es un nivel de mejora, no una dependencia: cada proveedor LLM es opcional, por lo que la cadena de producción funciona sin claves API para operaciones básicas y activa el enriquecimiento premium en cuanto se proporcionan las claves. Esta única decisión hace que la misma herramienta sea viable tanto para un aficionado que trabaja sin conexión en un portátil como para una empresa que integra su proveedor preferido —y toda la cadena de producción multimedia subyacente está respaldada por pruebas unitarias, de integración y *end-to-end*, en lugar de basarse en la fe.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-3" aria-expanded="true" aria-controls="od-acc-courses-creator-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-3-panel" role="region" aria-labelledby="od-acc-courses-creator-3">
             <div class="od-accordion__inner">
       <p>Producir vídeos de cursos de forma manual es lento: escribir, narrar, musicalizar y editar requieren esfuerzo y herramientas especializadas. Courses-Creator reduce todo ese proceso a una cadena impulsada por Markdown, de modo que un único guion fuente se convierte en un curso producido, con AI cubriendo los vacíos que, de otro modo, los humanos tendrían que llenar a mano.</p>
             </div>
@@ -228,12 +192,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-4" aria-expanded="true" aria-controls="od-acc-courses-creator-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-1" aria-expanded="true" aria-controls="od-acc-courses-creator-1-panel">
               <span class="od-accordion__label">Por qué es un cambio radical</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-4-panel" role="region" aria-labelledby="od-acc-courses-creator-4">
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-1-panel" role="region" aria-labelledby="od-acc-courses-creator-1">
             <div class="od-accordion__inner">
       <p>Transforma la producción de cursos de un oficio especializado y multietapa en una cadena de software reproducible: la creación de contenidos, el enriquecimiento con AI, la generación de narración y música, y la reproducción multiplataforma conviven en un único stack implementable. La degradación elegante a un funcionamiento sin clave API es su superpoder silencioso: el mismo código base sirve tanto a un creador independiente con presupuesto ajustado como a una empresa con contrato premium, sin necesidad de reescribir nada en el proceso.</p>
             </div>
@@ -241,12 +205,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-5" aria-expanded="true" aria-controls="od-acc-courses-creator-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-2" aria-expanded="true" aria-controls="od-acc-courses-creator-2-panel">
               <span class="od-accordion__label">Qué lo hace innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-5-panel" role="region" aria-labelledby="od-acc-courses-creator-5">
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-2-panel" role="region" aria-labelledby="od-acc-courses-creator-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Cadena de Markdown a vídeo con enriquecimiento multi-LLM conectable (OpenAI/Anthropic/Ollama).</li>
@@ -259,12 +223,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-6" aria-expanded="true" aria-controls="od-acc-courses-creator-6-panel">
-              <span class="od-accordion__label">Desafíos y soluciones</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-3" aria-expanded="true" aria-controls="od-acc-courses-creator-3-panel">
+              <span class="od-accordion__label">Problemas difíciles, soluciones honestas</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-6-panel" role="region" aria-labelledby="od-acc-courses-creator-6">
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-3-panel" role="region" aria-labelledby="od-acc-courses-creator-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Procesamiento intensivo de medios:</strong> resuelto con una cadena Go más procesamiento de trabajos en segundo plano, de modo que las tareas largas de TTS/vídeo no bloqueen la API.</li>
@@ -277,12 +241,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-7" aria-expanded="true" aria-controls="od-acc-courses-creator-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-courses-creator-4" aria-expanded="true" aria-controls="od-acc-courses-creator-4-panel">
               <span class="od-accordion__label">Tecnologías empleadas (por qué y cómo)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-7-panel" role="region" aria-labelledby="od-acc-courses-creator-7">
+          <div class="od-accordion__panel is-open" id="od-acc-courses-creator-4-panel" role="region" aria-labelledby="od-acc-courses-creator-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — motor de procesamiento principal, API REST, ejecutor de trabajos y cadena de procesamiento (972K+ bytes, lenguaje dominante).</li>

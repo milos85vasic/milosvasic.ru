@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "LLMOrchestrator — Miloš Vasić"
-description: "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees."
+description: "LLMOrchestrator — гэта аўтаномны, шматразовы Go модуль для стварэння, кіравання і зносін з аўтаномнымі CLI агентамі (OpenCode, Claude Code, Gemini, Junie, Qwen Code) праз гібрыдны пратакол канал+файл, з індывідуальнымі засцерагальнікамі для кожнага агента, зменнай сістэмай выбару пастаўшчыкоў, аддзеленым абстракцыйным слоем інтэрнацыяналізацыі і гарантыямі супраць ілжывых тэстаў."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees.",
+      "description": "LLMOrchestrator — гэта аўтаномны, шматразовы Go модуль для стварэння, кіравання і зносін з аўтаномнымі CLI агентамі (OpenCode, Claude Code, Gemini, Junie, Qwen Code) праз гібрыдны пратакол канал+файл, з індывідуальнымі засцерагальнікамі для кожнага агента, зменнай сістэмай выбару пастаўшчыкоў, аддзеленым абстракцыйным слоем інтэрнацыяналізацыі і гарантыямі супраць ілжывых тэстаў.",
       "inLanguage": "be",
       "license": "Apache-2.0",
       "name": "LLMOrchestrator",
@@ -184,6 +184,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Адзіная панэль кіравання для кожнага аўтаномнага CLI агента-кадавальніка.</strong></p>
+      <p class="od-product-detail__lede">Шматразовы Go модуль, які забяспечвае адзіны інтэрфейс для стварэння і кіравання некалькімі LLM-агентамі на базе CLI праз гібрыдны пратакол канал+файл. Бяспечнае для шматпатокавасці пуліраванне агентаў з засцерагальнікамі і выбіральнымі стратэгіямі маршрутызацыі, наўмысна незалежнае ад спажыўца, са зменнай сістэмай перакладу.</p>
+      <p>LLMOrchestrator — гэта агульная інфраструктура для аркестрацыі аўтаномных CLI агентаў-кадавальнікаў — той "водна-камунальны" пласт, які патрэбен кожнай шмат-агентнай сістэме і які звычайна дрэнна перавынаходзяць. Замест таго, каб кожны праект паўтараў рэалізацыю запуску працэсаў, фарматавання паведамленняў і парсінгу вынікаў для такіх інструментаў, як OpenCode, Claude Code, Gemini CLI, Junie і Qwen Code, ён прапануе адзіны інтэрфейс <code>Agent</code>, бяспечны для шматпатокавасці пул <code>AgentPool</code> і <code>MultiProviderPool</code>, які аб'ядноўвае агентаў ад некалькіх пастаўшчыкоў пад адзіным фасадам. Маршрутызацыя з'яўляецца зменнай праз <code>AgentSelector</code> — кругавая чарга, якая прапускае пастаўшчыкоў, што не адпавядаюць патрабаванням, або чарговасць з прыярытэтамі і рэзервовым варыянтам — такім чынам, спосаб размеркавання задач — гэта палітыка, якую вы выбіраеце, а не жорстка запраграмаванае дапушчэнне. Кожны канкрэтны агент — гэта тонкі адаптар над агульным <code>BaseAdapter</code>, які кантралюе ўвесь жыццёвы цыкл працэсу: запуск з настройкай канала, карэктнае спыненне праз SIGTERM, а затым SIGKILL, перазапуск і праверку жыццяздольнасці — усё тое складанае і схільнае да памылак, што вырашана аднойчы.</p>
+      <p>Камунікацыя наўмысна гібрыдная, падбіраючы транспарт пад задачу. Канальны транспарт перадае радкова-раздзеленыя JSON з абмежаваннем часу чакання адказу і лімітам даўжыні адказу для хуткіх інтэрактыўных паведамленняў, у той час як файлавы транспарт выкарыстоўвае асобныя каталогі ўваходных/выходных даных і агульнай прасторы для вялікіх ці доўгатэрміновых артэфактаў, якія не павінны захоўвацца ў канале. Стойкасць да збояў — не дадатковая думка, а структурны прынцып: індывідуальны засцерагальнік агента адкрываецца пасля трох паслядоўных збояў з 60-секундным астуджэннем перад паўадчыненым зондаваннем, а фоновы манітор здароўя рэгулярна правярае агентаў, каб зламаны агент мог аднавіцца, не чакаючы ўваходнага трафіку. Атрыманне агента з пула блакуецца на ўмовавай зменнай замест спажывання працэсарнага часу ў бясконцым чаканні, а парсер адказаў не мае ўнутранага стану і бяспечны для паралельнага выкліку. Модуль строга аддзелены — ніякія дэталі спажыўца не дапускаюцца ўнутр — і кожны радок для карыстальніка праходзіць праз зменную сістэму інтэрнацыяналізацыі <code>Translator</code>, з <code>NoopTranslator</code>, які вяртае ідэнтыфікатары паведамленняў у нязменным выглядзе, каб адсутнасць перакладу было відавочна, а не схавана.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -201,38 +204,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-1" aria-expanded="true" aria-controls="od-acc-llmorchestrator-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-1-panel" role="region" aria-labelledby="od-acc-llmorchestrator-1">
-            <div class="od-accordion__inner">
-      <p>Шматразовы Go модуль, які забяспечвае адзіны інтэрфейс для стварэння і кіравання некалькімі LLM-агентамі на базе CLI праз гібрыдны пратакол канал+файл. Бяспечнае для шматпатокавасці пуліраванне агентаў з засцерагальнікамі і выбіральнымі стратэгіямі маршрутызацыі, наўмысна незалежнае ад спажыўца, са зменнай сістэмай перакладу.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-2" aria-expanded="true" aria-controls="od-acc-llmorchestrator-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-2-panel" role="region" aria-labelledby="od-acc-llmorchestrator-2">
-            <div class="od-accordion__inner">
-      <p>LLMOrchestrator — гэта агульная інфраструктура для аркестрацыі аўтаномных CLI агентаў-кадавальнікаў — той "водна-камунальны" пласт, які патрэбен кожнай шмат-агентнай сістэме і які звычайна дрэнна перавынаходзяць. Замест таго, каб кожны праект паўтараў рэалізацыю запуску працэсаў, фарматавання паведамленняў і парсінгу вынікаў для такіх інструментаў, як OpenCode, Claude Code, Gemini CLI, Junie і Qwen Code, ён прапануе адзіны інтэрфейс <code>Agent</code>, бяспечны для шматпатокавасці пул <code>AgentPool</code> і <code>MultiProviderPool</code>, які аб'ядноўвае агентаў ад некалькіх пастаўшчыкоў пад адзіным фасадам. Маршрутызацыя з'яўляецца зменнай праз <code>AgentSelector</code> — кругавая чарга, якая прапускае пастаўшчыкоў, што не адпавядаюць патрабаванням, або чарговасць з прыярытэтамі і рэзервовым варыянтам — такім чынам, спосаб размеркавання задач — гэта палітыка, якую вы выбіраеце, а не жорстка запраграмаванае дапушчэнне. Кожны канкрэтны агент — гэта тонкі адаптар над агульным <code>BaseAdapter</code>, які кантралюе ўвесь жыццёвы цыкл працэсу: запуск з настройкай канала, карэктнае спыненне праз SIGTERM, а затым SIGKILL, перазапуск і праверку жыццяздольнасці — усё тое складанае і схільнае да памылак, што вырашана аднойчы.</p>
-      <p>Камунікацыя наўмысна гібрыдная, падбіраючы транспарт пад задачу. Канальны транспарт перадае радкова-раздзеленыя JSON з абмежаваннем часу чакання адказу і лімітам даўжыні адказу для хуткіх інтэрактыўных паведамленняў, у той час як файлавы транспарт выкарыстоўвае асобныя каталогі ўваходных/выходных даных і агульнай прасторы для вялікіх ці доўгатэрміновых артэфактаў, якія не павінны захоўвацца ў канале. Стойкасць да збояў — не дадатковая думка, а структурны прынцып: індывідуальны засцерагальнік агента адкрываецца пасля трох паслядоўных збояў з 60-секундным астуджэннем перад паўадчыненым зондаваннем, а фоновы манітор здароўя рэгулярна правярае агентаў, каб зламаны агент мог аднавіцца, не чакаючы ўваходнага трафіку. Атрыманне агента з пула блакуецца на ўмовавай зменнай замест спажывання працэсарнага часу ў бясконцым чаканні, а парсер адказаў не мае ўнутранага стану і бяспечны для паралельнага выкліку. Модуль строга аддзелены — ніякія дэталі спажыўца не дапускаюцца ўнутр — і кожны радок для карыстальніка праходзіць праз зменную сістэму інтэрнацыяналізацыі <code>Translator</code>, з <code>NoopTranslator</code>, які вяртае ідэнтыфікатары паведамленняў у нязменным выглядзе, каб адсутнасць перакладу было відавочна, а не схавана.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-3" aria-expanded="true" aria-controls="od-acc-llmorchestrator-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-3-panel" role="region" aria-labelledby="od-acc-llmorchestrator-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-1-panel" role="region" aria-labelledby="od-acc-llmorchestrator-1">
             <div class="od-accordion__inner">
       <p>Кожнай шмат-агентнай сістэме патрэбна надзейна запускаць і падтрымліваць зносіны з CLI агентамі. Паўторнае вырашэнне пытанняў запуску, фарматавання, парсінгу і апрацоўкі збояў для кожнага праекта — неэфектыўна і схільна да памылак. LLMOrchestrator цэнтралізуе гэтыя функцыі ў адным аддзеленым, шматразовым модулі, чыё спецыялізаванае прызначэнне робіць яго паўторна выкарыстоўвальным — і гэтая паўторная выкарыстоўвальнасць знікае, калі ўнутр трапляюць дэталі канкрэтнага спажыўца.</p>
       <p>Змест</p>
@@ -241,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-4" aria-expanded="true" aria-controls="od-acc-llmorchestrator-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-2" aria-expanded="true" aria-controls="od-acc-llmorchestrator-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-4-panel" role="region" aria-labelledby="od-acc-llmorchestrator-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-2-panel" role="region" aria-labelledby="od-acc-llmorchestrator-2">
             <div class="od-accordion__inner">
       <p>Гэта ператварае "кіраванне арміяй разнастайных агентаў CLI" з індывідуальнага інжынернага кашмару для кожнага праекта ў просты імпарт бібліятэкі — пулінг, абарона ад перагрузак, кіраванне жыццёвым цыклам і гнуткая маршрутызацыя ўжо вырашаны і правераны на практыцы. А паколькі антыблефавыя тэсты правяраюць сапраўдную сістэму ад пачатку да канца, а не абмяжоўваюцца "кампілюецца — і добра", вы атрымліваеце абстракцыю, якой можна давяраць у умовах канкурэнтнасці і збояў, а не проста нешта, што добра выглядае на дыяграме.</p>
             </div>
@@ -254,12 +230,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-5" aria-expanded="true" aria-controls="od-acc-llmorchestrator-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-3" aria-expanded="true" aria-controls="od-acc-llmorchestrator-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-5-panel" role="region" aria-labelledby="od-acc-llmorchestrator-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-3-panel" role="region" aria-labelledby="od-acc-llmorchestrator-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Гібрыдны пратакол каналаў і файлаў</strong> — інтэрактыўная хуткасць (радкі JSON праз stdin/stdout, дэдлайны чытання, абмежаванні адказаў) *і* надзейны файлавы абмен (inbox/outbox/shared) для вялікіх артэфактаў, каб ніколі не прыходзілася выбіраць паміж затрымкай і надзейнасцю.</li>
@@ -275,12 +251,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-6" aria-expanded="true" aria-controls="od-acc-llmorchestrator-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-4" aria-expanded="true" aria-controls="od-acc-llmorchestrator-4-panel">
               <span class="od-accordion__label">Найбольшыя тэхнічныя выклікі і як мы іх пераадолелі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-6-panel" role="region" aria-labelledby="od-acc-llmorchestrator-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-4-panel" role="region" aria-labelledby="od-acc-llmorchestrator-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Надзейны ўвод-вывад агенцкага працэсу.</strong> Зносіны з запушчаным працэсам CLI аказваюцца нечакана складанымі; вырашана праз гібрыдны транспарт каналаў і файлаў, дакладна вызначаны кантракт паведамленняў/парсара, каб абодва бакі ўзгаднялі фармат перадачы, і <code>BaseAdapter</code>, які цэнтралізуе ўвесь жыццёвы цыкл працэсу, уключаючы карэктнае завяршэнне па SIGTERM з эскалацыяй да SIGKILL у выпадку тайм-аўту.</li>
@@ -295,12 +271,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-7" aria-expanded="true" aria-controls="od-acc-llmorchestrator-7-panel">
-              <span class="od-accordion__label">Тэхналагічны стэк</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-5" aria-expanded="true" aria-controls="od-acc-llmorchestrator-5-panel">
+              <span class="od-accordion__label">Тэхналагічны стэк і чаму менавіта такі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-7-panel" role="region" aria-labelledby="od-acc-llmorchestrator-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-5-panel" role="region" aria-labelledby="od-acc-llmorchestrator-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25)</strong> — абраны дзякуючы першакласнай канкурэнтнасці і чыстаму кантролю працэсаў, што менавіта патрабуецца для аркестрацыі жывых агенцкіх працэсаў; рэалізуе модуль, яго агенцкія адаптары, транспартныя сродкі і парсер.</li>
@@ -317,12 +293,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-8" aria-expanded="true" aria-controls="od-acc-llmorchestrator-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-6" aria-expanded="true" aria-controls="od-acc-llmorchestrator-6-panel">
               <span class="od-accordion__label">Стан і заўвагі аб шчырасці</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-8-panel" role="region" aria-labelledby="od-acc-llmorchestrator-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-6-panel" role="region" aria-labelledby="od-acc-llmorchestrator-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Стан: бэта.</strong> Развязаны модуль шматразовага выкарыстання, які ўжываецца як сабмодуль у некалькіх праектах Helix/vasic. <strong>Ліцэнзія: Apache-2.0</strong>; рэпазіторый GitHub з’яўляецца публічным.</li>

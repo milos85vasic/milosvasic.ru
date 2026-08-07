@@ -2,7 +2,7 @@
 layout: default
 lang: tr
 title: "DocProcessor — Miloš Vasić"
-description: "DocProcessor is a standalone, fully decoupled Go module that loads project documentation, builds structured feature maps, and tracks verification coverage. It is designed to work with LLM agents for intelligent feature extraction but also includes heuristic extraction for offline use."
+description: "DocProcessor, proje belgelerini yükleyen, yapılandırılmış özellik haritaları oluşturan ve doğrulama kapsamını izleyen, bağımsız ve tamamen ayrıştırılmış bir Go modülüdür. LLM ajanlarıyla akıllı özellik çıkarma için tasarlanmış olsa da çevrimdışı kullanım için sezgisel çıkarma özelliğini de içerir."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docprocessor.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "DocProcessor is a standalone, fully decoupled Go module that loads project documentation, builds structured feature maps, and tracks verification coverage. It is designed to work with LLM agents for intelligent feature extraction but also includes heuristic extraction for offline use.",
+      "description": "DocProcessor, proje belgelerini yükleyen, yapılandırılmış özellik haritaları oluşturan ve doğrulama kapsamını izleyen, bağımsız ve tamamen ayrıştırılmış bir Go modülüdür. LLM ajanlarıyla akıllı özellik çıkarma için tasarlanmış olsa da çevrimdışı kullanım için sezgisel çıkarma özelliğini de içerir.",
       "inLanguage": "tr",
       "license": "Apache-2.0",
       "name": "DocProcessor",
@@ -183,55 +183,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Belgelendirmeyi QA otomasyonu için doğrulanabilir bir özellik haritasına dönüştürün.</strong></p>
+      <p class="od-product-detail__lede">Belge işleme ve özellik haritası çıkarma için projeye bağımlı olmayan bir Go modülü. Belgeleri yapılandırılmış özellik haritalarına dönüştürür ve hangi özelliklerin doğrulandığını izler — akıllı çıkarma için LLM ajanlarını kullanır veya çevrimdışı durumlarda sezgisel yöntemlerle çalışır — QA otomasyonuna, "gerçekle her zaman uyumlu" garantisi sunar.</p>
+      <p>DocProcessor, proje belgelerini yükleyen, yapılandırılmış özellik haritaları oluşturan ve doğrulama kapsamını izleyen, bağımsız ve tamamen ayrıştırılmış bir Go modülüdür. LLM ajanlarıyla akıllı özellik çıkarma için tasarlanmış olsa da çevrimdışı kullanım için sezgisel çıkarma özelliğini de içerir.</p>
+      <p>Her yazılım ekibi aynı yavaş yalanla yaşamak zorunda kalır: belgeler özellikler vaat eder, testler bunlara yakın bir şeyi kapsar ve kimse bu ikisinin aynı ürünü tarif edip etmediğini güvenle söyleyemez. DocProcessor, bu boşluğu görünür ve ölçülebilir kılmak için var. Bir projenin belgeleri verildiğinde, ürünün yapmayı vaat ettiği her şeyin numaralandırılmış, makine tarafından okunabilir bir modeli olan yapılandırılmış bir özellik haritası oluşturur ve doğrulama kapsamını bu haritaya karşı izler. Böylece "bu belgelenmiş özellik gerçekten kanıtlandı mı?" sorusu, koridor tartışmalarından çıkıp bir yanıtı olan bir sorguya dönüşür. Kasıtlı olarak çift modludur: LLM ajanları mevcut olduğunda akıllı, anlamsal özellik çıkarma için kullanılır; çevrimdışı kullanım için ise sezgisel bir ayrıştırıcıya geri döner. Bu sayede, bir modelin varlığına kesin bağımlılık olmaz ve hava boşluklu bir CI işinde ya da bir geliştiricinin uçak modundaki dizüstü bilgisayarında aynı şekilde çalışır.</p>
+      <p>Mimari olarak, bağımsız, proje farkındalığı olmayan ve tamamen ayrıştırılmış bir Go modülüdür (CONST-051(B)): Hiçbir projeye özgü değer içermez ve tüketiciler tarafından eşit kod tabanlı bir alt modül olarak entegre edilir. Böylece herhangi bir proje, başkalarının varsayımlarını devralmadan benimseyebilir. Ayrıca, başkalarına uyguladığı standardı kendisine de uygular — kendi iddiaları, "anti-blöf" sözleşmesi (CONST-035) ve tam otomasyon kapsamı kuralları (CONST-048) ile sınırlıdır. Bu, README dosyasında duyurulan her yeteneğin, yalnızca sıfırla çıkmakla kalmayıp gerçek, son kullanıcı tarafından kullanılabilir davranışı doğrulayan otomatik bir test veya Challenge betiği tarafından sınandığı anlamına gelir. Kullanıcıya yönelik metinler, CONST-046 i18n çevirmen ara katmanından geçer. Tüm bunların amacı kapalı bir döngü oluşturmaktır: DocProcessor, HelixQA’un tamamladığı QA döngüsünün girdi tarafıdır — belgelerden özellik haritasını çıkarır, HelixQA ise her haritalanmış özelliği çalışma zamanı kanıtlarıyla doğrular. Böylece belgeler, testler ve yayınlanan davranış, sürümden sürüme sessizce ayrılmak yerine zorunlu olarak birleşir.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-0" aria-expanded="true" aria-controls="od-acc-docprocessor-0-panel">
-              <span class="od-accordion__label">Özet</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-0-panel" role="region" aria-labelledby="od-acc-docprocessor-0">
-            <div class="od-accordion__inner">
-      <p>DocProcessor, proje belgelerini yükleyen, yapılandırılmış özellik haritaları oluşturan ve doğrulama kapsamını izleyen, bağımsız ve tamamen ayrıştırılmış bir Go modülüdür. LLM ajanlarıyla akıllı özellik çıkarma için tasarlanmış olsa da çevrimdışı kullanım için sezgisel çıkarma özelliğini de içerir.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-1" aria-expanded="true" aria-controls="od-acc-docprocessor-1-panel">
-              <span class="od-accordion__label">Kısa açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-1-panel" role="region" aria-labelledby="od-acc-docprocessor-1">
-            <div class="od-accordion__inner">
-      <p>Belge işleme ve özellik haritası çıkarma için projeye bağımlı olmayan bir Go modülü. Belgeleri yapılandırılmış özellik haritalarına dönüştürür ve hangi özelliklerin doğrulandığını izler — akıllı çıkarma için LLM ajanlarını kullanır veya çevrimdışı durumlarda sezgisel yöntemlerle çalışır — QA otomasyonuna, "gerçekle her zaman uyumlu" garantisi sunar.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-2" aria-expanded="true" aria-controls="od-acc-docprocessor-2-panel">
-              <span class="od-accordion__label">Uzun açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-2-panel" role="region" aria-labelledby="od-acc-docprocessor-2">
-            <div class="od-accordion__inner">
-      <p>Her yazılım ekibi aynı yavaş yalanla yaşamak zorunda kalır: belgeler özellikler vaat eder, testler bunlara yakın bir şeyi kapsar ve kimse bu ikisinin aynı ürünü tarif edip etmediğini güvenle söyleyemez. DocProcessor, bu boşluğu görünür ve ölçülebilir kılmak için var. Bir projenin belgeleri verildiğinde, ürünün yapmayı vaat ettiği her şeyin numaralandırılmış, makine tarafından okunabilir bir modeli olan yapılandırılmış bir özellik haritası oluşturur ve doğrulama kapsamını bu haritaya karşı izler. Böylece "bu belgelenmiş özellik gerçekten kanıtlandı mı?" sorusu, koridor tartışmalarından çıkıp bir yanıtı olan bir sorguya dönüşür. Kasıtlı olarak çift modludur: LLM ajanları mevcut olduğunda akıllı, anlamsal özellik çıkarma için kullanılır; çevrimdışı kullanım için ise sezgisel bir ayrıştırıcıya geri döner. Bu sayede, bir modelin varlığına kesin bağımlılık olmaz ve hava boşluklu bir CI işinde ya da bir geliştiricinin uçak modundaki dizüstü bilgisayarında aynı şekilde çalışır.</p>
-      <p>Mimari olarak, bağımsız, proje farkındalığı olmayan ve tamamen ayrıştırılmış bir Go modülüdür (CONST-051(B)): Hiçbir projeye özgü değer içermez ve tüketiciler tarafından eşit kod tabanlı bir alt modül olarak entegre edilir. Böylece herhangi bir proje, başkalarının varsayımlarını devralmadan benimseyebilir. Ayrıca, başkalarına uyguladığı standardı kendisine de uygular — kendi iddiaları, "anti-blöf" sözleşmesi (CONST-035) ve tam otomasyon kapsamı kuralları (CONST-048) ile sınırlıdır. Bu, README dosyasında duyurulan her yeteneğin, yalnızca sıfırla çıkmakla kalmayıp gerçek, son kullanıcı tarafından kullanılabilir davranışı doğrulayan otomatik bir test veya Challenge betiği tarafından sınandığı anlamına gelir. Kullanıcıya yönelik metinler, CONST-046 i18n çevirmen ara katmanından geçer. Tüm bunların amacı kapalı bir döngü oluşturmaktır: DocProcessor, HelixQA’un tamamladığı QA döngüsünün girdi tarafıdır — belgelerden özellik haritasını çıkarır, HelixQA ise her haritalanmış özelliği çalışma zamanı kanıtlarıyla doğrular. Böylece belgeler, testler ve yayınlanan davranış, sürümden sürüme sessizce ayrılmak yerine zorunlu olarak birleşir.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-3" aria-expanded="true" aria-controls="od-acc-docprocessor-3-panel">
               <span class="od-accordion__label">Neden geliştirdik</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-3-panel" role="region" aria-labelledby="od-acc-docprocessor-3">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-0-panel" role="region" aria-labelledby="od-acc-docprocessor-0">
             <div class="od-accordion__inner">
       <p>Belgeler ve testler birbirinden uzaklaşır: Belgeler hiçbir testin kanıtlamadığı özellikler vaat eder ve QA, "tamamlanmış"ın ne anlama geldiğini kolayca söyleyemez. DocProcessor, belgeleri makine tarafından okunabilir bir özellik haritasına dönüştürerek doğrulama kapsamının gerçekten vaat edilenlere karşı ölçülmesini sağlar.</p>
       <p>İçerik</p>
@@ -240,12 +204,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-4" aria-expanded="true" aria-controls="od-acc-docprocessor-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-1" aria-expanded="true" aria-controls="od-acc-docprocessor-1-panel">
               <span class="od-accordion__label">Neden bir oyun değiştirici?</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-4-panel" role="region" aria-labelledby="od-acc-docprocessor-4">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-1-panel" role="region" aria-labelledby="od-acc-docprocessor-1">
             <div class="od-accordion__inner">
       <p>Yazılım tesliminde en muğlak soruyu — "Yayınladığımız şey, söylediğimiz şeyle örtüşüyor mu?" — otomatikleştirilebilir ve sürekli denetlenebilir bir hale getiriyor. Üstelik bunu <strong>AI</strong> gibi katı bir bağımlılığa ihtiyaç duymadan yapıyor: Model varsa <strong>LLM</strong> tabanlı çıkarım, yoksa sezgisel yöntemler kullanıyor. Böylece çevrimdışı çalışan bir ortamdan tamamen otonom bir pipeline’a kadar her ortamda aynı güvence sağlanıyor.</p>
             </div>
@@ -253,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-5" aria-expanded="true" aria-controls="od-acc-docprocessor-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-2" aria-expanded="true" aria-controls="od-acc-docprocessor-2-panel">
               <span class="od-accordion__label">Yenilikçi yönleri</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-5-panel" role="region" aria-labelledby="od-acc-docprocessor-5">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-2-panel" role="region" aria-labelledby="od-acc-docprocessor-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Belgelendirme-özellik haritası çıkarımı</strong> ve doğrulama kapsamı takibi.</li>
@@ -271,12 +235,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-6" aria-expanded="true" aria-controls="od-acc-docprocessor-6-panel">
-              <span class="od-accordion__label">Zorluklar ve çözümler</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-3" aria-expanded="true" aria-controls="od-acc-docprocessor-3-panel">
+              <span class="od-accordion__label">Zorlandığımız yerler ve nasıl üstesinden geldiğimiz</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-6-panel" role="region" aria-labelledby="od-acc-docprocessor-6">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-3-panel" role="region" aria-labelledby="od-acc-docprocessor-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Model olmadan çalışabilme</strong>: Çevrimdışı çalışmayı sağlayan sezgisel çıkarım yedek mekanizmasıyla çözüldü.</li>
@@ -289,12 +253,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-7" aria-expanded="true" aria-controls="od-acc-docprocessor-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-4" aria-expanded="true" aria-controls="od-acc-docprocessor-4-panel">
               <span class="od-accordion__label">Teknoloji yığını (neden ve nasıl)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-7-panel" role="region" aria-labelledby="od-acc-docprocessor-7">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-4-panel" role="region" aria-labelledby="od-acc-docprocessor-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25+)</strong> — modül çekirdeği; Apache-2.0 lisanslı.</li>

@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "HelixSkills — Miloš Vasić"
-description: "HelixSkills is a skills system for CLI AI agents that inherits the Helix Constitution as a submodule, so every universal governance rule applies unconditionally. It packages installable agent skills, MCP tool servers, Claude Code plugins, and reusable engines behind a registerable, documented catalog."
+description: "HelixSkills је систем вештина за агенте CLI AI који наслеђује Helix Constitution као подмодул, тако да се свако универзално правило управљања примењује безусловно. Обухвата инсталабилне вештине агената, MCP серверске алате, Claude додатке за Цоде и поново употребљиве моторе иза регистроване, документоване каталога."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixskills.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixskills.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixskills.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixskills.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixskills.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixskills.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixskills.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixskills.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixskills.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixSkills is a skills system for CLI AI agents that inherits the Helix Constitution as a submodule, so every universal governance rule applies unconditionally. It packages installable agent skills, MCP tool servers, Claude Code plugins, and reusable engines behind a registerable, documented catalog.",
+      "description": "HelixSkills је систем вештина за агенте CLI AI који наслеђује Helix Constitution као подмодул, тако да се свако универзално правило управљања примењује безусловно. Обухвата инсталабилне вештине агената, MCP серверске алате, Claude додатке за Цоде и поново употребљиве моторе иза регистроване, документоване каталога.",
       "inLanguage": "sr",
       "license": "Apache-2.0",
       "name": "HelixSkills",
@@ -179,6 +179,10 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Регулисан, уставно заснован систем вештина за агенте CLI AI.</strong></p>
+      <p class="od-product-detail__lede">HelixSkills је систем вештина за агенте CLI AI. Уграђује Helix Constitution као подмодул како би сва универзална правила била на снази, а затим испоручује регистроване вештине (акциони префикс, валидатор медија, мултитрак, синхронизацију сесија, животни циклус радних јединица и још много тога), два MCP серверска алата, два Claude додатка за Цоде и поново употребљиве моторе.</p>
+      <p>HelixSkills (репозиторијум <code>skills</code>, Апацхе-2.0) је систем вештина за агенте CLI AI, а почиње од намерног обрнутог приступа уобичајеном редоследу: управљање долази пре могућности. Наслеђује Helix Constitution као свој <code>constitution/</code> подмодул, тако да се свако универзално правило из <code>constitution/CLAUDE.md</code> и <code>constitution/Constitution.md</code> примењује безусловно — не као конвенција коју агент може поштовати, већ као скуп правила физички уграђених у структуру пројекта. Агент који усвоји HelixSkills не може се одрећи устава; правила путују заједно са кодом.</p>
+      <p>Док већина „оквира за вештине" тргује апстракцијама, HelixSkills испоручује конкретан, регистровани инвентар на који можете указати и инсталирати га. Седам уставних вештина инсталира се преко <code>register.sh</code>: ацтион-prefix-system, медиа-валидатор, мултитрацк, репортинг-workable-итемс, сцхедулед-work-queue, сессион-sync и workable-итем-lifecycle — спектар оцењен од средњег до напредног нивоа, који покрива све од дисциплинованог именовања акција до валидације медија и пуног животног циклуса радне јединице. Додатне вештине у развоју (Android преглед, Java/Kotlin језик, Linux OS) већ су индексиране и припремљене за активацију. Два MCP серверска алата (медиа-валидатор, сцхедулед-work) излажу те вештине агентима преко Model Context Protocol, док два Claude додатка за Цоде (helix, сцхедулед-work) убацују исте могућности директно у радно окружење агента — један скуп вештина, доступан агентима без обзира на то којим интерфејсом комуницирају.</p>
+      <p>Испод каталога налазе се четири поново употребљива мотора првог нивоа — цонтинуум (имплементиран), плус сессион_орцхестратор, токен_оптимизер и цлицкуп_sync (у фази дизајна) — заједничка инфраструктура која спречава да вештине поново измишљају исту основну логику. Само токен_оптимизер декларише експлицитан граф зависности који се протеже до пакета екосистема vasic-digital (ТООН, Ембеддингс, VectorDB, Нормализе, цонверсатион) и HelixDevelopment-овог LLMProvider, тако да је умрежавање између репозиторијума проверљиво, а не имплицитно. Око свега тога функционише дисциплинована документација: каталог вештина, аутоматски генерисан индекс графа вештина, детаљне странице по репозиторијумима и отворен регистар Недостатака и ризика који јасно наводи шта још није урађено. Цео систем је огледало на GitHub, GitLab, GitFlic и GitVerse ради отпорности и регионалног приступа.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -196,39 +200,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-1" aria-expanded="true" aria-controls="od-acc-helixskills-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-1-panel" role="region" aria-labelledby="od-acc-helixskills-1">
-            <div class="od-accordion__inner">
-      <p>HelixSkills је систем вештина за агенте CLI AI. Уграђује Helix Constitution као подмодул како би сва универзална правила била на снази, а затим испоручује регистроване вештине (акциони префикс, валидатор медија, мултитрак, синхронизацију сесија, животни циклус радних јединица и још много тога), два MCP серверска алата, два Claude додатка за Цоде и поново употребљиве моторе.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-2" aria-expanded="true" aria-controls="od-acc-helixskills-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-2-panel" role="region" aria-labelledby="od-acc-helixskills-2">
-            <div class="od-accordion__inner">
-      <p>HelixSkills (репозиторијум <code>skills</code>, Апацхе-2.0) је систем вештина за агенте CLI AI, а почиње од намерног обрнутог приступа уобичајеном редоследу: управљање долази пре могућности. Наслеђује Helix Constitution као свој <code>constitution/</code> подмодул, тако да се свако универзално правило из <code>constitution/CLAUDE.md</code> и <code>constitution/Constitution.md</code> примењује безусловно — не као конвенција коју агент може поштовати, већ као скуп правила физички уграђених у структуру пројекта. Агент који усвоји HelixSkills не може се одрећи устава; правила путују заједно са кодом.</p>
-      <p>Док већина „оквира за вештине" тргује апстракцијама, HelixSkills испоручује конкретан, регистровани инвентар на који можете указати и инсталирати га. Седам уставних вештина инсталира се преко <code>register.sh</code>: ацтион-prefix-system, медиа-валидатор, мултитрацк, репортинг-workable-итемс, сцхедулед-work-queue, сессион-sync и workable-итем-lifecycle — спектар оцењен од средњег до напредног нивоа, који покрива све од дисциплинованог именовања акција до валидације медија и пуног животног циклуса радне јединице. Додатне вештине у развоју (Android преглед, Java/Kotlin језик, Linux OS) већ су индексиране и припремљене за активацију. Два MCP серверска алата (медиа-валидатор, сцхедулед-work) излажу те вештине агентима преко Model Context Protocol, док два Claude додатка за Цоде (helix, сцхедулед-work) убацују исте могућности директно у радно окружење агента — један скуп вештина, доступан агентима без обзира на то којим интерфејсом комуницирају.</p>
-      <p>Испод каталога налазе се четири поново употребљива мотора првог нивоа — цонтинуум (имплементиран), плус сессион_орцхестратор, токен_оптимизер и цлицкуп_sync (у фази дизајна) — заједничка инфраструктура која спречава да вештине поново измишљају исту основну логику. Само токен_оптимизер декларише експлицитан граф зависности који се протеже до пакета екосистема vasic-digital (ТООН, Ембеддингс, VectorDB, Нормализе, цонверсатион) и HelixDevelopment-овог LLMProvider, тако да је умрежавање између репозиторијума проверљиво, а не имплицитно. Око свега тога функционише дисциплинована документација: каталог вештина, аутоматски генерисан индекс графа вештина, детаљне странице по репозиторијумима и отворен регистар Недостатака и ризика који јасно наводи шта још није урађено. Цео систем је огледало на GitHub, GitLab, GitFlic и GitVerse ради отпорности и регионалног приступа.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-3" aria-expanded="true" aria-controls="od-acc-helixskills-3-panel">
               <span class="od-accordion__label">Зашто смо га изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-3-panel" role="region" aria-labelledby="od-acc-helixskills-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-1-panel" role="region" aria-labelledby="od-acc-helixskills-1">
             <div class="od-accordion__inner">
       <p>Агентима CLI и AI потребне су могућности које су доследне, регулисане и поново употребљиве – а не ад хок скрипте које свака изнова измишљају правила. HelixSkills је створен да агентима пружи пакет регистровивих вештина везаних за заједнички устав, како би понашање остало доследно и проверљиво у сваком агенту и пројекту који га усвоје.</p>
             </div>
@@ -236,12 +212,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-4" aria-expanded="true" aria-controls="od-acc-helixskills-4-panel">
-              <span class="od-accordion__label">Зашто је револуционарно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-2" aria-expanded="true" aria-controls="od-acc-helixskills-2-panel">
+              <span class="od-accordion__label">Скок који пружа</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-4-panel" role="region" aria-labelledby="od-acc-helixskills-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-2-panel" role="region" aria-labelledby="od-acc-helixskills-2">
             <div class="od-accordion__inner">
       <p>Омогућава да способности агента буду преносиве и усклађене с правилима *по самој конструкцији*, а не захваљујући дисциплини. Свака вештина је регулисана, верзионирана и инсталабилна јединица подржана уставним подмодулом – тако да у тренутку када агент региструје вештину, истовремено наслеђује и канонски скуп правила, без могућности одступања. То откључава нешто што раније није било практично: преношење способности с једног агента или пројекта на други уз уверење да она стиже већ везана за исту управу, изложена преко стандардних интерфејса (MCP сервери и Claude Цоде додаци) уместо хрпе прилагођених скрипти које свака изнова дефинишу правила.</p>
             </div>
@@ -249,12 +225,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-5" aria-expanded="true" aria-controls="od-acc-helixskills-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-3" aria-expanded="true" aria-controls="od-acc-helixskills-3-panel">
+              <span class="od-accordion__label">Шта је заиста ново</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-5-panel" role="region" aria-labelledby="od-acc-helixskills-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-3-panel" role="region" aria-labelledby="od-acc-helixskills-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Constitution као подмодул</strong>: универзална управљачка правила се наслеђују, а не копирају – монтирају се у стабло тако да сваки агент који их користи буде везан за исти канонски скуп правила, с ажурирањима која долазе из једног извора истине уместо из десетак застарелих копија.</li>
@@ -267,12 +243,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-6" aria-expanded="true" aria-controls="od-acc-helixskills-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-4" aria-expanded="true" aria-controls="od-acc-helixskills-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-6-panel" role="region" aria-labelledby="od-acc-helixskills-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-4-panel" role="region" aria-labelledby="od-acc-helixskills-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Одржавање доследног и усклађеног понашања агената кроз многе вештине и агенте</strong> – поновна имплементација управљања по вештини гарантује одступање током времена. Решено монтирањем Helix Constitution као подмодула, тако да правила у <code>constitution/CLAUDE.md</code> и <code>constitution/Constitution.md</code> важе безусловно и ажурирају се из једног извора, уместо да се копирају и оставе да застаре.</li>
@@ -284,12 +260,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-7" aria-expanded="true" aria-controls="od-acc-helixskills-7-panel">
-              <span class="od-accordion__label">Технолошки стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-5" aria-expanded="true" aria-controls="od-acc-helixskills-5-panel">
+              <span class="od-accordion__label">Како је изграђено</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-7-panel" role="region" aria-labelledby="od-acc-helixskills-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-5-panel" role="region" aria-labelledby="od-acc-helixskills-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Shell (примарни језик)</strong> — изабран јер алати за инсталацију и регистрацију морају да раде на сваком месту где постоји агент, без потребе за претходним покретањем рунтиме-а; покреће <code>register.sh</code> и <code>install_upstreams</code>, чиме се улазна тачка одржава без зависности и преносивом.</li>
@@ -304,12 +280,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-8" aria-expanded="true" aria-controls="od-acc-helixskills-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-6" aria-expanded="true" aria-controls="od-acc-helixskills-6-panel">
               <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-8-panel" role="region" aria-labelledby="od-acc-helixskills-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-6-panel" role="region" aria-labelledby="od-acc-helixskills-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> Седам уставних вештина, два MCP сервера и два плугина испоручени су; нацртане вештине су индексиране и чекају активацију, а три од четири мотора првог нивоа (сессион_орцхестратор, токен_оптимизер, цлицкуп_sync) још увек су у фази дизајна.</li>

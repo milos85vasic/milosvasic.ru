@@ -2,7 +2,7 @@
 layout: default
 lang: kk
 title: "HelixTranslate — Miloš Vasić"
-description: "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly."
+description: "HelixTranslate — Go негізіндегі жоғары өнімді электрондық кітаптарды аудару платформасы. Ол 100-нан астам тілдер арасында кітаптарды тексерілген LLM провайдерлері арқылы аударады, нақты уақыттағы WebSocket мониторингімен және үнсіз резервтік нұсқаға көшпеу саясатымен жұмыс істейді. Мұндай саясат сәтсіздіктерді ашық түрде көрсетеді, ешқашан бейхабар түрде сапасын төмендетпейді."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly.",
+      "description": "HelixTranslate — Go негізіндегі жоғары өнімді электрондық кітаптарды аудару платформасы. Ол 100-нан астам тілдер арасында кітаптарды тексерілген LLM провайдерлері арқылы аударады, нақты уақыттағы WebSocket мониторингімен және үнсіз резервтік нұсқаға көшпеу саясатымен жұмыс істейді. Мұндай саясат сәтсіздіктерді ашық түрде көрсетеді, ешқашан бейхабар түрде сапасын төмендетпейді.",
       "inLanguage": "kk",
       "name": "HelixTranslate",
       "operatingSystem": "Cross-platform",
@@ -182,6 +182,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Тексерілген модельді кітаптарды аудару — адалдық жобаланған, ешқашан үнсіз резервтік нұсқаға көшпейді.</strong></p>
+      <p class="od-product-detail__lede">Go негізіндегі әмбебап электрондық кітаптарды аудару құралы. FB2, EPUB, TXT, HTML, PDF және DOCX форматтарын 100-нан астам тілге аударады. Тексерілген ең мықты LLM модельдерін (LLMsVerifier көпір арқылы) пайдаланады, REST/HTTP-3 және gRPC API-ларымен, таратылған өңдеу жүйесімен және нақты уақыттағы WebSocket мониторингілік тақтасымен жабдықталған.</p>
+      <p>HelixTranslate — Go негізіндегі кәсіпорын деңгейіндегі жүйе. Ол кітаптарды тілдер арасында аудару үшін LLM провайдерлерін пайдаланады. Бұл жүйе абзацтар немесе үзінділерді емес, кітаптың басынан аяғына дейінгі толық мәтінді аударады. Көптеген электрондық кітап форматтарын (FB2, EPUB, TXT, HTML, PDF, DOCX) талдайды және қайта құрастырады, 100-нан астам тілді автоматты түрде анықтайды, сондай-ақ CLI құралдары мен API серверлерін (REST HTTP/3 арқылы, gRPC және WebSocket оқиғалар ағыны) ұсынады. Бұл жүйе терминалдағы жұмыс ағымына да, сервис торына да бірдей сәйкес келеді.</p>
+      <p>Оның айқын ерекшелігі — *модельді қалай таңдауы*. Провайдерді қатаң түрде белгілеп, оның әрқашан жұмыс істей беретініне үміттену орнына, HelixTranslate барлық модельдерді таңдау билігін LLMsVerifier көпірге (<code>pkg/bridge</code>) тапсырады. Ол ең мықты *тексерілген* API модельді таңдап, анықталған, бағалау бойынша реттелген резервтік тізбек қайтарады. Модельдің жарамдылығы жауапкершілік, код, мүмкіндіктердің байлығы және сенімділік көрсеткіштері бойынша салмақталған бағалау арқылы анықталады. Демек, сіздің аударманы орындайтын модель өз орнын дәлелдеп, жұмыс істейтінін көрсетіп алған, конфигурациялық файлда көрінгені үшін емес.</p>
+      <p>Мәні жағынан, жүйе кодта тікелей "үнсіз резервтік нұсқаға көшпеу" талабын жүзеге асырады: егер провайдердің API кілті жоқ болса немесе оператор қолжетімсіз провайдерді сұраса, жүйе адал қате қайтарады, ешқашан бейхабар түрде провайдерді ауыстырмайды немесе жергілікті орындау ортасына көшіп, барлығы жақсы екендігіне әрекет жасамайды. Бұл ереже арнайы құрылыс алдындағы тексеру арқылы және мутациялық тестпен бекітілген. Жергілікті орындау орталары (Ollama, llama.cpp) әдейі әдепкі жолдан алынып тасталған, бұл тексерілмеген әлсіз модель ешқашан тексерілген модельдің орнына үнсіз түрде тұрып қалмауы үшін жасалған.</p>
+      <p>Аудару ядросының айналасында нақты уақыттағы WebSocket мониторинг жүйесі орналасқан: аударма CLI типтелген оқиғаларды мониторинг серверіне жібереді, ол веб-тақтада тікелей көрсетіледі, ал қашықтағы SSH жұмысшылары жүктемені таратып өңдейді. Жүйеге көп кезеңді өңдеу, сапа талдауының дайындық кезеңі, аудармаларды кешіру (ұзақ мәтіндер үшін шығынды бақылау мақсатында), көруге негізделген сапалық тексеру қосылған. Бүкіл платформа адалдыққа негізделген инженерлік конституцияға бағынады: тесттер нақты, пайдаланушыға көрінетін нәтижелерді дәлелдеуі керек, ал мутациялық тестсіз жасыл белгілер ештеңені дәлелдемейді.</p>
+      <p>Мазмұны</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -199,41 +205,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
-              <span class="od-accordion__label">Қысқаша сипаттама</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
-            <div class="od-accordion__inner">
-      <p>Go негізіндегі әмбебап электрондық кітаптарды аудару құралы. FB2, EPUB, TXT, HTML, PDF және DOCX форматтарын 100-нан астам тілге аударады. Тексерілген ең мықты LLM модельдерін (LLMsVerifier көпір арқылы) пайдаланады, REST/HTTP-3 және gRPC API-ларымен, таратылған өңдеу жүйесімен және нақты уақыттағы WebSocket мониторингілік тақтасымен жабдықталған.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
-              <span class="od-accordion__label">Толық сипаттама</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
-            <div class="od-accordion__inner">
-      <p>HelixTranslate — Go негізіндегі кәсіпорын деңгейіндегі жүйе. Ол кітаптарды тілдер арасында аудару үшін LLM провайдерлерін пайдаланады. Бұл жүйе абзацтар немесе үзінділерді емес, кітаптың басынан аяғына дейінгі толық мәтінді аударады. Көптеген электрондық кітап форматтарын (FB2, EPUB, TXT, HTML, PDF, DOCX) талдайды және қайта құрастырады, 100-нан астам тілді автоматты түрде анықтайды, сондай-ақ CLI құралдары мен API серверлерін (REST HTTP/3 арқылы, gRPC және WebSocket оқиғалар ағыны) ұсынады. Бұл жүйе терминалдағы жұмыс ағымына да, сервис торына да бірдей сәйкес келеді.</p>
-      <p>Оның айқын ерекшелігі — *модельді қалай таңдауы*. Провайдерді қатаң түрде белгілеп, оның әрқашан жұмыс істей беретініне үміттену орнына, HelixTranslate барлық модельдерді таңдау билігін LLMsVerifier көпірге (<code>pkg/bridge</code>) тапсырады. Ол ең мықты *тексерілген* API модельді таңдап, анықталған, бағалау бойынша реттелген резервтік тізбек қайтарады. Модельдің жарамдылығы жауапкершілік, код, мүмкіндіктердің байлығы және сенімділік көрсеткіштері бойынша салмақталған бағалау арқылы анықталады. Демек, сіздің аударманы орындайтын модель өз орнын дәлелдеп, жұмыс істейтінін көрсетіп алған, конфигурациялық файлда көрінгені үшін емес.</p>
-      <p>Мәні жағынан, жүйе кодта тікелей "үнсіз резервтік нұсқаға көшпеу" талабын жүзеге асырады: егер провайдердің API кілті жоқ болса немесе оператор қолжетімсіз провайдерді сұраса, жүйе адал қате қайтарады, ешқашан бейхабар түрде провайдерді ауыстырмайды немесе жергілікті орындау ортасына көшіп, барлығы жақсы екендігіне әрекет жасамайды. Бұл ереже арнайы құрылыс алдындағы тексеру арқылы және мутациялық тестпен бекітілген. Жергілікті орындау орталары (Ollama, llama.cpp) әдейі әдепкі жолдан алынып тасталған, бұл тексерілмеген әлсіз модель ешқашан тексерілген модельдің орнына үнсіз түрде тұрып қалмауы үшін жасалған.</p>
-      <p>Аудару ядросының айналасында нақты уақыттағы WebSocket мониторинг жүйесі орналасқан: аударма CLI типтелген оқиғаларды мониторинг серверіне жібереді, ол веб-тақтада тікелей көрсетіледі, ал қашықтағы SSH жұмысшылары жүктемені таратып өңдейді. Жүйеге көп кезеңді өңдеу, сапа талдауының дайындық кезеңі, аудармаларды кешіру (ұзақ мәтіндер үшін шығынды бақылау мақсатында), көруге негізделген сапалық тексеру қосылған. Бүкіл платформа адалдыққа негізделген инженерлік конституцияға бағынады: тесттер нақты, пайдаланушыға көрінетін нәтижелерді дәлелдеуі керек, ал мутациялық тестсіз жасыл белгілер ештеңені дәлелдемейді.</p>
-      <p>Мазмұны</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
               <span class="od-accordion__label">Неге құрастырдық</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
             <div class="od-accordion__inner">
       <p>Кітап сияқты ұзақ мәтіндерді сенімді және *адал* аудару үшін — "сапасы төмен болса да бар" аударманы ешқашан жібермеу үшін. Жобаның негізгі қағидасы: жоқ немесе тексерілмеген аударма қатты және айқын қате болуы керек, ал модель таңдауы әрқашан нақты тексерілген провайдерге бағытталуы тиіс, ешқашан алдын ала белгіленген болжамға немесе үнсіз жергілікті резервтік нұсқаға ауыспауы керек.</p>
             </div>
@@ -241,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
               <span class="od-accordion__label">Неге бұл өзгерістің бастамасы</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
             <div class="od-accordion__inner">
       <p>LLM аударма құбырларының көпшілігі үнсіз істен шығады — олар әлсіз модельге тыныш ауысады, жергілікті орындау ортасына түседі немесе толық емес нәтиже шығарады, ал сынақ жинағы жасыл түспен жанып тұрады да, ешкім сападағы күрт құлдырауды байқамайды. HelixTranslate осы бүкіл істен шығу режимін құрылымдық түрде мүмкін етпейді: модель таңдауы тексеру арқылы бақыланады, резервтік тізбек анықталған және толық ашық, ал "кілт жоқ / тексерілген модель жоқ" жағдайы үнсіз шартсыз қатеге әкеледі, емес "бәрібір" деген көзқарасқа. Бұл жалғыз жобалау шешімі "осы аударма шынымен қабілетті, тексерілген модельде орындалды ма?" деген сұрақты тексеру мүмкін емес үміттен жүйенің өз тарапынан кепілдік берілетін кепілдікке айналдырады.</p>
             </div>
@@ -254,12 +230,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
               <span class="od-accordion__label">Қандай жаңалықтар бар</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Тексеру арқылы бақыланатын модель маршруттауы</strong> LLMsVerifier көпір арқылы жүзеге асырылады — ең мықты *тексерілген* модель автоматты түрде таңдалады, сондықтан операторлар мақсатты көрсетеді, провайдер атауларын емес, және ешқашан тоқтап қалуы мүмкін провайдерді қолмен таңдамайды.</li>
@@ -274,12 +250,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
               <span class="od-accordion__label">Ең үлкен техникалық қиындықтар және оларды қалай шештік</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Адал аударма құбырының кепілдігін беру (үнсіз құлдыраусыз).</strong> Барлық модельдердің билігін LLMsVerifier көпірінде орталықтандыру арқылы шешілді, сондықтан бақылау үшін бір ғана шешім нүктесі бар, төрт анық маршруттау тармағы әрқайсысы болжаудың орнына қатты қате шығарады, жергілікті орындау резервтік нұсқалары әдепкі жолдан толығымен алынып тасталды, ал ережені құрастыру қақпасы және мутациялық сынақ арқылы бекітілді, егер кепілдік бұзылса, құрастыру сәтсіз болады.</li>
@@ -292,12 +268,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-7" aria-expanded="true" aria-controls="od-acc-helixtranslate-7-panel">
-              <span class="od-accordion__label">Технологиялық стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+              <span class="od-accordion__label">Инженерлік стек</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-7-panel" role="region" aria-labelledby="od-acc-helixtranslate-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — таңдалды, себебі оның параллелділік примитивтері таралымды, аударманы және көптеген тарауларды бір мезгілде ағылшыннан ағытуды табиғи түрде қолдайды; жоғары параллелділік артқы жағы, <code>digital.vasic.translator</code> модулі.</li>
@@ -318,12 +294,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-8" aria-expanded="true" aria-controls="od-acc-helixtranslate-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
               <span class="od-accordion__label">Жүйенің жағдайы мен адалдық ескертпелері</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-8-panel" role="region" aria-labelledby="od-acc-helixtranslate-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Жағдайы: бета.</strong> Жұмыс істейтін платформа; нұсқасы <code>VERSION</code>/Makefile/<code>AGENTS.md</code> файлдарында әртүрлі көрсетілген, сондықтан тұрақсыз деп есептеледі.</li>

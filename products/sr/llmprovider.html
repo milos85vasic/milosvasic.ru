@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "LLMProvider — Miloš Vasić"
-description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+description: "LLMProvider је генерички, вишекратно употребљив модул Go који дефинише уједињени интерфејс LLMProvider, заједно са обрасцима отпорности на грешке — прекидачем струјног кола, мониторингом здравља, поновним покушајима са експоненцијалним одлагањем, лењим учитавањем — и испоручује 43 конкретне имплементације провајдера иза тог једног уговора, уз генерички адаптер компатибилан са OpenAI и поштеним, без унапред кодираних резервних решења за откривање модела."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "description": "LLMProvider је генерички, вишекратно употребљив модул Go који дефинише уједињени интерфејс LLMProvider, заједно са обрасцима отпорности на грешке — прекидачем струјног кола, мониторингом здравља, поновним покушајима са експоненцијалним одлагањем, лењим учитавањем — и испоручује 43 конкретне имплементације провајдера иза тог једног уговора, уз генерички адаптер компатибилан са OpenAI и поштеним, без унапред кодираних резервних решења за откривање модела.",
       "inLanguage": "sr",
       "name": "LLMProvider",
       "operatingSystem": "Cross-platform",
@@ -185,6 +185,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Један интерфејс, 43 провајдера — са уграђеним прекидачима струјног кола, поновним покушајима и мониторингом здравља.</strong></p>
+      <p class="od-product-detail__lede">Вишепут употребљив модул Go који излаже један интерфејс <code>LLMProvider</code> (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) заједно са примитивима за толеранцију грешака — прекидачем струјног кола, монитором здравља, поновним покушајима са експоненцијалним одлагањем и насумичним кашњењем, лењом иницијализацијом — преко 43 адаптера провајдера и генеричког адаптера компатибилног са OpenAI. Безбедан за рад у више нити.</p>
+      <p>LLMProvider је апстракциони слој који свака услуга која користи LLM треба, али га готово нико не гради како треба — неугледна инфраструктура која раздваја демонстрацију од система који преживљава контакт са стварним саобраћајем. Дефинише један интерфејс свестан могућности — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — тако да апликативни код циља тачно један уговор, без обзира који од 43 позадинска система одговара на позив, а затим испоручује оперативно учвршћивање које претвара крхке позиве провајдера у нешто што можете покренути у продукцији без задржавања даха. Тростањни прекидач струјног кола (затворен → отворен → полу-отворен) транспарентно обавија било ког провајдера — *укључујући и његов стреаминг канал*, где се празан ток исправно рачуна као грешка — тако да један лоше понашајући позадински систем може да активира прекидач и спречи да обори целу услугу; централни <code>CircuitBreakerManager</code> прати све прекидаче одједном. Конфигурабилни монитор здравља континуирано проверава провајдере кроз стања здраво / деградирано / нездраво / непознато на основу провера са праговима и интервалима, тако да се деградација уочава, а не открива тек када дође до прекида у раду. Логика поновних покушаја комбинује експоненцијално одлагање са насумичним кашњењем, доносећи одлуке на основу статуса — понавља грешке вредне понављања (429, 5xx, пролазне мрежне грешке), никада не троши ресурсе на 4xx или отказани контекст — са ограниченим кашњењима како би се спречила олуја одлагања. Лења иницијализација одлаже конструкцију сваког провајдера до његове прве стварне употребе — намерни дизајнерски избор који чини регистрацију свих 43 провајдера практично бесплатном.</p>
+      <p>Модул испоручује 43 конкретна пакета провајдера уз генерички адаптер компатибилан са OpenAI, који имплементира цео интерфејс за *било који* ендпоинт <code>/v1/chat/completions</code> — аутентификацију путем Беарер токена, SSE стреаминг са исправним руковањем <code>[DONE]</code> — тако да провајдер без наменског пакета и даље постаје првокласни грађанин чим адаптер усмерите на његов URL. Креденцијали се разрешавају на тачно једном месту (<code>apikeys</code>, користећи стриктну конвенцију <code>ApiKey_&lt;Provider&gt;</code>), чиме се на извору затвара цела класа грешака типа „хардкодирани кључ пролази тестове, прави кључ није повезан, производ отказује у продукцији". Откривање модела је намерно, готово упорно поштено: испитује живе API-је провајдера иза кеша са ограниченим трајањем, а — према правилима управљања — стари слој са хардкодираним резервним решењима је потпуно уклоњен. Када откривање уживо не успе, LLMProvider не враћа *ништа* уместо застарелог каталога, тако да позивалац никада не добије ИД модела који изгледа валидно, а затим се не може позвати. Сваки део овог система направљен је да буде безбедан за рад у више нити.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -202,38 +205,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
-            <div class="od-accordion__inner">
-      <p>Вишепут употребљив модул Go који излаже један интерфејс <code>LLMProvider</code> (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) заједно са примитивима за толеранцију грешака — прекидачем струјног кола, монитором здравља, поновним покушајима са експоненцијалним одлагањем и насумичним кашњењем, лењом иницијализацијом — преко 43 адаптера провајдера и генеричког адаптера компатибилног са OpenAI. Безбедан за рад у више нити.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
-            <div class="od-accordion__inner">
-      <p>LLMProvider је апстракциони слој који свака услуга која користи LLM треба, али га готово нико не гради како треба — неугледна инфраструктура која раздваја демонстрацију од система који преживљава контакт са стварним саобраћајем. Дефинише један интерфејс свестан могућности — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — тако да апликативни код циља тачно један уговор, без обзира који од 43 позадинска система одговара на позив, а затим испоручује оперативно учвршћивање које претвара крхке позиве провајдера у нешто што можете покренути у продукцији без задржавања даха. Тростањни прекидач струјног кола (затворен → отворен → полу-отворен) транспарентно обавија било ког провајдера — *укључујући и његов стреаминг канал*, где се празан ток исправно рачуна као грешка — тако да један лоше понашајући позадински систем може да активира прекидач и спречи да обори целу услугу; централни <code>CircuitBreakerManager</code> прати све прекидаче одједном. Конфигурабилни монитор здравља континуирано проверава провајдере кроз стања здраво / деградирано / нездраво / непознато на основу провера са праговима и интервалима, тако да се деградација уочава, а не открива тек када дође до прекида у раду. Логика поновних покушаја комбинује експоненцијално одлагање са насумичним кашњењем, доносећи одлуке на основу статуса — понавља грешке вредне понављања (429, 5xx, пролазне мрежне грешке), никада не троши ресурсе на 4xx или отказани контекст — са ограниченим кашњењима како би се спречила олуја одлагања. Лења иницијализација одлаже конструкцију сваког провајдера до његове прве стварне употребе — намерни дизајнерски избор који чини регистрацију свих 43 провајдера практично бесплатном.</p>
-      <p>Модул испоручује 43 конкретна пакета провајдера уз генерички адаптер компатибилан са OpenAI, који имплементира цео интерфејс за *било који* ендпоинт <code>/v1/chat/completions</code> — аутентификацију путем Беарер токена, SSE стреаминг са исправним руковањем <code>[DONE]</code> — тако да провајдер без наменског пакета и даље постаје првокласни грађанин чим адаптер усмерите на његов URL. Креденцијали се разрешавају на тачно једном месту (<code>apikeys</code>, користећи стриктну конвенцију <code>ApiKey_&lt;Provider&gt;</code>), чиме се на извору затвара цела класа грешака типа „хардкодирани кључ пролази тестове, прави кључ није повезан, производ отказује у продукцији". Откривање модела је намерно, готово упорно поштено: испитује живе API-је провајдера иза кеша са ограниченим трајањем, а — према правилима управљања — стари слој са хардкодираним резервним решењима је потпуно уклоњен. Када откривање уживо не успе, LLMProvider не враћа *ништа* уместо застарелог каталога, тако да позивалац никада не добије ИД модела који изгледа валидно, а затим се не може позвати. Сваки део овог система направљен је да буде безбедан за рад у више нити.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">Зашто смо га изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
             <div class="od-accordion__inner">
       <p>Наивни позиви LLM у продукцији отказују — провајдери ограничавају брзину, деградирају или падају, а један лош бацкенд може повући читаву услугу са собом. Каталози модела се мењају, а хардкодиране листе прослеђују позиваоцима ИД-еве који више не раде. LLMProvider централизује интерфејс, обрасце отпорности и поуздано откривање, тако да сваки потрошач аутоматски наслеђује толеранцију на грешке и истинитост.</p>
             </div>
@@ -241,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
             <div class="od-accordion__inner">
       <p>Смањује „интеграцију провајдера LLM" на један једини потез — имплементирајте један интерфејс или једноставно усмерите генерички адаптер на крајњу тачку — а затим тај провајдер аутоматски и транспарентно обавијају прекидач кола, праћење здравља и поновни покушаји са експоненцијалним одлагањем и насумичним кашњењем. Отпорност престаје да буде нешто што сваки тим поново измишља (лоше, под притиском рока, након првог пада) и постаје подразумевано понашање библиотеке за свих 43 бацкенда. Инжењеринг поузданости је написан једном, строго тестиран и бесплатно наслеђен од сваког ко га увози.</p>
             </div>
@@ -254,12 +230,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
+              <span class="od-accordion__label">Шта је заиста ново</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Један интерфејс свестан могућности</strong> — комплетирање, стримовање, здравље, могућности и валидација конфигурације сведени на један уговор који сваки бацкенд поштује на идентичан начин.</li>
@@ -275,12 +251,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Каскадне грешке провајдера.</strong> Један нестабилан бацкенд не сме повући читаву услугу са собом. Решено тростањим прекидачем кола (затворен → отворен → полуотворен) који транспарентно обавија било ког провајдера *и његов стрим*, отвара се при трајном отказу, испитује опоравак у полуотвореном стању и централно координира <code>CircuitBreakerManager</code>.</li>
@@ -294,12 +270,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
-              <span class="od-accordion__label">Технолошки стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+              <span class="od-accordion__label">Како је изграђено</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25.3)</strong> — изабран због врхунске конкурентности, статичких бинарних фајлова и снажне стандардне библиотеке; садржи модул, интерфејс, све примитиве за отпорност и свих 43 адаптера.</li>
@@ -317,12 +293,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
               <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> Одвојени, поново употребљиви модул; репозиторијум GitHub је јавно доступан.</li>

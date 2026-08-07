@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "HelixGitpx — Miloš Vasić"
-description: "HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA."
+description: "HelixGitpx (Helix Git Proxy eXtended) es un proxy federado de Git que mantiene una única fuente de verdad reflejada en múltiples hosts Git upstream y resuelve los inevitables conflictos mediante flujos asistidos por políticas y AI. Ha alcanzado la versión v1.0.0 GA."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixgitpx.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixgitpx.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixGitpx (Helix Git Proxy eXtended) is a federated Git proxy that keeps a single source of truth mirrored across many upstream Git hosts and resolves the inevitable conflicts with policy- and AI-assisted flows. It reached v1.0.0 GA.",
+      "description": "HelixGitpx (Helix Git Proxy eXtended) es un proxy federado de Git que mantiene una única fuente de verdad reflejada en múltiples hosts Git upstream y resuelve los inevitables conflictos mediante flujos asistidos por políticas y AI. Ha alcanzado la versión v1.0.0 GA.",
       "inLanguage": "es",
       "name": "HelixGitpx",
       "operatingSystem": "Cross-platform",
@@ -189,56 +189,20 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Una única fuente de verdad, reflejada en todas partes — Git federado en una docena de hosts.</strong></p>
+      <p class="od-product-detail__lede">HelixGitpx es un proxy federado de Git que refleja una única fuente de verdad en más de una docena de hosts Git —GitHub, GitLab, Gitea, Bitbucket, Azure DevOps, AWS CodeCommit y otros— y resuelve los conflictos de sincronización mediante flujos asistidos por políticas y AI. Lanzado como v1.0.0 GA.</p>
+      <p>HelixGitpx (Helix Git Proxy eXtended) es un proxy federado de Git que mantiene una única fuente de verdad reflejada en múltiples hosts Git upstream y resuelve los inevitables conflictos mediante flujos asistidos por políticas y AI. Ha alcanzado la versión v1.0.0 GA.</p>
+      <p>HelixGitpx —"Helix Git Proxy eXtended"— es un proxy federado de Git que mantiene una única fuente de verdad reflejada en múltiples hosts Git upstream y resuelve los conflictos que surgen inevitablemente cuando un mismo repositorio existe en más de un lugar. Sus upstreams compatibles abarcan todo el ecosistema Git: GitHub, GitLab, GitFlic, GitVerse, Gitea, Gitee, Bitbucket, Azure DevOps, AWS CodeCommit, Forgejo, SourceHut y Git genérico sobre HTTPS. Mientras que un <code>git push</code> ingenuo a una docena de remotos fallaría directamente o, peor aún, permitiría que los espejos divergieran en silencio, HelixGitpx interviene con flujos de resolución asistidos por políticas y AI que reconcilian las divergencias para restablecer una única verdad autoritativa.</p>
+      <p>El proyecto se encuentra en la versión v1.0.0 GA, con hitos etiquetados desde <code>m1-foundation</code> hasta <code>m8-ga</code> —un camino completamente trazado desde los cimientos hasta la disponibilidad general—. Está diseñado en tres capas de un mismo producto: un monorepo Go (una plataforma con dieciocho servicios, herramientas de generación de código y andamiaje) que alberga el motor de federación; una aplicación web Angular 19 + Nx; y shells cliente Kotlin-Multiplatform + Compose que ofrecen experiencias nativas para Android, iOS y escritorio a partir de código compartido. La entrega de la plataforma es nativa de Kubernetes en su núcleo —gráficos Helm, aplicaciones Argo CD, superposiciones Kustomize, SQL y políticas OPA—, con pipelines de CI protegidos por un despacho explícito para evitar despliegues accidentales. La documentación pública se distribuye como un sitio Docusaurus (docs.helixgitpx.io), junto a un sitio de marketing en Astro (helixgitpx.io).</p>
+      <p>La gobernanza es estricta y basada en una constitución, y esto es una característica, no un formalismo: el documento fundamental es el Constitution del proyecto, cuyo Artículo II exige una matriz de pruebas de siete tipos con cobertura del 100% *por tipo y por módulo modificado*, permitiendo mocks solo en pruebas unitarias y sin tolerar ni una sola prueba omitida. Un verificador de un solo uso ejecuta todas las comprobaciones de artefactos junto con <code>go vet</code> y <code>go test</code> en todo el espacio de trabajo, y cada push se propaga a todos los upstreams configurados —de modo que "los espejos están sincronizados" es algo que el sistema garantiza en cada commit, en lugar de algo que un humano debe recordar verificar.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-0" aria-expanded="true" aria-controls="od-acc-helixgitpx-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">El problema que nos propusimos resolver</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-0-panel" role="region" aria-labelledby="od-acc-helixgitpx-0">
-            <div class="od-accordion__inner">
-      <p>HelixGitpx (Helix Git Proxy eXtended) es un proxy federado de Git que mantiene una única fuente de verdad reflejada en múltiples hosts Git upstream y resuelve los inevitables conflictos mediante flujos asistidos por políticas y AI. Ha alcanzado la versión v1.0.0 GA.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-1" aria-expanded="true" aria-controls="od-acc-helixgitpx-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-1-panel" role="region" aria-labelledby="od-acc-helixgitpx-1">
-            <div class="od-accordion__inner">
-      <p>HelixGitpx es un proxy federado de Git que refleja una única fuente de verdad en más de una docena de hosts Git —GitHub, GitLab, Gitea, Bitbucket, Azure DevOps, AWS CodeCommit y otros— y resuelve los conflictos de sincronización mediante flujos asistidos por políticas y AI. Lanzado como v1.0.0 GA.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-2" aria-expanded="true" aria-controls="od-acc-helixgitpx-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-2-panel" role="region" aria-labelledby="od-acc-helixgitpx-2">
-            <div class="od-accordion__inner">
-      <p>HelixGitpx —"Helix Git Proxy eXtended"— es un proxy federado de Git que mantiene una única fuente de verdad reflejada en múltiples hosts Git upstream y resuelve los conflictos que surgen inevitablemente cuando un mismo repositorio existe en más de un lugar. Sus upstreams compatibles abarcan todo el ecosistema Git: GitHub, GitLab, GitFlic, GitVerse, Gitea, Gitee, Bitbucket, Azure DevOps, AWS CodeCommit, Forgejo, SourceHut y Git genérico sobre HTTPS. Mientras que un <code>git push</code> ingenuo a una docena de remotos fallaría directamente o, peor aún, permitiría que los espejos divergieran en silencio, HelixGitpx interviene con flujos de resolución asistidos por políticas y AI que reconcilian las divergencias para restablecer una única verdad autoritativa.</p>
-      <p>El proyecto se encuentra en la versión v1.0.0 GA, con hitos etiquetados desde <code>m1-foundation</code> hasta <code>m8-ga</code> —un camino completamente trazado desde los cimientos hasta la disponibilidad general—. Está diseñado en tres capas de un mismo producto: un monorepo Go (una plataforma con dieciocho servicios, herramientas de generación de código y andamiaje) que alberga el motor de federación; una aplicación web Angular 19 + Nx; y shells cliente Kotlin-Multiplatform + Compose que ofrecen experiencias nativas para Android, iOS y escritorio a partir de código compartido. La entrega de la plataforma es nativa de Kubernetes en su núcleo —gráficos Helm, aplicaciones Argo CD, superposiciones Kustomize, SQL y políticas OPA—, con pipelines de CI protegidos por un despacho explícito para evitar despliegues accidentales. La documentación pública se distribuye como un sitio Docusaurus (docs.helixgitpx.io), junto a un sitio de marketing en Astro (helixgitpx.io).</p>
-      <p>La gobernanza es estricta y basada en una constitución, y esto es una característica, no un formalismo: el documento fundamental es el Constitution del proyecto, cuyo Artículo II exige una matriz de pruebas de siete tipos con cobertura del 100% *por tipo y por módulo modificado*, permitiendo mocks solo en pruebas unitarias y sin tolerar ni una sola prueba omitida. Un verificador de un solo uso ejecuta todas las comprobaciones de artefactos junto con <code>go vet</code> y <code>go test</code> en todo el espacio de trabajo, y cada push se propaga a todos los upstreams configurados —de modo que "los espejos están sincronizados" es algo que el sistema garantiza en cada commit, en lugar de algo que un humano debe recordar verificar.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-3" aria-expanded="true" aria-controls="od-acc-helixgitpx-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-3-panel" role="region" aria-labelledby="od-acc-helixgitpx-3">
             <div class="od-accordion__inner">
       <p>Mantener un repositorio auténtico en múltiples hosts Git —ya sea por redundancia, soberanía o acceso a plataformas regionales— es frágil y manual, y los espejos divergentes son difíciles de reconciliar. HelixGitpx se creó para convertir el mirroring multi-upstream en una capacidad de primera clase, consciente de los conflictos.</p>
             </div>
@@ -246,12 +210,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-4" aria-expanded="true" aria-controls="od-acc-helixgitpx-4-panel">
-              <span class="od-accordion__label">Por qué es un cambio de juego</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-1" aria-expanded="true" aria-controls="od-acc-helixgitpx-1-panel">
+              <span class="od-accordion__label">El salto que ofrece</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-4-panel" role="region" aria-labelledby="od-acc-helixgitpx-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-1-panel" role="region" aria-labelledby="od-acc-helixgitpx-1">
             <div class="od-accordion__inner">
       <p>Transforma el modelo de "enviar a muchos remotos y esperar" —el frágil *statu quo* manual— en una federación gobernada con una única fuente autoritativa de verdad y resolución automatizada de conflictos basada en políticas y AI. Y lo logra abarcando un conjunto inusualmente amplio de hosts, incluyendo deliberadamente las plataformas regionales (GitFlic, GitVerse, Gitee) que la mayoría de las herramientas ignoran sin hacer ruido, de modo que la redundancia, la soberanía de datos y el alcance en esos ecosistemas dejan de ser una carga de mantenimiento para convertirse en una única capacidad que configuras una sola vez.</p>
             </div>
@@ -259,12 +223,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-5" aria-expanded="true" aria-controls="od-acc-helixgitpx-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-2" aria-expanded="true" aria-controls="od-acc-helixgitpx-2-panel">
               <span class="od-accordion__label">Qué hay de innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-5-panel" role="region" aria-labelledby="od-acc-helixgitpx-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-2-panel" role="region" aria-labelledby="od-acc-helixgitpx-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Amplitud de *upstreams</strong>* — más de una docena de hosts de Git, desde GitHub y GitLab hasta plataformas regionales como GitFlic, GitVerse y Gitee, todos normalizados tras un único proxy.</li>
@@ -277,12 +241,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-6" aria-expanded="true" aria-controls="od-acc-helixgitpx-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-3" aria-expanded="true" aria-controls="od-acc-helixgitpx-3-panel">
               <span class="od-accordion__label">Principales desafíos técnicos y cómo los resolvimos</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-6-panel" role="region" aria-labelledby="od-acc-helixgitpx-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-3-panel" role="region" aria-labelledby="od-acc-helixgitpx-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Divergencias y conflictos entre múltiples *upstreams</strong>*. Un mismo repositorio alojado en una docena de lugares se desvía en cuanto dos hosts aceptan cambios distintos. Solucionado con flujos de resolución asistidos por políticas y AI, anclados a una única fuente de verdad, junto con un *push* sincronizado a todos los *upstreams* que mantiene cada espejo convergiendo hacia esa única verdad.</li>
@@ -294,12 +258,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-7" aria-expanded="true" aria-controls="od-acc-helixgitpx-7-panel">
-              <span class="od-accordion__label">Pila tecnológica</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-4" aria-expanded="true" aria-controls="od-acc-helixgitpx-4-panel">
+              <span class="od-accordion__label">Cómo está construido</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-7-panel" role="region" aria-labelledby="od-acc-helixgitpx-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-4-panel" role="region" aria-labelledby="od-acc-helixgitpx-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Monorrepositorio Go</strong> — el núcleo del proxy y el motor de federación: una plataforma más 18 servicios, generación de código y *scaffolding*, mantenidos en un solo repositorio para que todo el motor se compile y pruebe como una unidad.</li>
@@ -315,12 +279,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-8" aria-expanded="true" aria-controls="od-acc-helixgitpx-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixgitpx-5" aria-expanded="true" aria-controls="od-acc-helixgitpx-5-panel">
               <span class="od-accordion__label">Notas sobre estado y honestidad</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-8-panel" role="region" aria-labelledby="od-acc-helixgitpx-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixgitpx-5-panel" role="region" aria-labelledby="od-acc-helixgitpx-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Estado: enviado.</strong> El archivo README del proyecto declara la versión v1.0.0 GA con los hitos etiquetados desde <code>m1-foundation</code> hasta <code>m8-ga</code>. ("v1.0.0 GA" es la declaración del propio README del proyecto).</li>

@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "LLMProvider — Miloš Vasić"
-description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+description: "LLMProvider — гэта ўніверсальны, паўторна выкарыстоўваемы модуль Go, які вызначае адзіны інтэрфейс LLMProvider разам з прадукцыйнымі шаблонамі адмоваўстойлівасці — засцерагальнік, маніторынг стану, паўтор з затрымкай, лянівая загрузка — і пастаўляе 43 канкрэтныя рэалізацыі пастаўшчыкоў за адным кантрактам, з універсальным адаптарам, сумяшчальным з OpenAI, і сумленным, без жорстка зашытых запасных варыянтаў, механізмам выяўлення мадэляў."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "description": "LLMProvider — гэта ўніверсальны, паўторна выкарыстоўваемы модуль Go, які вызначае адзіны інтэрфейс LLMProvider разам з прадукцыйнымі шаблонамі адмоваўстойлівасці — засцерагальнік, маніторынг стану, паўтор з затрымкай, лянівая загрузка — і пастаўляе 43 канкрэтныя рэалізацыі пастаўшчыкоў за адным кантрактам, з універсальным адаптарам, сумяшчальным з OpenAI, і сумленным, без жорстка зашытых запасных варыянтаў, механізмам выяўлення мадэляў.",
       "inLanguage": "be",
       "name": "LLMProvider",
       "operatingSystem": "Cross-platform",
@@ -185,6 +185,10 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Адзін інтэрфейс, 43 пастаўшчыкі — з аўтаматычнымі засцерагальнікамі, паўторамі і маніторынгам стану.</strong></p>
+      <p class="od-product-detail__lede">Паўторна выкарыстоўваемы модуль Go, які прапануе адзін інтэрфейс <code>LLMProvider</code> (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) разам з прымітывамі адмоваўстойлівасці — засцерагальнік, манітор стану, паўтор з затрымкай і выпадковым адхіленнем, лянівая ініцыялізацыя — для 43 адаптараў пастаўшчыкоў і ўніверсальнага адаптара, сумяшчальнага з OpenAI. Паточна-бяспечны.</p>
+      <p>LLMProvider — гэта той абстракцыйны слой, які патрэбен кожнай службе, што спажывае LLM, але які амаль ніхто не стварае належным чынам — непаказная «сантэхніка», што адлучае дэманстрацыю ад сістэмы, якая здольна вытрымаць сутыкненне з рэальным трафікам. Ён вызначае адзіны інтэрфейс, які ўлічвае магчымасці — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — каб прыкладны код меў справу з адным кантрактам незалежна ад таго, які з 43 бэкэндаў адказвае на запыт, а затым дадае аперацыйнае ўмацаванне, якое ператварае кволыя звароты да пастаўшчыкоў у нешта, што можна запускаць у прадукцыйным асяроддзі без затайвання дыхання. Трохстадыйны засцерагальнік (закрыты → адкрыты → паўадкрыты) празрыста абгортвае любога пастаўшчыка — *уключаючы яго струменевы канал*, дзе пусты струмень правільна лічыцца памылкай — каб адзін нестабільны бэкэнд мог спрацаваць і спыніць падзенне ўсёй службы; цэнтральны <code>CircuitBreakerManager</code> адсочвае ўсе засцерагальнікі адначасова. Канфігураваны манітор стану бесперапынна правярае пастаўшчыкоў на станы «здаровы» / «дэградаваны» / «нездаровы» / «невядомы» паводле парогавых значэнняў і інтэрвалаў, каб дэградацыя фіксавалася, а не выяўлялася праз адмову. Логіка паўтораў накладае экспаненцыяльную затрымку з выпадковым адхіленнем, прымаючы рашэнні на аснове статусу — паўтараць варта толькі тыя памылкі, якія варта паўтараць (429, 5xx, часовыя сеткавыя збоі), і ніколі не марнаваць цыклы на 4xx ці адменены кантэкст — з абмежаваннем затрымак, каб шторм паўтораў не выйшаў з-пад кантролю. А шаблон лянівай ініцыялізацыі адкладае стварэнне кожнага пастаўшчыка да яго першага рэальнага выкарыстання — наўмыснае рашэнне, якое робіць рэгістрацыю ўсіх 43 пастаўшчыкоў фактычна бясплатнай.</p>
+      <p>Модуль пастаўляе 43 канкрэтныя пакеты пастаўшчыкоў разам з <code>generic</code> адаптарам, сумяшчальным з OpenAI, які рэалізуе поўны інтэрфейс для *любога* канцавога пункта <code>/v1/chat/completions</code> — аўтэнтыфікацыя праз Bearer, струменевая перадача праз SSE з карэктнай апрацоўкай <code>[DONE]</code> — каб пастаўшчык без прысвечанага пакета заставаўся поўнапраўным удзельнікам з моманту накіравання адаптара на яго URL. Крэдыты вызначаюцца ў адным месцы (<code>apikeys</code>, з выкарыстаннем строгай канвенцыі <code>ApiKey_&lt;Provider&gt;</code>), што выключае ўвесь клас памылак тыпу «жорстка зашыты ключ прайшоў тэсты, а рэальны ключ так і не падключыўся, і прадукт зламаўся ў прадзе». Выяўленне мадэляў наўмысна, амаль упарта сумленнае: яно запытвае жывыя API пастаўшчыкаў праз кэш з абмежаваннем часу жыцця, і — згодна з кіраваннем — стары ўзровень жорстка зашытых запасных варыянтаў быў цалкам выдалены. Калі жывое выяўленне не спрацоўвае, LLMProvider не вяртае *нічога* замест састарэлага каталога, каб кліенту ніколі не трапіў ідэнтыфікатар мадэлі, які выглядае сапраўдным, але не можа быць выкліканы. Усе элементы створаны паточна-бяспечнымі для канкурэнтнага выкарыстання.</p>
+      <p>Змесціва</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -202,39 +206,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
-            <div class="od-accordion__inner">
-      <p>Паўторна выкарыстоўваемы модуль Go, які прапануе адзін інтэрфейс <code>LLMProvider</code> (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) разам з прымітывамі адмоваўстойлівасці — засцерагальнік, манітор стану, паўтор з затрымкай і выпадковым адхіленнем, лянівая ініцыялізацыя — для 43 адаптараў пастаўшчыкоў і ўніверсальнага адаптара, сумяшчальнага з OpenAI. Паточна-бяспечны.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
-            <div class="od-accordion__inner">
-      <p>LLMProvider — гэта той абстракцыйны слой, які патрэбен кожнай службе, што спажывае LLM, але які амаль ніхто не стварае належным чынам — непаказная «сантэхніка», што адлучае дэманстрацыю ад сістэмы, якая здольна вытрымаць сутыкненне з рэальным трафікам. Ён вызначае адзіны інтэрфейс, які ўлічвае магчымасці — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — каб прыкладны код меў справу з адным кантрактам незалежна ад таго, які з 43 бэкэндаў адказвае на запыт, а затым дадае аперацыйнае ўмацаванне, якое ператварае кволыя звароты да пастаўшчыкоў у нешта, што можна запускаць у прадукцыйным асяроддзі без затайвання дыхання. Трохстадыйны засцерагальнік (закрыты → адкрыты → паўадкрыты) празрыста абгортвае любога пастаўшчыка — *уключаючы яго струменевы канал*, дзе пусты струмень правільна лічыцца памылкай — каб адзін нестабільны бэкэнд мог спрацаваць і спыніць падзенне ўсёй службы; цэнтральны <code>CircuitBreakerManager</code> адсочвае ўсе засцерагальнікі адначасова. Канфігураваны манітор стану бесперапынна правярае пастаўшчыкоў на станы «здаровы» / «дэградаваны» / «нездаровы» / «невядомы» паводле парогавых значэнняў і інтэрвалаў, каб дэградацыя фіксавалася, а не выяўлялася праз адмову. Логіка паўтораў накладае экспаненцыяльную затрымку з выпадковым адхіленнем, прымаючы рашэнні на аснове статусу — паўтараць варта толькі тыя памылкі, якія варта паўтараць (429, 5xx, часовыя сеткавыя збоі), і ніколі не марнаваць цыклы на 4xx ці адменены кантэкст — з абмежаваннем затрымак, каб шторм паўтораў не выйшаў з-пад кантролю. А шаблон лянівай ініцыялізацыі адкладае стварэнне кожнага пастаўшчыка да яго першага рэальнага выкарыстання — наўмыснае рашэнне, якое робіць рэгістрацыю ўсіх 43 пастаўшчыкоў фактычна бясплатнай.</p>
-      <p>Модуль пастаўляе 43 канкрэтныя пакеты пастаўшчыкоў разам з <code>generic</code> адаптарам, сумяшчальным з OpenAI, які рэалізуе поўны інтэрфейс для *любога* канцавога пункта <code>/v1/chat/completions</code> — аўтэнтыфікацыя праз Bearer, струменевая перадача праз SSE з карэктнай апрацоўкай <code>[DONE]</code> — каб пастаўшчык без прысвечанага пакета заставаўся поўнапраўным удзельнікам з моманту накіравання адаптара на яго URL. Крэдыты вызначаюцца ў адным месцы (<code>apikeys</code>, з выкарыстаннем строгай канвенцыі <code>ApiKey_&lt;Provider&gt;</code>), што выключае ўвесь клас памылак тыпу «жорстка зашыты ключ прайшоў тэсты, а рэальны ключ так і не падключыўся, і прадукт зламаўся ў прадзе». Выяўленне мадэляў наўмысна, амаль упарта сумленнае: яно запытвае жывыя API пастаўшчыкаў праз кэш з абмежаваннем часу жыцця, і — згодна з кіраваннем — стары ўзровень жорстка зашытых запасных варыянтаў быў цалкам выдалены. Калі жывое выяўленне не спрацоўвае, LLMProvider не вяртае *нічога* замест састарэлага каталога, каб кліенту ніколі не трапіў ідэнтыфікатар мадэлі, які выглядае сапраўдным, але не можа быць выкліканы. Усе элементы створаны паточна-бяспечнымі для канкурэнтнага выкарыстання.</p>
-      <p>Змесціва</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
             <div class="od-accordion__inner">
       <p>Наіўныя званкі LLM правальваюцца на прадукцыйным узроўні — правайдэры абмяжоўваюць хуткасць, дэградаюць ці зусім падаюць, і адзін дрэнны бэкэнд можа пахаваць з сабой усю службу. Каталогі мадэляў змяняюцца, а жорстка запісаныя спісы перадаюць кліентам ідэнтыфікатары, якія ўжо не працуюць. LLMProvider цэнтралізуе інтэрфейс, шаблоны адмоваўстойлівасці і сумленнае выяўленне, каб кожны спажывец атрымліваў устойлівасць да збояў і дакладнасць бясплатна.</p>
             </div>
@@ -242,12 +218,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
               <span class="od-accordion__label">Чаму гэта пераварочвае гульню</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
             <div class="od-accordion__inner">
       <p>Гэта зводзіць "інтэграцыю правайдэра LLM" да аднаго кроку — рэалізуйце адзін інтэрфейс ці проста накіруйце ўніверсальны адаптар на канцавы пункт — і бібліятэка аўтаматычна і празрыста абгортвае гэтага правайдэра ў разрыў ланцуга, маніторынг здароўя і паўторныя спробы з экспаненцыяльным затрымкай і джытэрам. Адмоваўстойлівасць перастае быць нечым, што кожная каманда вынаходзіць нанова (дрэнна, пад дэдлайнам, пасля першага збою), і становіцца стандартным паводзінамі бібліятэкі для ўсіх 43 бэкэндаў. Інжынерынг надзейнасці напісаны адзін раз, старанна пратэставаны і перадаецца бясплатна ўсім, хто яго імпартуе.</p>
             </div>
@@ -255,12 +231,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Адзін інтэрфейс з улікам магчымасцей</strong> — завяршэнне, стрымінг, здароўе, магчымасці і валідацыя канфігурацыі аб’яднаны ў адзіны кантракт, які аднолькава выконваюць усе бэкэнды.</li>
@@ -276,12 +252,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
               <span class="od-accordion__label">Найбольшыя тэхнічныя выклікі і як мы іх пераадолелі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Каскадныя збоі правайдэраў.</strong> Адзін нястабільны бэкэнд не павінен цягнуць за сабой усю службу. Вырашана з дапамогай трохстаднага разрывальніка ланцуга (закрыты → адкрыты → паўадкрыты), які празрыста абгортвае любога правайдэра *і яго стрым*, пераходзіць у адкрыты стан пры сталым збоі, правярае аднаўленне ў паўадкрытым стане і цэнтралізавана каардынуецца праз <code>CircuitBreakerManager</code>.</li>
@@ -296,12 +272,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
-              <span class="od-accordion__label">Тэхналагічны стэк</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
+              <span class="od-accordion__label">Як гэта створана</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25.3)</strong> — абраны за першакласную канкурэнтнасць, статычныя бінарныя файлы і магутную стандартную бібліятэку; змяшчае модуль, інтэрфейс, усе прымітывы адмоваўстойлівасці і 43 адаптары.</li>
@@ -319,12 +295,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
               <span class="od-accordion__label">Стан і заўвагі аб шчырасці</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Стан: бэта.</strong> Дэкапліраваны модуль шматразовага выкарыстання; рэпазіторый GitHub з’яўляецца публічным.</li>

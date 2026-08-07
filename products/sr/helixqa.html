@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "HelixQA — Miloš Vasić"
-description: "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169)."
+description: "HelixQA је анти-блуфф оквир за оркестрацију QA теста на више платформи (Android, Android TV, Web, Десктоп) који комбинује YAML банке тестова, детекцију пада у реалном времену, прикупљање доказа корак по корак и LLM-плус-рачунарски-видом вођене аутономне QA сесије како би доказао да функционалности заиста раде од почетка до краја. Представља обавезни тип QA теста према Constitution (§11.4.169)."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixqa.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixqa.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixqa.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixqa.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixqa.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixqa.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixqa.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixqa.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixqa.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169).",
+      "description": "HelixQA је анти-блуфф оквир за оркестрацију QA теста на више платформи (Android, Android TV, Web, Десктоп) који комбинује YAML банке тестова, детекцију пада у реалном времену, прикупљање доказа корак по корак и LLM-плус-рачунарски-видом вођене аутономне QA сесије како би доказао да функционалности заиста раде од почетка до краја. Представља обавезни тип QA теста према Constitution (§11.4.169).",
       "inLanguage": "sr",
       "license": "Apache-2.0",
       "name": "HelixQA",
@@ -176,6 +176,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Анти-блуфф оркестрација QA теста — аутономне, цросс-платформ сесије у којима свако УСПЕШНО извршење носи прикупљене доказе да стварни корисник може да користи функционалност.</strong></p>
+      <p class="od-product-detail__lede">Анти-блуфф QA оркестратор (Go) који покреће написане банке тестова и потпуно аутономне, LLM-и-рачунарским-видом вођене QA сесије на различитим платформама — открива падове, валидира сваки корак у односу на прикупљене доказе (снимке екрана, логцат, видео, стацк траце), и аутоматски генерише тикете богате доказима за AI пипелине поправки.</p>
+      <p>HelixQA је Go оквир чији једини, непопустљиви дизајнерски центар представља §11.4 Оперативно правило Constitution: критеријум за испоруку није „тестови пролазе", већ „корисници могу да користе функционалност", па свако УСПЕШНО извршење које емитује мора да носи позитивне доказе прикупљене током извршавања — без доказа, нема зеленог светла, без изузетака. Ради у два комплементарна мода који заједно покривају и писане и непознате сценарије. Прво, <strong>писане банке тестова</strong> — YAML пакети <code>TC-XXX</code> случајева са циљањем на платформу, приоритетима, уређеним корацима (назив/акција/очекивано), ознакама и референцама на документацију — извршавају се уз валидацију сваког корака, детекцију пада/ANR-а у реалном времену (ADB за Android, праћење процеса за web/десктоп), централизовано прикупљање доказа и аутоматски генерисане Markdown тикете већ прилагођене за downstream AI пипелине поправки. Друго, <strong>потпуно аутономна QA сесија</strong> која апликацију предаје агентима покретаним LLM и рачунарским видом и пушта их да је самостално контролишу кроз четири дисциплиноване фазе: подешавање (избор LLM-ова, израда мапе функционалности из пројектног документа, покретање CLI агената, иницијализација мотора за визуелну анализу), верификација вођена документацијом која пролази кроз сваку документовану функционалност, истраживање вођено радозналошћу које намерно тестира граничне случајеве и недокументовано понашање, а затим извештавање и чишћење у Markdown/HTML/JSON формату, при чему је сваки налаз повезан са доказима означеним временским печатом у видео-запису.</p>
+      <p>Кључно је да овај оквир не оцењује сам себе: интегрише четири спољна Go потмодула (LLMsVerifier, LLMOrchestrator, VisionEngine, DocProcessor) и користи заједничку инфраструктуру <code>challenges</code> и <code>containers</code>, тако да компонента која навигира апликацијом није иста као она која оцењује да ли је све прошло како треба. Његов сопствени пакет тестова подвргава се истом стандарду који намеће другима путем <code>make anti-bluff</code> (статичко скенирање + манифест сидрених понашања + мутациони зупчаник) и Цхалленге оркестрације у 8 фаза са уграђеном §1.1 мутацијом. Матрица покривености типова тестова од 15 редова прецизно повезује сваку рекламирану могућност са конкретним извршним средством и специфичним обликом прикупљених доказа — тако да тврдње оквира о самом себи имају исто толико доказа колико и пресуде које доноси за производе које тестира.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -193,38 +196,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-1" aria-expanded="true" aria-controls="od-acc-helixqa-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-1-panel" role="region" aria-labelledby="od-acc-helixqa-1">
-            <div class="od-accordion__inner">
-      <p>Анти-блуфф QA оркестратор (Go) који покреће написане банке тестова и потпуно аутономне, LLM-и-рачунарским-видом вођене QA сесије на различитим платформама — открива падове, валидира сваки корак у односу на прикупљене доказе (снимке екрана, логцат, видео, стацк траце), и аутоматски генерише тикете богате доказима за AI пипелине поправки.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-2" aria-expanded="true" aria-controls="od-acc-helixqa-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-2-panel" role="region" aria-labelledby="od-acc-helixqa-2">
-            <div class="od-accordion__inner">
-      <p>HelixQA је Go оквир чији једини, непопустљиви дизајнерски центар представља §11.4 Оперативно правило Constitution: критеријум за испоруку није „тестови пролазе", већ „корисници могу да користе функционалност", па свако УСПЕШНО извршење које емитује мора да носи позитивне доказе прикупљене током извршавања — без доказа, нема зеленог светла, без изузетака. Ради у два комплементарна мода који заједно покривају и писане и непознате сценарије. Прво, <strong>писане банке тестова</strong> — YAML пакети <code>TC-XXX</code> случајева са циљањем на платформу, приоритетима, уређеним корацима (назив/акција/очекивано), ознакама и референцама на документацију — извршавају се уз валидацију сваког корака, детекцију пада/ANR-а у реалном времену (ADB за Android, праћење процеса за web/десктоп), централизовано прикупљање доказа и аутоматски генерисане Markdown тикете већ прилагођене за downstream AI пипелине поправки. Друго, <strong>потпуно аутономна QA сесија</strong> која апликацију предаје агентима покретаним LLM и рачунарским видом и пушта их да је самостално контролишу кроз четири дисциплиноване фазе: подешавање (избор LLM-ова, израда мапе функционалности из пројектног документа, покретање CLI агената, иницијализација мотора за визуелну анализу), верификација вођена документацијом која пролази кроз сваку документовану функционалност, истраживање вођено радозналошћу које намерно тестира граничне случајеве и недокументовано понашање, а затим извештавање и чишћење у Markdown/HTML/JSON формату, при чему је сваки налаз повезан са доказима означеним временским печатом у видео-запису.</p>
-      <p>Кључно је да овај оквир не оцењује сам себе: интегрише четири спољна Go потмодула (LLMsVerifier, LLMOrchestrator, VisionEngine, DocProcessor) и користи заједничку инфраструктуру <code>challenges</code> и <code>containers</code>, тако да компонента која навигира апликацијом није иста као она која оцењује да ли је све прошло како треба. Његов сопствени пакет тестова подвргава се истом стандарду који намеће другима путем <code>make anti-bluff</code> (статичко скенирање + манифест сидрених понашања + мутациони зупчаник) и Цхалленге оркестрације у 8 фаза са уграђеном §1.1 мутацијом. Матрица покривености типова тестова од 15 редова прецизно повезује сваку рекламирану могућност са конкретним извршним средством и специфичним обликом прикупљених доказа — тако да тврдње оквира о самом себи имају исто толико доказа колико и пресуде које доноси за производе које тестира.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-3" aria-expanded="true" aria-controls="od-acc-helixqa-3-panel">
               <span class="od-accordion__label">Зашто смо га изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-3-panel" role="region" aria-labelledby="od-acc-helixqa-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-1-panel" role="region" aria-labelledby="od-acc-helixqa-1">
             <div class="od-accordion__inner">
       <p>Конвенционални QA даје зелено светло уз образложење „асертација је прошла", што је управо начин на који класа грешака коју Constitution назива *блефирањем* пролази кроз систем — функција је пријављена као функционална, иако је за крајњег корисника неисправна. HelixQA је изграђен управо да то спречи у оквиру QA процеса: он одбија да додели статус ПРОШАО без физичког доказа (снимка екрана, логцат, видео, стек трејс, извештај) снимљеног током стварног извршавања, а зелени резиме без таквог доказа третира као критичну грешку равну недостајућој функцији. Такође решава проблем радне снаге — свеобухватно ручно тестирање на више платформи није скалабилно — омогућавајући потпуно аутономне сесије.</p>
             </div>
@@ -232,12 +208,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-4" aria-expanded="true" aria-controls="od-acc-helixqa-4-panel">
-              <span class="od-accordion__label">Зашто је револуционарно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-2" aria-expanded="true" aria-controls="od-acc-helixqa-2-panel">
+              <span class="od-accordion__label">Скок који пружа</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-4-panel" role="region" aria-labelledby="od-acc-helixqa-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-2-panel" role="region" aria-labelledby="od-acc-helixqa-2">
             <div class="od-accordion__inner">
       <p>Спаја две ствари које готово никада нису део истог алата: ригорозну, доказима поткрепљену контролу квалитета и аутономно, самостално истраживање. Агент LLM са визуелним модулом отвара *стварну* апликацију, проверава сваку документовану функцију, трага за недокументованим баговима за које нико није написао тест, *и* истовремено генерише доказни материјал судског квалитета — тако да се „тестирали смо то" замењује са „ево снимка, ево логцат-а, ево тикета". А пошто је део QA подсистема названог по Constitution, његово усвајање не унапређује поштење QA процеса само за један тим — већ подиже стандард за сваки производ у породици у једном потезу.</p>
             </div>
@@ -245,12 +221,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-5" aria-expanded="true" aria-controls="od-acc-helixqa-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-3" aria-expanded="true" aria-controls="od-acc-helixqa-3-panel">
+              <span class="od-accordion__label">Шта је заиста ново</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-5-panel" role="region" aria-labelledby="od-acc-helixqa-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-3-panel" role="region" aria-labelledby="od-acc-helixqa-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Уговор о недоказивом блефу</strong> — сваки ПРОШАО статус је везан за снимљени доказ током извршавања; зелена линија у ЦИ-у сматра се неопходном, али никада довољном, а зелени резиме без доказа оцењује се као критична грешка.</li>
@@ -264,12 +240,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-6" aria-expanded="true" aria-controls="od-acc-helixqa-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-4" aria-expanded="true" aria-controls="od-acc-helixqa-4-panel">
               <span class="od-accordion__label">Како се користи у свим производима (моћи које пружа)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-6-panel" role="region" aria-labelledby="od-acc-helixqa-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-4-panel" role="region" aria-labelledby="od-acc-helixqa-4">
             <div class="od-accordion__inner">
       <p>Као <strong>обавезни стуб квалитета</strong> (Constitution §11.4.169 наводи <code>helix_qa</code> подсистем као један од обавезних типова тестова), HelixQA свим производима у породици пружа исти скуп могућности:</p>
       <ul>
@@ -284,12 +260,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-7" aria-expanded="true" aria-controls="od-acc-helixqa-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-5" aria-expanded="true" aria-controls="od-acc-helixqa-5-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-7-panel" role="region" aria-labelledby="od-acc-helixqa-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-5-panel" role="region" aria-labelledby="od-acc-helixqa-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Спречавање лажно позитивних резултата у самом QA процесу</strong> — алат који открива блефове не сме сам постати један → сваки корак се валидира на основу прикупљених доказа, пролаз без доказа оцењује се као грешка, а не као пролаз, а манифест понашајних сидришта повезује сваку рекламирану функционалност са извршним тестом (ЦОНСТ-035), тако да се ниједна функција не може тврдити без нечега што је проверава.</li>
@@ -303,12 +279,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-8" aria-expanded="true" aria-controls="od-acc-helixqa-8-panel">
-              <span class="od-accordion__label">Технолошки стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-6" aria-expanded="true" aria-controls="od-acc-helixqa-6-panel">
+              <span class="od-accordion__label">Како је изграђено</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-8-panel" role="region" aria-labelledby="od-acc-helixqa-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-6-panel" role="region" aria-labelledby="od-acc-helixqa-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go 1.24+ оркестратор</strong> — *зашто:* QA мора да ради свуда где раде и производи, па један статички повезан, брз и преносив бинарни фајл побеђује алтернативе које захтевају рунтиме; *како:* један <code>cmd/helixqa</code> CLI који излаже композитне поткоманде <code>run</code> / <code>list</code> / <code>report</code> / <code>autonomous</code> / <code>version</code>.</li>
@@ -325,12 +301,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-9" aria-expanded="true" aria-controls="od-acc-helixqa-9-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-7" aria-expanded="true" aria-controls="od-acc-helixqa-7-panel">
               <span class="od-accordion__label">Напомене о статусу и искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-9-panel" role="region" aria-labelledby="od-acc-helixqa-9">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-7-panel" role="region" aria-labelledby="od-acc-helixqa-7">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> Активно у развоју (РЕАДМЕ статусна трака, верзија 219). Подвргава се сопственом стандарду против обмане.</li>

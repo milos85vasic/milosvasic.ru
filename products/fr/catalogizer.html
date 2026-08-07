@@ -2,7 +2,7 @@
 layout: default
 lang: fr
 title: "Catalogizer — Miloš Vasić"
-description: "Catalogizer is a self-hostable media collection management system that automatically detects, categorizes, and organizes media across SMB, FTP, NFS, WebDAV, and local filesystems, with real-time monitoring, encrypted storage, external metadata enrichment, and a modern React UI backed by a high-performance Go API."
+description: "Catalogizer est un système auto-hébergé de gestion de collections multimédias qui détecte, catégorise et organise automatiquement les médias sur SMB, FTP, NFS, WebDAV et les systèmes de fichiers locaux, avec une surveillance en temps réel, un stockage chiffré, un enrichissement des métadonnées externes et une interface moderne React, soutenue par un moteur haute performance Go API."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/catalogizer.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Catalogizer is a self-hostable media collection management system that automatically detects, categorizes, and organizes media across SMB, FTP, NFS, WebDAV, and local filesystems, with real-time monitoring, encrypted storage, external metadata enrichment, and a modern React UI backed by a high-performance Go API.",
+      "description": "Catalogizer est un système auto-hébergé de gestion de collections multimédias qui détecte, catégorise et organise automatiquement les médias sur SMB, FTP, NFS, WebDAV et les systèmes de fichiers locaux, avec une surveillance en temps réel, un stockage chiffré, un enrichissement des métadonnées externes et une interface moderne React, soutenue par un moteur haute performance Go API.",
       "inLanguage": "fr",
       "name": "Catalogizer",
       "operatingSystem": "Cross-platform",
@@ -195,55 +195,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Gestion avancée de collections multimédias multi-protocoles — détectez, cataloguez et enrichissez tout ce que vous possédez.</strong></p>
+      <p class="od-product-detail__lede">Un gestionnaire de médiathèque multi-protocoles de niveau professionnel. Un moteur Go/Gin REST API détecte plus de 50 types de médias sur des sources SMB/FTP/NFS/WebDAV/locales, les enrichit via TMDB/IMDb/MusicBrainz/Steam et bien d’autres, et propose une application web React en temps réel sur une base de données chiffrée SQLCipher.</p>
+      <p>Catalogizer est un système auto-hébergé de gestion de collections multimédias qui détecte, catégorise et organise automatiquement les médias sur SMB, FTP, NFS, WebDAV et les systèmes de fichiers locaux, avec une surveillance en temps réel, un stockage chiffré, un enrichissement des métadonnées externes et une interface moderne React, soutenue par un moteur haute performance Go API.</p>
+      <p>La plupart des gestionnaires de médias exigent d’abord que vous fassiez des concessions : tout regrouper sur un seul disque, dans un seul format, d’un seul type, et seulement alors ils vous viennent en aide. Catalogizer part d’un postulat inverse — votre collection existe déjà là où elle se trouve, dispersée sur des partages NAS et des protocoles qui ne s’entendront jamais — et s’y adapte. Il parle les protocoles déjà utilisés par le stockage — SMB/CIFS, FTP/FTPS, NFS, WebDAV et système de fichiers local — derrière une abstraction client unifiée, de sorte qu’un partage Windows, une archive FTP et un montage WebDAV apparaissent identiques aux couches supérieures et peuvent être mélangés, échangés ou retirés sans toucher au code applicatif. Un backend Go (Gin REST API) surveille en continu ces sources, détecte et classe plus de 50 types de médias (films, séries, musique, jeux, logiciels, documentaires) à mesure que les fichiers apparaissent, et enrichit chaque élément à partir d’une pile de fournisseurs externes — TMDB, IMDb, TVDB, MusicBrainz, Spotify, Steam et bien d’autres — transformant un simple nom de fichier en une entrée de catalogue complète, avec visuels, distribution et métadonnées. Les résultats sont diffusés vers un frontend TypeScript React via WebSockets, de sorte que la bibliothèque se met à jour en direct pendant l’ingestion, sans nécessiter de rafraîchissement manuel, et chaque octet de métadonnées est conservé dans une base de données chiffrée SQLCipher, protégée par une authentification basée sur JWT et des rôles.</p>
+      <p>Là où la plupart des catalogues s’effondrent dès qu’un partage tombe, Catalogizer est conçu pour rester opérationnel malgré les pannes. Une défaillance temporaire SMB est absorbée par une reconnexion avec backoff exponentiel, un disjoncteur empêchant de solliciter un hôte hors service, une surveillance continue de l’état de santé et un cache de métadonnées hors ligne qui continue de répondre aux requêtes utilisateur à partir du dernier état valide — la différence entre *« l’application entière est hors service parce qu’un NAS a redémarré »* et *« une source est dégradée, mais tout le reste fonctionne »*. Au-delà du catalogage, il sert aussi d’outil opérationnel pour une collection : analyses des tendances de croissance et suivi de la qualité/des versions, génération de rapports professionnels PDF, service de conversion PDF vers image/texte/HTML, export/import des favoris (JSON/CSV), et synchronisation cloud vers S3, Google Cloud Storage ou des dossiers locaux. Et ce n’est pas un monolithe qui se trouve être volumineux — il est délibérément assemblé à partir de 21 sous-modules Go <code>digital.vasic.*</code> réutilisables, ainsi que de paquets clients TypeScript, chacun testé et versionné indépendamment, de sorte que les mêmes composants robustes d’authentification, de système de fichiers, de streaming et d’observabilité qui font fonctionner Catalogizer alimentent aussi l’ensemble de la famille de produits. La qualité n’est pas auto-déclarée : le framework Challenges et HelixQA soumettent chaque fonctionnalité annoncée à une vérification anti-bluffer, basée sur des preuves.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-0" aria-expanded="true" aria-controls="od-acc-catalogizer-0-panel">
-              <span class="od-accordion__label">Résumé</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-0-panel" role="region" aria-labelledby="od-acc-catalogizer-0">
-            <div class="od-accordion__inner">
-      <p>Catalogizer est un système auto-hébergé de gestion de collections multimédias qui détecte, catégorise et organise automatiquement les médias sur SMB, FTP, NFS, WebDAV et les systèmes de fichiers locaux, avec une surveillance en temps réel, un stockage chiffré, un enrichissement des métadonnées externes et une interface moderne React, soutenue par un moteur haute performance Go API.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-1" aria-expanded="true" aria-controls="od-acc-catalogizer-1-panel">
-              <span class="od-accordion__label">Description courte</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-1-panel" role="region" aria-labelledby="od-acc-catalogizer-1">
-            <div class="od-accordion__inner">
-      <p>Un gestionnaire de médiathèque multi-protocoles de niveau professionnel. Un moteur Go/Gin REST API détecte plus de 50 types de médias sur des sources SMB/FTP/NFS/WebDAV/locales, les enrichit via TMDB/IMDb/MusicBrainz/Steam et bien d’autres, et propose une application web React en temps réel sur une base de données chiffrée SQLCipher.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-2" aria-expanded="true" aria-controls="od-acc-catalogizer-2-panel">
-              <span class="od-accordion__label">Description détaillée</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-2-panel" role="region" aria-labelledby="od-acc-catalogizer-2">
-            <div class="od-accordion__inner">
-      <p>La plupart des gestionnaires de médias exigent d’abord que vous fassiez des concessions : tout regrouper sur un seul disque, dans un seul format, d’un seul type, et seulement alors ils vous viennent en aide. Catalogizer part d’un postulat inverse — votre collection existe déjà là où elle se trouve, dispersée sur des partages NAS et des protocoles qui ne s’entendront jamais — et s’y adapte. Il parle les protocoles déjà utilisés par le stockage — SMB/CIFS, FTP/FTPS, NFS, WebDAV et système de fichiers local — derrière une abstraction client unifiée, de sorte qu’un partage Windows, une archive FTP et un montage WebDAV apparaissent identiques aux couches supérieures et peuvent être mélangés, échangés ou retirés sans toucher au code applicatif. Un backend Go (Gin REST API) surveille en continu ces sources, détecte et classe plus de 50 types de médias (films, séries, musique, jeux, logiciels, documentaires) à mesure que les fichiers apparaissent, et enrichit chaque élément à partir d’une pile de fournisseurs externes — TMDB, IMDb, TVDB, MusicBrainz, Spotify, Steam et bien d’autres — transformant un simple nom de fichier en une entrée de catalogue complète, avec visuels, distribution et métadonnées. Les résultats sont diffusés vers un frontend TypeScript React via WebSockets, de sorte que la bibliothèque se met à jour en direct pendant l’ingestion, sans nécessiter de rafraîchissement manuel, et chaque octet de métadonnées est conservé dans une base de données chiffrée SQLCipher, protégée par une authentification basée sur JWT et des rôles.</p>
-      <p>Là où la plupart des catalogues s’effondrent dès qu’un partage tombe, Catalogizer est conçu pour rester opérationnel malgré les pannes. Une défaillance temporaire SMB est absorbée par une reconnexion avec backoff exponentiel, un disjoncteur empêchant de solliciter un hôte hors service, une surveillance continue de l’état de santé et un cache de métadonnées hors ligne qui continue de répondre aux requêtes utilisateur à partir du dernier état valide — la différence entre *« l’application entière est hors service parce qu’un NAS a redémarré »* et *« une source est dégradée, mais tout le reste fonctionne »*. Au-delà du catalogage, il sert aussi d’outil opérationnel pour une collection : analyses des tendances de croissance et suivi de la qualité/des versions, génération de rapports professionnels PDF, service de conversion PDF vers image/texte/HTML, export/import des favoris (JSON/CSV), et synchronisation cloud vers S3, Google Cloud Storage ou des dossiers locaux. Et ce n’est pas un monolithe qui se trouve être volumineux — il est délibérément assemblé à partir de 21 sous-modules Go <code>digital.vasic.*</code> réutilisables, ainsi que de paquets clients TypeScript, chacun testé et versionné indépendamment, de sorte que les mêmes composants robustes d’authentification, de système de fichiers, de streaming et d’observabilité qui font fonctionner Catalogizer alimentent aussi l’ensemble de la famille de produits. La qualité n’est pas auto-déclarée : le framework Challenges et HelixQA soumettent chaque fonctionnalité annoncée à une vérification anti-bluffer, basée sur des preuves.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-3" aria-expanded="true" aria-controls="od-acc-catalogizer-3-panel">
               <span class="od-accordion__label">Pourquoi nous l'avons créé</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-3-panel" role="region" aria-labelledby="od-acc-catalogizer-3">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-0-panel" role="region" aria-labelledby="od-acc-catalogizer-0">
             <div class="od-accordion__inner">
       <p>Les gestionnaires de médias existants partent du principe d'un seul backend de stockage et d'un seul type de média. Les collections réelles s'étendent sur plusieurs partages NAS et protocoles, se dégradent lorsqu'un partage tombe en panne, et mêlent films, musique, jeux et logiciels. Catalogizer a été conçu pour traiter tous les protocoles sur un pied d'égalité, résister aux aléas du stockage en réseau et offrir un catalogue unique, enrichi et chiffré couvrant l'ensemble des données.</p>
             </div>
@@ -251,12 +215,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-4" aria-expanded="true" aria-controls="od-acc-catalogizer-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-1" aria-expanded="true" aria-controls="od-acc-catalogizer-1-panel">
               <span class="od-accordion__label">Pourquoi c'est révolutionnaire</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-4-panel" role="region" aria-labelledby="od-acc-catalogizer-4">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-1-panel" role="region" aria-labelledby="od-acc-catalogizer-1">
             <div class="od-accordion__inner">
       <p>Il condense en un seul paquet auto-hébergeable et chiffré ce qui nécessite habituellement une pile d'outils distincts : une ingestion agnostique des protocoles qui traite chaque backend de stockage de manière équivalente, une résilience permettant au catalogue de rester opérationnel malgré les pannes de stockage au lieu de s'effondrer avec elles, et un enrichissement multi-fournisseurs sophistiqué qui transforme des fichiers bruts en une bibliothèque navigable et documentée. Le bénéfice de l'architecture modulaire est cumulatif : une correction de robustesse pour le client du système de fichiers ou un nouveau plugin de fournisseur n'est appliquée qu'une seule fois et profite à tous les utilisateurs, de sorte que Catalogizer s'améliore constamment au rythme de l'écosystème qui l'entoure. En somme, c'est la différence entre un simple index de médias et un *système* de médias – un système que vous possédez, qui survit aux infrastructures instables, et dont les rouages sont éprouvés plutôt que simplement promis.</p>
             </div>
@@ -264,12 +228,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-5" aria-expanded="true" aria-controls="od-acc-catalogizer-5-panel">
-              <span class="od-accordion__label">Ce qui est innovant</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-2" aria-expanded="true" aria-controls="od-acc-catalogizer-2-panel">
+              <span class="od-accordion__label">Où réside la nouveauté</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-5-panel" role="region" aria-labelledby="od-acc-catalogizer-5">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-2-panel" role="region" aria-labelledby="od-acc-catalogizer-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Client unifié de système de fichiers multi-protocoles (SMB/FTP/NFS/WebDAV/local) derrière une seule interface.</li>
@@ -283,12 +247,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-6" aria-expanded="true" aria-controls="od-acc-catalogizer-6-panel">
-              <span class="od-accordion__label">Défis et solutions</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-3" aria-expanded="true" aria-controls="od-acc-catalogizer-3-panel">
+              <span class="od-accordion__label">Problèmes ardus, solutions honnêtes</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-6-panel" role="region" aria-labelledby="od-acc-catalogizer-6">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-3-panel" role="region" aria-labelledby="od-acc-catalogizer-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Stockage réseau instable</strong> : résolu grâce à un repli exponentiel, un disjoncteur, des vérifications d'état et un cache hors ligne à politique d'éviction qui fournit des métadonnées en cache lorsque les sources sont inaccessibles.</li>
@@ -301,12 +265,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-7" aria-expanded="true" aria-controls="od-acc-catalogizer-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-4" aria-expanded="true" aria-controls="od-acc-catalogizer-4-panel">
               <span class="od-accordion__label">Pile technologique (pourquoi et comment)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-7-panel" role="region" aria-labelledby="od-acc-catalogizer-7">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-4-panel" role="region" aria-labelledby="od-acc-catalogizer-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> — noyau REST API haute performance (<code>catalog-api</code>) ; choisi pour sa concurrence et son débit sur les charges de travail de surveillance continue.</li>

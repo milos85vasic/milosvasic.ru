@@ -2,7 +2,7 @@
 layout: default
 lang: zh
 title: "HelixLLM — Miloš Vasić"
-description: "HelixLLM is an enterprise-grade distributed LLM system in Go: a single binary with a mode system that scales from single-host development to multi-host production. It serves fully OpenAI- and Anthropic-compatible APIs over HTTP/3, with local llama.cpp inference, a scored multi-provider fallback chain, a RAG pipeline, and a ReAct agent system."
+description: "HelixLLM是一款企业级分布式LLM系统，基于Go构建：单一二进制文件，通过模式系统实现从单主机开发到多主机生产的无缝扩展。它通过HTTP/3提供完全兼容OpenAI和Anthropic的API，支持本地llama.cpp推理、多供应商评分故障转移链、RAG管道及ReAct智能体系统。"
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixllm.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixllm.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixllm.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixllm.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixllm.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixllm.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixllm.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixllm.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixllm.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixllm.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixllm.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixllm.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixllm.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixLLM is an enterprise-grade distributed LLM system in Go: a single binary with a mode system that scales from single-host development to multi-host production. It serves fully OpenAI- and Anthropic-compatible APIs over HTTP/3, with local llama.cpp inference, a scored multi-provider fallback chain, a RAG pipeline, and a ReAct agent system.",
+      "description": "HelixLLM是一款企业级分布式LLM系统，基于Go构建：单一二进制文件，通过模式系统实现从单主机开发到多主机生产的无缝扩展。它通过HTTP/3提供完全兼容OpenAI和Anthropic的API，支持本地llama.cpp推理、多供应商评分故障转移链、RAG管道及ReAct智能体系统。",
       "inLanguage": "zh",
       "name": "HelixLLM",
       "operatingSystem": "Cross-platform",
@@ -184,6 +184,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>一套二进制文件，六种运行模式——从笔记本电脑到多主机集群，均可实现与OpenAI和Anthropic兼容的推理。</strong></p>
+      <p class="od-product-detail__lede">HelixLLM是一款单二进制、基于Go的分布式LLM系统。它通过HTTP/3暴露与OpenAI和Anthropic兼容的API，运行本地llama.cpp推理，自动发现并评分免费云供应商以构建故障转移链，并集成RAG知识管道及支持工具调用的ReAct智能体——可部署为六种运行模式。</p>
+      <p>HelixLLM是一款企业级分布式LLM系统，采用Go和Gin构建，其核心优势在于：单一构建产物即可满足所有规模需求。它编译为单一二进制文件，其模式系统在部署时决定该二进制文件的具体角色：以<code>full</code>模式运行时，可作为笔记本电脑上的全功能实例；或将职责拆分为<code>gateway</code>、<code>brain</code>、<code>knowledge</code>、<code>agents</code>和<code>control</code>等模式，分布于多个主机上——从开发者的个人设备到生产集群，均使用相同代码，仅需重新配置而无需重写。</p>
+      <p>它精通两种"方言"：完全兼容OpenAI和Anthropic的API，现有SDK客户端无需修改即可直接使用，所有服务均通过HTTP/3（QUIC）提供，支持自动HTTP/2回退及TLS 1.3。本地推理通过llama.cpp实现，支持CUDA、Metal及ROCm加速，同一构建版本可在Nvidia、Apple及AMD硬件上高效运行。其最大亮点在于多供应商故障转移链，将免费云推理服务的不稳定性转化为可管理的自愈资源：HelixLLM自动发现来自7+家云供应商（Chutes、OpenRouter、HuggingFace、Nvidia、Cerebras、SambaNova、Together）的免费模型，通过LLMsVerifier每5分钟评分一次，并按排名顺序路由请求，自动处理429/5xx错误故障转移——本地llama.cpp始终作为最后保障，确保请求不会因供应商不可用而失败。</p>
+      <p>HelixLLM不仅限于推理，更是一个完整的应用平台：RAG知识管道（支持数据摄取、分块、嵌入及vector搜索）和ReAct智能体系统（支持工具调用、对话会话及RAG集成）均内置于同一二进制文件中。模式系统在网络层面同样展现优势——在<code>full</code>模式下，所有层通过进程内Go直接调用实现零网络开销；而同一二进制文件拆分至多主机时，则通过gRPC、SSE及Kafka协调通信。此外，还支持Brotli/gzip内容协商、与OpenAI和Anthropic格式完全匹配的SSE流式传输、基于API密钥和JWT的身份验证及速率限制、Prometheus指标、OpenTelemetry追踪，以及一系列面向生产环境的Go子模块。</p>
+      <p>内容</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -201,40 +206,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-1" aria-expanded="true" aria-controls="od-acc-helixllm-1-panel">
-              <span class="od-accordion__label">简要描述</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-1-panel" role="region" aria-labelledby="od-acc-helixllm-1">
-            <div class="od-accordion__inner">
-      <p>HelixLLM是一款单二进制、基于Go的分布式LLM系统。它通过HTTP/3暴露与OpenAI和Anthropic兼容的API，运行本地llama.cpp推理，自动发现并评分免费云供应商以构建故障转移链，并集成RAG知识管道及支持工具调用的ReAct智能体——可部署为六种运行模式。</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-2" aria-expanded="true" aria-controls="od-acc-helixllm-2-panel">
-              <span class="od-accordion__label">详细描述</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-2-panel" role="region" aria-labelledby="od-acc-helixllm-2">
-            <div class="od-accordion__inner">
-      <p>HelixLLM是一款企业级分布式LLM系统，采用Go和Gin构建，其核心优势在于：单一构建产物即可满足所有规模需求。它编译为单一二进制文件，其模式系统在部署时决定该二进制文件的具体角色：以<code>full</code>模式运行时，可作为笔记本电脑上的全功能实例；或将职责拆分为<code>gateway</code>、<code>brain</code>、<code>knowledge</code>、<code>agents</code>和<code>control</code>等模式，分布于多个主机上——从开发者的个人设备到生产集群，均使用相同代码，仅需重新配置而无需重写。</p>
-      <p>它精通两种"方言"：完全兼容OpenAI和Anthropic的API，现有SDK客户端无需修改即可直接使用，所有服务均通过HTTP/3（QUIC）提供，支持自动HTTP/2回退及TLS 1.3。本地推理通过llama.cpp实现，支持CUDA、Metal及ROCm加速，同一构建版本可在Nvidia、Apple及AMD硬件上高效运行。其最大亮点在于多供应商故障转移链，将免费云推理服务的不稳定性转化为可管理的自愈资源：HelixLLM自动发现来自7+家云供应商（Chutes、OpenRouter、HuggingFace、Nvidia、Cerebras、SambaNova、Together）的免费模型，通过LLMsVerifier每5分钟评分一次，并按排名顺序路由请求，自动处理429/5xx错误故障转移——本地llama.cpp始终作为最后保障，确保请求不会因供应商不可用而失败。</p>
-      <p>HelixLLM不仅限于推理，更是一个完整的应用平台：RAG知识管道（支持数据摄取、分块、嵌入及vector搜索）和ReAct智能体系统（支持工具调用、对话会话及RAG集成）均内置于同一二进制文件中。模式系统在网络层面同样展现优势——在<code>full</code>模式下，所有层通过进程内Go直接调用实现零网络开销；而同一二进制文件拆分至多主机时，则通过gRPC、SSE及Kafka协调通信。此外，还支持Brotli/gzip内容协商、与OpenAI和Anthropic格式完全匹配的SSE流式传输、基于API密钥和JWT的身份验证及速率限制、Prometheus指标、OpenTelemetry追踪，以及一系列面向生产环境的Go子模块。</p>
-      <p>内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-3" aria-expanded="true" aria-controls="od-acc-helixllm-3-panel">
               <span class="od-accordion__label">我们为何构建它</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-3-panel" role="region" aria-labelledby="od-acc-helixllm-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-1-panel" role="region" aria-labelledby="od-acc-helixllm-1">
             <div class="od-accordion__inner">
       <p>团队需要可移植、兼容标准且具备韧性的推理能力——无需重写客户端，也不受限于单一供应商或单台机器。HelixLLM 的诞生，正是为了让同一个二进制文件既能在本地开发环境中运行，又能扩展至多主机生产集群，同时沿用客户端已熟悉的 OpenAI 和 Anthropic 协议。</p>
             </div>
@@ -242,12 +218,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-4" aria-expanded="true" aria-controls="od-acc-helixllm-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-2" aria-expanded="true" aria-controls="od-acc-helixllm-2-panel">
               <span class="od-accordion__label">为何它是颠覆性的</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-4-panel" role="region" aria-labelledby="od-acc-helixllm-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-2-panel" role="region" aria-labelledby="od-acc-helixllm-2">
             <div class="od-accordion__inner">
       <p>它将整个推理栈——网关、本地推理、云端降级、RAG 及代理——压缩为一个由模式切换控制的二进制文件，部署架构的选择变成了运行时的决定，而非重新平台化的工程。更关键的是，它将原本的短板转化为优势：云服务商的可靠性成为首要且持续监测的关注点，由一套评分制的自愈降级链路负责处理，每隔数分钟重新评估供应商排序，并始终保障回退至本地推理。由此解锁的能力，是一个真正可依赖的单一端点——兼容标准、从笔记本到集群无缝迁移，且绝不会因上游供应商限流或故障而陷入瘫痪。</p>
             </div>
@@ -255,12 +231,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-5" aria-expanded="true" aria-controls="od-acc-helixllm-5-panel">
-              <span class="od-accordion__label">创新之处</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-3" aria-expanded="true" aria-controls="od-acc-helixllm-3-panel">
+              <span class="od-accordion__label">内在的创新点</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-5-panel" role="region" aria-labelledby="od-acc-helixllm-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-3-panel" role="region" aria-labelledby="od-acc-helixllm-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>六模式单一二进制系统</strong>，既可整体运行，亦可分布式部署角色——在 <code>full</code> 模式下直接进行进程内 Go 调用，或在分布式模式下切换为 gRPC/SSE/Kafka 通信，部署拓扑变更无需修改代码，亦无额外网络开销。</li>
@@ -273,12 +249,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-6" aria-expanded="true" aria-controls="od-acc-helixllm-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-4" aria-expanded="true" aria-controls="od-acc-helixllm-4-panel">
               <span class="od-accordion__label">最大技术挑战及解决方案</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-6-panel" role="region" aria-labelledby="od-acc-helixllm-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-4-panel" role="region" aria-labelledby="od-acc-helixllm-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>从单主机扩展至多主机，无需重写代码。</strong> 大多数系统在"本地开发"与"分布式生产"之间划下硬性界限，跨越这一界限意味着重新架构。我们通过单一二进制文件的模式系统消除了这一界限：同一套层级在 <code>full</code> 模式下通过进程内直接调用通信，在分布式模式下则透明切换为 gRPC/SSE/Kafka 跨节点通信，扩展仅需配置变更而非代码移植。</li>
@@ -291,12 +267,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-7" aria-expanded="true" aria-controls="od-acc-helixllm-7-panel">
-              <span class="od-accordion__label">技术栈</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-5" aria-expanded="true" aria-controls="od-acc-helixllm-5-panel">
+              <span class="od-accordion__label">内部架构</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-7-panel" role="region" aria-labelledby="od-acc-helixllm-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-5-panel" role="region" aria-labelledby="od-acc-helixllm-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> —— 选择原因：单二进制、并发优先的运行时是整个模式系统的基础，可通过一次构建实现从笔记本服务器到集群角色的灵活部署。它承载了整个系统及网关的 HTTP 层。</li>
@@ -314,12 +290,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-8" aria-expanded="true" aria-controls="od-acc-helixllm-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixllm-6" aria-expanded="true" aria-controls="od-acc-helixllm-6-panel">
               <span class="od-accordion__label">状态与诚信说明</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixllm-8-panel" role="region" aria-labelledby="od-acc-helixllm-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixllm-6-panel" role="region" aria-labelledby="od-acc-helixllm-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>状态：Beta 版。</strong> 功能完备，正在积极开发的分布式推理系统。</li>

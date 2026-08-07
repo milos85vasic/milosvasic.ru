@@ -2,7 +2,7 @@
 layout: default
 lang: tr
 title: "HelixQA — Miloš Vasić"
-description: "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169)."
+description: "HelixQA, çapraz platform testleri (Android, Android TV, Web, Masaüstü) için geliştirilmiş bir anti-blöf QA orkestrasyon çerçevesidir. YAML test bankalarını, gerçek zamanlı çökme tespitini, adım adım kanıt yakalamayı ve LLM-artı-bilgisayarla-görü otonom QA oturumlarını bir araya getirerek özelliklerin gerçekten uçtan uca çalıştığını kanıtlar. Constitution’un zorunlu QA test türüdür (§11.4.169)."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixqa.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixqa.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixqa.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixqa.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixqa.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixqa.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixqa.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixqa.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixqa.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixqa.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixqa.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixQA is an anti-bluff QA orchestration framework for cross-platform testing (Android, Android TV, Web, Desktop) that combines YAML test banks, real-time crash detection, step-by-step evidence capture, and LLM-plus-computer-vision autonomous QA sessions to prove features genuinely work end-to-end. It is the Constitution's mandated QA test-type (§11.4.169).",
+      "description": "HelixQA, çapraz platform testleri (Android, Android TV, Web, Masaüstü) için geliştirilmiş bir anti-blöf QA orkestrasyon çerçevesidir. YAML test bankalarını, gerçek zamanlı çökme tespitini, adım adım kanıt yakalamayı ve LLM-artı-bilgisayarla-görü otonom QA oturumlarını bir araya getirerek özelliklerin gerçekten uçtan uca çalıştığını kanıtlar. Constitution’un zorunlu QA test türüdür (§11.4.169).",
       "inLanguage": "tr",
       "license": "Apache-2.0",
       "name": "HelixQA",
@@ -176,56 +176,20 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Anti-blöf QA orkestrasyonu — her GEÇER sonucunun, gerçek bir kullanıcının özelliği kullanabildiğine dair yakalanmış kanıt taşıdığı, otonom ve çapraz platform oturumları.</strong></p>
+      <p class="od-product-detail__lede">Yazılı test bankalarını ve tam otonom, LLM ve görüntü işleme tabanlı QA oturumlarını platformlar arasında çalıştıran bir anti-blöf QA orkestratörü (Go). Çökmeleri tespit eder, her adımı yakalanmış kanıtlarla (ekran görüntüleri, logcat, video, yığın izleri) doğrular ve AI düzeltme hatları için kanıt zengini biletler otomatik olarak oluşturur.</p>
+      <p>HelixQA, çapraz platform testleri (Android, Android TV, Web, Masaüstü) için geliştirilmiş bir anti-blöf QA orkestrasyon çerçevesidir. YAML test bankalarını, gerçek zamanlı çökme tespitini, adım adım kanıt yakalamayı ve LLM-artı-bilgisayarla-görü otonom QA oturumlarını bir araya getirerek özelliklerin gerçekten uçtan uca çalıştığını kanıtlar. Constitution’un zorunlu QA test türüdür (§11.4.169).</p>
+      <p>HelixQA, tek ve tavizsiz tasarım odağı Constitution’un §11.4 Operatif Kuralı olan bir Go çerçevesidir: yayınlama kriteri "testler geçti" değil, "kullanıcılar özelliği kullanabiliyor"dur. Bu nedenle, her GEÇER sonucu, yürütme sırasında yakalanmış pozitif çalışma zamanı kanıtı taşımalıdır — kanıt yoksa yeşil ışık yok, istisna yok. Hem yazılı hem de bilinmeyen durumları kapsayan iki tamamlayıcı modda çalışır. İlk olarak, <strong>yazılı test bankaları</strong> — platform hedeflemesi, öncelik, sıralı adımlar (ad/eylem/beklenen), etiketler ve dokümantasyon referansları içeren <code>TC-XXX</code> vakalarından oluşan YAML paketleri — adım adım doğrulama, gerçek zamanlı çökme/ANR tespiti (Android için ADB, web/masaüstü için süreç izleme), merkezi kanıt toplama ve AI düzeltme hatları için otomatik olarak oluşturulmuş Markdown biletleri ile yürütülür. İkinci olarak, <strong>tam otonom QA oturumu</strong> uygulamayı LLM destekli ajanlara ve bilgisayarla görüye devreder ve dört disiplinli aşamada kontrolsüz olarak çalıştırır: kurulum (LLM’lerin seçimi, proje belgelerinden özellik haritasının oluşturulması, CLI ajanlarının başlatılması, görüntü işleme motorunun hazırlanması), her belgelenmiş özelliğin dolaşıldığı belge odaklı doğrulama, kenar durumları ve belgelenmemiş davranışları bilinçli olarak test eden merak odaklı keşif, ardından her bulgunun video zaman damgalı kanıtlarla ilişkilendirildiği Markdown/HTML/JSON formatında raporlama ve temizlik.</p>
+      <p>En kritik nokta, kendi ödevini notlandırmamasıdır: Dört harici Go alt modülünü (LLMsVerifier, LLMOrchestrator, VisionEngine, DocProcessor) entegre eder ve ortak <code>challenges</code> ile <code>containers</code> altyapısını kullanır. Böylece uygulamayı gezen bileşen, çalışıp çalışmadığını değerlendiren bileşenle aynı değildir. Kendi paketi, <code>make anti-bluff</code> (statik tarama + davranış çapa manifestosu + mutasyon mandalı) ve yerleşik §1.1 mutasyonuna sahip 8 aşamalı bir orkestratör Challenge ile başkalarına uyguladığı aynı kriterlere tabi tutulur. 15 satırlık test türü kapsama matrisi, her ilan edilen yeteneği somut bir yürütülebilir varlığa ve belirli bir yakalanmış kanıt biçimine bağlar — böylece çerçevenin kendisi hakkındaki iddiaları, test ettiği ürünlere verdiği kararlar kadar kanıta dayalıdır.</p>
+      <p>İçerik</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-0" aria-expanded="true" aria-controls="od-acc-helixqa-0-panel">
-              <span class="od-accordion__label">Özet</span>
+              <span class="od-accordion__label">Neden var</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixqa-0-panel" role="region" aria-labelledby="od-acc-helixqa-0">
-            <div class="od-accordion__inner">
-      <p>HelixQA, çapraz platform testleri (Android, Android TV, Web, Masaüstü) için geliştirilmiş bir anti-blöf QA orkestrasyon çerçevesidir. YAML test bankalarını, gerçek zamanlı çökme tespitini, adım adım kanıt yakalamayı ve LLM-artı-bilgisayarla-görü otonom QA oturumlarını bir araya getirerek özelliklerin gerçekten uçtan uca çalıştığını kanıtlar. Constitution’un zorunlu QA test türüdür (§11.4.169).</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-1" aria-expanded="true" aria-controls="od-acc-helixqa-1-panel">
-              <span class="od-accordion__label">Kısa açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-1-panel" role="region" aria-labelledby="od-acc-helixqa-1">
-            <div class="od-accordion__inner">
-      <p>Yazılı test bankalarını ve tam otonom, LLM ve görüntü işleme tabanlı QA oturumlarını platformlar arasında çalıştıran bir anti-blöf QA orkestratörü (Go). Çökmeleri tespit eder, her adımı yakalanmış kanıtlarla (ekran görüntüleri, logcat, video, yığın izleri) doğrular ve AI düzeltme hatları için kanıt zengini biletler otomatik olarak oluşturur.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-2" aria-expanded="true" aria-controls="od-acc-helixqa-2-panel">
-              <span class="od-accordion__label">Uzun açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-2-panel" role="region" aria-labelledby="od-acc-helixqa-2">
-            <div class="od-accordion__inner">
-      <p>HelixQA, tek ve tavizsiz tasarım odağı Constitution’un §11.4 Operatif Kuralı olan bir Go çerçevesidir: yayınlama kriteri "testler geçti" değil, "kullanıcılar özelliği kullanabiliyor"dur. Bu nedenle, her GEÇER sonucu, yürütme sırasında yakalanmış pozitif çalışma zamanı kanıtı taşımalıdır — kanıt yoksa yeşil ışık yok, istisna yok. Hem yazılı hem de bilinmeyen durumları kapsayan iki tamamlayıcı modda çalışır. İlk olarak, <strong>yazılı test bankaları</strong> — platform hedeflemesi, öncelik, sıralı adımlar (ad/eylem/beklenen), etiketler ve dokümantasyon referansları içeren <code>TC-XXX</code> vakalarından oluşan YAML paketleri — adım adım doğrulama, gerçek zamanlı çökme/ANR tespiti (Android için ADB, web/masaüstü için süreç izleme), merkezi kanıt toplama ve AI düzeltme hatları için otomatik olarak oluşturulmuş Markdown biletleri ile yürütülür. İkinci olarak, <strong>tam otonom QA oturumu</strong> uygulamayı LLM destekli ajanlara ve bilgisayarla görüye devreder ve dört disiplinli aşamada kontrolsüz olarak çalıştırır: kurulum (LLM’lerin seçimi, proje belgelerinden özellik haritasının oluşturulması, CLI ajanlarının başlatılması, görüntü işleme motorunun hazırlanması), her belgelenmiş özelliğin dolaşıldığı belge odaklı doğrulama, kenar durumları ve belgelenmemiş davranışları bilinçli olarak test eden merak odaklı keşif, ardından her bulgunun video zaman damgalı kanıtlarla ilişkilendirildiği Markdown/HTML/JSON formatında raporlama ve temizlik.</p>
-      <p>En kritik nokta, kendi ödevini notlandırmamasıdır: Dört harici Go alt modülünü (LLMsVerifier, LLMOrchestrator, VisionEngine, DocProcessor) entegre eder ve ortak <code>challenges</code> ile <code>containers</code> altyapısını kullanır. Böylece uygulamayı gezen bileşen, çalışıp çalışmadığını değerlendiren bileşenle aynı değildir. Kendi paketi, <code>make anti-bluff</code> (statik tarama + davranış çapa manifestosu + mutasyon mandalı) ve yerleşik §1.1 mutasyonuna sahip 8 aşamalı bir orkestratör Challenge ile başkalarına uyguladığı aynı kriterlere tabi tutulur. 15 satırlık test türü kapsama matrisi, her ilan edilen yeteneği somut bir yürütülebilir varlığa ve belirli bir yakalanmış kanıt biçimine bağlar — böylece çerçevenin kendisi hakkındaki iddiaları, test ettiği ürünlere verdiği kararlar kadar kanıta dayalıdır.</p>
-      <p>İçerik</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-3" aria-expanded="true" aria-controls="od-acc-helixqa-3-panel">
-              <span class="od-accordion__label">Neden inşa ettik</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-3-panel" role="region" aria-labelledby="od-acc-helixqa-3">
             <div class="od-accordion__inner">
       <p>Geleneksel Kalite Güvencesi (QA), "doğrulama başarılı" uyarısını yeşil ışık olarak kabul eder. İşte tam da bu yüzden Constitution'un *blöf* olarak adlandırdığı başarısızlık sınıfı gözden kaçar: kullanıcıya göre çalışmayan bir özellik, raporlarda sorunsuz görünür. HelixQA, özellikle QA için bu durumu imkânsız kılmak üzere tasarlandı. Bir doğrulamanın BAŞARILI olarak değerlendirilmesi için gerçek çalışma sırasında elde edilmiş fiziksel kanıt (ekran görüntüsü, logcat, video, yığın izi, rapor) gerektirir ve kanıt olmadan verilen yeşil özet satırını, eksik bir özellikle eşdeğer kritik bir hata olarak kabul eder. Ayrıca, birçok platformda kapsamlı manuel QA'nın ölçeklenememe sorununu da çözer: oturumları tamamen otonom hale getirerek.</p>
             </div>
@@ -233,12 +197,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-4" aria-expanded="true" aria-controls="od-acc-helixqa-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-1" aria-expanded="true" aria-controls="od-acc-helixqa-1-panel">
               <span class="od-accordion__label">Neden oyunun kurallarını değiştiriyor</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-4-panel" role="region" aria-labelledby="od-acc-helixqa-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-1-panel" role="region" aria-labelledby="od-acc-helixqa-1">
             <div class="od-accordion__inner">
       <p>Neredeyse hiçbir araçta bir arada bulunmayan iki unsuru birleştiriyor: titiz, kanıta dayalı QA geçiş kontrolü ve otonom, kendi kendine çalışan keşif. Bir LLM artı görsel algılama aracısı, *gerçek* uygulamayı açar, belgelenmiş her özelliği doğrular, kimsenin test yazmadığı belgelenmemiş hataları avlar *ve* bunu yaparken mahkeme kalitesinde bir kanıt zinciri üretir. Böylece "test ettik" ifadesi, "işte video, işte logcat, işte bilet" haline gelir. Ayrıca Constitution tarafından adlandırılan QA alt modülü olduğu için, benimsenmesi tek bir ekibin QA dürüstlüğünü artırmakla kalmaz; aynı hamlede tüm ürün ailesindeki kalite tabanını yükseltir.</p>
             </div>
@@ -246,12 +210,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-5" aria-expanded="true" aria-controls="od-acc-helixqa-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-2" aria-expanded="true" aria-controls="od-acc-helixqa-2-panel">
               <span class="od-accordion__label">Yenilikçi yönleri</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-5-panel" role="region" aria-labelledby="od-acc-helixqa-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-2-panel" role="region" aria-labelledby="od-acc-helixqa-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Blöf karşıtı kanıt sözleşmesi</strong> – Her kontrolün BAŞARILI sonucu, çalışma zamanı sırasında elde edilmiş kanıtlarla bağlanır; yeşil bir CI satırı gerekli görülse de asla yeterli kabul edilmez ve kanıtsız yeşil özet, kritik bir hata olarak değerlendirilir.</li>
@@ -265,12 +229,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-6" aria-expanded="true" aria-controls="od-acc-helixqa-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-3" aria-expanded="true" aria-controls="od-acc-helixqa-3-panel">
               <span class="od-accordion__label">Tüm ürünlerde nasıl kullanılıyor (sunduğu güçler)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-6-panel" role="region" aria-labelledby="od-acc-helixqa-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-3-panel" role="region" aria-labelledby="od-acc-helixqa-3">
             <div class="od-accordion__inner">
       <p><strong>Zorunlu kalite sütunu</strong> olarak (Constitution §11.4.169, <code>helix_qa</code> alt modülünü gerekli test türlerinden biri olarak adlandırır), HelixQA ailesindeki her ürüne aynı güçleri kazandırır:</p>
       <ul>
@@ -286,12 +250,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-7" aria-expanded="true" aria-controls="od-acc-helixqa-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-4" aria-expanded="true" aria-controls="od-acc-helixqa-4-panel">
               <span class="od-accordion__label">En Büyük Teknik Zorluklar ve Bunları Nasıl Çözdük</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-7-panel" role="region" aria-labelledby="od-acc-helixqa-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-4-panel" role="region" aria-labelledby="od-acc-helixqa-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>QA sürecindeki yanlış pozitiflerin önlenmesi</strong> — blöf yakalayan araç, kendisi blöfe dönüşmemeli → her adım, yakalanan kanıtlara karşı doğrulanır; kanıt olmadan GEÇER notu, GEÇER yerine hata olarak puanlanır; davranış-çapa manifestosu, her ilan edilen yeteneği çalıştırılabilir bir teste bağlar (CONST-035), böylece bir yetenek, onu uygulayan bir şey olmadan iddia edilemez.</li>
@@ -305,12 +269,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-8" aria-expanded="true" aria-controls="od-acc-helixqa-8-panel">
-              <span class="od-accordion__label">Teknoloji Yığını</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-5" aria-expanded="true" aria-controls="od-acc-helixqa-5-panel">
+              <span class="od-accordion__label">Nasıl inşa edildi</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-8-panel" role="region" aria-labelledby="od-acc-helixqa-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-5-panel" role="region" aria-labelledby="od-acc-helixqa-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go 1.24+ orkestratörü</strong> — *neden:* QA, ürünlerin çalıştığı her yerde çalışmalı; bu nedenle tek bir statik olarak bağlanmış, hızlı ve taşınabilir ikili, çalışma zamanı ağır bir alternatife tercih edilir; *nasıl:* <code>cmd/helixqa</code> CLI, birleştirilebilir alt komutlar sunar: <code>run</code> / <code>list</code> / <code>report</code> / <code>autonomous</code> / <code>version</code>.</li>
@@ -328,12 +292,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-9" aria-expanded="true" aria-controls="od-acc-helixqa-9-panel">
-              <span class="od-accordion__label">Durum ve dürüstlük notları</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixqa-6" aria-expanded="true" aria-controls="od-acc-helixqa-6-panel">
+              <span class="od-accordion__label">Gerçekte nerede olduğu</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixqa-9-panel" role="region" aria-labelledby="od-acc-helixqa-9">
+          <div class="od-accordion__panel is-open" id="od-acc-helixqa-6-panel" role="region" aria-labelledby="od-acc-helixqa-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Durum: beta.</strong> Aktif olarak geliştirilmekte (README durum afişi 219. tur). Kendi "anti-blöf" çubuğuna tabi tutuluyor.</li>

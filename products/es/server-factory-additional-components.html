@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "Server Factory — Additional Components — Miloš Vasić"
-description: "Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service \"factories\" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products."
+description: "Más allá de Mail Server Factory y el Marco Central, la organización Server-Factory incluye varios componentes más pequeños: \"fábricas\" por servicio (Servicio Web, SonarQube, Proxy de Caché), paquetes de configuración declarativa (Docker/Stack/Definiciones de Software) y utilidades compartidas. Esta página consolidada los aborda con honestidad —varios se encuentran en etapas tempranas o con documentación incompleta—, en lugar de presentarlos como productos plenamente especificados."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/server-factory-additional-components.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/server-factory-additional-components.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Beyond Mail Server Factory and the Core Framework, the Server-Factory org contains several smaller components: per-service \"factories\" (Web Service, SonarQube, Caching Proxy), declarative configuration packs (Docker/Stack/Software Definitions), and shared Utils. This consolidated page covers them honestly — several are early-stage or stub-documented — rather than as fully specified products.",
+      "description": "Más allá de Mail Server Factory y el Marco Central, la organización Server-Factory incluye varios componentes más pequeños: \"fábricas\" por servicio (Servicio Web, SonarQube, Proxy de Caché), paquetes de configuración declarativa (Docker/Stack/Definiciones de Software) y utilidades compartidas. Esta página consolidada los aborda con honestidad —varios se encuentran en etapas tempranas o con documentación incompleta—, en lugar de presentarlos como productos plenamente especificados.",
       "inLanguage": "es",
       "name": "Server Factory — Additional Components",
       "operatingSystem": "Cross-platform",
@@ -187,54 +187,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>El elenco de apoyo de la cadena de herramientas de aprovisionamiento Server Factory.</strong></p>
+      <p class="od-product-detail__lede">Un conjunto de repositorios de soporte para Server Factory: Web-Service-Factory, SonarQube-Factory y Caching-Proxy-Factory (herramientas de aprovisionamiento por servicio, en su mayoría en fase inicial); Docker/Stack/Software-Definitions (paquetes de configuración declarativa consumidos por el marco de trabajo); y Utils (ayudantes de acceso a SSH y herramientas generales). Todos se basan en el Marco Central.</p>
+      <p>Más allá de Mail Server Factory y el Marco Central, la organización Server-Factory incluye varios componentes más pequeños: "fábricas" por servicio (Servicio Web, SonarQube, Proxy de Caché), paquetes de configuración declarativa (Docker/Stack/Definiciones de Software) y utilidades compartidas. Esta página consolidada los aborda con honestidad —varios se encuentran en etapas tempranas o con documentación incompleta—, en lugar de presentarlos como productos plenamente especificados.</p>
+      <p>Esta página agrupa los repositorios restantes de Server-Factory porque, de manera individual, la mayoría son pequeños o están intencionalmente poco documentados, y presentarlos como productos terminados exageraría su grado de madurez. Se dividen en tres categorías. <strong>Las fábricas de servicios</strong> siguen el patrón de Mail Server Factory para otros roles de servidor: <strong>Caching-Proxy-Factory</strong> ("Ejecuta tu propio servidor proxy de caché") enumera como características clave un proxy de caché, un certificado autofirmado y un punto final HTTP para obtener certificados de seguridad; <strong>SonarQube-Factory</strong> ("Ejecuta tu propio servidor SonarQube") está orientado al uso en desarrollo de software; y <strong>Web-Service-Factory</strong> instancia y configura un servidor web para desplegar objetivos como sitios web y microservicios. Los tres son proyectos Kotlin construidos sobre el Marco Central, pero sus archivos README públicos son en gran medida marcadores de posición ("Por definir" en compatibilidad, especificaciones, configuración y uso), por lo que sus capacidades concretas más allá de lo declarado están SIN VERIFICAR. <strong>Los paquetes de definiciones</strong> —<strong>Docker-Definitions</strong>, <strong>Stack-Definitions</strong> y <strong>Software-Definitions</strong>— son repositorios de configuración declarativa que el marco de trabajo consume para saber cómo construir/desplegar imágenes, pilas y software de Docker; son paquetes de datos con versiones fijas, no aplicaciones. <strong>Utils</strong> ofrece herramientas generales para la familia, incluyendo un script <code>init_ssh_access.sh</code> que genera una clave SSH e la instala en un host remoto para habilitar el acceso root sin contraseña en aprovisionamientos posteriores. En conjunto, estos componentes completan la cadena de herramientas de aprovisionamiento en torno al buque insignia Mail Server Factory.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-0" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">Historia de origen</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-0-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-0">
-            <div class="od-accordion__inner">
-      <p>Más allá de Mail Server Factory y el Marco Central, la organización Server-Factory incluye varios componentes más pequeños: "fábricas" por servicio (Servicio Web, SonarQube, Proxy de Caché), paquetes de configuración declarativa (Docker/Stack/Definiciones de Software) y utilidades compartidas. Esta página consolidada los aborda con honestidad —varios se encuentran en etapas tempranas o con documentación incompleta—, en lugar de presentarlos como productos plenamente especificados.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-1" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-1-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-1">
-            <div class="od-accordion__inner">
-      <p>Un conjunto de repositorios de soporte para Server Factory: Web-Service-Factory, SonarQube-Factory y Caching-Proxy-Factory (herramientas de aprovisionamiento por servicio, en su mayoría en fase inicial); Docker/Stack/Software-Definitions (paquetes de configuración declarativa consumidos por el marco de trabajo); y Utils (ayudantes de acceso a SSH y herramientas generales). Todos se basan en el Marco Central.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-2" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-2-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-2">
-            <div class="od-accordion__inner">
-      <p>Esta página agrupa los repositorios restantes de Server-Factory porque, de manera individual, la mayoría son pequeños o están intencionalmente poco documentados, y presentarlos como productos terminados exageraría su grado de madurez. Se dividen en tres categorías. <strong>Las fábricas de servicios</strong> siguen el patrón de Mail Server Factory para otros roles de servidor: <strong>Caching-Proxy-Factory</strong> ("Ejecuta tu propio servidor proxy de caché") enumera como características clave un proxy de caché, un certificado autofirmado y un punto final HTTP para obtener certificados de seguridad; <strong>SonarQube-Factory</strong> ("Ejecuta tu propio servidor SonarQube") está orientado al uso en desarrollo de software; y <strong>Web-Service-Factory</strong> instancia y configura un servidor web para desplegar objetivos como sitios web y microservicios. Los tres son proyectos Kotlin construidos sobre el Marco Central, pero sus archivos README públicos son en gran medida marcadores de posición ("Por definir" en compatibilidad, especificaciones, configuración y uso), por lo que sus capacidades concretas más allá de lo declarado están SIN VERIFICAR. <strong>Los paquetes de definiciones</strong> —<strong>Docker-Definitions</strong>, <strong>Stack-Definitions</strong> y <strong>Software-Definitions</strong>— son repositorios de configuración declarativa que el marco de trabajo consume para saber cómo construir/desplegar imágenes, pilas y software de Docker; son paquetes de datos con versiones fijas, no aplicaciones. <strong>Utils</strong> ofrece herramientas generales para la familia, incluyendo un script <code>init_ssh_access.sh</code> que genera una clave SSH e la instala en un host remoto para habilitar el acceso root sin contraseña en aprovisionamientos posteriores. En conjunto, estos componentes completan la cadena de herramientas de aprovisionamiento en torno al buque insignia Mail Server Factory.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-3" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-3-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-3">
             <div class="od-accordion__inner">
       <p>El modelo Server Factory está diseñado para generalizarse: una vez que puedes aprovisionar un servidor de correo a partir de una descripción declarativa, el mismo motor debería ser capaz de aprovisionar servidores web, proxies de caché y servidores de calidad de código, alimentados por paquetes de definiciones reutilizables y utilidades compartidas, en lugar de lógica ad hoc para cada rol. Estos repositorios son esa generalización en proceso, extendiendo el patrón probado a nuevos tipos de servidores. Su valor aquí radica en demostrar el alcance del modelo; su madurez varía, y esta página deja claro cuáles son directrices y cuáles están terminados.</p>
             </div>
@@ -242,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-4" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-1" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-1-panel">
               <span class="od-accordion__label">Por qué es un cambio de juego (medido)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-4-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-4">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-1-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-1">
             <div class="od-accordion__inner">
       <p>En conjunto, demuestran la reutilización del Marco Central en distintos tipos de servidores y separan los datos declarativos (Definiciones) de la ejecución (fábricas). Individualmente, las fábricas de servicios se encuentran en una fase temprana y deben presentarse como una dirección, no como productos terminados.</p>
             </div>
@@ -255,12 +219,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-5" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-2" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-2-panel">
               <span class="od-accordion__label">Qué hay de innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-5-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-5">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-2-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Un marco de aprovisionamiento generalizado para roles de correo/web/proxy de caché/SonarQube.</li>
@@ -272,12 +236,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-6" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-6-panel">
-              <span class="od-accordion__label">Desafíos y soluciones</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-3" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-3-panel">
+              <span class="od-accordion__label">Problemas difíciles, soluciones honestas</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-6-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-6">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-3-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Reutilizar un mismo motor en distintos roles de servidor:</strong> resuelto al construir cada fábrica sobre el Marco Central.</li>
@@ -289,12 +253,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-7" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-server-factory-additional-components-4" aria-expanded="true" aria-controls="od-acc-server-factory-additional-components-4-panel">
               <span class="od-accordion__label">Pila tecnológica (por qué + cómo)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-7-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-7">
+          <div class="od-accordion__panel is-open" id="od-acc-server-factory-additional-components-4-panel" role="region" aria-labelledby="od-acc-server-factory-additional-components-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Kotlin</strong> — Fábrica de Servicios Web, Fábrica SonarQube, Fábrica de Proxy de Caché (construidas sobre el Marco Central).</li>

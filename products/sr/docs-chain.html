@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "Docs Chain — Miloš Vasić"
-description: "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically."
+description: "Docs Chain је универзални, Go-имплементиран двосмерни мотор за пропагацију зависности између докумената и база података. Када се било који члан регистрованог ланца промени — Markdown извор, HTML/PDF/DOCX извоз или SQLite база података — он то открива путем хеша садржаја и пропагира промену кроз све повезане чланове атомично."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docs-chain.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically.",
+      "description": "Docs Chain је универзални, Go-имплементиран двосмерни мотор за пропагацију зависности између докумената и база података. Када се било који члан регистрованог ланца промени — Markdown извор, HTML/PDF/DOCX извоз или SQLite база података — он то открива путем хеша садржаја и пропагира промену кроз све повезане чланове атомично.",
       "inLanguage": "sr",
       "name": "Docs Chain",
       "operatingSystem": "Cross-platform",
@@ -182,6 +182,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Ниједан праћени документ не може изаћи из синхронизације — садржајно хеширан, двосмеран, атомичан.</strong></p>
+      <p class="od-product-detail__lede">Go мотор који одржава документе и базе података у синхронизацији. Користећи Салса-стил инкременталног прекомпутирања заснованог на хешу садржаја преко DAG-а (Канов тополошки редослед, рано одсецање, двосмерне синхронизационе гране, атомично преименовање + SQLite трансакциони комитови), он регенерише извозе кад год се било који повезан артефакт промени.</p>
+      <p>Docs Chain је оно што направите када сте већ једном превише пута написали исти крхки схелл скрипт „регенериши PDF када се Markdown промени". Он замењује читав тај жанр ручно писане синхронизационе лепила правим мотором. Моделира документе и базе података пројекта као чланове ланца и, када се било који члан промени, пропагира ту промену кроз све повезане чланове у свим декларисаним смеровима — регенеришући и извозећи атомично тако да ниједан праћени артефакт никада не може изаћи из синхронизације. Дизајн позајмљује своју строгост директно из света инкременталних буилд система, а не из скриптовања: откривање промена заснива се на <strong>хешу садржаја, а не на времену модификације</strong>, па <code>touch</code> не покреће ништа, а једнобајтна измена покреће тачно оне поновне изградње које треба — без лажних аларма, без пропуштених промена. Формално изражено у једној реченици, то је Салса-стил инкременталног прекомпутирања заснованог на хешу садржаја преко DAG-а, са Кановим тополошким редоследом, раним одсецањем које елиминише непромењене подстабла, декларисаним двосмерним <code>sync</code> гранама са ауторитетом, и атомичним преименовањем плус SQLite трансакционим комитовима, тако да пад система усред пропагације никада не може оставити делимично написан извоз. Дистрибуира се као <code>vasic-digital</code> подмодул и користи као основни део HelixConstitution подмодула, па сваки пројекат који усвоји устав добија Docs Chain одмах и региструје сопствене ланце преко YAML по контексту. Имплементација је искрена у погледу статуса (према уставу §11.4.6): Фазе 1–4 (основни DAG + хеширање, адаптери/трансформације чворова, координатор пропагације са атомичношћу, конфигурационо вођени мулти-контекстни CLI са <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>) су имплементиране и тестиране; Фаза 4б додаје генеричке двосмерне уграђене функције <code>md-to-sqlite</code>/<code>sqlite-to-md</code> (чисти Go, промена на нивоу реда, бајт-стабилан кружни ток) и уграђену функцију <code>colorize-html</code>; Фаза 5 обухвата свеобухватне реал-binary енд-то-енд тестове и означена је као ГРЕЕН. Фазе 6–7 (дистрибуција устава, АТМОСпхере повезивање) остају ПЛАНИРАНЕ и доступне само оператерима. Herald је први прави downstream потрошач, синхронизујући корпус од 66 докумената у више формата који верификује чистоћу.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -199,37 +201,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-1" aria-expanded="true" aria-controls="od-acc-docs-chain-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
-            <div class="od-accordion__inner">
-      <p>Go мотор који одржава документе и базе података у синхронизацији. Користећи Салса-стил инкременталног прекомпутирања заснованог на хешу садржаја преко DAG-а (Канов тополошки редослед, рано одсецање, двосмерне синхронизационе гране, атомично преименовање + SQLite трансакциони комитови), он регенерише извозе кад год се било који повезан артефакт промени.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
-            <div class="od-accordion__inner">
-      <p>Docs Chain је оно што направите када сте већ једном превише пута написали исти крхки схелл скрипт „регенериши PDF када се Markdown промени". Он замењује читав тај жанр ручно писане синхронизационе лепила правим мотором. Моделира документе и базе података пројекта као чланове ланца и, када се било који члан промени, пропагира ту промену кроз све повезане чланове у свим декларисаним смеровима — регенеришући и извозећи атомично тако да ниједан праћени артефакт никада не може изаћи из синхронизације. Дизајн позајмљује своју строгост директно из света инкременталних буилд система, а не из скриптовања: откривање промена заснива се на <strong>хешу садржаја, а не на времену модификације</strong>, па <code>touch</code> не покреће ништа, а једнобајтна измена покреће тачно оне поновне изградње које треба — без лажних аларма, без пропуштених промена. Формално изражено у једној реченици, то је Салса-стил инкременталног прекомпутирања заснованог на хешу садржаја преко DAG-а, са Кановим тополошким редоследом, раним одсецањем које елиминише непромењене подстабла, декларисаним двосмерним <code>sync</code> гранама са ауторитетом, и атомичним преименовањем плус SQLite трансакционим комитовима, тако да пад система усред пропагације никада не може оставити делимично написан извоз. Дистрибуира се као <code>vasic-digital</code> подмодул и користи као основни део HelixConstitution подмодула, па сваки пројекат који усвоји устав добија Docs Chain одмах и региструје сопствене ланце преко YAML по контексту. Имплементација је искрена у погледу статуса (према уставу §11.4.6): Фазе 1–4 (основни DAG + хеширање, адаптери/трансформације чворова, координатор пропагације са атомичношћу, конфигурационо вођени мулти-контекстни CLI са <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>) су имплементиране и тестиране; Фаза 4б додаје генеричке двосмерне уграђене функције <code>md-to-sqlite</code>/<code>sqlite-to-md</code> (чисти Go, промена на нивоу реда, бајт-стабилан кружни ток) и уграђену функцију <code>colorize-html</code>; Фаза 5 обухвата свеобухватне реал-binary енд-то-енд тестове и означена је као ГРЕЕН. Фазе 6–7 (дистрибуција устава, АТМОСпхере повезивање) остају ПЛАНИРАНЕ и доступне само оператерима. Herald је први прави downstream потрошач, синхронизујући корпус од 66 докумената у више формата који верификује чистоћу.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
             <div class="od-accordion__inner">
       <p>Документација, извози и базе података се разилазе чим се одржавају ручно или помоћу крхких скрипти. Docs Chain синхронизацију чини механичком, прецизном на основу хеша садржаја и атомичном, тако да промена било где у ланцу исправно и безбедно ажурира све низводно (и узводно).</p>
             </div>
@@ -237,12 +213,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
             <div class="od-accordion__inner">
       <p>Оно што доноси су ригорозне гаранције исправности, које аутори компајлера и буилд-система сматрају саморазумљивим – графови зависности засновани на хеширању садржаја, минимално понављање израчунавања, атомичне промене – али их усмерава на документацију и базе података, домен који је до сада преживљавао захваљујући црон пословима и добрим намерама. Права двосмерна синхронизација значи да се однос између изворног материјала и његовог извоза одржава у оба смера, тако да „документација није ажурна" и „извоз се не поклапа са извором" престају да буду понављајући багови и постају стања која систем једноставно неће дозволити.</p>
             </div>
@@ -250,12 +226,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
+              <span class="od-accordion__label">Иновације унутра</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Инкрементално поновно израчунавање засновано на хешу садржаја (а не на времену измене) над усмереним ацикличним графом (DAG) са раним прекидом.</li>
@@ -268,12 +244,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-6" aria-expanded="true" aria-controls="od-acc-docs-chain-6-panel">
-              <span class="od-accordion__label">Изазови и решења</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
+              <span class="od-accordion__label">Инжењеринг тешких сегмената</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-6-panel" role="region" aria-labelledby="od-acc-docs-chain-6">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Лажна поновна изградња:</strong> решено детекцијом хеша садржаја уместо временских ознака.</li>
@@ -286,12 +262,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-7" aria-expanded="true" aria-controls="od-acc-docs-chain-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
               <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-7-panel" role="region" aria-labelledby="od-acc-docs-chain-7">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — цео погон (<code>internal/hash</code>, <code>graph</code>, <code>adapter</code>, <code>orchestrator</code>, <code>config</code>, <code>state</code>, <code>runner</code>, <code>cmd/docs_chain</code>).</li>

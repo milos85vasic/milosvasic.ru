@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "HelixPlay — Miloš Vasić"
-description: "HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners."
+description: "HelixPlay је самостално хостована платформа за цлоуд гејминг која претвара сваки уређај опремљен GPU у удаљени стреаминг хост, пружајући гејминг искуство конзола на десктоп, мобилним, TV и веб клијентима. Изграђена је као Go-центрични монорепо са 46 потмодула, са троструким клијентским стеком, и може се бело-етикетирати за партнере."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixplay.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixplay.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixplay.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixplay.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixplay.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixplay.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixplay.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixplay.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixplay.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixplay.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixplay.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixplay.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixplay.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixPlay is a self-hostable cloud-gaming platform that turns any GPU-equipped machine into a remote streaming host, delivering console-class gameplay to desktop, mobile, TV, and browser clients. It is built as a Go-centric monorepo of 46 submodules with a triple-stack client and is white-labellable for partners.",
+      "description": "HelixPlay је самостално хостована платформа за цлоуд гејминг која претвара сваки уређај опремљен GPU у удаљени стреаминг хост, пружајући гејминг искуство конзола на десктоп, мобилним, TV и веб клијентима. Изграђена је као Go-центрични монорепо са 46 потмодула, са троструким клијентским стеком, и може се бело-етикетирати за партнере.",
       "inLanguage": "sr",
       "name": "HelixPlay",
       "operatingSystem": "Cross-platform",
@@ -177,6 +177,10 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Претворите сваки уређај са GPU у сопствени уређај за цлоуд гејминг.</strong></p>
+      <p class="od-product-detail__lede">HelixPlay је самостално хостована, отворена и бело-етикетирајућа платформа за цлоуд гејминг. Претвара сваки уређај опремљен GPU у удаљени стреаминг хост и пружа гејминг искуство конзола на десктоп, мобилним, TV и веб клијентима преко WebRTC/QUIC, са Go језгром и Wails/Flutter/Angular клијентском стеком.</p>
+      <p>HelixPlay је платформа за цлоуд гејминг изграђена као Go-центрични монорепо састављен од 46 Гит потмодула. Претвара сваки гејминг PC који већ поседујете у стреаминг хост, пружајући искуство конзола на десктоп, мобилним, TV и веб клијентима — самостално хостовано, отворено и бело-етикетирајуће за партнере. Порука је јасна: ваш хардвер, ваша услуга, ваш бренд, без треће стране у средини.</p>
+      <p>Њена кључна одлука у дизајну је конвергенција троструког клијентског стека — тешка архитектонска опклада која се исплати на свим осталим пољима. Wails десктоп апликација, Flutter мобилна/TV апликација и Angular веб клијент сви се ослањају на *једно* Go језгро, компајлирано у WASM за претраживач, тако да се понашање пише једном и дели на свим површинама уместо да се грана на три пута. Испод тога налази се путања за медије у реалном времену: Снимање → Енкодирање → Паковање → Пренос → Декодирање → Рендеровање, повезана са платформски-нативним снимањем (DXGI / ScreenCaptureKit / PipeWire) и хардверским енкодерима (NVENC / QSV / АМФ / VideoToolbox) тако да GPU обавља главни посао, а пренос се одвија преко WebRTC (Pion в4), QUIC (quic-го) и прилагођених UDP датаграма изабраних због латенције, а не практичности. Бацкенд језгро управља сесијама, тенантима, каталогом и аутентификацијом; хост агент обрађује снимање, енкодирање и пренос на ивици мреже; а мДНС/рендезвоус спаја откривање тако да клијенти проналазе свој хост без ручног подешавања.</p>
+      <p>HelixPlay је од основе пројектован за бело-етикетирање SaaS-а — тематско прилагођавање по тенанту, филтрирање каталога, OAuth2 и наплата — тако да партнер може да покрене потпуно брендирану услугу уместо површинске промене изгледа. Такође је потпуно контејнеризован до последњег детаља: свака услуга, база података, буилд, тест и скенирање одвија се унутар контејнера, што читаву платформу чини репродуктивном за имплементацију и верификацију. Као и остатак породице Helix, заснован је на уставу против блефирања где зелени тест треба да гарантује стварно, крајње кориснику употребљиво понашање — а не само пролазни моцк.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -194,39 +198,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-1" aria-expanded="true" aria-controls="od-acc-helixplay-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-1-panel" role="region" aria-labelledby="od-acc-helixplay-1">
-            <div class="od-accordion__inner">
-      <p>HelixPlay је самостално хостована, отворена и бело-етикетирајућа платформа за цлоуд гејминг. Претвара сваки уређај опремљен GPU у удаљени стреаминг хост и пружа гејминг искуство конзола на десктоп, мобилним, TV и веб клијентима преко WebRTC/QUIC, са Go језгром и Wails/Flutter/Angular клијентском стеком.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-2" aria-expanded="true" aria-controls="od-acc-helixplay-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-2-panel" role="region" aria-labelledby="od-acc-helixplay-2">
-            <div class="od-accordion__inner">
-      <p>HelixPlay је платформа за цлоуд гејминг изграђена као Go-центрични монорепо састављен од 46 Гит потмодула. Претвара сваки гејминг PC који већ поседујете у стреаминг хост, пружајући искуство конзола на десктоп, мобилним, TV и веб клијентима — самостално хостовано, отворено и бело-етикетирајуће за партнере. Порука је јасна: ваш хардвер, ваша услуга, ваш бренд, без треће стране у средини.</p>
-      <p>Њена кључна одлука у дизајну је конвергенција троструког клијентског стека — тешка архитектонска опклада која се исплати на свим осталим пољима. Wails десктоп апликација, Flutter мобилна/TV апликација и Angular веб клијент сви се ослањају на *једно* Go језгро, компајлирано у WASM за претраживач, тако да се понашање пише једном и дели на свим површинама уместо да се грана на три пута. Испод тога налази се путања за медије у реалном времену: Снимање → Енкодирање → Паковање → Пренос → Декодирање → Рендеровање, повезана са платформски-нативним снимањем (DXGI / ScreenCaptureKit / PipeWire) и хардверским енкодерима (NVENC / QSV / АМФ / VideoToolbox) тако да GPU обавља главни посао, а пренос се одвија преко WebRTC (Pion в4), QUIC (quic-го) и прилагођених UDP датаграма изабраних због латенције, а не практичности. Бацкенд језгро управља сесијама, тенантима, каталогом и аутентификацијом; хост агент обрађује снимање, енкодирање и пренос на ивици мреже; а мДНС/рендезвоус спаја откривање тако да клијенти проналазе свој хост без ручног подешавања.</p>
-      <p>HelixPlay је од основе пројектован за бело-етикетирање SaaS-а — тематско прилагођавање по тенанту, филтрирање каталога, OAuth2 и наплата — тако да партнер може да покрене потпуно брендирану услугу уместо површинске промене изгледа. Такође је потпуно контејнеризован до последњег детаља: свака услуга, база података, буилд, тест и скенирање одвија се унутар контејнера, што читаву платформу чини репродуктивном за имплементацију и верификацију. Као и остатак породице Helix, заснован је на уставу против блефирања где зелени тест треба да гарантује стварно, крајње кориснику употребљиво понашање — а не само пролазни моцк.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-3" aria-expanded="true" aria-controls="od-acc-helixplay-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-3-panel" role="region" aria-labelledby="od-acc-helixplay-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-1-panel" role="region" aria-labelledby="od-acc-helixplay-1">
             <div class="od-accordion__inner">
       <p>Комерцијални цлоуд гејминг је затворен, централизован и изнајмљен. HelixPlay је направљен како би свако са GPU уређајем могао да покрене сопствени стреаминг хост — отворен, самостално хостован и бело-етикетирајући — уместо да зависи од услуга треће стране.</p>
             </div>
@@ -234,12 +210,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-4" aria-expanded="true" aria-controls="od-acc-helixplay-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-2" aria-expanded="true" aria-controls="od-acc-helixplay-2-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-4-panel" role="region" aria-labelledby="od-acc-helixplay-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-2-panel" role="region" aria-labelledby="od-acc-helixplay-2">
             <div class="od-accordion__inner">
       <p>Спаја три ствари које комерцијалне услуге држе одвојено: самостално хостовање на хардверу који контролишете, један заједнички Go кернел који покреће три клијентска стека тако да функције стижу свуда истовремено, и white-лабел вишекорисничку архитектуру. Резултат је да партнер може да покрене потпуно брендирану услугу цлоуд-гаминга на *својим* GPU-има – поседује искуство, кориснике и економију – уместо да препродаје капацитете туђег цлоуда и живи унутар његових ограничења.</p>
             </div>
@@ -247,12 +223,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-5" aria-expanded="true" aria-controls="od-acc-helixplay-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-3" aria-expanded="true" aria-controls="od-acc-helixplay-3-panel">
+              <span class="od-accordion__label">Шта је заиста ново</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-5-panel" role="region" aria-labelledby="od-acc-helixplay-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-3-panel" role="region" aria-labelledby="od-acc-helixplay-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Конвергенција троструког клијентског стека</strong> – Wails, Flutter и Angular покрећу се на једном Go кернелу (WASM у прегледачу), па десктоп, мобилни, TV и веб уређаји деле једну имплементацију уместо три које се разилазе.</li>
@@ -265,12 +241,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-6" aria-expanded="true" aria-controls="od-acc-helixplay-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-4" aria-expanded="true" aria-controls="od-acc-helixplay-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-6-panel" role="region" aria-labelledby="od-acc-helixplay-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-4-panel" role="region" aria-labelledby="od-acc-helixplay-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Стримовање са ниском латенцијом на хетерогеном хардверу.</strong> Сваки оперативни систем и GPU нуди различите начине за хватање и енкодирање слике, а латенција не опрашта грешке. Решено путем платформски свесног тока за хватање/енкодирање – DXGI / ScreenCaptureKit / PipeWire шаљу податке NVENC-у / QSV-у / АМФ-у / VideoToolbox-у – преносећи их преко WebRTC-а / QUIC / UDP тако да сваки уређај користи свој најбржи пут до пиксела.</li>
@@ -282,12 +258,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-7" aria-expanded="true" aria-controls="od-acc-helixplay-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-5" aria-expanded="true" aria-controls="od-acc-helixplay-5-panel">
               <span class="od-accordion__label">Технички стек</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-7-panel" role="region" aria-labelledby="od-acc-helixplay-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-5-panel" role="region" aria-labelledby="od-acc-helixplay-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.26.2 роот / 1.25+ субмодули)</strong> – заједнички основни бацкенд и хост агент; један језик који се компајлира у нативе бинарне фајлове *и* у WASM, што омогућава дизајн са једним кернелом и више клијената.</li>
@@ -304,12 +280,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-8" aria-expanded="true" aria-controls="od-acc-helixplay-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixplay-6" aria-expanded="true" aria-controls="od-acc-helixplay-6-panel">
               <span class="od-accordion__label">Напомене о статусу и искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixplay-8-panel" role="region" aria-labelledby="od-acc-helixplay-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixplay-6-panel" role="region" aria-labelledby="od-acc-helixplay-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> Циљеви кашњења у РЕАДМЕ фајлу (≤30 мс LAN / ≤50 мс WAN п999), оквир „конзолне класе / класе ПС4 Про", као и број ћелија у тест-матриксу представљају пројектом наведене циљеве дизајна, а нису независно проверени и презентују се као такви.</li>

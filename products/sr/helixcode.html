@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "HelixCode — Miloš Vasić"
-description: "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."
+description: "HelixCode је предузетничка, Go-базирана дистрибуирана AI развојна платформа која дели развојне задатке на интелигентно подељене подзадатке распоређене по мрежи радника управљаних путем SSH, са аутоматским чувањем стања и повратком на претходне верзије како ни један део посла никада не би био изгубљен. Она обједињује интеграцију више LLM провајдера, радне токове током целог развојног циклуса и испоруку на више платформи иза REST, CLI, TUI и MCP интерфејса."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixcode.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcode.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcode.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixcode.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcode.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcode.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcode.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces.",
+      "description": "HelixCode је предузетничка, Go-базирана дистрибуирана AI развојна платформа која дели развојне задатке на интелигентно подељене подзадатке распоређене по мрежи радника управљаних путем SSH, са аутоматским чувањем стања и повратком на претходне верзије како ни један део посла никада не би био изгубљен. Она обједињује интеграцију више LLM провајдера, радне токове током целог развојног циклуса и испоруку на више платформи иза REST, CLI, TUI и MCP интерфејса.",
       "inLanguage": "sr",
       "license": "MIT",
       "name": "HelixCode",
@@ -187,6 +187,10 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Дистрибуирана AI развојна платформа која дели посао, чува га и никада не губи ваше место.</strong></p>
+      <p class="od-product-detail__lede">HelixCode је дистрибуирана AI развојна платформа написана у Go. Дели посао на интелигентне задатке распоређене по мрежи радника заснованој на SSH, чува напредак аутоматским чувањем стања и повратком на претходне верзије, интегрише више LLM провајдера и покреће цео развојни циклус преко REST, CLI, TUI и MCP интерфејса.</p>
+      <p>HelixCode је предузетничка дистрибуирана AI развојна платформа (<code>dev.helix.code</code>, МИТ) изграђена око једноставног обећања које њен слоган дословно испуњава: подели посао, сачувај га и никада не изгуби своје место. Дизајнирана је за интелигентну поделу задатака, аутоматско чување напретка и развојне токове на више платформи, а написана је у Go због конкурентности и преносивости у виду једног бинарног фајла које дистрибуирано рачунарство захтева — са аутоматским чувањем стања, повратком на претходне верзије и праћењем у реалном времену као основним, а не опционим функцијама.</p>
+      <p>Њена архитектура поставља REST + WebSocket + MCP API слој изнад скупа фокусираних основних сервиса — JWT аутентификацију и управљање сесијама, управљање базеном радника заснованим на SSH са праћењем стања, управљање задацима са чувањем стања и руковањем зависностима, управљање пројектима и радним токовима, као и обједињени слој LLM провајдера — све сачувано на PostgreSQL, док је Redis доступан као опциони слој за координацију и кеширање. Дистрибуирани радници се аутоматски инсталирају преко мреже, тако да је проширивање система једноставно усмеравање сервера на машину уместо ручног подешавања, а мулти-клиент интерфејси обухватају CLI, терминалски интерфејс, REST и мобилне оквире, чиме је иста платформа доступна из скрипте, терминала или апликације.</p>
+      <p>HelixCode покреће комплетан развојни циклус од почетка до краја: планирање, изградња, тестирање и рефакторисање се извршавају аутоматски уз праћење зависности и контекста више сесија, тако да дугорочни напори задржавају своју нит кроз прекиде и границе између машина. Интегрише више LLM провајдера — ллама.цпп, Ollama и OpenAI — иза једног интерфејса, а затим додаје избор модела свестан хардвера који детектује доступне CPU/GPU/меморију и прилагођава модел машини, као и подршку за напредне стратегије резоновања попут ланчаног размишљања и стабла размишљања за проблеме који захтевају више од једног пролаза. Model Context Protocol је имплементиран преко више транспортних протокола за стандардизовану размену алата и контекста, а обавештења на више канала (Slack, Discord, Емаил, Telegram) обавештавају тимове о напретку дистрибуираног рада. Подржане су платформе Linux, macOS, Windows, Aurora OS и SymphonyOS.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -204,39 +208,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-1" aria-expanded="true" aria-controls="od-acc-helixcode-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-1-panel" role="region" aria-labelledby="od-acc-helixcode-1">
-            <div class="od-accordion__inner">
-      <p>HelixCode је дистрибуирана AI развојна платформа написана у Go. Дели посао на интелигентне задатке распоређене по мрежи радника заснованој на SSH, чува напредак аутоматским чувањем стања и повратком на претходне верзије, интегрише више LLM провајдера и покреће цео развојни циклус преко REST, CLI, TUI и MCP интерфејса.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-2" aria-expanded="true" aria-controls="od-acc-helixcode-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-2-panel" role="region" aria-labelledby="od-acc-helixcode-2">
-            <div class="od-accordion__inner">
-      <p>HelixCode је предузетничка дистрибуирана AI развојна платформа (<code>dev.helix.code</code>, МИТ) изграђена око једноставног обећања које њен слоган дословно испуњава: подели посао, сачувај га и никада не изгуби своје место. Дизајнирана је за интелигентну поделу задатака, аутоматско чување напретка и развојне токове на више платформи, а написана је у Go због конкурентности и преносивости у виду једног бинарног фајла које дистрибуирано рачунарство захтева — са аутоматским чувањем стања, повратком на претходне верзије и праћењем у реалном времену као основним, а не опционим функцијама.</p>
-      <p>Њена архитектура поставља REST + WebSocket + MCP API слој изнад скупа фокусираних основних сервиса — JWT аутентификацију и управљање сесијама, управљање базеном радника заснованим на SSH са праћењем стања, управљање задацима са чувањем стања и руковањем зависностима, управљање пројектима и радним токовима, као и обједињени слој LLM провајдера — све сачувано на PostgreSQL, док је Redis доступан као опциони слој за координацију и кеширање. Дистрибуирани радници се аутоматски инсталирају преко мреже, тако да је проширивање система једноставно усмеравање сервера на машину уместо ручног подешавања, а мулти-клиент интерфејси обухватају CLI, терминалски интерфејс, REST и мобилне оквире, чиме је иста платформа доступна из скрипте, терминала или апликације.</p>
-      <p>HelixCode покреће комплетан развојни циклус од почетка до краја: планирање, изградња, тестирање и рефакторисање се извршавају аутоматски уз праћење зависности и контекста више сесија, тако да дугорочни напори задржавају своју нит кроз прекиде и границе између машина. Интегрише више LLM провајдера — ллама.цпп, Ollama и OpenAI — иза једног интерфејса, а затим додаје избор модела свестан хардвера који детектује доступне CPU/GPU/меморију и прилагођава модел машини, као и подршку за напредне стратегије резоновања попут ланчаног размишљања и стабла размишљања за проблеме који захтевају више од једног пролаза. Model Context Protocol је имплементиран преко више транспортних протокола за стандардизовану размену алата и контекста, а обавештења на више канала (Slack, Discord, Емаил, Telegram) обавештавају тимове о напретку дистрибуираног рада. Подржане су платформе Linux, macOS, Windows, Aurora OS и SymphonyOS.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-3" aria-expanded="true" aria-controls="od-acc-helixcode-3-panel">
               <span class="od-accordion__label">Зашто смо га изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-3-panel" role="region" aria-labelledby="od-acc-helixcode-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-1-panel" role="region" aria-labelledby="od-acc-helixcode-1">
             <div class="od-accordion__inner">
       <p>Развој који се одвија на више машина уз помоћ AI обично губи контекст и напредак када се задаци раздвоје или прекину. HelixCode је створен да поделу задатака учини интелигентном, а очување рада аутоматским — како би се велики развојни напор могао разложити, распоредити по мрежи радника, контролисати тачкама провера и наставити или вратити уназад без губитка стања.</p>
             </div>
@@ -244,12 +220,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-4" aria-expanded="true" aria-controls="od-acc-helixcode-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-2" aria-expanded="true" aria-controls="od-acc-helixcode-2-panel">
               <span class="od-accordion__label">Зашто је револуционаран</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-4-panel" role="region" aria-labelledby="od-acc-helixcode-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-2-panel" role="region" aria-labelledby="od-acc-helixcode-2">
             <div class="od-accordion__inner">
       <p>Он чини развој уз помоћ AI *издржљивим* — способност која никада раније није била практична када су тимови ручно спајали ове делове. Три ствари које обично постоје у три одвојена алата сада постају једна платформа: дистрибуирано израчунавање (мреже радника SSH са аутоматском инсталацијом и праћењем здравља), помоћ у развоју уз AI (LLM-ови са више пружалаца услуга, способни за резоновање и позивање алата) и аутоматизација радних токова током целог животног циклуса. Спојно ткиво је провера тачака ослоњена на базу података: пошто се стање задатка, тачке провера и зависности чувају у PostgreSQL, посао који се протеже преко више машина и сесија може се вратити уназад или наставити тачно тамо где је стао. Прекиди и подела рада престају да буду извор изгубљеног напретка и постају рутински, обновљиви догађаји.</p>
             </div>
@@ -257,12 +233,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-5" aria-expanded="true" aria-controls="od-acc-helixcode-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-3" aria-expanded="true" aria-controls="od-acc-helixcode-3-panel">
+              <span class="od-accordion__label">Иновације унутра</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-5-panel" role="region" aria-labelledby="od-acc-helixcode-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-3-panel" role="region" aria-labelledby="od-acc-helixcode-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Очување рада као основни принцип: аутоматска провера тачака и враћање уназад примењено на *дистрибуиране* развојне задатке, тако да напредак преживи прекиде и отказивање машина уместо да нестане с њима.</li>
@@ -275,12 +251,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-6" aria-expanded="true" aria-controls="od-acc-helixcode-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-4" aria-expanded="true" aria-controls="od-acc-helixcode-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-6-panel" role="region" aria-labelledby="od-acc-helixcode-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-4-panel" role="region" aria-labelledby="od-acc-helixcode-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Да се не изгуби рад на дистрибуираним, прекидивим задацима.</strong> Када је посао подељен на више машина, сваки пад система или прекид обично оставља у ваздуху све што је било у току. Ми смо задатак моделовали као носиоца тачака провера и зависности, сачуваних у PostgreSQL, тако да систем може да се врати на последње исправно стање или настави одатле — издржљивост која постоји у слоју података, а не у крхком стању у меморији.</li>
@@ -292,12 +268,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-7" aria-expanded="true" aria-controls="od-acc-helixcode-7-panel">
-              <span class="od-accordion__label">Технолошки стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-5" aria-expanded="true" aria-controls="od-acc-helixcode-5-panel">
+              <span class="od-accordion__label">Испод хаубе</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-7-panel" role="region" aria-labelledby="od-acc-helixcode-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-5-panel" role="region" aria-labelledby="od-acc-helixcode-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.26+ унутрашњи модул)</strong> — изабран јер његова конкурентност заснована на горутинама и излаз у виду једног бинарног фајла управо одговарају потребама дистрибуираног радничког система: јефтин паралелизам за оркестрацију и самостални бинарни фајл који се аутоматски инсталира на било који чвор. Садржи све основне сервисе и бинарне фајлове CLI/сервера.</li>
@@ -313,12 +289,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-8" aria-expanded="true" aria-controls="od-acc-helixcode-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-6" aria-expanded="true" aria-controls="od-acc-helixcode-6-panel">
               <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-8-panel" role="region" aria-labelledby="od-acc-helixcode-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-6-panel" role="region" aria-labelledby="od-acc-helixcode-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> У РЕАДМЕ фајлу стоји да је пројекат „ПОТПУНО ЗАВРШЕН / свих 5 фаза"; та потпуност је наведена од стране пројекта, а не независно потврђена, па се страница према томе односи као према бети.</li>

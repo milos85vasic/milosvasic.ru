@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "DocProcessor — Miloš Vasić"
-description: "DocProcessor is a standalone, fully decoupled Go module that loads project documentation, builds structured feature maps, and tracks verification coverage. It is designed to work with LLM agents for intelligent feature extraction but also includes heuristic extraction for offline use."
+description: "DocProcessor — гэта аўтаномны, цалкам дэкапліраваны модуль Go, які загружае дакументацыю праекта, стварае структурызаваныя карты функцый і адсочвае пакрыццё праверкі. Ён распрацаваны для працы з агентамі LLM для інтэлектуальнага вымання функцый, але таксама ўключае эўрыстычнае выманне для аўтаномнага выкарыстання."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docprocessor.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "DocProcessor is a standalone, fully decoupled Go module that loads project documentation, builds structured feature maps, and tracks verification coverage. It is designed to work with LLM agents for intelligent feature extraction but also includes heuristic extraction for offline use.",
+      "description": "DocProcessor — гэта аўтаномны, цалкам дэкапліраваны модуль Go, які загружае дакументацыю праекта, стварае структурызаваныя карты функцый і адсочвае пакрыццё праверкі. Ён распрацаваны для працы з агентамі LLM для інтэлектуальнага вымання функцый, але таксама ўключае эўрыстычнае выманне для аўтаномнага выкарыстання.",
       "inLanguage": "be",
       "license": "Apache-2.0",
       "name": "DocProcessor",
@@ -183,6 +183,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline">Змест <strong>Ператварыце дакументацыю ў правераную карту функцый для аўтаматызацыі кантролю якасці.</strong></p>
+      <p class="od-product-detail__lede">Агностычны да праекта модуль Go для апрацоўкі дакументацыі і вымання карт функцый. Ён парсіць дакументы ў структурызаваныя карты функцый і адсочвае, якія функцыі правераны — выкарыстоўваючы агенты LLM для інтэлектуальнага вымання або эўрыстыку ў аўтаномным рэжыме — і забяспечвае аўтаматызацыю кантролю якасці анты-блефавай гарантыяй, якая заўсёды адпавядае рэальнасці.</p>
+      <p>Кожная каманда распрацоўшчыкаў жыве з адной і той жа павольнай хлуснёй: дакументацыя абяцае функцыі, тэсты пакрываюць нешта іншае, і ніхто не можа з упэўненасцю сказаць, ці апісваюць яны адзін і той жа прадукт. DocProcessor існуе, каб зрабіць гэтую прабелю бачнай і вымернай. На падставе дакументацыі праекта ён стварае структурызаваную карту функцый — пералічаны, прыдатны для машыннай апрацоўкі мадэль усяго, што прадукт абяцае рабіць — і адсочвае пакрыццё праверкі ў адносінах да яе, каб пытанне «ці правераная гэтая дакументаваная функцыя насамрэч?» перастала быць спрэчкай у калідоры і ператварылася ў запыт з адказам. Ён наўмысна двухрэжымны: выкарыстоўвае агенты LLM для інтэлектуальнага, семантычнага вымання функцый, калі яны даступныя, і пераходзіць на эўрыстычны парсер для поўнага аўтаномнага выкарыстання, каб ніколі не залежаць ад наяўнасці мадэлі і працаваць аднолькава як у ізаляваным CI-заданні, так і на ноўтбуку распрацоўшчыка ў рэжыме самалёта.</p>
+      <p>Архітэктурна гэта аўтаномны, не прывязаны да праекта, цалкам дэкапліраваны модуль Go (CONST-051(B)): ён не ўключае ніякіх спецыфічных для праекта значэнняў і ўбудоўваецца спажыўцамі як падмодуль з роўным кодэксам, каб любы праект мог яго прыняць без атрымання чужаземных здагадак. Ён таксама прытрымліваецца тых самых стандартаў, якія навязвае іншым — яго ўласныя сцвярджэнні падпарадкаваны анты-блефавай дамове (CONST-035) і правілам поўнага аўтаматызаванага пакрыцця (CONST-048), што азначае, што кожная магчымасць, абвешчаная ў яго README, правяраецца аўтаматызаваным тэстам або Challenge-скрыптам, які пацвярджае рэальную, прыдатную для канчатковага карыстальніка паводзіны, а не проста выходзіць з нулявым статусам; карыстальніцкія радкі праходзяць праз перакладчык інтэрнацыяналізацыі CONST-046. Сэнс усяго гэтага — замкнуты цыкл: DocProcessor з’яўляецца ўваходным бокам цыклу кантролю якасці, які замыкае HelixQA — ён выманяе карту функцый з дакументаў, HelixQA пацвярджае кожную нанесеную на карту функцыю захопленымі сведчаннямі часу выканання, і дакументацыя, тэсты і рэальная паводзіны прадукту вымушаны сыходзіцца, замест таго каб ціха разыходзіцца з версіі ў версію.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -200,38 +203,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-1" aria-expanded="true" aria-controls="od-acc-docprocessor-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-1-panel" role="region" aria-labelledby="od-acc-docprocessor-1">
-            <div class="od-accordion__inner">
-      <p>Агностычны да праекта модуль Go для апрацоўкі дакументацыі і вымання карт функцый. Ён парсіць дакументы ў структурызаваныя карты функцый і адсочвае, якія функцыі правераны — выкарыстоўваючы агенты LLM для інтэлектуальнага вымання або эўрыстыку ў аўтаномным рэжыме — і забяспечвае аўтаматызацыю кантролю якасці анты-блефавай гарантыяй, якая заўсёды адпавядае рэальнасці.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-2" aria-expanded="true" aria-controls="od-acc-docprocessor-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-2-panel" role="region" aria-labelledby="od-acc-docprocessor-2">
-            <div class="od-accordion__inner">
-      <p>Кожная каманда распрацоўшчыкаў жыве з адной і той жа павольнай хлуснёй: дакументацыя абяцае функцыі, тэсты пакрываюць нешта іншае, і ніхто не можа з упэўненасцю сказаць, ці апісваюць яны адзін і той жа прадукт. DocProcessor існуе, каб зрабіць гэтую прабелю бачнай і вымернай. На падставе дакументацыі праекта ён стварае структурызаваную карту функцый — пералічаны, прыдатны для машыннай апрацоўкі мадэль усяго, што прадукт абяцае рабіць — і адсочвае пакрыццё праверкі ў адносінах да яе, каб пытанне «ці правераная гэтая дакументаваная функцыя насамрэч?» перастала быць спрэчкай у калідоры і ператварылася ў запыт з адказам. Ён наўмысна двухрэжымны: выкарыстоўвае агенты LLM для інтэлектуальнага, семантычнага вымання функцый, калі яны даступныя, і пераходзіць на эўрыстычны парсер для поўнага аўтаномнага выкарыстання, каб ніколі не залежаць ад наяўнасці мадэлі і працаваць аднолькава як у ізаляваным CI-заданні, так і на ноўтбуку распрацоўшчыка ў рэжыме самалёта.</p>
-      <p>Архітэктурна гэта аўтаномны, не прывязаны да праекта, цалкам дэкапліраваны модуль Go (CONST-051(B)): ён не ўключае ніякіх спецыфічных для праекта значэнняў і ўбудоўваецца спажыўцамі як падмодуль з роўным кодэксам, каб любы праект мог яго прыняць без атрымання чужаземных здагадак. Ён таксама прытрымліваецца тых самых стандартаў, якія навязвае іншым — яго ўласныя сцвярджэнні падпарадкаваны анты-блефавай дамове (CONST-035) і правілам поўнага аўтаматызаванага пакрыцця (CONST-048), што азначае, што кожная магчымасць, абвешчаная ў яго README, правяраецца аўтаматызаваным тэстам або Challenge-скрыптам, які пацвярджае рэальную, прыдатную для канчатковага карыстальніка паводзіны, а не проста выходзіць з нулявым статусам; карыстальніцкія радкі праходзяць праз перакладчык інтэрнацыяналізацыі CONST-046. Сэнс усяго гэтага — замкнуты цыкл: DocProcessor з’яўляецца ўваходным бокам цыклу кантролю якасці, які замыкае HelixQA — ён выманяе карту функцый з дакументаў, HelixQA пацвярджае кожную нанесеную на карту функцыю захопленымі сведчаннямі часу выканання, і дакументацыя, тэсты і рэальная паводзіны прадукту вымушаны сыходзіцца, замест таго каб ціха разыходзіцца з версіі ў версію.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-3" aria-expanded="true" aria-controls="od-acc-docprocessor-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-3-panel" role="region" aria-labelledby="od-acc-docprocessor-3">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-1-panel" role="region" aria-labelledby="od-acc-docprocessor-1">
             <div class="od-accordion__inner">
       <p>Дакументацыя і тэсты разыходзяцца: дакументы абяцаюць функцыі, якія не правяраюцца ніякімі тэстамі, а кантроль якасці не можа лёгка вызначыць, што азначае «поўнае пакрыццё». DocProcessor ператварае дакументы ў прыдатную для машыннай апрацоўкі карту функцый, каб пакрыццё праверкі можна было вымяраць у адносінах да таго, што было сапраўды абяцана.</p>
       <p>Змесціва</p>
@@ -240,12 +216,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-4" aria-expanded="true" aria-controls="od-acc-docprocessor-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-2" aria-expanded="true" aria-controls="od-acc-docprocessor-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-4-panel" role="region" aria-labelledby="od-acc-docprocessor-4">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-2-panel" role="region" aria-labelledby="od-acc-docprocessor-2">
             <div class="od-accordion__inner">
       <p>Гэта ператварае найбольш нявызначанае пытанне ў дастаўцы праграмнага забеспячэння — *«Ці адпавядае тое, што мы адправілі, таму, што мы казалі, што адправілі?»* — у нешта, што можна аўтаматызаваць і правяраць бесперапынна. І робіць гэта без жорсткай залежнасці ад AI: LLM-экстракцыя, калі мадэль даступна, эўрыстыкі — калі не, так што адна і тая ж гарантыя дзейнічае ў любым асяроддзі — ад аўтаномнага апрацоўшчыка да поўнаагентнага канвеера.</p>
             </div>
@@ -253,12 +229,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-5" aria-expanded="true" aria-controls="od-acc-docprocessor-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-3" aria-expanded="true" aria-controls="od-acc-docprocessor-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-5-panel" role="region" aria-labelledby="od-acc-docprocessor-5">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-3-panel" role="region" aria-labelledby="od-acc-docprocessor-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Экстракцыя карты дакументацыі-да-функцыяналу з адсочваннем пакрыцця праверкі.</li>
@@ -271,12 +247,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-6" aria-expanded="true" aria-controls="od-acc-docprocessor-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-4" aria-expanded="true" aria-controls="od-acc-docprocessor-4-panel">
               <span class="od-accordion__label">Праблемы і рашэнні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-6-panel" role="region" aria-labelledby="od-acc-docprocessor-6">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-4-panel" role="region" aria-labelledby="od-acc-docprocessor-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Работа без мадэлі:</strong> вырашана праз эўрыстычны экстрактар-фалабек, што дазваляе модулю працаваць афлайн.</li>
@@ -289,12 +265,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-7" aria-expanded="true" aria-controls="od-acc-docprocessor-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-5" aria-expanded="true" aria-controls="od-acc-docprocessor-5-panel">
               <span class="od-accordion__label">Тэхналагічны стэк (чаму + як)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-7-panel" role="region" aria-labelledby="od-acc-docprocessor-7">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-5-panel" role="region" aria-labelledby="od-acc-docprocessor-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25+)</strong> — ядро модуля; ліцэнзія Apache-2.0.</li>

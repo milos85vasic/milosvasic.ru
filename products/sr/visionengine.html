@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "VisionEngine — Miloš Vasić"
-description: "VisionEngine is a decoupled Go toolkit that combines classic computer vision with LLM-based vision to analyze user interfaces, detect UI elements and visual issues, and build navigation graphs of app screen transitions — with pluggable multi-provider vision backends and OpenCV gated behind a build tag."
+description: "VisionEngine је одвојени Go алат који комбинује класични рачунарски вид са LLM заснованим видом како би анализирао корисничке интерфејсе, откривао UI елементе и визуелне проблеме, те градио навигационе графове прелаза између екрана апликације — са прикључивим вишекорисничким видовним позадинама и OpenCV-ом заштићеним иза ознаке за изградњу."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/visionengine.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/visionengine.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/visionengine.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/visionengine.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/visionengine.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/visionengine.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/visionengine.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/visionengine.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/visionengine.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/visionengine.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/visionengine.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/visionengine.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/visionengine.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/visionengine.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/visionengine.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/visionengine.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "VisionEngine is a decoupled Go toolkit that combines classic computer vision with LLM-based vision to analyze user interfaces, detect UI elements and visual issues, and build navigation graphs of app screen transitions — with pluggable multi-provider vision backends and OpenCV gated behind a build tag.",
+      "description": "VisionEngine је одвојени Go алат који комбинује класични рачунарски вид са LLM заснованим видом како би анализирао корисничке интерфејсе, откривао UI елементе и визуелне проблеме, те градио навигационе графове прелаза између екрана апликације — са прикључивим вишекорисничким видовним позадинама и OpenCV-ом заштићеним иза ознаке за изградњу.",
       "inLanguage": "sr",
       "name": "VisionEngine",
       "operatingSystem": "Cross-platform",
@@ -192,6 +192,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Посматрајте кориснички интерфејс као корисник — рачунарски вид плус LLM вид за анализу и навигацију.</strong></p>
+      <p class="od-product-detail__lede">Поново употребљив Go модул за анализу UI-а и изградњу навигационог графа. Нуди слој анализатора (UI елементи, разлике између екрана, визуелни проблеми), навигациони граф са BFS претрагом путева и извозом у ДОТ/JSON/Mermaid формату, као и LLM-визијске адаптере за GPT-4о, Claude, Gemini, Qwen-ВЛ и друге.</p>
+      <p>Већина аутоматизованих тестова корисничког интерфејса је у суштини слепа. Ослања се на стабла приступачности и DOM селекторе — машински појам интерфејса — и пропушта све оно што човек стварно доживљава: да ли је дугме видљиво рендеровано, да ли је распоред покварен, да ли је екран на који је стигао онај који је очекивао. VisionEngine премошћује ту празнину дајући аутоматизацији право опажање, способност да погледа UI и размишља о њему на начин на који би то учинила особа. Организован је у четири кооперативна слоја који се граде од сирових пиксела до разумевања целе апликације. <strong>Анализатор</strong> дефинише стабилан уговор — интерфејсе (<code>Analyzer</code>, <code>VideoProcessor</code>) и типове вредности (<code>UIElement</code>, <code>ScreenAnalysis</code>, <code>ScreenDiff</code>, <code>Rect</code>, <code>Size</code>, <code>TextRegion</code>, <code>VisualIssue</code>, <code>ScreenIdentity</code>, <code>Action</code>, <code>KeyFrame</code>) са референтном имплементацијом <code>StubAnalyzer</code> — тако да корисници могу да откривају елементе, упоређују екране и откривају визуелне проблеме у односу на уговор који се неће мењати под њима. <strong>Навигациони граф</strong> подиже перспективу са појединачног екрана на целу апликацију, моделујући је као усмерени граф прелаза између екрана са BFS претрагом путева и три извозна формата (ДОТ, JSON, Mermaid), тако да аутоматизација не само да види екран, већ може да планира пут до било ког другог — а испоручује се са тестовима за стрес, аутоматизацију, интеграцију и безбедност како би се то доказало. Слој <strong>LLM вида</strong> додаје савремено мултимодално резоновање: интерфејс <code>VisionProvider</code> са адаптерима за OpenAI (GPT-4о), Anthropic (Claude), Gemini, Qwen-ВЛ, Kimi, StepGUI, Астица и Ollama, састављен преко <code>FallbackChain</code>-а тако да неуспешан, ограничен бројем захтева или слабији провајдер отказује поступно, уместо да повуче цео процес са собом. Слој <strong>Конфигурације</strong> обрађује учитавање и валидацију променљивих окружења, при чему се свака порука о грешци која је видљива кориснику прослеђује кроз <code>i18n.Translator</code>.</p>
+      <p>Одлука која све ово чини заиста примењивим јесте чињеница да тешка зависност од нативних библиотека није обавезна. OpenCV везе су заштићене ознаком за изградњу иза <code>-tags vision</code>, а подразумевана верзија испоручује се са стубовима — тако да цео модул може да се компајлира, тестира и покреће на било ком Go 1.25+ хосту без OpenCV алата у видокругу, а нативни стек се укључује само када корисник то експлицитно захтева. Управо то омогућава да се VisionEngine интегрише у обичан ЦИ покретач без потребе за прилагођеном сликом. Потпуно одвојен у складу са уставом (ЦОНСТ-051(Б)), укључује се у системе корисника — посебно у HelixQA — као подмодул једнаког кода, дајући тестирању UI-а заснованом на доказима прави пар очију.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -209,38 +212,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-1" aria-expanded="true" aria-controls="od-acc-visionengine-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-1-panel" role="region" aria-labelledby="od-acc-visionengine-1">
-            <div class="od-accordion__inner">
-      <p>Поново употребљив Go модул за анализу UI-а и изградњу навигационог графа. Нуди слој анализатора (UI елементи, разлике између екрана, визуелни проблеми), навигациони граф са BFS претрагом путева и извозом у ДОТ/JSON/Mermaid формату, као и LLM-визијске адаптере за GPT-4о, Claude, Gemini, Qwen-ВЛ и друге.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-2" aria-expanded="true" aria-controls="od-acc-visionengine-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-2-panel" role="region" aria-labelledby="od-acc-visionengine-2">
-            <div class="od-accordion__inner">
-      <p>Већина аутоматизованих тестова корисничког интерфејса је у суштини слепа. Ослања се на стабла приступачности и DOM селекторе — машински појам интерфејса — и пропушта све оно што човек стварно доживљава: да ли је дугме видљиво рендеровано, да ли је распоред покварен, да ли је екран на који је стигао онај који је очекивао. VisionEngine премошћује ту празнину дајући аутоматизацији право опажање, способност да погледа UI и размишља о њему на начин на који би то учинила особа. Организован је у четири кооперативна слоја који се граде од сирових пиксела до разумевања целе апликације. <strong>Анализатор</strong> дефинише стабилан уговор — интерфејсе (<code>Analyzer</code>, <code>VideoProcessor</code>) и типове вредности (<code>UIElement</code>, <code>ScreenAnalysis</code>, <code>ScreenDiff</code>, <code>Rect</code>, <code>Size</code>, <code>TextRegion</code>, <code>VisualIssue</code>, <code>ScreenIdentity</code>, <code>Action</code>, <code>KeyFrame</code>) са референтном имплементацијом <code>StubAnalyzer</code> — тако да корисници могу да откривају елементе, упоређују екране и откривају визуелне проблеме у односу на уговор који се неће мењати под њима. <strong>Навигациони граф</strong> подиже перспективу са појединачног екрана на целу апликацију, моделујући је као усмерени граф прелаза између екрана са BFS претрагом путева и три извозна формата (ДОТ, JSON, Mermaid), тако да аутоматизација не само да види екран, већ може да планира пут до било ког другог — а испоручује се са тестовима за стрес, аутоматизацију, интеграцију и безбедност како би се то доказало. Слој <strong>LLM вида</strong> додаје савремено мултимодално резоновање: интерфејс <code>VisionProvider</code> са адаптерима за OpenAI (GPT-4о), Anthropic (Claude), Gemini, Qwen-ВЛ, Kimi, StepGUI, Астица и Ollama, састављен преко <code>FallbackChain</code>-а тако да неуспешан, ограничен бројем захтева или слабији провајдер отказује поступно, уместо да повуче цео процес са собом. Слој <strong>Конфигурације</strong> обрађује учитавање и валидацију променљивих окружења, при чему се свака порука о грешци која је видљива кориснику прослеђује кроз <code>i18n.Translator</code>.</p>
-      <p>Одлука која све ово чини заиста примењивим јесте чињеница да тешка зависност од нативних библиотека није обавезна. OpenCV везе су заштићене ознаком за изградњу иза <code>-tags vision</code>, а подразумевана верзија испоручује се са стубовима — тако да цео модул може да се компајлира, тестира и покреће на било ком Go 1.25+ хосту без OpenCV алата у видокругу, а нативни стек се укључује само када корисник то експлицитно захтева. Управо то омогућава да се VisionEngine интегрише у обичан ЦИ покретач без потребе за прилагођеном сликом. Потпуно одвојен у складу са уставом (ЦОНСТ-051(Б)), укључује се у системе корисника — посебно у HelixQA — као подмодул једнаког кода, дајући тестирању UI-а заснованом на доказима прави пар очију.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-3" aria-expanded="true" aria-controls="od-acc-visionengine-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-3-panel" role="region" aria-labelledby="od-acc-visionengine-3">
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-1-panel" role="region" aria-labelledby="od-acc-visionengine-1">
             <div class="od-accordion__inner">
       <p>Аутоматизација тестирања корисничког интерфејса која се ослања искључиво на стабла приступачности или селекторе пропушта оно што корисник заправо види. VisionEngine додаје праву визуелну интелигенцију — детекцију елемената, поређење екрана и закључивање засновано на LLM-визији — уз мапу навигације кроз екране апликације, тако да аутоматизација може и да опажа и да се креће кроз кориснички интерфејс.</p>
             </div>
@@ -248,12 +224,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-4" aria-expanded="true" aria-controls="od-acc-visionengine-4-panel">
-              <span class="od-accordion__label">Зашто је револуционарно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-2" aria-expanded="true" aria-controls="od-acc-visionengine-2-panel">
+              <span class="od-accordion__label">Зашто је важно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-4-panel" role="region" aria-labelledby="od-acc-visionengine-4">
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-2-panel" role="region" aria-labelledby="od-acc-visionengine-2">
             <div class="od-accordion__inner">
       <p>Спаја два иначе некомпатибилна приступа — брзу, детерминистичку класичну рачунарску визију и флексибилну, семантичку LLM-визију — иза јединственог интерфејса са ланцем резервних решења, тако да корисник добија прецизност једног и закључивање другог без потребе за избором. А задржавањем OpenCV-а као строго опционе компоненте, уклања се уобичајени трошак те моћи: сваки Go пројекат може стећи праву перцепцију корисничког интерфејса без увођења нативе визуелног алата у свој буилд процес.</p>
             </div>
@@ -261,12 +237,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-5" aria-expanded="true" aria-controls="od-acc-visionengine-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-3" aria-expanded="true" aria-controls="od-acc-visionengine-3-panel">
+              <span class="od-accordion__label">Идеје вредне позајмљивања</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-5-panel" role="region" aria-labelledby="od-acc-visionengine-5">
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-3-panel" role="region" aria-labelledby="od-acc-visionengine-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Двострука перцепција: класична рачунарска визија (OpenCV/GoCV) плус LLM-визија са више провајдера и ланцем резервних решења.</li>
@@ -279,12 +255,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-6" aria-expanded="true" aria-controls="od-acc-visionengine-6-panel">
-              <span class="od-accordion__label">Изазови и решења</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-4" aria-expanded="true" aria-controls="od-acc-visionengine-4-panel">
+              <span class="od-accordion__label">Где је било тешко и како смо победили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-6-panel" role="region" aria-labelledby="od-acc-visionengine-6">
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-4-panel" role="region" aria-labelledby="od-acc-visionengine-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Проблем са тешким нативе зависностима:</strong> решено помоћу <code>-tags vision</code> гате-а и подразумеваних стубова како би ЦИ/хост системи без OpenCV-а и даље могли да се граде и тестирају.</li>
@@ -297,12 +273,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-7" aria-expanded="true" aria-controls="od-acc-visionengine-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-visionengine-5" aria-expanded="true" aria-controls="od-acc-visionengine-5-panel">
               <span class="od-accordion__label">Технолошки стацк (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-visionengine-7-panel" role="region" aria-labelledby="od-acc-visionengine-7">
+          <div class="od-accordion__panel is-open" id="od-acc-visionengine-5-panel" role="region" aria-labelledby="od-acc-visionengine-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25+)</strong> — језгро модула и сва четири слоја.</li>

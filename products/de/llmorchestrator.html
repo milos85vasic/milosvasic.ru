@@ -2,7 +2,7 @@
 layout: default
 lang: de
 title: "LLMOrchestrator — Miloš Vasić"
-description: "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees."
+description: "LLMOrchestrator ist ein eigenständiges, wiederverwendbares Go-Modul zum Starten, Verwalten und Kommunizieren mit Headless-CLI-Agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) über ein hybrides Pipe-Datei-Protokoll, ausgestattet mit agentenspezifischen Circuit Breakern, einer pluggbaren Multi-Provider-Auswahl, einer entkoppelten i18n-Abstraktion und Anti-Bluff-Testgarantien."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmorchestrator.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmorchestrator.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMOrchestrator is a standalone, reusable Go module for spawning, managing, and communicating with headless CLI agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) over a hybrid pipe+file protocol, with per-agent circuit breakers, pluggable multi-provider selection, a decoupled i18n abstraction, and anti-bluff test guarantees.",
+      "description": "LLMOrchestrator ist ein eigenständiges, wiederverwendbares Go-Modul zum Starten, Verwalten und Kommunizieren mit Headless-CLI-Agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) über ein hybrides Pipe-Datei-Protokoll, ausgestattet mit agentenspezifischen Circuit Breakern, einer pluggbaren Multi-Provider-Auswahl, einer entkoppelten i18n-Abstraktion und Anti-Bluff-Testgarantien.",
       "inLanguage": "de",
       "license": "Apache-2.0",
       "name": "LLMOrchestrator",
@@ -184,55 +184,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Eine Steuerungsebene für jeden Headless-CLI-Coding-Agent.</strong></p>
+      <p class="od-product-detail__lede">Ein wiederverwendbares Go-Modul, das eine einheitliche Schnittstelle zum Starten und Steuern mehrerer LLM-basierter CLI-Agents über ein hybrides Pipe-Datei-Protokoll bietet. Thread-sicheres Agent-Pooling mit Circuit Breakern und wählbaren Routing-Strategien, bewusst konsumentenunabhängig, mit pluggablem i18n-Übersetzer.</p>
+      <p>LLMOrchestrator ist ein eigenständiges, wiederverwendbares Go-Modul zum Starten, Verwalten und Kommunizieren mit Headless-CLI-Agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) über ein hybrides Pipe-Datei-Protokoll, ausgestattet mit agentenspezifischen Circuit Breakern, einer pluggbaren Multi-Provider-Auswahl, einer entkoppelten i18n-Abstraktion und Anti-Bluff-Testgarantien.</p>
+      <p>LLMOrchestrator ist eine gemeinsame Infrastruktur zur Orchestrierung von Headless-CLI-Coding-Agents – die Basiskomponente, die jedes Multi-Agenten-System stillschweigend benötigt und meist schlecht neu implementiert. Statt dass jedes Projekt das Starten von Prozessen, die Nachrichtenformatierung und die Ergebnisauswertung für Tools wie OpenCode, Claude Code, Gemini CLI, Junie und Qwen Code neu erfindet, bietet es eine einheitliche <code>Agent</code>-Schnittstelle, einen thread-sicheren <code>AgentPool</code> und einen <code>MultiProviderPool</code>, der Agents verschiedener Anbieter hinter einer einzigen Fassade bündelt. Das Routing ist über einen <code>AgentSelector</code> pluggbar – Round-Robin mit Überspringen von Anbietern, die Anforderungen nicht erfüllen, oder priorisierte Auswahl mit Fallback – sodass die Verteilung der Aufgaben eine Frage der gewählten Strategie ist, nicht einer hartcodierten Annahme. Jeder konkrete Agent ist ein schlanker Adapter über einem gemeinsamen <code>BaseAdapter</code>, der den gesamten Prozesslebenszyklus verwaltet: Start mit Pipe-Einrichtung, sanftes Beenden via SIGTERM-gefolgt-von-SIGKILL, Neustart und Liveness – der fehleranfällige Teil, einmal gelöst.</p>
+      <p>Die Kommunikation ist bewusst hybrid und passt den Transport an die Aufgabe an. Ein Pipe-Transport überträgt zeilengetrennte JSON-Nachrichten mit einer Lese-Timeout pro Anfrage und einer Antwortlängenbegrenzung für schnelle interaktive Nachrichten, während ein Datei-Transport pro Sitzung Inbox/Outbox/Shared-Verzeichnisse für große oder dauerhafte Artefakte nutzt, die nicht in einer Pipe gespeichert werden sollten. Resilienz ist kein nachträglicher Gedanke – sie ist strukturell verankert: Ein Circuit Breaker pro Agent öffnet nach drei aufeinanderfolgenden Fehlern für eine 60-sekündige Abkühlphase, bevor ein Half-Open-Probe durchgeführt wird, und ein Hintergrund-Health-Monitor pingt Agents, sodass ein ausgefallener Agent sich erholen kann, ohne auf eingehenden Traffic warten zu müssen. Die Pool-Anforderung blockiert auf einer Bedingungsvariable, statt die CPU mit Busy-Waiting zu belasten, und der Antwortparser ist zustandslos und sicher für gleichzeitige Aufrufe. Das Modul ist strikt entkoppelt – keine konsumentenspezifischen Details dürfen eindringen – und jede nutzergerichtete Zeichenkette durchläuft einen pluggbaren i18n-<code>Translator</code>, wobei ein <code>NoopTranslator</code> Nachrichten-IDs unverändert zurückgibt, sodass fehlende Übersetzungen deutlich sichtbar werden, statt sich zu verstecken.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-0" aria-expanded="true" aria-controls="od-acc-llmorchestrator-0-panel">
-              <span class="od-accordion__label">Zusammenfassung</span>
+              <span class="od-accordion__label">Das Problem, das wir lösen wollten</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-0-panel" role="region" aria-labelledby="od-acc-llmorchestrator-0">
-            <div class="od-accordion__inner">
-      <p>LLMOrchestrator ist ein eigenständiges, wiederverwendbares Go-Modul zum Starten, Verwalten und Kommunizieren mit Headless-CLI-Agents (OpenCode, Claude Code, Gemini, Junie, Qwen Code) über ein hybrides Pipe-Datei-Protokoll, ausgestattet mit agentenspezifischen Circuit Breakern, einer pluggbaren Multi-Provider-Auswahl, einer entkoppelten i18n-Abstraktion und Anti-Bluff-Testgarantien.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-1" aria-expanded="true" aria-controls="od-acc-llmorchestrator-1-panel">
-              <span class="od-accordion__label">Kurzbeschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-1-panel" role="region" aria-labelledby="od-acc-llmorchestrator-1">
-            <div class="od-accordion__inner">
-      <p>Ein wiederverwendbares Go-Modul, das eine einheitliche Schnittstelle zum Starten und Steuern mehrerer LLM-basierter CLI-Agents über ein hybrides Pipe-Datei-Protokoll bietet. Thread-sicheres Agent-Pooling mit Circuit Breakern und wählbaren Routing-Strategien, bewusst konsumentenunabhängig, mit pluggablem i18n-Übersetzer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-2" aria-expanded="true" aria-controls="od-acc-llmorchestrator-2-panel">
-              <span class="od-accordion__label">Ausführliche Beschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-2-panel" role="region" aria-labelledby="od-acc-llmorchestrator-2">
-            <div class="od-accordion__inner">
-      <p>LLMOrchestrator ist eine gemeinsame Infrastruktur zur Orchestrierung von Headless-CLI-Coding-Agents – die Basiskomponente, die jedes Multi-Agenten-System stillschweigend benötigt und meist schlecht neu implementiert. Statt dass jedes Projekt das Starten von Prozessen, die Nachrichtenformatierung und die Ergebnisauswertung für Tools wie OpenCode, Claude Code, Gemini CLI, Junie und Qwen Code neu erfindet, bietet es eine einheitliche <code>Agent</code>-Schnittstelle, einen thread-sicheren <code>AgentPool</code> und einen <code>MultiProviderPool</code>, der Agents verschiedener Anbieter hinter einer einzigen Fassade bündelt. Das Routing ist über einen <code>AgentSelector</code> pluggbar – Round-Robin mit Überspringen von Anbietern, die Anforderungen nicht erfüllen, oder priorisierte Auswahl mit Fallback – sodass die Verteilung der Aufgaben eine Frage der gewählten Strategie ist, nicht einer hartcodierten Annahme. Jeder konkrete Agent ist ein schlanker Adapter über einem gemeinsamen <code>BaseAdapter</code>, der den gesamten Prozesslebenszyklus verwaltet: Start mit Pipe-Einrichtung, sanftes Beenden via SIGTERM-gefolgt-von-SIGKILL, Neustart und Liveness – der fehleranfällige Teil, einmal gelöst.</p>
-      <p>Die Kommunikation ist bewusst hybrid und passt den Transport an die Aufgabe an. Ein Pipe-Transport überträgt zeilengetrennte JSON-Nachrichten mit einer Lese-Timeout pro Anfrage und einer Antwortlängenbegrenzung für schnelle interaktive Nachrichten, während ein Datei-Transport pro Sitzung Inbox/Outbox/Shared-Verzeichnisse für große oder dauerhafte Artefakte nutzt, die nicht in einer Pipe gespeichert werden sollten. Resilienz ist kein nachträglicher Gedanke – sie ist strukturell verankert: Ein Circuit Breaker pro Agent öffnet nach drei aufeinanderfolgenden Fehlern für eine 60-sekündige Abkühlphase, bevor ein Half-Open-Probe durchgeführt wird, und ein Hintergrund-Health-Monitor pingt Agents, sodass ein ausgefallener Agent sich erholen kann, ohne auf eingehenden Traffic warten zu müssen. Die Pool-Anforderung blockiert auf einer Bedingungsvariable, statt die CPU mit Busy-Waiting zu belasten, und der Antwortparser ist zustandslos und sicher für gleichzeitige Aufrufe. Das Modul ist strikt entkoppelt – keine konsumentenspezifischen Details dürfen eindringen – und jede nutzergerichtete Zeichenkette durchläuft einen pluggbaren i18n-<code>Translator</code>, wobei ein <code>NoopTranslator</code> Nachrichten-IDs unverändert zurückgibt, sodass fehlende Übersetzungen deutlich sichtbar werden, statt sich zu verstecken.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-3" aria-expanded="true" aria-controls="od-acc-llmorchestrator-3-panel">
-              <span class="od-accordion__label">Warum wir es entwickelt haben</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-3-panel" role="region" aria-labelledby="od-acc-llmorchestrator-3">
             <div class="od-accordion__inner">
       <p>Jedes Multi-Agenten-System muss CLI-Agents zuverlässig starten und mit ihnen kommunizieren. Die Neuentwicklung von Startprozessen, Nachrichtenformatierung, Parsing und Fehlerbehandlung für jedes Projekt ist ineffizient und fehleranfällig. LLMOrchestrator bündelt diese Funktionen in einem entkoppelten, wiederverwendbaren Modul, dessen spezifische Verantwortung es wiederverwendbar macht – und diese Wiederverwendbarkeit wäre zerstört, sobald konsumentenspezifische Details eindringen.</p>
             </div>
@@ -240,12 +204,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-4" aria-expanded="true" aria-controls="od-acc-llmorchestrator-4-panel">
-              <span class="od-accordion__label">Warum es ein Game-Changer ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-1" aria-expanded="true" aria-controls="od-acc-llmorchestrator-1-panel">
+              <span class="od-accordion__label">Warum es alles verändert</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-4-panel" role="region" aria-labelledby="od-acc-llmorchestrator-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-1-panel" role="region" aria-labelledby="od-acc-llmorchestrator-1">
             <div class="od-accordion__inner">
       <p>Es verwandelt das „Betreiben einer Armee heterogener CLI-Agenten" von einem maßgeschneiderten, projektspezifischen Entwicklungsmarathon in einen einfachen Bibliotheksimport – mit bereits gelösten und erprobten Lösungen für Pooling, Circuit Breaking, Lebenszyklusmanagement und austauschbare Routing-Mechanismen. Und weil die Anti-Bluff-Tests das reale System Ende-zu-Ende prüfen, statt sich mit „es kompiliert" zu begnügen, erhält man eine Abstraktion, der man tatsächlich vertrauen kann – selbst unter Nebenläufigkeit und bei Fehlern –, und nicht nur eine, die im Diagramm gut aussieht.</p>
             </div>
@@ -253,12 +217,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-5" aria-expanded="true" aria-controls="od-acc-llmorchestrator-5-panel">
-              <span class="od-accordion__label">Was innovativ ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-2" aria-expanded="true" aria-controls="od-acc-llmorchestrator-2-panel">
+              <span class="od-accordion__label">Wo die Neuheit steckt</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-5-panel" role="region" aria-labelledby="od-acc-llmorchestrator-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-2-panel" role="region" aria-labelledby="od-acc-llmorchestrator-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Hybrides Pipe- und Dateiprotokoll</strong> – interaktive Geschwindigkeit (JSON-Zeilen über stdin/stdout, Lese-Deadlines, Antwortbegrenzungen) *und* dauerhafter, dateibasierter Austausch (Posteingang/Postausgang/Shared) für große Artefakte, sodass man nie zwischen Latenz und Beständigkeit abwägen muss.</li>
@@ -274,12 +238,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-6" aria-expanded="true" aria-controls="od-acc-llmorchestrator-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-3" aria-expanded="true" aria-controls="od-acc-llmorchestrator-3-panel">
               <span class="od-accordion__label">Größte technische Herausforderungen &amp; wie wir sie gelöst haben</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-6-panel" role="region" aria-labelledby="od-acc-llmorchestrator-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-3-panel" role="region" aria-labelledby="od-acc-llmorchestrator-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Zuverlässige Agentenprozess-E/A.</strong> Die Kommunikation mit einem gestarteten CLI-Prozess ist trügerisch schwierig; gelöst durch ein hybrides Pipe- und Dateitransportprotokoll, einen definierten Nachrichten-/Parser-Vertrag, damit beide Seiten das Übertragungsformat einheitlich interpretieren, und einen <code>BaseAdapter</code>, der den gesamten Prozesslebenszyklus zentralisiert – inklusive eines eleganten SIGTERM-Timeouts mit SIGKILL-Fallback.</li>
@@ -293,12 +257,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-7" aria-expanded="true" aria-controls="od-acc-llmorchestrator-7-panel">
-              <span class="od-accordion__label">Technologie-Stack</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-4" aria-expanded="true" aria-controls="od-acc-llmorchestrator-4-panel">
+              <span class="od-accordion__label">Der Technologie-Stack und warum</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-7-panel" role="region" aria-labelledby="od-acc-llmorchestrator-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-4-panel" role="region" aria-labelledby="od-acc-llmorchestrator-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25)</strong> — ausgewählt wegen seiner erstklassigen Nebenläufigkeit und sauberen Prozesssteuerung, genau das, was die Orchestrierung von Live-Agent-Prozessen erfordert; es implementiert das Modul, seine Agenten-Adapter, Transportschichten und den Parser.</li>
@@ -315,12 +279,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-8" aria-expanded="true" aria-controls="od-acc-llmorchestrator-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmorchestrator-5" aria-expanded="true" aria-controls="od-acc-llmorchestrator-5-panel">
               <span class="od-accordion__label">Status &amp; Transparenzhinweise</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-8-panel" role="region" aria-labelledby="od-acc-llmorchestrator-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmorchestrator-5-panel" role="region" aria-labelledby="od-acc-llmorchestrator-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Status: Beta.</strong> Ein entkoppeltes, wiederverwendbares Modul, das als Submodul von mehreren Helix/vasic-Projekten genutzt wird. <strong>Lizenz: Apache-2.0</strong>; das GitHub-Repository ist öffentlich.</li>

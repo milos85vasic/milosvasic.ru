@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "HelixTranslate — Miloš Vasić"
-description: "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly."
+description: "HelixTranslate es una plataforma de traducción de libros electrónicos de alto rendimiento basada en Go, que traduce obras entre más de 100 idiomas utilizando proveedores de LLM verificados, con monitoreo en tiempo real de WebSocket y una política estricta de no respaldo silencioso que falla de manera explícita en lugar de degradarse sin aviso."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly.",
+      "description": "HelixTranslate es una plataforma de traducción de libros electrónicos de alto rendimiento basada en Go, que traduce obras entre más de 100 idiomas utilizando proveedores de LLM verificados, con monitoreo en tiempo real de WebSocket y una política estricta de no respaldo silencioso que falla de manera explícita en lugar de degradarse sin aviso.",
       "inLanguage": "es",
       "name": "HelixTranslate",
       "operatingSystem": "Cross-platform",
@@ -182,55 +182,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Traducción de libros con modelo verificado — honesta por diseño, nunca un respaldo silencioso.</strong></p>
+      <p class="od-product-detail__lede">Kit de herramientas de traducción universal de libros electrónicos basado en Go. Traduce formatos FB2, EPUB, TXT, HTML, PDF y DOCX entre más de 100 idiomas utilizando los modelos LLM verificados más robustos (a través del puente LLMsVerifier), con APIs REST/HTTP-3 y gRPC, procesamiento distribuido y un panel de monitoreo en tiempo real de WebSocket.</p>
+      <p>HelixTranslate es una plataforma de traducción de libros electrónicos de alto rendimiento basada en Go, que traduce obras entre más de 100 idiomas utilizando proveedores de LLM verificados, con monitoreo en tiempo real de WebSocket y una política estricta de *no respaldo silencioso* que falla de manera explícita en lugar de degradarse sin aviso.</p>
+      <p>HelixTranslate es un sistema de grado empresarial basado en Go para traducir libros completos entre idiomas, utilizando proveedores de LLM —no párrafos ni fragmentos, sino obras de principio a fin—. Analiza y regenera múltiples formatos de libros electrónicos (FB2, EPUB, TXT, HTML, PDF, DOCX), admite más de 100 idiomas con detección automática y ofrece tanto herramientas CLI como servidores API (REST sobre HTTP/3, gRPC y un flujo de eventos WebSocket), lo que le permite integrarse tanto en flujos de trabajo de terminal como en mallas de servicios. Su característica definitoria es *cómo elige un modelo*: en lugar de codificar un proveedor y esperar que siga funcionando, HelixTranslate delega toda la autoridad del modelo al puente LLMsVerifier (<code>pkg/bridge</code>), que selecciona el modelo API verificado más potente y devuelve una cadena de respaldo determinista ordenada por puntuación. La elegibilidad del modelo se decide mediante una puntuación ponderada que evalúa capacidad de respuesta, código, riqueza de funciones y fiabilidad —así, el modelo que realiza la traducción gana su lugar demostrando que funciona, no por aparecer en un archivo de configuración—.</p>
+      <p>De manera crucial, el sistema aplica un mandato de *"no respaldo silencioso"* directamente en el código: si no hay presente una clave de proveedor API, o un operador solicita explícitamente un proveedor no disponible, el proceso devuelve un error forzado honesto en lugar de cambiar de proveedor discretamente o recurrir a un entorno local fingiendo que todo está bien —una regla reforzada por una compuerta previa a la compilación y una prueba de mutación asociada—. Los entornos locales (Ollama, llama.cpp) fueron eliminados deliberadamente de la ruta predeterminada para que un motor más débil nunca pueda sustituir silenciosamente a uno verificado. Alrededor del núcleo de traducción opera un subsistema de monitoreo en tiempo real de WebSocket: la herramienta de traducción CLI emite eventos tipados a un servidor de monitoreo que alimenta un panel web en vivo, mientras que los trabajadores remotos SSH distribuyen la carga de trabajo para la traducción paralela. Sobre esta base se superponen pasadas de pulido para garantizar coherencia, un análisis de calidad en fase de preparación, almacenamiento en caché de traducciones para controlar costos en textos extensos y un sistema de control de calidad basado en visión. Toda la plataforma responde a una constitución de ingeniería anti-engaño: las pruebas deben demostrar resultados reales y visibles para el usuario, respaldadas por pruebas de mutación obligatorias en lugar de marcas verdes que no prueban nada.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-0" aria-expanded="true" aria-controls="od-acc-helixtranslate-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">La comezón que teníamos que rascar</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-0-panel" role="region" aria-labelledby="od-acc-helixtranslate-0">
-            <div class="od-accordion__inner">
-      <p>HelixTranslate es una plataforma de traducción de libros electrónicos de alto rendimiento basada en Go, que traduce obras entre más de 100 idiomas utilizando proveedores de LLM verificados, con monitoreo en tiempo real de WebSocket y una política estricta de *no respaldo silencioso* que falla de manera explícita en lugar de degradarse sin aviso.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
-            <div class="od-accordion__inner">
-      <p>Kit de herramientas de traducción universal de libros electrónicos basado en Go. Traduce formatos FB2, EPUB, TXT, HTML, PDF y DOCX entre más de 100 idiomas utilizando los modelos LLM verificados más robustos (a través del puente LLMsVerifier), con APIs REST/HTTP-3 y gRPC, procesamiento distribuido y un panel de monitoreo en tiempo real de WebSocket.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
-            <div class="od-accordion__inner">
-      <p>HelixTranslate es un sistema de grado empresarial basado en Go para traducir libros completos entre idiomas, utilizando proveedores de LLM —no párrafos ni fragmentos, sino obras de principio a fin—. Analiza y regenera múltiples formatos de libros electrónicos (FB2, EPUB, TXT, HTML, PDF, DOCX), admite más de 100 idiomas con detección automática y ofrece tanto herramientas CLI como servidores API (REST sobre HTTP/3, gRPC y un flujo de eventos WebSocket), lo que le permite integrarse tanto en flujos de trabajo de terminal como en mallas de servicios. Su característica definitoria es *cómo elige un modelo*: en lugar de codificar un proveedor y esperar que siga funcionando, HelixTranslate delega toda la autoridad del modelo al puente LLMsVerifier (<code>pkg/bridge</code>), que selecciona el modelo API verificado más potente y devuelve una cadena de respaldo determinista ordenada por puntuación. La elegibilidad del modelo se decide mediante una puntuación ponderada que evalúa capacidad de respuesta, código, riqueza de funciones y fiabilidad —así, el modelo que realiza la traducción gana su lugar demostrando que funciona, no por aparecer en un archivo de configuración—.</p>
-      <p>De manera crucial, el sistema aplica un mandato de *"no respaldo silencioso"* directamente en el código: si no hay presente una clave de proveedor API, o un operador solicita explícitamente un proveedor no disponible, el proceso devuelve un error forzado honesto en lugar de cambiar de proveedor discretamente o recurrir a un entorno local fingiendo que todo está bien —una regla reforzada por una compuerta previa a la compilación y una prueba de mutación asociada—. Los entornos locales (Ollama, llama.cpp) fueron eliminados deliberadamente de la ruta predeterminada para que un motor más débil nunca pueda sustituir silenciosamente a uno verificado. Alrededor del núcleo de traducción opera un subsistema de monitoreo en tiempo real de WebSocket: la herramienta de traducción CLI emite eventos tipados a un servidor de monitoreo que alimenta un panel web en vivo, mientras que los trabajadores remotos SSH distribuyen la carga de trabajo para la traducción paralela. Sobre esta base se superponen pasadas de pulido para garantizar coherencia, un análisis de calidad en fase de preparación, almacenamiento en caché de traducciones para controlar costos en textos extensos y un sistema de control de calidad basado en visión. Toda la plataforma responde a una constitución de ingeniería anti-engaño: las pruebas deben demostrar resultados reales y visibles para el usuario, respaldadas por pruebas de mutación obligatorias en lugar de marcas verdes que no prueban nada.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
             <div class="od-accordion__inner">
       <p>Para traducir libros de formato largo de manera fiable y *honesta*, sin entregar nunca una traducción "degradada pero presente". El principio de diseño es que una traducción ausente o no verificable debe ser un error claro y contundente, y que la selección del modelo debe resolverse siempre en un proveedor genuinamente verificado, en lugar de basarse en una suposición predefinida o un respaldo local silencioso.</p>
             </div>
@@ -238,12 +202,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
               <span class="od-accordion__label">Por qué es un cambio radical</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
             <div class="od-accordion__inner">
       <p>La mayoría de los flujos de traducción LLM fallan en silencio: recurren discretamente a un modelo más débil, retroceden a un entorno local o emiten una salida parcial mientras el conjunto de pruebas sigue mostrando resultados positivos y nadie detecta el abismo de calidad. HelixTranslate elimina por completo esa modalidad de fallo: la elección del modelo está sujeta a verificación, la cadena de respaldo es determinista y totalmente transparente, y la ausencia de clave o modelo verificado se resuelve en un error contundente, no en un encogimiento de hombros silencioso. Esa única decisión de diseño convierte la pregunta *"¿Esta traducción se ejecutó realmente en un modelo capaz y verificado?"* de una esperanza imposible de comprobar en una garantía que el sistema impone en tu nombre.</p>
             </div>
@@ -251,12 +215,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
               <span class="od-accordion__label">Qué hay de innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Enrutamiento de modelos con verificación</strong> mediante el puente LLMsVerifier: se selecciona automáticamente el modelo *verificado* más potente, de modo que los operadores declaran su intención, no nombres de proveedores, y nunca eligen manualmente un proveedor que podría estar inactivo.</li>
@@ -271,12 +235,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
               <span class="od-accordion__label">Principales desafíos técnicos y cómo los resolvimos</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Garantizar un flujo de traducción honesto (sin degradación silenciosa)</strong>. Se resolvió centralizando toda la autoridad de los modelos en el puente LLMsVerifier para contar con un único punto de decisión que supervisar, codificando cuatro ramas de enrutamiento explícitas que fallan de manera contundente en lugar de adivinar, eliminando por completo los respaldos de entorno local de la ruta predeterminada y soldando la regla con una compuerta de compilación más una prueba de mutación que hace fallar la compilación si se elimina la garantía.</li>
@@ -288,12 +252,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-7" aria-expanded="true" aria-controls="od-acc-helixtranslate-7-panel">
-              <span class="od-accordion__label">Pila tecnológica</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+              <span class="od-accordion__label">La pila de ingeniería</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-7-panel" role="region" aria-labelledby="od-acc-helixtranslate-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — elegido por sus primitivas de concurrencia, que se adaptan de forma natural al análisis, traducción y transmisión simultánea de múltiples capítulos; el backend de alta concurrencia, módulo <code>digital.vasic.translator</code>.</li>
@@ -314,12 +278,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-8" aria-expanded="true" aria-controls="od-acc-helixtranslate-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
               <span class="od-accordion__label">Estado y notas sobre transparencia</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-8-panel" role="region" aria-labelledby="od-acc-helixtranslate-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Estado: beta.</strong> Plataforma funcional; la versión se indica de manera inconsistente en <code>VERSION</code>/Makefile/<code>AGENTS.md</code>, por lo que se considera no consolidada.</li>

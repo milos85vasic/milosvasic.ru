@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "Mail Server Factory — Miloš Vasić"
-description: "Mail Server Factory is a production-ready, automated mail-server provisioning tool. The user writes a simple JSON configuration; the Factory interprets it and performs all installations and initializations on the target OS, deploying a Docker-based, loosely-coupled mail stack across 12 connection types."
+description: "Mail Server Factory — гэта гатовы да прадукцыйнага выкарыстання інструмент аўтаматызаванага разгортвання поштавых сервераў. Карыстальнік стварае простую канфігурацыю JSON, а Фабрыка інтэрпрэтуе яе і выконвае ўсе неабходныя ўстаноўкі і ініцыялізацыі на мэтавай АС, разгортваючы паштовы стэк на базе Docker з слаба звязанымі кампанентамі праз 12 тыпаў падлучэнняў."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/mail-server-factory.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Mail Server Factory is a production-ready, automated mail-server provisioning tool. The user writes a simple JSON configuration; the Factory interprets it and performs all installations and initializations on the target OS, deploying a Docker-based, loosely-coupled mail stack across 12 connection types.",
+      "description": "Mail Server Factory — гэта гатовы да прадукцыйнага выкарыстання інструмент аўтаматызаванага разгортвання поштавых сервераў. Карыстальнік стварае простую канфігурацыю JSON, а Фабрыка інтэрпрэтуе яе і выконвае ўсе неабходныя ўстаноўкі і ініцыялізацыі на мэтавай АС, разгортваючы паштовы стэк на базе Docker з слаба звязанымі кампанентамі праз 12 тыпаў падлучэнняў.",
       "inLanguage": "be",
       "name": "Mail Server Factory",
       "operatingSystem": "Cross-platform",
@@ -182,6 +182,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Кіруйце сваім поштавым серверам як прафі — апішыце яго ў JSON і разгортвайце дзе заўгодна.</strong></p>
+      <p class="od-product-detail__lede">Інструмент Kotlin/Shell, які ператварае апісанне JSON у цалкам усталяваны, дакераваны поштавы сервер. Падтрымлівае 12 тыпаў падлучэнняў (SSH, Docker, Kubernetes, AWS SSM, Azure, GCP, Libvirt і іншыя), поўную сістэму бяспекі, 25 дыстрыбутываў Linux і мае 439 паспяхова прайшоных тэстаў.</p>
+      <p>Разгортванне сапраўднага, абароненага поштавага сервера — адзін з класічных рытуалаў ініцыяцыі ў сістэмным адміністраванні — і адначасова адна з найболей няўдзячных задач. Postfix, Dovecot, сертыфікаты TLS, запісы DNS, правілы брандмаўэра і асаблівасці кожнага дыстрыбутыва павінны ідэальна супадаць, і адна няслушная дырэктыва можа прывесці да ціхага вяртання лістоў або адкрытага рэлею. Mail Server Factory убірае ў сябе ўвесь гэты цяжка набыты, схільны да памылак досвед і ўвасабляе яго ў праграмным забеспячэнні. Замест таго каб уручную канфігураваць кожны кампанент на незнаёмай АС, канчатковы карыстальнік апісвае жаданы вынік у выглядзе простага дакумента JSON; Фабрыка счытвае гэты JSON і выконвае дакладна тыя крокі ўстаноўкі і ініцыялізацыі, якія патрэбны на мэтавай аперацыйнай сістэме, разгортваючы паштовы стэк на базе Docker, дзе кожны кампанент слаба звязаны — гэты дызайнерскі выбар забяспечвае гарызантальную маштабавасць стэка і дазваляе абнаўляць або замяняць любы кампанент асобна. Інструмент наўмысна агностычны да спосабу разгортвання: 12 тыпаў падлучэнняў дазваляюць аднаму і tamu ж інструменту і аднаму і tamu ж JSON мэткаваць лакальную машыну, аддалены хост праз SSH, Docker ці Kubernetes-рунтайм, воблачныя інстансы праз AWS SSM / Azure Serial Console / GCP OS Login ці ВМ праз Libvirt — адно і тое ж дэкларатыўнае апісанне, якое разгортваецца там, куды вы яго накіруеце. Падтрымліваецца 25 дыстрыбутываў Linux з заходніх (Ubuntu, Debian, CentOS, Fedora, AlmaLinux, Rocky, openSUSE), расійскіх (ALT, Astra, ROSA) і кітайскіх (openEuler, openKylin, Deepin) сямействаў з аўтаматызаванай устаноўкай праз preseed/kickstart/cloud-init/autoyast і аўтаматызацыяй ВМ на базе QEMU для тэставання. Карпаратыўныя магчымасці шырокія: шыфраванне AES-256-GCM, абавязковыя палітыкі пароляў і SSH-ключоў, аўтаматызаваная канфігурацыя брандмаўэра для пошты (парты 25/587/465/993/995), TLS/SSL з праверкай сертыфікатаў і HSTS, аўдытнае лагіраванне і RBAC. Аперацыйныя магчымасці ўключаюць налады JVM (G1GC), кэшаванне Caffeine, пулінг злучэнняў, метрыкі, сумяшчальныя з Prometheus, структураванае лагіраванне, гарачую перазагрузку канфігурацыі і кіраванне сакрэтамі. Праект мае 439 тэстаў з 100% праходжаннем і чысты SonarQube-гатунак якасці. Гэта флагманскі праект арганізацыі Server-Factory.</p>
+      <p>Змест</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -199,38 +202,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-1" aria-expanded="true" aria-controls="od-acc-mail-server-factory-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-1-panel" role="region" aria-labelledby="od-acc-mail-server-factory-1">
-            <div class="od-accordion__inner">
-      <p>Інструмент Kotlin/Shell, які ператварае апісанне JSON у цалкам усталяваны, дакераваны поштавы сервер. Падтрымлівае 12 тыпаў падлучэнняў (SSH, Docker, Kubernetes, AWS SSM, Azure, GCP, Libvirt і іншыя), поўную сістэму бяспекі, 25 дыстрыбутываў Linux і мае 439 паспяхова прайшоных тэстаў.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-2" aria-expanded="true" aria-controls="od-acc-mail-server-factory-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-2-panel" role="region" aria-labelledby="od-acc-mail-server-factory-2">
-            <div class="od-accordion__inner">
-      <p>Разгортванне сапраўднага, абароненага поштавага сервера — адзін з класічных рытуалаў ініцыяцыі ў сістэмным адміністраванні — і адначасова адна з найболей няўдзячных задач. Postfix, Dovecot, сертыфікаты TLS, запісы DNS, правілы брандмаўэра і асаблівасці кожнага дыстрыбутыва павінны ідэальна супадаць, і адна няслушная дырэктыва можа прывесці да ціхага вяртання лістоў або адкрытага рэлею. Mail Server Factory убірае ў сябе ўвесь гэты цяжка набыты, схільны да памылак досвед і ўвасабляе яго ў праграмным забеспячэнні. Замест таго каб уручную канфігураваць кожны кампанент на незнаёмай АС, канчатковы карыстальнік апісвае жаданы вынік у выглядзе простага дакумента JSON; Фабрыка счытвае гэты JSON і выконвае дакладна тыя крокі ўстаноўкі і ініцыялізацыі, якія патрэбны на мэтавай аперацыйнай сістэме, разгортваючы паштовы стэк на базе Docker, дзе кожны кампанент слаба звязаны — гэты дызайнерскі выбар забяспечвае гарызантальную маштабавасць стэка і дазваляе абнаўляць або замяняць любы кампанент асобна. Інструмент наўмысна агностычны да спосабу разгортвання: 12 тыпаў падлучэнняў дазваляюць аднаму і tamu ж інструменту і аднаму і tamu ж JSON мэткаваць лакальную машыну, аддалены хост праз SSH, Docker ці Kubernetes-рунтайм, воблачныя інстансы праз AWS SSM / Azure Serial Console / GCP OS Login ці ВМ праз Libvirt — адно і тое ж дэкларатыўнае апісанне, якое разгортваецца там, куды вы яго накіруеце. Падтрымліваецца 25 дыстрыбутываў Linux з заходніх (Ubuntu, Debian, CentOS, Fedora, AlmaLinux, Rocky, openSUSE), расійскіх (ALT, Astra, ROSA) і кітайскіх (openEuler, openKylin, Deepin) сямействаў з аўтаматызаванай устаноўкай праз preseed/kickstart/cloud-init/autoyast і аўтаматызацыяй ВМ на базе QEMU для тэставання. Карпаратыўныя магчымасці шырокія: шыфраванне AES-256-GCM, абавязковыя палітыкі пароляў і SSH-ключоў, аўтаматызаваная канфігурацыя брандмаўэра для пошты (парты 25/587/465/993/995), TLS/SSL з праверкай сертыфікатаў і HSTS, аўдытнае лагіраванне і RBAC. Аперацыйныя магчымасці ўключаюць налады JVM (G1GC), кэшаванне Caffeine, пулінг злучэнняў, метрыкі, сумяшчальныя з Prometheus, структураванае лагіраванне, гарачую перазагрузку канфігурацыі і кіраванне сакрэтамі. Праект мае 439 тэстаў з 100% праходжаннем і чысты SonarQube-гатунак якасці. Гэта флагманскі праект арганізацыі Server-Factory.</p>
-      <p>Змест</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-3" aria-expanded="true" aria-controls="od-acc-mail-server-factory-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-3-panel" role="region" aria-labelledby="od-acc-mail-server-factory-3">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-1-panel" role="region" aria-labelledby="od-acc-mail-server-factory-1">
             <div class="od-accordion__inner">
       <p>Наладка бяспечнага поштавага сервера для прадукцыйнага выкарыстання — працэс, вядомы сваёй схільнасцю да памылак і залежнасцю ад аперацыйнай сістэмы. Mail Server Factory уключае гэты досвед у дэкларатыўную мадэль JSON разам з рухавіком выканання, што дазваляе паўтараць правільна наладжаны, абаронены і дакераваны поштавы стэк на любой падтрымліваемай платформе без ручной пакрокавай працы.</p>
             </div>
@@ -238,12 +214,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-4" aria-expanded="true" aria-controls="od-acc-mail-server-factory-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-2" aria-expanded="true" aria-controls="od-acc-mail-server-factory-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-4-panel" role="region" aria-labelledby="od-acc-mail-server-factory-4">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-2-panel" role="region" aria-labelledby="od-acc-mail-server-factory-2">
             <div class="od-accordion__inner">
       <p>Гэта ператварае наладку поштавага сервера з працяглай, спецыялізаванай і патрабуючай дакладнасці працэдуры ў просты акт напісання канфігурацыі — і робіць гэты акт пераносным на 12 тыпаў падлучэнняў і 25 дыстрыбутываў Linux, а таксама абароненым дзякуючы прадвызначаным прадукцыйным стандартам бяспекі. Вынік — паўторнае і *правераемае* разгортванне: адна і тая ж JSON заўсёды стварае аднолькава абаронены стэк, а 439 паспяхова прайшоўшых тэстаў і чысты SonarQube-кантроль азначаюць, што рухавік, які выконвае працу, падлягае праверцы, а не проста давярае сваёй рэпутацыі.</p>
             </div>
@@ -251,12 +227,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-5" aria-expanded="true" aria-controls="od-acc-mail-server-factory-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-3" aria-expanded="true" aria-controls="od-acc-mail-server-factory-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-5-panel" role="region" aria-labelledby="od-acc-mail-server-factory-5">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-3-panel" role="region" aria-labelledby="od-acc-mail-server-factory-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Дэкларатыўная JSON → інтэрпрэтаваная ўстаноўка/ініцыялізацыя на мэтавай АС.</li>
@@ -269,12 +245,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-6" aria-expanded="true" aria-controls="od-acc-mail-server-factory-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-4" aria-expanded="true" aria-controls="od-acc-mail-server-factory-4-panel">
               <span class="od-accordion__label">Праблемы і рашэнні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-6-panel" role="region" aria-labelledby="od-acc-mail-server-factory-6">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-4-panel" role="region" aria-labelledby="od-acc-mail-server-factory-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Гетэрагеннасць АС/дыстрыбутываў:</strong> вырашана з дапамогай рэцэптаў для кожнага дыстрыбутыва, канфігурацый для аўтаматызаванай устаноўкі і кросплатформавага тэсціравання на базе QEMU.</li>
@@ -287,12 +263,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-7" aria-expanded="true" aria-controls="od-acc-mail-server-factory-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-5" aria-expanded="true" aria-controls="od-acc-mail-server-factory-5-panel">
               <span class="od-accordion__label">Тэхнічны стэк (навошта + як)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-7-panel" role="region" aria-labelledby="od-acc-mail-server-factory-7">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-5-panel" role="region" aria-labelledby="od-acc-mail-server-factory-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Kotlin</strong> — рухавік Factory і логіка крокаў устаноўкі (179K байтаў; Kotlin 2.0.21).</li>

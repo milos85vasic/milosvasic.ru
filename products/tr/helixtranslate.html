@@ -2,7 +2,7 @@
 layout: default
 lang: tr
 title: "HelixTranslate — Miloš Vasić"
-description: "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly."
+description: "HelixTranslate, Go tabanlı, yüksek performanslı bir e-kitap çeviri platformudur. 100’den fazla dil arasında kitap çevirisi yapmak için doğrulanmış LLM sağlayıcılarını kullanır. Gerçek zamanlı WebSocket izleme sistemi ve sessiz yedeklemeye asla izin vermeyen katı bir yönlendirme politikasıyla çalışır; sorun yaşandığında sessizce düşük performansa geçmek yerine yüksek sesle hata verir."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly.",
+      "description": "HelixTranslate, Go tabanlı, yüksek performanslı bir e-kitap çeviri platformudur. 100’den fazla dil arasında kitap çevirisi yapmak için doğrulanmış LLM sağlayıcılarını kullanır. Gerçek zamanlı WebSocket izleme sistemi ve sessiz yedeklemeye asla izin vermeyen katı bir yönlendirme politikasıyla çalışır; sorun yaşandığında sessizce düşük performansa geçmek yerine yüksek sesle hata verir.",
       "inLanguage": "tr",
       "name": "HelixTranslate",
       "operatingSystem": "Cross-platform",
@@ -182,55 +182,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Doğrulanmış model kitap çevirisi — tasarım gereği dürüst, asla sessiz yedekleme değil.</strong></p>
+      <p class="od-product-detail__lede">Go tabanlı evrensel e-kitap çeviri araç seti. FB2, EPUB, TXT, HTML, PDF ve DOCX formatlarındaki kitapları, 100’den fazla dilde en güçlü doğrulanmış LLM (LLMsVerifier köprüsü üzerinden) kullanarak çevirir. REST/HTTP-3 ve gRPC API’leri, dağıtık işleme ve gerçek zamanlı WebSocket izleme paneli sunar.</p>
+      <p>HelixTranslate, Go tabanlı, yüksek performanslı bir e-kitap çeviri platformudur. 100’den fazla dil arasında kitap çevirisi yapmak için doğrulanmış LLM sağlayıcılarını kullanır. Gerçek zamanlı WebSocket izleme sistemi ve sessiz yedeklemeye asla izin vermeyen katı bir yönlendirme politikasıyla çalışır; sorun yaşandığında sessizce düşük performansa geçmek yerine yüksek sesle hata verir.</p>
+      <p>HelixTranslate, Go tabanlı, kurumsal düzeyde bir sistemdir ve kitapları dil arasında çevirmek için LLM sağlayıcılarını kullanır. Paragraflar veya kısa metinler değil, baştan sona kitap uzunluğundaki eserleri çevirir. Birden fazla e-kitap formatını (FB2, EPUB, TXT, HTML, PDF, DOCX) ayrıştırır ve yeniden oluşturur, 100’den fazla dili otomatik olarak algılar. Hem CLI araçlarını hem de API sunucularını (REST üzerinden HTTP/3, gRPC ve bir WebSocket olay akışı) destekler; böylece terminal tabanlı bir iş akışına da hizmet tabanlı bir ağa da eşit şekilde uyum sağlar. Sisteminin belirleyici özelliği, *model seçimi* yaklaşımıdır: Sağlayıcıyı sabit kodlamak ve sağlıklı kalmasını ummak yerine, HelixTranslate tüm model yetkisini LLMsVerifier köprüsüne (<code>pkg/bridge</code>) devreder. Bu köprü, en güçlü *doğrulanmış* API modelini seçer ve belirleyici, puan sıralı bir yedekleme zinciri sunar. Model uygunluğu, yanıt verme hızı, kod kalitesi, özellik zenginliği ve güvenilirlik gibi ağırlıklı kriterlerle belirlenir. Yani çevirinizi yapan model, bir yapılandırma dosyasında görünmekle değil, işe yaradığını kanıtlayarak yerini kazanır.</p>
+      <p>Kritik nokta, sistemin kod düzeyinde uyguladığı "sessiz yedekleme yok" kuralıdır: Eğer hiçbir sağlayıcı API anahtarı mevcut değilse ya da operatör açıkça mevcut olmayan bir sağlayıcı talep ederse, sistem sessizce başka bir sağlayıcıya geçmek veya yerel bir çalışma zamanına düşmek yerine dürüst bir şekilde sert bir hata döndürür. Bu kural, özel bir ön derleme kontrolü ve eşleştirilmiş mutasyon testi ile sabitlenmiştir. Yerel çalışma zamanları (Ollama, llama.cpp) kasıtlı olarak varsayılan yoldan çıkarılmıştır; böylece doğrulanmamış bir motor, doğrulanmış bir modelin yerine asla sessizce geçemez. Çeviri çekirdeğinin etrafında gerçek zamanlı bir WebSocket izleme alt sistemi bulunur: Çeviri CLI, canlı bir web paneline yönlendirilen bir izleme sunucusuna tip belirli olaylar gönderirken, uzak SSH çalışanları iş yükünü dağıtık olarak dağıtır. Bunun üzerine tutarlılık için çok geçişli düzeltme, hazırlık aşamasında kalite analizi, uzun metinlerde maliyeti kontrol altına almak için çeviri önbelleği ve görsel odaklı kalite güvencesi katmanları eklenir. Tüm platform, bir "blöf karşıtı mühendislik anayasası"na tabidir: Testler, gerçek kullanıcı tarafından görülebilir sonuçları kanıtlamalıdır ve yeşil onay işaretleriyle hiçbir şey kanıtlanamaz; zorunlu mutasyon testleriyle desteklenmelidir.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-0" aria-expanded="true" aria-controls="od-acc-helixtranslate-0-panel">
-              <span class="od-accordion__label">Özet</span>
+              <span class="od-accordion__label">Gidermek zorunda hissettiğimiz kaşıntı</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-0-panel" role="region" aria-labelledby="od-acc-helixtranslate-0">
-            <div class="od-accordion__inner">
-      <p>HelixTranslate, Go tabanlı, yüksek performanslı bir e-kitap çeviri platformudur. 100’den fazla dil arasında kitap çevirisi yapmak için doğrulanmış LLM sağlayıcılarını kullanır. Gerçek zamanlı WebSocket izleme sistemi ve sessiz yedeklemeye asla izin vermeyen katı bir yönlendirme politikasıyla çalışır; sorun yaşandığında sessizce düşük performansa geçmek yerine yüksek sesle hata verir.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
-              <span class="od-accordion__label">Kısa açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
-            <div class="od-accordion__inner">
-      <p>Go tabanlı evrensel e-kitap çeviri araç seti. FB2, EPUB, TXT, HTML, PDF ve DOCX formatlarındaki kitapları, 100’den fazla dilde en güçlü doğrulanmış LLM (LLMsVerifier köprüsü üzerinden) kullanarak çevirir. REST/HTTP-3 ve gRPC API’leri, dağıtık işleme ve gerçek zamanlı WebSocket izleme paneli sunar.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
-              <span class="od-accordion__label">Uzun açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
-            <div class="od-accordion__inner">
-      <p>HelixTranslate, Go tabanlı, kurumsal düzeyde bir sistemdir ve kitapları dil arasında çevirmek için LLM sağlayıcılarını kullanır. Paragraflar veya kısa metinler değil, baştan sona kitap uzunluğundaki eserleri çevirir. Birden fazla e-kitap formatını (FB2, EPUB, TXT, HTML, PDF, DOCX) ayrıştırır ve yeniden oluşturur, 100’den fazla dili otomatik olarak algılar. Hem CLI araçlarını hem de API sunucularını (REST üzerinden HTTP/3, gRPC ve bir WebSocket olay akışı) destekler; böylece terminal tabanlı bir iş akışına da hizmet tabanlı bir ağa da eşit şekilde uyum sağlar. Sisteminin belirleyici özelliği, *model seçimi* yaklaşımıdır: Sağlayıcıyı sabit kodlamak ve sağlıklı kalmasını ummak yerine, HelixTranslate tüm model yetkisini LLMsVerifier köprüsüne (<code>pkg/bridge</code>) devreder. Bu köprü, en güçlü *doğrulanmış* API modelini seçer ve belirleyici, puan sıralı bir yedekleme zinciri sunar. Model uygunluğu, yanıt verme hızı, kod kalitesi, özellik zenginliği ve güvenilirlik gibi ağırlıklı kriterlerle belirlenir. Yani çevirinizi yapan model, bir yapılandırma dosyasında görünmekle değil, işe yaradığını kanıtlayarak yerini kazanır.</p>
-      <p>Kritik nokta, sistemin kod düzeyinde uyguladığı "sessiz yedekleme yok" kuralıdır: Eğer hiçbir sağlayıcı API anahtarı mevcut değilse ya da operatör açıkça mevcut olmayan bir sağlayıcı talep ederse, sistem sessizce başka bir sağlayıcıya geçmek veya yerel bir çalışma zamanına düşmek yerine dürüst bir şekilde sert bir hata döndürür. Bu kural, özel bir ön derleme kontrolü ve eşleştirilmiş mutasyon testi ile sabitlenmiştir. Yerel çalışma zamanları (Ollama, llama.cpp) kasıtlı olarak varsayılan yoldan çıkarılmıştır; böylece doğrulanmamış bir motor, doğrulanmış bir modelin yerine asla sessizce geçemez. Çeviri çekirdeğinin etrafında gerçek zamanlı bir WebSocket izleme alt sistemi bulunur: Çeviri CLI, canlı bir web paneline yönlendirilen bir izleme sunucusuna tip belirli olaylar gönderirken, uzak SSH çalışanları iş yükünü dağıtık olarak dağıtır. Bunun üzerine tutarlılık için çok geçişli düzeltme, hazırlık aşamasında kalite analizi, uzun metinlerde maliyeti kontrol altına almak için çeviri önbelleği ve görsel odaklı kalite güvencesi katmanları eklenir. Tüm platform, bir "blöf karşıtı mühendislik anayasası"na tabidir: Testler, gerçek kullanıcı tarafından görülebilir sonuçları kanıtlamalıdır ve yeşil onay işaretleriyle hiçbir şey kanıtlanamaz; zorunlu mutasyon testleriyle desteklenmelidir.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
-              <span class="od-accordion__label">Neden inşa ettik</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
             <div class="od-accordion__inner">
       <p>Uzun metinli kitapları güvenilir ve *dürüst* bir şekilde çevirmek için — asla "kalitesi düşmüş ama mevcut" bir çeviri sunmamak. Tasarım ilkesi, eksik veya doğrulanamayan bir çevirinin yüksek sesli, kesin bir hata olması gerektiği ve model seçiminin her zaman gerçekten doğrulanmış bir sağlayıcıya yönelmesi, sabit kodlanmış bir tahmine ya da sessiz bir yerel yedeklemeye düşmemesi üzerine kurulu.</p>
             </div>
@@ -238,12 +202,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
               <span class="od-accordion__label">Neden oyunun kurallarını değiştiriyor</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
             <div class="od-accordion__inner">
       <p>Çoğu LLM çeviri hattı sessizce başarısız olur — daha zayıf bir modele geçer, yerel çalışma zamanına düşer ya da test paketi yeşil yanarken kısmi çıktı verir ve kimse kalitedeki düşüşü fark etmez. HelixTranslate, bu başarısızlık modunu yapısal olarak imkansız kılar: Model seçimi doğrulama kapısından geçer, yedekleme zinciri belirleyici ve tamamen şeffaftır, "anahtar yok / doğrulanmış model yok" durumu sessiz bir omuz silkme yerine dürüst bir hata mesajıyla sonuçlanır. Bu tek tasarım kararı, "Bu çeviri gerçekten yetkin, doğrulanmış bir modelde mi çalıştı?" sorusunu kontrol edemediğiniz bir umuttan, sistemin sizin adınıza garanti ettiği bir güvenceye dönüştürür.</p>
             </div>
@@ -251,12 +215,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
               <span class="od-accordion__label">Yenilikçi yönler</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Doğrulama kapılı model yönlendirmesi</strong> LLMsVerifier köprüsü aracılığıyla — en güçlü *doğrulanmış* model otomatik olarak seçilir, böylece operatörler niyetlerini belirtir, sağlayıcı adlarını değil, ve asla çalışmayabilecek bir sağlayıcıyı elle seçmez.</li>
@@ -271,12 +235,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
               <span class="od-accordion__label">En büyük teknik zorluklar ve çözümlerimiz</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Dürüst bir çeviri hattı garantisi (sessiz kalite düşüşü olmaması).</strong> Tüm model yetkisinin LLMsVerifier köprüsünde merkezileştirilmesiyle çözüldü; böylece tek bir karar noktası denetlenir, her biri tahmin yapmak yerine yüksek sesle hata veren dört açık yönlendirme kolu kodlanır, yerel çalışma zamanı yedekleri varsayılan yoldan tamamen kaldırılır ve bu kural, bir derleme kapısı ile mutasyon testi aracılığıyla sabitlenir; garanti kaldırılırsa derleme başarısız olur.</li>
@@ -289,12 +253,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-7" aria-expanded="true" aria-controls="od-acc-helixtranslate-7-panel">
-              <span class="od-accordion__label">Teknoloji Yığını</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+              <span class="od-accordion__label">Mühendislik altyapısı</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-7-panel" role="region" aria-labelledby="od-acc-helixtranslate-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — eşzamanlılık ilkeleri, birden fazla bölümü aynı anda ayrıştırma, çevirme ve aktarma işlemlerine doğal olarak uyduğu için seçildi; yüksek eşzamanlılık destekli arka uç, <code>digital.vasic.translator</code> modülü.</li>
@@ -315,12 +279,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-8" aria-expanded="true" aria-controls="od-acc-helixtranslate-8-panel">
-              <span class="od-accordion__label">Durum ve Dürüstlük Notları</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+              <span class="od-accordion__label">Abartısız durum</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-8-panel" role="region" aria-labelledby="od-acc-helixtranslate-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Durum: beta.</strong> İşlevsel platform; <code>VERSION</code>/Makefile/<code>AGENTS.md</code> dosyalarında sürüm bilgisi tutarsız olduğundan, kararlı kabul edilmiyor.</li>

@@ -2,7 +2,7 @@
 layout: default
 lang: tr
 title: "LLMsVerifier — Miloš Vasić"
-description: "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported."
+description: "LLMsVerifier, birden fazla sağlayıcıdaki Büyük Dil Modelleri'ni doğrulamak, izlemek ve optimize etmek için kurumsal düzeyde bir platformdur. Platform, yalnızca gerçekten çalıştığı kanıtlanan modellerin kullanılabilir veya dışa aktarılabilir olarak işaretlenmesini sağlayan zorunlu bir \"Kodumu görüyor musun?\" doğrulama testine dayanır."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmsverifier.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmsverifier.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMsVerifier is an enterprise-grade platform for verifying, monitoring, and optimizing Large Language Models across many providers, built on a mandatory \"Do you see my code?\" verification test so that only models proven to actually work are ever marked usable or exported.",
+      "description": "LLMsVerifier, birden fazla sağlayıcıdaki Büyük Dil Modelleri'ni doğrulamak, izlemek ve optimize etmek için kurumsal düzeyde bir platformdur. Platform, yalnızca gerçekten çalıştığı kanıtlanan modellerin kullanılabilir veya dışa aktarılabilir olarak işaretlenmesini sağlayan zorunlu bir \"Kodumu görüyor musun?\" doğrulama testine dayanır.",
       "inLanguage": "tr",
       "name": "LLMsVerifier",
       "operatingSystem": "Cross-platform",
@@ -172,55 +172,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Doğrula. İzle. Optimize Et.</strong></p>
+      <p class="od-product-detail__lede">Birden fazla sağlayıcıdaki BDM'leri doğrulayan, kıyaslayan, izleyen ve optimize eden bir Go platformu. Her model, kullanıma sunulmadan önce zorunlu bir kod görünürlüğü testinden geçmek zorundadır; ardından gecikme süresi, akış, fonksiyon çağırma, görüntü işleme ve gömme kontrolleri yapılır ve yalnızca doğrulanmış yapılandırmalar AI CLI araçları için dışa aktarılır.</p>
+      <p>LLMsVerifier, birden fazla sağlayıcıdaki Büyük Dil Modelleri'ni doğrulamak, izlemek ve optimize etmek için kurumsal düzeyde bir platformdur. Platform, yalnızca gerçekten çalıştığı kanıtlanan modellerin kullanılabilir veya dışa aktarılabilir olarak işaretlenmesini sağlayan zorunlu bir "Kodumu görüyor musun?" doğrulama testine dayanır.</p>
+      <p>LLMsVerifier, birden fazla sağlayıcıdaki LLM performansını doğrulamak, izlemek ve optimize etmek için kapsamlı bir platformdur. Temel ilkesi *zorunlu doğrulama*dır ve bu konuda tavizsizdir: Herhangi bir model kullanılabilir olarak işaretlenmeden —ya da dışa aktarılan bir yapılandırmaya dahil edilmeden— önce, sağlayıcıya gerçek HTTP çağrıları yaparak yanıtı gerçek anlamda kavrayıp kavramadığını (sanki makul görünen bir yankıdan ibaret olmadığını) analiz eden bir "Kodumu görüyor musun?" testinden geçmelidir. Girdinizi açıkça göremediğini ve anlayamadığını kanıtlayan bir model, asla "kullanılabilir" etiketini alamaz. Bu geçitten sonra Doğrulayıcı Motoru, varlık, yanıt verme hızı, gecikme süresi, akış, fonksiyon çağırma, görüntü işleme ve embeddings gibi yetenek testlerinden oluşan tam bir batarya çalıştırır. Raporlayıcı Motoru ise sonuçları eyleme geçirilebilir markdown ve JSON raporlarına dönüştürür.</p>
+      <p>Sistem modüler ve olay odaklıdır; CLI, TUI, Web ve REST API arayüzlerini, Doğrulayıcı Motoru, Raporlayıcı Motoru ve Yapılandırma Yöneticisi'nden oluşan bir çekirdek üzerinden sunar ve doğrulama ile sınırlı kalmaz. Gelişmiş katmanlar, LLM destekli görev ayrıştırma için Süpervizör/İşçi modeli, çok uzun oturumların kesintiye uğramamasını sağlayan kayan pencere ve LLM özetleme tabanlı bağlam yönetimi, bulut destekli kontrol noktaları ve devre kesiciler ile gecikme süresine dayalı yönlendirme içeren bir yedekleme sistemi ekler. Çevresel altyapı üretim ortamına uygun şekilde tasarlanmıştır: pub/sub olay veri yolu, cron zamanlama, fiyatlandırma/sınır tespiti, RAG için bir vector veritabanı ve bir dışa aktarma sistemi. Her oluşturulan sağlayıcı/modelin sonuna eklenen *(llmsvd)* imza kuralı sayesinde, doğrulanmış bir çıktı tek bakışta izlenebilir ve asla doğrulanmamış bir modelle karıştırılamaz — ayrıca yalnızca doğrulanmış modeller, OpenCode, Crush ve Claude Code gibi AI CLI araçları için dışa aktarılan yapılandırmalara yazılır. Platform, ekiplerin üretim ortamında gerçekten ihtiyaç duyduğu operasyonel araçlarla birlikte sunulur: Docker/Kubernetes/Helm dağıtımı, Prometheus/Grafana izleme, LDAP/SSO ve SQLCipher şifreli depolama.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-0" aria-expanded="true" aria-controls="od-acc-llmsverifier-0-panel">
-              <span class="od-accordion__label">Özet</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-0-panel" role="region" aria-labelledby="od-acc-llmsverifier-0">
-            <div class="od-accordion__inner">
-      <p>LLMsVerifier, birden fazla sağlayıcıdaki Büyük Dil Modelleri'ni doğrulamak, izlemek ve optimize etmek için kurumsal düzeyde bir platformdur. Platform, yalnızca gerçekten çalıştığı kanıtlanan modellerin kullanılabilir veya dışa aktarılabilir olarak işaretlenmesini sağlayan zorunlu bir "Kodumu görüyor musun?" doğrulama testine dayanır.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-1" aria-expanded="true" aria-controls="od-acc-llmsverifier-1-panel">
-              <span class="od-accordion__label">Kısa açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-1-panel" role="region" aria-labelledby="od-acc-llmsverifier-1">
-            <div class="od-accordion__inner">
-      <p>Birden fazla sağlayıcıdaki BDM'leri doğrulayan, kıyaslayan, izleyen ve optimize eden bir Go platformu. Her model, kullanıma sunulmadan önce zorunlu bir kod görünürlüğü testinden geçmek zorundadır; ardından gecikme süresi, akış, fonksiyon çağırma, görüntü işleme ve gömme kontrolleri yapılır ve yalnızca doğrulanmış yapılandırmalar AI CLI araçları için dışa aktarılır.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-2" aria-expanded="true" aria-controls="od-acc-llmsverifier-2-panel">
-              <span class="od-accordion__label">Uzun açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-2-panel" role="region" aria-labelledby="od-acc-llmsverifier-2">
-            <div class="od-accordion__inner">
-      <p>LLMsVerifier, birden fazla sağlayıcıdaki LLM performansını doğrulamak, izlemek ve optimize etmek için kapsamlı bir platformdur. Temel ilkesi *zorunlu doğrulama*dır ve bu konuda tavizsizdir: Herhangi bir model kullanılabilir olarak işaretlenmeden —ya da dışa aktarılan bir yapılandırmaya dahil edilmeden— önce, sağlayıcıya gerçek HTTP çağrıları yaparak yanıtı gerçek anlamda kavrayıp kavramadığını (sanki makul görünen bir yankıdan ibaret olmadığını) analiz eden bir "Kodumu görüyor musun?" testinden geçmelidir. Girdinizi açıkça göremediğini ve anlayamadığını kanıtlayan bir model, asla "kullanılabilir" etiketini alamaz. Bu geçitten sonra Doğrulayıcı Motoru, varlık, yanıt verme hızı, gecikme süresi, akış, fonksiyon çağırma, görüntü işleme ve embeddings gibi yetenek testlerinden oluşan tam bir batarya çalıştırır. Raporlayıcı Motoru ise sonuçları eyleme geçirilebilir markdown ve JSON raporlarına dönüştürür.</p>
-      <p>Sistem modüler ve olay odaklıdır; CLI, TUI, Web ve REST API arayüzlerini, Doğrulayıcı Motoru, Raporlayıcı Motoru ve Yapılandırma Yöneticisi'nden oluşan bir çekirdek üzerinden sunar ve doğrulama ile sınırlı kalmaz. Gelişmiş katmanlar, LLM destekli görev ayrıştırma için Süpervizör/İşçi modeli, çok uzun oturumların kesintiye uğramamasını sağlayan kayan pencere ve LLM özetleme tabanlı bağlam yönetimi, bulut destekli kontrol noktaları ve devre kesiciler ile gecikme süresine dayalı yönlendirme içeren bir yedekleme sistemi ekler. Çevresel altyapı üretim ortamına uygun şekilde tasarlanmıştır: pub/sub olay veri yolu, cron zamanlama, fiyatlandırma/sınır tespiti, RAG için bir vector veritabanı ve bir dışa aktarma sistemi. Her oluşturulan sağlayıcı/modelin sonuna eklenen *(llmsvd)* imza kuralı sayesinde, doğrulanmış bir çıktı tek bakışta izlenebilir ve asla doğrulanmamış bir modelle karıştırılamaz — ayrıca yalnızca doğrulanmış modeller, OpenCode, Crush ve Claude Code gibi AI CLI araçları için dışa aktarılan yapılandırmalara yazılır. Platform, ekiplerin üretim ortamında gerçekten ihtiyaç duyduğu operasyonel araçlarla birlikte sunulur: Docker/Kubernetes/Helm dağıtımı, Prometheus/Grafana izleme, LDAP/SSO ve SQLCipher şifreli depolama.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-3" aria-expanded="true" aria-controls="od-acc-llmsverifier-3-panel">
               <span class="od-accordion__label">Neden geliştirdik?</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-3-panel" role="region" aria-labelledby="od-acc-llmsverifier-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-0-panel" role="region" aria-labelledby="od-acc-llmsverifier-0">
             <div class="od-accordion__inner">
       <p>Çünkü yalnızca yapılandırma tabanlı kontroller güvenilir değildir — bir API anahtarı süresi dolabilir, bir model kullanımdan kaldırılabilir ve bir yapılandırma dosyası, gerçek gecikme süresi, gerçek hatalar ya da modelin girdinizi gerçekten görüp anlaması hakkında hiçbir bilgi vermez. LLMsVerifier, "Yapılandırmada yer alıyorsa çalışıyor olmalı" yaklaşımının yerine kanıtı koyar: Yalnızca doğru yanıt verdiği kanıtlanan modeller kullanılabilir olarak işaretlenir ve dışa aktarılır.</p>
       <p>İçerik</p>
@@ -229,12 +193,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-4" aria-expanded="true" aria-controls="od-acc-llmsverifier-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-1" aria-expanded="true" aria-controls="od-acc-llmsverifier-1-panel">
               <span class="od-accordion__label">Neden bir oyun değiştirici?</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-4-panel" role="region" aria-labelledby="od-acc-llmsverifier-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-1-panel" role="region" aria-labelledby="od-acc-llmsverifier-1">
             <div class="od-accordion__inner">
       <p>LLM filolarını *güvenilir* hale getiriyor — bu kelime, eksikliklerle yalan söyleyen konfigürasyonların hakim olduğu bir alanda nadiren kazanılır. Yapılandırılmış bir modelin çalışmasını ummak yerine, ekipler her oyundaki her modelin gerçek doğrulama sürecinden geçtiğine dair zorunlu, test edilebilir bir güvenceye sahip oluyor; izleme, yedekleme ve yalnızca doğrulanmış modellerin dışa aktarımı, kanıttan üretime kadar olan döngüyü tamamlıyor. Helix ekosistemi içinde, LLM modeli, sağlayıcı ve doğrulama meta verileri için tek gerçek kaynağı haline geliyor: Diğer hizmetler (aralarında HelixTranslate da bulunuyor) bu kaynağa yönlendirme yapıyor, böylece tüm platform, "Şu anda hangi modeller gerçekten çalışıyor?" sorusuna tek bir dürüst yanıt alıyor; her ekip kendi umutlu tahminini sürdürmek yerine.</p>
             </div>
@@ -242,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-5" aria-expanded="true" aria-controls="od-acc-llmsverifier-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-2" aria-expanded="true" aria-controls="od-acc-llmsverifier-2-panel">
               <span class="od-accordion__label">Yenilikçi olan ne?</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-5-panel" role="region" aria-labelledby="od-acc-llmsverifier-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-2-panel" role="region" aria-labelledby="od-acc-llmsverifier-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Zorunlu "Kodumu görüyor musun?" doğrulaması</strong> — Bir modelin kullanılabilir hale gelmeden önce geçmesi gereken, gerçek, HTTP destekli bir anlama kapısı; ürünün imza niteliğindeki farkı ve kanıtlanmamış hiçbir şeyin sızdırmamasının nedeni.</li>
@@ -263,12 +227,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-6" aria-expanded="true" aria-controls="od-acc-llmsverifier-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-3" aria-expanded="true" aria-controls="od-acc-llmsverifier-3-panel">
               <span class="od-accordion__label">En büyük teknik zorluklar ve çözümlerimiz</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-6-panel" role="region" aria-labelledby="od-acc-llmsverifier-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-3-panel" role="region" aria-labelledby="od-acc-llmsverifier-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Bir modelin yalnızca yapılandırılmış değil, gerçekten çalıştığını kanıtlama.</strong> Asıl amaç ve en zor kısım. Gerçek API çağrıları yapan ve yanıtları olumlu anlamayla analiz eden zorunlu kod görünürlüğü testi ile çözüldü; geniş bir yetenek testi paketiyle destekleniyor — ardından doğrulama sürecini geçmeyen hiçbir şey dışa aktarılmıyor; böylece üretimi sınırlayan şey konfigürasyon değil, kanıt oluyor.</li>
@@ -281,12 +245,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-7" aria-expanded="true" aria-controls="od-acc-llmsverifier-7-panel">
-              <span class="od-accordion__label">Teknoloji Yığını</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-4" aria-expanded="true" aria-controls="od-acc-llmsverifier-4-panel">
+              <span class="od-accordion__label">Mühendislik altyapısı</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-7-panel" role="region" aria-labelledby="od-acc-llmsverifier-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-4-panel" role="region" aria-labelledby="od-acc-llmsverifier-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — eşzamanlılık özelliği nedeniyle çekirdek platform dili olarak seçildi; çok iş parçacıklı Doğrulayıcı Motoru’nu çalıştırarak birçok modeli paralel olarak sorgulayabilen ve çevresindeki hizmetleri destekleyen bir yapı sunuyor.</li>
@@ -309,12 +273,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-8" aria-expanded="true" aria-controls="od-acc-llmsverifier-8-panel">
-              <span class="od-accordion__label">Durum ve Dürüstlük Notları</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmsverifier-5" aria-expanded="true" aria-controls="od-acc-llmsverifier-5-panel">
+              <span class="od-accordion__label">Abartısız durum</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-8-panel" role="region" aria-labelledby="od-acc-llmsverifier-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmsverifier-5-panel" role="region" aria-labelledby="od-acc-llmsverifier-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Durum: beta.</strong> Go kaynağı gerçek HTTP doğrulamasını uyguluyor (doğrulamanın yalnızca yapılandırma tabanlı olduğunu anlatan eski bir belge ise hayal ürünü ve güncelliğini yitirmiş durumda — yetkili kaynak koddur).</li>

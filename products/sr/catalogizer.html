@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "Catalogizer — Miloš Vasić"
-description: "Catalogizer is a self-hostable media collection management system that automatically detects, categorizes, and organizes media across SMB, FTP, NFS, WebDAV, and local filesystems, with real-time monitoring, encrypted storage, external metadata enrichment, and a modern React UI backed by a high-performance Go API."
+description: "Catalogizer је систем за управљање мултимедијалним колекцијама који се може самостално хостовати и аутоматски открива, категоризује и организује медије на SMB, FTP, NFS, WebDAV и локалним фајл-системима, уз праћење у реалном времену, шифровано складиштење, обогаћивање спољним метаподацима и модеран React интерфејс подржан високоперформансним Go API бацкендом."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/catalogizer.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/catalogizer.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Catalogizer is a self-hostable media collection management system that automatically detects, categorizes, and organizes media across SMB, FTP, NFS, WebDAV, and local filesystems, with real-time monitoring, encrypted storage, external metadata enrichment, and a modern React UI backed by a high-performance Go API.",
+      "description": "Catalogizer је систем за управљање мултимедијалним колекцијама који се може самостално хостовати и аутоматски открива, категоризује и организује медије на SMB, FTP, NFS, WebDAV и локалним фајл-системима, уз праћење у реалном времену, шифровано складиштење, обогаћивање спољним метаподацима и модеран React интерфејс подржан високоперформансним Go API бацкендом.",
       "inLanguage": "sr",
       "name": "Catalogizer",
       "operatingSystem": "Cross-platform",
@@ -195,6 +195,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Напредно управљање мултимедијалним колекцијама са подршком за више протокола — откривање, каталогизација и обогаћивање свега што поседујете.</strong></p>
+      <p class="od-product-detail__lede">Професионални управљач мултимедијалних библиотека са подршком за више протокола. Go/Gin REST API препознаје преко 50 врста медија са извора попут SMB/FTP/NFS/WebDAV/локалних система, обогаћује их подацима из TMDB/IMDB/MusicBrainz/Steam и других извора, те служи React веб-апликацију у реалном времену преко шифроване SQLCipher базе података.</p>
+      <p>Већина управљача медијима захтева да се прво предате: све пребаците на један диск, у једном формату, једне врсте, и тек онда ће вам помоћи. Catalogizer полази од супротне премисе — ваша колекција већ постоји тамо где постоји, распрострањена на NAS дељеним ресурсима и протоколима који се никада неће усагласити — и прилази јој на њеном терену. Подржава протоколе које складишта већ користе — SMB/CIFS, FTP/FTPS, NFS, WebDAV и локалне фајл-системе — иза јединствене клијентске апстракције, тако да Windows дељени ресурс, FTP архива и WebDAV тачка монтирања изгледају идентично вишим слојевима и могу се мешати, замењивати или повлачити без додиривања апликативног кода. Go бацкенд (Gin REST API) непрестано надгледа те изворе, открива и класификује преко 50 врста медија (филмови, серије, музика, игре, софтвер, документарци) чим се фајлови појаве, те обогаћује сваку ставку из низа спољњих провајдера — TMDB, IMDB, TVDB, MusicBrainz, Spotify, Steam и других — тако да обичан назив фајла постаје потпуно опремљен каталогизован унос са уметничким делима, глумачком поставом и метаподацима. Резултати се стримују на TypeScript React фронтенд путем WebSocket-а, тако да се библиотека ажурира уживо током ингестије, уместо на ручно освежавање, а сваки бајт метаподатака чува се у шифрованој SQLCipher бази података заштићеној JWT аутентификацијом заснованом на улогама.</p>
+      <p>Док већина каталогизатора пада чим дељени ресурс откаже, Catalogizer је пројектован да остане употребљив и током прекида. Привремени квар на SMB-у се апсорбује експоненцијалним поновним повезивањем, прекидачем кола који спречава бомбардовање неактивног хоста, сталним праћењем здравља система и кешом метаподатака која наставља да одговара на корисничке захтеве из последњег познатог исправног стања — разлика између „цела апликација је пала јер се један NAS рестартовао" и „један извор је деградиран, али све остало ради". Поред каталогизације, служи и као оперативни алат за колекцију: аналитика о трендовима раста и праћењу квалитета/верзија, генерисање професионалних PDF извештаја, услуга конверзије PDF у слику/текст/HTML, извоз/увоз фаворита (JSON/CSV) и синхронизација са облаком на S3, Google Цлоуд Стораге или локалним фолдерима. И није то монолит који је случајно велики — намерно је састављен од 21 поново употребљивог <code>digital.vasic.*</code> Go подмодула и TypeScript клијентских пакета, од којих је сваки независно тестиран и верзиран, тако да исте испробане компоненте за аутентификацију, фајл-системе, стримовање и надгледање које покрећу Catalogizer покрећу и ширу породицу производа. Контрола квалитета није само декларативна: оквир Цхалленгес и HelixQA подвргавају сваку рекламирану функционалност провери заснованој на доказима, без празних обећања.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -212,38 +215,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-1" aria-expanded="true" aria-controls="od-acc-catalogizer-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-1-panel" role="region" aria-labelledby="od-acc-catalogizer-1">
-            <div class="od-accordion__inner">
-      <p>Професионални управљач мултимедијалних библиотека са подршком за више протокола. Go/Gin REST API препознаје преко 50 врста медија са извора попут SMB/FTP/NFS/WebDAV/локалних система, обогаћује их подацима из TMDB/IMDB/MusicBrainz/Steam и других извора, те служи React веб-апликацију у реалном времену преко шифроване SQLCipher базе података.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-2" aria-expanded="true" aria-controls="od-acc-catalogizer-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-2-panel" role="region" aria-labelledby="od-acc-catalogizer-2">
-            <div class="od-accordion__inner">
-      <p>Већина управљача медијима захтева да се прво предате: све пребаците на један диск, у једном формату, једне врсте, и тек онда ће вам помоћи. Catalogizer полази од супротне премисе — ваша колекција већ постоји тамо где постоји, распрострањена на NAS дељеним ресурсима и протоколима који се никада неће усагласити — и прилази јој на њеном терену. Подржава протоколе које складишта већ користе — SMB/CIFS, FTP/FTPS, NFS, WebDAV и локалне фајл-системе — иза јединствене клијентске апстракције, тако да Windows дељени ресурс, FTP архива и WebDAV тачка монтирања изгледају идентично вишим слојевима и могу се мешати, замењивати или повлачити без додиривања апликативног кода. Go бацкенд (Gin REST API) непрестано надгледа те изворе, открива и класификује преко 50 врста медија (филмови, серије, музика, игре, софтвер, документарци) чим се фајлови појаве, те обогаћује сваку ставку из низа спољњих провајдера — TMDB, IMDB, TVDB, MusicBrainz, Spotify, Steam и других — тако да обичан назив фајла постаје потпуно опремљен каталогизован унос са уметничким делима, глумачком поставом и метаподацима. Резултати се стримују на TypeScript React фронтенд путем WebSocket-а, тако да се библиотека ажурира уживо током ингестије, уместо на ручно освежавање, а сваки бајт метаподатака чува се у шифрованој SQLCipher бази података заштићеној JWT аутентификацијом заснованом на улогама.</p>
-      <p>Док већина каталогизатора пада чим дељени ресурс откаже, Catalogizer је пројектован да остане употребљив и током прекида. Привремени квар на SMB-у се апсорбује експоненцијалним поновним повезивањем, прекидачем кола који спречава бомбардовање неактивног хоста, сталним праћењем здравља система и кешом метаподатака која наставља да одговара на корисничке захтеве из последњег познатог исправног стања — разлика између „цела апликација је пала јер се један NAS рестартовао" и „један извор је деградиран, али све остало ради". Поред каталогизације, служи и као оперативни алат за колекцију: аналитика о трендовима раста и праћењу квалитета/верзија, генерисање професионалних PDF извештаја, услуга конверзије PDF у слику/текст/HTML, извоз/увоз фаворита (JSON/CSV) и синхронизација са облаком на S3, Google Цлоуд Стораге или локалним фолдерима. И није то монолит који је случајно велики — намерно је састављен од 21 поново употребљивог <code>digital.vasic.*</code> Go подмодула и TypeScript клијентских пакета, од којих је сваки независно тестиран и верзиран, тако да исте испробане компоненте за аутентификацију, фајл-системе, стримовање и надгледање које покрећу Catalogizer покрећу и ширу породицу производа. Контрола квалитета није само декларативна: оквир Цхалленгес и HelixQA подвргавају сваку рекламирану функционалност провери заснованој на доказима, без празних обећања.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-3" aria-expanded="true" aria-controls="od-acc-catalogizer-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-3-panel" role="region" aria-labelledby="od-acc-catalogizer-3">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-1-panel" role="region" aria-labelledby="od-acc-catalogizer-1">
             <div class="od-accordion__inner">
       <p>Постојећи управљачи медијским садржајем полазе од претпоставке да постоји један складишни бацкенд и један тип медија. Праве колекције распростиру се преко више NAS дељених ресурса и протокола, пропадају када неки ресурс откаже и мешају филмове, музику, игре и софтвер. Catalogizer је створен да све протоколе третира једнако, преживи нестабилна мрежна складишта и пружи један ауторитативан, обогаћен и енкриптован каталог над свим садржајима.</p>
             </div>
@@ -251,12 +227,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-4" aria-expanded="true" aria-controls="od-acc-catalogizer-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-2" aria-expanded="true" aria-controls="od-acc-catalogizer-2-panel">
               <span class="od-accordion__label">Зашто је револуционаран</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-4-panel" role="region" aria-labelledby="od-acc-catalogizer-4">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-2-panel" role="region" aria-labelledby="od-acc-catalogizer-2">
             <div class="od-accordion__inner">
       <p>У једном самостално хостованом, енкриптованом пакету обједињује оно што иначе захтева читав низ одвојених алата: унос независан од протокола који све складишне бацкендове третира подједнако, отпорност која каталог одржава живим током прекида складишта уместо да с њима пада, и богато обогаћивање из више извора које претвара сирове фајлове у прегледну, атрибутирану библиотеку. Добитак модуларне архитектуре је кумулативан: свако побољшање у клијенту фајл система или нови додатак за провајдера примени се једном и унапређује све потрошаче, тако да Catalogizer постепено постаје бољи како и окружење око њега напредује. Укратко, то је разлика између медијског индекса и медијског *система* – оног који је ваш, који преживљава нестабилну инфраструктуру и чија је унутрашња логика доказана, а не само обећана.</p>
             </div>
@@ -264,12 +240,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-5" aria-expanded="true" aria-controls="od-acc-catalogizer-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-3" aria-expanded="true" aria-controls="od-acc-catalogizer-3-panel">
+              <span class="od-accordion__label">Где живи новина</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-5-panel" role="region" aria-labelledby="od-acc-catalogizer-5">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-3-panel" role="region" aria-labelledby="od-acc-catalogizer-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Уједињени клијент фајл система за више протокола (SMB/FTP/NFS/WebDAV/локално) иза једног интерфејса.</li>
@@ -283,12 +259,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-6" aria-expanded="true" aria-controls="od-acc-catalogizer-6-panel">
-              <span class="od-accordion__label">Изазови и решења</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-4" aria-expanded="true" aria-controls="od-acc-catalogizer-4-panel">
+              <span class="od-accordion__label">Тешки проблеми, искрена решења</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-6-panel" role="region" aria-labelledby="od-acc-catalogizer-6">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-4-panel" role="region" aria-labelledby="od-acc-catalogizer-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Нестабилна мрежна складишта:</strong> решено експоненцијалним повлачењем, прекидачем струјног кола, здравственим проверама и офлајн кешом са политиком избацивања који служи кешираним метаподацима када извори нису доступни.</li>
@@ -301,12 +277,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-7" aria-expanded="true" aria-controls="od-acc-catalogizer-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-catalogizer-5" aria-expanded="true" aria-controls="od-acc-catalogizer-5-panel">
               <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-7-panel" role="region" aria-labelledby="od-acc-catalogizer-7">
+          <div class="od-accordion__panel is-open" id="od-acc-catalogizer-5-panel" role="region" aria-labelledby="od-acc-catalogizer-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> — високоперформативно REST API језгро (<code>catalog-api</code>); изабрано због конкурентности и пропусности при непрекидном праћењу.</li>

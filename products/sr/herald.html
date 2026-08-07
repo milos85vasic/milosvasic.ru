@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "Herald — Miloš Vasić"
-description: "Herald ingests system events and reliably fans them out to multiple notification channels so every alert reaches the right place. Subscribers interact in plain natural language; Herald infers intent via a three-tier discipline (command fast-path → LLM intent inference → clarify fallback)."
+description: "Herald прихвата системске догађаје и поуздано их дистрибуира на више канала за обавештавање, тако да свака узбуна стиже на право место. Претплатници комуницирају на природном језику; Herald разрешава намере кроз тростепену дисциплину (брзи пут команди → закључивање намере преко LLM → резервни механизам за разјашњавање)."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/herald.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/herald.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/herald.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/herald.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/herald.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/herald.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/herald.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/herald.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/herald.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/herald.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/herald.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/herald.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/herald.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/herald.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/herald.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/herald.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Herald ingests system events and reliably fans them out to multiple notification channels so every alert reaches the right place. Subscribers interact in plain natural language; Herald infers intent via a three-tier discipline (command fast-path → LLM intent inference → clarify fallback).",
+      "description": "Herald прихвата системске догађаје и поуздано их дистрибуира на више канала за обавештавање, тако да свака узбуна стиже на право место. Претплатници комуницирају на природном језику; Herald разрешава намере кроз тростепену дисциплину (брзи пут команди → закључивање намере преко LLM → резервни механизам за разјашњавање).",
       "inLanguage": "sr",
       "name": "Herald",
       "operatingSystem": "Cross-platform",
@@ -181,54 +181,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Свака узбуна стиже на право одредиште — без потребе за синтаксом команди.</strong></p>
+      <p class="od-product-detail__lede">Систем за прихватање догађаја и дистрибуцију обавештења на више канала. Herald поуздано усмерава системске догађаје на права одредишта преко канала за размену порука и омогућава претплатницима да користе обичан природни језик — разрешавајући намере кроз брзи пут команди, закључивање путем LLM и резервни механизам за разјашњавање и питања.</p>
+      <p>Herald прихвата системске догађаје и поуздано их дистрибуира на више канала за обавештавање, тако да свака узбуна стиже на право место. Претплатници комуницирају на природном језику; Herald разрешава намере кроз тростепену дисциплину (брзи пут команди → закључивање намере преко LLM → резервни механизам за разјашњавање).</p>
+      <p>Herald је окосница обавештавања која гарантује да системски догађај заиста стигне тамо где га човек може предузети — неугледан, али кључан слој у којем већина импровизованих система за узбуњивање тихо отказује. Прихвата догађаје и поуздано их дистрибуира на више канала за обавештавање, спречавајући уобичајене грешке где се узбуна изгуби, погрешно усмери на мртав канал или загуши у буци док више није битно. Али поуздана испорука је само пола приче; друга половина односи се на то шта се дешава када човек жели да реагује. Овде Herald одбија уобичајени компромис где корисници морају да памте круту синтаксу команди како би комуницирали са ботом за узбуњивање. Претплатници једноставно пишу на обичном природном језику, а Herald разрешава шта су мислили кроз намерну тростепену дисциплину: брзи пут који одмах препознаје експлицитне команде, затим закључивање намере засновано на LLM (путем Claude кода) за поруке у слободном облику, и на крају резервни механизам <code>razjašnjenja</code> који одговара, означава и поставља питање када је намера заиста нејасна. Та лествица „препознај → закључи → разјасни" укратко је читава филозофија дизајна — уобичајени случај остаје тренутни и детерминистички, флексибилни случај обрађује модел, а неизвестан случај никада се не разрешава слепим нагађањем које покреће погрешну радњу. Herald такође моделира учешће и приписивање: променљива окружења за корисничко име оператера (<code>HERALD_&lt;CHANNEL&gt;_OPERATOR_USERNAME</code>) и уговор о учесницима/приписивању покрећу поља <code>created_by</code>/<code>assigned_to</code> и означавање обавештења са @, тако да је јасно ко је шта урадио и кога се обавештава. Што се управљања тиче, Herald наслеђује Helix Constitution као ко-лоцирани подмодул и поштује његова правила, а рани је производни корисник Docs Chain — његов комплетан корпус од 66 докумената у Markdown формату → HTML/PDF/DOCX повезан је кроз <code>exec:</code> трансформације Docs Chain и проверава се без грешака. Herald је првенствено алат за Shell/Go са слојевитим спецификацијама (замена верзија В1→В2→В3→В4) и водичима за подешавање оператера по каналима за размену порука и диспечере LLM/агента.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-herald-0" aria-expanded="true" aria-controls="od-acc-herald-0-panel">
-              <span class="od-accordion__label">Резиме</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-0-panel" role="region" aria-labelledby="od-acc-herald-0">
-            <div class="od-accordion__inner">
-      <p>Herald прихвата системске догађаје и поуздано их дистрибуира на више канала за обавештавање, тако да свака узбуна стиже на право место. Претплатници комуницирају на природном језику; Herald разрешава намере кроз тростепену дисциплину (брзи пут команди → закључивање намере преко LLM → резервни механизам за разјашњавање).</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-1" aria-expanded="true" aria-controls="od-acc-herald-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-1-panel" role="region" aria-labelledby="od-acc-herald-1">
-            <div class="od-accordion__inner">
-      <p>Систем за прихватање догађаја и дистрибуцију обавештења на више канала. Herald поуздано усмерава системске догађаје на права одредишта преко канала за размену порука и омогућава претплатницима да користе обичан природни језик — разрешавајући намере кроз брзи пут команди, закључивање путем LLM и резервни механизам за разјашњавање и питања.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-2" aria-expanded="true" aria-controls="od-acc-herald-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-2-panel" role="region" aria-labelledby="od-acc-herald-2">
-            <div class="od-accordion__inner">
-      <p>Herald је окосница обавештавања која гарантује да системски догађај заиста стигне тамо где га човек може предузети — неугледан, али кључан слој у којем већина импровизованих система за узбуњивање тихо отказује. Прихвата догађаје и поуздано их дистрибуира на више канала за обавештавање, спречавајући уобичајене грешке где се узбуна изгуби, погрешно усмери на мртав канал или загуши у буци док више није битно. Али поуздана испорука је само пола приче; друга половина односи се на то шта се дешава када човек жели да реагује. Овде Herald одбија уобичајени компромис где корисници морају да памте круту синтаксу команди како би комуницирали са ботом за узбуњивање. Претплатници једноставно пишу на обичном природном језику, а Herald разрешава шта су мислили кроз намерну тростепену дисциплину: брзи пут који одмах препознаје експлицитне команде, затим закључивање намере засновано на LLM (путем Claude кода) за поруке у слободном облику, и на крају резервни механизам <code>razjašnjenja</code> који одговара, означава и поставља питање када је намера заиста нејасна. Та лествица „препознај → закључи → разјасни" укратко је читава филозофија дизајна — уобичајени случај остаје тренутни и детерминистички, флексибилни случај обрађује модел, а неизвестан случај никада се не разрешава слепим нагађањем које покреће погрешну радњу. Herald такође моделира учешће и приписивање: променљива окружења за корисничко име оператера (<code>HERALD_&lt;CHANNEL&gt;_OPERATOR_USERNAME</code>) и уговор о учесницима/приписивању покрећу поља <code>created_by</code>/<code>assigned_to</code> и означавање обавештења са @, тако да је јасно ко је шта урадио и кога се обавештава. Што се управљања тиче, Herald наслеђује Helix Constitution као ко-лоцирани подмодул и поштује његова правила, а рани је производни корисник Docs Chain — његов комплетан корпус од 66 докумената у Markdown формату → HTML/PDF/DOCX повезан је кроз <code>exec:</code> трансформације Docs Chain и проверава се без грешака. Herald је првенствено алат за Shell/Go са слојевитим спецификацијама (замена верзија В1→В2→В3→В4) и водичима за подешавање оператера по каналима за размену порука и диспечере LLM/агента.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-3" aria-expanded="true" aria-controls="od-acc-herald-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-3-panel" role="region" aria-labelledby="od-acc-herald-3">
+          <div class="od-accordion__panel is-open" id="od-acc-herald-0-panel" role="region" aria-labelledby="od-acc-herald-0">
             <div class="od-accordion__inner">
       <p>Узбуне тихо отказују — шаљу се на погрешан канал, губе се или захтевају круту синтаксу команди коју корисници неће памтити. Herald је направљен да гарантује поуздану дистрибуцију и омогући људима да одговарају на природном језику, тако да су обавештења и поуздана и без напора за предузимање акције.</p>
             </div>
@@ -236,12 +200,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-4" aria-expanded="true" aria-controls="od-acc-herald-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-herald-1" aria-expanded="true" aria-controls="od-acc-herald-1-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-4-panel" role="region" aria-labelledby="od-acc-herald-4">
+          <div class="od-accordion__panel is-open" id="od-acc-herald-1-panel" role="region" aria-labelledby="od-acc-herald-1">
             <div class="od-accordion__inner">
       <p>Спаја две ствари које се обично купују као одвојени производи – поуздано рутирање догађаја кроз више канала и интерфејс који разуме природни језик – у један систем у којем оператори једноставно говоре, а софтвер схвата шта желе. Кључна карактеристика која га чини поузданим за продукцију јесте механизам за разјашњење: систем за обавештавање који радије пита него да погреши бољи је од оног који може да утиче на стварно стање.</p>
             </div>
@@ -249,12 +213,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-5" aria-expanded="true" aria-controls="od-acc-herald-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-herald-2" aria-expanded="true" aria-controls="od-acc-herald-2-panel">
+              <span class="od-accordion__label">Идеје вредне позајмљивања</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-5-panel" role="region" aria-labelledby="od-acc-herald-5">
+          <div class="od-accordion__panel is-open" id="od-acc-herald-2-panel" role="region" aria-labelledby="od-acc-herald-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Тростепена дисциплина намере: брза путања команде → закључивање помоћу LLM → разјашњење и питање.</li>
@@ -267,12 +231,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-6" aria-expanded="true" aria-controls="od-acc-herald-6-panel">
-              <span class="od-accordion__label">Изазови и решења</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-herald-3" aria-expanded="true" aria-controls="od-acc-herald-3-panel">
+              <span class="od-accordion__label">Где је било тешко и како смо победили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-6-panel" role="region" aria-labelledby="od-acc-herald-6">
+          <div class="od-accordion__panel is-open" id="od-acc-herald-3-panel" role="region" aria-labelledby="od-acc-herald-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Нејасна намера изражена природним језиком:</strong> решено тростепеним лествицама препознавања, закључивања и разјашњавања уместо слепог нагађања.</li>
@@ -285,12 +249,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-herald-7" aria-expanded="true" aria-controls="od-acc-herald-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-herald-4" aria-expanded="true" aria-controls="od-acc-herald-4-panel">
               <span class="od-accordion__label">Технолошки стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-herald-7-panel" role="region" aria-labelledby="od-acc-herald-7">
+          <div class="od-accordion__panel is-open" id="od-acc-herald-4-panel" role="region" aria-labelledby="od-acc-herald-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> – основна логика догађаја и дистрибуције (по обрасцима језика организације).</li>

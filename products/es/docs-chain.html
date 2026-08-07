@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "Docs Chain — Miloš Vasić"
-description: "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically."
+description: "Docs Chain es un motor universal de propagación de dependencias entre documentos y bases de datos, implementado en Go y bidireccional. Cuando cualquier miembro de una cadena registrada cambia —fuente en Markdown, una exportación en HTML/PDF/DOCX o una base de datos SQLite—, detecta el cambio mediante hash de contenido y lo propaga de forma atómica a todos los miembros conectados."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docs-chain.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docs-chain.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Docs Chain is a universal, Go-implemented bidirectional document-and-database dependency-propagation engine. When any member of a registered chain changes — Markdown source, an HTML/PDF/DOCX export, or a SQLite database — it detects the change by content hash and propagates it through every connected member atomically.",
+      "description": "Docs Chain es un motor universal de propagación de dependencias entre documentos y bases de datos, implementado en Go y bidireccional. Cuando cualquier miembro de una cadena registrada cambia —fuente en Markdown, una exportación en HTML/PDF/DOCX o una base de datos SQLite—, detecta el cambio mediante hash de contenido y lo propaga de forma atómica a todos los miembros conectados.",
       "inLanguage": "es",
       "name": "Docs Chain",
       "operatingSystem": "Cross-platform",
@@ -182,54 +182,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Ningún documento rastreado puede desincronizarse — con hash de contenido, bidireccional y atómico.</strong></p>
+      <p class="od-product-detail__lede">Un motor Go que mantiene sincronizados documentos y bases de datos. Mediante recomputación incremental con hash de contenido al estilo Salsa sobre un DAG (orden topológico de Kahn, corte temprano, aristas de sincronización bidireccional, confirmaciones atómicas con renombrado + transacciones SQLite), regenera las exportaciones cada vez que cambia algún artefacto vinculado.</p>
+      <p>Docs Chain es un motor universal de propagación de dependencias entre documentos y bases de datos, implementado en Go y bidireccional. Cuando cualquier miembro de una cadena registrada cambia —fuente en Markdown, una exportación en HTML/PDF/DOCX o una base de datos SQLite—, detecta el cambio mediante hash de contenido y lo propaga de forma atómica a todos los miembros conectados.</p>
+      <p>Docs Chain es lo que se construye después de escribir por enésima vez el mismo frágil script de shell para "regenerar el PDF cuando cambia el Markdown". Reemplaza todo ese género de sincronización artesanal con un motor real. Modela los documentos y bases de datos de un proyecto como miembros de una cadena y, cuando alguno cambia, propaga ese cambio a todos los miembros conectados en todas las direcciones declaradas, regenerando y reexportando de forma atómica para que ningún artefacto rastreado pueda desincronizarse jamás. El diseño toma su rigor directamente del mundo de los sistemas de compilación incremental, no del scripting: la detección de cambios se basa en <strong>hash de contenido, no en *mtime</strong>*, por lo que un <code>touch</code> no activa nada y una edición de un solo byte desencadena exactamente las recompilaciones que debe —sin falsas alarmas ni cambios omitidos. Formalizado en una sola línea, es recomputación incremental con hash de contenido al estilo Salsa sobre un DAG, con orden topológico de Kahn, corte temprano que poda subárboles sin cambios, aristas de sincronización bidireccional con autoridad declarada, y confirmaciones atómicas mediante renombrado + transacciones SQLite, de modo que un fallo durante la propagación nunca deje una exportación a medio escribir. Se distribuye como submódulo de <code>vasic-digital</code> y se consume como parte central del submódulo HelixConstitution, por lo que cualquier proyecto que adopte la constitución obtiene Docs Chain de serie y registra sus propias cadenas mediante YAML por contexto. La implementación es transparente en cuanto a su estado (según la constitución §11.4.6): las Fases 1–4 (DAG central + hashing, adaptadores/transformaciones de nodos, orquestador de propagación con atomicidad, CLI multicontesto con comandos <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>) están implementadas y probadas; la Fase 4b añade *builtins* genéricos bidireccionales <code>md-to-sqlite</code>/<code>sqlite-to-md</code> (en puro Go, detección de desincronización a nivel de fila, ida y vuelta estable en bytes) y un *builtin* <code>colorize-html</code>; la Fase 5 (pruebas e2e reales con binarios completos) está implementada y en VERDE. Las Fases 6–7 (distribución de la constitución, integración con ATMOSphere) siguen en PLANIFICACIÓN y con acceso restringido a operadores. Herald es el primer consumidor real en producción, sincronizando un corpus de 66 documentos en múltiples formatos que verifica su correcto funcionamiento.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-0" aria-expanded="true" aria-controls="od-acc-docs-chain-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">El problema que nos propusimos resolver</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-docs-chain-0-panel" role="region" aria-labelledby="od-acc-docs-chain-0">
-            <div class="od-accordion__inner">
-      <p>Docs Chain es un motor universal de propagación de dependencias entre documentos y bases de datos, implementado en Go y bidireccional. Cuando cualquier miembro de una cadena registrada cambia —fuente en Markdown, una exportación en HTML/PDF/DOCX o una base de datos SQLite—, detecta el cambio mediante hash de contenido y lo propaga de forma atómica a todos los miembros conectados.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-1" aria-expanded="true" aria-controls="od-acc-docs-chain-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
-            <div class="od-accordion__inner">
-      <p>Un motor Go que mantiene sincronizados documentos y bases de datos. Mediante recomputación incremental con hash de contenido al estilo Salsa sobre un DAG (orden topológico de Kahn, corte temprano, aristas de sincronización bidireccional, confirmaciones atómicas con renombrado + transacciones SQLite), regenera las exportaciones cada vez que cambia algún artefacto vinculado.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
-            <div class="od-accordion__inner">
-      <p>Docs Chain es lo que se construye después de escribir por enésima vez el mismo frágil script de shell para "regenerar el PDF cuando cambia el Markdown". Reemplaza todo ese género de sincronización artesanal con un motor real. Modela los documentos y bases de datos de un proyecto como miembros de una cadena y, cuando alguno cambia, propaga ese cambio a todos los miembros conectados en todas las direcciones declaradas, regenerando y reexportando de forma atómica para que ningún artefacto rastreado pueda desincronizarse jamás. El diseño toma su rigor directamente del mundo de los sistemas de compilación incremental, no del scripting: la detección de cambios se basa en <strong>hash de contenido, no en *mtime</strong>*, por lo que un <code>touch</code> no activa nada y una edición de un solo byte desencadena exactamente las recompilaciones que debe —sin falsas alarmas ni cambios omitidos. Formalizado en una sola línea, es recomputación incremental con hash de contenido al estilo Salsa sobre un DAG, con orden topológico de Kahn, corte temprano que poda subárboles sin cambios, aristas de sincronización bidireccional con autoridad declarada, y confirmaciones atómicas mediante renombrado + transacciones SQLite, de modo que un fallo durante la propagación nunca deje una exportación a medio escribir. Se distribuye como submódulo de <code>vasic-digital</code> y se consume como parte central del submódulo HelixConstitution, por lo que cualquier proyecto que adopte la constitución obtiene Docs Chain de serie y registra sus propias cadenas mediante YAML por contexto. La implementación es transparente en cuanto a su estado (según la constitución §11.4.6): las Fases 1–4 (DAG central + hashing, adaptadores/transformaciones de nodos, orquestador de propagación con atomicidad, CLI multicontesto con comandos <code>sync</code>/<code>verify</code>/<code>doctor</code>/<code>graph</code>/<code>watch</code>) están implementadas y probadas; la Fase 4b añade *builtins* genéricos bidireccionales <code>md-to-sqlite</code>/<code>sqlite-to-md</code> (en puro Go, detección de desincronización a nivel de fila, ida y vuelta estable en bytes) y un *builtin* <code>colorize-html</code>; la Fase 5 (pruebas e2e reales con binarios completos) está implementada y en VERDE. Las Fases 6–7 (distribución de la constitución, integración con ATMOSphere) siguen en PLANIFICACIÓN y con acceso restringido a operadores. Herald es el primer consumidor real en producción, sincronizando un corpus de 66 documentos en múltiples formatos que verifica su correcto funcionamiento.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
             <div class="od-accordion__inner">
       <p>La documentación, las exportaciones y las bases de datos se desincronizan en cuanto se mantienen a mano o con scripts frágiles. Docs Chain convierte la sincronización en un proceso mecánico, preciso por hash de contenido y atómico, de modo que un cambio en cualquier punto de una cadena actualiza correctamente y de forma segura todo lo que depende de él (tanto aguas abajo como aguas arriba).</p>
             </div>
@@ -237,12 +201,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
-              <span class="od-accordion__label">Por qué es un cambio de juego</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-1" aria-expanded="true" aria-controls="od-acc-docs-chain-1-panel">
+              <span class="od-accordion__label">Qué lo hace diferente</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-1-panel" role="region" aria-labelledby="od-acc-docs-chain-1">
             <div class="od-accordion__inner">
       <p>Toma las garantías de corrección, obtenidas con tanto esfuerzo, que los autores de compiladores y sistemas de construcción dan por sentadas —grafos de dependencias con hash de contenido, recomputación mínima, commits atómicos— y las aplica a la documentación y las bases de datos, un ámbito que históricamente ha avanzado a trompicones con tareas programadas y buenas intenciones. La sincronización bidireccional real implica que la relación entre un origen y su exportación se mantiene en ambos sentidos, de modo que "la documentación está desactualizada" y "la exportación no coincide con el origen" dejan de ser errores recurrentes para convertirse en estados que el motor simplemente no permitirá que existan.</p>
             </div>
@@ -250,12 +214,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-5" aria-expanded="true" aria-controls="od-acc-docs-chain-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-2" aria-expanded="true" aria-controls="od-acc-docs-chain-2-panel">
               <span class="od-accordion__label">Qué es innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-5-panel" role="region" aria-labelledby="od-acc-docs-chain-5">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-2-panel" role="region" aria-labelledby="od-acc-docs-chain-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Recomputación incremental basada en hash de contenido (no en *mtime*) sobre un DAG con corte anticipado.</li>
@@ -268,12 +232,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-6" aria-expanded="true" aria-controls="od-acc-docs-chain-6-panel">
-              <span class="od-accordion__label">Desafíos y soluciones</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-3" aria-expanded="true" aria-controls="od-acc-docs-chain-3-panel">
+              <span class="od-accordion__label">Cómo se diseñaron las partes más complejas</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-6-panel" role="region" aria-labelledby="od-acc-docs-chain-6">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-3-panel" role="region" aria-labelledby="od-acc-docs-chain-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Reconstrucciones espurias:</strong> resueltas mediante detección por hash de contenido en lugar de marcas de tiempo.</li>
@@ -286,12 +250,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-7" aria-expanded="true" aria-controls="od-acc-docs-chain-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docs-chain-4" aria-expanded="true" aria-controls="od-acc-docs-chain-4-panel">
               <span class="od-accordion__label">Pila tecnológica (por qué y cómo)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-7-panel" role="region" aria-labelledby="od-acc-docs-chain-7">
+          <div class="od-accordion__panel is-open" id="od-acc-docs-chain-4-panel" role="region" aria-labelledby="od-acc-docs-chain-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — motor completo (<code>internal/hash</code>, <code>graph</code>, <code>adapter</code>, <code>orchestrator</code>, <code>config</code>, <code>state</code>, <code>runner</code>, <code>cmd/docs_chain</code>).</li>

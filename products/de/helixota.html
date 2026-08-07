@@ -2,7 +2,7 @@
 layout: default
 lang: de
 title: "HelixOTA — Miloš Vasić"
-description: "Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max."
+description: "Helix OTA ist ein universelles, tiefgreifend entkoppeltes Over-the-Air-Update-System: eine Go-Steuerungsebene kombiniert mit betriebssystemspezifischen Client-Agenten, entwickelt für sichere, schrittweise Firmware- und App-Updates in Flotten von einem einzelnen Board bis zu Millionen Geräten. Das erste Zielsystem ist Android 15 auf dem Orange Pi 5 Max."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixota.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixota.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixota.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixota.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixota.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixota.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixota.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixota.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixota.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixota.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixota.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixota.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixota.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixota.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixota.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixota.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Helix OTA is a universal, deeply decoupled over-the-air update system: a Go control plane plus per-OS client agents, designed to deliver safe, staged firmware/app updates to fleets ranging from a single board to millions of devices. Its first target is Android 15 on the Orange Pi 5 Max.",
+      "description": "Helix OTA ist ein universelles, tiefgreifend entkoppeltes Over-the-Air-Update-System: eine Go-Steuerungsebene kombiniert mit betriebssystemspezifischen Client-Agenten, entwickelt für sichere, schrittweise Firmware- und App-Updates in Flotten von einem einzelnen Board bis zu Millionen Geräten. Das erste Zielsystem ist Android 15 auf dem Orange Pi 5 Max.",
       "inLanguage": "de",
       "license": "Apache-2.0",
       "name": "HelixOTA",
@@ -187,56 +187,20 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Universelle, entkoppelte Over-the-Air-Updates – von Grund auf „unbrickbar" konzipiert.</strong></p>
+      <p class="od-product-detail__lede">Helix OTA ist ein universelles Over-the-Air-Update-System – bestehend aus einer Go-Steuerungsebene und betriebssystemspezifischen Client-Agenten – das für null Systemkorruption, validierte Uploads und granulare, schrittweise Rollouts konzipiert wurde. Das erste Zielsystem ist Android 15 auf dem Orange Pi 5 Max, wobei Linux- und Windows-Adapter geplant sind.</p>
+      <p>Helix OTA ist ein universelles, tiefgreifend entkoppeltes Over-the-Air-Update-System: eine Go-Steuerungsebene kombiniert mit betriebssystemspezifischen Client-Agenten, entwickelt für sichere, schrittweise Firmware- und App-Updates in Flotten von einem einzelnen Board bis zu Millionen Geräten. Das erste Zielsystem ist Android 15 auf dem Orange Pi 5 Max.</p>
+      <p>Helix OTA ist ein universelles, generisches und tiefgreifend entkoppeltes Over-the-Air-(OTA)-Update-System, das auf einem einzigen unnachgiebigen Versprechen basiert: Ein Update darf ein funktionierendes Gerät niemals in einen „Brick" verwandeln. Es besteht aus einem Go-Server als <strong>Steuerungsebene</strong>, betriebssystemspezifischen <strong>SDKs/Agenten</strong> und einem <strong>Verwaltungs-Dashboard</strong>. Das System ist von Grund auf so konzipiert, dass es durch austauschbare Betriebssystem-Adapter in *jedes* Betriebssystem integriert werden kann – statt für jede Plattform neu entwickelt werden zu müssen. Das erste Ziel ist Android 15 (alle Varianten) auf dem Orange Pi 5 Max, wo die Build-Pipeline Flash-Images zusammen mit einem validierten OTA-<code>.zip</code>-Archiv und obligatorischen Hash-Dateien erzeugt, sodass kein Artefakt ohne verifizierbaren Fingerabdruck auf ein Gerät gelangt. Linux, Windows und andere Betriebssysteme folgen auf der Roadmap hinter derselben Adapter-Schnittstelle – sie benötigen lediglich ihren Adapter, keine Neuentwicklung.</p>
+      <p>Das Design basiert auf vom Betreiber definierten, unverhandelbaren Architekturprinzipien: null Systemkorruption, obligatorische Validierung jedes Artefakts vor dem Deployment, granulare Rollouts (entweder sofort oder schrittweise mit 5/10/30…100 % und Stopp-Fortschritts-Kontrolle), vollständige Transparenz der Geräteflotte sowie lineare Skalierbarkeit von einem einzelnen Board auf dem Labortisch bis zu Millionen Geräten im Feld. Die festgelegte Architektur kombiniert geräteseitige native Android-A/B-Updates – AOSP <code>update_engine</code> mit AVB/dm-verity und automatischem Rollback bei Boot-Fehlern – mit einer maßgeschneiderten, entkoppelten Go-Steuerungsebene. Dadurch liegt die Sicherheit sowohl in der bootnahen Hardware-Ebene *als auch* auf dem Server, nicht in einer einzigen anfälligen Schicht. Zwei Schnittstellen sind bewusst herauslösbar gestaltet: eine Betriebssystem-Adapter-Schnittstelle, die echte Universalität verspricht, und eine Rollout-Engine-Schnittstelle, die schrittweise Updates betriebssystemunabhängig macht. Das gesamte System ist in sechs öffentliche, unabhängig versionierte <code>ota-*</code>-Submodule unterteilt – wiederverwendbare Bausteine statt eines Monolithen.</p>
+      <p>Helix OTA befindet sich derzeit in einer Spezifikations-, Forschungs- und Testabdeckungsphase. Das Repository enthält den verbindlichen Design-Korpus, die Dokumentations-Export-Pipeline und das Submodul-Grundgerüst. Gemäß seiner „Anti-Bluff"-Governance ist explizit festgehalten, dass ein fertiger Produktionsserver und -Agent noch nicht existieren. Was heute ausgeliefert wird, ist der Bauplan und sein Grundgerüst – ehrlich als solches gekennzeichnet.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixota-0" aria-expanded="true" aria-controls="od-acc-helixota-0-panel">
-              <span class="od-accordion__label">Zusammenfassung</span>
+              <span class="od-accordion__label">Warum es das gibt</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixota-0-panel" role="region" aria-labelledby="od-acc-helixota-0">
-            <div class="od-accordion__inner">
-      <p>Helix OTA ist ein universelles, tiefgreifend entkoppeltes Over-the-Air-Update-System: eine Go-Steuerungsebene kombiniert mit betriebssystemspezifischen Client-Agenten, entwickelt für sichere, schrittweise Firmware- und App-Updates in Flotten von einem einzelnen Board bis zu Millionen Geräten. Das erste Zielsystem ist Android 15 auf dem Orange Pi 5 Max.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-1" aria-expanded="true" aria-controls="od-acc-helixota-1-panel">
-              <span class="od-accordion__label">Kurzbeschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-1-panel" role="region" aria-labelledby="od-acc-helixota-1">
-            <div class="od-accordion__inner">
-      <p>Helix OTA ist ein universelles Over-the-Air-Update-System – bestehend aus einer Go-Steuerungsebene und betriebssystemspezifischen Client-Agenten – das für null Systemkorruption, validierte Uploads und granulare, schrittweise Rollouts konzipiert wurde. Das erste Zielsystem ist Android 15 auf dem Orange Pi 5 Max, wobei Linux- und Windows-Adapter geplant sind.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-2" aria-expanded="true" aria-controls="od-acc-helixota-2-panel">
-              <span class="od-accordion__label">Ausführliche Beschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-2-panel" role="region" aria-labelledby="od-acc-helixota-2">
-            <div class="od-accordion__inner">
-      <p>Helix OTA ist ein universelles, generisches und tiefgreifend entkoppeltes Over-the-Air-(OTA)-Update-System, das auf einem einzigen unnachgiebigen Versprechen basiert: Ein Update darf ein funktionierendes Gerät niemals in einen „Brick" verwandeln. Es besteht aus einem Go-Server als <strong>Steuerungsebene</strong>, betriebssystemspezifischen <strong>SDKs/Agenten</strong> und einem <strong>Verwaltungs-Dashboard</strong>. Das System ist von Grund auf so konzipiert, dass es durch austauschbare Betriebssystem-Adapter in *jedes* Betriebssystem integriert werden kann – statt für jede Plattform neu entwickelt werden zu müssen. Das erste Ziel ist Android 15 (alle Varianten) auf dem Orange Pi 5 Max, wo die Build-Pipeline Flash-Images zusammen mit einem validierten OTA-<code>.zip</code>-Archiv und obligatorischen Hash-Dateien erzeugt, sodass kein Artefakt ohne verifizierbaren Fingerabdruck auf ein Gerät gelangt. Linux, Windows und andere Betriebssysteme folgen auf der Roadmap hinter derselben Adapter-Schnittstelle – sie benötigen lediglich ihren Adapter, keine Neuentwicklung.</p>
-      <p>Das Design basiert auf vom Betreiber definierten, unverhandelbaren Architekturprinzipien: null Systemkorruption, obligatorische Validierung jedes Artefakts vor dem Deployment, granulare Rollouts (entweder sofort oder schrittweise mit 5/10/30…100 % und Stopp-Fortschritts-Kontrolle), vollständige Transparenz der Geräteflotte sowie lineare Skalierbarkeit von einem einzelnen Board auf dem Labortisch bis zu Millionen Geräten im Feld. Die festgelegte Architektur kombiniert geräteseitige native Android-A/B-Updates – AOSP <code>update_engine</code> mit AVB/dm-verity und automatischem Rollback bei Boot-Fehlern – mit einer maßgeschneiderten, entkoppelten Go-Steuerungsebene. Dadurch liegt die Sicherheit sowohl in der bootnahen Hardware-Ebene *als auch* auf dem Server, nicht in einer einzigen anfälligen Schicht. Zwei Schnittstellen sind bewusst herauslösbar gestaltet: eine Betriebssystem-Adapter-Schnittstelle, die echte Universalität verspricht, und eine Rollout-Engine-Schnittstelle, die schrittweise Updates betriebssystemunabhängig macht. Das gesamte System ist in sechs öffentliche, unabhängig versionierte <code>ota-*</code>-Submodule unterteilt – wiederverwendbare Bausteine statt eines Monolithen.</p>
-      <p>Helix OTA befindet sich derzeit in einer Spezifikations-, Forschungs- und Testabdeckungsphase. Das Repository enthält den verbindlichen Design-Korpus, die Dokumentations-Export-Pipeline und das Submodul-Grundgerüst. Gemäß seiner „Anti-Bluff"-Governance ist explizit festgehalten, dass ein fertiger Produktionsserver und -Agent noch nicht existieren. Was heute ausgeliefert wird, ist der Bauplan und sein Grundgerüst – ehrlich als solches gekennzeichnet.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-3" aria-expanded="true" aria-controls="od-acc-helixota-3-panel">
-              <span class="od-accordion__label">Warum wir es entwickelt haben</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-3-panel" role="region" aria-labelledby="od-acc-helixota-3">
             <div class="od-accordion__inner">
       <p>OTA wird normalerweise für jedes Gerät und jedes Betriebssystem neu erfunden, und ein fehlerhaftes Update kann eine ganze Flotte unbrauchbar machen. Helix OTA wurde als universelles, sicherheitsorientiertes Update-System konzipiert, das jedes Betriebssystem über Adapter übernehmen kann – mit Rollback- und Validierungsgarantien, die von Anfang an in die Architektur integriert sind, statt nachträglich hinzugefügt zu werden.</p>
             </div>
@@ -244,12 +208,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-4" aria-expanded="true" aria-controls="od-acc-helixota-4-panel">
-              <span class="od-accordion__label">Warum es ein Game-Changer ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-1" aria-expanded="true" aria-controls="od-acc-helixota-1-panel">
+              <span class="od-accordion__label">Warum es wichtig ist</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-4-panel" role="region" aria-labelledby="od-acc-helixota-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-1-panel" role="region" aria-labelledby="od-acc-helixota-1">
             <div class="od-accordion__inner">
       <p>Es weigert sich, „Geräte niemals unbrauchbar machen" und „Updates schrittweise und beobachtbar ausrollen" als Best-Effort-Features zu behandeln, die man sich nur wünscht – stattdessen sind es architektonische Invarianten, die sowohl im Boot-Pfad als auch in der Steuerungsebene verankert sind. Und indem die Ausroll-Engine und die Betriebssystem-Schicht als austauschbare Schnittstellen statt als fest verdrahtete Annahmen gestaltet werden, kann dieselbe Steuerungsebene heute Android steuern und ist bereit, später andere Betriebssysteme zu unterstützen – einfach durch Hinzufügen eines Adapters, ohne Fork, ohne Neuschreiben, ohne die Sicherheitsgarantien neu erfinden zu müssen, denen man bereits vertraut.</p>
             </div>
@@ -257,12 +221,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-5" aria-expanded="true" aria-controls="od-acc-helixota-5-panel">
-              <span class="od-accordion__label">Was innovativ ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-2" aria-expanded="true" aria-controls="od-acc-helixota-2-panel">
+              <span class="od-accordion__label">Ideen, die es wert sind, übernommen zu werden</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-5-panel" role="region" aria-labelledby="od-acc-helixota-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-2-panel" role="region" aria-labelledby="od-acc-helixota-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Zwei extrahierbare Schnittstellen</strong> – eine OS-Adapter-Schnittstelle und eine betriebssystemunabhängige Ausroll-Engine – die „universell" von einem Marketingbegriff zu einer strukturellen Eigenschaft des Codebase machen.</li>
@@ -276,12 +240,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-6" aria-expanded="true" aria-controls="od-acc-helixota-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-3" aria-expanded="true" aria-controls="od-acc-helixota-3-panel">
               <span class="od-accordion__label">Größte technische Herausforderungen &amp; wie wir sie gelöst haben</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-6-panel" role="region" aria-labelledby="od-acc-helixota-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-3-panel" role="region" aria-labelledby="od-acc-helixota-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Garantie, dass ein fehlerhaftes Update ein Gerät niemals unbrauchbar macht</strong> – das schwierigste Versprechen in OTA. Gelöst durch die Vorgabe eines geräteseitigen nativen Android-A/B: <code>update_engine</code> schreibt in den inaktiven Slot, während der aktive Slot weiterläuft, AVB/dm-verity überprüft kryptografisch die Boot-Kette, und falls der neue Slot nicht startet, führt das Gerät automatisch ein Rollback durch – alles abgesichert durch obligatorische Vorabvalidierung der Artefakte, sodass ein beschädigtes Update bereits abgefangen wird, bevor es den Server verlässt.</li>
@@ -293,12 +257,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-7" aria-expanded="true" aria-controls="od-acc-helixota-7-panel">
-              <span class="od-accordion__label">Technologie-Stack</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-4" aria-expanded="true" aria-controls="od-acc-helixota-4-panel">
+              <span class="od-accordion__label">Der technische Stack</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-7-panel" role="region" aria-labelledby="od-acc-helixota-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-4-panel" role="region" aria-labelledby="od-acc-helixota-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> — ausgewählt wegen des Nebenläufigkeitsmodells und des schlanken Deployment-Footprints; treibt die Kontrollebene, den Rollout-Engine und die Artefakt-Validatoren an und stellt die primäre Oberfläche REST <code>/api/v1</code> bereit.</li>
@@ -315,12 +279,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-8" aria-expanded="true" aria-controls="od-acc-helixota-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixota-5" aria-expanded="true" aria-controls="od-acc-helixota-5-panel">
               <span class="od-accordion__label">Status &amp; Transparenzhinweise</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixota-8-panel" role="region" aria-labelledby="od-acc-helixota-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixota-5-panel" role="region" aria-labelledby="od-acc-helixota-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Status: in Entwicklung.</strong> Gemäß der projektinternen Anti-Bluff-Governance gibt es <strong>noch keinen funktionierenden Produktionsserver oder -agenten</strong> – dies ist eine Spezifikations-, Forschungs- und Testabdeckungsphase. Das Repository enthält den maßgeblichen Design-Korpus, die Dokumenten-Export-Pipeline und das Submodul-Gerüst.</li>

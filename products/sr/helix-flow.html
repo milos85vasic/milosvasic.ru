@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "Helix-Flow — Miloš Vasić"
-description: "Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*"
+description: "Платформа Helix-Flow постављена је као јединствен, уједињен дом за закључивање AI — покретање моћних модела брже, у било ком обиму, уз трошкове које можете предвидети. (Позиционирање је преузето искључиво из слогана; конкретне могућности нису документоване у доступним изворима.)"
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helix-flow.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*",
+      "description": "Платформа Helix-Flow постављена је као јединствен, уједињен дом за закључивање AI — покретање моћних модела брже, у било ком обиму, уз трошкове које можете предвидети. (Позиционирање је преузето искључиво из слогана; конкретне могућности нису документоване у доступним изворима.)",
       "inLanguage": "sr",
       "name": "Helix-Flow",
       "operatingSystem": "Cross-platform",
@@ -172,6 +172,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Једна платформа за све ваше потребе закључивања AI — покрећите моћне AI моделе брже, паметније, у било ком обиму, уз предвидиве трошкове.</strong> &gt; <strong>Напомена о тачности (Helix Constitution §11.4.6):</strong> Helix-Flow има стваран, јавни изворни репозиторијум, али његов РЕАДМЕ садржи само једну реченицу као слоган, а нема локалног прегледа нити документације о дизајну/архитектури. Само две ствари су заправо документоване: слоган и састав језика у репозиторијуму. Сваки други детаљ у наставку је изостављен или експлицитно означен као НЕВЕРИФИКОВАН. Ова страница је минималан привремени садржај, а не потпуна копија производа, и не би требало да се проширује док се не обезбеди стваран изворни материјал.</p>
+      <p class="od-product-detail__lede">Платформа Helix-Flow (<code>Helix-Flow/Platform</code>) је јавни пројекат заснован на Go, представљен као јединствена платформа за закључивање AI у било ком обиму уз предвидиве трошкове. Њен кодни репозиторијум комбинује Go, Python и Terraform/ХЦЛ, што сугерише платформу за закључивање са имплементацијом управљаном инфраструктуром као кодом. Могућности изван слогана су НЕВЕРИФИКОВАНЕ.</p>
+      <p>Платформа Helix-Flow једини је репозиторијум у организацији <code>Helix-Flow</code> GitHub и представљена је — преко свог једноредног РЕАДМЕ-а — као „једна платформа за све ваше потребе закључивања AI", са нагласком на брже покретање моћних AI модела у било ком обиму уз предвидиве трошкове. Осим тог слогана, пројекат не садржи никакву документацију у текстуалном облику, па се његова архитектура, функције и дизајн не могу описати на основу изворног кода без измишљања.</p>
+      <p>Оно што *се фактички може уочити* јесте састав језика у репозиторијуму: претежно Go и Python у приближно једнаким пропорцијама, уз знатну заступљеност Shell, као и HTML/CSS/JavaScript (web интерфејс), PL/pgSQL (компонента са подршком PostgreSQL), ХЦЛ (Terraform/инфраструктура као код) и Mermaid (дијаграми). Свеукупно, та комбинација *указује на* платформу за послуживање закључивања која спаја контролни/сервисни слој Go са алатима за моделе Python, складиштем података Postgres, web корисничким интерфејсом и имплементацијом у облаку управљаном инфраструктуром као кодом — али ово тумачење произилази из типова датотека, <strong>а не</strong> из документованих тврдњи. Да би се направила прецизна копија производа (мотивација, иновације, технички изазови, конкретно образложење технолошког стека), потребан је стваран РЕАДМЕ, документација о архитектури или локални преглед. Ова страница намерно стаје на ономе што подржавају доступни извори.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -189,38 +192,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-1" aria-expanded="true" aria-controls="od-acc-helix-flow-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-1-panel" role="region" aria-labelledby="od-acc-helix-flow-1">
-            <div class="od-accordion__inner">
-      <p>Платформа Helix-Flow (<code>Helix-Flow/Platform</code>) је јавни пројекат заснован на Go, представљен као јединствена платформа за закључивање AI у било ком обиму уз предвидиве трошкове. Њен кодни репозиторијум комбинује Go, Python и Terraform/ХЦЛ, што сугерише платформу за закључивање са имплементацијом управљаном инфраструктуром као кодом. Могућности изван слогана су НЕВЕРИФИКОВАНЕ.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-2" aria-expanded="true" aria-controls="od-acc-helix-flow-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-2-panel" role="region" aria-labelledby="od-acc-helix-flow-2">
-            <div class="od-accordion__inner">
-      <p>Платформа Helix-Flow једини је репозиторијум у организацији <code>Helix-Flow</code> GitHub и представљена је — преко свог једноредног РЕАДМЕ-а — као „једна платформа за све ваше потребе закључивања AI", са нагласком на брже покретање моћних AI модела у било ком обиму уз предвидиве трошкове. Осим тог слогана, пројекат не садржи никакву документацију у текстуалном облику, па се његова архитектура, функције и дизајн не могу описати на основу изворног кода без измишљања.</p>
-      <p>Оно што *се фактички може уочити* јесте састав језика у репозиторијуму: претежно Go и Python у приближно једнаким пропорцијама, уз знатну заступљеност Shell, као и HTML/CSS/JavaScript (web интерфејс), PL/pgSQL (компонента са подршком PostgreSQL), ХЦЛ (Terraform/инфраструктура као код) и Mermaid (дијаграми). Свеукупно, та комбинација *указује на* платформу за послуживање закључивања која спаја контролни/сервисни слој Go са алатима за моделе Python, складиштем података Postgres, web корисничким интерфејсом и имплементацијом у облаку управљаном инфраструктуром као кодом — али ово тумачење произилази из типова датотека, <strong>а не</strong> из документованих тврдњи. Да би се направила прецизна копија производа (мотивација, иновације, технички изазови, конкретно образложење технолошког стека), потребан је стваран РЕАДМЕ, документација о архитектури или локални преглед. Ова страница намерно стаје на ономе што подржавају доступни извори.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-3" aria-expanded="true" aria-controls="od-acc-helix-flow-3-panel">
               <span class="od-accordion__label">Зашто смо је изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-3-panel" role="region" aria-labelledby="od-acc-helix-flow-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-1-panel" role="region" aria-labelledby="od-acc-helix-flow-1">
             <div class="od-accordion__inner">
       <p>*НЕВЕРИФИКОВАНО — није документовано у доступним изворима.* Слоган наговештава циљ уједињеног, скалабилног закључивања AI са предвидивим/управљивим трошковима, али није наведен ниједан разлог. Овде се не тврди никаква мотивација.</p>
             </div>
@@ -228,8 +204,34 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-4" aria-expanded="true" aria-controls="od-acc-helix-flow-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-2" aria-expanded="true" aria-controls="od-acc-helix-flow-2-panel">
               <span class="od-accordion__label">Зашто је револуционарна</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-2-panel" role="region" aria-labelledby="od-acc-helix-flow-2">
+            <div class="od-accordion__inner">
+      <p>*НЕВЕРИФИКОВАНО — није документовано.* Изостављено док се не пронађе извор.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-3" aria-expanded="true" aria-controls="od-acc-helix-flow-3-panel">
+              <span class="od-accordion__label">Иновације унутра</span>
+              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+          </h2>
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-3-panel" role="region" aria-labelledby="od-acc-helix-flow-3">
+            <div class="od-accordion__inner">
+      <p>*НЕВЕРИФИКОВАНО — није документовано.* Изостављено док се не пронађе извор.</p>
+            </div>
+          </div>
+        </div>
+        <div class="od-accordion__item">
+          <h2 class="od-accordion__heading">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-4" aria-expanded="true" aria-controls="od-acc-helix-flow-4-panel">
+              <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
@@ -242,37 +244,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-5" aria-expanded="true" aria-controls="od-acc-helix-flow-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-5-panel" role="region" aria-labelledby="od-acc-helix-flow-5">
-            <div class="od-accordion__inner">
-      <p>*НЕВЕРИФИКОВАНО — није документовано.* Изостављено док се не пронађе извор.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-6" aria-expanded="true" aria-controls="od-acc-helix-flow-6-panel">
-              <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-6-panel" role="region" aria-labelledby="od-acc-helix-flow-6">
-            <div class="od-accordion__inner">
-      <p>*НЕВЕРИФИКОВАНО — није документовано.* Изостављено док се не пронађе извор.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-7" aria-expanded="true" aria-controls="od-acc-helix-flow-7-panel">
               <span class="od-accordion__label">Технолошки стацк</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-7-panel" role="region" aria-labelledby="od-acc-helix-flow-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-5-panel" role="region" aria-labelledby="od-acc-helix-flow-5">
             <div class="od-accordion__inner">
       <p>Установљено искључиво на основу састава језика у репозиторијуму — улога и образложење су НЕВЕРИФИКОВАНИ:</p>
       <ul>
@@ -288,12 +264,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-8" aria-expanded="true" aria-controls="od-acc-helix-flow-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-6" aria-expanded="true" aria-controls="od-acc-helix-flow-6-panel">
               <span class="od-accordion__label">Статус и напомене о искрености</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-8-panel" role="region" aria-labelledby="od-acc-helix-flow-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-6-panel" role="region" aria-labelledby="od-acc-helix-flow-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: мапа пута / привремени садржај.</strong> Ово је једини репозиторијум у организацији <code>Helix-Flow</code>; јавно је доступан, последњи пут ажуриран 27.04.2026, нема постављену почетну страницу нити декларисану лиценцу. Док не постоји права документација, није одговорно приказивати га у дубини производа.</li>

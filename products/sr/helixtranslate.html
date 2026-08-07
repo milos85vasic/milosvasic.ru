@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "HelixTranslate — Miloš Vasić"
-description: "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly."
+description: "HelixTranslate је високо перформантна платформа за превођење е-књига заснована на Go, која преводи књиге између 100+ језика користећи верификоване пружаоце LLM, уз праћење у реалном времену путем WebSocket и строгу политику без нијемог фаллбацк-а — систем пропада гласно уместо да се тихо деградира."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtranslate.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtranslate.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTranslate is a high-performance, Go-based ebook translation platform that translates books between 100+ languages using verified LLM providers, with real-time WebSocket monitoring and a strict no-silent-fallback routing policy that fails loudly rather than degrade quietly.",
+      "description": "HelixTranslate је високо перформантна платформа за превођење е-књига заснована на Go, која преводи књиге између 100+ језика користећи верификоване пружаоце LLM, уз праћење у реалном времену путем WebSocket и строгу политику без нијемог фаллбацк-а — систем пропада гласно уместо да се тихо деградира.",
       "inLanguage": "sr",
       "name": "HelixTranslate",
       "operatingSystem": "Cross-platform",
@@ -182,6 +182,9 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Верификовани превод књига — поштен по дизајну, никада нијеми фаллбацк.</strong></p>
+      <p class="od-product-detail__lede">Универзални алат за превођење е-књига заснован на Go. Преводи формате FB2, EPUB, TXT, HTML, PDF и DOCX на 100+ језика користећи најјаче верификоване моделе LLM (путем моста LLMsVerifier), са REST/ХТТП-3 и gRPC API-јима, дистрибуираном обрадом и контролном таблом за праћење у реалном времену путем WebSocket.</p>
+      <p>HelixTranslate је систем за превођење целих књига између језика на нивоу предузећа, заснован на Go, који користи пружаоце LLM — не преводи параграфе или фрагменте, већ комплетна дела, од почетка до краја. Обрађује и генерише више формата е-књига (FB2, EPUB, TXT, HTML, PDF, DOCX), подржава 100+ језика са аутоматским препознавањем и нуди како CLI алате, тако и API сервере (REST преко HTTP/3, gRPC и ток догађаја WebSocket), што га чини подједнако погодним за рад у терминалу и за сервисну мрежу. Његова кључна одлика је *начин избора модела*: уместо да се хардкодира пружалац и нада да ће остати стабилан, HelixTranslate делегира сву овлашћеност за моделе мосту LLMsVerifier (<code>pkg/bridge</code>), који бира најјачи *верификовани* API модел и враћа детерминистички, рангирани ланац фаллбацк опција. Избор модела заснива се на пондерисаном скорирању по брзини одговора, коду, богатству функција и поузданости — тако да модел који преводи вашу књигу заслужује своје место доказаним перформансама, а не тиме што је наведен у конфигурационој датотеци.</p>
+      <p>Кључно је да систем у коду строго примењује правило „без нијемог фаллбацк-а": ако кључ API пружаоца није присутан или оператер експлицитно захтева недоступног пружаоца, цевовод враћа отворену грешку уместо да тихо мења пружаоце или прелази на локални рунтиме и прави се да је све у реду — ово правило је фиксирано посебном пре-буилд провером и упареним мутационим тестом. Локални рунтиме-ови (Ollama, ллама.цпп) намерно су уклоњени из подразумеваног тока како слабији механизам никада не би могао да тихо замени верификовани. Око језгра за превођење налази се подсистем за праћење у реалном времену путем WebSocket: алат за превођење емитује типизоване догађаје на мониторинг сервер који покреће уживо веб контролну таблу, док удаљени SSH радници распоређују посао за дистрибуирано превођење. Додатни слојеви укључују вишеструко полирање за доследност, анализу квалитета у фази припреме, кеширање превода како би се контролисали трошкови за дуге улазе и визуелно вођену контролу квалитета. Цела платформа одговара уставу инжењеринга против блефирања: тестови морају да докажу стварне, видљиве резултате за кориснике, подржани обавезним мутационим тестирањем уместо зелених квачица које ништа не доказују.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -199,38 +202,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-1" aria-expanded="true" aria-controls="od-acc-helixtranslate-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
-            <div class="od-accordion__inner">
-      <p>Универзални алат за превођење е-књига заснован на Go. Преводи формате FB2, EPUB, TXT, HTML, PDF и DOCX на 100+ језика користећи најјаче верификоване моделе LLM (путем моста LLMsVerifier), са REST/ХТТП-3 и gRPC API-јима, дистрибуираном обрадом и контролном таблом за праћење у реалном времену путем WebSocket.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
-            <div class="od-accordion__inner">
-      <p>HelixTranslate је систем за превођење целих књига између језика на нивоу предузећа, заснован на Go, који користи пружаоце LLM — не преводи параграфе или фрагменте, већ комплетна дела, од почетка до краја. Обрађује и генерише више формата е-књига (FB2, EPUB, TXT, HTML, PDF, DOCX), подржава 100+ језика са аутоматским препознавањем и нуди како CLI алате, тако и API сервере (REST преко HTTP/3, gRPC и ток догађаја WebSocket), што га чини подједнако погодним за рад у терминалу и за сервисну мрежу. Његова кључна одлика је *начин избора модела*: уместо да се хардкодира пружалац и нада да ће остати стабилан, HelixTranslate делегира сву овлашћеност за моделе мосту LLMsVerifier (<code>pkg/bridge</code>), који бира најјачи *верификовани* API модел и враћа детерминистички, рангирани ланац фаллбацк опција. Избор модела заснива се на пондерисаном скорирању по брзини одговора, коду, богатству функција и поузданости — тако да модел који преводи вашу књигу заслужује своје место доказаним перформансама, а не тиме што је наведен у конфигурационој датотеци.</p>
-      <p>Кључно је да систем у коду строго примењује правило „без нијемог фаллбацк-а": ако кључ API пружаоца није присутан или оператер експлицитно захтева недоступног пружаоца, цевовод враћа отворену грешку уместо да тихо мења пружаоце или прелази на локални рунтиме и прави се да је све у реду — ово правило је фиксирано посебном пре-буилд провером и упареним мутационим тестом. Локални рунтиме-ови (Ollama, ллама.цпп) намерно су уклоњени из подразумеваног тока како слабији механизам никада не би могао да тихо замени верификовани. Око језгра за превођење налази се подсистем за праћење у реалном времену путем WebSocket: алат за превођење емитује типизоване догађаје на мониторинг сервер који покреће уживо веб контролну таблу, док удаљени SSH радници распоређују посао за дистрибуирано превођење. Додатни слојеви укључују вишеструко полирање за доследност, анализу квалитета у фази припреме, кеширање превода како би се контролисали трошкови за дуге улазе и визуелно вођену контролу квалитета. Цела платформа одговара уставу инжењеринга против блефирања: тестови морају да докажу стварне, видљиве резултате за кориснике, подржани обавезним мутационим тестирањем уместо зелених квачица које ништа не доказују.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
               <span class="od-accordion__label">Зашто смо га изградили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-1-panel" role="region" aria-labelledby="od-acc-helixtranslate-1">
             <div class="od-accordion__inner">
       <p>Да бисмо поуздано и *искрено* преводили књиге у целини — никада не достављајући превод који је „присутан, али деградиран". Основна претпоставка дизајна је да недостајући или непроверени превод мора бити гласна, јасна грешка, и да избор модела увек мора да се решава у корист заиста провереног пружаоца, а не неког унапред задатог нагађања или тихог локалног резервног решења.</p>
             </div>
@@ -238,12 +214,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-2" aria-expanded="true" aria-controls="od-acc-helixtranslate-2-panel">
               <span class="od-accordion__label">Зашто је ово револуционарно</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-2-panel" role="region" aria-labelledby="od-acc-helixtranslate-2">
             <div class="od-accordion__inner">
       <p>Већина LLM преводилачких токова неуспехе прикрива — тихо прелази на слабији модел, спушта се на локално извршавање или емитује делимичан резултат док тестни скуп и даље сија зелено и нико не примећује пад квалитета. HelixTranslate читав тај начин отказивања чини структурално немогућим: избор модела је заштићен верификацијом, ланац резервних решења је детерминистички и потпуно транспарентан, а „нема кључа / нема провереног модела" резултира искреном, јасном грешком уместо тихог слегања раменима. Та једина одлука у дизајну претвара питање *„Да ли је овај превод заиста извршен на способном, провереном моделу?"* из наде коју не можете проверити у гаранцију коју систем намеће у ваше име.</p>
             </div>
@@ -251,12 +227,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-3" aria-expanded="true" aria-controls="od-acc-helixtranslate-3-panel">
+              <span class="od-accordion__label">Идеје вредне позајмљивања</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-3-panel" role="region" aria-labelledby="od-acc-helixtranslate-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Верификацијом контролисано усмеравање модела</strong> преко LLMsVerifier моста — аутоматски се бира најјачи *проверени* модел, тако да оператори изражавају намеру, а не имена добављача, и никада не бирају пружаоца који можда није доступан.</li>
@@ -271,12 +247,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-4" aria-expanded="true" aria-controls="od-acc-helixtranslate-4-panel">
               <span class="od-accordion__label">Највећи технички изазови и како смо их решили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-4-panel" role="region" aria-labelledby="od-acc-helixtranslate-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Гарантовање искреног преводилачког тока (без тихог погоршања).</strong> Решено централизацијом свих овлашћења за избор модела у LLMsVerifier мосту, тако да постоји јединствена тачка одлучивања коју је могуће надзирати, кодирањем четири експлицитне гране усмеравања које свака јављају грешку уместо да нагађају, потпуним уклањањем локалних резервних решења из подразумеваног тока и заваривањем правила помоћу пре-буилд контроле и мутационог теста који прекида компајлирање ако се гаранција икада укине.</li>
@@ -288,12 +264,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-7" aria-expanded="true" aria-controls="od-acc-helixtranslate-7-panel">
-              <span class="od-accordion__label">Технолошки стек</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-5" aria-expanded="true" aria-controls="od-acc-helixtranslate-5-panel">
+              <span class="od-accordion__label">Инжењерски стек</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-7-panel" role="region" aria-labelledby="od-acc-helixtranslate-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-5-panel" role="region" aria-labelledby="od-acc-helixtranslate-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — изабран због својих примитива за конкурентност, који се природно мапирају на паралелно парсирање, превођење и стримовање више поглавља истовремено; бацкенд високог степена конкурентности, модул <code>digital.vasic.translator</code>.</li>
@@ -314,12 +290,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-8" aria-expanded="true" aria-controls="od-acc-helixtranslate-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtranslate-6" aria-expanded="true" aria-controls="od-acc-helixtranslate-6-panel">
               <span class="od-accordion__label">Статус и напомене о поштењу</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-8-panel" role="region" aria-labelledby="od-acc-helixtranslate-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtranslate-6-panel" role="region" aria-labelledby="od-acc-helixtranslate-6">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Статус: бета.</strong> Функционална платформа; верзија је наведена недоследно у <code>VERSION</code>/Макефиле/<code>AGENTS.md</code>, па се сматра недефинисаном.</li>

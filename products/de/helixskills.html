@@ -2,7 +2,7 @@
 layout: default
 lang: de
 title: "HelixSkills — Miloš Vasić"
-description: "HelixSkills is a skills system for CLI AI agents that inherits the Helix Constitution as a submodule, so every universal governance rule applies unconditionally. It packages installable agent skills, MCP tool servers, Claude Code plugins, and reusable engines behind a registerable, documented catalog."
+description: "HelixSkills ist ein Kompetenzsystem für CLI-AI-Agenten, das das Helix-Constitution als Submodul übernimmt, sodass alle universellen Governance-Regeln bedingungslos gelten. Es bündelt installierbare Agentenkompetenzen, MCP-Toolserver, Claude-Code-Plugins und wiederverwendbare Engines in einem registrierbaren, dokumentierten Katalog."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixskills.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixskills.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixskills.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixskills.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixskills.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixskills.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixskills.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixskills.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixskills.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixskills.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixskills.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixSkills is a skills system for CLI AI agents that inherits the Helix Constitution as a submodule, so every universal governance rule applies unconditionally. It packages installable agent skills, MCP tool servers, Claude Code plugins, and reusable engines behind a registerable, documented catalog.",
+      "description": "HelixSkills ist ein Kompetenzsystem für CLI-AI-Agenten, das das Helix-Constitution als Submodul übernimmt, sodass alle universellen Governance-Regeln bedingungslos gelten. Es bündelt installierbare Agentenkompetenzen, MCP-Toolserver, Claude-Code-Plugins und wiederverwendbare Engines in einem registrierbaren, dokumentierten Katalog.",
       "inLanguage": "de",
       "license": "Apache-2.0",
       "name": "HelixSkills",
@@ -179,56 +179,20 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Ein regiertes, verfassungsgestütztes Kompetenzsystem für CLI-AI-Agenten.</strong></p>
+      <p class="od-product-detail__lede">HelixSkills ist ein Kompetenzsystem für CLI-AI-Agenten. Es integriert das Helix-Constitution als Submodul, sodass alle universellen Regeln gelten, und liefert registrierbare Kompetenzen (Aktionspräfix, Medienvalidierung, Multitrack, Sitzungssynchronisation, Lebenszyklus von Arbeitselementen u. v. m.), zwei MCP-Toolserver, zwei Claude-Code-Plugins sowie wiederverwendbare Engines.</p>
+      <p>HelixSkills ist ein Kompetenzsystem für CLI-AI-Agenten, das das Helix-Constitution als Submodul übernimmt, sodass alle universellen Governance-Regeln bedingungslos gelten. Es bündelt installierbare Agentenkompetenzen, MCP-Toolserver, Claude-Code-Plugins und wiederverwendbare Engines in einem registrierbaren, dokumentierten Katalog.</p>
+      <p>HelixSkills (Repo <code>skills</code>, Apache-2.0) ist ein Kompetenzsystem für CLI-AI-Agenten und beginnt mit einer bewussten Umkehrung der üblichen Reihenfolge: Governance steht an erster Stelle, Fähigkeiten folgen danach. Es übernimmt das Helix-Constitution als <code>constitution/</code>-Submodul, sodass jede universelle Regel aus <code>constitution/CLAUDE.md</code> und <code>constitution/Constitution.md</code> bedingungslos gilt – nicht als Konvention, die ein Agent möglicherweise einhält, sondern als Regelwerk, das physisch in die Projektstruktur eingebunden ist. Ein Agent, der HelixSkills übernimmt, kann sich nicht von der Verfassung abkoppeln; die Regeln reisen mit dem Code.</p>
+      <p>Während die meisten „Skill-Frameworks" mit Abstraktionen handeln, liefert HelixSkills einen konkreten, registrierbaren Katalog, auf den man verweisen und den man installieren kann. Sieben Verfassungskompetenzen werden über <code>register.sh</code> installiert: action-prefix-system, media-validator, multitrack, reporting-workable-items, scheduled-work-queue, session-sync und workable-item-lifecycle – ein Spektrum von mittlerem bis fortgeschrittenem Niveau, das alles von disziplinierter Aktionsbenennung über Medienvalidierung bis hin zum vollständigen Lebenszyklus einer Arbeitseinheit abdeckt. Zusätzliche Entwurfskompetenzen (Android-Übersicht, Java/Kotlin-Sprache, Linux-Betriebssystem) sind bereits indexiert und bereitgestellt, warten jedoch noch auf ihre Aktivierung. Zwei MCP-Toolserver (media-validator, scheduled-work) stellen diese Kompetenzen Agenten über Model Context Protocol zur Verfügung, während zwei Claude-Code-Plugins (helix, scheduled-work) dieselben Fähigkeiten direkt in die Laufzeitumgebung des Agenten einbinden – ein Kompetenzset, das Agenten über die von ihnen genutzte Schnittstelle erreicht.</p>
+      <p>Unterhalb des Katalogs befinden sich vier wiederverwendbare Engines der ersten Ebene – continuum (implementiert) sowie session_orchestrator, token_optimizer und clickup_sync (in Planung) –, die gemeinsame Infrastruktur bereitstellen, damit Kompetenzen nicht ständig dieselben Grundlagen neu erfinden müssen. Allein der token_optimizer deklariert eine explizite Abhängigkeitsstruktur, die bis in die Pakete des vasic-digital-Ökosystems (TOON, Embeddings, VectorDB, Normalize, conversation) und HelixDevelopments LLMProvider hineinreicht, sodass seine plattformübergreifenden Verbindungen nachvollziehbar und nicht implizit sind. Das gesamte System wird durch eine disziplinierte Dokumentation abgerundet: ein Kompetenzkatalog, ein automatisch generierter Skill-Graph-Index, detaillierte Seiten pro Repository sowie ein offenes „Lücken &amp; Risiken"-Register, das benennt, was noch nicht umgesetzt ist. Das gesamte System ist über GitHub, GitLab, GitFlic und GitVerse gespiegelt, um Ausfallsicherheit und regionalen Zugriff zu gewährleisten.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-0" aria-expanded="true" aria-controls="od-acc-helixskills-0-panel">
-              <span class="od-accordion__label">Zusammenfassung</span>
+              <span class="od-accordion__label">Was uns dazu brachte, es zu entwickeln</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixskills-0-panel" role="region" aria-labelledby="od-acc-helixskills-0">
-            <div class="od-accordion__inner">
-      <p>HelixSkills ist ein Kompetenzsystem für CLI-AI-Agenten, das das Helix-Constitution als Submodul übernimmt, sodass alle universellen Governance-Regeln bedingungslos gelten. Es bündelt installierbare Agentenkompetenzen, MCP-Toolserver, Claude-Code-Plugins und wiederverwendbare Engines in einem registrierbaren, dokumentierten Katalog.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-1" aria-expanded="true" aria-controls="od-acc-helixskills-1-panel">
-              <span class="od-accordion__label">Kurzbeschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-1-panel" role="region" aria-labelledby="od-acc-helixskills-1">
-            <div class="od-accordion__inner">
-      <p>HelixSkills ist ein Kompetenzsystem für CLI-AI-Agenten. Es integriert das Helix-Constitution als Submodul, sodass alle universellen Regeln gelten, und liefert registrierbare Kompetenzen (Aktionspräfix, Medienvalidierung, Multitrack, Sitzungssynchronisation, Lebenszyklus von Arbeitselementen u. v. m.), zwei MCP-Toolserver, zwei Claude-Code-Plugins sowie wiederverwendbare Engines.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-2" aria-expanded="true" aria-controls="od-acc-helixskills-2-panel">
-              <span class="od-accordion__label">Ausführliche Beschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-2-panel" role="region" aria-labelledby="od-acc-helixskills-2">
-            <div class="od-accordion__inner">
-      <p>HelixSkills (Repo <code>skills</code>, Apache-2.0) ist ein Kompetenzsystem für CLI-AI-Agenten und beginnt mit einer bewussten Umkehrung der üblichen Reihenfolge: Governance steht an erster Stelle, Fähigkeiten folgen danach. Es übernimmt das Helix-Constitution als <code>constitution/</code>-Submodul, sodass jede universelle Regel aus <code>constitution/CLAUDE.md</code> und <code>constitution/Constitution.md</code> bedingungslos gilt – nicht als Konvention, die ein Agent möglicherweise einhält, sondern als Regelwerk, das physisch in die Projektstruktur eingebunden ist. Ein Agent, der HelixSkills übernimmt, kann sich nicht von der Verfassung abkoppeln; die Regeln reisen mit dem Code.</p>
-      <p>Während die meisten „Skill-Frameworks" mit Abstraktionen handeln, liefert HelixSkills einen konkreten, registrierbaren Katalog, auf den man verweisen und den man installieren kann. Sieben Verfassungskompetenzen werden über <code>register.sh</code> installiert: action-prefix-system, media-validator, multitrack, reporting-workable-items, scheduled-work-queue, session-sync und workable-item-lifecycle – ein Spektrum von mittlerem bis fortgeschrittenem Niveau, das alles von disziplinierter Aktionsbenennung über Medienvalidierung bis hin zum vollständigen Lebenszyklus einer Arbeitseinheit abdeckt. Zusätzliche Entwurfskompetenzen (Android-Übersicht, Java/Kotlin-Sprache, Linux-Betriebssystem) sind bereits indexiert und bereitgestellt, warten jedoch noch auf ihre Aktivierung. Zwei MCP-Toolserver (media-validator, scheduled-work) stellen diese Kompetenzen Agenten über Model Context Protocol zur Verfügung, während zwei Claude-Code-Plugins (helix, scheduled-work) dieselben Fähigkeiten direkt in die Laufzeitumgebung des Agenten einbinden – ein Kompetenzset, das Agenten über die von ihnen genutzte Schnittstelle erreicht.</p>
-      <p>Unterhalb des Katalogs befinden sich vier wiederverwendbare Engines der ersten Ebene – continuum (implementiert) sowie session_orchestrator, token_optimizer und clickup_sync (in Planung) –, die gemeinsame Infrastruktur bereitstellen, damit Kompetenzen nicht ständig dieselben Grundlagen neu erfinden müssen. Allein der token_optimizer deklariert eine explizite Abhängigkeitsstruktur, die bis in die Pakete des vasic-digital-Ökosystems (TOON, Embeddings, VectorDB, Normalize, conversation) und HelixDevelopments LLMProvider hineinreicht, sodass seine plattformübergreifenden Verbindungen nachvollziehbar und nicht implizit sind. Das gesamte System wird durch eine disziplinierte Dokumentation abgerundet: ein Kompetenzkatalog, ein automatisch generierter Skill-Graph-Index, detaillierte Seiten pro Repository sowie ein offenes „Lücken &amp; Risiken"-Register, das benennt, was noch nicht umgesetzt ist. Das gesamte System ist über GitHub, GitLab, GitFlic und GitVerse gespiegelt, um Ausfallsicherheit und regionalen Zugriff zu gewährleisten.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-3" aria-expanded="true" aria-controls="od-acc-helixskills-3-panel">
-              <span class="od-accordion__label">Warum wir es entwickelt haben</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-3-panel" role="region" aria-labelledby="od-acc-helixskills-3">
             <div class="od-accordion__inner">
       <p>CLI- und AI-Agenten benötigen Fähigkeiten, die konsistent, regelbasiert und wiederverwendbar sind – keine Ad-hoc-Skripte, die jedes Mal die Regeln neu erfinden. HelixSkills wurde entwickelt, um Agenten ein paketiertes, registrierbares Skill-Set zur Verfügung zu stellen, das an eine gemeinsame Verfassung gebunden ist. So bleibt das Verhalten über jeden Agenten und jedes Projekt hinweg konsistent und nachvollziehbar.</p>
             </div>
@@ -236,12 +200,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-4" aria-expanded="true" aria-controls="od-acc-helixskills-4-panel">
-              <span class="od-accordion__label">Warum es ein Game-Changer ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-1" aria-expanded="true" aria-controls="od-acc-helixskills-1-panel">
+              <span class="od-accordion__label">Der Quantensprung, den es ermöglicht</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-4-panel" role="region" aria-labelledby="od-acc-helixskills-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-1-panel" role="region" aria-labelledby="od-acc-helixskills-1">
             <div class="od-accordion__inner">
       <p>Es macht die Fähigkeiten von Agenten von Grund auf portabel und regelkonform – nicht durch Disziplin, sondern durch Konstruktion. Jeder Skill ist eine reglementierte, versionierte und installierbare Einheit, die von einem Verfassungs-Submodul gestützt wird. Sobald ein Agent einen Skill registriert, übernimmt er automatisch den kanonischen Regelsatz, ohne Spielraum für Abweichungen. Das ermöglicht etwas, das zuvor nicht praktikabel war: Eine Fähigkeit von einem Agenten oder Projekt auf ein anderes zu übertragen und zu wissen, dass sie bereits an dieselbe Governance gebunden ankommt – bereitgestellt über standardisierte Schnittstellen (MCP-Server und Claude-Code-Plugins) statt eines Haufens maßgeschneiderter Klebeskripte, die jedes Mal die Regeln neu erfinden.</p>
             </div>
@@ -249,12 +213,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-5" aria-expanded="true" aria-controls="od-acc-helixskills-5-panel">
-              <span class="od-accordion__label">Was innovativ ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-2" aria-expanded="true" aria-controls="od-acc-helixskills-2-panel">
+              <span class="od-accordion__label">Was wirklich neu ist</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-5-panel" role="region" aria-labelledby="od-acc-helixskills-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-2-panel" role="region" aria-labelledby="od-acc-helixskills-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Constitution als Submodul</strong>: Universelle Governance-Regeln werden vererbt, nicht kopiert – sie werden in den Baum eingebunden, sodass jeder nutzende Agent an denselben kanonischen Regelsatz gebunden ist. Aktualisierungen fließen aus einer einzigen Quelle, statt aus einem Dutzend veralteter Kopien.</li>
@@ -267,12 +231,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-6" aria-expanded="true" aria-controls="od-acc-helixskills-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-3" aria-expanded="true" aria-controls="od-acc-helixskills-3-panel">
               <span class="od-accordion__label">Größte technische Herausforderungen &amp; wie wir sie gelöst haben</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-6-panel" role="region" aria-labelledby="od-acc-helixskills-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-3-panel" role="region" aria-labelledby="od-acc-helixskills-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Konsistentes und regelkonformes Verhalten von Agenten über viele Skills und Agenten hinweg sicherstellen</strong> – die Governance pro Skill neu zu implementieren, führt mit der Zeit unweigerlich zu Abweichungen. Gelöst durch die Einbindung der Helix-Constitution als Submodul, sodass die Regeln in <code>constitution/CLAUDE.md</code> und <code>constitution/Constitution.md</code> bedingungslos gelten und aus einer einzigen Upstream-Quelle aktualisiert werden, statt kopiert und dem Verfall überlassen zu werden.</li>
@@ -284,12 +248,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-7" aria-expanded="true" aria-controls="od-acc-helixskills-7-panel">
-              <span class="od-accordion__label">Technologie-Stack</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-4" aria-expanded="true" aria-controls="od-acc-helixskills-4-panel">
+              <span class="od-accordion__label">Wie es aufgebaut ist</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-7-panel" role="region" aria-labelledby="od-acc-helixskills-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-4-panel" role="region" aria-labelledby="od-acc-helixskills-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Shell (Primärsprache)</strong> — ausgewählt, weil Installations- und Registrierungstools auf jedem System laufen müssen, auf dem ein Agent existiert, ohne dass zunächst eine Laufzeitumgebung initialisiert werden muss; es treibt <code>register.sh</code> und <code>install_upstreams</code> an und hält den Einstiegspunkt frei von Abhängigkeiten und portabel.</li>
@@ -304,12 +268,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-8" aria-expanded="true" aria-controls="od-acc-helixskills-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixskills-5" aria-expanded="true" aria-controls="od-acc-helixskills-5-panel">
               <span class="od-accordion__label">Status &amp; Transparenzhinweise</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixskills-8-panel" role="region" aria-labelledby="od-acc-helixskills-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixskills-5-panel" role="region" aria-labelledby="od-acc-helixskills-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Status: Beta.</strong> Die sieben Constitution-Fähigkeiten, zwei MCP-Server und zwei Plugins sind ausgeliefert; die Entwurfsfähigkeiten sind indexiert und warten auf Aktivierung, und drei der vier Engines der ersten Tiefe (session_orchestrator, token_optimizer, clickup_sync) befinden sich noch in der Konzeptionsphase.</li>

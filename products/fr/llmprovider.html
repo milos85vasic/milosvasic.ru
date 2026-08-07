@@ -2,7 +2,7 @@
 layout: default
 lang: fr
 title: "LLMProvider — Miloš Vasić"
-description: "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery."
+description: "LLMProvider est un module Go générique et réutilisable qui définit une interface unifiée LLMProvider ainsi que les mécanismes de résilience en production qui l'accompagnent — disjoncteur, surveillance de santé, réessai avec backoff, chargement différé — et propose 43 implémentations concrètes de fournisseurs derrière ce contrat unique, avec un adaptateur générique compatible OpenAI et une découverte de modèles honnête, sans recours à des solutions de repli codées en dur."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/llmprovider.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/llmprovider.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "LLMProvider is a generic, reusable Go module that defines a unified `LLMProvider` interface plus the production resilience patterns around it — circuit breaker, health monitoring, retry with backoff, lazy loading — and ships 43 concrete provider implementations behind that one contract, with an OpenAI-compatible generic adapter and honest, no-hardcoded-fallback model discovery.",
+      "description": "LLMProvider est un module Go générique et réutilisable qui définit une interface unifiée LLMProvider ainsi que les mécanismes de résilience en production qui l'accompagnent — disjoncteur, surveillance de santé, réessai avec backoff, chargement différé — et propose 43 implémentations concrètes de fournisseurs derrière ce contrat unique, avec un adaptateur générique compatible OpenAI et une découverte de modèles honnête, sans recours à des solutions de repli codées en dur.",
       "inLanguage": "fr",
       "name": "LLMProvider",
       "operatingSystem": "Cross-platform",
@@ -185,57 +185,21 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Une interface, 43 fournisseurs — avec disjoncteurs, réessais et surveillance de santé intégrés.</strong></p>
-      <div class="od-accordion">
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-0" aria-expanded="true" aria-controls="od-acc-llmprovider-0-panel">
-              <span class="od-accordion__label">Résumé</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-0-panel" role="region" aria-labelledby="od-acc-llmprovider-0">
-            <div class="od-accordion__inner">
+      <p class="od-product-detail__lede">Un module Go réutilisable exposant une interface <code>LLMProvider</code> (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) ainsi que des primitives de tolérance aux pannes — disjoncteur, moniteur de santé, réessai avec backoff et jitter, initialisation différée — sur 43 adaptateurs de fournisseurs et un adaptateur générique compatible OpenAI. Thread-safe.</p>
       <p>LLMProvider est un module Go générique et réutilisable qui définit une interface unifiée <code>LLMProvider</code> ainsi que les mécanismes de résilience en production qui l'accompagnent — disjoncteur, surveillance de santé, réessai avec backoff, chargement différé — et propose 43 implémentations concrètes de fournisseurs derrière ce contrat unique, avec un adaptateur générique compatible OpenAI et une découverte de modèles honnête, sans recours à des solutions de repli codées en dur.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
-              <span class="od-accordion__label">Description courte</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
-            <div class="od-accordion__inner">
-      <p>Un module Go réutilisable exposant une interface <code>LLMProvider</code> (<code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code>) ainsi que des primitives de tolérance aux pannes — disjoncteur, moniteur de santé, réessai avec backoff et jitter, initialisation différée — sur 43 adaptateurs de fournisseurs et un adaptateur générique compatible OpenAI. Thread-safe.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
-              <span class="od-accordion__label">Description détaillée</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
-            <div class="od-accordion__inner">
       <p>LLMProvider est la couche d'abstraction dont tout service consommant LLM a besoin, mais que presque personne ne construit correctement — cette plomberie ingrate qui fait la différence entre une démonstration et un système capable de résister au trafic réel. Il définit une interface unique, consciente des capacités — <code>Complete</code>, <code>CompleteStream</code>, <code>HealthCheck</code>, <code>GetCapabilities</code>, <code>ValidateConfig</code> — afin que le code applicatif cible un seul contrat, quel que soit le fournisseur parmi les 43 qui répond à l'appel. Il intègre ensuite les mécanismes de durcissement opérationnel qui transforment des appels fragiles à des fournisseurs en quelque chose que l'on peut exécuter en production sans retenir son souffle.</p>
       <p>Un disjoncteur à trois états (fermé → ouvert → semi-ouvert) enveloppe de manière transparente n'importe quel fournisseur — *y compris son canal de streaming*, où un flux vide est correctement comptabilisé comme un échec — afin qu'un backend défaillant puisse déclencher l'ouverture du disjoncteur et éviter de faire tomber tout le service avec lui. Un <code>CircuitBreakerManager</code> central suit tous les disjoncteurs simultanément. Un moniteur de santé configurable évalue en continu les fournisseurs selon les états *sain*, *dégradé*, *hors service* ou *inconnu*, en fonction de seuils et d'intervalles prédéfinis, permettant ainsi de détecter une dégradation avant qu'elle ne se transforme en panne. La logique de réessai superpose un backoff exponentiel avec du jitter, prenant des décisions en fonction du statut — réessayer les erreurs pertinentes (429, 5xx, pannes réseau transitoires), sans gaspiller de cycles sur les erreurs 4xx ou un contexte annulé — tout en limitant les délais pour éviter une tempête de backoff. Enfin, un motif d'initialisation différée retarde la construction de chaque fournisseur jusqu'à sa première utilisation réelle, une conception délibérée qui rend l'enregistrement des 43 fournisseurs pratiquement gratuit.</p>
       <p>Le module inclut 43 paquets de fournisseurs concrets ainsi qu'un adaptateur <code>generic</code> compatible OpenAI, qui implémente l'interface complète pour *n'importe quel* endpoint <code>/v1/chat/completions</code> — authentification Bearer, streaming SSE avec gestion correcte du signal <code>[DONE]</code> — permettant ainsi à un fournisseur sans paquet dédié de devenir un citoyen de première classe dès que l'adaptateur est pointé vers son URL. Les identifiants sont résolus en un seul endroit (<code>apikeys</code>, en suivant une convention stricte <code>ApiKey_&lt;Fournisseur&gt;</code>), éliminant ainsi toute une classe de bugs du type *« la clé codée en dur passe les tests, mais la vraie clé n'a jamais été configurée, et le produit plante en production »*. La découverte des modèles est délibérément, presque obstinément honnête : elle interroge les API des fournisseurs en direct derrière un cache TTL, et — conformément aux règles de gouvernance — l'ancien niveau de repli codé en dur a été purement et simplement supprimé. En cas d'échec de la découverte en direct, LLMProvider ne retourne *rien* plutôt qu'un catalogue obsolète, de sorte qu'un appelant ne se voit jamais attribuer un identifiant de modèle qui semble valide mais ne peut pas être invoqué. Chaque composant est conçu pour être thread-safe et supporter une utilisation concurrente.</p>
       <p>Contenu</p>
-            </div>
-          </div>
-        </div>
+      <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-0" aria-expanded="true" aria-controls="od-acc-llmprovider-0-panel">
               <span class="od-accordion__label">Pourquoi nous l’avons conçu</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-0-panel" role="region" aria-labelledby="od-acc-llmprovider-0">
             <div class="od-accordion__inner">
       <p>Les appels naïfs à LLM échouent en production — les fournisseurs limitent les requêtes, dégradent leurs services ou tombent en panne, et un seul backend défaillant peut entraîner tout un service dans sa chute. Les catalogues de modèles dérivent, et les listes codées en dur transmettent aux appelants des identifiants qui ne fonctionnent plus. LLMProvider centralise l’interface, les mécanismes de résilience et une découverte honnête, de sorte que chaque consommateur hérite gratuitement de la tolérance aux pannes et de la fiabilité.</p>
             </div>
@@ -243,12 +207,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-1" aria-expanded="true" aria-controls="od-acc-llmprovider-1-panel">
               <span class="od-accordion__label">Pourquoi c’est révolutionnaire</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-1-panel" role="region" aria-labelledby="od-acc-llmprovider-1">
             <div class="od-accordion__inner">
       <p>Il réduit l’intégration d’un fournisseur LLM à une seule étape — implémenter une interface unique, ou simplement pointer l’adaptateur générique vers un endpoint — puis enveloppe ce fournisseur, de manière automatique et transparente, dans un système de *circuit breaking*, de surveillance de l’état de santé et de réessais avec *backoff* et *jitter*. La résilience cesse d’être quelque chose que chaque équipe réinvente (mal, sous la pression des délais, après la première panne) pour devenir le comportement par défaut de la bibliothèque, appliqué à l’ensemble des 43 backends. L’ingénierie de la fiabilité est écrite une fois, rigoureusement testée, et héritée gratuitement par tous ceux qui l’importent.</p>
             </div>
@@ -256,12 +220,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
-              <span class="od-accordion__label">Ce qui est innovant</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-2" aria-expanded="true" aria-controls="od-acc-llmprovider-2-panel">
+              <span class="od-accordion__label">Ce qui est vraiment nouveau</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-2-panel" role="region" aria-labelledby="od-acc-llmprovider-2">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Une interface unique consciente des capacités</strong> — achèvement, *streaming*, santé, capacités et validation de configuration regroupés dans un seul contrat que chaque backend respecte à l’identique.</li>
@@ -277,12 +241,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-6" aria-expanded="true" aria-controls="od-acc-llmprovider-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-3" aria-expanded="true" aria-controls="od-acc-llmprovider-3-panel">
               <span class="od-accordion__label">Principaux défis techniques et solutions apportées</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-6-panel" role="region" aria-labelledby="od-acc-llmprovider-6">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-3-panel" role="region" aria-labelledby="od-acc-llmprovider-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Défaillances en cascade des fournisseurs.</strong> Un backend instable ne doit pas entraîner tout un service dans sa chute. Solution : un *circuit breaker* à trois états (fermé → ouvert → semi-ouvert) qui enveloppe de manière transparente tout fournisseur *et son flux*, bascule en mode ouvert en cas d’échecs répétés, sonde la reprise en mode semi-ouvert, et est coordonné de manière centralisée par un <code>CircuitBreakerManager</code>.</li>
@@ -297,12 +261,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-7" aria-expanded="true" aria-controls="od-acc-llmprovider-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-4" aria-expanded="true" aria-controls="od-acc-llmprovider-4-panel">
               <span class="od-accordion__label">Pile technologique</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-7-panel" role="region" aria-labelledby="od-acc-llmprovider-7">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-4-panel" role="region" aria-labelledby="od-acc-llmprovider-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25.3)</strong> — choisi pour sa gestion de premier ordre de la concurrence, ses binaires statiques et une bibliothèque standard robuste ; il intègre le module, l’interface, toutes les primitives de résilience et les 43 adaptateurs.</li>
@@ -320,12 +284,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-8" aria-expanded="true" aria-controls="od-acc-llmprovider-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-llmprovider-5" aria-expanded="true" aria-controls="od-acc-llmprovider-5-panel">
               <span class="od-accordion__label">Statut et notes de transparence</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-8-panel" role="region" aria-labelledby="od-acc-llmprovider-8">
+          <div class="od-accordion__panel is-open" id="od-acc-llmprovider-5-panel" role="region" aria-labelledby="od-acc-llmprovider-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Statut : bêta.</strong> Un module réutilisable découplé ; le dépôt GitHub est public.</li>

@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "HelixCode — Miloš Vasić"
-description: "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces."
+description: "HelixCode es una plataforma de desarrollo distribuido AI de nivel empresarial basada en Go, que divide el trabajo de desarrollo en tareas inteligentes distribuidas a través de una red de trabajadores gestionados por SSH, con puntos de control automáticos y retroceso para garantizar que ningún avance se pierda. Unifica la integración con múltiples proveedores de LLM, flujos de trabajo completos del ciclo de desarrollo y entrega multiplataforma bajo interfaces REST, CLI, TUI y MCP."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixcode.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixcode.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixcode.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixcode.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixcode.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixcode.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixcode.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixcode.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixcode.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixcode.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixCode is an enterprise-grade, Go-based distributed AI development platform that splits development work into intelligently-divided tasks across a network of SSH-managed workers, with automatic checkpointing and rollback so no work is ever lost. It unifies multi-provider LLM integration, full development-lifecycle workflows, and cross-platform delivery behind REST, CLI, TUI, and MCP interfaces.",
+      "description": "HelixCode es una plataforma de desarrollo distribuido AI de nivel empresarial basada en Go, que divide el trabajo de desarrollo en tareas inteligentes distribuidas a través de una red de trabajadores gestionados por SSH, con puntos de control automáticos y retroceso para garantizar que ningún avance se pierda. Unifica la integración con múltiples proveedores de LLM, flujos de trabajo completos del ciclo de desarrollo y entrega multiplataforma bajo interfaces REST, CLI, TUI y MCP.",
       "inLanguage": "es",
       "license": "MIT",
       "name": "HelixCode",
@@ -187,56 +187,20 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>La plataforma de desarrollo distribuido AI que divide el trabajo, lo preserva y nunca pierde tu progreso.</strong></p>
+      <p class="od-product-detail__lede">HelixCode es una plataforma de desarrollo distribuido AI escrita en Go. Divide el trabajo en tareas inteligentes a través de redes de trabajadores basados en SSH, preserva el progreso con puntos de control automáticos y retroceso, integra múltiples proveedores de LLM y gestiona el ciclo completo de desarrollo mediante interfaces REST, CLI, TUI y MCP.</p>
+      <p>HelixCode es una plataforma de desarrollo distribuido AI de nivel empresarial basada en Go, que divide el trabajo de desarrollo en tareas inteligentes distribuidas a través de una red de trabajadores gestionados por SSH, con puntos de control automáticos y retroceso para garantizar que ningún avance se pierda. Unifica la integración con múltiples proveedores de LLM, flujos de trabajo completos del ciclo de desarrollo y entrega multiplataforma bajo interfaces REST, CLI, TUI y MCP.</p>
+      <p>HelixCode es una plataforma de desarrollo distribuido AI de nivel empresarial (<code>dev.helix.code</code>, MIT) construida en torno a una promesa que su eslogan hace literal: dividir el trabajo, preservarlo y no perder nunca el hilo. Está diseñada para la división inteligente de tareas, la preservación automática del trabajo y los flujos de desarrollo multiplataforma, y está escrita en Go para satisfacer las demandas de concurrencia y portabilidad de un único binario que exige la computación distribuida, con puntos de control automáticos, retroceso y monitoreo en tiempo real como primitivas de primera clase, no como complementos opcionales.</p>
+      <p>Su arquitectura superpone una capa de interfaz REST + WebSocket + MCP API sobre un conjunto de servicios básicos especializados: autenticación y gestión de sesiones JWT, gestión de grupos de trabajadores basados en SSH con monitoreo de salud, gestión de tareas con puntos de control y manejo de dependencias, gestión de proyectos y flujos de trabajo, y una capa unificada de proveedores LLM, todo ello persistente en PostgreSQL, con Redis disponible como nivel opcional de coordinación y almacenamiento en caché. Los trabajadores distribuidos se instalan automáticamente en una red, por lo que escalar el sistema es tan sencillo como indicar al servidor una máquina en lugar de configurarla manualmente. Las interfaces multiusuario abarcan CLI, interfaz de terminal, REST y frameworks móviles, de modo que la misma plataforma es accesible desde un script, una terminal o una aplicación.</p>
+      <p>HelixCode gestiona un ciclo de desarrollo completo de principio a fin: los flujos de planificación, construcción, pruebas y refactorización se ejecutan automáticamente con conciencia de dependencias y seguimiento de contexto multisecuencial, de manera que un esfuerzo de larga duración mantiene su continuidad incluso ante interrupciones o cambios de máquina. Integra múltiples proveedores de LLM —llama.cpp, Ollama y OpenAI— bajo una única interfaz, añade selección de modelos con conciencia de hardware que detecta CPU/GPU/memoria disponibles y adapta el modelo a la máquina, y soporta estrategias de razonamiento avanzadas como *chain-of-thought* y *tree-of-thoughts* para problemas que requieren más de un solo paso. El Model Context Protocol se implementa a través de múltiples transportes para el intercambio estandarizado de herramientas y contexto, y las notificaciones multicanal (Slack, Discord, correo electrónico, Telegram) mantienen informados a los equipos mientras avanza el trabajo distribuido. Es compatible con Linux, macOS, Windows, Aurora OS y SymphonyOS.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-0" aria-expanded="true" aria-controls="od-acc-helixcode-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">Por qué existe esto</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixcode-0-panel" role="region" aria-labelledby="od-acc-helixcode-0">
-            <div class="od-accordion__inner">
-      <p>HelixCode es una plataforma de desarrollo distribuido AI de nivel empresarial basada en Go, que divide el trabajo de desarrollo en tareas inteligentes distribuidas a través de una red de trabajadores gestionados por SSH, con puntos de control automáticos y retroceso para garantizar que ningún avance se pierda. Unifica la integración con múltiples proveedores de LLM, flujos de trabajo completos del ciclo de desarrollo y entrega multiplataforma bajo interfaces REST, CLI, TUI y MCP.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-1" aria-expanded="true" aria-controls="od-acc-helixcode-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-1-panel" role="region" aria-labelledby="od-acc-helixcode-1">
-            <div class="od-accordion__inner">
-      <p>HelixCode es una plataforma de desarrollo distribuido AI escrita en Go. Divide el trabajo en tareas inteligentes a través de redes de trabajadores basados en SSH, preserva el progreso con puntos de control automáticos y retroceso, integra múltiples proveedores de LLM y gestiona el ciclo completo de desarrollo mediante interfaces REST, CLI, TUI y MCP.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-2" aria-expanded="true" aria-controls="od-acc-helixcode-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-2-panel" role="region" aria-labelledby="od-acc-helixcode-2">
-            <div class="od-accordion__inner">
-      <p>HelixCode es una plataforma de desarrollo distribuido AI de nivel empresarial (<code>dev.helix.code</code>, MIT) construida en torno a una promesa que su eslogan hace literal: dividir el trabajo, preservarlo y no perder nunca el hilo. Está diseñada para la división inteligente de tareas, la preservación automática del trabajo y los flujos de desarrollo multiplataforma, y está escrita en Go para satisfacer las demandas de concurrencia y portabilidad de un único binario que exige la computación distribuida, con puntos de control automáticos, retroceso y monitoreo en tiempo real como primitivas de primera clase, no como complementos opcionales.</p>
-      <p>Su arquitectura superpone una capa de interfaz REST + WebSocket + MCP API sobre un conjunto de servicios básicos especializados: autenticación y gestión de sesiones JWT, gestión de grupos de trabajadores basados en SSH con monitoreo de salud, gestión de tareas con puntos de control y manejo de dependencias, gestión de proyectos y flujos de trabajo, y una capa unificada de proveedores LLM, todo ello persistente en PostgreSQL, con Redis disponible como nivel opcional de coordinación y almacenamiento en caché. Los trabajadores distribuidos se instalan automáticamente en una red, por lo que escalar el sistema es tan sencillo como indicar al servidor una máquina en lugar de configurarla manualmente. Las interfaces multiusuario abarcan CLI, interfaz de terminal, REST y frameworks móviles, de modo que la misma plataforma es accesible desde un script, una terminal o una aplicación.</p>
-      <p>HelixCode gestiona un ciclo de desarrollo completo de principio a fin: los flujos de planificación, construcción, pruebas y refactorización se ejecutan automáticamente con conciencia de dependencias y seguimiento de contexto multisecuencial, de manera que un esfuerzo de larga duración mantiene su continuidad incluso ante interrupciones o cambios de máquina. Integra múltiples proveedores de LLM —llama.cpp, Ollama y OpenAI— bajo una única interfaz, añade selección de modelos con conciencia de hardware que detecta CPU/GPU/memoria disponibles y adapta el modelo a la máquina, y soporta estrategias de razonamiento avanzadas como *chain-of-thought* y *tree-of-thoughts* para problemas que requieren más de un solo paso. El Model Context Protocol se implementa a través de múltiples transportes para el intercambio estandarizado de herramientas y contexto, y las notificaciones multicanal (Slack, Discord, correo electrónico, Telegram) mantienen informados a los equipos mientras avanza el trabajo distribuido. Es compatible con Linux, macOS, Windows, Aurora OS y SymphonyOS.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-3" aria-expanded="true" aria-controls="od-acc-helixcode-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-3-panel" role="region" aria-labelledby="od-acc-helixcode-3">
             <div class="od-accordion__inner">
       <p>El desarrollo distribuido y asistido por AI suele perder contexto y progreso cuando las tareas se dividen entre máquinas o se interrumpen. HelixCode se diseñó para hacer que la división de tareas sea inteligente y la preservación del trabajo, automática. Así, un esfuerzo de desarrollo a gran escala puede desglosarse, distribuirse en una red de trabajadores, establecer puntos de control y reanudarse o revertirse sin perder el estado.</p>
             </div>
@@ -244,12 +208,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-4" aria-expanded="true" aria-controls="od-acc-helixcode-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-1" aria-expanded="true" aria-controls="od-acc-helixcode-1-panel">
               <span class="od-accordion__label">Por qué es un cambio radical</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-4-panel" role="region" aria-labelledby="od-acc-helixcode-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-1-panel" role="region" aria-labelledby="od-acc-helixcode-1">
             <div class="od-accordion__inner">
       <p>Convierte el desarrollo distribuido con AI en algo *duradero*: una capacidad que nunca fue práctica cuando los equipos unían estas piezas manualmente. Tres elementos que normalmente existen en tres herramientas distintas se integran en una sola plataforma: cómputo distribuido (redes de trabajadores SSH con instalación automática y monitoreo de salud), asistencia para desarrollo con AI (LLM multiproveedor con razonamiento y llamadas a herramientas) y automatización de flujos de trabajo de ciclo completo. El tejido conectivo es el establecimiento de puntos de control respaldado por base de datos: como el estado de las tareas, los puntos de control y las dependencias se almacenan en PostgreSQL, un trabajo que abarca múltiples máquinas y sesiones puede revertirse o reanudarse exactamente donde se detuvo. Las interrupciones y el trabajo dividido dejan de ser una fuente de pérdida de progreso para convertirse en un evento rutinario y recuperable.</p>
             </div>
@@ -257,12 +221,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-5" aria-expanded="true" aria-controls="od-acc-helixcode-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-2" aria-expanded="true" aria-controls="od-acc-helixcode-2-panel">
               <span class="od-accordion__label">Qué hay de innovador</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-5-panel" role="region" aria-labelledby="od-acc-helixcode-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-2-panel" role="region" aria-labelledby="od-acc-helixcode-2">
             <div class="od-accordion__inner">
       <ul>
         <li>La preservación del trabajo como primitiva central: establecimiento automático de puntos de control y reversión aplicados a tareas de desarrollo *distribuidas*, de modo que el progreso sobrevive a interrupciones y fallos de máquina en lugar de desaparecer con ellos.</li>
@@ -275,12 +239,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-6" aria-expanded="true" aria-controls="od-acc-helixcode-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-3" aria-expanded="true" aria-controls="od-acc-helixcode-3-panel">
               <span class="od-accordion__label">Mayores desafíos técnicos y cómo los resolvimos</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-6-panel" role="region" aria-labelledby="od-acc-helixcode-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-3-panel" role="region" aria-labelledby="od-acc-helixcode-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>No perder trabajo en tareas distribuidas e interrumpibles.</strong> Cuando un trabajo se divide entre máquinas, cualquier fallo o interrupción suele dejar varado lo que estaba en ejecución. Modelamos la tarea misma como portadora de puntos de control y dependencias, almacenados en PostgreSQL, de modo que el sistema puede revertirse al último estado válido o reanudarse desde él: una durabilidad que reside en la capa de datos, no en un frágil estado en memoria.</li>
@@ -292,12 +256,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-7" aria-expanded="true" aria-controls="od-acc-helixcode-7-panel">
-              <span class="od-accordion__label">Pila tecnológica</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-4" aria-expanded="true" aria-controls="od-acc-helixcode-4-panel">
+              <span class="od-accordion__label">Bajo el capó</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-7-panel" role="region" aria-labelledby="od-acc-helixcode-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-4-panel" role="region" aria-labelledby="od-acc-helixcode-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.26+ módulo interno)</strong> — seleccionado por su concurrencia basada en goroutines y su salida en un único binario, exactamente lo que necesita un sistema de trabajadores distribuidos: paralelismo económico para la orquestación y un binario autónomo que se autoinstala en cualquier nodo. Incluye todos los servicios principales y los binarios CLI/server.</li>
@@ -313,12 +277,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-8" aria-expanded="true" aria-controls="od-acc-helixcode-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixcode-5" aria-expanded="true" aria-controls="od-acc-helixcode-5-panel">
               <span class="od-accordion__label">Estado y notas de transparencia</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixcode-8-panel" role="region" aria-labelledby="od-acc-helixcode-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixcode-5-panel" role="region" aria-labelledby="od-acc-helixcode-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Estado: beta.</strong> El archivo README se autodefine como "COMPLETAMENTE FINALIZADO / todas las 5 fases"; sin embargo, esta completitud es declarada por el proyecto y no ha sido verificada de forma independiente, por lo que se considera en fase beta.</li>

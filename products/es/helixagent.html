@@ -2,7 +2,7 @@
 layout: default
 lang: es
 title: "HelixAgent — Miloš Vasić"
-description: "HelixAgent is a production-ready, AI-powered ensemble LLM service in Go that intelligently combines responses from many language models — including a multi-round AI debate system and dynamic verification-based provider selection — to produce the most accurate and reliable output."
+description: "HelixAgent es un servicio de ensemble LLM listo para producción, impulsado por AI, que combina de manera inteligente respuestas de múltiples modelos de lenguaje —incluyendo un sistema de debate AI en varias rondas y una selección dinámica de proveedores basada en verificación— para generar el resultado más preciso y confiable."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixagent.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixagent.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixagent.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixagent.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixagent.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixagent.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixagent.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixagent.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixagent.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixagent.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixagent.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixagent.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixagent.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixAgent is a production-ready, AI-powered ensemble LLM service in Go that intelligently combines responses from many language models — including a multi-round AI debate system and dynamic verification-based provider selection — to produce the most accurate and reliable output.",
+      "description": "HelixAgent es un servicio de ensemble LLM listo para producción, impulsado por AI, que combina de manera inteligente respuestas de múltiples modelos de lenguaje —incluyendo un sistema de debate AI en varias rondas y una selección dinámica de proveedores basada en verificación— para generar el resultado más preciso y confiable.",
       "inLanguage": "es",
       "license": "MIT",
       "name": "HelixAgent",
@@ -192,56 +192,20 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>No elijas un solo modelo: deja que debatan y entrega la respuesta en la que coincidan.</strong></p>
+      <p class="od-product-detail__lede">HelixAgent es un servicio de *ensemble* LLM basado en Go que integra múltiples proveedores en una única respuesta precisa. Ejecuta debates AI en varias rondas, evalúa proveedores dinámicamente mediante LLMsVerifier, aplica estrategias de enrutamiento ponderadas por confianza y ofrece funciones listas para producción: almacenamiento en caché, monitoreo, salvaguardas de seguridad y APIs al estilo OpenAI.</p>
+      <p>HelixAgent es un servicio de *ensemble* LLM listo para producción, impulsado por AI, que combina de manera inteligente respuestas de múltiples modelos de lenguaje —incluyendo un sistema de debate AI en varias rondas y una selección dinámica de proveedores basada en verificación— para generar el resultado más preciso y confiable.</p>
+      <p>HelixAgent es un servicio de *ensemble* LLM (MIT) listo para producción, impulsado por AI, que trata la respuesta de un solo modelo como una hipótesis, no como un veredicto. En lugar de apostar el resultado a un único proveedor que podría estar equivocado, sesgado o temporalmente inaccesible, combina respuestas de múltiples modelos de lenguaje para converger en la salida más precisa y fiable. Y cuando una pregunta es lo suficientemente compleja como para justificarlo, somete a los modelos a un debate estructurado en varias rondas. Su catálogo es amplio: el archivo README documenta numerosos proveedores LLM en <code>internal/llm/providers/</code>, entre ellos Claude, DeepSeek, Gemini, Mistral, Qwen y xAI/Grok.</p>
+      <p>Lo crucial es que la selección de proveedores no se basa en una lista estática de preferencias, sino que se gana en tiempo real. Las puntuaciones de verificación en vivo, proporcionadas por un LLMsVerifier integrado, dirigen el enrutamiento y permiten un *fallback* elegante hacia el proveedor con mejor desempeño, con informes de errores categorizados cuando alguno se degrada. El Orquestador de Debates AI convierte el desacuerdo en señal: admite múltiples topologías (malla, estrella, cadena) y un protocolo de fases disciplinado —Propuesta → Crítica → Revisión → Síntesis— con aprendizaje entre debates para que el sistema mejore en la reconciliación de modelos con el tiempo. Las estrategias de enrutamiento abarcan selección ponderada por confianza, consenso por mayoría y detección de intención semántica, todo con respuestas en *streaming* en tiempo real para que las respuestas lleguen token a token, en lugar de esperar a que todo el *ensemble* se estabilice.</p>
+      <p>El servicio está diseñado para sobrevivir en producción, no solo para brillar en demostraciones: PostgreSQL y Redis conforman una capa de datos de alta disponibilidad, Prometheus/Grafana/OpenTelemetry proporcionan métricas, paneles de control y trazabilidad, y JWT (autenticación, limitación de tasa, un motor de salvaguardas y detección de PII) envuelve al *ensemble* con los controles que requiere un despliegue real. Está organizado en alrededor de veinte módulos independientes (EventBus, Observabilidad, Autenticación, Almacenamiento, VectorDB, Incrustaciones, RAG, Memoria, MCP y otros), cada uno con una responsabilidad clara, e incluye un marco de optimización LLM (caché semántica, salida estructurada, *streaming* mejorado) con integraciones para SGLang, LlamaIndex, LangChain, Guidance y LMQL. Dado que los puntos finales de finalización y *ensemble* son compatibles con OpenAI, un cliente existente puede apuntar a HelixAgent y obtener razonamiento de *ensemble* sin necesidad de reescribir código.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-0" aria-expanded="true" aria-controls="od-acc-helixagent-0-panel">
-              <span class="od-accordion__label">Resumen</span>
+              <span class="od-accordion__label">Historia de origen</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixagent-0-panel" role="region" aria-labelledby="od-acc-helixagent-0">
-            <div class="od-accordion__inner">
-      <p>HelixAgent es un servicio de *ensemble* LLM listo para producción, impulsado por AI, que combina de manera inteligente respuestas de múltiples modelos de lenguaje —incluyendo un sistema de debate AI en varias rondas y una selección dinámica de proveedores basada en verificación— para generar el resultado más preciso y confiable.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-1" aria-expanded="true" aria-controls="od-acc-helixagent-1-panel">
-              <span class="od-accordion__label">Descripción breve</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-1-panel" role="region" aria-labelledby="od-acc-helixagent-1">
-            <div class="od-accordion__inner">
-      <p>HelixAgent es un servicio de *ensemble* LLM basado en Go que integra múltiples proveedores en una única respuesta precisa. Ejecuta debates AI en varias rondas, evalúa proveedores dinámicamente mediante LLMsVerifier, aplica estrategias de enrutamiento ponderadas por confianza y ofrece funciones listas para producción: almacenamiento en caché, monitoreo, salvaguardas de seguridad y APIs al estilo OpenAI.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-2" aria-expanded="true" aria-controls="od-acc-helixagent-2-panel">
-              <span class="od-accordion__label">Descripción detallada</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-2-panel" role="region" aria-labelledby="od-acc-helixagent-2">
-            <div class="od-accordion__inner">
-      <p>HelixAgent es un servicio de *ensemble* LLM (MIT) listo para producción, impulsado por AI, que trata la respuesta de un solo modelo como una hipótesis, no como un veredicto. En lugar de apostar el resultado a un único proveedor que podría estar equivocado, sesgado o temporalmente inaccesible, combina respuestas de múltiples modelos de lenguaje para converger en la salida más precisa y fiable. Y cuando una pregunta es lo suficientemente compleja como para justificarlo, somete a los modelos a un debate estructurado en varias rondas. Su catálogo es amplio: el archivo README documenta numerosos proveedores LLM en <code>internal/llm/providers/</code>, entre ellos Claude, DeepSeek, Gemini, Mistral, Qwen y xAI/Grok.</p>
-      <p>Lo crucial es que la selección de proveedores no se basa en una lista estática de preferencias, sino que se gana en tiempo real. Las puntuaciones de verificación en vivo, proporcionadas por un LLMsVerifier integrado, dirigen el enrutamiento y permiten un *fallback* elegante hacia el proveedor con mejor desempeño, con informes de errores categorizados cuando alguno se degrada. El Orquestador de Debates AI convierte el desacuerdo en señal: admite múltiples topologías (malla, estrella, cadena) y un protocolo de fases disciplinado —Propuesta → Crítica → Revisión → Síntesis— con aprendizaje entre debates para que el sistema mejore en la reconciliación de modelos con el tiempo. Las estrategias de enrutamiento abarcan selección ponderada por confianza, consenso por mayoría y detección de intención semántica, todo con respuestas en *streaming* en tiempo real para que las respuestas lleguen token a token, en lugar de esperar a que todo el *ensemble* se estabilice.</p>
-      <p>El servicio está diseñado para sobrevivir en producción, no solo para brillar en demostraciones: PostgreSQL y Redis conforman una capa de datos de alta disponibilidad, Prometheus/Grafana/OpenTelemetry proporcionan métricas, paneles de control y trazabilidad, y JWT (autenticación, limitación de tasa, un motor de salvaguardas y detección de PII) envuelve al *ensemble* con los controles que requiere un despliegue real. Está organizado en alrededor de veinte módulos independientes (EventBus, Observabilidad, Autenticación, Almacenamiento, VectorDB, Incrustaciones, RAG, Memoria, MCP y otros), cada uno con una responsabilidad clara, e incluye un marco de optimización LLM (caché semántica, salida estructurada, *streaming* mejorado) con integraciones para SGLang, LlamaIndex, LangChain, Guidance y LMQL. Dado que los puntos finales de finalización y *ensemble* son compatibles con OpenAI, un cliente existente puede apuntar a HelixAgent y obtener razonamiento de *ensemble* sin necesidad de reescribir código.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-3" aria-expanded="true" aria-controls="od-acc-helixagent-3-panel">
-              <span class="od-accordion__label">Por qué lo creamos</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-3-panel" role="region" aria-labelledby="od-acc-helixagent-3">
             <div class="od-accordion__inner">
       <p>Cualquier modelo LLM individual puede estar equivocado, sesgado o no estar disponible. HelixAgent se construyó para que las aplicaciones puedan consultar múltiples modelos a la vez, ponderar sus respuestas según su fiabilidad medida y retroceder con elegancia, transformando una dependencia frágil de un único proveedor en un conjunto resiliente y autoevaluado.</p>
             </div>
@@ -249,12 +213,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-4" aria-expanded="true" aria-controls="od-acc-helixagent-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-1" aria-expanded="true" aria-controls="od-acc-helixagent-1-panel">
               <span class="od-accordion__label">Por qué cambia las reglas del juego</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-4-panel" role="region" aria-labelledby="od-acc-helixagent-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-1-panel" role="region" aria-labelledby="od-acc-helixagent-1">
             <div class="od-accordion__inner">
       <p>Operativiza el consenso multimodelo, sacando el "consultar varios modelos y reconciliarlos" de scripts ad hoc para integrarlo en un servicio de producción. En lugar de codificar un solo proveedor y confiar en que funcione, los equipos obtienen enrutamiento basado en puntuaciones de verificación en tiempo real, un protocolo estructurado de debate para las preguntas en las que una sola respuesta no es suficiente, y resiliencia de nivel productivo (una capa de datos de alta disponibilidad, observabilidad completa y salvaguardas) todo ello detrás de una API compatible con OpenAI y API. El avance radica en la adopción sin disrupción: una dependencia frágil de un único proveedor se convierte en un conjunto resiliente y autoevaluado, y los clientes existentes pueden migrar simplemente cambiando un endpoint en lugar de modificar su código.</p>
             </div>
@@ -262,12 +226,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-5" aria-expanded="true" aria-controls="od-acc-helixagent-5-panel">
-              <span class="od-accordion__label">Qué tiene de innovador</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-2" aria-expanded="true" aria-controls="od-acc-helixagent-2-panel">
+              <span class="od-accordion__label">Dónde reside la novedad</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-5-panel" role="region" aria-labelledby="od-acc-helixagent-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-2-panel" role="region" aria-labelledby="od-acc-helixagent-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Debate estructurado en múltiples rondas AI que trata el desacuerdo entre modelos como un recurso: topologías seleccionables en malla/estrella/cadena, un protocolo disciplinado de Propuesta→Crítica→Revisión→Síntesis, y aprendizaje entre debates que se acumula con el tiempo.</li>
@@ -280,12 +244,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-6" aria-expanded="true" aria-controls="od-acc-helixagent-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-3" aria-expanded="true" aria-controls="od-acc-helixagent-3-panel">
               <span class="od-accordion__label">Principales desafíos técnicos y cómo los resolvimos</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-6-panel" role="region" aria-labelledby="od-acc-helixagent-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-3-panel" role="region" aria-labelledby="od-acc-helixagent-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Elegir entre múltiples proveedores desiguales.</strong> Los proveedores varían en calidad y su rendimiento fluctúa con el tiempo, por lo que cualquier clasificación fija queda obsoleta al día siguiente. Lo resolvimos haciendo que la selección se mida de forma continua: las puntuaciones LLMsVerifier alimentan un enrutamiento ponderado por confianza y basado en mayoría, con retroceso elegante para evitar depender de un proveedor en declive.</li>
@@ -297,12 +261,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-7" aria-expanded="true" aria-controls="od-acc-helixagent-7-panel">
-              <span class="od-accordion__label">Pila tecnológica</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-4" aria-expanded="true" aria-controls="od-acc-helixagent-4-panel">
+              <span class="od-accordion__label">La pila tecnológica, y por qué</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-7-panel" role="region" aria-labelledby="od-acc-helixagent-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-4-panel" role="region" aria-labelledby="od-acc-helixagent-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — elegido porque distribuir una única solicitud entre varios proveedores de forma concurrente es precisamente para lo que están diseñadas las goroutines, y el despliegue en un solo binario mantiene el servicio de ~20 módulos sencillo de implementar; sustenta todo el servicio y cada módulo interno.</li>
@@ -320,12 +284,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-8" aria-expanded="true" aria-controls="od-acc-helixagent-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixagent-5" aria-expanded="true" aria-controls="od-acc-helixagent-5-panel">
               <span class="od-accordion__label">Estado y notas de transparencia</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixagent-8-panel" role="region" aria-labelledby="od-acc-helixagent-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixagent-5-panel" role="region" aria-labelledby="od-acc-helixagent-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Estado: beta.</strong> El servicio se describe como listo para producción, pero las cifras de rendimiento y cobertura en el README (por ejemplo, "1000+ solicitudes/segundo", "&lt;500 ms en caché", conteos de proveedores y scripts de validación) son afirmaciones autoinformadas del proyecto, no verificadas de forma independiente, y se mantienen deliberadamente cualitativas en este documento.</li>

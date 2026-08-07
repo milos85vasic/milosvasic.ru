@@ -2,7 +2,7 @@
 layout: default
 lang: fr
 title: "Qemu-Utils — Miloš Vasić"
-description: "Qemu-Utils is a Server Factory toolkit for comprehensive QEMU virtualization management: automated VM image distribution and compression, local caching, bridge/TAP network configuration, ISO-based OS installation, and cross-platform (Linux/macOS) execution with hardware acceleration. Usable standalone or within Server Factory."
+description: "Qemu-Utils est une boîte à outils Server Factory dédiée à la gestion complète de la virtualisation QEMU : distribution et compression automatisées des images de machines virtuelles, mise en cache locale, configuration des réseaux bridge/TAP, installation d’OS à partir d’ISO, et exécution multiplateforme (Linux/macOS) avec accélération matérielle. Utilisable en autonomie ou intégré à Server Factory."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/qemu-utils.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/qemu-utils.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Qemu-Utils is a Server Factory toolkit for comprehensive QEMU virtualization management: automated VM image distribution and compression, local caching, bridge/TAP network configuration, ISO-based OS installation, and cross-platform (Linux/macOS) execution with hardware acceleration. Usable standalone or within Server Factory.",
+      "description": "Qemu-Utils est une boîte à outils Server Factory dédiée à la gestion complète de la virtualisation QEMU : distribution et compression automatisées des images de machines virtuelles, mise en cache locale, configuration des réseaux bridge/TAP, installation d’OS à partir d’ISO, et exécution multiplateforme (Linux/macOS) avec accélération matérielle. Utilisable en autonomie ou intégré à Server Factory.",
       "inLanguage": "fr",
       "name": "Qemu-Utils",
       "operatingSystem": "Cross-platform",
@@ -183,54 +183,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>QEMU Images de machines virtuelles, gérées comme des artefacts — téléchargement, exécution, mise en réseau, publication.</strong></p>
+      <p class="od-product-detail__lede">Une boîte à outils Shell pour la gestion du cycle de vie des machines virtuelles QEMU. Elle télécharge, met en cache et exécute des images de disques QEMU préconfigurées, les compresse et les publie vers des points distants, automatise la configuration des réseaux bridge/TAP, prend en charge les installations à partir d’ISO, et fonctionne sur Linux et macOS avec une accélération matérielle adaptée.</p>
+      <p>Qemu-Utils est une boîte à outils Server Factory dédiée à la gestion complète de la virtualisation QEMU : distribution et compression automatisées des images de machines virtuelles, mise en cache locale, configuration des réseaux bridge/TAP, installation d’OS à partir d’ISO, et exécution multiplateforme (Linux/macOS) avec accélération matérielle. Utilisable en autonomie ou intégré à Server Factory.</p>
+      <p>Qemu-Utils applique la rigueur de la gestion des artefacts — cette approche déjà adoptée pour les sorties de builds et les images de conteneurs — à un domaine souvent laissé à une accumulation d’invocations *ad hoc* de <code>qemu-system-*</code> : les machines virtuelles. À l’instar de son homologue Parallels, il traite les images de machines virtuelles comme des actifs distribuables de premier plan, des matrices de systèmes utilisés en développement et en test, mais cible le backend QEMU, véritablement multiplateforme. Son cycle de vie couvre l’intégralité du processus : téléchargement et mise en cache d’images de disques QEMU préconfigurées, récupération automatique depuis des points distants, gestion de caches locaux séparés (compressés et non compressés) pour qu’une image volumineuse ne soit téléchargée qu’une seule fois et lancée à moindre coût par la suite, et compression puis publication des images vers des serveurs distants pour le reste de l’équipe. Et comme une machine virtuelle inaccessible est inutile, il automatise l’étape que tout le monde redoute — la mise en réseau — en gérant les interfaces bridge et TAP pour assurer la connectivité des machines virtuelles, sans que l’utilisateur ait à les configurer manuellement. Il prend en charge les installations d’OS à partir d’images ISO et est véritablement multiplateforme, fonctionnant sur Linux et macOS avec une accélération matérielle adaptée à chaque environnement. La configuration et l’exploitation suivent le même modèle simple et scriptable propre à Server Factory, et la boîte à outils peut être utilisée dans le cadre d’un projet Server Factory plus large ou de manière totalement indépendante, conformément à la philosophie de découplage de l’organisation. Sa documentation, plus complète que celle de la plupart des petits dépôts Server Factory (avec des sections dédiées à la présentation, aux fonctionnalités, aux prérequis, au démarrage rapide, à la configuration, à l’utilisation, à la mise en réseau, au dépannage et à l’architecture), reflète son rôle de solution principale pour la gestion des machines virtuelles dans les environnements Linux/QEMU. Associé à Parallels-Utils, il offre à l’écosystème Server Factory une gestion des images de machines virtuelles couvrant à la fois macOS/Parallels et Linux-plus-macOS/QEMU.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-0" aria-expanded="true" aria-controls="od-acc-qemu-utils-0-panel">
-              <span class="od-accordion__label">Résumé</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-0-panel" role="region" aria-labelledby="od-acc-qemu-utils-0">
-            <div class="od-accordion__inner">
-      <p>Qemu-Utils est une boîte à outils Server Factory dédiée à la gestion complète de la virtualisation QEMU : distribution et compression automatisées des images de machines virtuelles, mise en cache locale, configuration des réseaux bridge/TAP, installation d’OS à partir d’ISO, et exécution multiplateforme (Linux/macOS) avec accélération matérielle. Utilisable en autonomie ou intégré à Server Factory.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-1" aria-expanded="true" aria-controls="od-acc-qemu-utils-1-panel">
-              <span class="od-accordion__label">Description courte</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-1-panel" role="region" aria-labelledby="od-acc-qemu-utils-1">
-            <div class="od-accordion__inner">
-      <p>Une boîte à outils Shell pour la gestion du cycle de vie des machines virtuelles QEMU. Elle télécharge, met en cache et exécute des images de disques QEMU préconfigurées, les compresse et les publie vers des points distants, automatise la configuration des réseaux bridge/TAP, prend en charge les installations à partir d’ISO, et fonctionne sur Linux et macOS avec une accélération matérielle adaptée.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-2" aria-expanded="true" aria-controls="od-acc-qemu-utils-2-panel">
-              <span class="od-accordion__label">Description détaillée</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-2-panel" role="region" aria-labelledby="od-acc-qemu-utils-2">
-            <div class="od-accordion__inner">
-      <p>Qemu-Utils applique la rigueur de la gestion des artefacts — cette approche déjà adoptée pour les sorties de builds et les images de conteneurs — à un domaine souvent laissé à une accumulation d’invocations *ad hoc* de <code>qemu-system-*</code> : les machines virtuelles. À l’instar de son homologue Parallels, il traite les images de machines virtuelles comme des actifs distribuables de premier plan, des matrices de systèmes utilisés en développement et en test, mais cible le backend QEMU, véritablement multiplateforme. Son cycle de vie couvre l’intégralité du processus : téléchargement et mise en cache d’images de disques QEMU préconfigurées, récupération automatique depuis des points distants, gestion de caches locaux séparés (compressés et non compressés) pour qu’une image volumineuse ne soit téléchargée qu’une seule fois et lancée à moindre coût par la suite, et compression puis publication des images vers des serveurs distants pour le reste de l’équipe. Et comme une machine virtuelle inaccessible est inutile, il automatise l’étape que tout le monde redoute — la mise en réseau — en gérant les interfaces bridge et TAP pour assurer la connectivité des machines virtuelles, sans que l’utilisateur ait à les configurer manuellement. Il prend en charge les installations d’OS à partir d’images ISO et est véritablement multiplateforme, fonctionnant sur Linux et macOS avec une accélération matérielle adaptée à chaque environnement. La configuration et l’exploitation suivent le même modèle simple et scriptable propre à Server Factory, et la boîte à outils peut être utilisée dans le cadre d’un projet Server Factory plus large ou de manière totalement indépendante, conformément à la philosophie de découplage de l’organisation. Sa documentation, plus complète que celle de la plupart des petits dépôts Server Factory (avec des sections dédiées à la présentation, aux fonctionnalités, aux prérequis, au démarrage rapide, à la configuration, à l’utilisation, à la mise en réseau, au dépannage et à l’architecture), reflète son rôle de solution principale pour la gestion des machines virtuelles dans les environnements Linux/QEMU. Associé à Parallels-Utils, il offre à l’écosystème Server Factory une gestion des images de machines virtuelles couvrant à la fois macOS/Parallels et Linux-plus-macOS/QEMU.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-3" aria-expanded="true" aria-controls="od-acc-qemu-utils-3-panel">
               <span class="od-accordion__label">Pourquoi nous l’avons développé</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-3-panel" role="region" aria-labelledby="od-acc-qemu-utils-3">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-0-panel" role="region" aria-labelledby="od-acc-qemu-utils-0">
             <div class="od-accordion__inner">
       <p>Le provisionnement et les tests sur plusieurs systèmes d’exploitation nécessitent des machines virtuelles reproductibles, et QEMU brut est un outil de bas niveau, fastidieux à configurer — en particulier pour la mise en réseau et la distribution des images. Qemu-Utils encapsule QEMU dans une boîte à outils maniable, permettant de reproduire les images et leurs réseaux de manière cohérente sur différentes machines.</p>
             </div>
@@ -238,12 +202,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-4" aria-expanded="true" aria-controls="od-acc-qemu-utils-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-1" aria-expanded="true" aria-controls="od-acc-qemu-utils-1-panel">
               <span class="od-accordion__label">Pourquoi c’est un changement majeur</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-4-panel" role="region" aria-labelledby="od-acc-qemu-utils-4">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-1-panel" role="region" aria-labelledby="od-acc-qemu-utils-1">
             <div class="od-accordion__inner">
       <p>Il regroupe les quatre aspects qui rendent QEMU brut pénible — la distribution des images, la mise en cache, la mise en réseau et l’installation à partir d’ISO — en une seule boîte à outils multiplateforme, transformant une multitude d’options en ligne de commande complexes en un flux de travail reproductible et publiable pour les machines virtuelles, que toute une équipe peut partager et exécuter à l’identique sur Linux comme sur macOS.</p>
       <p>Contenu</p>
@@ -252,12 +216,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-5" aria-expanded="true" aria-controls="od-acc-qemu-utils-5-panel">
-              <span class="od-accordion__label">Ce qui est innovant</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-2" aria-expanded="true" aria-controls="od-acc-qemu-utils-2-panel">
+              <span class="od-accordion__label">Ce qui est vraiment nouveau</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-5-panel" role="region" aria-labelledby="od-acc-qemu-utils-5">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-2-panel" role="region" aria-labelledby="od-acc-qemu-utils-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Cycle de vie complet des images QEMU : téléchargement/mise en cache/exécution + compression/publication, avec caches compressés et non compressés.</li>
@@ -270,12 +234,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-6" aria-expanded="true" aria-controls="od-acc-qemu-utils-6-panel">
-              <span class="od-accordion__label">Défis et solutions</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-3" aria-expanded="true" aria-controls="od-acc-qemu-utils-3-panel">
+              <span class="od-accordion__label">Les défis — et les réponses apportées</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-6-panel" role="region" aria-labelledby="od-acc-qemu-utils-6">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-3-panel" role="region" aria-labelledby="od-acc-qemu-utils-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Complexité du réseau des machines virtuelles</strong> : résolue par la gestion automatisée des interfaces bridge et TAP.</li>
@@ -288,12 +252,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-7" aria-expanded="true" aria-controls="od-acc-qemu-utils-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-qemu-utils-4" aria-expanded="true" aria-controls="od-acc-qemu-utils-4-panel">
               <span class="od-accordion__label">Pile technologique (pourquoi et comment)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-7-panel" role="region" aria-labelledby="od-acc-qemu-utils-7">
+          <div class="od-accordion__panel is-open" id="od-acc-qemu-utils-4-panel" role="region" aria-labelledby="od-acc-qemu-utils-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Shell</strong> — la boîte à outils complète (~79,5 Ko) ; scripts pour la gestion des images, des réseaux et des machines virtuelles.</li>

@@ -71,3 +71,5 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
+# ephemeral deterministic build config (deploy-time year pin)
+_config.deploy.yml

@@ -2,7 +2,7 @@
 layout: default
 lang: be
 title: "task_bridge — Miloš Vasić"
-description: "task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics."
+description: "task_bridge — гэта ўніверсальны, дэкапліраваны, двухбаковы рухавік сінхранізацыі таск/борд у Go. Ён падтрымлівае сінхранізацыю адзінай крыніцы праўды (SSoT) праекта па рабочых элементах (SQLite) з яго дакументацыяй у трэкеры і аддаленай бордай (першы цэль — ClickUp; плануецца Jira/Linear), выкарыстоўваючы дэтэрмінісцкую логіку «перамагае апошняя змена», спачатку «сухая праверка» і семантыку без страт і пашкоджанняў."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/task-bridge.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/task-bridge.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "task_bridge is a generic, decoupled, bidirectional task/board sync engine in Go. It keeps a project's workable-items SQLite source-of-truth in sync with its tracker docs and a remote board (first target: ClickUp; Jira/Linear planned) using deterministic last-edit-wins, dry-run-first, never-corrupt semantics.",
+      "description": "task_bridge — гэта ўніверсальны, дэкапліраваны, двухбаковы рухавік сінхранізацыі таск/борд у Go. Ён падтрымлівае сінхранізацыю адзінай крыніцы праўды (SSoT) праекта па рабочых элементах (SQLite) з яго дакументацыяй у трэкеры і аддаленай бордай (першы цэль — ClickUp; плануецца Jira/Linear), выкарыстоўваючы дэтэрмінісцкую логіку «перамагае апошняя змена», спачатку «сухая праверка» і семантыку без страт і пашкоджанняў.",
       "inLanguage": "be",
       "name": "task_bridge",
       "operatingSystem": "Cross-platform",
@@ -170,6 +170,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Ваша таск-борда і ваш адзіны крыніца праўды — ідэальна сінхранізаваныя ў абодва бакі.</strong></p>
+      <p class="od-product-detail__lede">Праектна-незалежны падмадуль Go, які двухбакова сінхранізуе SSoT рабочых элементаў SQLite ↔ дакументацыю ў трэкеры ↔ аддаленую борду (спачатку ClickUp). Дэтэрмінісцкая логіка «перамагае апошняя змена», спачатку «сухая праверка», вебхукі з праверкай HMAC; усе крэды і ідэнтыфікатары ўводзяцца спажыўцом падчас выканання.</p>
+      <p>Раней ці позна кожная каманда вядзе дзве кнігі адной і той жа працы: сапраўдную — код, дакументы, унутраную базу даных — і ту, за якой сочаць менеджары, борду накшталт ClickUp. Яны разыходзяцца ў момант, калі хоць адзін бок змяняецца, а ручная ўзгадненне — гэта менавіта той нудны, схільны да памылак занятак, які ніхто не робіць рэгулярна. task_bridge створаны, каб знішчыць гэтую прабелю, разглядаючы ўсе тры прадстаўленні як адзіную сістэму, якая павінна заставацца ў поўнай сінхранізацыі: <strong>адзіная крыніца праўды па рабочых элементах праекта (SQLite)</strong>, яго <strong>дакументацыю ў трэкеры</strong> і <strong>аддаленую борду</strong> — першай падтрымліваецца ClickUp, а Jira і Linear плануюцца ў будучыні. Сінхранізацыя дэтэрмінісцкая («перамагае апошняя змена»), спачатку праходзіць «сухую праверку» і спраектавана вакол адзінай нязменнай абяцанкі: яна ніколі не пашкодзіць і не страціць даныя і ніколі не пакіне адзін бок састарэлым. У сферы, дзе неасцярожная сінхранізацыя можа знішчыць тыдзень працы, менавіта гэтая бяспека і ёсць галоўны сэнс. Архітэктурна гэта строгі падмадуль, які спажываецца іншымі праектамі і цалкам праектна-незалежны згодна з кантрактам дэкаплінгу канстытуцыі (§11.4.28): ён не ўключае ніякіх праектна-спецыфічных значэнняў, а ўсе крэды, ідэнтыфікатары борд/папкі, палі ключоў элементаў і шляхі да баз даных уводзяцца спажыўцом падчас выканання праз <code>pkg/config.Config</code>. Модуль пабудаваны па ўзроўнях: CLI (<code>reconcile</code>/<code>push</code>/<code>pull</code>/<code>resolve</code>/<code>status</code>/<code>conflicts</code>/<code>init</code>) і доўгажывучы дэман (прымальнік вебхукаў + cron-узгадненне); тонкая абгортка кліента над MIT-ліцэнзаваным <code>raksul/go-clickup</code>; рэзальвер, які пераўтварае URL борд/папкі ў ідэнтыфікатары праз жывыя праверкі API (без здагадак па граматыцы URL); мапер паміж лакальнымі рабочымі элементамі і палямі аддаленых задач; рухавік сінхранізацыі з логікай «перамагае апошняя змена» і вырашэннем канфліктаў; прымальнік вебхукаў з праверкай <code>X-Signature</code> HMAC-SHA256. Ён адкрыта гаворыць пра сваю сталасць: гэта P1-каркас — разметка, інтэрфейсы, кропкі ўваходу і мяжа дэкаплінгу на месцы, але логіка сінхранізацыі і жывыя запыты да ClickUp яшчэ не рэалізаваны (кожны заглушка вяртае відавочную памылку «не рэалізавана» згодна з правілам «без фэйкаў»).</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -187,37 +189,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-1" aria-expanded="true" aria-controls="od-acc-task-bridge-1-panel">
-              <span class="od-accordion__label">Кароткае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-1-panel" role="region" aria-labelledby="od-acc-task-bridge-1">
-            <div class="od-accordion__inner">
-      <p>Праектна-незалежны падмадуль Go, які двухбакова сінхранізуе SSoT рабочых элементаў SQLite ↔ дакументацыю ў трэкеры ↔ аддаленую борду (спачатку ClickUp). Дэтэрмінісцкая логіка «перамагае апошняя змена», спачатку «сухая праверка», вебхукі з праверкай HMAC; усе крэды і ідэнтыфікатары ўводзяцца спажыўцом падчас выканання.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-2" aria-expanded="true" aria-controls="od-acc-task-bridge-2-panel">
-              <span class="od-accordion__label">Падрабязнае апісанне</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-2-panel" role="region" aria-labelledby="od-acc-task-bridge-2">
-            <div class="od-accordion__inner">
-      <p>Раней ці позна кожная каманда вядзе дзве кнігі адной і той жа працы: сапраўдную — код, дакументы, унутраную базу даных — і ту, за якой сочаць менеджары, борду накшталт ClickUp. Яны разыходзяцца ў момант, калі хоць адзін бок змяняецца, а ручная ўзгадненне — гэта менавіта той нудны, схільны да памылак занятак, які ніхто не робіць рэгулярна. task_bridge створаны, каб знішчыць гэтую прабелю, разглядаючы ўсе тры прадстаўленні як адзіную сістэму, якая павінна заставацца ў поўнай сінхранізацыі: <strong>адзіная крыніца праўды па рабочых элементах праекта (SQLite)</strong>, яго <strong>дакументацыю ў трэкеры</strong> і <strong>аддаленую борду</strong> — першай падтрымліваецца ClickUp, а Jira і Linear плануюцца ў будучыні. Сінхранізацыя дэтэрмінісцкая («перамагае апошняя змена»), спачатку праходзіць «сухую праверку» і спраектавана вакол адзінай нязменнай абяцанкі: яна ніколі не пашкодзіць і не страціць даныя і ніколі не пакіне адзін бок састарэлым. У сферы, дзе неасцярожная сінхранізацыя можа знішчыць тыдзень працы, менавіта гэтая бяспека і ёсць галоўны сэнс. Архітэктурна гэта строгі падмадуль, які спажываецца іншымі праектамі і цалкам праектна-незалежны згодна з кантрактам дэкаплінгу канстытуцыі (§11.4.28): ён не ўключае ніякіх праектна-спецыфічных значэнняў, а ўсе крэды, ідэнтыфікатары борд/папкі, палі ключоў элементаў і шляхі да баз даных уводзяцца спажыўцом падчас выканання праз <code>pkg/config.Config</code>. Модуль пабудаваны па ўзроўнях: CLI (<code>reconcile</code>/<code>push</code>/<code>pull</code>/<code>resolve</code>/<code>status</code>/<code>conflicts</code>/<code>init</code>) і доўгажывучы дэман (прымальнік вебхукаў + cron-узгадненне); тонкая абгортка кліента над MIT-ліцэнзаваным <code>raksul/go-clickup</code>; рэзальвер, які пераўтварае URL борд/папкі ў ідэнтыфікатары праз жывыя праверкі API (без здагадак па граматыцы URL); мапер паміж лакальнымі рабочымі элементамі і палямі аддаленых задач; рухавік сінхранізацыі з логікай «перамагае апошняя змена» і вырашэннем канфліктаў; прымальнік вебхукаў з праверкай <code>X-Signature</code> HMAC-SHA256. Ён адкрыта гаворыць пра сваю сталасць: гэта P1-каркас — разметка, інтэрфейсы, кропкі ўваходу і мяжа дэкаплінгу на месцы, але логіка сінхранізацыі і жывыя запыты да ClickUp яшчэ не рэалізаваны (кожны заглушка вяртае відавочную памылку «не рэалізавана» згодна з правілам «без фэйкаў»).</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-3" aria-expanded="true" aria-controls="od-acc-task-bridge-3-panel">
               <span class="od-accordion__label">Чаму мы яго стварылі</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-3-panel" role="region" aria-labelledby="od-acc-task-bridge-3">
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-1-panel" role="region" aria-labelledby="od-acc-task-bridge-1">
             <div class="od-accordion__inner">
       <p>Каманды захоўваюць «сапраўдны» стан працы ў кодзе/дакументах, а менеджары жывуць на бордзе накшталт ClickUp — і яны пастаянна разыходзяцца. task_bridge робіць іх адзінай сістэмай, сінхранізуючы дэтэрмінісцка і бяспечна, каб ні адзін бок не састарэў і не стаў няправільным.</p>
       <p>Змест</p>
@@ -226,12 +202,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-4" aria-expanded="true" aria-controls="od-acc-task-bridge-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-2" aria-expanded="true" aria-controls="od-acc-task-bridge-2-panel">
               <span class="od-accordion__label">Чаму гэта змяняе правілы гульні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-4-panel" role="region" aria-labelledby="od-acc-task-bridge-4">
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-2-panel" role="region" aria-labelledby="od-acc-task-bridge-2">
             <div class="od-accordion__inner">
       <p>Двухбаковая сінхранізацыя дошак звычайна з'яўляецца аднаразовай, жорстка прывязанай інтэграцыяй, якую кожная каманда дрэнна перапісвае нанова. task_bridge пераасэнсоўвае яе як паўторна выкарыстоўваемую бібліятэку з ін'екцыяй аўтэнтыфікацыйных дадзеных і строгімі гарантыямі бяспекі даных — спачатку тэст-рэжым, дэтэрмінісцкае правіла апошняй змены, падпісаныя HMAC-паведамленні — каб любы праект мог атрымаць надзейную інтэграцыю з дошкамі праз ін'екцыю канфігурацыі, а не праз напісанне чарговага крохкага канэктара, звязанага з унутранай архітэктурай.</p>
             </div>
@@ -239,12 +215,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-5" aria-expanded="true" aria-controls="od-acc-task-bridge-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-3" aria-expanded="true" aria-controls="od-acc-task-bridge-3-panel">
               <span class="od-accordion__label">Што новага</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-5-panel" role="region" aria-labelledby="od-acc-task-bridge-5">
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-3-panel" role="region" aria-labelledby="od-acc-task-bridge-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Трохбаковая двухбаковая сінхранізацыя: SQLite SSoT ↔ дакументы трэкера ↔ аддаленая дошка.</li>
@@ -257,12 +233,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-6" aria-expanded="true" aria-controls="od-acc-task-bridge-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-4" aria-expanded="true" aria-controls="od-acc-task-bridge-4-panel">
               <span class="od-accordion__label">Праблемы і рашэнні</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-6-panel" role="region" aria-labelledby="od-acc-task-bridge-6">
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-4-panel" role="region" aria-labelledby="od-acc-task-bridge-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Бяспека даных паміж трыма крыніцамі:</strong> вырашана праз дэтэрмінісцкае правіла апошняй змены, тэст-рэжым і відавочныя вынікі канфліктаў.</li>
@@ -275,12 +251,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-7" aria-expanded="true" aria-controls="od-acc-task-bridge-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-task-bridge-5" aria-expanded="true" aria-controls="od-acc-task-bridge-5-panel">
               <span class="od-accordion__label">Тэхнічны стэк (чаму + як)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-7-panel" role="region" aria-labelledby="od-acc-task-bridge-7">
+          <div class="od-accordion__panel is-open" id="od-acc-task-bridge-5-panel" role="region" aria-labelledby="od-acc-task-bridge-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go</strong> — рухавік, CLI (<code>cmd/task_bridge</code>) і дэман (<code>cmd/task_bridged</code>).</li>

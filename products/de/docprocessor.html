@@ -2,7 +2,7 @@
 layout: default
 lang: de
 title: "DocProcessor — Miloš Vasić"
-description: "DocProcessor is a standalone, fully decoupled Go module that loads project documentation, builds structured feature maps, and tracks verification coverage. It is designed to work with LLM agents for intelligent feature extraction but also includes heuristic extraction for offline use."
+description: "DocProcessor ist ein eigenständiges, vollständig entkoppeltes Go-Modul, das Projektdokumentationen lädt, strukturierte Feature-Maps erstellt und die Verifizierungsabdeckung nachverfolgt. Es ist darauf ausgelegt, mit LLM-Agenten für intelligente Feature-Extraktion zusammenzuarbeiten, enthält jedoch auch heuristische Extraktionsmethoden für den Offline-Betrieb."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/docprocessor.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/docprocessor.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "DocProcessor is a standalone, fully decoupled Go module that loads project documentation, builds structured feature maps, and tracks verification coverage. It is designed to work with LLM agents for intelligent feature extraction but also includes heuristic extraction for offline use.",
+      "description": "DocProcessor ist ein eigenständiges, vollständig entkoppeltes Go-Modul, das Projektdokumentationen lädt, strukturierte Feature-Maps erstellt und die Verifizierungsabdeckung nachverfolgt. Es ist darauf ausgelegt, mit LLM-Agenten für intelligente Feature-Extraktion zusammenzuarbeiten, enthält jedoch auch heuristische Extraktionsmethoden für den Offline-Betrieb.",
       "inLanguage": "de",
       "license": "Apache-2.0",
       "name": "DocProcessor",
@@ -183,55 +183,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Dokumentation in eine überprüfbare Feature-Map für die QA-Automatisierung umwandeln</strong></p>
+      <p class="od-product-detail__lede">Ein projektunabhängiges Go-Modul zur Dokumentationsverarbeitung und Feature-Map-Extraktion. Es parst Dokumentationen in strukturierte Feature-Maps und verfolgt, welche Features verifiziert sind – entweder mithilfe von LLM-Agenten für intelligente Extraktion oder heuristischen Methoden im Offline-Modus – und versorgt die QA-Automatisierung mit einer Anti-Bluff-Garantie, die stets der Realität entspricht.</p>
+      <p>DocProcessor ist ein eigenständiges, vollständig entkoppeltes Go-Modul, das Projektdokumentationen lädt, strukturierte Feature-Maps erstellt und die Verifizierungsabdeckung nachverfolgt. Es ist darauf ausgelegt, mit LLM-Agenten für intelligente Feature-Extraktion zusammenzuarbeiten, enthält jedoch auch heuristische Extraktionsmethoden für den Offline-Betrieb.</p>
+      <p>Jedes Softwareteam lebt mit derselben stillen Lüge: Die Dokumentation verspricht Features, die Tests decken etwas Ähnliches ab, und niemand kann mit Sicherheit sagen, ob beide dasselbe Produkt beschreiben. DocProcessor wurde entwickelt, um diese Lücke sichtbar und messbar zu machen. Ausgehend von der Projektdokumentation erstellt es eine strukturierte Feature-Map – ein enumeriertes, maschinenlesbares Modell aller Funktionen, die das Produkt laut Dokumentation bieten soll – und verfolgt die Verifizierungsabdeckung im Vergleich dazu. So wird aus der Frage *„Wird dieses dokumentierte Feature tatsächlich nachgewiesen?"* keine Flur-Diskussion mehr, sondern eine Abfrage mit klarer Antwort. Das Modul arbeitet bewusst in zwei Modi: Es nutzt LLM-Agenten für intelligente, semantische Feature-Extraktion, falls verfügbar, und greift ansonsten auf einen heuristischen Parser für den vollständig offlinefähigen Betrieb zurück. Dadurch ist es nie von einem Modell abhängig und läuft identisch in einer isolierten CI-Umgebung oder auf dem Laptop eines Entwicklers im Flugmodus.</p>
+      <p>Architektonisch handelt es sich um ein eigenständiges, projektunabhängiges, vollständig entkoppeltes Go-Modul (CONST-051(B)): Es enthält keinerlei projektspezifische Werte und wird von Anwendern als gleichberechtigtes Code-Submodul eingebunden, sodass jedes Projekt es übernehmen kann, ohne fremde Annahmen zu erben. Zudem hält es sich selbst an die Standards, die es von anderen einfordert – seine eigenen Aussagen unterliegen dem Anti-Bluff-Prinzip (CONST-035) und den Regeln zur vollständigen Automatisierungsabdeckung (CONST-048). Das bedeutet, dass jede im README beworbene Funktion durch einen automatisierten Test oder ein Challenge-Skript überprüft wird, das reales, nutzerrelevantes Verhalten bestätigt – und nicht nur mit Exit-Code 0 endet. Nutzerrelevante Strings durchlaufen die i18n-Übersetzungsschnittstelle CONST-046. Ziel all dessen ist ein geschlossener Kreislauf: DocProcessor bildet die Eingangsseite des QA-Zyklus, den HelixQA schließt – es extrahiert die Feature-Map aus der Dokumentation, HelixQA belegt jedes gemappte Feature mit erfassten Laufzeitnachweisen, und Dokumentation, Tests und ausgeliefertes Verhalten werden gezwungen, sich anzugleichen, statt sich Release für Release unbemerkt auseinanderzuentwickeln.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-0" aria-expanded="true" aria-controls="od-acc-docprocessor-0-panel">
-              <span class="od-accordion__label">Zusammenfassung</span>
+              <span class="od-accordion__label">Entstehungsgeschichte</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-docprocessor-0-panel" role="region" aria-labelledby="od-acc-docprocessor-0">
-            <div class="od-accordion__inner">
-      <p>DocProcessor ist ein eigenständiges, vollständig entkoppeltes Go-Modul, das Projektdokumentationen lädt, strukturierte Feature-Maps erstellt und die Verifizierungsabdeckung nachverfolgt. Es ist darauf ausgelegt, mit LLM-Agenten für intelligente Feature-Extraktion zusammenzuarbeiten, enthält jedoch auch heuristische Extraktionsmethoden für den Offline-Betrieb.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-1" aria-expanded="true" aria-controls="od-acc-docprocessor-1-panel">
-              <span class="od-accordion__label">Kurzbeschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-1-panel" role="region" aria-labelledby="od-acc-docprocessor-1">
-            <div class="od-accordion__inner">
-      <p>Ein projektunabhängiges Go-Modul zur Dokumentationsverarbeitung und Feature-Map-Extraktion. Es parst Dokumentationen in strukturierte Feature-Maps und verfolgt, welche Features verifiziert sind – entweder mithilfe von LLM-Agenten für intelligente Extraktion oder heuristischen Methoden im Offline-Modus – und versorgt die QA-Automatisierung mit einer Anti-Bluff-Garantie, die stets der Realität entspricht.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-2" aria-expanded="true" aria-controls="od-acc-docprocessor-2-panel">
-              <span class="od-accordion__label">Ausführliche Beschreibung</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-2-panel" role="region" aria-labelledby="od-acc-docprocessor-2">
-            <div class="od-accordion__inner">
-      <p>Jedes Softwareteam lebt mit derselben stillen Lüge: Die Dokumentation verspricht Features, die Tests decken etwas Ähnliches ab, und niemand kann mit Sicherheit sagen, ob beide dasselbe Produkt beschreiben. DocProcessor wurde entwickelt, um diese Lücke sichtbar und messbar zu machen. Ausgehend von der Projektdokumentation erstellt es eine strukturierte Feature-Map – ein enumeriertes, maschinenlesbares Modell aller Funktionen, die das Produkt laut Dokumentation bieten soll – und verfolgt die Verifizierungsabdeckung im Vergleich dazu. So wird aus der Frage *„Wird dieses dokumentierte Feature tatsächlich nachgewiesen?"* keine Flur-Diskussion mehr, sondern eine Abfrage mit klarer Antwort. Das Modul arbeitet bewusst in zwei Modi: Es nutzt LLM-Agenten für intelligente, semantische Feature-Extraktion, falls verfügbar, und greift ansonsten auf einen heuristischen Parser für den vollständig offlinefähigen Betrieb zurück. Dadurch ist es nie von einem Modell abhängig und läuft identisch in einer isolierten CI-Umgebung oder auf dem Laptop eines Entwicklers im Flugmodus.</p>
-      <p>Architektonisch handelt es sich um ein eigenständiges, projektunabhängiges, vollständig entkoppeltes Go-Modul (CONST-051(B)): Es enthält keinerlei projektspezifische Werte und wird von Anwendern als gleichberechtigtes Code-Submodul eingebunden, sodass jedes Projekt es übernehmen kann, ohne fremde Annahmen zu erben. Zudem hält es sich selbst an die Standards, die es von anderen einfordert – seine eigenen Aussagen unterliegen dem Anti-Bluff-Prinzip (CONST-035) und den Regeln zur vollständigen Automatisierungsabdeckung (CONST-048). Das bedeutet, dass jede im README beworbene Funktion durch einen automatisierten Test oder ein Challenge-Skript überprüft wird, das reales, nutzerrelevantes Verhalten bestätigt – und nicht nur mit Exit-Code 0 endet. Nutzerrelevante Strings durchlaufen die i18n-Übersetzungsschnittstelle CONST-046. Ziel all dessen ist ein geschlossener Kreislauf: DocProcessor bildet die Eingangsseite des QA-Zyklus, den HelixQA schließt – es extrahiert die Feature-Map aus der Dokumentation, HelixQA belegt jedes gemappte Feature mit erfassten Laufzeitnachweisen, und Dokumentation, Tests und ausgeliefertes Verhalten werden gezwungen, sich anzugleichen, statt sich Release für Release unbemerkt auseinanderzuentwickeln.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-3" aria-expanded="true" aria-controls="od-acc-docprocessor-3-panel">
-              <span class="od-accordion__label">Warum wir es entwickelt haben</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-3-panel" role="region" aria-labelledby="od-acc-docprocessor-3">
             <div class="od-accordion__inner">
       <p>Dokumentation und Tests driften auseinander: Die Dokumentation verspricht Features, die kein Test nachweist, und die QA kann nicht ohne Weiteres bestimmen, was „vollständig" bedeutet. DocProcessor verwandelt Dokumentationen in maschinenlesbare Feature-Maps, sodass die Verifizierungsabdeckung an dem gemessen werden kann, was tatsächlich versprochen wurde.</p>
             </div>
@@ -239,12 +203,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-4" aria-expanded="true" aria-controls="od-acc-docprocessor-4-panel">
-              <span class="od-accordion__label">Warum es ein Game-Changer ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-1" aria-expanded="true" aria-controls="od-acc-docprocessor-1-panel">
+              <span class="od-accordion__label">Warum es wichtig ist</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-4-panel" role="region" aria-labelledby="od-acc-docprocessor-4">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-1-panel" role="region" aria-labelledby="od-acc-docprocessor-1">
             <div class="od-accordion__inner">
       <p>Es verwandelt die unschärfste Frage in der Softwareauslieferung – *„Entspricht das, was wir ausgeliefert haben, dem, was wir auszuliefern behaupten?"* – in etwas Automatisierbares und kontinuierlich Überprüfbares. Und das ohne harte AI-Abhängigkeit: LLM-Extraktion, wenn ein Modell verfügbar ist, Heuristiken, wenn nicht – sodass dieselbe Garantie in jeder Umgebung gilt, vom Offline-Runner bis zur vollautomatisierten Pipeline.</p>
             </div>
@@ -252,12 +216,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-5" aria-expanded="true" aria-controls="od-acc-docprocessor-5-panel">
-              <span class="od-accordion__label">Was innovativ ist</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-2" aria-expanded="true" aria-controls="od-acc-docprocessor-2-panel">
+              <span class="od-accordion__label">Ideen, die es wert sind, übernommen zu werden</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-5-panel" role="region" aria-labelledby="od-acc-docprocessor-5">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-2-panel" role="region" aria-labelledby="od-acc-docprocessor-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Extraktion einer Dokumentation-Feature-Map mit Verifizierungsabdeckungs-Tracking.</li>
@@ -270,12 +234,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-6" aria-expanded="true" aria-controls="od-acc-docprocessor-6-panel">
-              <span class="od-accordion__label">Herausforderungen &amp; Lösungen</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-3" aria-expanded="true" aria-controls="od-acc-docprocessor-3-panel">
+              <span class="od-accordion__label">Wo es schwierig wurde – und wie wir siegten</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-6-panel" role="region" aria-labelledby="od-acc-docprocessor-6">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-3-panel" role="region" aria-labelledby="od-acc-docprocessor-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Modellunabhängiger Betrieb:</strong> gelöst durch einen heuristischen Extraktions-Fallback, sodass das Modul offline funktioniert.</li>
@@ -288,12 +252,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-7" aria-expanded="true" aria-controls="od-acc-docprocessor-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-docprocessor-4" aria-expanded="true" aria-controls="od-acc-docprocessor-4-panel">
               <span class="od-accordion__label">Technologie-Stack (Warum + Wie)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-7-panel" role="region" aria-labelledby="od-acc-docprocessor-7">
+          <div class="od-accordion__panel is-open" id="od-acc-docprocessor-4-panel" role="region" aria-labelledby="od-acc-docprocessor-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go (1.25+)</strong> – Modulkern; Lizenz: Apache-2.0.</li>

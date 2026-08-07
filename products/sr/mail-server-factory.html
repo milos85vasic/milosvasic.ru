@@ -2,7 +2,7 @@
 layout: default
 lang: sr
 title: "Mail Server Factory — Miloš Vasić"
-description: "Mail Server Factory is a production-ready, automated mail-server provisioning tool. The user writes a simple JSON configuration; the Factory interprets it and performs all installations and initializations on the target OS, deploying a Docker-based, loosely-coupled mail stack across 12 connection types."
+description: "Mail Server Factory је алат за аутоматизовано постављање маил сервера, спреман за продукцију. Корисник пише једноставну JSON конфигурацију; Фабрика је интерпретира и извршава све инсталације и иницијализације на циљном OS-у, постављајући лабаво повезани маил стек заснован на Docker преко 12 типова веза."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/mail-server-factory.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/mail-server-factory.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Mail Server Factory is a production-ready, automated mail-server provisioning tool. The user writes a simple JSON configuration; the Factory interprets it and performs all installations and initializations on the target OS, deploying a Docker-based, loosely-coupled mail stack across 12 connection types.",
+      "description": "Mail Server Factory је алат за аутоматизовано постављање маил сервера, спреман за продукцију. Корисник пише једноставну JSON конфигурацију; Фабрика је интерпретира и извршава све инсталације и иницијализације на циљном OS-у, постављајући лабаво повезани маил стек заснован на Docker преко 12 типова веза.",
       "inLanguage": "sr",
       "name": "Mail Server Factory",
       "operatingSystem": "Cross-platform",
@@ -182,6 +182,8 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Управљајте својим маил сервером као шеф — опишите га у JSON, имплементирајте га било где.</strong></p>
+      <p class="od-product-detail__lede">Алат Kotlin/Shell који претвара JSON опис у потпуно инсталиран, Доцкеризован маил сервер. Подржава 12 типова веза (SSH, Docker, Kubernetes, AWS SSM, Azure, GCP, Libvirt и друге), потпуни сигурносни оквир, 25 Linux дистрибуција и испоручује се са 439 успешно положених тестова.</p>
+      <p>Постављање правог, сигурног маил сервера једно је од класичних иницијацијских искустава у системској администрацији — и једно од најпоузданије мучних. Postfix, Dovecot, TLS сертификати, DNS записи, правила ватрозида и специфичности појединих дистрибуција морају да се савршено усагласе, а једна једина погрешна директива значи тихо одбијање поште или отворени релеј. Mail Server Factory преузима цео тај скуп тешко стеченог, подложног грешкама знања и уграђује га у софтвер. Уместо ручног подешавања сваког дела на непознатом OS-у, крајњи корисник описује жељени резултат као једноставан JSON документ; Фабрика чита тај JSON и извршава тачно одређене кораке инсталације и иницијализације на циљном оперативном систему, постављајући маил стек који ради на Docker, при чему је свака компонента лабаво повезана — дизајнерски избор који омогућава хоризонтално скалирање и омогућава надоградњу или замену било које појединачне компоненте у изолацији. Намерно је агностичан у погледу окружења: 12 типова веза омогућава да исти алат и исти JSON циљају локалну машину, удаљени хост преко SSH, Docker или Kubernetes рунтиме, цлоуд инстанце путем AWS SSM / Azure Сериал Цонсоле / GCP OS Логин, или виртуелне машине преко Libvirt — исти декларативни опис, имплементиран тамо где га упутите. Подржава 25 Linux дистрибуција из западних (Ubuntu, Debian, CentOS, Fedora, AlmaLinux, Rocky, openSUSE), руских (АЛТ, Astra, ROSA) и кинеских (openEuler, openKylin, Deepin) породица, са аутоматском инсталацијом путем пресеед/кицкстарт/цлоуд-инит/autoyast и QEMU-базираном аутоматизацијом виртуелних машина за тестирање. Ентерприсе функције су опсежне: AES-256-GCM енкрипција, обавезне политике лозинки и SSH кључева, аутоматска конфигурација ватрозида за маил портове (25/587/465/993/995), TLS/ССЛ са валидацијом сертификата и HSTS, аудит логовање и RBAC. Оперативне функције укључују подешавање JVM-а (G1GC), Caffeine кеширање, поолинг веза, Prometheus-компатибилне метрике, структуирано логовање, хот-релоадинг конфигурације и управљање тајнама. Пројекат има 439 тестова са 100% успешности и чист SonarQube квалитетни пролаз. Представља водећи пројекат организације Server-Factory.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
@@ -199,37 +201,11 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-1" aria-expanded="true" aria-controls="od-acc-mail-server-factory-1-panel">
-              <span class="od-accordion__label">Кратак опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-1-panel" role="region" aria-labelledby="od-acc-mail-server-factory-1">
-            <div class="od-accordion__inner">
-      <p>Алат Kotlin/Shell који претвара JSON опис у потпуно инсталиран, Доцкеризован маил сервер. Подржава 12 типова веза (SSH, Docker, Kubernetes, AWS SSM, Azure, GCP, Libvirt и друге), потпуни сигурносни оквир, 25 Linux дистрибуција и испоручује се са 439 успешно положених тестова.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-2" aria-expanded="true" aria-controls="od-acc-mail-server-factory-2-panel">
-              <span class="od-accordion__label">Детаљан опис</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-2-panel" role="region" aria-labelledby="od-acc-mail-server-factory-2">
-            <div class="od-accordion__inner">
-      <p>Постављање правог, сигурног маил сервера једно је од класичних иницијацијских искустава у системској администрацији — и једно од најпоузданије мучних. Postfix, Dovecot, TLS сертификати, DNS записи, правила ватрозида и специфичности појединих дистрибуција морају да се савршено усагласе, а једна једина погрешна директива значи тихо одбијање поште или отворени релеј. Mail Server Factory преузима цео тај скуп тешко стеченог, подложног грешкама знања и уграђује га у софтвер. Уместо ручног подешавања сваког дела на непознатом OS-у, крајњи корисник описује жељени резултат као једноставан JSON документ; Фабрика чита тај JSON и извршава тачно одређене кораке инсталације и иницијализације на циљном оперативном систему, постављајући маил стек који ради на Docker, при чему је свака компонента лабаво повезана — дизајнерски избор који омогућава хоризонтално скалирање и омогућава надоградњу или замену било које појединачне компоненте у изолацији. Намерно је агностичан у погледу окружења: 12 типова веза омогућава да исти алат и исти JSON циљају локалну машину, удаљени хост преко SSH, Docker или Kubernetes рунтиме, цлоуд инстанце путем AWS SSM / Azure Сериал Цонсоле / GCP OS Логин, или виртуелне машине преко Libvirt — исти декларативни опис, имплементиран тамо где га упутите. Подржава 25 Linux дистрибуција из западних (Ubuntu, Debian, CentOS, Fedora, AlmaLinux, Rocky, openSUSE), руских (АЛТ, Astra, ROSA) и кинеских (openEuler, openKylin, Deepin) породица, са аутоматском инсталацијом путем пресеед/кицкстарт/цлоуд-инит/autoyast и QEMU-базираном аутоматизацијом виртуелних машина за тестирање. Ентерприсе функције су опсежне: AES-256-GCM енкрипција, обавезне политике лозинки и SSH кључева, аутоматска конфигурација ватрозида за маил портове (25/587/465/993/995), TLS/ССЛ са валидацијом сертификата и HSTS, аудит логовање и RBAC. Оперативне функције укључују подешавање JVM-а (G1GC), Caffeine кеширање, поолинг веза, Prometheus-компатибилне метрике, структуирано логовање, хот-релоадинг конфигурације и управљање тајнама. Пројекат има 439 тестова са 100% успешности и чист SonarQube квалитетни пролаз. Представља водећи пројекат организације Server-Factory.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-3" aria-expanded="true" aria-controls="od-acc-mail-server-factory-3-panel">
               <span class="od-accordion__label">Зашто смо га направили</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-3-panel" role="region" aria-labelledby="od-acc-mail-server-factory-3">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-1-panel" role="region" aria-labelledby="od-acc-mail-server-factory-1">
             <div class="od-accordion__inner">
       <p>Постављање сигурног, продукцијског маил сервера познато је по томе што је склоно грешкама и специфично за оперативни систем. Mail Server Factory ту стручност обухвата у декларативном JSON моделу уз помоћ извршног мотора, тако да се исправан, осигуран, Доцкеризован маил стек може репродуковати на било ком подржаном циљу без ручног корак-по-корак рада.</p>
             </div>
@@ -237,12 +213,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-4" aria-expanded="true" aria-controls="od-acc-mail-server-factory-4-panel">
-              <span class="od-accordion__label">Зашто је револуционарно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-2" aria-expanded="true" aria-controls="od-acc-mail-server-factory-2-panel">
+              <span class="od-accordion__label">Скок који пружа</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-4-panel" role="region" aria-labelledby="od-acc-mail-server-factory-4">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-2-panel" role="region" aria-labelledby="od-acc-mail-server-factory-2">
             <div class="od-accordion__inner">
       <p>Овај алат претвара постављање маил сервера из специјалистичког, вишедневног и прецизно захтевног процеса у чин писања конфигурације — а затим тај чин чини преносивим на 12 типова веза и 25 Linux дистрибуција, уз унапред подешену сигурност на нивоу предузећа. Резултат је репродуктиван и *верификован*: исти JSON увек даје исти осигуран стек, а 439 успешно положених тестова и чист SonarQube контролни пункт значе да је мотор који обавља посао под строгом контролом, а не да се ослања само на репутацију.</p>
             </div>
@@ -250,12 +226,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-5" aria-expanded="true" aria-controls="od-acc-mail-server-factory-5-panel">
-              <span class="od-accordion__label">Шта је иновативно</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-3" aria-expanded="true" aria-controls="od-acc-mail-server-factory-3-panel">
+              <span class="od-accordion__label">Шта је заиста ново</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-5-panel" role="region" aria-labelledby="od-acc-mail-server-factory-5">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-3-panel" role="region" aria-labelledby="od-acc-mail-server-factory-3">
             <div class="od-accordion__inner">
       <ul>
         <li>Декларативни JSON → интерпретирана инсталација/иницијализација на циљном OS-у.</li>
@@ -268,12 +244,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-6" aria-expanded="true" aria-controls="od-acc-mail-server-factory-6-panel">
-              <span class="od-accordion__label">Изазови и решења</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-4" aria-expanded="true" aria-controls="od-acc-mail-server-factory-4-panel">
+              <span class="od-accordion__label">Тешки делови — и поправке</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-6-panel" role="region" aria-labelledby="od-acc-mail-server-factory-6">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-4-panel" role="region" aria-labelledby="od-acc-mail-server-factory-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Хетерогеност OS-а/дистрибуција:</strong> решено рецептима специфичним за сваку дистрибуцију, конфигурацијама за инсталацију без надзора и QEMU тестирањем на више дистрибуција.</li>
@@ -286,12 +262,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-7" aria-expanded="true" aria-controls="od-acc-mail-server-factory-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-mail-server-factory-5" aria-expanded="true" aria-controls="od-acc-mail-server-factory-5-panel">
               <span class="od-accordion__label">Технички стек (зашто + како)</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-7-panel" role="region" aria-labelledby="od-acc-mail-server-factory-7">
+          <div class="od-accordion__panel is-open" id="od-acc-mail-server-factory-5-panel" role="region" aria-labelledby="od-acc-mail-server-factory-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Kotlin</strong> — Фабрички мотор и логика инсталационих корака (179К бајтова; Kotlin 2.0.21).</li>

@@ -2,7 +2,7 @@
 layout: default
 lang: tr
 title: "HelixTrack — Miloš Vasić"
-description: "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile."
+description: "HelixTrack, JIRA’a (ve Belgeler eklentisi aracılığıyla Confluence’a) modern, kapsamlı ve açık kaynaklı bir alternatif sunan, çok platformlu bir proje yönetimi ve sorun takip sistemi. Go tabanlı mikro hizmetler mimarisine dayanan bu sistem, web, masaüstü ve mobil için yerel istemcilerle çalışıyor."
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helixtrack.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helixtrack.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "HelixTrack is a comprehensive, modern, open-source alternative to JIRA (and, via its Documents extension, Confluence) — a multi-platform project-management and issue-tracking system built on a Go microservices backend with native clients for web, desktop, and mobile.",
+      "description": "HelixTrack, JIRA’a (ve Belgeler eklentisi aracılığıyla Confluence’a) modern, kapsamlı ve açık kaynaklı bir alternatif sunan, çok platformlu bir proje yönetimi ve sorun takip sistemi. Go tabanlı mikro hizmetler mimarisine dayanan bu sistem, web, masaüstü ve mobil için yerel istemcilerle çalışıyor.",
       "inLanguage": "tr",
       "name": "HelixTrack",
       "operatingSystem": "Cross-platform",
@@ -187,54 +187,18 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>JIRA’a özgür dünyadan bir alternatif.</strong></p>
+      <p class="od-product-detail__lede">Açık kaynaklı JIRA/Confluence alternatifi. Go mikro hizmetler arka ucu ("HelixTrack Çekirdeği"), proje ve sorun takibi için birleşik bir REST API arayüzü ile Confluence tarzı bir belge çalışma alanı sunuyor. Bu arayüz, HTTP/3 QUIC üzerinden web, masaüstü, Android ve iOS için yerel istemcilere servis ediliyor.</p>
+      <p>HelixTrack, JIRA’a (ve Belgeler eklentisi aracılığıyla Confluence’a) modern, kapsamlı ve açık kaynaklı bir alternatif sunan, çok platformlu bir proje yönetimi ve sorun takip sistemi. Go tabanlı mikro hizmetler mimarisine dayanan bu sistem, web, masaüstü ve mobil için yerel istemcilerle çalışıyor.</p>
+      <p>HelixTrack, mühendislik ekiplerinin en çok bağımlı olduğu iki ürün olan JIRA ve Confluence’a açık kaynaklı, özgür bir alternatif olarak konumlandırılmış bir proje yönetimi ve sorun takip platformu. Bu iki ürünün tam bir yerine geçen HelixTrack, sahibi olduğunuz ve istediğiniz yerde çalıştırabileceğiniz bir yazılım olarak yeniden tasarlandı. Kalbinde <strong>HelixTrack Çekirdeği</strong> yer alıyor: Go ile Gin çatısı kullanılarak yazılmış, REST API tabanlı bir mikro hizmet. Sorun takibi, çevik/scrum panoları, ekip yönetimi ve hiyerarşik izin motoru sunan bu çekirdek, yerel bir işlem içi motor ile HTTP destekli bir hizmet arasında değiştirilebilir bir yetkilendirme modeline sahip. Böylece aynı yetkilendirme sistemi, tek bir dizüstü bilgisayardan dağıtık bir kümeye kadar her ölçekte uygulama koduna dokunmadan çalışabiliyor. REST arayüzünü onlarca farklı rotaya yaymak yerine, Çekirdek tüm işlemleri tek bir eylem yönlendirmeli <code>/do</code> uç noktası üzerinden yürütüyor. İstek/yanıt yapısı da tek tip (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> giriş, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> çıkış). Her istemci aynı küçük sözleşmeyi kullanıyor ve yeni bir özellik eklemek, yeni bir URL tanımlamak yerine yalnızca bir eylem eklemek anlamına geliyor. Çekirdek, HTTP/3 QUIC üzerinden iletişim kuran, ayrık Kimlik Doğrulama, İzin Yönetimi ve Yerelleştirme hizmetleriyle entegre çalışıyor. Bu hizmetler ayrı makinelerde veya kümelerde çalıştırılabiliyor ya da test ortamlarında tamamen devre dışı bırakılabiliyor. Veriler, sıfır kurulumlu geliştirme için SQLite’de, üretim ortamında ise PostgreSQL’de saklanıyor. Ayrıca SQLCipher (AES-256) ile disk üzerinde şifreleniyor; böylece hassas proje verileri varsayılan olarak korunuyor, ek bir önlem olarak değil. <strong>Belgeler V2</strong> eklentisi, takip sistemini tam bir bilgi platformuna dönüştürüyor: Confluence tarzı bir çalışma alanı sunan bu eklenti, alanlar, sayfalar, sürüm kontrolü, şablonlar, gerçek zamanlı WebSocket iş birliği ve analizler içeriyor. Böylece wiki ve sorun takip sistemi nihayet tek bir arka uç altında birleşiyor, iki ayrı ürünün bir araya getirilmesiyle değil. Çekirdeğin etrafında ise birden fazla istemci uygulaması bulunuyor: Angular web istemcisi, Tauri + Angular masaüstü istemcisi, yerel Android (Kotlin) ve iOS (Swift) uygulamaları, ayrıca HarmonyOS ve Aurora OS istemcileri ile bir ekran koruyucu. Tüm bu istemciler aynı arka uca bağlanıyor ve UDP yayını sayesinde yerel ağlarda sunucuyu otomatik olarak keşfediyor. Böylece yeni bir istemci, elle yapılandırma gerektirmeden sunucusunu bulabiliyor. İstemci uygulamaları ayrı, özel depolarda tutuluyor ve burada yalnızca ürün düzeyinde sunuluyor.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-0" aria-expanded="true" aria-controls="od-acc-helixtrack-0-panel">
-              <span class="od-accordion__label">Özet</span>
+              <span class="od-accordion__label">Köken hikâyesi</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
           <div class="od-accordion__panel is-open" id="od-acc-helixtrack-0-panel" role="region" aria-labelledby="od-acc-helixtrack-0">
-            <div class="od-accordion__inner">
-      <p>HelixTrack, JIRA’a (ve Belgeler eklentisi aracılığıyla Confluence’a) modern, kapsamlı ve açık kaynaklı bir alternatif sunan, çok platformlu bir proje yönetimi ve sorun takip sistemi. Go tabanlı mikro hizmetler mimarisine dayanan bu sistem, web, masaüstü ve mobil için yerel istemcilerle çalışıyor.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
-              <span class="od-accordion__label">Kısa açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
-            <div class="od-accordion__inner">
-      <p>Açık kaynaklı JIRA/Confluence alternatifi. Go mikro hizmetler arka ucu ("HelixTrack Çekirdeği"), proje ve sorun takibi için birleşik bir REST API arayüzü ile Confluence tarzı bir belge çalışma alanı sunuyor. Bu arayüz, HTTP/3 QUIC üzerinden web, masaüstü, Android ve iOS için yerel istemcilere servis ediliyor.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
-              <span class="od-accordion__label">Uzun açıklama</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
-            <div class="od-accordion__inner">
-      <p>HelixTrack, mühendislik ekiplerinin en çok bağımlı olduğu iki ürün olan JIRA ve Confluence’a açık kaynaklı, özgür bir alternatif olarak konumlandırılmış bir proje yönetimi ve sorun takip platformu. Bu iki ürünün tam bir yerine geçen HelixTrack, sahibi olduğunuz ve istediğiniz yerde çalıştırabileceğiniz bir yazılım olarak yeniden tasarlandı. Kalbinde <strong>HelixTrack Çekirdeği</strong> yer alıyor: Go ile Gin çatısı kullanılarak yazılmış, REST API tabanlı bir mikro hizmet. Sorun takibi, çevik/scrum panoları, ekip yönetimi ve hiyerarşik izin motoru sunan bu çekirdek, yerel bir işlem içi motor ile HTTP destekli bir hizmet arasında değiştirilebilir bir yetkilendirme modeline sahip. Böylece aynı yetkilendirme sistemi, tek bir dizüstü bilgisayardan dağıtık bir kümeye kadar her ölçekte uygulama koduna dokunmadan çalışabiliyor. REST arayüzünü onlarca farklı rotaya yaymak yerine, Çekirdek tüm işlemleri tek bir eylem yönlendirmeli <code>/do</code> uç noktası üzerinden yürütüyor. İstek/yanıt yapısı da tek tip (<code>action</code>/<code>jwt</code>/<code>object</code>/<code>data</code> giriş, <code>errorCode</code>/<code>errorMessage</code>/<code>data</code> çıkış). Her istemci aynı küçük sözleşmeyi kullanıyor ve yeni bir özellik eklemek, yeni bir URL tanımlamak yerine yalnızca bir eylem eklemek anlamına geliyor. Çekirdek, HTTP/3 QUIC üzerinden iletişim kuran, ayrık Kimlik Doğrulama, İzin Yönetimi ve Yerelleştirme hizmetleriyle entegre çalışıyor. Bu hizmetler ayrı makinelerde veya kümelerde çalıştırılabiliyor ya da test ortamlarında tamamen devre dışı bırakılabiliyor. Veriler, sıfır kurulumlu geliştirme için SQLite’de, üretim ortamında ise PostgreSQL’de saklanıyor. Ayrıca SQLCipher (AES-256) ile disk üzerinde şifreleniyor; böylece hassas proje verileri varsayılan olarak korunuyor, ek bir önlem olarak değil. <strong>Belgeler V2</strong> eklentisi, takip sistemini tam bir bilgi platformuna dönüştürüyor: Confluence tarzı bir çalışma alanı sunan bu eklenti, alanlar, sayfalar, sürüm kontrolü, şablonlar, gerçek zamanlı WebSocket iş birliği ve analizler içeriyor. Böylece wiki ve sorun takip sistemi nihayet tek bir arka uç altında birleşiyor, iki ayrı ürünün bir araya getirilmesiyle değil. Çekirdeğin etrafında ise birden fazla istemci uygulaması bulunuyor: Angular web istemcisi, Tauri + Angular masaüstü istemcisi, yerel Android (Kotlin) ve iOS (Swift) uygulamaları, ayrıca HarmonyOS ve Aurora OS istemcileri ile bir ekran koruyucu. Tüm bu istemciler aynı arka uca bağlanıyor ve UDP yayını sayesinde yerel ağlarda sunucuyu otomatik olarak keşfediyor. Böylece yeni bir istemci, elle yapılandırma gerektirmeden sunucusunu bulabiliyor. İstemci uygulamaları ayrı, özel depolarda tutuluyor ve burada yalnızca ürün düzeyinde sunuluyor.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
-              <span class="od-accordion__label">Neden inşa ettik</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
             <div class="od-accordion__inner">
       <p>Ekiplere, JIRA + Confluence yığınına gerçekten açık, kendi sunucularında barındırılabilir bir alternatif sunmak için — "özgür dünyaya" yönelik olarak — satıcı bağımlılığı olmadan, kurumsal düzeyde izleme, belgeler ve iş birliğini tek bir açık kaynak lisansı altında birleştirdik.</p>
             </div>
@@ -242,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-1" aria-expanded="true" aria-controls="od-acc-helixtrack-1-panel">
               <span class="od-accordion__label">Neden oyunun kurallarını değiştiriyor</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-1-panel" role="region" aria-labelledby="od-acc-helixtrack-1">
             <div class="od-accordion__inner">
       <p>İki ağır ticari ürünü — sorun izleme ve wiki/belge yığını — tek bir açık, yüksek performanslı, kendi sunucunuzda barındırılabilir platformda birleştiriyor ve bunu mevcut rakiplerin hiç sunmadığı bir şeyle eşleştiriyor: Gerçek çok platformlu *yerel* istemciler (web, masaüstü, Android, iOS, ayrıca HarmonyOS ve Aurora OS). Hepsi tek bir arka uç sözleşmesiyle çalışıyor. Kazanç, ödün vermeden sahiplik. HTTP/3 her yerde, tamamen ayrıştırılmış mikro hizmet mimarisi ve beklemedeki veriler için SQLCipher AES-256 şifrelemesi, genellikle yalnızca tescilli SaaS sistemlerine özgü performans ve güvenlik seviyesini, kendi altyapınızda barındırdığınız bir sisteme taşıyor — koltuk lisansları yok, satıcı bağımlılığı yok, verileriniz altyapınızdan çıkmıyor. Ekipler, JIRA-plus-Confluence deneyimini zaten bildikleri şekilde, kendi donanımlarında, tek bir açık kaynak lisansı altında yaşıyor.</p>
             </div>
@@ -255,12 +219,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-2" aria-expanded="true" aria-controls="od-acc-helixtrack-2-panel">
               <span class="od-accordion__label">Yenilikçi yönleri</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-2-panel" role="region" aria-labelledby="od-acc-helixtrack-2">
             <div class="od-accordion__inner">
       <ul>
         <li>Eylem tabanlı birleşik <code>/do</code> API — tek bir uç nokta, tek bir zarf, eyleme yönlendirme. Yeni yetenekler yeni URL’ler yerine yeni eylemler olarak geliyor; böylece saldırı yüzeyi, istemci kodu ve dokümantasyon yükü, tüm platformların paylaştığı tek bir sözleşmeye indirgeniyor.</li>
@@ -276,12 +240,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-6" aria-expanded="true" aria-controls="od-acc-helixtrack-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-3" aria-expanded="true" aria-controls="od-acc-helixtrack-3-panel">
               <span class="od-accordion__label">En büyük teknik zorluklar ve çözümlerimiz</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-6-panel" role="region" aria-labelledby="od-acc-helixtrack-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-3-panel" role="region" aria-labelledby="od-acc-helixtrack-3">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Altı istemci platformu, tek arka uç, sıfır sözleşme sapması.</strong> Web/Angular, Masaüstü/Tauri, Android/Kotlin, iOS/Swift, HarmonyOS ve Aurora istemcilerini sürdürmek, normalde altı farklı API entegrasyonu anlamına gelir ve bunlar zamanla senkronizasyonu kaybeder. Bu riski, tek eyleme yönlendirmeli <code>/do</code> API ve sabit zarfını *tek* sözleşme haline getirerek ortadan kaldırdık — her istemci bunu aynı şekilde hedefliyor. Üstüne UDP yayınıyla hizmet keşfini ekledik; böylece istemciler Core’u ağda elle yapılandırılmış uç noktalar olmadan bulabiliyor.</li>
@@ -294,12 +258,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-7" aria-expanded="true" aria-controls="od-acc-helixtrack-7-panel">
-              <span class="od-accordion__label">Teknoloji Yığını</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-4" aria-expanded="true" aria-controls="od-acc-helixtrack-4-panel">
+              <span class="od-accordion__label">Motor bölümü</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-7-panel" role="region" aria-labelledby="od-acc-helixtrack-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-4-panel" role="region" aria-labelledby="od-acc-helixtrack-4">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Go + Gin</strong> — yüksek iş hacmi ve düşük gecikme süreli HTTP hizmetleri için tek ikili dosya dağıtım modeliyle seçildi; Core'un REST API bileşenini, JWT/CORS ara yazılımını ve tüm sistemi yönlendiren eylem tabanlı <code>/do</code> yönlendiricisini içerir.</li>
@@ -320,12 +284,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-8" aria-expanded="true" aria-controls="od-acc-helixtrack-8-panel">
-              <span class="od-accordion__label">Durum ve Dürüstlük Notları</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helixtrack-5" aria-expanded="true" aria-controls="od-acc-helixtrack-5-panel">
+              <span class="od-accordion__label">Dürüst durum</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-8-panel" role="region" aria-labelledby="od-acc-helixtrack-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helixtrack-5-panel" role="region" aria-labelledby="od-acc-helixtrack-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Durum: beta.</strong> HelixTrack Core, çalışan bir REST API mikro hizmetidir; <strong>Belgeler V2</strong> eklentisi yaklaşık %95 tamamlanmış olarak belgelenmiş olup, bilinen bir veritabanı alan eşleştirme sorunu nedeniyle henüz tam olarak sunulmamaktadır.</li>

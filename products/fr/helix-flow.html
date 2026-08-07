@@ -2,7 +2,7 @@
 layout: default
 lang: fr
 title: "Helix-Flow — Miloš Vasić"
-description: "Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*"
+description: "La plateforme Helix-Flow se présente comme un environnement unifié pour l’inférence AI — permettant d’exécuter des modèles puissants plus rapidement, à toute échelle, avec des coûts prévisibles. (Ce positionnement repose uniquement sur l’accroche ; aucune capacité concrète n’est documentée dans les sources disponibles.)"
 seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic.ru/products/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ar\" href=\"https://milosvasic.ru/products/ar/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"be\" href=\"https://milosvasic.ru/products/be/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"de\" href=\"https://milosvasic.ru/products/de/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"es\" href=\"https://milosvasic.ru/products/es/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"fa\" href=\"https://milosvasic.ru/products/fa/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"fr\" href=\"https://milosvasic.ru/products/fr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"hi\" href=\"https://milosvasic.ru/products/hi/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ja\" href=\"https://milosvasic.ru/products/ja/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"kk\" href=\"https://milosvasic.ru/products/kk/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ko\" href=\"https://milosvasic.ru/products/ko/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"ru\" href=\"https://milosvasic.ru/products/ru/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"sr\" href=\"https://milosvasic.ru/products/sr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"tr\" href=\"https://milosvasic.ru/products/tr/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"zh\" href=\"https://milosvasic.ru/products/zh/helix-flow.html\"/><link rel=\"alternate\" hreflang=\"x-default\" href=\"https://milosvasic.ru/products/helix-flow.html\"/>"
 ---
 
@@ -104,7 +104,7 @@ seo_hreflang: "<link rel=\"alternate\" hreflang=\"en\" href=\"https://milosvasic
       "author": {
         "@id": "https://milosvasic.ru/#identity"
       },
-      "description": "Helix-Flow Platform is positioned as a unified AI-inference platform for running AI models at scale with predictable costs. *(Positioning is sourced from the tagline; concrete capabilities are not documented in any available source.)*",
+      "description": "La plateforme Helix-Flow se présente comme un environnement unifié pour l’inférence AI — permettant d’exécuter des modèles puissants plus rapidement, à toute échelle, avec des coûts prévisibles. (Ce positionnement repose uniquement sur l’accroche ; aucune capacité concrète n’est documentée dans les sources disponibles.)",
       "inLanguage": "fr",
       "name": "Helix-Flow",
       "operatingSystem": "Cross-platform",
@@ -172,55 +172,19 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
 </figure>
 
       <p class="od-product-detail__tagline"><strong>Une plateforme unique pour tous vos besoins d’inférence AI — exécutez des modèles AI puissants plus rapidement, plus intelligemment, à toute échelle, avec des coûts prévisibles.</strong> &gt; <strong>Avis sur la précision (Helix Constitution §11.4.6) :</strong> Helix-Flow dispose d’un dépôt public et vérifiable, mais son fichier README se limite à une seule ligne d’accroche, sans possibilité de consultation locale ni documentation sur la conception ou l’architecture. Seuls deux éléments sont effectivement documentés : l’accroche et la composition linguistique du dépôt. Tous les autres détails ci-dessous sont soit omis, soit explicitement marqués comme NON VÉRIFIÉS. Cette page sert de simple espace réservé et ne doit pas être développée tant que des sources fiables ne sont pas fournies.</p>
+      <p class="od-product-detail__lede">La plateforme Helix-Flow (<code>Helix-Flow/Platform</code>) est un projet public basé sur Go, présenté comme une solution unique pour l’inférence AI à toute échelle, avec des coûts maîtrisés. Son code combine Go, Python et Terraform/HCL, suggérant une plateforme d’inférence déployée via une approche *infrastructure-as-code*. Les fonctionnalités au-delà de l’accroche sont NON VÉRIFIÉES.</p>
+      <p>La plateforme Helix-Flow se présente comme un environnement unifié pour l’inférence AI — permettant d’exécuter des modèles puissants plus rapidement, à toute échelle, avec des coûts prévisibles. *(Ce positionnement repose uniquement sur l’accroche ; aucune capacité concrète n’est documentée dans les sources disponibles.)*</p>
+      <p>La plateforme Helix-Flow est l’unique dépôt de l’organisation GitHub <code>Helix-Flow</code> et se présente — via son README d’une seule ligne — comme *« une plateforme unique pour tous vos besoins d’inférence AI »*, mettant en avant l’exécution de modèles AI puissants, plus rapide et à toute échelle, avec des coûts prévisibles. Au-delà de cette accroche, le projet ne fournit aucune documentation textuelle, si bien que son architecture, ses fonctionnalités et sa conception ne peuvent être décrites à partir des sources sans extrapolation.</p>
+      <p>Ce que l’on peut *objectivement* constater, en revanche, c’est la composition linguistique du dépôt : il repose principalement sur Go et Python dans des proportions quasi égales, avec une part significative de Shell, ainsi que de HTML/CSS/JavaScript (une interface web), PL/pgSQL (un composant adossé à PostgreSQL), HCL (Terraform / *infrastructure-as-code*) et Mermaid (diagrammes). Pris dans leur ensemble, ces éléments *suggèrent* une plateforme de service d’inférence associant une couche de contrôle et de diffusion en Go à des outils de modélisation en Python, un stockage de données PostgreSQL, une interface utilisateur web et un déploiement cloud géré par IaC — mais cette interprétation découle des types de fichiers, <strong>et non d’une documentation officielle</strong>. Pour produire une description produit précise (motivations, innovations, défis techniques, justification technique du choix des technologies), un véritable README, un document d’architecture ou une copie locale du code serait nécessaire. Cette page s’en tient délibérément à ce que permettent les sources disponibles.</p>
       <div class="od-accordion">
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
             <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-0" aria-expanded="true" aria-controls="od-acc-helix-flow-0-panel">
-              <span class="od-accordion__label">Résumé</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-0-panel" role="region" aria-labelledby="od-acc-helix-flow-0">
-            <div class="od-accordion__inner">
-      <p>La plateforme Helix-Flow se présente comme un environnement unifié pour l’inférence AI — permettant d’exécuter des modèles puissants plus rapidement, à toute échelle, avec des coûts prévisibles. *(Ce positionnement repose uniquement sur l’accroche ; aucune capacité concrète n’est documentée dans les sources disponibles.)*</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-1" aria-expanded="true" aria-controls="od-acc-helix-flow-1-panel">
-              <span class="od-accordion__label">Description courte</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-1-panel" role="region" aria-labelledby="od-acc-helix-flow-1">
-            <div class="od-accordion__inner">
-      <p>La plateforme Helix-Flow (<code>Helix-Flow/Platform</code>) est un projet public basé sur Go, présenté comme une solution unique pour l’inférence AI à toute échelle, avec des coûts maîtrisés. Son code combine Go, Python et Terraform/HCL, suggérant une plateforme d’inférence déployée via une approche *infrastructure-as-code*. Les fonctionnalités au-delà de l’accroche sont NON VÉRIFIÉES.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-2" aria-expanded="true" aria-controls="od-acc-helix-flow-2-panel">
-              <span class="od-accordion__label">Description détaillée</span>
-              <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-          </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-2-panel" role="region" aria-labelledby="od-acc-helix-flow-2">
-            <div class="od-accordion__inner">
-      <p>La plateforme Helix-Flow est l’unique dépôt de l’organisation GitHub <code>Helix-Flow</code> et se présente — via son README d’une seule ligne — comme *« une plateforme unique pour tous vos besoins d’inférence AI »*, mettant en avant l’exécution de modèles AI puissants, plus rapide et à toute échelle, avec des coûts prévisibles. Au-delà de cette accroche, le projet ne fournit aucune documentation textuelle, si bien que son architecture, ses fonctionnalités et sa conception ne peuvent être décrites à partir des sources sans extrapolation.</p>
-      <p>Ce que l’on peut *objectivement* constater, en revanche, c’est la composition linguistique du dépôt : il repose principalement sur Go et Python dans des proportions quasi égales, avec une part significative de Shell, ainsi que de HTML/CSS/JavaScript (une interface web), PL/pgSQL (un composant adossé à PostgreSQL), HCL (Terraform / *infrastructure-as-code*) et Mermaid (diagrammes). Pris dans leur ensemble, ces éléments *suggèrent* une plateforme de service d’inférence associant une couche de contrôle et de diffusion en Go à des outils de modélisation en Python, un stockage de données PostgreSQL, une interface utilisateur web et un déploiement cloud géré par IaC — mais cette interprétation découle des types de fichiers, <strong>et non d’une documentation officielle</strong>. Pour produire une description produit précise (motivations, innovations, défis techniques, justification technique du choix des technologies), un véritable README, un document d’architecture ou une copie locale du code serait nécessaire. Cette page s’en tient délibérément à ce que permettent les sources disponibles.</p>
-            </div>
-          </div>
-        </div>
-        <div class="od-accordion__item">
-          <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-3" aria-expanded="true" aria-controls="od-acc-helix-flow-3-panel">
               <span class="od-accordion__label">Pourquoi nous l’avons créée</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-3-panel" role="region" aria-labelledby="od-acc-helix-flow-3">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-0-panel" role="region" aria-labelledby="od-acc-helix-flow-0">
             <div class="od-accordion__inner">
       <p>*NON VÉRIFIÉ — non documenté dans les sources disponibles.* L’accroche laisse supposer un objectif d’inférence AI unifiée et scalable, avec des coûts prévisibles et maîtrisés, mais aucune justification n’est fournie. Aucune motivation n’est explicitée ici.</p>
             </div>
@@ -228,12 +192,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-4" aria-expanded="true" aria-controls="od-acc-helix-flow-4-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-1" aria-expanded="true" aria-controls="od-acc-helix-flow-1-panel">
               <span class="od-accordion__label">Pourquoi c’est révolutionnaire</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-4-panel" role="region" aria-labelledby="od-acc-helix-flow-4">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-1-panel" role="region" aria-labelledby="od-acc-helix-flow-1">
             <div class="od-accordion__inner">
       <p>Contenu</p>
       <p>*NON VÉRIFIÉ — non documenté.* Omis en l’absence de source.</p>
@@ -242,12 +206,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-5" aria-expanded="true" aria-controls="od-acc-helix-flow-5-panel">
-              <span class="od-accordion__label">Ce qui est innovant</span>
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-2" aria-expanded="true" aria-controls="od-acc-helix-flow-2-panel">
+              <span class="od-accordion__label">Les innovations qu’il renferme</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-5-panel" role="region" aria-labelledby="od-acc-helix-flow-5">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-2-panel" role="region" aria-labelledby="od-acc-helix-flow-2">
             <div class="od-accordion__inner">
       <p>*NON VÉRIFIÉ — non documenté.* Omis en l’absence de source.</p>
             </div>
@@ -255,12 +219,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-6" aria-expanded="true" aria-controls="od-acc-helix-flow-6-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-3" aria-expanded="true" aria-controls="od-acc-helix-flow-3-panel">
               <span class="od-accordion__label">Principaux défis techniques et solutions apportées</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-6-panel" role="region" aria-labelledby="od-acc-helix-flow-6">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-3-panel" role="region" aria-labelledby="od-acc-helix-flow-3">
             <div class="od-accordion__inner">
       <p>*NON VÉRIFIÉ — non documenté.* Omis en l’absence de source.</p>
             </div>
@@ -268,12 +232,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-7" aria-expanded="true" aria-controls="od-acc-helix-flow-7-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-4" aria-expanded="true" aria-controls="od-acc-helix-flow-4-panel">
               <span class="od-accordion__label">Pile technologique</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-7-panel" role="region" aria-labelledby="od-acc-helix-flow-7">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-4-panel" role="region" aria-labelledby="od-acc-helix-flow-4">
             <div class="od-accordion__inner">
       <p>Observée uniquement à partir de la composition linguistique du dépôt — rôles et justifications NON VÉRIFIÉS :</p>
       <ul>
@@ -289,12 +253,12 @@ svg{--ink:#1e293b;--muted:#475569;--line:#94a3b8;--accent:#a31e39;--panel:#f8faf
         </div>
         <div class="od-accordion__item">
           <h2 class="od-accordion__heading">
-            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-8" aria-expanded="true" aria-controls="od-acc-helix-flow-8-panel">
+            <button class="od-accordion__trigger" type="button" id="od-acc-helix-flow-5" aria-expanded="true" aria-controls="od-acc-helix-flow-5-panel">
               <span class="od-accordion__label">Statut et notes de transparence</span>
               <svg class="od-icon od-accordion__icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
           </h2>
-          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-8-panel" role="region" aria-labelledby="od-acc-helix-flow-8">
+          <div class="od-accordion__panel is-open" id="od-acc-helix-flow-5-panel" role="region" aria-labelledby="od-acc-helix-flow-5">
             <div class="od-accordion__inner">
       <ul>
         <li><strong>Statut : feuille de route / espace réservé.</strong> Ce dépôt est le seul de l’organisation <code>Helix-Flow</code> ; il est public, a fait l’objet du dernier *push* le 27-04-2026, ne dispose d’aucune page d’accueil définie et n’a pas de licence déclarée. En l’absence de documentation réelle, il ne peut être présenté de manière responsable avec un niveau de détail produit.</li>
