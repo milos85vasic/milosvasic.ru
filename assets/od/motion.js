@@ -40,7 +40,7 @@
    * Scroll reveal + stagger
    * --------------------------------------------------------------------- */
   function initReveal() {
-    var revealEls = qsa('.od-reveal, .od-stagger');
+    var revealEls = qsa('.od-reveal, .od-stagger, .od-divider');
     if (!revealEls.length) return;
 
     // Assign per-child stagger index (CSS reads --od-i).
@@ -287,6 +287,83 @@
   }
 
   /* ----------------------------------------------------------------------- *
+   * Metric count-up. Elements with [data-od-count] hold their FINAL value as
+   * text (so no-JS, reduced-motion, and crawlers always see the real number).
+   * When one scrolls into view we ease it from 0 → target once, preserving any
+   * non-digit prefix/suffix (e.g. "+", "%"). No-op under reduced motion / no-IO.
+   * Not announced by SR mid-animation (no aria-live); the final DOM text is the
+   * authored value.
+   * --------------------------------------------------------------------- */
+  function parseCount(str) {
+    var m = String(str).match(/^(\D*?)([\d][\d.,]*)(\D*)$/);
+    if (!m) return null;
+    var num = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(num)) return null;
+    return { pre: m[1], target: num, suf: m[3], raw: String(str) };
+  }
+  function initCountUp() {
+    var els = qsa('[data-od-count]');
+    if (!els.length) return;
+    if (reduced() || !IO) return; // leave the authored final value in place
+    function run(el) {
+      var info = parseCount(el.getAttribute('data-od-count-final') || el.textContent);
+      if (!info) return;
+      var dur = 1200, start = null;
+      el.textContent = info.pre + '0' + info.suf;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        if (p < 1) {
+          el.textContent = info.pre + Math.round(info.target * eased) + info.suf;
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = info.raw; // restore exact authored text (keeps formatting)
+        }
+      }
+      requestAnimationFrame(step);
+    }
+    var obs = new IO(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { run(entry.target); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.4 });
+    els.forEach(function (el) {
+      // Remember the authored value so a re-run never keys off a mid-count number.
+      if (!el.getAttribute('data-od-count-final')) {
+        el.setAttribute('data-od-count-final', el.textContent);
+      }
+      obs.observe(el);
+    });
+  }
+
+  /* ----------------------------------------------------------------------- *
+   * Magnetic elements. `.od-magnetic` eases a few px toward the pointer on a
+   * FINE pointer only (transform-only, compositor-friendly). Disabled entirely
+   * under reduced motion or a coarse/touch pointer. Focus + activation are
+   * untouched; the transform is reset on leave/blur.
+   * --------------------------------------------------------------------- */
+  function initMagnetic() {
+    var els = qsa('.od-magnetic');
+    if (!els.length || reduced()) return;
+    var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    if (!fine) return;
+    var STRENGTH = 0.25, MAX = 6;
+    function clamp(v) { return v < -MAX ? -MAX : (v > MAX ? MAX : v); }
+    els.forEach(function (el) {
+      el.addEventListener('pointermove', function (ev) {
+        var r = el.getBoundingClientRect();
+        var dx = clamp((ev.clientX - (r.left + r.width / 2)) * STRENGTH);
+        var dy = clamp((ev.clientY - (r.top + r.height / 2)) * STRENGTH);
+        el.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0)';
+      });
+      function reset() { el.style.transform = ''; }
+      el.addEventListener('pointerleave', reset);
+      el.addEventListener('blur', reset);
+    });
+  }
+
+  /* ----------------------------------------------------------------------- *
    * Floating "back to top" — show after threshold, smooth-scroll to top.
    *   .od-to-top is hidden + non-focusable (pointer-events:none) until JS adds
    *   `.is-visible`; reduced-motion callers get an instant jump (no smooth).
@@ -312,6 +389,8 @@
     try { initHighlights(); } catch (e) { warn(e); }
     try { initViewTransitions(); } catch (e) { warn(e); }
     try { initLottie(); } catch (e) { warn(e); }
+    try { initCountUp(); } catch (e) { warn(e); }
+    try { initMagnetic(); } catch (e) { warn(e); }
     try { initBackToTop(); } catch (e) { warn(e); }
   }
   function warn(e) { if (window.console && console.warn) console.warn('[od-motion]', e && e.message); }

@@ -266,6 +266,52 @@
 .od-to-top:focus-visible{outline:2px solid var(--od-focus);outline-offset:2px;}
 @media (prefers-reduced-motion: reduce){.od-to-top{transition:none;}}
 
+/* -----------------------------------------------------------------------------
+ * 12. Accent glow — an opacity-only inner sheen for cards. Lives INSIDE
+ *     overflow:hidden cards, so it is a soft accent that fades in from the top
+ *     edge on hover/focus (compositor-friendly: only `opacity` animates; no
+ *     box-shadow/layout). Colour comes from the brand --od-accent token.
+ * -------------------------------------------------------------------------- */
+.od-glow { position: relative; }
+.od-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(120% 72% at 50% -12%, var(--od-accent, #d11e39) 0%, transparent 58%);
+  opacity: 0;
+  transition: opacity var(--od-dur-base) var(--od-ease-standard);
+}
+.od-glow:hover::after,
+.od-glow:focus-within::after { opacity: 0.14; }
+
+/* -----------------------------------------------------------------------------
+ * 13. Precision divider — a thin accent rule that scales in (scaleX) when it
+ *     enters the viewport (motion.js adds `.is-visible`). Transform-only.
+ * -------------------------------------------------------------------------- */
+.od-divider {
+  height: 2px;
+  border: 0;
+  border-radius: var(--od-radius-pill, 9999px);
+  background: linear-gradient(90deg, transparent, var(--od-accent, #d11e39), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--od-dur-slow) var(--od-ease-standard);
+  will-change: transform;
+}
+.od-divider.is-visible { transform: scaleX(1); }
+
+/* -----------------------------------------------------------------------------
+ * 14. Magnetic — pointer-follow micro-nudge driven by motion.js (fine pointer
+ *     only). A short transition on `transform` gives the reset/settle a springy
+ *     feel; the per-move transform is applied inline. Reduced motion drops it.
+ * -------------------------------------------------------------------------- */
+.od-magnetic {
+  transition: transform var(--od-dur-fast) var(--od-ease-standard);
+  will-change: transform;
+}
+
 /* =============================================================================
  * REDUCED MOTION — neutralize ALL of the above. Instant final states, no loops.
  * ========================================================================== */
@@ -299,6 +345,18 @@
   .od-lift:active {
     transition: none !important;
     animation: none !important;
+  }
+  .od-glow::after,
+  .od-magnetic {
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+  .od-magnetic { transform: none !important; }
+  .od-divider {
+    transition: none !important;
+    transform: scaleX(1) !important; /* show the rule at rest, no scale-in */
+    will-change: auto !important;
   }
   /* Keep semantics visible without motion */
   .od-accordion__inner { opacity: 1 !important; transform: none !important; }
