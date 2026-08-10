@@ -7,36 +7,49 @@
    ========================================================================== */
 
 :root {
-  --bg: #fbfaf9;
-  --surface: #f3f0ee;
-  --surface-2: #eae6e3;
-  --text: #1a1617;
-  --muted: #6f6663;
-  --accent: #a31e39;
-  --accent-ink: #ffffff;
+  /* ── A2 token migration (§11.4.162) ───────────────────────────────────────
+     The bespoke token NAMES are preserved so the ~96 existing usages are
+     untouched, but their VALUES now ALIAS the OpenDesign (--od-*) tokens shipped
+     by /assets/od/milosvasic.css (linked before this stylesheet by default.html).
+     Each keeps its former literal as a fallback for the (now unreachable) case
+     where the OD bundle is absent. Purely-local tokens with no OD equivalent
+     (--accent-soft, --steel, --shadow, --radius, --maxw, --font-*) stay literal. */
+  --bg: var(--od-bg, #fbfaf9);
+  --surface: var(--od-surface, #f3f0ee);
+  --surface-2: var(--od-surface-2, #eae6e3);
+  --text: var(--od-text, #1a1617);
+  --muted: var(--od-text-muted, #6f6663);
+  --accent: var(--od-accent, #a31e39);
+  --accent-ink: var(--od-on-accent, #ffffff);
   --accent-soft: rgba(163, 30, 57, 0.10);
   --steel: #2b3a42;
-  --border: #e4ded9;
+  --border: var(--od-border, #e4ded9);
   --shadow: 0 1px 2px rgba(20,16,17,.04), 0 12px 32px -12px rgba(20,16,17,.14);
   --radius: 14px;
   --maxw: 1080px;
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ── A3 shared overlay tokens ──────────────────────────────────────────────
+     One scrim / blur / fade-duration convention consumed by BOTH modal idioms
+     (.mv-article-modal and .dl-modal), so the two overlays are visually unified
+     and no longer diverge. --mv-scrim flips in dark below. */
+  --mv-scrim: rgba(20, 16, 17, 0.55);
+  --mv-overlay-blur: 6px;
+  --mv-overlay-dur: 250ms;
+
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --bg: #111316;
-  --surface: #181b1f;
-  --surface-2: #21252a;
-  --text: #ecebe9;
-  --muted: #9a938f;
-  --accent: #ec3b58;
-  --accent-ink: #14110f;
+  /* A2: the aliased color tokens (--bg/--surface/--surface-2/--text/--muted/
+     --accent/--accent-ink/--border) are intentionally OMITTED here — they now
+     inherit the OpenDesign dark flip automatically via their --od-* aliases.
+     Only locally-owned tokens (no OD equivalent) keep an explicit dark value. */
   --accent-soft: rgba(236, 59, 88, 0.14);
   --steel: #9fb3bd;
-  --border: #2a2e34;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -16px rgba(0,0,0,.6);
+  --mv-scrim: rgba(0, 0, 0, 0.66);   /* A3: shared scrim, dark */
   color-scheme: dark;
 }
 
@@ -310,7 +323,7 @@ a:hover { text-decoration: underline; }
    ============================================================================= */
 
 .mv-article-modal {
-  --mva-scrim: rgba(20, 16, 17, 0.55);
+  --mva-scrim: var(--mv-scrim, rgba(20, 16, 17, 0.55));   /* A3: shared scrim */
   --mva-panel-bg: var(--surface, #f3f0ee);
   --mva-panel-fg: var(--text, #1a1617);
   --mva-muted: var(--muted, #6f6663);
@@ -334,24 +347,24 @@ a:hover { text-decoration: underline; }
   pointer-events: none;
 }
 
-:root[data-theme="dark"] .mv-article-modal {
-  --mva-scrim: rgba(0, 0, 0, 0.66);
-}
-
 .mv-article-modal[data-open="true"] {
   visibility: visible;
   pointer-events: auto;
 }
+
+/* A3: dark scrim now comes from the shared --mv-scrim flip (:root[data-theme]);
+   the former `:root[data-theme="dark"] .mv-article-modal { --mva-scrim: … }`
+   override was removed so both modals darken from one source of truth. */
 
 /* ---- Scrim / backdrop ----------------------------------------------------- */
 .mv-article-modal__scrim {
   position: absolute;
   inset: 0;
   background: var(--mva-scrim);
-  -webkit-backdrop-filter: blur(6px) saturate(120%);
-  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(var(--mv-overlay-blur, 6px)) saturate(120%);
+  backdrop-filter: blur(var(--mv-overlay-blur, 6px)) saturate(120%);
   opacity: 0;
-  transition: opacity 250ms ease;
+  transition: opacity var(--mv-overlay-dur, 250ms) ease;
 }
 
 .mv-article-modal[data-open="true"] .mv-article-modal__scrim { opacity: 1; }
@@ -531,7 +544,11 @@ a:hover { text-decoration: underline; }
 }
 
 /* ---- Body scroll lock helper (toggled by JS) ------------------------------ */
-body.mv-article-lock { overflow: hidden; }
+/* A3: ONE shared lock class for BOTH modal idioms (article reader + download
+   chooser). Previously downloads.js accidentally borrowed the article-specific
+   `mv-article-lock`; the class is now the intentional, shared `mv-modal-lock`
+   used deliberately by articles.js and downloads.js alike. */
+body.mv-modal-lock { overflow: hidden; }
 
 /* Read-more trigger on project cards */
 .card-more { display:inline-block; margin-left:1rem; font-weight:600; color:var(--accent,#a31e39); cursor:pointer; text-decoration:none; }
@@ -547,10 +564,16 @@ body.mv-article-lock { overflow: hidden; }
 .hx-article p { margin:0 0 1rem; }
 
 /* Download language chooser popup */
-.dl-modal { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; opacity:0; transition:opacity .2s ease; }
+/* A3: the download chooser now shares the article modal's overlay convention —
+   same scrim colour (--mv-scrim, dark-flipping), same backdrop blur
+   (--mv-overlay-blur) and same fade duration (--mv-overlay-dur). The panel
+   (.dl-card) already shares the bespoke surface/border/radius/shadow tokens,
+   which now alias OpenDesign. Full DOM/structural merge was intentionally NOT
+   done (different markup sources: static default.html vs JS-built article modal). */
+.dl-modal { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; opacity:0; transition:opacity var(--mv-overlay-dur, .2s) ease; }
 .dl-modal.open { opacity:1; }
 .dl-modal[hidden] { display:none; }
-.dl-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(4px); }
+.dl-backdrop { position:absolute; inset:0; background:var(--mv-scrim, rgba(0,0,0,.55)); backdrop-filter:blur(var(--mv-overlay-blur, 6px)); }
 /* Card is a bounded flex column: the header (eyebrow/name/choose) stays fixed and
    the language list scrolls, so the full list (all 15 languages) is always
    reachable even at a short viewport (BUG #64). max-height uses dvh where
@@ -583,10 +606,16 @@ body.mv-article-lock { overflow: hidden; }
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 
 :root{
-  --bg:#f4f1ea; --surface:#ffffff; --surface-2:#ece7dc;
-  --text:#16130f; --muted:#5c5751;
-  --accent:#a31e39; --accent-ink:#ffffff; --accent-soft:rgba(163,30,57,.10);
-  --steel:#2b3a42; --border:#2a241d;
+  /* A2 (§11.4.162): this is the WINNING :root (later plain :root beats the one at
+     the top of the file), so it must alias --od-* too or OpenDesign never takes
+     effect. Color tokens alias --od-* (former brutalist literals kept as fallback);
+     the structural tokens (--radius / --shadow / --maxw / --font-*) stay LOCAL so
+     the Terminal-Brutalist geometry (hard 2px frames, offset print shadows, Anton
+     display) is preserved — only the palette migrates to OpenDesign. */
+  --bg:var(--od-bg,#f4f1ea); --surface:var(--od-surface,#ffffff); --surface-2:var(--od-surface-2,#ece7dc);
+  --text:var(--od-text,#16130f); --muted:var(--od-text-muted,#5c5751);
+  --accent:var(--od-accent,#a31e39); --accent-ink:var(--od-on-accent,#ffffff); --accent-soft:rgba(163,30,57,.10);
+  --steel:#2b3a42; --border:var(--od-border,#2a241d);
   --radius:2px; --maxw:1120px;
   --shadow:4px 4px 0 rgba(22,19,15,.16);
   --font-display:"Anton","Space Grotesk",system-ui,sans-serif;
@@ -594,10 +623,9 @@ body.mv-article-lock { overflow: hidden; }
   --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 :root[data-theme="dark"]{
-  --bg:#14110d; --surface:#1c1813; --surface-2:#26211a;
-  --text:#f2ede3; --muted:#a89f92;
-  --accent:#f05a6f; --accent-ink:#14110d; --accent-soft:rgba(236,59,88,.16);
-  --border:#4a4136;
+  /* A2: aliased color tokens omitted — they inherit the OpenDesign dark flip via
+     --od-*. Only locally-owned brutalist tokens keep an explicit dark value. */
+  --accent-soft:rgba(236,59,88,.16);
   --shadow:5px 5px 0 rgba(0,0,0,.5);
 }
 

@@ -81,7 +81,9 @@
     render(doc);
     lastFocus = document.activeElement;
     modal.hidden = false;
-    document.body.classList.add('mv-article-lock');
+    // A3: shared body-scroll-lock class, consistent with articles.js (LOCK_CLASS).
+    // Was the article-specific 'mv-article-lock'; now the intentional 'mv-modal-lock'.
+    document.body.classList.add('mv-modal-lock');
     requestAnimationFrame(function () { modal.classList.add('open'); });
     var cur = modal.querySelector('.dl-lang--current') || modal.querySelector('.dl-x');
     if (cur) cur.focus();
@@ -89,7 +91,7 @@
   }
   function close() {
     modal.classList.remove('open');
-    document.body.classList.remove('mv-article-lock');
+    document.body.classList.remove('mv-modal-lock');
     document.removeEventListener('keydown', onKey);
     setTimeout(function () { modal.hidden = true; }, 200);
     if (lastFocus && lastFocus.focus) lastFocus.focus();

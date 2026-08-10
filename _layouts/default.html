@@ -27,6 +27,12 @@
   {% if page.seo_hreflang %}{{ page.seo_hreflang }}{% endif %}
   <!-- Fonts are self-hosted via assets/od/fonts.css (linked by the OD asset bundle);
        the remote Google Fonts CDN was redundant + render-blocking and has been removed. -->
+  <!-- OpenDesign brand tokens (§11.4.162, backlog A2): load the --od-* design tokens on
+       EVERY default-layout page — including article-modal host pages — BEFORE style.css,
+       so the bespoke token names in style.scss (now aliased to --od-*) resolve to
+       OpenDesign values site-wide. Harmless double-load on OD-native pages (home /
+       portfolio / product) that already self-link this bundle from their content. -->
+  <link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <!-- WCAG 2.2 AA: Focus appearance via CSS custom property -->
   <style>:root { --focus-w: 2.5px; --focus-offset: 3px; }</style>

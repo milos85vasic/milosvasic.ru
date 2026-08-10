@@ -22,7 +22,9 @@
   if (window.MVArticles) return;
 
   var PREFIX = "mv-article-modal";
-  var LOCK_CLASS = "mv-article-lock";
+  // A3: one shared body-scroll-lock class for both modal idioms (article reader +
+  // download chooser). CSS rule lives in style.scss as `body.mv-modal-lock`.
+  var LOCK_CLASS = "mv-modal-lock";
 
   var I18N_DEFAULTS = {
     loading: "Loading…",
