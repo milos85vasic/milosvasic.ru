@@ -323,15 +323,19 @@ a:hover { text-decoration: underline; }
    ============================================================================= */
 
 .mv-article-modal {
-  --mva-scrim: var(--mv-scrim, rgba(20, 16, 17, 0.55));   /* A3: shared scrim */
-  --mva-panel-bg: var(--surface, #f3f0ee);
-  --mva-panel-fg: var(--text, #1a1617);
-  --mva-muted: var(--muted, #6f6663);
-  --mva-accent: var(--accent, #a31e39);
-  --mva-accent-ink: var(--accent-ink, #ffffff);
-  --mva-border: var(--border, #e4ded9);
-  --mva-radius: var(--radius, 14px);
-  --mva-shadow: var(--shadow, 0 1px 2px rgba(20, 16, 17, .04), 0 24px 60px -18px rgba(20, 16, 17, .5));
+  /* A2 (§11.4.162): these local aliases reference the bespoke tokens directly.
+     The former literal fallbacks were dropped — each bespoke token already carries
+     its own OpenDesign alias + literal fallback in :root (single source of truth),
+     so the duplicate component-level fallbacks were dead and are no longer needed. */
+  --mva-scrim: var(--mv-scrim);
+  --mva-panel-bg: var(--surface);
+  --mva-panel-fg: var(--text);
+  --mva-muted: var(--muted);
+  --mva-accent: var(--accent);
+  --mva-accent-ink: var(--accent-ink);
+  --mva-border: var(--border);
+  --mva-radius: var(--radius);
+  --mva-shadow: var(--shadow);
   --mva-font-body: var(--font-body, "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif);
   --mva-font-display: var(--font-display, "Space Grotesk", "Inter", system-ui, sans-serif);
   --mva-font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
@@ -457,7 +461,7 @@ a:hover { text-decoration: underline; }
 .mv-article-modal__body a { color: var(--mva-accent); text-decoration: underline; text-underline-offset: 2px; }
 .mv-article-modal__body img { max-width: 100%; height: auto; border-radius: 10px; }
 .mv-article-modal__body pre {
-  background: var(--bg, #fbfaf9);
+  background: var(--bg);
   border: 1px solid var(--mva-border);
   border-radius: 10px;
   padding: 1rem 1.1rem;
@@ -551,15 +555,15 @@ a:hover { text-decoration: underline; }
 body.mv-modal-lock { overflow: hidden; }
 
 /* Read-more trigger on project cards */
-.card-more { display:inline-block; margin-left:1rem; font-weight:600; color:var(--accent,#a31e39); cursor:pointer; text-decoration:none; }
+.card-more { display:inline-block; margin-left:1rem; font-weight:600; color:var(--accent); cursor:pointer; text-decoration:none; }
 .card-more:hover { text-decoration:underline; }
 
 /* Injected article (read-more) content typography */
 .hx-article { line-height:1.7; }
-.hx-article-head { border-bottom:1px solid var(--border,#2a2a35); padding-bottom:.75rem; margin-bottom:1.25rem; }
+.hx-article-head { border-bottom:1px solid var(--border); padding-bottom:.75rem; margin-bottom:1.25rem; }
 .hx-article-head h1 { margin:0 0 .35rem; font-size:clamp(1.5rem,4vw,2rem); }
 .hx-article-tech { font-family:var(--mono,monospace); font-size:.8rem; opacity:.7; margin:.2rem 0; }
-.hx-article-repo a { color:var(--accent,#a31e39); }
+.hx-article-repo a { color:var(--accent); }
 .hx-article h2 { margin:1.5rem 0 .5rem; font-size:1.15rem; }
 .hx-article p { margin:0 0 1rem; }
 
@@ -573,21 +577,21 @@ body.mv-modal-lock { overflow: hidden; }
 .dl-modal { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; opacity:0; transition:opacity var(--mv-overlay-dur, .2s) ease; }
 .dl-modal.open { opacity:1; }
 .dl-modal[hidden] { display:none; }
-.dl-backdrop { position:absolute; inset:0; background:var(--mv-scrim, rgba(0,0,0,.55)); backdrop-filter:blur(var(--mv-overlay-blur, 6px)); }
+.dl-backdrop { position:absolute; inset:0; background:var(--mv-scrim); backdrop-filter:blur(var(--mv-overlay-blur, 6px)); }
 /* Card is a bounded flex column: the header (eyebrow/name/choose) stays fixed and
    the language list scrolls, so the full list (all 15 languages) is always
    reachable even at a short viewport (BUG #64). max-height uses dvh where
    supported so the mobile URL bar can't clip it; safe-area padding keeps the last
    row clear of the home indicator. */
-.dl-card { position:relative; display:flex; flex-direction:column; background:var(--surface,#15151c); color:var(--text,#eee); border:1px solid var(--border,#2a2a35); border-radius:var(--radius,14px); padding:1.75rem; max-width:420px; width:calc(100% - 2rem); max-height:min(90vh,760px); max-height:min(90dvh,760px); box-shadow:var(--shadow,0 20px 60px rgba(0,0,0,.5)); transform:translateY(8px) scale(.98); transition:transform .2s ease; }
+.dl-card { position:relative; display:flex; flex-direction:column; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:var(--radius); padding:1.75rem; max-width:420px; width:calc(100% - 2rem); max-height:min(90vh,760px); max-height:min(90dvh,760px); box-shadow:var(--shadow); transform:translateY(8px) scale(.98); transition:transform .2s ease; }
 .dl-modal.open .dl-card { transform:none; }
 .dl-x { position:absolute; top:.5rem; right:.7rem; background:none; border:none; font-size:1.6rem; line-height:1; color:inherit; cursor:pointer; opacity:.7; }
 .dl-x:hover { opacity:1; }
 .dl-doc-name { margin:.1rem 0 .2rem; }
 .dl-choose { opacity:.75; margin:.25rem 0 1rem; }
 .dl-langs { display:flex; flex-direction:column; gap:.6rem; flex:1 1 auto; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; margin-inline:-.25rem; padding-inline:.25rem; padding-bottom:env(safe-area-inset-bottom,0px); }
-.dl-lang { display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; border:1px solid var(--border,#2a2a35); border-radius:10px; text-decoration:none; color:inherit; transition:border-color .15s, background .15s; }
-.dl-lang:hover { border-color:var(--accent,#a31e39); background:rgba(163,30,57,.08); }
+.dl-lang { display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:inherit; transition:border-color .15s, background .15s; }
+.dl-lang:hover { border-color:var(--accent); background:var(--accent-soft); }
 .dl-lang .mono { opacity:.6; font-size:.8rem; }
 @media (prefers-reduced-motion: reduce) { .dl-modal, .dl-card { transition:none; } }
 
