@@ -23,7 +23,22 @@
       } catch (e) {}
     })();
   </script>
-  {% seo %}
+  {%- comment -%}
+    <title> is emitted HERE, not by jekyll-seo-tag. jekyll-seo-tag 2.8 always
+    appends " | {{ site.title }}" to page.title (lib/jekyll-seo-tag/drop.rb#title),
+    which doubled the brand on every generated page — "HelixTrack — Miloš Vasić |
+    Miloš Vasić", "Портфолио — Miloš Vasić | Miloš Vasić". The generator already
+    composes the complete, per-language title (_tools/gen: home.go, product.go,
+    portfolio.go), so the plugin's <title> is suppressed with `title=false` and the
+    front-matter title is printed verbatim — matching how vasic.digital's
+    self-contained pages emit their own <title>. `title=false` suppresses ONLY the
+    <title> element; og:title, twitter:title, canonical, description and the
+    JSON-LD block are still emitted by the seo tag below.
+    A page with no front-matter title keeps the plugin's historical site-level
+    fallback ("<site.title> | <site.tagline>").
+  {%- endcomment -%}
+  <title>{% if page.title %}{{ page.title | escape_once }}{% else %}{{ site.title }} | {{ site.tagline | default: site.description | normalize_whitespace | escape_once }}{% endif %}</title>
+  {% seo title=false %}
   {% if page.seo_hreflang %}{{ page.seo_hreflang }}{% endif %}
   <!-- Fonts are self-hosted via assets/od/fonts.css (linked by the OD asset bundle);
        the remote Google Fonts CDN was redundant + render-blocking and has been removed. -->
