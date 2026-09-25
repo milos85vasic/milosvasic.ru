@@ -8,7 +8,7 @@
   var themeBtn = document.getElementById('theme-btn');
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
-    try { localStorage.setItem('mv-theme', t); } catch (e) {}
+    try { localStorage.setItem('mv-theme', t); } catch (e) { if (window.console && console.debug) console.debug('mv-theme: localStorage unavailable', e); }
     if (themeBtn) {
       themeBtn.textContent = t === 'dark' ? '☀' : '◐';
       themeBtn.setAttribute('aria-pressed', String(t === 'dark'));
@@ -44,7 +44,7 @@
     root.setAttribute('lang', code);
     root.setAttribute('dir', (code === 'ar' || code === 'fa' || code === 'he') ? 'rtl' : 'ltr');
     if (langBtn) langBtn.textContent = code.toUpperCase();
-    try { localStorage.setItem('mv-lang', code); } catch (e) {}
+    try { localStorage.setItem('mv-lang', code); } catch (e) { if (window.console && console.debug) console.debug('mv-lang: localStorage unavailable', e); }
     if (langMenu) {
       langMenu.querySelectorAll('button').forEach(function (b) {
         b.setAttribute('aria-current', String(b.dataset.code === code));
@@ -67,7 +67,7 @@
     var page = window.MV_PAGE;
     var url = (page && page.paths && page.paths[code]) || homeURL(code);
     if (code !== pageHomeLang) {
-      try { localStorage.setItem('mv-lang', code); } catch (e) {}
+      try { localStorage.setItem('mv-lang', code); } catch (e) { if (window.console && console.debug) console.debug('mv-lang: localStorage unavailable', e); }
       window.location.href = url;
       return;
     }

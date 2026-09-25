@@ -785,7 +785,7 @@ window.MV_I18N = {
     var dict = window.MV_I18N || {};
     var langs = (window.MV_LANGS || []).map(function (l) { return l.code; });
     var stored = null;
-    try { stored = localStorage.getItem('mv-lang'); } catch (e) {}
+    try { stored = localStorage.getItem('mv-lang'); } catch (e) { if (window.console && console.debug) console.debug('mv-lang: localStorage unavailable', e); }
     if (stored && langs.indexOf(stored) > -1) return; // honor user's choice
     var pageLang = (document.documentElement.getAttribute('lang') || '').slice(0, 2);
     if (!pageLang || pageLang === 'en') return;
@@ -812,5 +812,8 @@ window.MV_I18N = {
     } else {
       apply();
     }
-  } catch (e) { /* never block page render on i18n */ }
+  } catch (e) {
+    // never block page render on i18n — but do not swallow silently either
+    if (window.console && console.debug) console.debug('i18n: apply failed, page left as rendered', e);
+  }
 })();

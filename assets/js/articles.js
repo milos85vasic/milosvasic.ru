@@ -196,7 +196,7 @@
         state.el.setAttribute("aria-labelledby", h1.id);
         state.el.removeAttribute("aria-label");
       }
-      try { state.body.focus({ preventScroll: true }); } catch (_) {}
+      try { state.body.focus({ preventScroll: true }); } catch (_) { if (window.console && console.debug) console.debug('articles: focus() unavailable', _); }
     }).catch(function () {
       if (rid !== state.reqId || !state.open) return;
       showError(slug, trigger);

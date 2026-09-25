@@ -31,7 +31,10 @@ defaults:
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-feed
+  # jekyll-feed is NOT enabled: it lists Jekyll _posts (this site has none) and served a
+  # valid but EMPTY /feed.xml (audit 2026-09-24). The feeds are emitted by the content
+  # generator instead (_tools/gen/feed.go: /feed.xml and /<lang>/feed.xml from the
+  # product pages). The gem stays in the Gemfile only so Gemfile.lock is untouched.
 
 # Build hygiene
 exclude:

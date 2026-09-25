@@ -20,7 +20,7 @@
         document.documentElement.setAttribute('data-theme', t);
         var l = localStorage.getItem('mv-lang');
         if (l) document.documentElement.setAttribute('lang', l);
-      } catch (e) {}
+      } catch (e) { if (window.console && console.debug) console.debug('mv-theme/lang: localStorage unavailable', e); }
     })();
   </script>
   {%- comment -%}
@@ -40,6 +40,13 @@
   <title>{% if page.title %}{{ page.title | escape_once }}{% else %}{{ site.title }} | {{ site.tagline | default: site.description | normalize_whitespace | escape_once }}{% endif %}</title>
   {% seo title=false %}
   {% if page.seo_hreflang %}{{ page.seo_hreflang }}{% endif %}
+  {%- comment -%}
+    Atom feed of the site's product pages, one per language. Emitted by the content
+    generator (_tools/gen/feed.go): /feed.xml for English, /<lang>/feed.xml for the
+    rest. NOT hreflang: this link has no hreflang attribute on purpose, so the
+    hreflang-cluster tests and crawlers are unaffected.
+  {%- endcomment -%}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{% if _pl == 'en' %}{{ '/feed.xml' | relative_url }}{% else %}{{ '/' | append: _pl | append: '/feed.xml' | relative_url }}{% endif %}">
   <!-- Fonts are self-hosted via assets/od/fonts.css (linked by the OD asset bundle);
        the remote Google Fonts CDN was redundant + render-blocking and has been removed. -->
   <!-- OpenDesign brand tokens (§11.4.162, backlog A2): load the --od-* design tokens on
