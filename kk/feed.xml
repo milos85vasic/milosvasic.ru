@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kk">
+  <id>https://milosvasic.ru/kk/feed.xml</id>
+  <title>Miloš Vasić</title>
+  <updated>2026-09-25T00:00:00Z</updated>
+  <author><name>Miloš Vasić</name></author>
+  <link rel="self" type="application/atom+xml" href="https://milosvasic.ru/kk/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://milosvasic.ru/kk/"/>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/catalogizer.html</id>
+    <title>Catalogizer — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/catalogizer.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Catalogizer — өз серверіңізде орналастырылатын медиа коллекциясын басқару жүйесі. Ол SMB, FTP, NFS, WebDAV және жергілікті файлдық жүйелер бойынша медианы автоматты түрде анықтап, санақтайды, жіктейді, нақты уақытта бақылайды, шифрланған сақтауды, сыртқы метадеректермен байытуды және жоғары өнімділікке негізделген React интерфейсін қолдайды.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/courses-creator.html</id>
+    <title>Courses-Creator — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/courses-creator.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Courses-Creator — маркдаун сценарийлерін AI технологиясымен жаңартылған кәсіби бейнекурстарға айналдыратын құралдар жинағы: көп LLM провайдерлері арқылы контентті байыту (OpenAI/Anthropic/Ollama), жоғары сапалы TTS және фондық музыка, сондай-ақ десктоп, мобильді және веб ойнатқыштарға Docker арқылы орнату мен Prometheus/Grafana мониторингі.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/docprocessor.html</id>
+    <title>DocProcessor — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/docprocessor.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>DocProcessor – жоба құжаттамасын жүктейтін, құрылымды мүмкіндіктер картасын жасап, растау қамтуын бақылайтын жеке, толық ажыратылған Go модулі. Ол LLM агенттерімен интеллектуалды мүмкіндіктерді шығару үшін әзірленген, бірақ офлайн қолдану үшін эвристикалық шығаруды да қамтиды.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/docs-chain.html</id>
+    <title>Docs Chain — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/docs-chain.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Docs Chain — әмбебап, Go-ті қолданған екі бағытты құжат-және-дерекқор тәуелділік тарату қозғалтқышы. Тіркелген тізбектегі кез келген мүше өзгерген кезде — Markdown бастапқы мәтіні, HTML/PDF/DOCX экспорты немесе SQLite дерекқоры — ол өзгерісті мазмұндық хэш арқылы анықтап, барлық байланысқан мүшелерге атомдық түрде таратады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helix-flow.html</id>
+    <title>Helix-Flow — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helix-flow.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Helix-Flow Платформасы AI модельдерін іске қосу үшін бірыңғай, біріктірілген орта ретінде орналастырылған — қуатты модельдерді жылдамырақ, кез келген масштабта, болжамды құнымен іске қосуға мүмкіндік береді. (Орналастыру тек слоганнан алынған; нақты мүмкіндіктер қол жетімді бастапқы кодта құжатталмаған.)</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixagent.html</id>
+    <title>HelixAgent — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixagent.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixAgent — Go негізіндегі, AI технологиясымен жұмыс істейтін ансамбльдік LLM қызметі. Ол көптеген тілдік модельдердің жауаптарын — көп кезеңді AI пікірталас жүйесін және динамикалық тексеруге негізделген провайдерлерді таңдауды — біріктіріп, ең дәл және сенімді нәтижені қалыптастырады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixbuilder.html</id>
+    <title>HelixBuilder — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixbuilder.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixBuilder — қабықша арқылы басқарылатын, AI-қуатталған қосымша құру құбыры. Бір орнату скрипті арқылы таңдалған категорияға — Жалпы, Кодер, Тестер, Аудармашы немесе генеративтік медиа (анимация, аудио, JPEG, PNG, SVG) — арнайы құралдар тізбегі орнатылады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixcluster.html</id>
+    <title>HelixCluster — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixcluster.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Helix Cluster OS — келесі буын таратылған операциялық жүйе, ол әртүрлі түйіндер арасындағы есептеуді үйлестіреді — мәліметтер орталығының GPU-ларынан бастап шеткі бір тақшалы компьютерлер мен қол құрылғыларына дейін — жоғары өнімді есептеудің жоспарлауын, контейнерлерді үйлестіруді, AI/ML деректерді өңдеуді, федерацияланған көп кластерлік жұмысты және қауіпсіз көп пайдаланушылық сеанстарды бір басқару жазықтығында біріктіреді.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixcode.html</id>
+    <title>HelixCode — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixcode.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixCode – Go тілінде жазылған кәсіпорын деңгейіндегі таратылған AI даму платформасы. Ол жұмысты SSH негізіндегі жұмысшы желісі бойынша ақылды тапсырмаларға бөледі, автоматты бақылау нүктелері мен кері қайтару арқылы жетістіктерді сақтайды, бірнеше LLM провайдерлерін біріктіреді және REST, CLI, ТЖЖ және MCP интерфейстері арқылы дамудың толық циклін басқарады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixconstitution.html</id>
+    <title>HelixConstitution — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixconstitution.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixConstitution — бұл бір ғана, жобаға тәуелсіз ережелер жинағы. Ол әрбір Helix/vasic-digital жобасына Git субмодулі ретінде қосылып, келіспейтін инженерлік тәртіпті (бұлфқа қарсы, дәлелдермен тексеру, деректер мен хост қауіпсіздігі, құжаттама және тест қамтуы) кодтап, оны 140-тан астам репозиторийлер флотына таратады. Бұл — бүкіл жүйенің тұтастығын қамтамасыз ететін басқару негізі.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixgitpx.html</id>
+    <title>HelixGitpx — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixgitpx.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixGitpx (Helix Git прокси кеңейтілген) — бір шындық көзін көптеген жоғары деңгейлі Git хосттары арасында айналып тұратын федерацияланған Git проксисі. Ол қажетті konflтктерді саясаттық және AI көмегімен ажырату ағымдарын қолдана отырып шешеді. Жоба v1.0.0 GA нұсқасына жетті.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixllm.html</id>
+    <title>HelixLLM — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixllm.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixLLM — кәсіпорын деңгейіндегі таратылған LLM жүйесі, Go негізінде жасалған: бір бинарлық файл режимдер жүйесі арқылы бір хосттық әзірлеуден көп хосттық өндіріске дейін масштабталады. Ол HTTP/3 арқылы толық OpenAI- және Anthropic-үйлесімді API-лерді ұсынады, жергілікті llama.cpp инференсін, бағаланған көп провайдерлік резервтік тізбекті, RAG конвейерін және ReAct агент жүйесін қамтиды.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixmemory.html</id>
+    <title>HelixMemory — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixmemory.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixMemory — бұл AI қолданбалары үшін біртұтас когнитивтік жады қозғалтқышы ретінде әрекет ететін Go SDK. Ол төрт жетекші жады жүйесін (Mem0, Cognee, Letta, Graphiti) біріктіріп, оларды параллель іздейді және нәтижелерді біріктіреді. Бұл AI қолданбаларына төрт бөлек емес, бір тұрақты, қайталанбаған, қайта рейтингтелген жады қабатын береді.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixota.html</id>
+    <title>HelixOTA — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixota.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Helix OTA — жалпыға ортақ, терең тәуелсіз әуе арқылы жаңарту жүйесі: Go басқару жазықтығы мен әрбір операциялық жүйеге арналған клиент агенттері. Ол бір тақшадан бастап миллиондаған құрылғыларға дейінгі парктерге қауіпсіз, кезең-кезеңмен прошивка/қосымша жаңартуларын жеткізуге арналған. Алғашқы нысанасы — Orange Pi 5 Max-тағы Android 15.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixplay.html</id>
+    <title>HelixPlay — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixplay.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixPlay – бұл өзіңіз басқара алатын бұлттық ойын платформасы. Ол кез келген GPU құрылғысын қашықтан ағындық тарату серверіне айналдырып, консоль деңгейіндегі ойынды үстелді компьютерге, мобильді құрылғыға, теледидарға және браузерге жеткізеді. Ол Go негізіндегі 46 кіші модульден тұратын монорепозиторий ретінде жасалған және әріптестер үшін ақ таңбалауға болады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixqa.html</id>
+    <title>HelixQA — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixqa.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixQA — бұл кросс-платформалық тестілеуге (Android, Android TV, Web, Desktop) арналған антиблефтік QA оркестрациясының фреймворкі. Ол YAML тест банктерін, нақты уақыттағы апатты анықтауды, қадамдық дәлелдерді жинауды және LLM компьютерлік көруі бар автономды QA сессияларын біріктіреді, осы арқылы мүмкіндіктердің соңғы нүктеге дейін нақты жұмыс істейтінін дәлелдейді. Бұл Constitution құжатының міндетті QA тест түрі (§11.4.169).</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixskills.html</id>
+    <title>HelixSkills — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixskills.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixSkills — бұл CLI AI агенттері үшін дағдылар жүйесі. Ол Helix Constitution модулін ішкі модуль ретінде қамтиды, сондықтан әмбебап басқару ережелері шартсыз қолданылады. Жүйе агент дағдыларын, MCP құралдық серверлерін, Claude Code плагиндерін және қайта пайдаланылатын қозғалтқыштарды тіркеуге болатын, құжатталған каталог түрінде ұсынады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixspecifier.html</id>
+    <title>HelixSpecifier — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixspecifier.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixSpecifier — үш әзірлеу әдістемесінің — SpecKit-тің спецификацияға негізделген жұмыс ағынын, Superpowers-тің TDD тәртібін және GSD-дің мақсаттық өмірлік циклін — бір бейімдемелі ағынға біріктіретін Go қозғалтқышы. Ол әр тапсырманы күш-жігер деңгейіне қарай жіктейді және процесстің көлемін тиісті түрде реттейді.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixterminator.html</id>
+    <title>HelixTerminator — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixterminator.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixTerminator — кәсіпорындық терминал және SSH сеанстарын басқару платформасы. Ол Go микросервистер жүйесі ретінде құрылған, алты платформаға арналған Flutter клиенттерімен жабдықталған. Платформа нөлге сенімсіз модель бойынша қашықтағы сеанстарды делдалдайды, жазады және қауіпсіздендіреді, нақты уақыттағы ынтымақтастықты қамтамасыз етеді және терминалға AI көмегін қосады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixtrack.html</id>
+    <title>HelixTrack — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixtrack.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixTrack – JIRA (және оның «Документтер» кеңейтімі арқылы Confluence) баламасы ретінде жасалған ашық бастаулы, заманауи жобаларды басқару және мәселелерді бақылау жүйесі. Go микросервистер негізінде құрылған бұл жүйе веб, десктоп және мобильді платформаларға арналған туынды клиенттерді қолдайды.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/helixtranslate.html</id>
+    <title>HelixTranslate — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/helixtranslate.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixTranslate — Go негізіндегі жоғары өнімді электрондық кітаптарды аудару платформасы. Ол 100-нан астам тілдер арасында кітаптарды тексерілген LLM провайдерлері арқылы аударады, нақты уақыттағы WebSocket мониторингімен және үнсіз резервтік нұсқаға көшпеу саясатымен жұмыс істейді. Мұндай саясат сәтсіздіктерді ашық түрде көрсетеді, ешқашан бейхабар түрде сапасын төмендетпейді.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/herald.html</id>
+    <title>Herald — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/herald.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Herald жүйелік оқиғаларды қабылдайды және оларды бірнеше хабарландыру арналарына сенімді түрде таратады, әрбір ескерту дұрыс орынға жетеді. Абоненттер табиғи тілде әрекет жасайды; Herald ниетті үш деңгейлі әдістеме арқылы анықтайды (команданы жылдам жолмен тану → LLM ниетті болжау → түсіндіруге қайта оралу).</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/llmorchestrator.html</id>
+    <title>LLMOrchestrator — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/llmorchestrator.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>LLMOrchestrator — автономды CLI агенттерін (OpenCode, Claude Code, Gemini, Junie, Qwen Code) іске қосу, басқару және араласу үшін пайдаланылатын жеке, қайта қолданылатын Go модулі. Ол аралас құбыр+файл протоколы арқылы әрбір агентке арналған схемалық үзілістер, ауыстырылатын көп провайдерлік таңдау, бөлектелген i18n абстракциясы және алдаушылыққа қарсы тест кепілдіктерімен жабдықталған.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/llmprovider.html</id>
+    <title>LLMProvider — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/llmprovider.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>LLMProvider — жалпы қолданылатын, қайта пайдаланылатын Go модулі. Ол біріккен LLMProvider интерфейсін және оған байланысты өндірістік төзімділік үлгілерін анықтайды: схемалық қорғағыш, денсаулық мониторингі, кері шегінумен қайталау, кейін жүктеу. Сонымен қатар, бір келісімшарт арқылы 43 нақты провайдердің іске асыруын ұсынады, OpenAI-ке үйлесімді жалпылама адаптер және адал, қатты кодталмаған резервтік модельді анықтау жүйесі бар.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/llmsverifier.html</id>
+    <title>LLMsVerifier — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/llmsverifier.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>LLMsVerifier – әртүрлі провайдерлер бойынша Зур Тіл Модельдерін (ЗТМ) тексеру, мониторингтеу және оптималдау үшін арналған кәсіпорын деңгейіндегі платформа. Әрбір модель қолданысқа жіберілмес бұрын міндетті "Менің кодымды көресің бе?" тексеру тестінен өтуі керек. Тек нақты жұмыс істейтіні дәлелденген модельдер ғана "пайдалануға жарамды" деп белгіленіп, экспортталады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/mail-server-factory.html</id>
+    <title>Mail Server Factory — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/mail-server-factory.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Mail Server Factory — өндіріске дайын, автоматтандырылған пошта серверін орнату құралы. Пайдаланушы қарапайым JSON конфигурациясын жазады; Фабрика оны оқып, нысаналы ОЖ-ге барлық орнатулар мен инициализациялауларды орындайды, 12 байланыс түрі бойынша Docker негізіндегі еркін байланысқан пошта стегін орналастырады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/parallels-utils.html</id>
+    <title>Parallels-Utils — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/parallels-utils.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Parallels-Utils – Parallels (macOS) виртуалды машина бейнелерін басқаруға арналған Server Factory құралдар жиынтығы: әзірлеу және сынақ үшін қолданылатын бейнелер "матрицасын" сығу мен синхрондау, оларды қашықтағы соңғы нүктеге жариялау, сондай-ақ бірнеше жұмыс бекеті немесе серверде алу және іске қосу. Жеке қолдануға немесе Server Factory құрамында пайдалануға болады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/qemu-utils.html</id>
+    <title>Qemu-Utils — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/qemu-utils.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Qemu-Utils — QEMU виртуалдандыруды кешенді басқаруға арналған Server Factory құралы: ВМ бейнелерін автоматты түрде тарату және сығу, жергілікті кеш, көпір/TAP желілік конфигурациясы, ISO негізіндегі ОЖ орнату және аппараттық жеделдетумен Linux/macOS платформаларында жұмыс істеу. Жеке қолданыла алады немесе Server Factory жүйесінің құрамында пайдаланылады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/server-factory-additional-components.html</id>
+    <title>Server Factory — Additional Components — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/server-factory-additional-components.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Mail Server Factory және Core Framework-тен басқа, Server-Factory ұйымында бірнеше кішірек компоненттер бар: әрбір қызметке арналған "фабрикалар" (Web Service, SonarQube, Caching Proxy), декларативті конфигурациялық пакеттер (Docker/Stack/Software Definitions) және ортақ Utils. Бұл біріктірілген бет оларды толықтай аяқталған өнімдер ретінде емес, шындыққа сай көрсетеді — олардың бірқатары алғашқы кезеңде немесе құжаттамасы жеткіліксіз.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/server-factory-core-framework.html</id>
+    <title>Server Factory Core Framework — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/server-factory-core-framework.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Core Framework – бұл Server Factory құралдары отбасының негізі болып табылатын Kotlin фреймворкі. Ол Mail Server Factory сияқты жобалардың құрылымына арналған ортақ қозғалтқыш пен абстракцияларды қамтамасыз етеді, яғни әрбір «фабрика» бір сынақтан өткен негізді қайталап жасамай, оны қайта пайдаланады.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/task-bridge.html</id>
+    <title>task_bridge — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/task-bridge.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>task_bridge — Go жүйесіндегі жалпылама, бөлектелген, екі бағыттағы тапсырма/тақта үйлестіру қозғалтқышы. Ол жобаның жұмыс элементтерінің SQLite шындық көзі мен тапсырмалар құжаттамасын, сондай-ақ қашықтағы тақтамен (алғашқы нысаны: ClickUp; болашақта Jira мен Linear) детерминирленген «соңғы өзгеріс жеңеді», алдымен сынақ режимі, мәліметтерді бұзбайтын принциптермен үйлестіреді.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/vasic-digital-reusable-module-suite.html</id>
+    <title>Vasic Digital Reusable Module Suite — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/vasic-digital-reusable-module-suite.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>digital.vasic. (Go) және Kotlin Multiplatform атты атаулар аясында жарияланған жалпы қолданыстағы, қайта пайдалануға болатын модульдердің үлкен отбасысы. Әрбір модуль дербес, жеке сынақтан өткізіліп, нұсқаға бөлінген және үлкен өнімдердің (Catalogizer, HelixAgent және кеңейтілген флот) тең кодтық базасы ретінде қолданылады. Бұл бет жеке беттер ретінде шу болып көрінетін көптеген шағын құралдарды біріктіреді.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/kk/visionengine.html</id>
+    <title>VisionEngine — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/kk/visionengine.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>VisionEngine — бөлшектелген Go құралдар жинағы, ол классикалық компьютерлік көруді LLM негізіндегі көрумен біріктіріп, пайдаланушы интерфейстерін талдайды, UI элементтерін және көріністік ақауларын анықтайды, сонымен қатар қолданба экрандарының ауысуларының навигациялық графтарын құрады. Көру провайдерлерінің көпшілік таңдауымен және OpenCV құрылыс тегі арқылы қосылған.</summary>
+  </entry>
+</feed>

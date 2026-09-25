@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fa">
+  <id>https://milosvasic.ru/fa/feed.xml</id>
+  <title>Miloš Vasić</title>
+  <updated>2026-09-25T00:00:00Z</updated>
+  <author><name>Miloš Vasić</name></author>
+  <link rel="self" type="application/atom+xml" href="https://milosvasic.ru/fa/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://milosvasic.ru/fa/"/>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/catalogizer.html</id>
+    <title>Catalogizer — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/catalogizer.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Catalogizer یک سیستم مدیریت مجموعه رسانه‌ای قابل میزبانی شخصی است که به‌طور خودکار رسانه‌ها را در پروتکل‌های SMB، FTP، NFS، WebDAV و فایل‌سیستم‌های محلی شناسایی، دسته‌بندی و سازماندهی می‌کند. این سیستم با نظارت بلادرنگ، ذخیره‌سازی رمزنگاری‌شده، غنی‌سازی فراداده از منابع خارجی و رابط کاربری مدرن React که توسط یک موتور پرسرعت Go API پشتیبانی می‌شود، عمل می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/courses-creator.html</id>
+    <title>Courses-Creator — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/courses-creator.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Courses-Creator جعبه‌ابزاری است که اسکریپت‌های مارک‌داون را به دوره‌های ویدیویی حرفه‌ای با ارتقاهای مبتنی بر AI تبدیل می‌کند: غنی‌سازی چندجانبه محتوا (OpenAI/Anthropic/Ollama)، صدای باکیفیت TTS و موسیقی پس‌زمینه، و پخش‌کننده‌های دسکتاپ، موبایل و وب — همه با استقرار Docker و نظارت Prometheus/Grafana.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/docprocessor.html</id>
+    <title>DocProcessor — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/docprocessor.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>DocProcessor یک ماژول مستقل و کاملاً جدا از Go است که مستندات پروژه را بارگذاری می‌کند، نقشه‌های ساختاریافته ویژگی‌ها را می‌سازد و پوشش راستی‌آزمایی را ردیابی می‌کند. این ماژول برای کار با عامل‌های LLM جهت استخراج هوشمند ویژگی‌ها طراحی شده است، اما شامل استخراج اکتشافی برای استفاده آفلاین نیز می‌شود.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/docs-chain.html</id>
+    <title>Docs Chain — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/docs-chain.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Docs Chain موتوری جهانی و پیاده‌سازی‌شده با Go برای انتشار وابستگی‌های سند و پایگاه داده به صورت دوسویه است. هنگامی که هر یک از اعضای زنجیره ثبت‌شده تغییر کند — منبع مارک‌داون، یک خروجی HTML/PDF/DOCX یا پایگاه داده SQLite — این موتور با استفاده از هش محتوا تغییر را شناسایی کرده و آن را به صورت اتمی در تمام اعضای متصل منتشر می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helix-flow.html</id>
+    <title>Helix-Flow — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helix-flow.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>پلتفرم Helix-Flow به‌عنوان یک خانه واحد و یکپارچه برای استنتاج AI معرفی شده است — اجرای مدل‌های قدرتمند سریع‌تر، در هر مقیاسی و با هزینه‌هایی قابل پیش‌بینی. (این موقعیت‌یابی تنها بر اساس شعار است؛ قابلیت‌های مشخص در هیچ منبع موجودی مستند نشده‌اند.)</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixagent.html</id>
+    <title>HelixAgent — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixagent.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixAgent یک سرویس آماده‌ی تولید مبتنی بر مجموعه‌ای از مدل‌ها (LLM) و با قدرت AI در Go است که پاسخ‌های چندین مدل زبانی را به شکلی هوشمندانه ترکیب می‌کند — از جمله یک سیستم بحث چندمرحله‌ای AI و انتخاب پویای ارائه‌دهندگان بر اساس تأیید — تا خروجی دقیق و قابل‌اعتماد تولید کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixbuilder.html</id>
+    <title>HelixBuilder — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixbuilder.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixBuilder خط لولهٔ ساخت برنامه‌ای است که با قدرت AI کار می‌کند و از طریق شِل نصب و راه‌اندازی می‌شود. این ابزار زنجیره‌های ابزاری اختصاصی برای هر دسته‌بندی — از کدنویسی و تست تا تولید محتوای مولد (انیمیشن، صدا، تصاویر) — را تنها با اجرای یک اسکریپت نصب فراهم می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixcluster.html</id>
+    <title>HelixCluster — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixcluster.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>سیستم‌عامل خوشه‌ای Helix یک سیستم‌عامل توزیع‌شده نسل بعدی است که محاسبات را در گره‌های ناهمگن — از پردازنده‌های گرافیکی دیتاسنتر تا کامپیوترهای تک‌بردی لبه و دستگاه‌های دستی — هماهنگ می‌کند و زمان‌بندی HPC، هماهنگی کانتینرها، استنتاج AI/ML، عملیات چندخوشه‌ای فدراتیو و جلسات چندمستأجری امن را تحت یک صفحه کنترل واحد یکپارچه می‌سازد.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixcode.html</id>
+    <title>HelixCode — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixcode.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixCode یک پلتفرم توزیع‌شدهٔ توسعه AI در سطح سازمانی است که بر پایهٔ Go ساخته شده و کار توسعه را به وظایف هوشمندانه تقسیم‌شده در میان شبکه‌ای از کارگران تحت مدیریت SSH تقسیم می‌کند. این پلتفرم با قابلیت‌های خودکار چک‌پوینتینگ و بازگشت به عقب، تضمین می‌کند که هیچ کاری هرگز از دست نرود. این سیستم یکپارچگی چندارائه‌دهندهٔ LLM، گردش‌های کاری کامل چرخهٔ توسعه و تحویل بین‌پلتفرمی را در پس واسط‌های REST، CLI، رابط کاربری ترمینال (TUI) و MCP فراهم می‌آورد.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixconstitution.html</id>
+    <title>HelixConstitution — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixconstitution.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixConstitution مجموعه قوانین واحد و مستقل از پروژه است — که به‌عنوان زیرماژول گیت توسط هر پروژه Helix/vasic-digital اضافه می‌شود — و نظم مهندسی غیرقابل مذاکره (ضد بلوف، تأیید مبتنی بر شواهد، ایمنی داده‌ها و میزبان، مستندسازی و پوشش تست) را کدگذاری کرده و آن را به مجموعه‌ای از بیش از ۱۴۰ مخزن منتقل می‌کند. این قانون، ستون فقرات حاکمیتی است که انسجام کل خانواده را تضمین می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixgitpx.html</id>
+    <title>HelixGitpx — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixgitpx.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixGitpx (پروکسی گیت فدراتیو توسعه‌یافته Helix) یک پروکسی گیت فدراتیو است که یک منبع حقیقت واحد را در چندین میزبان گیت بالادستی منعکس کرده و تضادهای اجتناب‌ناپذیر را با گردش‌های کاری مبتنی بر سیاست و AI حل می‌کند. این پروژه به نسخه ۱٫۰٫۰ GA رسیده است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixllm.html</id>
+    <title>HelixLLM — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixllm.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixLLM یک سیستم توزیع‌شده LLM در سطح سازمانی است که بر پایه Go ساخته شده است: یک باینری واحد با سیستمی از حالت‌ها که از توسعه تک‌میزبانه تا تولید چندمیزبانه مقیاس‌پذیر است. این سیستم رابط‌های برنامه‌نویسی کاملاً سازگار با OpenAI و Anthropic را از طریق HTTP/3 ارائه می‌دهد، با استنتاج محلی llama.cpp، زنجیره جایگزین چندارائه‌دهنده با امتیازدهی، پایپ‌لاین RAG و سیستم عامل ReAct.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixmemory.html</id>
+    <title>HelixMemory — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixmemory.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixMemory یک Go SDK است که چهار سیستم حافظهٔ پیشرو (Mem0، Cognee، Letta، Graphiti) را در یک موتور حافظهٔ شناختی واحد ادغام می‌کند که به‌طور همزمان در آن‌ها جستجو کرده و نتایج را تلفیق می‌نماید. این سامانه به برنامه‌های AI یک لایهٔ حافظهٔ پایدار، بدون تکرار و بازمرتب‌شده ارائه می‌دهد، به‌جای چهار لایهٔ ناهماهنگ.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixota.html</id>
+    <title>HelixOTA — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixota.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Helix OTA یک سیستم به‌روزرسانی بی‌سیم جهانی و عمیقاً جداشده است: یک صف کنترل Go به همراه عامل‌های کلاینتی برای هر سیستم‌عامل، طراحی‌شده برای ارائه به‌روزرسانی‌های ایمن و مرحله‌ای firmware و اپلیکیشن به ناوگانی از یک برد واحد تا میلیون‌ها دستگاه. اولین هدف آن اندروید ۱۵ روی Orange Pi 5 Max است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixplay.html</id>
+    <title>HelixPlay — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixplay.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixPlay یک پلتفرم ابری بازی قابل میزبانی شخصی است که هر دستگاه مجهز به GPU را به یک میزبان پخش از راه دور تبدیل می‌کند و تجربه بازی در سطح کنسول را برای کلاینت‌های دسکتاپ، موبایل، تلویزیون و مرورگر فراهم می‌آورد. این پلتفرم به صورت یک مخزن یکپارچه (مونورپو) با محوریت Go شامل ۴۶ زیرماژول و با معماری سه‌لایه کلاینتی طراحی شده و برای شرکا قابل برندسازی سفارشی است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixqa.html</id>
+    <title>HelixQA — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixqa.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixQA چارچوب هماهنگ‌سازی پرسش و پاسخ ضد بلوف برای تست چندسکویی (اندروید، اندروید تی‌وی، وب، دسکتاپ) است که بانک‌های تست YAML، تشخیص بلادرنگ کرش، ضبط گام‌به‌گام شواهد و جلسات مستقل پرسش و پاسخ LLM به‌علاوه بینایی کامپیوتری را ترکیب می‌کند تا اثبات کند قابلیت‌ها واقعاً از ابتدا تا انتها کار می‌کنند. این نوع تست پرسش و پاسخ اجباری Constitution (§۱۱٫۴٫۱۶۹) است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixskills.html</id>
+    <title>HelixSkills — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixskills.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixSkills سامانه مهارت‌هایی برای عامل‌های CLI AI است که زیرمجموعه Helix Constitution را به ارث می‌برد، بنابراین تمامی قوانین حاکمیتی جهانی بدون قید و شرط اعمال می‌شوند. این سامانه مهارت‌های قابل نصب عامل‌ها، سرورهای ابزار MCP، افزونه‌های کد Claude و موتورهای قابل استفاده مجدد را در قالب یک کاتالوگ ثبت‌پذیر و مستند ارائه می‌دهد.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixspecifier.html</id>
+    <title>HelixSpecifier — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixspecifier.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixSpecifier موتوری از نوع Go است که سه روش‌شناسی توسعه را — گردش کار مبتنی بر مشخصات SpecKit، نظم تست‌محور Superpowers و چرخه حیات نقاط عطف GSD — در یک جریان تطبیقی ادغام می‌کند. این موتور هر وظیفه را بر اساس میزان تلاش طبقه‌بندی کرده و حجم فرآیند را متناسب با آن افزایش یا کاهش می‌دهد.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixterminator.html</id>
+    <title>HelixTerminator — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixterminator.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixTerminator یک پلتفرم سازمانی برای ترمینال و مدیریت جلسات SSH است که به صورت سیستمی مبتنی بر Go میکروسرویس‌ها با کلاینت‌های Flutter چندسکویی طراحی شده است. این پلتفرم جلسات راه‌دور را با مدل بدون اعتماد مدیریت، ثبت و ایمن می‌کند، همکاری بلادرنگ را ممکن می‌سازد و لایه‌ای از کمک AI را بر روی ترمینال اضافه می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixtrack.html</id>
+    <title>HelixTrack — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixtrack.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixTrack یک جایگزین جامع، مدرن و متن‌باز برای JIRA (و از طریق افزونه Documents، برای Confluence) است — یک سیستم مدیریت پروژه و ردیابی مسائل چندپلتفرمی که بر پایه معماری میکروسرویس‌های Go با کلاینت‌های بومی برای وب، دسکتاپ و موبایل ساخته شده است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/helixtranslate.html</id>
+    <title>HelixTranslate — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/helixtranslate.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>HelixTranslate پلتفرم ترجمه کتاب الکترونیکی با کارایی بالا و مبتنی بر Go است که کتاب‌ها را بین بیش از ۱۰۰ زبان با استفاده از ارائه‌دهندگان LLM تأییدشده ترجمه می‌کند. این سیستم دارای نظارت WebSocket بلادرنگ و سیاست مسیریابی «عدم جایگزینی خاموش» است که به جای افت بی‌صدا، با شکست آشکار مواجه می‌شود.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/herald.html</id>
+    <title>Herald — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/herald.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Herald رویدادهای سیستمی را دریافت و به‌طور قابل اعتماد به چندین کانال اعلان توزیع می‌کند تا هر هشدار به جای درست برسد. مشترکین با زبان طبیعی ساده تعامل می‌کنند؛ Herald قصد آن‌ها را از طریق یک سازوکار سه‌لایه تشخیص می‌دهد (مسیر سریع دستور → استنتاج قصد LLM → بازگشت به شفاف‌سازی).</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/llmorchestrator.html</id>
+    <title>LLMOrchestrator — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/llmorchestrator.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>LLMOrchestrator یک ماژول مستقل و قابل استفاده مجدد Go برای ایجاد، مدیریت و ارتباط با عوامل بدون رابط کاربری CLI (OpenCode، Claude Code، Gemini، Junie، Qwen Code) از طریق پروتکل ترکیبی لوله+فایل است که شامل قطع‌کننده‌های مدار برای هر عامل، انتخاب چندارائه‌دهنده قابل اتصال، انتزاع i18n جداشده و تضمین‌های تست ضد بلوف می‌شود.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/llmprovider.html</id>
+    <title>LLMProvider — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/llmprovider.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>LLMProvider یک ماژول Go عمومی و قابل استفاده مجدد است که یک رابط یکپارچه LLMProvider به همراه الگوهای تاب‌آوری عملیاتی — مدارشکن، پایش سلامت، تلاش مجدد با تأخیر تصاعدی، بارگذاری تنبل — تعریف می‌کند و ۴۳ پیاده‌سازی ارائه‌دهنده مشخص را پشت این قرارداد واحد ارائه می‌دهد، به همراه یک آداپتور عمومی سازگار با OpenAI و کشف مدل بدون جایگزینی سخت‌کد شده.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/llmsverifier.html</id>
+    <title>LLMsVerifier — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/llmsverifier.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>LLMsVerifier یک پلتفرم سازمانی برای تأیید، نظارت و بهینه‌سازی مدل‌های زبانی بزرگ در میان ارائه‌دهندگان مختلف است که بر اساس آزمون اجباری «آیا کد من را می‌بینی؟» ساخته شده است تا تنها مدل‌هایی که ثابت شده واقعاً کار می‌کنند، به‌عنوان قابل استفاده علامت‌گذاری یا صادر شوند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/mail-server-factory.html</id>
+    <title>Mail Server Factory — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/mail-server-factory.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Mail Server Factory ابزاری خودکار و آماده‌ی تولید برای تأمین سرور ایمیل است. کاربر یک پیکربندی ساده‌ی JSON می‌نویسد؛ سپس «فکتوری» آن را تفسیر کرده و تمامی نصب‌ها و راه‌اندازی‌های اولیه را روی سیستم‌عامل مقصد انجام می‌دهد و یک پشته‌ی ایمیل مبتنی بر Docker با اجزای کاملاً مستقل را روی ۱۲ نوع اتصال مستقر می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/parallels-utils.html</id>
+    <title>Parallels-Utils — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/parallels-utils.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Parallels-Utils یک جعبه‌ابزار Server Factory برای مدیریت تصاویر ماشین مجازی Parallels (macOS) است: فشرده‌سازی و همگام‌سازی «ماتریس‌های» تصویری که برای توسعه و تست استفاده می‌شوند، انتشار آن‌ها در یک نقطه پایانی راه‌دور، و بازیابی و اجرای آن‌ها روی چندین ایستگاه کاری یا سرور. این ابزار به‌صورت مستقل یا به‌عنوان بخشی از Server Factory قابل استفاده است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/qemu-utils.html</id>
+    <title>Qemu-Utils — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/qemu-utils.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Qemu-Utils یک جعبه‌ابزار Server Factory برای مدیریت جامع مجازی‌سازی QEMU است: توزیع و فشرده‌سازی خودکار تصاویر ماشین مجازی، کش محلی، پیکربندی شبکه پل/تپ، نصب سیستم‌عامل از روی ایمیج ISO و اجرای چندسکویی (Linux/macOS) با شتاب‌دهی سخت‌افزاری. قابل استفاده به‌صورت مستقل یا در چارچوب Server Factory.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/server-factory-additional-components.html</id>
+    <title>Server Factory — Additional Components — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/server-factory-additional-components.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>فراتر از Mail Server Factory و چارچوب اصلی، سازمان Server-Factory شامل چندین مؤلفه کوچک‌تر است: «کارخانه»های اختصاصی هر سرویس (سرویس وب، SonarQube، پروکسی کش)، بسته‌های پیکربندی اعلانی (Docker/Stack/Definitions نرم‌افزاری) و ابزارهای مشترک Utils. این صفحه به‌جای معرفی آن‌ها به‌عنوان محصولات کاملاً مشخص‌شده، به‌طور صادقانه به آن‌ها می‌پردازد — چرا که بسیاری از آن‌ها در مراحل اولیه توسعه یا مستندات ناقصی دارند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/server-factory-core-framework.html</id>
+    <title>Server Factory Core Framework — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/server-factory-core-framework.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>- چارچوب یکپارچه و قابل استفادهٔ مجدد برای انتزاع منطق اتصال و مراحل نصب. - تفکیک شفاف میان موتور (چارچوب اصلی) و کارخانه‌های محصول‌محور. - توزیع با نسخه‌بندی ثابت (version.txt/version_code.txt) برای مصرف تکرارپذیر.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/task-bridge.html</id>
+    <title>task_bridge — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/task-bridge.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>task_bridge یک موتور همگام‌سازی عمومی، جداشده و دوسویه وظایف/تخته در Go است. این ابزار منبع حقیقت واحد اقلام قابل‌انجام SQLite یک پروژه را با مستندات پیگیری‌کننده و تخته راه‌دور آن (اولین هدف: کلیک‌آپ؛ جیرا/لینیر در برنامه) با استفاده از منطق قطعی «آخرین ویرایش برنده می‌شود»، اجرای آزمایشی پیش از اعمال و تضمین عدم خرابی داده‌ها همگام‌سازی می‌کند.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/vasic-digital-reusable-module-suite.html</id>
+    <title>Vasic Digital Reusable Module Suite — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/vasic-digital-reusable-module-suite.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>خانواده‌ای بزرگ از ماژول‌های عمومی و قابل استفاده مجدد که تحت فضاهای نامی digital.vasic. (Go) و Kotlin Multiplatform منتشر شده‌اند. هر ماژول به‌صورت مستقل، تست‌شده و نسخه‌بندی‌شده است و به‌عنوان زیرماژول هم‌کد در محصولات بزرگ‌تر (Catalogizer، HelixAgent و ناوگان گسترده‌تر) مورد استفاده قرار می‌گیرد. این صفحه مجموعه‌ای از ابزارهای کوچک متعدد را که به‌صورت جداگانه تنها به‌عنوان نویز ظاهر می‌شدند، یکجا گردآوری کرده است.</summary>
+  </entry>
+  <entry>
+    <id>https://milosvasic.ru/products/fa/visionengine.html</id>
+    <title>VisionEngine — Miloš Vasić</title>
+    <link rel="alternate" type="text/html" href="https://milosvasic.ru/products/fa/visionengine.html"/>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>VisionEngine یک جعبه‌ابزار Go جداشده است که بینایی کامپیوتری کلاسیک را با بینایی مبتنی بر LLM ترکیب می‌کند تا رابط‌های کاربری را تحلیل کند، عناصر UI و مشکلات بصری را شناسایی کند و گراف پیمایشی از انتقال‌های صفحه اپلیکیشن بسازد — با پشتیبانی از چندین ارائه‌دهنده بینایی به‌صورت پلاگین و OpenCV که پشت یک تگ ساخت پنهان شده است.</summary>
+  </entry>
+</feed>
