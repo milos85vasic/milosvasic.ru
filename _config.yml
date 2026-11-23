@@ -49,6 +49,7 @@ exclude:
   - Upstreams
   - .run
   - downloads/src
+  - expertise_localized.json
 
 sass:
   style: compressed

@@ -38,8 +38,43 @@
     fallback ("<site.title> | <site.tagline>").
   {%- endcomment -%}
   <title>{% if page.title %}{{ page.title | escape_once }}{% else %}{{ site.title }} | {{ site.tagline | default: site.description | normalize_whitespace | escape_once }}{% endif %}</title>
-  {% seo title=false %}
+  {%- comment -%}
+    jekyll-seo-tag post-processing (one capture, two fixes, every page):
+    1. og:locale — the plugin prints page.lang verbatim ("zh", "en"); Open Graph
+       wants language_TERRITORY (zh_CN, en_US). Rewritten from the page language
+       unless the page front matter sets `locale` itself.
+    2. The plugin's WebPage JSON-LD object carries no inLanguage; it is added from
+       the page language so every typed JSON-LD object states its language.
+  {%- endcomment -%}
+  {%- capture _seo_out -%}{% seo title=false %}{%- endcapture -%}
+  {%- case _pl -%}
+    {%- when 'en' -%}{%- assign _ogl = 'en_US' -%}
+    {%- when 'ru' -%}{%- assign _ogl = 'ru_RU' -%}
+    {%- when 'de' -%}{%- assign _ogl = 'de_DE' -%}
+    {%- when 'es' -%}{%- assign _ogl = 'es_ES' -%}
+    {%- when 'fr' -%}{%- assign _ogl = 'fr_FR' -%}
+    {%- when 'ar' -%}{%- assign _ogl = 'ar_AR' -%}
+    {%- when 'fa' -%}{%- assign _ogl = 'fa_IR' -%}
+    {%- when 'hi' -%}{%- assign _ogl = 'hi_IN' -%}
+    {%- when 'ja' -%}{%- assign _ogl = 'ja_JP' -%}
+    {%- when 'ko' -%}{%- assign _ogl = 'ko_KR' -%}
+    {%- when 'kk' -%}{%- assign _ogl = 'kk_KZ' -%}
+    {%- when 'be' -%}{%- assign _ogl = 'be_BY' -%}
+    {%- when 'sr' -%}{%- assign _ogl = 'sr_RS' -%}
+    {%- when 'tr' -%}{%- assign _ogl = 'tr_TR' -%}
+    {%- when 'zh' -%}{%- assign _ogl = 'zh_CN' -%}
+    {%- else -%}{%- assign _ogl = nil -%}
+  {%- endcase -%}
+  {%- unless page.locale -%}{%- if _ogl -%}
+    {%- capture _from -%}property="og:locale" content="{{ _pl }}"{%- endcapture -%}
+    {%- capture _to -%}property="og:locale" content="{{ _ogl }}"{%- endcapture -%}
+    {%- assign _seo_out = _seo_out | replace: _from, _to -%}
+  {%- endif -%}{%- endunless -%}
+  {%- capture _wp_to -%}"@type":"WebPage","inLanguage":"{{ _pl }}"{%- endcapture -%}
+  {%- unless _seo_out contains '"inLanguage"' -%}{%- assign _seo_out = _seo_out | replace: '"@type":"WebPage"', _wp_to -%}{%- endunless -%}
+  {{ _seo_out }}
   {% if page.seo_hreflang %}{{ page.seo_hreflang }}{% endif %}
+  {% if page.seo_og_alternates %}{{ page.seo_og_alternates }}{% endif %}
   {%- comment -%}
     Atom feed of the site's product pages, one per language. Emitted by the content
     generator (_tools/gen/feed.go): /feed.xml for English, /<lang>/feed.xml for the
@@ -52,14 +87,15 @@
   <!-- OpenDesign brand tokens (§11.4.162, backlog A2): load the --od-* design tokens on
        EVERY default-layout page — including article-modal host pages — BEFORE style.css,
        so the bespoke token names in style.scss (now aliased to --od-*) resolve to
-       OpenDesign values site-wide. Harmless double-load on OD-native pages (home /
-       portfolio / product) that already self-link this bundle from their content. -->
+       OpenDesign values site-wide. OD-native pages (home /
+       portfolio / product) self-link it from their content too; the layout strips
+       that copy from the page content so the bundle is linked exactly once. -->
   <link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <!-- WCAG 2.2 AA: Focus appearance via CSS custom property -->
   <style>:root { --focus-w: 2.5px; --focus-offset: 3px; }</style>
 </head>
-<body>
+<body{% if page.area %} data-area="{{ page.area }}"{% endif %}>
   {%- comment -%}
     Server-side chrome localization: render nav/skip-link/download-modal labels in the
     PAGE's language at Jekyll build time (no-JS crawlers see localized chrome). The
@@ -73,6 +109,9 @@
     <div class="wrap nav-inner">
       <a class="brand" href="/#top">milos<span class="dot">.</span>vasic</a>
       <div class="nav-links" id="nav-links">
+        {%- assign exp_href = "/expertise/" -%}
+        {%- if page.lang and page.lang != "en" -%}{%- capture exp_href -%}/expertise/{{ page.lang }}/{%- endcapture -%}{%- endif -%}
+        <a href="{{ exp_href }}" data-i18n="nav.expertise">{{ ui['nav.expertise'] | default: site.data.ui['en']['nav.expertise'] }}</a>
         <a href="/#work" data-i18n="nav.work">{{ ui['nav.work'] | default: site.data.ui['en']['nav.work'] }}</a>
         <a href="/#experience" data-i18n="nav.experience">{{ ui['nav.experience'] | default: site.data.ui['en']['nav.experience'] }}</a>
         <a href="/#skills" data-i18n="nav.skills">{{ ui['nav.skills'] | default: site.data.ui['en']['nav.skills'] }}</a>
@@ -92,8 +131,10 @@
     </div>
   </nav>
 
-  <main id="top">
-    {{ content }}
+  <main id="top"{% if page.area %} data-area="{{ page.area }}"{% endif %}>
+    {%- comment -%} Pages that self-link the OD brand bundle (home/portfolio/product) would load it twice; the head link above is the one that keeps the cascade order, so the content copy is dropped. {%- endcomment -%}
+    {%- capture _od_dup -%}<link rel="stylesheet" href="{{ '/assets/od/milosvasic.css' | relative_url }}"/>{%- endcapture -%}
+    {{ content | replace: _od_dup, '' }}
   </main>
 
   <footer class="footer">

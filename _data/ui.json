@@ -1,6 +1,7 @@
 {
   "en": {
     "a11y.skip": "Skip to main content",
+    "nav.expertise": "Expertise",
     "nav.work": "Work",
     "nav.experience": "Experience",
     "nav.skills": "Skills",
@@ -19,6 +20,7 @@
   },
   "ru": {
     "a11y.skip": "Перейти к содержанию",
+    "nav.expertise": "Экспертиза",
     "nav.work": "Проекты",
     "nav.experience": "Опыт",
     "nav.skills": "Навыки",
@@ -37,6 +39,7 @@
   },
   "sr": {
     "a11y.skip": "Пређи на садржај",
+    "nav.expertise": "Стручност",
     "nav.work": "Радови",
     "nav.experience": "Искуство",
     "nav.skills": "Вештине",
@@ -55,6 +58,7 @@
   },
   "de": {
     "a11y.skip": "Zum Inhalt springen",
+    "nav.expertise": "Expertise",
     "nav.work": "Projekte",
     "nav.experience": "Erfahrung",
     "nav.skills": "Skills",
@@ -73,6 +77,7 @@
   },
   "es": {
     "a11y.skip": "Saltar al contenido",
+    "nav.expertise": "Especialidades",
     "nav.work": "Proyectos",
     "nav.experience": "Experiencia",
     "nav.skills": "Habilidades",
@@ -91,6 +96,7 @@
   },
   "fr": {
     "a11y.skip": "Aller au contenu",
+    "nav.expertise": "Expertise",
     "nav.work": "Projets",
     "nav.experience": "Expérience",
     "nav.skills": "Compétences",
@@ -109,6 +115,7 @@
   },
   "be": {
     "a11y.skip": "Перайсці да асноўнага зместу",
+    "nav.expertise": "Экспертыза",
     "nav.work": "Праца",
     "nav.experience": "Досвед",
     "nav.skills": "Навыкі",
@@ -127,6 +134,7 @@
   },
   "zh": {
     "a11y.skip": "跳转至主要内容",
+    "nav.expertise": "专长",
     "nav.work": "作品",
     "nav.experience": "经历",
     "nav.skills": "技能",
@@ -145,6 +153,7 @@
   },
   "kk": {
     "a11y.skip": "Негізгі мазмұнға өту",
+    "nav.expertise": "Мамандану",
     "nav.work": "Жұмыс",
     "nav.experience": "Тәжірибе",
     "nav.skills": "Қабілеттер",
@@ -163,6 +172,7 @@
   },
   "hi": {
     "a11y.skip": "मुख्य सामग्री पर जाएँ",
+    "nav.expertise": "विशेषज्ञता",
     "nav.work": "कार्य",
     "nav.experience": "अनुभव",
     "nav.skills": "कौशल",
@@ -181,6 +191,7 @@
   },
   "ja": {
     "a11y.skip": "メインコンテンツへスキップ",
+    "nav.expertise": "専門分野",
     "nav.work": "業績",
     "nav.experience": "経歴",
     "nav.skills": "スキル",
@@ -199,6 +210,7 @@
   },
   "ko": {
     "a11y.skip": "본문으로 건너뛰기",
+    "nav.expertise": "전문 분야",
     "nav.work": "작업",
     "nav.experience": "경력",
     "nav.skills": "기술",
@@ -217,6 +229,7 @@
   },
   "ar": {
     "a11y.skip": "الانتقال إلى المحتوى الرئيسي",
+    "nav.expertise": "التخصصات",
     "nav.work": "العمل",
     "nav.experience": "الخبرة",
     "nav.skills": "المهارات",
@@ -235,6 +248,7 @@
   },
   "tr": {
     "a11y.skip": "Ana içeriğe geç",
+    "nav.expertise": "Uzmanlık",
     "nav.work": "İşler",
     "nav.experience": "Deneyim",
     "nav.skills": "Yetenekler",
@@ -253,6 +267,7 @@
   },
   "fa": {
     "a11y.skip": "رفتن به محتوای اصلی",
+    "nav.expertise": "تخصص‌ها",
     "nav.work": "کارها",
     "nav.experience": "تجربه",
     "nav.skills": "مهارت‌ها",

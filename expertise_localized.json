@@ -1,0 +1,1990 @@
+{
+  "ar": {
+    "_hub": {
+      "eyebrow": "10 مجالات تقنية — 15 لغة",
+      "lede": "مسارات مهنية موثّقة بحسب المجال التقني — ",
+      "stat_label": "15 لغة · 10 مجالات · 16 عاماً في إصدار البرمجيات",
+      "title": "التخصصات"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "خدمة LLM قائمة على تجميع النماذج (ensemble) بمستوى الإنتاج ترفض الوثوق بنموذج واحد؛ الذكاء الاصطناعي/LLM، وGo، وGin، وPostgreSQL، وRedis، وقواطع الدائرة (circuit breakers)، ومراقبة الصحة."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "واجهة واحدة فوق 43 مزوّداً، مع إعادة محاولات بتأخير عشوائي (jittered backoff) واكتشاف نزيه للنماذج دون أي بديل احتياطي مضمَّن في الشيفرة."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "ملف تنفيذي واحد وستة أنماط نشر: استدلال متوافق مع OpenAI وAnthropic عبر HTTP/3، يتدرج من حاسوب محمول إلى عنقود متعدد المضيفين."
+        }
+      ],
+      "story": "لا تكون أنظمة الذكاء الاصطناعي في الإنتاج جديرة بالثقة إلا بقدر ما ترفض أجزاؤها أن تثق بنفسها: فالتجريد القائم على مزوّد واحد رهان، والوكيل المستقل مستوى تحكم (control plane)، والحوكمة هي الشيء الوحيد الذي يمنع أسطولاً منها من الانحراف. في هذا المجال أبني الثلاثة جميعاً — طبقة LLM التي تتصدّر 43 مزوّداً دون أي بديل احتياطي مضمَّن في الشيفرة، ومستوى التحكم المستقل الذي يُطلق وكلاء CLI عديمي الواجهة ويديرهم، وطبقة التحقق التي لا تسمح بوابتها «هل ترى شيفرتي؟» بوسم أي نموذج صالحاً للاستخدام أو تصديره إلا إذا ثبت أنه يعمل فعلاً."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "بديل حر لـ JIRA وConfluence: خدمات Go مصغّرة خلف واجهة برمجية موحدة موجَّهة بالإجراءات؛ HTTP/3، وتشفير SQLCipher للبيانات المخزّنة."
+        },
+        {
+          "name": "HelixQA",
+          "text": "تنسيق ضمان جودة مكافح للتضليل: المعيار ليس «نجاح الاختبارات» بل «قدرة المستخدمين على استخدام الميزة»."
+        }
+      ],
+      "story": "Kotlin وJava على نطاق المنتجات: حزم SDK، والتكامل مع العتاد، وهندسة الإصدارات. وHelixTrack هو الدليل الأبرز — بديل حر لـ JIRA وConfluence، بخدمات Go مصغّرة خلف واجهة برمجية موحدة موجَّهة بالإجراءات عبر HTTP/3، وتشفير SQLCipher أثناء التخزين — ويُظهر كيف تبدو هندسة Android حين تُبنى الحزمة التقنية لخدمة المنتج لا في مواجهته."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "التحقق عبر التكامل المستمر ومزارع الأجهزة على نطاق AOSP."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "إدراك واجهات المستخدم عبر الرؤية الحاسوبية ورؤية LLM متعددة المزوّدين، مع مخططات التنقل."
+        }
+      ],
+      "story": "Android على مستوى المنصة: خدمات النظام، وتهيئة الأجهزة (device bring-up)، والتكامل مع العتاد. أعمال AOSP التي يكون العتاد فيها هو المتطلب — وعلى المنصة أن تتكيف معه، لا العكس."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "تنسيق ضمان الجودة المكافح للتضليل الذي يقود أيضاً التحقق على Android TV."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "الواجهة البرمجية الموجَّهة بالإجراءات التي تشغّل التحقق عبر مزارع الأجهزة بواسطة HTTP/3."
+        }
+      ],
+      "story": "واجهات الشاشات المنزلية البعيدة (Ten-foot)، وLeanback، وخطوط معالجة الوسائط، والتحقق عبر مزارع الأجهزة. تجارب Android TV التي تصمد على الأجهزة الحقيقية — يُتحقق منها على ما يملكه المستخدمون فعلاً لا على المحاكي، باستخدام تنسيق HelixQA نفسه الذي تعتمد عليه واجهة الجوال."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "البديل الحر لـ JIRA وConfluence، مع واجهة سطح المكتب الخاصة به."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "خط إنتاج الدورات بالذكاء الاصطناعي مع مشغّل سطح المكتب الخاص به."
+        }
+      ],
+      "story": "Electron وTauri، والجسور الأصلية (native bridges)، ومنتجات سطح المكتب التي تعمل دون اتصال أولاً — وتُسلَّم وتُحدَّث وتبقى موقَّعة. واجهة سطح المكتب: بديل JIRA في HelixTrack وCourses-Creator، وكلاهما يلاقي المستخدم على جهازه، بما في ذلك دون اتصال."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "خط إنتاج دورات بالذكاء الاصطناعي من Markdown إلى فيديو، مع TTS ومشغّلات لسطح المكتب والجوال والويب."
+        },
+        {
+          "name": "HelixQA",
+          "text": "تنسيق ضمان الجودة الذي ترثه أي حزمة SDK تعبر المنصات."
+        }
+      ],
+      "story": "Dart على مستوى SDK — معمارية الإضافات (plugins)، وقنوات المنصة (platform channels)، والحزم المنشورة. هذه هي الواجهة التي تستهلكها AWS وGoogle والمصارف بوصفها حزم SDK: يحوّل Courses-Creator مستند Markdown إلى دورة فيديو على سطح المكتب والجوال والويب، مع تحويل النص إلى كلام (TTS) ومشغّلَين قابلَين للتشغيل، فيُظهر كيف تعبر حزمة SDK ثلاث واجهات في آن واحد."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "بديل حر لـ JIRA وConfluence: خدمات Go مصغّرة خلف واجهة برمجية موحدة موجَّهة بالإجراءات عبر HTTP/3، وتشفير SQLCipher للبيانات المخزّنة."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "محرك ذاكرة معرفية موحد يدمج Mem0 وCognee وLetta وGraphiti."
+        }
+      ],
+      "story": "خدمات عالية الإنتاجية، وأنظمة موزعة، والمكتبات التي تُبنى منها. شيفرة Go مبنية لتُشغَّل لا لتُبنى فحسب: HelixTrack، البديل الحر لـ JIRA وConfluence، وHelixMemory — محرك ذاكرة معرفية موحد يدمج أربعة محركات خلفية هي الأفضل في فئتها (Mem0 وCognee وLetta وGraphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "الأداة الرائدة لواجهة الجوال: بديل لـ JIRA وConfluence مبني بمستوى حزم SDK."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "إدراك واجهات المستخدم عبر الرؤية الحاسوبية ورؤية LLM متعددة المزوّدين، مع مخططات التنقل."
+        }
+      ],
+      "story": "تسليم أصلي ومتعدد المنصات عبر Android وiOS وFlutter وReact Native — بصفتي مهندساً واحداً مسؤولاً عن واجهة الجوال كاملةً: حدود حزم SDK، وقنوات المنصة، والتكامل المستمر وأتمتة الإصدارات، والثقة بالعتاد التي تجمع ذلك كله. ومعنى الذكاء الاصطناعي هنا أن طبقة المنصة نفسها هي أصلاً منتج تنسيق قائم بذاته."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "إدارة مجموعات وسائط متعددة البروتوكولات ومشفّرة وقابلة للاستضافة الذاتية (Go/Gin مع React)، من 21 وحدة."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "خط المعالجة بالذكاء الاصطناعي من Markdown إلى فيديو، مع مشغّل سطح المكتب."
+        }
+      ],
+      "story": "TypeScript عبر الجسر — الوحدات الأصلية، وحزم SDK، وأتمتة الإصدارات. جسر React Native حيث يكون المنتج هو الغاية لا المنصة: Catalogizer مدير مجموعات وسائط متعدد البروتوكولات ومشفّر وقابل للاستضافة الذاتية، تستهلكه AWS وGoogle والمصارف بوصفه تطبيق React."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "واجهة React لمدير مجموعات وسائط متعدد البروتوكولات ومشفّر وقابل للاستضافة الذاتية."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "خط إنتاج دورات بالذكاء الاصطناعي من Markdown إلى فيديو، بثلاث واجهات تشغيل (سطح المكتب والجوال والويب)."
+        }
+      ],
+      "story": "TypeScript وReact وAngular — أنظمة التصميم، وإمكانية الوصول، وميزانيات الأداء. واجهات أمامية سريعة ومتاحة للجميع ومصمَّمة للترجمة منذ البداية: واجهة React في Catalogizer فوق نواة Go/Gin، ومشغّلات Courses-Creator، وواجهة HelixTrack على الحزمة التقنية نفسها — وكلها مترجمة إلى 15 لغة بواسطة خط توليد هذا الموقع."
+    }
+  },
+  "be": {
+    "_hub": {
+      "eyebrow": "10 тэхналагічных напрамкаў — 15 моў",
+      "lede": "Праверраныя кар’ерныя шляхі па тэхналагічных напрамках — ",
+      "stat_label": "15 моў · 10 напрамкаў · 16 гадоў у распрацоўцы прадуктаў",
+      "title": "Экспертыза"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Ансамблевы сэрвіс LLM прадакшн-ўзроўню, які адмаўляецца давяраць адной мадэлі; AI/LLM, Go, Gin, PostgreSQL, Redis, circuit breakers, маніторынг стану."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "Адзіны інтэрфейс да 43 правайдэраў з паўторамі са зменнай затрымкай (jitter) і сумленным выяўленнем мадэляў без жорстка прапісанага рэзервовага варыянту."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Адзін бінарны файл, шэсць рэжымаў разгортвання: інферэнс, сумяшчальны з OpenAI і Anthropic, праз HTTP/3 — ад наўтбука да кластара з некалькіх хастоў."
+        }
+      ],
+      "story": "Прадакшн-сістэмам ШІ можна давяраць толькі ў той меры, у якой яны адмаўляюцца давяраць самім сабе: абстракцыя з адным правайдэрам — гэта стаўка, аўтаномны агент — гэта кіравальны ўзровень, а кіраванне — адзінае, што не дае іх флоту разыходзіцца. У гэтай галіне я будую ўсе тры часткі: пласт LLM, які аб’ядноўвае 43 правайдэраў без жорстка прапісанага рэзервовага варыянту; аўтаномны кіравальны ўзровень, што запускае і вядзе headless CLI-агенты; і пласт верыфікацыі, чый шлюз «Ці бачыш ты мой код?» гарантуе, што прыдатнымі да выкарыстання пазначаюцца і экспартуюцца толькі мадэлі, якія сапраўды працуюць."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Альтэрнатыва JIRA + Confluence для свабоднага свету: мікрасэрвісы на Go за адзіным API з маршрутызацыяй па дзеяннях; HTTP/3, шыфраванне захаваных даных праз SQLCipher."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Anti-bluff аркестрацыя QA: мерка — не «тэсты праходзяць», а «карыстальнікі могуць карыстацца функцыяй»."
+        }
+      ],
+      "story": "Kotlin і Java ў прадуктавым маштабе: SDK, інтэграцыя з абсталяваннем і рэліз-інжынерыя. HelixTrack — галоўнае сведчанне: альтэрнатыва JIRA + Confluence для свабоднага свету, мікрасэрвісы на Go за адзіным API з маршрутызацыяй па дзеяннях праз HTTP/3, шыфраванне захаваных даных праз SQLCipher. Ён паказвае, як выглядае Android-інжынерыя, калі стэк будуецца пад прадукт, а не насуперак яму."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "CI і праверка на ферме прылад у маштабе AOSP."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Камп’ютарны зрок плюс успрыманне UI праз LLM-зрок ад некалькіх правайдэраў з графамі навігацыі."
+        }
+      ],
+      "story": "Android на ўзроўні платформы: сістэмныя сэрвісы, запуск прылад і інтэграцыя з абсталяваннем. Праца з AOSP, дзе абсталяванне — гэта патрабаванне, і платформа павінна прыстасоўвацца да яго, а не наадварот."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Anti-bluff аркестрацыя QA, якая таксама кіруе праверкай Android TV."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "API з маршрутызацыяй па дзеяннях, на якім трымаецца праверка на ферме прылад праз HTTP/3."
+        }
+      ],
+      "story": "Інтэрфейсы для вялікага экрана, Leanback, медыяканвееры і праверка на ферме прылад. Android TV-рашэнні, што вытрымліваюць рэальныя прылады: праверка на тым, што ёсць у карыстальнікаў, а не на эмулятары, з той самай аркестрацыяй HelixQA, на якую абапіраецца мабільная частка."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Альтэрнатыва JIRA + Confluence для свабоднага свету з дэсктопнай паверхняй."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Канвеер ШІ-курсаў з дэсктопным прайгравальнікам."
+        }
+      ],
+      "story": "Electron і Tauri, натыўныя масты і дэсктопныя прадукты з падтрымкай працы без сеткі — якія выпускаюцца, абнаўляюцца і застаюцца падпісанымі. Дэсктопная паверхня: альтэрнатыва JIRA ад HelixTrack і Courses-Creator, абодва працуюць на машыне карыстальніка, у тым ліку без сеткі."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "Канвеер ШІ-курсаў ад markdown да відэа з TTS і прайгравальнікамі для дэсктопа, мабільных прыладаў і вэбу."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Аркестрацыя QA, якую атрымлівае ў спадчыну любы SDK, што працуе на розных платформах."
+        }
+      ],
+      "story": "Dart на ўзроўні SDK — архітэктура плагінаў, платформенныя каналы і апублікаваныя пакеты. Паверхня, якой карыстаюцца AWS, Google і банкі як SDK: Courses-Creator ператварае markdown-дакумент у відэакурс на дэсктопе, мабільных прыладах і ў вэбе, з TTS і двума прайгравальнікамі, і паказвае, як SDK ахоплівае адразу тры паверхні."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Альтэрнатыва JIRA + Confluence для свабоднага свету: мікрасэрвісы на Go за адзіным API з маршрутызацыяй па дзеяннях праз HTTP/3, шыфраванне захаваных даных праз SQLCipher."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Адзіны рухавік кагнітыўнай памяці, што аб’ядноўвае Mem0, Cognee, Letta і Graphiti."
+        }
+      ],
+      "story": "Высокапрадукцыйныя сэрвісы, размеркаваныя сістэмы і бібліятэкі, з якіх яны збіраюцца. Go, напісаны для эксплуатацыі, а не проста для кампіляцыі: HelixTrack, альтэрнатыва JIRA + Confluence для свабоднага свету, і HelixMemory — адзіны рухавік кагнітыўнай памяці, што аб’ядноўвае чатыры лепшыя ў сваім класе backend-рашэнні (Mem0, Cognee, Letta, Graphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Флагманскі інструмент мабільнай паверхні: альтэрнатыва JIRA/Confluence, пабудаваная ў маштабе SDK."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Камп’ютарны зрок плюс успрыманне UI праз LLM-зрок ад некалькіх правайдэраў з графамі навігацыі."
+        }
+      ],
+      "story": "Натыўная і кросплатформенная распрацоўка для Android, iOS, Flutter і React Native — як адзін інжынер, што адказвае за ўсю мабільную паверхню: межы SDK, платформенныя каналы, CI і аўтаматызацыя рэлізаў, а таксама давераная апаратная аснова, якая ўсё гэта трымае. Для ШІ гэта азначае, што сам платформенны пласт ужо з’яўляецца прадуктам аркестрацыі."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Шматпратаколнае, зашыфраванае кіраванне медыяфондам з самастойным хостынгам (Go/Gin + React), 21 модуль."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Канвеер ШІ-курсаў ад markdown да відэа з дэсктопным прайгравальнікам."
+        }
+      ],
+      "story": "TypeScript праз мост — натыўныя модулі, пакеты SDK і аўтаматызацыя рэлізаў. Мост React Native, дзе прадукт — гэта прадукт, а не платформа: Catalogizer — шматпратаколны, зашыфраваны менеджар медыяфонду з самастойным хостынгам, якім карыстаюцца AWS, Google і банкі як React-праграмай."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "React-абалонка шматпратаколнага, зашыфраванага менеджара медыяфонду з самастойным хостынгам."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Канвеер ШІ-курсаў ад markdown да відэа з трыма паверхнямі прайгравання (дэсктоп, мабільныя прылады, вэб)."
+        }
+      ],
+      "story": "TypeScript, React і Angular — дызайн-сістэмы, даступнасць і бюджэты прадукцыйнасці. Frontend-рашэнні, якія хуткія, даступныя і перакладзеныя па самой сваёй пабудове: React-абалонка Catalogizer над ядром на Go/Gin, прайгравальнікі Courses-Creator і UI HelixTrack на тым жа стэку — з перакладам на 15 моў уласным канвеерам генерацыі сайта."
+    }
+  },
+  "de": {
+    "_hub": {
+      "eyebrow": "10 Technologiebereiche — 15 Sprachen",
+      "lede": "Belegte Karrierewege nach Technologiebereich — ",
+      "stat_label": "15 Sprachen · 10 Bereiche · 16 Jahre Auslieferung",
+      "title": "Expertise"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Ein produktionsreifer Ensemble-LLM-Service, der sich nicht auf ein einzelnes Modell verlässt; KI/LLM, Go, Gin, PostgreSQL, Redis, Circuit Breaker, Health-Monitoring."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "Eine Schnittstelle über 43 Anbieter, mit Retries mit Jitter-Backoff und ehrlicher Modellerkennung ohne hartcodierten Fallback."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Eine Binärdatei, sechs Bereitstellungsmodi: OpenAI- und Anthropic-kompatible Inferenz über HTTP/3, skalierbar vom Laptop bis zum Multi-Host-Cluster."
+        }
+      ],
+      "story": "KI-Systeme im Produktivbetrieb sind nur so vertrauenswürdig wie die Teile, denen sie selbst nicht blind vertrauen: Eine Abstraktion über einen einzelnen Anbieter ist eine Wette, ein autonomer Agent ist eine Control Plane, und Governance ist das Einzige, was eine ganze Flotte davon vor dem Auseinanderdriften bewahrt. In diesem Bereich baue ich alle drei — die LLM-Schicht, die 43 Anbieter ohne hartcodierten Fallback anspricht, die autonome Control Plane, die Headless-CLI-Agenten startet und lenkt, und die Verifikationsschicht, deren Gate „Siehst du meinen Code?“ dafür sorgt, dass nur Modelle, die nachweislich funktionieren, als nutzbar markiert oder exportiert werden."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Eine freie Alternative zu JIRA + Confluence: Go-Microservices hinter einer einheitlichen, aktionsgerouteten API; HTTP/3, SQLCipher für ruhende Daten."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Anti-Bluff-QA-Orchestrierung: Der Maßstab ist nicht „Tests bestanden“, sondern „Nutzer können die Funktion nutzen“."
+        }
+      ],
+      "story": "Kotlin und Java im Produktionsmaßstab: SDKs, Hardware-Integration und Release-Engineering. HelixTrack ist der zentrale Beleg — eine freie Alternative zu JIRA + Confluence, Go-Microservices hinter einer einheitlichen, aktionsgerouteten API über HTTP/3, SQLCipher-Verschlüsselung ruhender Daten — und zeigt, wie Android-Engineering aussieht, wenn der Stack für das Produkt gebaut ist und nicht gegen es."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "CI- und Gerätefarm-Verifikation im AOSP-Maßstab."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Computer Vision plus UI-Wahrnehmung mit mehreren LLM-Vision-Anbietern und Navigationsgraphen."
+        }
+      ],
+      "story": "Android auf Plattformebene: Systemdienste, Geräte-Bring-up und Hardware-Integration. AOSP-Arbeit, bei der die Hardware die Anforderung ist — und die Plattform sich ihr anpassen muss, nicht umgekehrt."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Die Anti-Bluff-QA-Orchestrierung, die auch die Android-TV-Verifikation steuert."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "Die aktionsgeroutete API, die die Verifikation auf Gerätefarmen über HTTP/3 antreibt."
+        }
+      ],
+      "story": "10-Foot-Oberflächen, Leanback, Medien-Pipelines und Verifikation auf Gerätefarmen. Android-TV-Erlebnisse, die auf echten Geräten bestehen — verifiziert an dem, was Nutzer tatsächlich besitzen, nicht am Emulator, mit derselben HelixQA-Orchestrierung, auf die sich auch die mobile Oberfläche stützt."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Die freie Alternative zu JIRA + Confluence, mit ihrer Desktop-Oberfläche."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Die KI-Kurs-Pipeline mit ihrem Desktop-Player."
+        }
+      ],
+      "story": "Electron und Tauri, native Bridges und Offline-first-Desktop-Produkte, die sich ausliefern, aktualisieren und signiert halten lassen. Die Desktop-Oberfläche: die JIRA-Alternative HelixTrack und Courses-Creator, beide begegnen dem Nutzer auf seinem Rechner, auch offline."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "Eine KI-Kurs-Pipeline von Markdown zu Video mit TTS sowie Desktop-, Mobil- und Web-Playern."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Die QA-Orchestrierung, die jedes plattformübergreifende SDK erbt."
+        }
+      ],
+      "story": "Dart auf SDK-Ebene — Plugin-Architektur, Platform Channels und ausgelieferte Pakete. Die Oberfläche, die AWS, Google und Banken als SDKs nutzen: Courses-Creator verwandelt ein Markdown-Dokument in einen Videokurs, auf Desktop, Mobilgerät und Web, mit TTS und zwei lauffähigen Playern — und zeigt, wie ein SDK drei Oberflächen zugleich überbrückt."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Eine freie Alternative zu JIRA + Confluence: Go-Microservices hinter einer einheitlichen, aktionsgerouteten API über HTTP/3, SQLCipher für ruhende Daten."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Eine einheitliche kognitive Memory-Engine, die Mem0, Cognee, Letta und Graphiti vereint."
+        }
+      ],
+      "story": "Hochdurchsatz-Services, verteilte Systeme und die Bibliotheken, aus denen sie gebaut sind. Go, gebaut, um betrieben zu werden, nicht nur um zu kompilieren: HelixTrack, die freie Alternative zu JIRA + Confluence, und HelixMemory — eine einheitliche kognitive Memory-Engine, die vier branchenführende Backends vereint (Mem0, Cognee, Letta, Graphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Das zentrale Werkzeug für die mobile Oberfläche: eine JIRA/Confluence-Alternative im SDK-Maßstab."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Computer Vision plus UI-Wahrnehmung mit mehreren LLM-Vision-Anbietern und Navigationsgraphen."
+        }
+      ],
+      "story": "Native und plattformübergreifende Auslieferung für Android, iOS, Flutter und React Native — als ein Engineer, der die gesamte mobile Oberfläche verantwortet: SDK-Grenzen, Platform Channels, CI- und Release-Automatisierung und das Hardware-Vertrauen, das alles zusammenhält. KI bedeutet hier, dass die Plattformschicht selbst bereits ein Orchestrierungsprodukt ist."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Multiprotokoll-fähige, verschlüsselte, selbst hostbare Verwaltung von Mediensammlungen (Go/Gin + React), 21 Module."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Die KI-Pipeline von Markdown zu Video, mit dem Desktop-Player."
+        }
+      ],
+      "story": "TypeScript über die Bridge hinweg — native Module, SDK-Pakete und Release-Automatisierung. Die React-Native-Bridge, bei der das Produkt das Produkt ist und nicht die Plattform: Catalogizer ist ein multiprotokollfähiger, verschlüsselter, selbst hostbarer Manager für Mediensammlungen, den AWS, Google und Banken als React-App einsetzen."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Die React-Shell eines multiprotokollfähigen, verschlüsselten, selbst hostbaren Managers für Mediensammlungen."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Die KI-Pipeline von Markdown zu Video, mit drei Wiedergabeoberflächen (Desktop, Mobilgerät, Web)."
+        }
+      ],
+      "story": "TypeScript, React und Angular — Designsysteme, Barrierefreiheit und Performance-Budgets. Frontends, die schnell, barrierefrei und konstruktionsbedingt übersetzt sind: Catalogizers React-Shell über dem Go/Gin-Kern, die Player von Courses-Creator und die Oberfläche von HelixTrack auf demselben Stack — übersetzt in 15 Sprachen durch die eigene Generierungs-Pipeline der Website."
+    }
+  },
+  "es": {
+    "_hub": {
+      "eyebrow": "10 áreas tecnológicas — 15 idiomas",
+      "lede": "Trayectorias profesionales verificadas por área tecnológica — ",
+      "stat_label": "15 idiomas · 10 áreas · 16 años entregando software",
+      "title": "Especialidades"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Un servicio LLM de conjunto (ensemble) de nivel de producción que se niega a confiar en un solo modelo; IA/LLM, Go, Gin, PostgreSQL, Redis, circuit breakers, monitoreo de salud."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "Una interfaz sobre los 43 proveedores, con reintentos con backoff con jitter y descubrimiento honesto de modelos, sin respaldo codificado."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Un solo binario, seis modos de despliegue: inferencia compatible con OpenAI y Anthropic sobre HTTP/3, que escala desde un portátil hasta un clúster multihost."
+        }
+      ],
+      "story": "Los sistemas de IA en producción son tan confiables como las partes en las que se niegan a confiar ciegamente: una abstracción de un solo proveedor es una apuesta, un agente autónomo es un plano de control, y la gobernanza es lo único que evita que una flota de ellos se desvíe. En esta área construyo las tres cosas: la capa LLM que da acceso a 43 proveedores sin codificar un respaldo fijo, el plano de control autónomo que lanza y controla agentes CLI headless, y la capa de verificación cuya puerta «¿Ves mi código?» garantiza que solo los modelos probados para funcionar se marquen como utilizables o se exporten."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Una alternativa libre al mundo JIRA + Confluence: microservicios Go detrás de una API unificada con enrutamiento de acciones; HTTP/3, SQLCipher en reposo."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Orquestación QA anti-bluff: el criterio no es «las pruebas pasan» sino «los usuarios pueden usar la funcionalidad»."
+        }
+      ],
+      "story": "Kotlin y Java a escala de producto: SDKs, integración de hardware e ingeniería de lanzamiento. HelixTrack es la prueba emblemática — una alternativa libre al mundo JIRA + Confluence, con microservicios Go detrás de una API unificada con enrutamiento de acciones sobre HTTP/3 y cifrado SQLCipher en reposo — que muestra cómo es la ingeniería de Android cuando la pila se construye para el producto y no en su contra."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Verificación de CI y de granjas de dispositivos a escala AOSP."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Percepción de interfaz mediante visión por computadora más visión LLM multiproveedor, con gráficos de navegación."
+        }
+      ],
+      "story": "Android a nivel de plataforma: servicios del sistema, puesta en marcha de dispositivos e integración de hardware. Trabajo en AOSP donde el hardware es el requisito, y la plataforma debe adaptarse a él, no al revés."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "La orquestación QA anti-bluff que también impulsa la verificación de Android TV."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "La API con enrutamiento de acciones que impulsa la verificación en granjas de dispositivos sobre HTTP/3."
+        }
+      ],
+      "story": "Interfaces de 10 pies, Leanback, pipelines de medios y verificación en granjas de dispositivos. Experiencias de Android TV que sobreviven en dispositivos reales: verificadas contra lo que tienen los usuarios, no contra el emulador, con la misma orquestación de HelixQA de la que depende la superficie móvil."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "La alternativa libre al mundo JIRA + Confluence, con su superficie de escritorio."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "El pipeline de IA para cursos con su reproductor de escritorio."
+        }
+      ],
+      "story": "Electron y Tauri, puentes nativos y productos de escritorio offline-first, que se entregan, se actualizan y permanecen firmados. La superficie de escritorio: la alternativa a JIRA de HelixTrack y Courses-Creator, ambos al encuentro del usuario en su máquina, también sin conexión."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "Un pipeline de IA de markdown a curso en video, con TTS y reproductores de escritorio, móvil y web."
+        },
+        {
+          "name": "HelixQA",
+          "text": "La orquestación QA que hereda todo SDK que cruza plataformas."
+        }
+      ],
+      "story": "Dart a nivel de SDK: arquitectura de plugins, canales de plataforma y paquetes publicados. La superficie que AWS, Google y los bancos consumen como SDKs: Courses-Creator convierte un documento markdown en un curso en video, en escritorio, móvil y web, con TTS y dos reproductores funcionales, y muestra cómo un SDK cruza tres superficies a la vez."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Una alternativa libre al mundo JIRA + Confluence: microservicios Go detrás de una API unificada con enrutamiento de acciones sobre HTTP/3, SQLCipher en reposo."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Un motor de memoria cognitiva unificada que fusiona Mem0, Cognee, Letta y Graphiti."
+        }
+      ],
+      "story": "Servicios de alto rendimiento, sistemas distribuidos y las bibliotecas con las que se construyen. Go construido para ser operado, no solo compilado: HelixTrack, la alternativa libre al mundo JIRA + Confluence, y HelixMemory, un motor de memoria cognitiva unificada que fusiona cuatro backends de primera categoría (Mem0, Cognee, Letta, Graphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "La herramienta emblemática de la superficie móvil: una alternativa a JIRA/Confluence construida a escala de SDK."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Percepción de interfaz mediante visión por computadora más visión LLM multiproveedor, con gráficos de navegación."
+        }
+      ],
+      "story": "Entrega nativa y multiplataforma a través de Android, iOS, Flutter y React Native, como un único ingeniero responsable de toda la superficie móvil: límites de SDK, canales de plataforma, CI y automatización de lanzamiento, y la confianza en el hardware que lo mantiene unido. Lo que la IA significa aquí es que la propia capa de plataforma ya es un producto de orquestación."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Gestión de colecciones multimedia multiprotocolo, cifrada y autoalojable (Go/Gin + React), 21 módulos."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "El pipeline de IA de markdown a video, con el reproductor de escritorio."
+        }
+      ],
+      "story": "TypeScript a través del puente: módulos nativos, paquetes SDK y automatización de lanzamiento. El puente de React Native donde el producto es el producto, no la plataforma: Catalogizer es un gestor de colecciones multimedia multiprotocolo, cifrado y autoalojable, consumido como aplicación React por AWS, Google y bancos."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "La capa React de un gestor de colecciones multimedia multiprotocolo, cifrado y autoalojable."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "El pipeline de IA para cursos en video a partir de markdown, con tres superficies de reproducción (escritorio, móvil, web)."
+        }
+      ],
+      "story": "TypeScript, React y Angular: sistemas de diseño, accesibilidad y presupuestos de rendimiento. Frontends rápidos, accesibles y traducidos por construcción: la capa React de Catalogizer sobre el núcleo Go/Gin, los reproductores de Courses-Creator y la interfaz de HelixTrack sobre la misma pila, traducidos a 15 idiomas por el propio pipeline de generación del sitio."
+    }
+  },
+  "fa": {
+    "_hub": {
+      "eyebrow": "۱۰ حوزهٔ فناوری — ۱۵ زبان",
+      "lede": "مسیرهای شغلیِ تأییدشده به تفکیک حوزهٔ فناوری — ",
+      "stat_label": "۱۵ زبان · ۱۰ حوزه · ۱۶ سال تحویل محصول",
+      "title": "تخصص‌ها"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "یک سرویس LLM گروهی (ensemble) در سطح تولید که به هیچ مدل منفردی اعتماد نمی‌کند؛ AI/LLM، Go، Gin، PostgreSQL، Redis، circuit breaker، پایش سلامت."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "یک رابط واحد روی ۴۳ ارائه‌دهنده، با تلاش مجدد با backoff تصادفی (jitter) و کشف صادقانهٔ مدل بدون هیچ جایگزین سخت‌کدشده."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "یک باینری، شش حالت استقرار: استنتاج سازگار با OpenAI و Anthropic روی HTTP/3، با مقیاس‌پذیری از یک لپ‌تاپ تا خوشهٔ چندمیزبانه."
+        }
+      ],
+      "story": "سیستم‌های هوش مصنوعیِ عملیاتی فقط به همان اندازه قابل‌اعتمادند که اجزایشان حاضر نیستند کورکورانه به خودشان اعتماد کنند: انتزاع تک‌ارائه‌دهنده یک شرط‌بندی است، عامل خودکار یک صفحهٔ کنترل (control plane) است و حاکمیت تنها چیزی است که ناوگانی از آن‌ها را از انحراف نگه می‌دارد. در این حوزه هر سه را می‌سازم — لایهٔ LLM که ۴۳ ارائه‌دهنده را بدون هیچ جایگزین سخت‌کدشده پوشش می‌دهد، صفحهٔ کنترل خودکاری که عامل‌های CLI بدون رابط (headless) را راه‌اندازی و هدایت می‌کند، و لایهٔ اعتبارسنجی‌ای که دروازهٔ اجباریِ «کد من را می‌بینی؟» (Do you see my code?) آن تضمین می‌کند فقط مدل‌هایی که واقعاً کار می‌کنند قابل‌استفاده علامت‌گذاری یا صادر شوند."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "جایگزین آزاد JIRA + Confluence: میکروسرویس‌های Go پشت یک API یکپارچهٔ مبتنی بر مسیریابی اکشن؛ HTTP/3 و SQLCipher در حالت سکون."
+        },
+        {
+          "name": "HelixQA",
+          "text": "ارکستراسیون QA ضدبلوف: معیار «آزمون‌ها موفق‌اند» نیست، بلکه «کاربران می‌توانند از قابلیت استفاده کنند» است."
+        }
+      ],
+      "story": "Kotlin و Java در مقیاس محصول: SDK، یکپارچه‌سازی سخت‌افزار و مهندسی انتشار. HelixTrack شاخص‌ترین شاهد این رویکرد است — جایگزین آزاد JIRA + Confluence، با میکروسرویس‌های Go پشت یک API یکپارچهٔ مبتنی بر مسیریابی اکشن (action-routed) روی HTTP/3 و رمزنگاری SQLCipher در حالت سکون — و نشان می‌دهد مهندسی Android وقتی پشته برای محصول ساخته شود، نه برخلاف آن، چه شکلی دارد."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "اعتبارسنجی در CI و روی فارم دستگاه‌ها (device farm) در مقیاس AOSP."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "ادراک رابط کاربری با بینایی ماشین به‌علاوهٔ بینایی LLM چندارائه‌دهنده، همراه با گراف‌های ناوبری."
+        }
+      ],
+      "story": "Android در سطح پلتفرم: سرویس‌های سیستمی، راه‌اندازی اولیهٔ دستگاه و یکپارچه‌سازی سخت‌افزار. کار روی AOSP که در آن سخت‌افزار الزام اصلی است — و این پلتفرم است که باید خود را با آن تطبیق دهد، نه برعکس."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "ارکستراسیون QA ضدبلوف که اعتبارسنجی Android TV را نیز پیش می‌برد."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "API مبتنی بر مسیریابی اکشن که اعتبارسنجی روی فارم دستگاه‌ها را از طریق HTTP/3 تقویت می‌کند."
+        }
+      ],
+      "story": "رابط‌های کاربری تلویزیونی (ده‌فوتی)، Leanback، خط لولهٔ رسانه و اعتبارسنجی روی فارم دستگاه‌ها. تجربه‌های Android TV که روی دستگاه‌های واقعی دوام می‌آورند — روی دستگاه‌هایی که کاربران واقعاً دارند اعتبارسنجی می‌شوند، نه روی شبیه‌ساز، و با همان ارکستراسیون HelixQA که سطح موبایل به آن وابسته است."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "جایگزین آزاد JIRA + Confluence، همراه با سطح دسکتاپ آن."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "خط لولهٔ دورهٔ هوش مصنوعی همراه با پخش‌کنندهٔ دسکتاپ آن."
+        }
+      ],
+      "story": "Electron و Tauri، پل‌های native و محصولات دسکتاپ با رویکرد آفلاین‌محور — محصولاتی که منتشر می‌شوند، به‌روز می‌شوند و امضاشده باقی می‌مانند. سطح دسکتاپ: جایگزین JIRA در HelixTrack و Courses-Creator، که هر دو روی دستگاه خودِ کاربر، حتی بدون اتصال، در دسترس‌اند."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "خط لولهٔ دورهٔ هوش مصنوعی از markdown به ویدیو، با TTS و پخش‌کننده‌های دسکتاپ، موبایل و وب."
+        },
+        {
+          "name": "HelixQA",
+          "text": "ارکستراسیون QA که هر SDKِ عبورکننده از چند پلتفرم به ارث می‌برد."
+        }
+      ],
+      "story": "Dart در سطح SDK — معماری افزونه، کانال‌های پلتفرم و بسته‌های منتشرشده. سطحی که AWS، Google و بانک‌ها به‌صورت SDK از آن استفاده می‌کنند: Courses-Creator یک سند markdown را به دورهٔ ویدیویی تبدیل می‌کند، روی دسکتاپ، موبایل و وب، با TTS و دو پخش‌کنندهٔ اجراپذیر، و نشان می‌دهد یک SDK چگونه هم‌زمان از سه سطح عبور می‌کند."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "جایگزین آزاد JIRA + Confluence: میکروسرویس‌های Go پشت یک API یکپارچهٔ مبتنی بر مسیریابی اکشن روی HTTP/3، با SQLCipher در حالت سکون."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "موتور حافظهٔ شناختی یکپارچه که Mem0، Cognee، Letta و Graphiti را در هم می‌آمیزد."
+        }
+      ],
+      "story": "سرویس‌های پرگذردهی، سیستم‌های توزیع‌شده و کتابخانه‌هایی که از آن‌ها ساخته می‌شوند. کد Go که برای عملیاتی شدن نوشته شده، نه فقط برای کامپایل شدن: HelixTrack، جایگزین آزاد JIRA + Confluence، و HelixMemory — موتور حافظهٔ شناختی یکپارچه که چهار بک‌اند شاخص در رده‌ی خود (Mem0، Cognee، Letta، Graphiti) را در هم می‌آمیزد."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "ابزار شاخص سطح موبایل: جایگزین JIRA + Confluence که در مقیاس SDK ساخته شده است."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "ادراک رابط کاربری با بینایی ماشین به‌علاوهٔ بینایی LLM چندارائه‌دهنده، همراه با گراف‌های ناوبری."
+        }
+      ],
+      "story": "تحویل native و چندپلتفرمی در Android، iOS، Flutter و React Native توسط یک مهندس که مسئول کل سطح موبایل است: مرزهای SDK، کانال‌های پلتفرم، CI و خودکارسازی انتشار، و اعتماد به سخت‌افزار که همهٔ این‌ها را کنار هم نگه می‌دارد. در اینجا حضور هوش مصنوعی یعنی خودِ لایهٔ پلتفرم از پیش یک محصول ارکستراسیون است."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "مدیریت مجموعهٔ رسانه‌ای چندپروتکلی، رمزنگاری‌شده و خودمیزبان (Go/Gin + React)، ۲۱ ماژول."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "خط لولهٔ هوش مصنوعی از markdown به ویدیو، همراه با پخش‌کنندهٔ دسکتاپ."
+        }
+      ],
+      "story": "TypeScript در سراسر پل — ماژول‌های native، بسته‌های SDK و خودکارسازی انتشار. پل React Native جایی که خودِ محصول مهم است، نه پلتفرم: Catalogizer ابزار مدیریت مجموعهٔ رسانه‌ایِ چندپروتکلی، رمزنگاری‌شده و خودمیزبان است که AWS، Google و بانک‌ها آن را به‌صورت یک اپلیکیشن React استفاده می‌کنند."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "پوستهٔ React یک ابزار مدیریت مجموعهٔ رسانه‌ای چندپروتکلی، رمزنگاری‌شده و خودمیزبان."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "خط لولهٔ دورهٔ هوش مصنوعی از markdown به ویدیو، با سه سطح پخش (دسکتاپ، موبایل، وب)."
+        }
+      ],
+      "story": "TypeScript، React و Angular — سیستم‌های طراحی، دسترس‌پذیری و بودجهٔ کارایی. فرانت‌اندهایی که سریع و دسترس‌پذیرند و ترجمه در ساختارشان تعبیه شده است: پوستهٔ React در Catalogizer روی هستهٔ Go/Gin، پخش‌کننده‌های Courses-Creator و رابط کاربری HelixTrack روی همین پشته — ترجمه‌شده به ۱۵ زبان توسط خط لولهٔ تولید خودِ سایت."
+    }
+  },
+  "fr": {
+    "_hub": {
+      "eyebrow": "10 domaines technologiques — 15 langues",
+      "lede": "Parcours professionnels vérifiés par domaine technologique — ",
+      "stat_label": "15 langues · 10 domaines · 16 ans de livraison en production",
+      "title": "Expertise"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Un service LLM d’ensemble de niveau production qui refuse de se fier à un seul modèle ; IA/LLM, Go, Gin, PostgreSQL, Redis, disjoncteurs, surveillance de l’état de santé."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "Une seule interface au-dessus des 43 fournisseurs, avec des nouvelles tentatives avec recul exponentiel et gigue et une découverte de modèles honnête, sans repli codé en dur."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Un seul binaire, six modes de déploiement : inférence compatible OpenAI et Anthropic via HTTP/3, de l’ordinateur portable au cluster multi-hôtes."
+        }
+      ],
+      "story": "Les systèmes d’IA en production ne méritent la confiance que dans la mesure où ils refusent de faire confiance à leurs propres composants : une abstraction à fournisseur unique est un pari, un agent autonome est un plan de contrôle, et la gouvernance est la seule chose qui empêche une flotte d’agents de dériver. Dans ce domaine, je construis les trois : la couche LLM qui sert de façade à 43 fournisseurs sans repli codé en dur, le plan de contrôle autonome qui lance et pilote des agents CLI headless, et la couche de vérification dont le gate « Do you see my code? » garantit que seuls les modèles dont le fonctionnement est prouvé sont marqués comme utilisables ou exportés."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Une alternative du monde libre à JIRA + Confluence : des microservices Go derrière une API unifiée à routage par actions ; HTTP/3, SQLCipher au repos."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Orchestration QA anti-bluff : le critère n’est pas « les tests passent » mais « les utilisateurs peuvent se servir de la fonctionnalité »."
+        }
+      ],
+      "story": "Kotlin et Java à l’échelle du produit : SDK, intégration matérielle et ingénierie des releases. HelixTrack en est la preuve phare — une alternative du monde libre à JIRA + Confluence, des microservices Go derrière une API unifiée à routage par actions via HTTP/3, un chiffrement au repos avec SQLCipher — qui montre à quoi ressemble l’ingénierie Android quand la pile est conçue pour le produit plutôt que contre lui."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Vérification CI et sur parc d’appareils à l’échelle d’AOSP."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Perception de l’interface par vision par ordinateur et vision par LLM multifournisseur, avec graphes de navigation."
+        }
+      ],
+      "story": "Android au niveau de la plateforme : services système, mise en route des appareils et intégration matérielle. Un travail AOSP où le matériel fait foi — et où c’est la plateforme qui doit s’y plier, et non l’inverse."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "L’orchestration QA anti-bluff qui pilote aussi la vérification d’Android TV."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "L’API à routage par actions qui alimente la vérification sur parc d’appareils via HTTP/3."
+        }
+      ],
+      "story": "Interfaces TV « 10 pieds », Leanback, pipelines médias et vérification sur parc d’appareils. Des expériences Android TV qui tiennent sur de vrais appareils — vérifiées sur ce que les utilisateurs possèdent réellement, et non sur l’émulateur, avec la même orchestration HelixQA dont dépend la surface mobile."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "L’alternative du monde libre à JIRA + Confluence, avec sa surface de bureau."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Le pipeline de cours IA avec son lecteur de bureau."
+        }
+      ],
+      "story": "Electron et Tauri, ponts natifs et produits de bureau fonctionnant hors ligne — qui se livrent, se mettent à jour et restent signés. La surface de bureau : l’alternative à JIRA de HelixTrack et Courses-Creator, qui vont tous deux à la rencontre de l’utilisateur sur sa machine, hors ligne compris."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "Un pipeline de cours IA, du Markdown à la vidéo, avec synthèse vocale (TTS) et des lecteurs de bureau, mobiles et web."
+        },
+        {
+          "name": "HelixQA",
+          "text": "L’orchestration QA dont hérite tout SDK multiplateforme."
+        }
+      ],
+      "story": "Dart au niveau du SDK : architecture de plugins, canaux de plateforme et packages publiés. La surface qu’AWS, Google et des banques consomment sous forme de SDK : Courses-Creator transforme un document Markdown en cours vidéo, sur ordinateur de bureau, mobile et web, avec synthèse vocale (TTS) et deux lecteurs, et montre comment un SDK traverse trois surfaces à la fois."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Une alternative du monde libre à JIRA + Confluence : des microservices Go derrière une API unifiée à routage par actions via HTTP/3, SQLCipher au repos."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Un moteur de mémoire cognitive unifié qui fusionne Mem0, Cognee, Letta et Graphiti."
+        }
+      ],
+      "story": "Services à fort débit, systèmes distribués et les bibliothèques sur lesquelles ils reposent. Du Go conçu pour être exploité, et pas seulement compilé : HelixTrack, l’alternative du monde libre à JIRA + Confluence, et HelixMemory — un moteur de mémoire cognitive unifié qui fusionne quatre backends de référence (Mem0, Cognee, Letta, Graphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "L’outil phare de la surface mobile : une alternative à JIRA/Confluence conçue à l’échelle d’un SDK."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Perception de l’interface par vision par ordinateur et vision par LLM multifournisseur, avec graphes de navigation."
+        }
+      ],
+      "story": "Livraison native et multiplateforme sur Android, iOS, Flutter et React Native — en tant qu’ingénieur seul responsable de toute la surface mobile : frontières des SDK, canaux de plateforme, CI et automatisation des releases, et la confiance matérielle qui tient l’ensemble. Ce que l’IA signifie ici, c’est que la couche plateforme est elle-même déjà un produit d’orchestration."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Gestion de collections multimédias multiprotocole, chiffrée et auto-hébergeable (Go/Gin + React), 21 modules."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Le pipeline de cours IA, du Markdown à la vidéo, avec le lecteur de bureau."
+        }
+      ],
+      "story": "TypeScript de part et d’autre du pont : modules natifs, packages SDK et automatisation des releases. Le pont React Native où le produit prime sur la plateforme : Catalogizer est un gestionnaire de collections multimédias multiprotocole, chiffré et auto-hébergeable, consommé comme application React par AWS, Google et des banques."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "L’interface React d’un gestionnaire de collections multimédias multiprotocole, chiffré et auto-hébergeable."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Le pipeline de cours IA, du Markdown à la vidéo, avec trois surfaces de lecture (bureau, mobile, web)."
+        }
+      ],
+      "story": "TypeScript, React et Angular : design systems, accessibilité et budgets de performance. Des frontends rapides, accessibles et traduits par construction : l’interface React de Catalogizer au-dessus du cœur Go/Gin, les lecteurs de Courses-Creator et l’interface de HelixTrack sur la même pile — traduits en 15 langues par le pipeline de génération du site lui-même."
+    }
+  },
+  "hi": {
+    "_hub": {
+      "eyebrow": "10 टेक्नोलॉजी क्षेत्र — 15 भाषाएँ",
+      "lede": "टेक्नोलॉजी क्षेत्र के अनुसार सत्यापित करियर पथ — ",
+      "stat_label": "15 भाषाएँ · 10 क्षेत्र · 16 वर्षों से सॉफ़्टवेयर शिप कर रहा हूँ",
+      "title": "विशेषज्ञता"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "प्रोडक्शन-ग्रेड एन्सेम्बल LLM सेवा जो किसी एक मॉडल पर भरोसा करने से इनकार करती है; AI/LLM, Go, Gin, PostgreSQL, Redis, सर्किट ब्रेकर, हेल्थ मॉनिटरिंग।"
+        },
+        {
+          "name": "LLMProvider",
+          "text": "43 प्रोवाइडर के ऊपर एक इंटरफ़ेस, जिटर्ड-बैकऑफ़ रीट्राई और बिना हार्डकोडेड फ़ॉलबैक के ईमानदार मॉडल डिस्कवरी के साथ।"
+        },
+        {
+          "name": "HelixLLM",
+          "text": "एक बाइनरी, छह डिप्लॉयमेंट मोड: HTTP/3 पर OpenAI- और Anthropic-संगत इन्फ़रेंस, जो लैपटॉप से मल्टी-होस्ट क्लस्टर तक स्केल होता है।"
+        }
+      ],
+      "story": "प्रोडक्शन AI सिस्टम उतने ही भरोसेमंद होते हैं जितने वे हिस्से, जिन पर वे स्वयं भरोसा करने से इनकार करते हैं: किसी एक प्रोवाइडर का एब्स्ट्रैक्शन एक दाँव है, स्वायत्त एजेंट एक कंट्रोल प्लेन है, और गवर्नेंस ही वह चीज़ है जो ऐसे एजेंटों के फ़्लीट को भटकने से रोकती है। इस क्षेत्र में मैं तीनों बनाता हूँ — वह LLM लेयर जो बिना किसी हार्डकोडेड फ़ॉलबैक के 43 प्रोवाइडर को एक इंटरफ़ेस के पीछे रखती है, वह स्वायत्त कंट्रोल प्लेन जो हेडलेस CLI एजेंट को शुरू करता और चलाता है, और वह वेरिफ़िकेशन लेयर जिसके “क्या आपको मेरा कोड दिखता है?” गेट का अर्थ है कि केवल वही मॉडल उपयोग-योग्य चिह्नित या एक्सपोर्ट किए जाते हैं जिनका वास्तव में काम करना सिद्ध हो चुका है।"
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "free-world JIRA + Confluence विकल्प: एकीकृत एक्शन-रूटेड API के पीछे Go माइक्रोसर्विसेज़; HTTP/3, स्टोरेज पर SQLCipher एन्क्रिप्शन।"
+        },
+        {
+          "name": "HelixQA",
+          "text": "एंटी-ब्लफ़ QA ऑर्केस्ट्रेशन: पैमाना “टेस्ट पास हुए” नहीं, बल्कि “उपयोगकर्ता फ़ीचर का उपयोग कर सकते हैं” है।"
+        }
+      ],
+      "story": "प्रोडक्ट स्तर पर Kotlin और Java: SDK, हार्डवेयर इंटीग्रेशन और रिलीज़ इंजीनियरिंग। इसका प्रमुख प्रमाण HelixTrack है — free-world JIRA + Confluence विकल्प, HTTP/3 पर एकीकृत एक्शन-रूटेड API के पीछे Go माइक्रोसर्विसेज़, और स्टोरेज पर SQLCipher एन्क्रिप्शन — जो दिखाता है कि Android इंजीनियरिंग कैसी दिखती है जब स्टैक प्रोडक्ट के विरुद्ध नहीं, बल्कि प्रोडक्ट के लिए बनाया गया हो।"
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "AOSP के पैमाने पर CI और डिवाइस-फ़ार्म वेरिफ़िकेशन।"
+        },
+        {
+          "name": "VisionEngine",
+          "text": "कंप्यूटर-विज़न और मल्टी-प्रोवाइडर LLM-vision आधारित UI परसेप्शन, नेविगेशन ग्राफ़ के साथ।"
+        }
+      ],
+      "story": "प्लेटफ़ॉर्म-स्तर का Android: सिस्टम सर्विसेज़, डिवाइस ब्रिंग-अप और हार्डवेयर इंटीग्रेशन। ऐसा AOSP काम जहाँ हार्डवेयर ही आवश्यकता है — और प्लेटफ़ॉर्म को उसके अनुरूप ढलना पड़ता है, उल्टा नहीं।"
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "एंटी-ब्लफ़ QA ऑर्केस्ट्रेशन जो Android TV वेरिफ़िकेशन को भी चलाता है।"
+        },
+        {
+          "name": "HelixTrack",
+          "text": "एक्शन-रूटेड API जो HTTP/3 पर डिवाइस-फ़ार्म वेरिफ़िकेशन को संचालित करता है।"
+        }
+      ],
+      "story": "टेन-फ़ुट इंटरफ़ेस, Leanback, मीडिया पाइपलाइन और डिवाइस-फ़ार्म वेरिफ़िकेशन। ऐसे Android TV अनुभव जो असली डिवाइस पर टिके रहते हैं — एमुलेटर पर नहीं, बल्कि उन्हीं असली डिवाइस पर परखे गए जो उपयोगकर्ताओं के पास होते हैं, उसी HelixQA ऑर्केस्ट्रेशन के साथ जिस पर मोबाइल प्लेटफ़ॉर्म निर्भर है।"
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "free-world JIRA + Confluence विकल्प, अपने डेस्कटॉप क्लाइंट के साथ।"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "AI कोर्स पाइपलाइन, अपने डेस्कटॉप प्लेयर के साथ।"
+        }
+      ],
+      "story": "Electron और Tauri, नेटिव ब्रिज और ऑफ़लाइन-फ़र्स्ट डेस्कटॉप प्रोडक्ट — जो रिलीज़ होते हैं, अपडेट होते हैं और कोड-साइन किए रहते हैं। डेस्कटॉप क्षेत्र: HelixTrack का JIRA विकल्प और Courses-Creator, दोनों उपयोगकर्ता की अपनी मशीन पर चलते हैं, ऑफ़लाइन भी।"
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "TTS तथा डेस्कटॉप, मोबाइल और वेब प्लेयर के साथ Markdown से वीडियो बनाने वाली AI कोर्स पाइपलाइन।"
+        },
+        {
+          "name": "HelixQA",
+          "text": "वह QA ऑर्केस्ट्रेशन जो प्लेटफ़ॉर्म पार करने वाले हर SDK को विरासत में मिलता है।"
+        }
+      ],
+      "story": "SDK स्तर पर Dart — प्लगइन आर्किटेक्चर, प्लेटफ़ॉर्म चैनल और शिप किए गए पैकेज। वह प्लेटफ़ॉर्म जिसे AWS, Google और बैंक SDK के रूप में उपयोग करते हैं: Courses-Creator एक Markdown दस्तावेज़ को वीडियो कोर्स में बदलता है — डेस्कटॉप, मोबाइल और वेब पर, TTS और दो प्लेयर के साथ — यह दिखाता है कि एक SDK एक साथ तीन प्लेटफ़ॉर्म तक कैसे पहुँचता है।"
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "free-world JIRA + Confluence विकल्प: HTTP/3 पर एकीकृत एक्शन-रूटेड API के पीछे Go माइक्रोसर्विसेज़, स्टोरेज पर SQLCipher एन्क्रिप्शन।"
+        },
+        {
+          "name": "HelixMemory",
+          "text": "एकीकृत कॉग्निटिव-मेमोरी इंजन जो Mem0, Cognee, Letta और Graphiti को जोड़ता है।"
+        }
+      ],
+      "story": "हाई-थ्रूपुट सर्विसेज़, डिस्ट्रिब्यूटेड सिस्टम और वे लाइब्रेरी जिनसे वे बने हैं। ऐसा Go जो केवल कंपाइल होने के लिए नहीं, बल्कि संचालित होने के लिए बना है: HelixTrack, free-world JIRA + Confluence विकल्प, और HelixMemory — एकीकृत कॉग्निटिव-मेमोरी इंजन जो अपनी-अपनी श्रेणी के चार सर्वश्रेष्ठ बैकएंड (Mem0, Cognee, Letta, Graphiti) को जोड़ता है।"
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "प्रमुख मोबाइल प्लेटफ़ॉर्म टूल: SDK के पैमाने पर बना JIRA/Confluence विकल्प।"
+        },
+        {
+          "name": "VisionEngine",
+          "text": "कंप्यूटर-विज़न और मल्टी-प्रोवाइडर LLM-vision आधारित UI परसेप्शन, नेविगेशन ग्राफ़ के साथ।"
+        }
+      ],
+      "story": "Android, iOS, Flutter और React Native पर नेटिव व क्रॉस-प्लेटफ़ॉर्म डिलीवरी — एक ऐसे इंजीनियर के रूप में जो पूरे मोबाइल स्टैक की ज़िम्मेदारी संभालता है: SDK की सीमाएँ, प्लेटफ़ॉर्म चैनल, CI और रिलीज़ ऑटोमेशन, और हार्डवेयर-स्तर का वह भरोसा (hardware trust) जो सबको जोड़े रखता है। यहाँ AI का अर्थ यह है कि प्लेटफ़ॉर्म लेयर स्वयं पहले से एक ऑर्केस्ट्रेशन प्रोडक्ट है।"
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "मल्टी-प्रोटोकॉल, एन्क्रिप्टेड, सेल्फ़-होस्ट करने योग्य मीडिया कलेक्शन मैनेजमेंट (Go/Gin + React), 21 मॉड्यूल।"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Markdown से वीडियो बनाने वाली AI पाइपलाइन, डेस्कटॉप प्लेयर के साथ।"
+        }
+      ],
+      "story": "ब्रिज के आर-पार TypeScript — नेटिव मॉड्यूल, SDK पैकेज और रिलीज़ ऑटोमेशन। वह React Native ब्रिज जहाँ प्रोडक्ट ही प्रोडक्ट है, प्लेटफ़ॉर्म नहीं: Catalogizer मल्टी-प्रोटोकॉल, एन्क्रिप्टेड, सेल्फ़-होस्ट करने योग्य मीडिया-कलेक्शन मैनेजर है, जिसे AWS, Google और बैंक React ऐप के रूप में उपयोग करते हैं।"
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "मल्टी-प्रोटोकॉल, एन्क्रिप्टेड, सेल्फ़-होस्ट करने योग्य मीडिया-कलेक्शन मैनेजर का React शेल।"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Markdown से वीडियो बनाने वाली AI कोर्स पाइपलाइन, तीन प्लेबैक प्लेटफ़ॉर्म (डेस्कटॉप, मोबाइल, वेब) के साथ।"
+        }
+      ],
+      "story": "TypeScript, React और Angular — डिज़ाइन सिस्टम, एक्सेसिबिलिटी और परफ़ॉर्मेंस बजट। ऐसे फ़्रंटएंड जो शुरू से ही तेज़, सुलभ और बहुभाषी हैं: Go/Gin कोर के ऊपर Catalogizer का React शेल, Courses-Creator के प्लेयर, और उसी स्टैक पर HelixTrack का UI — जिन्हें साइट की अपनी जनरेशन पाइपलाइन 15 भाषाओं में अनुवादित करती है।"
+    }
+  },
+  "ja": {
+    "_hub": {
+      "eyebrow": "10の技術分野 — 15言語",
+      "lede": "技術分野ごとの、検証済みのキャリアパス — ",
+      "stat_label": "15言語 · 10分野 · 16年のリリース実績",
+      "title": "専門分野"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "単一のモデルを信用しない、本番グレードのアンサンブルLLMサービス。AI/LLM、Go、Gin、PostgreSQL、Redis、サーキットブレーカー、ヘルスモニタリング。"
+        },
+        {
+          "name": "LLMProvider",
+          "text": "43のプロバイダーを1つのインターフェースで扱えます。ジッター付きバックオフによるリトライと、フォールバックをハードコードせず実際に利用可能なモデルだけを探索する仕組みを備えています。"
+        },
+        {
+          "name": "HelixLLM",
+          "text": "1つのバイナリで6つのデプロイモード。HTTP/3上でOpenAI互換・Anthropic互換の推論を提供し、ノートPCからマルチホストクラスターまでスケールします。"
+        }
+      ],
+      "story": "本番環境のAIシステムの信頼性は、自らを信用しない部分をどれだけ持っているかで決まります。単一プロバイダーを前提とした抽象化は賭けであり、自律エージェントは制御プレーンであり、ガバナンスこそがエージェント群の逸脱を防ぐ唯一の手段です。この分野で私は、その3つすべてを構築しています。フォールバックをハードコードせずに43のプロバイダーを束ねるLLMレイヤー、ヘッドレスCLIエージェントを起動して駆動する自律的な制御プレーン、そして「Do you see my code?」ゲートによって、実際に動作すると証明されたモデルだけを利用可能としてマークし、エクスポートする検証レイヤーです。"
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "フリーワールドのJIRA＋Confluence代替。統一されたアクションルーティングAPIの背後にGoマイクロサービスを配置し、HTTP/3と保存時のSQLCipherに対応します。"
+        },
+        {
+          "name": "HelixQA",
+          "text": "アンチブラフのQAオーケストレーション。基準は「テストが通ること」ではなく「ユーザーが機能を使えること」です。"
+        }
+      ],
+      "story": "プロダクト規模のKotlinとJava — SDK、ハードウェア統合、リリースエンジニアリング。HelixTrackはその代表的な実証です。フリーワールドのJIRA＋Confluence代替であり、HTTP/3上の統一されたアクションルーティングAPIの背後にGoマイクロサービスを配置し、保存時にはSQLCipherで暗号化します。スタックをプロダクトに逆らうのではなく、プロダクトのために組み上げたときのAndroidエンジニアリングの姿を示しています。"
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "AOSP規模でのCIおよび実機ファームでの検証。"
+        },
+        {
+          "name": "VisionEngine",
+          "text": "コンピュータビジョンと複数プロバイダー対応のLLMビジョンによるUI認識。ナビゲーショングラフを備えます。"
+        }
+      ],
+      "story": "プラットフォームレベルのAndroid — システムサービス、デバイスのセットアップ、ハードウェア統合。ハードウェアが要件となるAOSPの仕事では、ハードウェアにプラットフォームを合わせる必要があります。その逆ではありません。"
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Android TVの検証も担う、アンチブラフのQAオーケストレーション。"
+        },
+        {
+          "name": "HelixTrack",
+          "text": "HTTP/3経由で実機ファームでの検証を支える、アクションルーティングAPI。"
+        }
+      ],
+      "story": "10フィートUI、Leanback、メディアパイプライン、そして実機ファームでの検証。実機で動くAndroid TV体験を実現します。エミュレーターではなくユーザーが実際に持つ端末で検証し、モバイル側が依存するのと同じHelixQAオーケストレーションを用います。"
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "デスクトップ版も備えた、フリーワールドのJIRA＋Confluence代替。"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "デスクトップ向けプレーヤーを備えたAIコースパイプライン。"
+        }
+      ],
+      "story": "ElectronとTauri、ネイティブブリッジ、オフラインファーストのデスクトップ製品 — リリース、更新、コード署名の維持まで担います。デスクトップ向け製品として、HelixTrackのJIRA代替とCourses-Creatorがあり、どちらもオフラインを含め、ユーザーのマシン上でユーザーと向き合います。"
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "TTSと、デスクトップ・モバイル・Web向けプレーヤーを備えた、マークダウンからビデオを生成するAIコースパイプライン。"
+        },
+        {
+          "name": "HelixQA",
+          "text": "プラットフォームをまたぐあらゆるSDKが受け継ぐQAオーケストレーション。"
+        }
+      ],
+      "story": "SDKレベルのDart — プラグインアーキテクチャ、プラットフォームチャネル、公開パッケージ。AWS、Google、各種銀行がSDKとして利用する領域です。Courses-Creatorはマークダウン文書をビデオコースに変換し、デスクトップ、モバイル、Webで動作します。TTSと再生用の2つのプレーヤーを備え、1つのSDKが3つのプラットフォームを同時にまたぐ様子を示しています。"
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "フリーワールドのJIRA＋Confluence代替。HTTP/3上の統一されたアクションルーティングAPIの背後にGoマイクロサービスを配置し、保存時にはSQLCipherで暗号化します。"
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Mem0、Cognee、Letta、Graphitiを融合した統合認知メモリエンジン。"
+        }
+      ],
+      "story": "高スループットなサービス、分散システム、そしてそれらを支えるライブラリ。コンパイルできるだけでなく、運用できるように作られたGoです。フリーワールドのJIRA＋Confluence代替であるHelixTrackと、4つの最高水準のバックエンド（Mem0、Cognee、Letta、Graphiti）を融合した統合認知メモリエンジンHelixMemoryがその例です。"
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "モバイル領域を代表するツール。SDK規模で構築したJIRA/Confluence代替です。"
+        },
+        {
+          "name": "VisionEngine",
+          "text": "コンピュータビジョンと複数プロバイダー対応のLLMビジョンによるUI認識。ナビゲーショングラフを備えます。"
+        }
+      ],
+      "story": "Android、iOS、Flutter、React Nativeにまたがるネイティブ／クロスプラットフォームの開発と提供 — モバイル領域全体を1人のエンジニアが担います。SDKの境界、プラットフォームチャネル、CIとリリース自動化、そしてそれらをつなぎ止めるハードウェアへの信頼です。ここでAIが意味するのは、プラットフォームレイヤー自体がすでにオーケストレーション製品になっているということです。"
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "マルチプロトコル対応・暗号化・セルフホスト可能なメディアコレクション管理（Go/Gin＋React）、21モジュール。"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "デスクトップ向けプレーヤーを備えた、マークダウンからビデオを生成するAIパイプライン。"
+        }
+      ],
+      "story": "ブリッジをまたぐTypeScript — ネイティブモジュール、SDKパッケージ、リリース自動化。プラットフォームではなくプロダクトそのものが主役となるReact Nativeのブリッジです。Catalogizerは、マルチプロトコル対応・暗号化・セルフホスト可能なメディアコレクション管理ツールで、AWS、Google、各種銀行がReactアプリとして利用しています。"
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "マルチプロトコル対応・暗号化・セルフホスト可能なメディアコレクション管理ツールのReactシェル。"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "3つの再生環境（デスクトップ、モバイル、Web）を備えた、マークダウンからビデオを生成するAIコースパイプライン。"
+        }
+      ],
+      "story": "TypeScript、React、Angular — デザインシステム、アクセシビリティ、パフォーマンスバジェット。高速でアクセシブルで、設計段階から多言語対応を組み込んだフロントエンドです。Go/Ginコアの上に載るCatalogizerのReactシェル、Courses-Creatorのプレーヤー、同じスタックで構築したHelixTrackのUI。いずれもサイト自身の生成パイプラインによって15言語に翻訳されています。"
+    }
+  },
+  "kk": {
+    "_hub": {
+      "eyebrow": "10 технология бағыты — 15 тіл",
+      "lede": "Технология бағыттары бойынша расталған мансап жолы — ",
+      "stat_label": "15 тіл · 10 бағыт · 16 жыл өнім жеткізу",
+      "title": "Мамандану"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Бір модельге сенбейтін өндірістік деңгейдегі ансамбльдік LLM қызметі; ЖИ/LLM, Go, Gin, PostgreSQL, Redis, circuit breaker-лер, жұмыс күйінің мониторингі."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "43 провайдер үстіндегі бір интерфейс: jittered-backoff қайталаулары және кодқа бекітілген fallback-сіз адал модель табу."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Бір бинарлық файл, алты орналастыру режимі: HTTP/3 арқылы OpenAI және Anthropic-үйлесімді инференс, ноутбуктен көпхостты кластерге дейін масштабталады."
+        }
+      ],
+      "story": "Өндірістік ЖИ жүйелері өздеріне сенбейтін бөліктері қаншалықты болса, сонша сенімді: бір провайдерге арналған абстракция — бұл бәс, автономды агент — control plane, ал басқару — олардың флотын ауытқудан сақтайтын жалғыз нәрсе. Бұл бағытта үшеуін де жасаймын: кодқа бекітілген fallback-сіз 43 провайдерді біріктіретін LLM қабаты, headless CLI агенттерін іске қосатын және басқаратын автономды control plane және верификация қабаты: оның «Менің кодымды көріп тұрсың ба?» gate-і шынымен жұмыс істейтіні дәлелденген модельдерді ғана қолжетімді деп белгілейді және экспорттайды."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "JIRA + Confluence-ке еркін (ашық) балама: бірыңғай action-routed API артындағы Go микросервистері; HTTP/3, сақтау кезіндегі SQLCipher."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Anti-bluff QA оркестрациясы: өлшем — «тесттер өтті» емес, «пайдаланушылар функцияны қолдана алады»."
+        }
+      ],
+      "story": "Өнім ауқымындағы Kotlin және Java: SDK, аппараттық интеграция және релиз инженериясы. HelixTrack — басты дәлел: JIRA + Confluence-ке еркін (ашық) балама, бірыңғай action-routed API арқылы HTTP/3 үстіндегі Go микросервистері, сақтау кезіндегі SQLCipher шифрлауы; стек өнімге қарсы емес, өнімге арнап құрылғанда Android инженериясы қандай болатынын көрсетеді."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "AOSP ауқымындағы CI және құрылғылар фермасында тексеру."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Компьютерлік көру және навигация графтары бар көп провайдерлі LLM-көру негізіндегі UI қабылдау."
+        }
+      ],
+      "story": "Платформа деңгейіндегі Android: жүйелік қызметтер, құрылғыны іске қосу және аппараттық интеграция. Аппараттық жасақтама басты талап болатын AOSP жұмысы — мұнда платформа аппаратураға бейімделеді, керісінше емес."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Android TV верификациясын да басқаратын anti-bluff QA оркестрациясы."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "HTTP/3 арқылы құрылғылар фермасында тексеруді қамтамасыз ететін action-routed API."
+        }
+      ],
+      "story": "Теледидар экранына арналған (ten-foot) интерфейстер, Leanback, медиа конвейерлері және құрылғылар фермасында тексеру. Нақты құрылғыларда жұмыс істейтін Android TV тәжірибесі: эмуляторда емес, пайдаланушыларда бар құрылғыда тексеріледі — мобильді бағыт тәуелді болатын HelixQA оркестрациясының өзімен."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Десктоп бағыты бар JIRA + Confluence-ке еркін балама."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Десктоп ойнатқышы бар ЖИ курс конвейері."
+        }
+      ],
+      "story": "Electron және Tauri, нативті көпірлер және offline-first десктоп өнімдері — жеткізіледі, жаңартылады және қол қойылған күйінде қалады. Десктоп бағыты: HelixTrack-тің JIRA-ға балама өнімі және Courses-Creator, екеуі де пайдаланушыны оның компьютерінде, offline режимінде де қарсы алады."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "TTS-і және десктоп, мобильді және Web ойнатқыштары бар markdown-нан бейнеге түрлендіретін ЖИ курс конвейері."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Платформалар арқылы өтетін кез келген SDK мұра ететін QA оркестрациясы."
+        }
+      ],
+      "story": "SDK деңгейіндегі Dart — плагин архитектурасы, платформалық арналар және жарияланған пакеттер. AWS, Google және банктер SDK ретінде пайдаланатын бағыт: Courses-Creator markdown құжатын TTS-і және екі ойнатқышы бар бейне курсқа айналдырады — десктопта, мобильде және Web-те; SDK үш бағытты бірден қалай қамтитынын көрсетеді."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "JIRA + Confluence-ке еркін балама: бірыңғай action-routed API артындағы HTTP/3 үстіндегі Go микросервистері, сақтау кезіндегі SQLCipher."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Mem0, Cognee, Letta және Graphiti-ді біріктіретін бірыңғай когнитивті жады қозғалтқышы."
+        }
+      ],
+      "story": "Жоғары өткізу қабілетті сервистер, үлестірілген жүйелер және олар құрылатын кітапханалар. Тек компиляциялануға емес, эксплуатацияға арналып жазылған Go: HelixTrack — JIRA + Confluence-ке еркін балама, және HelixMemory — төрт үздік backend-ті (Mem0, Cognee, Letta, Graphiti) біріктіретін бірыңғай когнитивті жады қозғалтқышы."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Мобильді бағыттың басты құралы: SDK ауқымында жасалған JIRA/Confluence-ке балама."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Компьютерлік көру және навигация графтары бар көп провайдерлі LLM-көру негізіндегі UI қабылдау."
+        }
+      ],
+      "story": "Android, iOS, Flutter және React Native арқылы нативті және кроссплатформалық жеткізу — бүкіл мобильді бағытты бір инженер өз мойнына алады: SDK шекаралары, платформалық арналар, CI және релизді автоматтандыру және бәрін ұстап тұратын аппараттық сенім. Бұл жерде ЖИ — платформа қабатының өзі де оркестрация өнімі екенін білдіреді."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Көп протоколды, шифрланған, өздігінен орналастырылатын медиа жинақты басқару (Go/Gin + React), 21 модуль."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Десктоп ойнатқышы бар markdown-нан бейнеге түрлендіретін ЖИ конвейері."
+        }
+      ],
+      "story": "Көпір арқылы TypeScript — нативті модульдер, SDK пакеттері және релизді автоматтандыру. Басты нәрсе платформа емес, өнімнің өзі болатын React Native көпірі: Catalogizer — AWS, Google және банктер React қолданбасы ретінде пайдаланатын көп протоколды, шифрланған, өздігінен орналастырылатын медиа жинақты басқару жүйесі."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Көп протоколды, шифрланған, өздігінен орналастырылатын медиа жинақты басқару жүйесінің React қабығы."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Үш ойнату бағыты (десктоп, мобильді, Web) бар markdown-нан бейнеге түрлендіретін ЖИ курс конвейері."
+        }
+      ],
+      "story": "TypeScript, React және Angular — дизайн-жүйелер, қолжетімділік және өнімділік бюджеттері. Жылдам, қолжетімді және бастапқыдан-ақ көптілділікке есептелген frontend-тер: Go/Gin өзегі үстіндегі Catalogizer-дің React қабығы, Courses-Creator ойнатқыштары және сол стектегі HelixTrack интерфейсі — сайттың өз генерация конвейері арқылы 15 тілге аударылған."
+    }
+  },
+  "ko": {
+    "_hub": {
+      "eyebrow": "10개 기술 분야 — 15개 언어",
+      "lede": "기술 분야별로 검증된 커리어 경로 — ",
+      "stat_label": "15개 언어 · 10개 분야 · 16년간 제품 출시",
+      "title": "전문 분야"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "단일 모델을 신뢰하지 않는 프로덕션급 앙상블 LLM 서비스. AI/LLM, Go, Gin, PostgreSQL, Redis, 서킷 브레이커, 상태 모니터링."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "43개 제공자를 하나의 인터페이스로 통합하며, 지터가 적용된 백오프 재시도와 폴백을 하드코딩하지 않는 정직한 모델 탐색을 제공합니다."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "하나의 바이너리, 여섯 가지 배포 모드. HTTP/3 기반의 OpenAI 및 Anthropic 호환 추론을 노트북에서 다중 호스트 클러스터까지 확장합니다."
+        }
+      ],
+      "story": "프로덕션 AI 시스템은 스스로 신뢰하지 않기로 한 부분만큼만 신뢰할 수 있습니다. 단일 제공자 추상화는 일종의 도박이고, 자율 에이전트는 곧 컨트롤 플레인이며, 거버넌스는 에이전트 군집이 제멋대로 흐트러지지 않도록 붙잡아 주는 유일한 장치입니다. 이 분야에서 저는 세 가지를 모두 구축합니다. 폴백을 하드코딩하지 않고 43개 제공자를 단일 진입점으로 묶는 LLM 계층, 헤드리스 CLI 에이전트를 생성하고 구동하는 자율 컨트롤 플레인, 그리고 'Do you see my code?' 게이트를 통해 실제로 동작함이 입증된 모델만 사용 가능으로 표시되거나 내보내지도록 하는 검증 계층입니다."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "자유 세계의 JIRA + Confluence 대안. 액션 라우팅 방식의 통합 API 뒤에 Go 마이크로서비스를 두었으며, HTTP/3와 저장 데이터 SQLCipher 암호화를 사용합니다."
+        },
+        {
+          "name": "HelixQA",
+          "text": "블러프 방지(anti-bluff) QA 오케스트레이션. 기준은 '테스트 통과'가 아니라 '사용자가 기능을 실제로 쓸 수 있는가'입니다."
+        }
+      ],
+      "story": "제품 규모의 Kotlin과 Java: SDK, 하드웨어 통합, 릴리스 엔지니어링. HelixTrack은 그 대표적인 증거로, 자유 세계의 JIRA + Confluence 대안입니다. 액션 라우팅 방식의 통합 API 뒤에 Go 마이크로서비스를 두고 HTTP/3를 사용하며 저장 데이터는 SQLCipher로 암호화합니다. 스택을 제품과 맞서게 하지 않고 제품에 맞게 구축했을 때 Android 엔지니어링이 어떤 모습인지 보여 줍니다."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "AOSP 규모의 CI 및 디바이스 팜 검증."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "컴퓨터 비전과 다중 제공자 LLM 비전을 결합한 UI 인식 및 내비게이션 그래프."
+        }
+      ],
+      "story": "플랫폼 수준의 Android: 시스템 서비스, 디바이스 브링업, 하드웨어 통합. 하드웨어가 곧 요구사항인 AOSP 작업이며, 플랫폼이 하드웨어에 맞춰 변해야 하고 그 반대가 아닙니다."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Android TV 검증도 구동하는 블러프 방지 QA 오케스트레이션."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "HTTP/3 기반 디바이스 팜 검증을 뒷받침하는 액션 라우팅 API."
+        }
+      ],
+      "story": "10-foot UI, Leanback, 미디어 파이프라인, 디바이스 팜 검증. 실제 기기에서도 살아남는 Android TV 경험을, 에뮬레이터가 아니라 사용자가 가진 실물을 기준으로 검증합니다. 모바일 영역이 의존하는 것과 동일한 HelixQA 오케스트레이션을 사용합니다."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "데스크톱 환경까지 갖춘 자유 세계의 JIRA + Confluence 대안."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "데스크톱 플레이어를 갖춘 AI 강의 파이프라인."
+        }
+      ],
+      "story": "Electron과 Tauri, 네이티브 브리지, 오프라인 우선 데스크톱 제품 — 출시, 업데이트, 코드 서명까지 책임지는 제품입니다. 데스크톱 영역에는 HelixTrack의 JIRA 대안과 Courses-Creator가 있으며, 둘 다 오프라인 환경을 포함해 사용자의 기기에서 바로 동작합니다."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "TTS와 데스크톱, 모바일, 웹 플레이어를 갖춘, 마크다운에서 비디오로 이어지는 AI 강의 파이프라인."
+        },
+        {
+          "name": "HelixQA",
+          "text": "플랫폼을 넘나드는 모든 SDK가 물려받는 QA 오케스트레이션."
+        }
+      ],
+      "story": "SDK 수준의 Dart — 플러그인 아키텍처, 플랫폼 채널, 배포된 패키지. AWS, Google, 은행이 SDK로 사용하는 영역입니다. Courses-Creator는 마크다운 문서를 TTS와 두 개의 플레이어를 갖춘 비디오 강의로 변환하고 데스크톱, 모바일, 웹에서 동작하여, 하나의 SDK가 세 가지 환경을 동시에 가로지르는 방식을 보여 줍니다."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "자유 세계의 JIRA + Confluence 대안. HTTP/3 기반의 액션 라우팅 통합 API 뒤에 Go 마이크로서비스를 두었으며, 저장 데이터는 SQLCipher로 암호화합니다."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Mem0, Cognee, Letta, Graphiti를 융합한 통합 인지 메모리 엔진."
+        }
+      ],
+      "story": "고처리량 서비스, 분산 시스템, 그리고 이를 구성하는 라이브러리. 컴파일되는 데서 그치지 않고 운영되도록 만든 Go입니다. 자유 세계의 JIRA + Confluence 대안인 HelixTrack과, 최고 수준의 백엔드 네 가지(Mem0, Cognee, Letta, Graphiti)를 융합한 통합 인지 메모리 엔진 HelixMemory가 그 예입니다."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "모바일 영역을 대표하는 도구: SDK 규모로 구축한 JIRA/Confluence 대안."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "컴퓨터 비전과 다중 제공자 LLM 비전을 결합한 UI 인식 및 내비게이션 그래프."
+        }
+      ],
+      "story": "Android, iOS, Flutter, React Native 전반의 네이티브 및 크로스플랫폼 개발을 한 명의 엔지니어가 모바일 영역 전체를 맡아 수행합니다. SDK 경계, 플랫폼 채널, CI와 릴리스 자동화, 그리고 이 모두를 지탱하는 하드웨어에 대한 신뢰까지 맡습니다. 여기서 AI가 의미하는 바는 플랫폼 계층 자체가 이미 하나의 오케스트레이션 제품이라는 점입니다."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "다중 프로토콜, 암호화, 자체 호스팅이 가능한 미디어 컬렉션 관리(Go/Gin + React), 21개 모듈."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "데스크톱 플레이어를 갖춘, 마크다운에서 비디오로 이어지는 AI 파이프라인."
+        }
+      ],
+      "story": "브리지를 넘나드는 TypeScript — 네이티브 모듈, SDK 패키지, 릴리스 자동화. 플랫폼이 아니라 제품이 중심이 되는 React Native 브리지입니다. Catalogizer는 다중 프로토콜을 지원하고 암호화되며 자체 호스팅이 가능한 미디어 컬렉션 관리자로, AWS, Google, 은행이 React 앱으로 사용합니다."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "다중 프로토콜, 암호화, 자체 호스팅이 가능한 미디어 컬렉션 관리자의 React 셸."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "세 가지 재생 환경(데스크톱, 모바일, 웹)을 갖춘, 마크다운에서 비디오로 이어지는 AI 강의 파이프라인."
+        }
+      ],
+      "story": "TypeScript, React, Angular — 디자인 시스템, 접근성, 성능 예산. 처음부터 빠르고 접근성이 확보되며 번역을 전제로 설계된 프런트엔드입니다. Go/Gin 코어 위에 올린 Catalogizer의 React 셸, Courses-Creator의 플레이어, 동일한 스택 위의 HelixTrack UI가 있으며, 모두 이 사이트의 자체 생성 파이프라인을 통해 15개 언어로 번역됩니다."
+    }
+  },
+  "ru": {
+    "_hub": {
+      "eyebrow": "10 технологических направлений — 15 языков",
+      "lede": "Подтверждённый карьерный путь по технологическим направлениям — ",
+      "stat_label": "15 языков · 10 направлений · 16 лет в разработке продуктов",
+      "title": "Экспертиза"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "LLM-сервис промышленного уровня на основе ансамбля моделей, который не доверяет одной модели; ИИ/LLM, Go, Gin, PostgreSQL, Redis, предохранители (circuit breakers), мониторинг работоспособности."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "Единый интерфейс к 43 провайдерам с повторами с экспоненциальной задержкой и джиттером и честным обнаружением моделей без жёстко прописанных резервных вариантов."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Один бинарный файл и шесть режимов развёртывания: инференс, совместимый с OpenAI и Anthropic, поверх HTTP/3, масштабируемый от ноутбука до кластера из нескольких хостов."
+        }
+      ],
+      "story": "Промышленным системам ИИ можно доверять лишь настолько, насколько они не доверяют сами себе: абстракция над одним провайдером — это ставка, автономный агент — это управляющая плоскость, а управление (governance) — единственное, что не даёт парку таких систем разойтись. В этой области я строю все три составляющие: слой LLM, который стоит перед 43 провайдерами без жёстко прописанного резервного варианта; автономную управляющую плоскость, которая запускает и ведёт CLI-агентов без графического интерфейса (headless); и слой верификации, где контрольный шлюз «Видишь ли ты мой код?» означает, что пригодными к использованию помечаются и экспортируются только модели, реально доказавшие свою работоспособность."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Свободная альтернатива JIRA + Confluence: микросервисы на Go за единым API с маршрутизацией по действиям; HTTP/3, SQLCipher на диске."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Оркестрация QA в духе «anti-bluff»: планка — не «тесты проходят», а «пользователи могут пользоваться функцией»."
+        }
+      ],
+      "story": "Kotlin и Java в масштабе продукта: SDK, интеграция с оборудованием и релизная инженерия. Главное доказательство — HelixTrack: свободная альтернатива JIRA + Confluence, микросервисы на Go за единым API с маршрутизацией по действиям поверх HTTP/3, шифрование данных на диске через SQLCipher. Этот проект показывает, как выглядит разработка под Android, когда стек строится под продукт, а не вопреки ему."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Проверка CI и парка устройств в масштабе AOSP."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Компьютерное зрение и восприятие интерфейсов на основе нескольких провайдеров LLM-vision с графами навигации."
+        }
+      ],
+      "story": "Android на уровне платформы: системные сервисы, запуск устройств и интеграция с оборудованием. Работа с AOSP, где требованием является само оборудование — и платформа должна подстраиваться под него, а не наоборот."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Оркестрация QA в духе «anti-bluff», которая также управляет проверкой Android TV."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "API с маршрутизацией по действиям поверх HTTP/3, на котором строится проверка на парке устройств."
+        }
+      ],
+      "story": "Интерфейсы для «десятифутового» экрана, Leanback, медиаконвейеры и проверка на парке устройств. Решения для Android TV, которые выдерживают испытание реальными устройствами: проверка идёт на том, чем пользуются люди, а не на эмуляторе, — с той же оркестрацией HelixQA, на которую опирается мобильное направление."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Свободная альтернатива JIRA + Confluence с десктопной поверхностью."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Конвейер ИИ-курсов с десктопным плеером."
+        }
+      ],
+      "story": "Electron и Tauri, нативные мосты и десктопные продукты с офлайн-режимом — которые выпускаются, обновляются и остаются подписанными. Десктопное направление: HelixTrack как альтернатива JIRA и Courses-Creator — оба встречают пользователя на его машине, в том числе офлайн."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "Конвейер создания ИИ-курсов из markdown в видео с синтезом речи (TTS) и плеерами для десктопа, мобильных устройств и веба."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Оркестрация QA, которую наследует любой SDK, охватывающий несколько платформ."
+        }
+      ],
+      "story": "Dart на уровне SDK: архитектура плагинов, платформенные каналы и опубликованные пакеты. Та поверхность, которую AWS, Google и банки используют как SDK: Courses-Creator превращает markdown-документ в видеокурс на десктопе, мобильных устройствах и в вебе, с синтезом речи (TTS) и двумя рабочими плеерами, — и показывает, как SDK охватывает сразу три платформы."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Свободная альтернатива JIRA + Confluence: микросервисы на Go за единым API с маршрутизацией по действиям поверх HTTP/3, SQLCipher на диске."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Единый движок когнитивной памяти, объединяющий Mem0, Cognee, Letta и Graphiti."
+        }
+      ],
+      "story": "Высоконагруженные сервисы, распределённые системы и библиотеки, из которых они строятся. Go, написанный так, чтобы его эксплуатировали, а не только компилировали: HelixTrack — свободная альтернатива JIRA + Confluence — и HelixMemory, единый движок когнитивной памяти, объединяющий четыре лучших в своём классе бэкенда (Mem0, Cognee, Letta, Graphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Флагманский инструмент мобильного направления: альтернатива JIRA/Confluence, построенная в масштабе SDK."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Компьютерное зрение и восприятие интерфейсов на основе нескольких провайдеров LLM-vision с графами навигации."
+        }
+      ],
+      "story": "Нативная и кросс-платформенная разработка для Android, iOS, Flutter и React Native — как один инженер, отвечающий за всю мобильную поверхность: границы SDK, платформенные каналы, CI и автоматизация релизов, а также доверие к оборудованию, на котором всё держится. В части ИИ это значит, что сам платформенный слой уже является продуктом оркестрации."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Управление медиаколлекциями по нескольким протоколам, с шифрованием и возможностью самостоятельного развёртывания (Go/Gin + React), 21 модуль."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Конвейер ИИ-курсов из markdown в видео, с десктопным плеером."
+        }
+      ],
+      "story": "TypeScript через мост: нативные модули, SDK-пакеты и автоматизация релизов. Мост React Native, где продуктом является сам продукт, а не платформа: Catalogizer — это управление медиаколлекциями по нескольким протоколам, с шифрованием и возможностью самостоятельного развёртывания, которое AWS, Google и банки используют как React-приложение."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "React-оболочка менеджера медиаколлекций по нескольким протоколам, с шифрованием и возможностью самостоятельного развёртывания."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Конвейер ИИ-курсов из markdown в видео с тремя поверхностями воспроизведения (десктоп, мобильные устройства, веб)."
+        }
+      ],
+      "story": "TypeScript, React и Angular: дизайн-системы, доступность и бюджеты производительности. Фронтенды, которые по построению быстрые, доступные и переведённые: React-оболочка Catalogizer поверх ядра на Go/Gin, плееры Courses-Creator и интерфейс HelixTrack на том же стеке — переведённые на 15 языков собственным конвейером генерации сайта."
+    }
+  },
+  "sr": {
+    "_hub": {
+      "eyebrow": "10 технолошких области — 15 језика",
+      "lede": "Проверени каријерни путеви по технолошким областима — ",
+      "stat_label": "15 језика · 10 области · 16 година испоруке",
+      "title": "Стручност"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Ансамблски LLM сервис продукцијског квалитета који одбија да верује једном моделу; AI/LLM, Go, Gin, PostgreSQL, Redis, circuit breaker-и, праћење здравља."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "Један интерфејс преко 43 провајдера, са поновним покушајима са насумично варираним одлагањем (џитером) и поштеним откривањем модела без унапред уграђене резервне вредности."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Један бинарни фајл, шест режима примене: инференција компатибилна са OpenAI-јем и Anthropic-ом преко HTTP/3, која се скалира од лаптопа до кластера са више хостова."
+        }
+      ],
+      "story": "AI системи у продукцији поуздани су само онолико колико су поуздани делови којима ни сами не верују: апстракција над једним провајдером је опклада, аутономни агент је контролна раван, а управљање је једино што спречава да се читава флота таквих система растури. У овој области градим сва три — LLM слој који обједињује 43 провајдера без унапред уграђене резервне вредности, аутономну контролну раван која покреће и води headless CLI агенте и слој верификације чија капија „Видиш ли мој код?“ значи да се само модели који доказано раде означавају као употребљиви или извозе."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Алтернатива за JIRA + Confluence из слободног света: Go микросервиси иза јединственог API-ја са усмеравањем по акцији; HTTP/3, SQLCipher у мировању."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Anti-bluff QA оркестрација: мерило није „тестови пролазе“ већ „корисници могу да користе функционалност“."
+        }
+      ],
+      "story": "Kotlin и Java у размерама производа: SDK-ови, интеграција хардвера и инжењерство издања. HelixTrack је главни доказ — алтернатива за JIRA + Confluence из слободног света, Go микросервиси иза јединственог API-ја са усмеравањем по акцији преко HTTP/3, SQLCipher шифровање података у мировању — који показује како изгледа Android инжењерство када је стек изграђен за производ, а не против њега."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "CI и верификација на фарми уређаја у размерама AOSP-а."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Перцепција корисничког интерфејса заснована на рачунарској визији и LLM-визији више провајдера, са навигационим графовима."
+        }
+      ],
+      "story": "Android на нивоу платформе: системски сервиси, покретање уређаја и интеграција хардвера. AOSP рад где је хардвер захтев — и где се платформа прилагођава њему, а не обрнуто."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Anti-bluff QA оркестрација која покреће и верификацију на Android TV-у."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "API са усмеравањем по акцији који покреће верификацију на фарми уређаја преко HTTP/3."
+        }
+      ],
+      "story": "Интерфејси за гледање са удаљености (10-foot UI), Leanback, медијски pipeline и верификација на фарми уређаја. Android TV искуства која опстају на правим уређајима — проверена на ономе што корисници заиста имају, а не на емулатору, помоћу исте HelixQA оркестрације од које зависи и мобилна страна."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Алтернатива за JIRA + Confluence из слободног света, са десктоп површином."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "AI pipeline за курсеве са десктоп плејером."
+        }
+      ],
+      "story": "Electron и Tauri, нативни мостови и десктоп производи с приоритетом рада офлајн (offline-first) — који се испоручују, ажурирају и остају потписани. Десктоп површина: HelixTrack, алтернатива за JIRA, и Courses-Creator — оба стижу до корисника на његовом рачунару, укључујући и рад офлајн."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "AI pipeline за курсеве који претвара markdown у видео, са TTS-ом и плејерима за десктоп, мобилне уређаје и веб."
+        },
+        {
+          "name": "HelixQA",
+          "text": "QA оркестрација коју наслеђује сваки SDK који прелази преко више платформи."
+        }
+      ],
+      "story": "Dart на нивоу SDK-а — архитектура плагина, канали платформе и објављени пакети. Површина коју AWS, Google и банке користе као SDK-ове: Courses-Creator претвара markdown документ у видео курс, на десктопу, мобилним уређајима и вебу, уз TTS и два плејера, и показује како SDK прелази преко три површине истовремено."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Алтернатива за JIRA + Confluence из слободног света: Go микросервиси иза јединственог API-ја са усмеравањем по акцији преко HTTP/3, SQLCipher у мировању."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Јединствени мотор когнитивне меморије који обједињује Mem0, Cognee, Letta и Graphiti."
+        }
+      ],
+      "story": "Сервиси високе пропусности, дистрибуирани системи и библиотеке од којих су изграђени. Go писан да се одржава у раду, а не само да се компајлира: HelixTrack, алтернатива за JIRA + Confluence из слободног света, и HelixMemory — јединствени мотор когнитивне меморије који обједињује четири бекенда најбоља у својој класи (Mem0, Cognee, Letta, Graphiti)."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Главни алат на мобилној површини: алтернатива за JIRA/Confluence изграђена у размерама SDK-а."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Перцепција корисничког интерфејса заснована на рачунарској визији и LLM-визији више провајдера, са навигационим графовима."
+        }
+      ],
+      "story": "Нативна и вишеплатформска испорука на Android, iOS, Flutter и React Native — као један инжењер који води целу мобилну површину: границе SDK-ова, канале платформе, CI и аутоматизацију издања, као и поверење у хардвер које све то држи на окупу. Овде AI значи да је сам платформски слој већ оркестрациони производ."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Управљање медијским колекцијама преко више протокола, шифровано и са могућношћу самосталног хостовања (Go/Gin + React), 21 модул."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "AI pipeline који претвара markdown у видео, са десктоп плејером."
+        }
+      ],
+      "story": "TypeScript преко моста — нативни модули, SDK пакети и аутоматизација издања. React Native мост где је производ у првом плану, а не платформа: Catalogizer је менаџер медијских колекција преко више протокола, шифрован и са могућношћу самосталног хостовања, који AWS, Google и банке користе као React апликацију."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "React кориснички слој (фронтенд) менаџера медијских колекција преко више протокола, шифрованог и са могућношћу самосталног хостовања."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "AI pipeline који претвара markdown у видео курс, са три површине за репродукцију (десктоп, мобилна и веб)."
+        }
+      ],
+      "story": "TypeScript, React и Angular — дизајн системи, приступачност и буџети перформанси. Фронтенди који су брзи, приступачни и преведени по конструкцији: React кориснички слој система Catalogizer над Go/Gin језгром, плејери система Courses-Creator и кориснички интерфејс система HelixTrack на истом стеку — преведени на 15 језика помоћу сопственог pipeline-а за генерисање овог сајта."
+    }
+  },
+  "tr": {
+    "_hub": {
+      "eyebrow": "10 teknoloji alanı — 15 dil",
+      "lede": "Teknoloji alanlarına göre doğrulanmış kariyer yolları — ",
+      "stat_label": "15 dil · 10 alan · 16 yıllık üretim deneyimi",
+      "title": "Uzmanlık"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "Tek bir modele güvenmeyi reddeden, üretim seviyesinde, birden çok modeli bir arada çalıştıran (ensemble) bir LLM servisi; AI/LLM, Go, Gin, PostgreSQL, Redis, circuit breaker'lar, sağlık izleme."
+        },
+        {
+          "name": "LLMProvider",
+          "text": "43 sağlayıcı üzerinde tek bir arayüz; jitter'lı geri çekilme (backoff) ile yeniden denemeler ve sabit kodlanmış yedek içermeyen, dürüst model keşfi."
+        },
+        {
+          "name": "HelixLLM",
+          "text": "Tek ikili dosya, altı dağıtım modu: HTTP/3 üzerinden OpenAI ve Anthropic uyumlu çıkarım; bir dizüstü bilgisayardan çok sunuculu bir kümeye ölçeklenir."
+        }
+      ],
+      "story": "Üretimdeki yapay zekâ sistemleri, yalnızca kendilerinin güvenmeyi reddettiği parçalar kadar güvenilirdir: tek sağlayıcılı bir soyutlama bir bahistir, otonom bir ajan bir kontrol düzlemidir ve yönetişim, bunlardan oluşan bir filonun sürüklenmesini engelleyen tek şeydir. Bu alanda üçünü de inşa ediyorum — sabit kodlanmış bir yedek olmadan 43 sağlayıcının önünde duran LLM katmanını, headless CLI ajanlarını başlatıp yöneten otonom kontrol düzlemini ve 'Do you see my code?' kapısı sayesinde yalnızca gerçekten çalıştığı kanıtlanmış modellerin kullanılabilir olarak işaretlenip dışa aktarıldığı doğrulama katmanını."
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Özgür dünyanın JIRA + Confluence alternatifi: birleşik, eylem yönlendirmeli bir API'nin arkasında Go mikroservisleri; HTTP/3, bekleyen veride SQLCipher."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Anti-bluff QA orkestrasyonu: ölçüt 'testler geçiyor' değil, 'kullanıcılar özelliği kullanabiliyor'."
+        }
+      ],
+      "story": "Ürün ölçeğinde Kotlin ve Java: SDK'lar, donanım entegrasyonu ve sürüm mühendisliği. HelixTrack başlıca kanıttır — özgür dünyanın JIRA + Confluence alternatifi; HTTP/3 üzerinden birleşik, eylem yönlendirmeli bir API'nin arkasında Go mikroservisleri ve bekleyen veri için SQLCipher şifrelemesi — yığın ürüne karşı değil, ürün için kurulduğunda Android mühendisliğinin neye benzediğini gösterir."
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "AOSP ölçeğinde CI ve cihaz çiftliği doğrulaması."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Gezinme grafiklerine sahip, bilgisayarlı görü artı çok sağlayıcılı LLM-vision tabanlı arayüz algısı."
+        }
+      ],
+      "story": "Platform seviyesinde Android: sistem servisleri, cihaz bring-up'ı ve donanım entegrasyonu. Gereksinimin donanım olduğu AOSP çalışması — platform ona uyum sağlamak zorundadır, tersi değil."
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "Android TV doğrulamasını da yürüten anti-bluff QA orkestrasyonu."
+        },
+        {
+          "name": "HelixTrack",
+          "text": "HTTP/3 üzerinden cihaz çiftliği doğrulamasına güç veren eylem yönlendirmeli API."
+        }
+      ],
+      "story": "Televizyon (10 foot) arayüzleri, Leanback, medya pipeline'ları ve cihaz çiftliği doğrulaması. Gerçek cihazlarda ayakta kalan Android TV deneyimleri — emülatöre karşı değil, kullanıcıların elindeki cihaza karşı doğrulanır; mobil yüzeyin dayandığı aynı HelixQA orkestrasyonu kullanılır."
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Masaüstü yüzeyiyle birlikte, özgür dünyanın JIRA + Confluence alternatifi."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Masaüstü oynatıcısıyla birlikte yapay zekâ kurs pipeline'ı."
+        }
+      ],
+      "story": "Electron ve Tauri, yerel köprüler ve offline-first masaüstü ürünleri — yayımlanan, güncellenen ve imzalı kalan. Masaüstü yüzeyi: HelixTrack'in JIRA alternatifi ve Courses-Creator; ikisi de kullanıcıyla kendi makinesinde, çevrimdışıyken bile buluşur."
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "TTS ile masaüstü, mobil ve web oynatıcıları sunan, markdown'dan videoya yapay zekâ kurs pipeline'ı."
+        },
+        {
+          "name": "HelixQA",
+          "text": "Platformlar arasında çalışan her SDK'nın devraldığı QA orkestrasyonu."
+        }
+      ],
+      "story": "SDK seviyesinde Dart — eklenti mimarisi, platform kanalları ve yayımlanmış paketler. AWS, Google ve bankaların SDK olarak kullandığı yüzey: Courses-Creator, bir markdown belgesini masaüstü, mobil ve web üzerinde TTS ve iki çalıştırılabilir oynatıcıyla bir video kursuna dönüştürür; bir SDK'nın aynı anda üç yüzeyi nasıl aştığını gösterir."
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Özgür dünyanın JIRA + Confluence alternatifi: HTTP/3 üzerinden birleşik, eylem yönlendirmeli bir API'nin arkasında Go mikroservisleri, bekleyen veride SQLCipher."
+        },
+        {
+          "name": "HelixMemory",
+          "text": "Mem0, Cognee, Letta ve Graphiti'yi birleştiren bütünleşik bir bilişsel bellek motoru."
+        }
+      ],
+      "story": "Yüksek verimli servisler, dağıtık sistemler ve bunların üzerine kurulduğu kütüphaneler. Yalnızca derlenmek için değil, işletilmek için yazılmış Go: özgür dünyanın JIRA + Confluence alternatifi HelixTrack ve sınıfının en iyisi dört arka ucu (Mem0, Cognee, Letta, Graphiti) birleştiren bütünleşik bilişsel bellek motoru HelixMemory."
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "Başlıca mobil ürün: SDK ölçeğinde geliştirilmiş bir JIRA/Confluence alternatifi."
+        },
+        {
+          "name": "VisionEngine",
+          "text": "Gezinme grafiklerine sahip, bilgisayarlı görü artı çok sağlayıcılı LLM-vision tabanlı arayüz algısı."
+        }
+      ],
+      "story": "Android, iOS, Flutter ve React Native genelinde yerel ve çapraz platform teslimat — tüm mobil yüzeyin sahibi tek bir mühendis olarak: SDK sınırları, platform kanalları, CI ve sürüm otomasyonu ve hepsini bir arada tutan donanım güveni. Burada yapay zekânın anlamı, platform katmanının zaten başlı başına bir orkestrasyon ürünü olmasıdır."
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Çok protokollü, şifreli, kendi sunucunuzda barındırılabilir medya koleksiyonu yönetimi (Go/Gin + React), 21 modül."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Masaüstü oynatıcısıyla birlikte, markdown'dan videoya yapay zekâ pipeline'ı."
+        }
+      ],
+      "story": "Köprünün iki yanında TypeScript — yerel modüller, SDK paketleri ve sürüm otomasyonu. Ürünün platform değil ürünün kendisi olduğu React Native köprüsü: Catalogizer, AWS, Google ve bankaların React uygulaması olarak kullandığı; çok protokollü, şifreli, kendi sunucunuzda barındırılabilir bir medya koleksiyonu yöneticisidir."
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "Çok protokollü, şifreli, kendi sunucunuzda barındırılabilir bir medya koleksiyonu yöneticisinin React kabuğu."
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "Üç oynatma yüzeyli (masaüstü, mobil, web), markdown'dan videoya yapay zekâ kurs pipeline'ı."
+        }
+      ],
+      "story": "TypeScript, React ve Angular — tasarım sistemleri, erişilebilirlik ve performans bütçeleri. Tasarımı gereği hızlı, erişilebilir ve çevrilmiş frontend'ler: Go/Gin çekirdeği üzerindeki Catalogizer'ın React kabuğu, Courses-Creator'ın oynatıcıları ve aynı yığındaki HelixTrack arayüzü; hepsi sitenin kendi sayfa oluşturma pipeline'ı tarafından 15 dile çevrilir."
+    }
+  },
+  "zh": {
+    "_hub": {
+      "eyebrow": "10 个技术领域 — 15 种语言",
+      "lede": "按技术领域呈现的经核实职业路径 — ",
+      "stat_label": "15 种语言 · 10 个领域 · 16 年交付经验",
+      "title": "专长"
+    },
+    "ai-engineering": {
+      "blurbs": [
+        {
+          "name": "HelixAgent",
+          "text": "生产级的多模型集成（Ensemble）LLM 服务，不盲目信任任何单一模型；AI/LLM、Go、Gin、PostgreSQL、Redis、熔断器、健康监控。"
+        },
+        {
+          "name": "LLMProvider",
+          "text": "一个接口统一 43 家提供商，具备带抖动的退避重试，以及如实的、不含硬编码回退的模型发现机制。"
+        },
+        {
+          "name": "HelixLLM",
+          "text": "单一可执行文件，六种部署模式：通过 HTTP/3 提供兼容 OpenAI 与 Anthropic 的推理服务，可从笔记本电脑扩展到多主机集群。"
+        }
+      ],
+      "story": "生产级 AI 系统的可信度，取决于它拒绝盲目信任的那些环节：单一提供商的抽象是一场赌注，自主智能体是一个控制平面，而治理是防止智能体集群逐渐偏离轨道的唯一手段。在这一领域，我把三者都构建了出来——面向 43 家提供商、且不硬编码任何回退的 LLM 层；负责启动并驱动无头 CLI 智能体的自主控制平面；以及验证层，其“Do you see my code?”门禁确保只有经证明确实可用的模型才会被标记为可用或被导出。"
+    },
+    "android": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "自由世界的 JIRA + Confluence 替代方案：Go 微服务，统一的动作路由 API；HTTP/3，SQLCipher 静态加密。"
+        },
+        {
+          "name": "HelixQA",
+          "text": "反虚报 QA 编排：标准不是“测试通过”，而是“用户能够使用该功能”。"
+        }
+      ],
+      "story": "产品级的 Kotlin 与 Java：SDK、硬件集成与发布工程。HelixTrack 是最有力的例证——它是自由世界的 JIRA + Confluence 替代方案，由 Go 微服务构成，通过 HTTP/3 提供统一的动作路由 API，并使用 SQLCipher 实现静态数据加密——展示了当技术栈为产品而建、而不是与产品对抗时，Android 工程应有的样子。"
+    },
+    "android-aosp": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "AOSP 规模的 CI 与设备农场验证。"
+        },
+        {
+          "name": "VisionEngine",
+          "text": "结合计算机视觉与多提供商 LLM 视觉的界面感知，并带有导航图。"
+        }
+      ],
+      "story": "平台级 Android：系统服务、设备启动与硬件集成。在 AOSP 工作中，硬件就是需求——必须由平台去适应硬件，而不是反过来。"
+    },
+    "android-tv": {
+      "blurbs": [
+        {
+          "name": "HelixQA",
+          "text": "同样驱动 Android TV 验证的反虚报 QA 编排。"
+        },
+        {
+          "name": "HelixTrack",
+          "text": "通过 HTTP/3 为设备农场验证提供支撑的动作路由 API。"
+        }
+      ],
+      "story": "十英尺界面、Leanback、媒体管线与设备农场验证。能够经受真实设备考验的 Android TV 体验——以用户手中的真实设备而非模拟器为验证对象，并使用移动端同样依赖的 HelixQA 编排。"
+    },
+    "desktop": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "自由世界的 JIRA + Confluence 替代方案，同样提供桌面端形态。"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "配有桌面端播放器的 AI 课程制作流水线。"
+        }
+      ],
+      "story": "Electron 与 Tauri、原生桥接，以及离线优先的桌面产品——能够发布、更新并保持签名。桌面端：HelixTrack 的 JIRA 替代方案与 Courses-Creator，都在用户的机器上与用户相遇，离线时亦然。"
+    },
+    "flutter": {
+      "blurbs": [
+        {
+          "name": "Courses-Creator",
+          "text": "将 Markdown 转换为视频的 AI 课程制作流水线，配有 TTS 以及桌面端、移动端和 Web 播放器。"
+        },
+        {
+          "name": "HelixQA",
+          "text": "任何跨平台 SDK 都能继承的 QA 编排。"
+        }
+      ],
+      "story": "SDK 级的 Dart——插件架构、平台通道与已发布的软件包。这是 AWS、Google 与银行以 SDK 形式使用的层面：Courses-Creator 将 Markdown 文档转换为视频课程，覆盖桌面端、移动端和 Web，配有 TTS 和两个可运行的播放器，展示了一个 SDK 如何同时跨越三个平台。"
+    },
+    "go": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "自由世界的 JIRA + Confluence 替代方案：Go 微服务，通过 HTTP/3 提供统一的动作路由 API，SQLCipher 静态加密。"
+        },
+        {
+          "name": "HelixMemory",
+          "text": "融合 Mem0、Cognee、Letta 与 Graphiti 的统一认知记忆引擎。"
+        }
+      ],
+      "story": "高吞吐服务、分布式系统，以及构建它们的基础库。为运维而写、而不只是为编译通过而写的 Go：HelixTrack 是自由世界的 JIRA + Confluence 替代方案；HelixMemory 是统一的认知记忆引擎，融合了四个同类最佳的后端（Mem0、Cognee、Letta、Graphiti）。"
+    },
+    "mobile": {
+      "blurbs": [
+        {
+          "name": "HelixTrack",
+          "text": "旗舰级移动端工具：以 SDK 规模构建的 JIRA/Confluence 替代方案。"
+        },
+        {
+          "name": "VisionEngine",
+          "text": "结合计算机视觉与多提供商 LLM 视觉的界面感知，并带有导航图。"
+        }
+      ],
+      "story": "覆盖 Android、iOS、Flutter 与 React Native 的原生及跨平台交付——由一名工程师负责整个移动端：SDK 边界、平台通道、CI 与发布自动化，以及支撑这一切的硬件信任。这里所说的 AI，是指平台层本身已经是一个编排产品。"
+    },
+    "react-native": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "支持多协议、加密、可自托管的媒体库管理系统（Go/Gin + React），共 21 个模块。"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "将 Markdown 转换为视频的 AI 流水线，配有桌面端播放器。"
+        }
+      ],
+      "story": "跨越桥接层的 TypeScript——原生模块、SDK 包与发布自动化。在 React Native 的桥接层上，重点在产品而非平台：Catalogizer 是一个支持多协议、加密、可自托管的媒体库管理系统，以 React 应用的形式被 AWS、Google 和银行使用。"
+    },
+    "web-frontend": {
+      "blurbs": [
+        {
+          "name": "Catalogizer",
+          "text": "支持多协议、加密、可自托管的媒体库管理系统的 React 外壳。"
+        },
+        {
+          "name": "Courses-Creator",
+          "text": "将 Markdown 转换为视频的 AI 课程制作流水线，提供三种播放界面（桌面端、移动端、Web）。"
+        }
+      ],
+      "story": "TypeScript、React 与 Angular——设计系统、无障碍与性能预算。天生快速、无障碍且支持多语言的前端：基于 Go/Gin 核心的 Catalogizer React 外壳、Courses-Creator 的播放器，以及基于同一技术栈的 HelixTrack 界面——并由本站自有的生成流水线翻译为 15 种语言。"
+    }
+  }
+}
