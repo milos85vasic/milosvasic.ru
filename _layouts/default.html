@@ -146,7 +146,10 @@
         <a href="https://t.me/milos85vasic">Telegram</a>
         <a href="mailto:i@mvasic.ru">i@mvasic.ru</a>
       </div>
-      <p class="mono">© {% if site.build_year %}{{ site.build_year }}{% else %}{{ 'now' | date: '%Y' }}{% endif %} Miloš Vasić — <span data-i18n="footer.text">{{ ui['footer.text'] | default: site.data.ui['en']['footer.text'] }}</span></p>
+      <div class="mv-footbar">
+        <p class="mono">© {% if site.build_year %}{{ site.build_year }}{% else %}{{ 'now' | date: '%Y' }}{% endif %} Miloš Vasić — <span data-i18n="footer.text">{{ ui['footer.text'] | default: site.data.ui['en']['footer.text'] }}</span></p>
+        <p class="mv-ver mono"><span class="mv-ver__label" data-i18n="footer.version">{{ ui['footer.version'] | default: site.data.ui['en']['footer.version'] }}</span> <a class="mv-ver__link" href="{{ site.mv_release_url_prefix }}{{ site.mv_version }}" rel="noopener" data-mv-version="{{ site.mv_version }}">v{{ site.mv_version }}</a></p>
+      </div>
     </div>
   </footer>
 
