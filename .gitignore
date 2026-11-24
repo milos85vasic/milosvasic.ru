@@ -73,3 +73,11 @@ _site/
 .sass-cache/
 # ephemeral deterministic build config (deploy-time year pin)
 _config.deploy.yml
+
+# Operator-private console/vault material: an accidental `git add .` must never publish it
+/admin/
+/downloads/vault/
+/assets/js/vault*.js
+/assets/css/admin-console.css
+/matrix.tsv
+/_layouts/admin_console.html
