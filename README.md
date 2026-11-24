@@ -142,6 +142,7 @@ Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](
 ./start.sh --runner=podman    # serve Jekyll inside a container with that runner forced
 ./start.sh --container        # same, runner chosen by the Containers module's default order
 ./start.sh --runner=auto      # host serve; runner choice validated, no containers used
+./start.sh --help            # usage, exit 0; any other argument is a usage error, exit 2 (before any side effect)
 ```
 
 `--runner=NAME` (or `--runner NAME`; env `CONTAINERS_RUNNER`, the flag wins) follows the ecosystem contract

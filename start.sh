@@ -9,17 +9,38 @@
 # -> rc 2, never a silent fallback). Module lookup: $CONTAINERS_DIR, else
 # ../submodules/containers (umbrella layout).
 
+mv_usage() {
+  cat <<'USAGE'
+Usage: ./start.sh [--runner=NAME | --runner NAME | --container] [--dry-run]
+  (no args)         serve with host Jekyll: bundle install && bundle exec jekyll serve
+  --runner=NAME     serve Jekyll inside a container, forced runner NAME (auto = host Jekyll)
+  --container       serve inside a container, runner chosen by the module's default order
+  --dry-run         print the command instead of running it
+  -h, --help        print this help and exit 0
+Env: CONTAINERS_RUNNER, CONTAINERS_DIR. Any other argument is an error (rc 2).
+USAGE
+}
+# Help wins over everything and runs before any side effect.
+for a in "$@"; do case "$a" in -h|--help) mv_usage; exit 0 ;; esac; done
+
 mv_here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-mv_want=0; mv_container=0; mv_dry=0; mv_rest=()
-for a in "$@"; do
+mv_want=0; mv_container=0; mv_dry=0; mv_rest=(); mv_unknown=""
+while [ "$#" -gt 0 ]; do
+  a="$1"; shift
   case "$a" in
-    --runner|--runner=*) mv_want=1; mv_rest+=("$a") ;;
+    --runner) mv_want=1; mv_rest+=("$a")
+      # value form `--runner NAME`: pass the value through; a missing/dash value is the module's rc 2
+      if [ "$#" -gt 0 ] && [ "${1#-}" = "$1" ]; then mv_rest+=("$1"); shift; fi ;;
+    --runner=*) mv_want=1; mv_rest+=("$a") ;;
     --container) mv_container=1 ;;
     --dry-run) mv_dry=1 ;;
-    *) mv_rest+=("$a") ;;
+    *) mv_unknown="$a" ;;
   esac
 done
+if [ -n "$mv_unknown" ]; then
+  echo "start.sh: unknown argument '$mv_unknown'" >&2; mv_usage >&2; exit 2
+fi
 [ -n "${CONTAINERS_RUNNER:-}" ] && mv_want=1
 
 if [ "$mv_want" = 0 ] && [ "$mv_container" = 0 ]; then
