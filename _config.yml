@@ -50,6 +50,13 @@ exclude:
   - .run
   - downloads/src
   - expertise_localized.json
+  # Operator-private console/vault material: never publishable (preventive guard)
+  - admin
+  - downloads/vault
+  - assets/js/vault*.js
+  - assets/css/admin-console.css
+  - matrix.tsv
+  - _layouts/admin_console.html
 
 sass:
   style: compressed

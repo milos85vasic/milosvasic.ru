@@ -27,7 +27,11 @@
   var langBtn = document.getElementById('lang-btn');
   var langMenu = document.getElementById('lang-menu');
 
-  function translate(code) {
+  // `persist` is true ONLY for an explicit switcher choice (chooseLang). The
+  // initial page-load call must NOT write mv-lang: storing the page's own
+  // language on every view made `/` then `/ar/` render English chrome over
+  // Arabic content (D3, live-health 2026-11-24).
+  function translate(code, persist) {
     var table = dict[code] || dict.en;
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
@@ -44,7 +48,9 @@
     root.setAttribute('lang', code);
     root.setAttribute('dir', (code === 'ar' || code === 'fa' || code === 'he') ? 'rtl' : 'ltr');
     if (langBtn) langBtn.textContent = code.toUpperCase();
-    try { localStorage.setItem('mv-lang', code); } catch (e) { if (window.console && console.debug) console.debug('mv-lang: localStorage unavailable', e); }
+    if (persist) {
+      try { localStorage.setItem('mv-lang', code); } catch (e) { if (window.console && console.debug) console.debug('mv-lang: localStorage unavailable', e); }
+    }
     if (langMenu) {
       langMenu.querySelectorAll('button').forEach(function (b) {
         b.setAttribute('aria-current', String(b.dataset.code === code));
@@ -71,7 +77,7 @@
       window.location.href = url;
       return;
     }
-    translate(code);
+    translate(code, true);
     closeMenu();
   }
 
