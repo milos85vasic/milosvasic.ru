@@ -133,3 +133,25 @@ Self-published: Fundamental Kotlin, Last edition: [Fundamental-Kotlin: revised](
 - Telegram: [milos85vasic](https://t.me/milos85vasic)
 - Networks: [TenChat](https://tenchat.ru/milosvasic), [VK](https://vk.com/milos.vasic)
 - Source code and Open-Source: [GitHub](https://github.com/milos85vasic), [GitFlic](https://gitflic.ru/user/milosvasic), [Gitee](https://gitee.com/milosvasic), [GitLab](https://gitlab.com/milos85vasic), [GitVerse](https://gitverse.ru/milosvasic)
+
+
+## Serving locally (`start.sh`)
+
+```bash
+./start.sh                    # host Jekyll: bundle install && bundle exec jekyll serve (unchanged)
+./start.sh --runner=podman    # serve Jekyll inside a container with that runner forced
+./start.sh --container        # same, runner chosen by the Containers module's default order
+./start.sh --runner=auto      # host serve; runner choice validated, no containers used
+```
+
+`--runner=NAME` (or `--runner NAME`; env `CONTAINERS_RUNNER`, the flag wins) follows the ecosystem contract
+of the Containers module (`docs/RUNNER_FLAG.md`): `NAME` is one of the module's supported runners or `auto`;
+an unknown or not-installed runner is refused with exit 2 and never replaced by another one. A forced runner
+(or `--container`) serves the site on `http://localhost:4000` (`MV_SERVE_PORT` overrides) from
+`_container/compose.serve.yml` through the compose front-end that the module selects for that runner; Ctrl-C
+tears it down. Without a flag the script behaves exactly as before. `--dry-run` prints the command instead.
+
+The module is found via `$CONTAINERS_DIR`, else `../submodules/containers` (umbrella layout); a standalone
+clone has neither, so a given flag is refused (exit 2), not ignored. Proof:
+`bash _container/verify-runner-flag.sh` and `--prove-failure`. Runners without a compose implementation
+(for example `cri-o`, `lxd`, `kubernetes`) are refused for this use.

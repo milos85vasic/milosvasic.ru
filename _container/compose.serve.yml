@@ -1,0 +1,20 @@
+# Jekyll serve inside a container, driven by start.sh --runner=NAME / --container
+# through the compose front-end the Containers module selects for that runner.
+# Underscore-prefixed dir: Jekyll never publishes it.
+services:
+  jekyll-serve:
+    image: ${MV_JEKYLL_IMAGE:-docker.io/library/ruby:3.3}
+    container_name: milosvasic-ru-serve
+    working_dir: /site
+    environment:
+      BUNDLE_PATH: /bundle
+      BUNDLE_JOBS: "4"
+    volumes:
+      - ${MV_SITE_DIR:?set by start.sh}:/site
+      - jekyll-serve-bundle:/bundle
+    ports:
+      - "${MV_SERVE_PORT:-4000}:4000"
+    command: ["bash", "-c", "bundle install && bundle exec jekyll serve --host 0.0.0.0"]
+    restart: "no"
+volumes:
+  jekyll-serve-bundle:
