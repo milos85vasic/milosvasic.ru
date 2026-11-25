@@ -21,10 +21,23 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Environment restricted to main; holds the read-only deploy key for the private submodule.
+    environment: private-vault
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: false    # Upstreamable has a broken nested gitlink; excluded from build anyway
+      # Private submodule _private (vasic-digital/milosvasic_ru_private), cloned ONLY here with a
+      # read-only deploy key. Jekyll never publishes it: _private is excluded in _config.yml.
+      - name: Check out private submodule
+        env:
+          KEY: ${{ secrets.PRIVATE_VAULT_DEPLOY_KEY }}
+        run: |
+          umask 077
+          printf '%s\n' "$KEY" > "$RUNNER_TEMP/pk"
+          export GIT_SSH_COMMAND="ssh -i $RUNNER_TEMP/pk -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          git submodule update --init -- _private
+          rm -f "$RUNNER_TEMP/pk"
       - uses: actions/configure-pages@v5
       - uses: ruby/setup-ruby@v1
         with:

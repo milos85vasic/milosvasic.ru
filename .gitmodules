@@ -1,3 +1,6 @@
 [submodule "Upstreamable"]
 	path = Upstreamable
 	url = git@github.com:red-elf/Upstreamable.git
+[submodule "_private"]
+	path = _private
+	url = git@github.com:vasic-digital/milosvasic_ru_private.git

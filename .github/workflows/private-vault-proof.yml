@@ -1,0 +1,60 @@
+# Custom GitHub Pages workflow — replaces the default "pages build and deployment"
+# action so we can set submodules: false. The Upstreamable submodule has a broken
+# nested gitlink (Upstreamable/Upstreamable with no .gitmodules URL) that causes
+# the default recursive checkout to fail. Upstreamable is excluded from the Jekyll
+# build (_config.yml line 43) so submodules are not needed at all.
+name: private-vault-proof
+on:
+  push:
+    branches: [pr/private-vault-wire]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Environment restricted to main; holds the read-only deploy key for the private submodule.
+    environment: private-vault
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false    # Upstreamable has a broken nested gitlink; excluded from build anyway
+      # Private submodule _private (vasic-digital/milosvasic_ru_private), cloned ONLY here with a
+      # read-only deploy key. Jekyll never publishes it: _private is excluded in _config.yml.
+      - name: Check out private submodule
+        env:
+          KEY: ${{ secrets.PRIVATE_VAULT_DEPLOY_KEY }}
+        run: |
+          umask 077
+          printf '%s\n' "$KEY" > "$RUNNER_TEMP/pk"
+          export GIT_SSH_COMMAND="ssh -i $RUNNER_TEMP/pk -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          git submodule update --init -- _private
+          rm -f "$RUNNER_TEMP/pk"
+      - uses: actions/configure-pages@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
+      - uses: actions/upload-pages-artifact@v3
+
+      - name: assert private content absent and site intact
+        run: |
+          test -f _site/index.html && echo "site built: $(find _site -type f | wc -l) files"
+          test -f _private/README.md && echo "submodule present: $(git -C _private ls-files | wc -l) files"
+          bad=0
+          for p in _site/_private _site/admin _site/downloads/vault _site/matrix.tsv _site/assets/js/vault.js _site/assets/js/vault-console.js _site/assets/css/admin-console.css _site/README.md; do
+            if [ -e "$p" ]; then echo "LEAK: $p"; bad=1; fi
+          done
+          find _site -iname '*vault*.pdf' | head -1 | grep -q . && { echo LEAK-pdf; bad=1; }
+          [ $bad = 0 ] && echo "NO private paths in _site"
+          exit $bad
