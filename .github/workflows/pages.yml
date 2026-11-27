@@ -27,17 +27,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: false    # Upstreamable has a broken nested gitlink; excluded from build anyway
-      # Private submodule _private (vasic-digital/milosvasic_ru_private), cloned ONLY here with a
-      # read-only deploy key. Jekyll never publishes it: _private is excluded in _config.yml.
-      - name: Check out private submodule
-        env:
-          KEY: ${{ secrets.PRIVATE_VAULT_DEPLOY_KEY }}
-        run: |
-          umask 077
-          printf '%s\n' "$KEY" > "$RUNNER_TEMP/pk"
-          export GIT_SSH_COMMAND="ssh -i $RUNNER_TEMP/pk -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
-          git submodule update --init -- _private
-          rm -f "$RUNNER_TEMP/pk"
+      # _private hoisted to umbrella root as submodules/_private (C7 fix, 2026-11-27).
+      # No longer a nested submodule of milosvasic.ru — Jekyll never publishes it.
       - uses: actions/configure-pages@v5
       - uses: ruby/setup-ruby@78c62f2208e480ce3d5ae4dfd9b9e181acf48b63  # v1.344.0
         with:
